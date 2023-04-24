@@ -13,7 +13,8 @@ import Heading from '../../Heading';
 
 const InputExample = () => {
   return (
-    <>
+    <><div className="bg-red-400 text-white p-5 rounded mb-4">work in progress (converting styled-components-modifiers to tailwindcss)</div>
+
       <Heading variation='h4'>Input</Heading>
 
       <Layout variation='block'>
