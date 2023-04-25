@@ -30,9 +30,10 @@ const IconContainer = styled.div<
     height: 100%;
     stroke: ${({ theme, stroke }) =>
       stroke ? stroke : theme?.Icon?.stroke || 'var()'};
-    fill: ${({ theme, fill }) => (fill ? fill : theme?.Icon?.fill || 'var()')};
+    fill: ${({ theme, fill }) =>
+      fill ? fill : theme?.Icon?.fill || 'var(--clr-background)'};
     fill-opacity: ${({ theme, fillOpacity }) =>
-      fillOpacity ? fillOpacity : theme?.Icon?.fillOpacity || 'var()'};
+      fillOpacity ? fillOpacity : theme?.Icon?.fillOpacity || 1};
   }
 `
 

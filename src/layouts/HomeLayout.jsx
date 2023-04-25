@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { NavLink, Outlet, Link } from 'react-router-dom'
+import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
+
 import styled from 'styled-components'
-import logo from '../assets/logo.jpg'
+import Logo from '../assets/logo'
 import GithubIcon from '../icons/GithubIcon'
 import Icon from '../components/Icon'
+import Button from '../components/Button'
+import ToggleDarkMode from '../components/ToggleDarkMode'
 
 const HomeLayoutContainer = styled.div`
   display: grid;
@@ -17,15 +20,18 @@ const HomeLayoutContainer = styled.div`
     grid-area: header;
     width: 100%;
     height: 70px;
-    background: white;
     top: 0;
     position: fixed;
     border-bottom: 1px solid lightgray;
     display: flex;
+    gap: 10px;
     justify-content: flex-end;
     align-items: center;
     z-index: 1;
     padding: 20px;
+
+    background: var(--clr-background);
+    color: var(--clr-foreground);
   }
 
   .logo {
@@ -35,21 +41,21 @@ const HomeLayoutContainer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
-    img {
-      height: 60px;
-      width: 60px;
-    }
   }
   .logo span {
     font-weight: 600;
+  }
+  .logo .icon {
+    fill: var(--clr-foreground);
   }
 
   .spacing {
     z-index: 1;
     top: 0;
     position: sticky;
-    background: white;
     border-bottom: 1px solid lightgray;
+    background: var(--clr-background);
+    color: var(--clr-foreground);
   }
 
   aside {
@@ -76,11 +82,11 @@ const HomeLayoutContainer = styled.div`
   }
 
   nav a:hover {
-    color: black;
+    color: var(--clr-foreground);
   }
 
   nav a.active {
-    color: black;
+    color: var(--clr-foreground);
   }
 
   main {
@@ -92,6 +98,7 @@ const HomeLayoutContainer = styled.div`
 
 export const HomeLayout = () => {
   const [headerMarginTop, setHeaderMarginTop] = useState(0)
+  const navigate = useNavigate()
 
   useEffect(() => {
     const headerHeight = document.querySelector('header').offsetHeight
@@ -101,8 +108,13 @@ export const HomeLayout = () => {
   return (
     <HomeLayoutContainer>
       <header>
-        <Link to="https://github.com/swagfinger/swagfinger-ui" target="_blank">
-          <Icon size="25px" fill="black" stroke="black" fillOpacity="1">
+        <ToggleDarkMode />
+        <Link
+          to="https://github.com/swagfinger/swagfinger-ui"
+          target="_blank"
+          aria-label="github repo"
+        >
+          <Icon size="25px" fillOpacity="1">
             <GithubIcon />
           </Icon>
         </Link>
@@ -110,7 +122,11 @@ export const HomeLayout = () => {
       <aside>
         <div className="spacing" style={{ height: `${headerMarginTop}px` }}>
           <div className="logo">
-            <img src={logo} alt="Logo" />
+            <Button variation="icon" onClick={() => navigate('/')}>
+              <Icon className="icon" size="60px">
+                <Logo />
+              </Icon>
+            </Button>
             <span>SWAGFINGER-UI</span>
           </div>
         </div>

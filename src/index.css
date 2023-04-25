@@ -1,0 +1,25 @@
+:root {
+  --clr-foreground: hsl(0 0% 0%);
+  --clr-background: hsl(0 0% 100%);
+}
+
+.light-theme {
+  --clr-foreground: hsl(0 0% 0%);
+  --clr-background: hsl(0 0% 100%);
+}
+
+.dark-theme {
+  --clr-background: hsl(0 0% 0%);
+  --clr-foreground: hsl(0 0% 100%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body{
+  background: var(--clr-background);
+  color: var(--clr-foreground);
+}
