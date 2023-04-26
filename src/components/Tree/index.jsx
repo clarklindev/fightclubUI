@@ -1,5 +1,8 @@
 import React, { useState, useRef } from 'react'
 import styled from 'styled-components'
+import Icon from '../Icon'
+import ChevronRightIcon from '../../icons/ChevronRightIcon'
+import ChevronDownIcon from '../../icons/ChevronDownIcon'
 
 const TreeContainer = styled.div`
   display: flex;
@@ -71,7 +74,13 @@ const Tree = ({ data, depth = 0 }) => {
               <div style={{ display: 'flex', flexDirection: 'row' }}>
                 {children && (
                   <button onClick={() => openChildrenHandler(depth, index)}>
-                    *
+                    <Icon size="15px">
+                      {childrenVisible.includes(`${depth}-${index}`) ? (
+                        <ChevronDownIcon />
+                      ) : (
+                        <ChevronRightIcon />
+                      )}
+                    </Icon>
                   </button>
                 )}
                 <button>{item}</button>
