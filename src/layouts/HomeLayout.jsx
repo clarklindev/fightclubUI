@@ -126,8 +126,8 @@ export const HomeLayout = () => {
               <Icon className="icon" size="60px">
                 <Logo />
               </Icon>
+              <span>SWAGFINGER-UI</span>
             </Button>
-            <span>SWAGFINGER-UI</span>
           </div>
         </div>
         <nav>
