@@ -1,23 +1,26 @@
-import React from 'react';
+import React from 'react'
 
-import InputBasicExample from './InputBasicExample';
-import InputReadOnlyExample from './InputReadOnlyExample';
-import InputWithIconExample from './InputWithIconExample';
-import InputNoBorderExample from './InputNoBorderExample';
-import InputPasswordExample from './InputPasswordExample';
-import InputFilterExample from './InputFilterExample';
-import InputSearchExample from './InputSearchExample';
+// import InputBasicExample from './InputBasicExample'
+// import InputReadOnlyExample from './InputReadOnlyExample'
+// import InputWithIconExample from './InputWithIconExample'
+// import InputNoBorderExample from './InputNoBorderExample'
+// import InputPasswordExample from './InputPasswordExample'
+// import InputFilterExample from './InputFilterExample'
+// import InputSearchExample from './InputSearchExample'
 
-import Layout from '../../Layout';
-import Heading from '../../Heading';
+import Layout from '../../Layout'
+import Heading from '../../Heading'
 
 const InputExample = () => {
   return (
-    <><div className="bg-red-400 text-white p-5 rounded mb-4">work in progress (converting styled-components-modifiers to tailwindcss)</div>
+    <>
+      <div className="bg-red-400 text-white p-5 rounded mb-4">
+        work in progress (converting styled-components-modifiers to tailwindcss)
+      </div>
 
-      <Heading variation='h4'>Input</Heading>
+      <Heading variation="h4">Input</Heading>
 
-      <Layout variation='block'>
+      {/* <Layout variation='block'>
         <Heading variation='h5'>Input (no-border)</Heading>
         <InputNoBorderExample />
       </Layout>
@@ -50,9 +53,9 @@ const InputExample = () => {
       <Layout variation='block'>
         <Heading variation='h5'>Input Search</Heading>
         <InputSearchExample />
-      </Layout>
+      </Layout> */}
     </>
-  );
-};
+  )
+}
 
-export default InputExample;
+export default InputExample
