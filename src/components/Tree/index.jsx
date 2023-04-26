@@ -12,7 +12,7 @@ const TreeContainer = styled.div`
 
 const Node = styled.div`
   box-sizing: border-box;
-  padding-left: 30px;
+  padding-left: 20px;
   border-left: 1px solid red;
   display: block;
 
@@ -83,6 +83,7 @@ const Tree = ({ data, depth = 0 }) => {
                     </Icon>
                   </button>
                 )}
+                {!children && '•'}
                 <button>{item}</button>
               </div>
 

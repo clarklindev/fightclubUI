@@ -30,6 +30,7 @@ const TreeExample = () => {
     },
     {
       item: 'Ned',
+      children: [{ item: 'Seth', children: [{ item: 'Tyron', link: '' }] }],
     },
   ]
 
