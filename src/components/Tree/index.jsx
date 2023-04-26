@@ -16,15 +16,15 @@ const Node = styled.div`
   &[data-expanded='false'] {
     visibility: hidden;
     opacity: 0;
-    transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-out;
     max-height: 0px;
   }
 
   &[data-expanded='true'] {
     visibility: visible;
     opacity: 1;
-    transition: all 0.1s ease-in-out;
-    max-height: ${({ scrollHeight }) => scrollHeight + 'px'};
+    transition: all 0.1s ease-out;
+    max-height: auto;
   }
 `
 
@@ -50,39 +50,58 @@ const Tree = ({ data, depth = 0 }) => {
     }
   }
 
-  return data.map(({ item, children }, index) => {
-    const childRef = useRef()
-    return (
-      <TreeContainer
-        key={`depth_${depth}_index_${index}`}
-        style={{ display: 'inline-flex', flexDirection: 'column' }}
-        data-depth={[`${depth}`]}
-        data-node={[`${item}`]}
-      >
-        <div style={{ display: 'flex' }}>
-          <button>{item}</button>
-        </div>
-
-        {children && (
-          <>
-            <button onClick={() => openChildrenHandler(depth, index)}>*</button>
-
-            <Node
-              ref={childRef}
-              scrollHeight={String(childRef?.current?.scrollHeight)}
-              style={{ display: 'flex', flexDirection: 'column' }}
-              data-parent={[`${item}`]}
-              data-expanded={
-                childrenVisible.includes(`${depth}-${index}`) ? 'true' : 'false'
-              }
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column' }}>
+      {data.map(({ item, children = undefined }, index) => {
+        const childRef = useRef()
+        return (
+          <TreeContainer
+            key={`depth_${depth}_index_${index}`}
+            style={{ display: 'inline-flex', flexDirection: 'column' }}
+            data-depth={[`${depth}`]}
+            data-node={[`${item}`]}
+          >
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+              }}
             >
-              <Tree data={children} depth={parseInt(depth) + 1} parent={item} />
-            </Node>
-          </>
-        )}
-      </TreeContainer>
-    )
-  })
+              <div style={{ display: 'flex', flexDirection: 'row' }}>
+                {children && (
+                  <button onClick={() => openChildrenHandler(depth, index)}>
+                    *
+                  </button>
+                )}
+                <button>{item}</button>
+              </div>
+
+              {children && (
+                <Node
+                  ref={childRef}
+                  scrollHeight={String(childRef?.current?.scrollHeight)}
+                  style={{ display: 'flex', flexDirection: 'column' }}
+                  data-parent={[`${item}`]}
+                  data-expanded={
+                    childrenVisible.includes(`${depth}-${index}`)
+                      ? 'true'
+                      : 'false'
+                  }
+                >
+                  <Tree
+                    data={children}
+                    depth={parseInt(depth) + 1}
+                    parent={item}
+                  />
+                </Node>
+              )}
+            </div>
+          </TreeContainer>
+        )
+      })}
+    </div>
+  )
 }
 
 export default Tree

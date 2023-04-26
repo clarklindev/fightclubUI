@@ -14,7 +14,12 @@ const TreeExample = () => {
           item: 'John',
           children: [
             { item: 'Alex', link: '' },
-            { item: 'Sam', children: [{ item: 'Pam', link: '' }] },
+            {
+              item: 'Sam',
+              children: [
+                { item: 'Pam', children: [{ item: 'Rick', link: '' }] },
+              ],
+            },
           ],
         },
         {
@@ -22,6 +27,9 @@ const TreeExample = () => {
           children: [{ item: 'Ned', link: '' }],
         },
       ],
+    },
+    {
+      item: 'Ned',
     },
   ]
 
