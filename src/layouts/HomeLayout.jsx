@@ -90,7 +90,6 @@ const HomeLayoutContainer = styled.div`
   }
 
   main {
-    overflow-y: auto;
     grid-area: main;
     padding: 25px;
   }
@@ -163,7 +162,7 @@ export const HomeLayout = () => {
       </aside>
 
       <main style={{ marginTop: `${headerMarginTop}px` }}>
-        <Outlet />
+        <Outlet style={{ overflow: 'hidden' }} />
       </main>
     </HomeLayoutContainer>
   )

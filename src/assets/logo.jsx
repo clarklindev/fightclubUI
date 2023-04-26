@@ -4,7 +4,6 @@ const Logo = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      xml:space="preserve"
       viewBox="156 246 331.3 297.3"
       fill="currentColor"
     >

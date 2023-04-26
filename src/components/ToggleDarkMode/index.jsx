@@ -22,7 +22,7 @@ const ToggleDarkModeContainer = styled(Button)`
     transition: transform 750ms cubic-bezier(0.11, 0.14, 0.29, 1.32);
   }
 
-  &.isOn {
+  &.isOff {
     .toggle-circle {
       transform: translateX(-15%);
     }
@@ -45,11 +45,17 @@ const ToggleDarkMode = () => {
   const enableDarkMode = () => {
     document.body.classList.remove('light-theme')
     document.body.classList.add('dark-theme')
+    toggleColorScheme('dark')
   }
 
   const enableLightMode = () => {
     document.body.classList.remove('dark-theme')
     document.body.classList.add('light-theme')
+    toggleColorScheme('light')
+  }
+
+  const toggleColorScheme = colorScheme => {
+    document.documentElement.style.setProperty('color-scheme', colorScheme)
   }
 
   const toggleState = () => {
