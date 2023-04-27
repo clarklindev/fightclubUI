@@ -7,6 +7,7 @@ import GithubIcon from '../icons/GithubIcon'
 import Icon from '../components/Icon'
 import Button from '../components/Button'
 import ToggleDarkMode from '../components/ToggleDarkMode'
+import Heading from '../components/Heading'
 
 const HomeLayoutContainer = styled.div`
   display: grid;
@@ -141,10 +142,17 @@ export const HomeLayout = () => {
       </header>
       <aside>
         <nav>
+          <Heading variation="h5">Guide</Heading>
+
+          <NavLink to="introduction">Introduction</NavLink>
           <NavLink to="routing">Routing</NavLink>
           <NavLink to="layout">Layout</NavLink>
           <NavLink to="themes">Themes</NavLink>
           <NavLink to="styling">Styling</NavLink>
+          <NavLink to="hooks">Hooks</NavLink>
+
+          <br />
+          <Heading variation="h5">Components</Heading>
           <NavLink to="heading">Heading</NavLink>
           <NavLink to="text">Text</NavLink>
           <NavLink to="icon">Icon</NavLink>
@@ -168,7 +176,6 @@ export const HomeLayout = () => {
           <NavLink to="table">Table</NavLink>
           <NavLink to="card">Card</NavLink>
           <NavLink to="tree">Tree</NavLink>
-          <NavLink to="hooks">Hooks</NavLink>
         </nav>
       </aside>
       <main>

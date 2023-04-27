@@ -45,6 +45,7 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<HomeLayout />}>
       <Route index element={<Introduction />} />
+      <Route path="introduction" element={<Introduction />} />
       <Route path="routing" element={<Routing />} />
       <Route path="themes" element={<Themes />} />
       <Route path="styling" element={<Styling />} />

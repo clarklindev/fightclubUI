@@ -1,21 +1,25 @@
+import React from 'react'
 
-import React from 'react';
+import ButtonContainedExample from './ButtonContainedExample'
+import ButtonOutlinedExample from './ButtonOutlinedExample'
+import ButtonTextExample from './ButtonTextExample'
+import ButtonIconExample from './ButtonIconExample'
+import ButtonWithLabelSomethingExample from './ButtonWithLabelSomethingExample'
 
-import ButtonContainedExample from './ButtonContainedExample';
-import ButtonOutlinedExample from './ButtonOutlinedExample';
-import ButtonTextExample from './ButtonTextExample';
-import ButtonIconExample from './ButtonIconExample';
-import ButtonWithLabelSomethingExample from './ButtonWithLabelSomethingExample';
+import Button from '../index'
 
-import Heading from '../../Heading';
-import Layout from '../../Layout';
+import Heading from '../../Heading'
+import Layout from '../../Layout'
 
-const ButtonExample = ()=>{
+const ButtonExample = () => {
   return (
     <>
-      <Heading variation='h4'>Button</Heading>
+      <Heading variation="h4">Button</Heading>
+      <Button tw="bg-red-500 hover:bg-red-600" intent="primary" size="medium">
+        Click me
+      </Button>
 
-      <Layout variation="block">
+      {/* <Layout variation="block">
         <Heading variation='h5'>Contained button</Heading>
         <ButtonContainedExample />
       </Layout>
@@ -38,12 +42,9 @@ const ButtonExample = ()=>{
       <Layout variation="block">
         <Heading variation='h5'>Button+LabelSomething button</Heading>
         <ButtonWithLabelSomethingExample />
-      </Layout>
+      </Layout> */}
     </>
-  );
+  )
 }
 
-export default ButtonExample;
-
-
-          
+export default ButtonExample
