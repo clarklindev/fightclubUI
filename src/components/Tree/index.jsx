@@ -1,8 +1,10 @@
 import React, { useState, useRef } from 'react'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import Icon from '../Icon'
 import ChevronRightIcon from '../../icons/ChevronRightIcon'
 import ChevronDownIcon from '../../icons/ChevronDownIcon'
+import LabelSomething from '../LabelSomething'
 
 const TreeContainer = styled.div`
   display: flex;
@@ -42,7 +44,7 @@ const Tree = ({ data, depth = 0 }) => {
       // filter-out
       //if index is in the activeIndexes array... remove it
       setChildrenVisible(
-        childrenVisible.filter(item => item !== `${depth}-${index}`),
+        childrenVisible.filter(path => path !== `${depth}-${index}`),
       )
     } else {
       //or add
@@ -55,14 +57,14 @@ const Tree = ({ data, depth = 0 }) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      {data.map(({ item, children = undefined }, index) => {
+      {data.map(({ label = undefined, path, children = undefined }, index) => {
         const childRef = useRef()
         return (
           <TreeContainer
             key={`depth_${depth}_index_${index}`}
             style={{ display: 'inline-flex', flexDirection: 'column' }}
             data-depth={[`${depth}`]}
-            data-node={[`${item}`]}
+            data-node={[`${path}`]}
           >
             <div
               style={{
@@ -71,28 +73,31 @@ const Tree = ({ data, depth = 0 }) => {
                 alignItems: 'flex-start',
               }}
             >
-              <div style={{ display: 'flex', flexDirection: 'row' }}>
-                {children && (
-                  <button onClick={() => openChildrenHandler(depth, index)}>
-                    <Icon size="15px">
-                      {childrenVisible.includes(`${depth}-${index}`) ? (
-                        <ChevronDownIcon />
-                      ) : (
-                        <ChevronRightIcon />
-                      )}
-                    </Icon>
-                  </button>
-                )}
-                {!children && '•'}
-                <button>{item}</button>
-              </div>
+              {children ? (
+                <button onClick={() => openChildrenHandler(depth, index)}>
+                  <LabelSomething
+                    label={label}
+                    something={
+                      <Icon size="15px">
+                        {childrenVisible.includes(`${depth}-${index}`) ? (
+                          <ChevronDownIcon />
+                        ) : (
+                          <ChevronRightIcon />
+                        )}
+                      </Icon>
+                    }
+                  />
+                </button>
+              ) : (
+                <NavLink to={path}>{label}</NavLink>
+              )}
 
               {children && (
                 <Node
                   ref={childRef}
                   scrollHeight={String(childRef?.current?.scrollHeight)}
                   style={{ display: 'flex', flexDirection: 'column' }}
-                  data-parent={[`${item}`]}
+                  data-parent={[`${path}`]}
                   data-expanded={
                     childrenVisible.includes(`${depth}-${index}`)
                       ? 'true'
@@ -102,7 +107,7 @@ const Tree = ({ data, depth = 0 }) => {
                   <Tree
                     data={children}
                     depth={parseInt(depth) + 1}
-                    parent={item}
+                    parent={path}
                   />
                 </Node>
               )}
