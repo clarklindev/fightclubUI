@@ -14,7 +14,9 @@ const CardExample = () => {
         width="550px"
         height="300px"
         modifiers="shadow"
-      ></Card>
+      >
+        this is dummy text
+      </Card>
     </>
   )
 }

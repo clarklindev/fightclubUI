@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
+import React, { useState, useEffect } from 'react'
+import styled from 'styled-components'
 
 const SliderContainer = styled.div`
   box-sizing: border-box;
   width: ${({ width }) => width};
   margin-left: ${({ offset }) => offset};
-`;
+`
 
 const SliderWrapper = styled.div`
   width: 100%;
   background: red;
   position: relative;
-`;
+`
 
 //you want to show teh SliderTrack if there is only one slider
 const SliderTrack = styled.div`
@@ -22,7 +22,7 @@ const SliderTrack = styled.div`
   position: absolute;
   display: ${({ hideTrack }) => (hideTrack ? 'none' : 'block')};
   background-color: rgba(0, 0, 0, 0.2);
-`;
+`
 
 const SliderColor = styled.div`
   display: grid;
@@ -31,7 +31,7 @@ const SliderColor = styled.div`
   > div {
     background-color: pink;
   }
-`;
+`
 
 const SliderInput = styled.input.attrs(({ index }) => ({
   index: index,
@@ -60,25 +60,7 @@ const SliderInput = styled.input.attrs(({ index }) => ({
     cursor: pointer;
     pointer-events: auto;
   }
-  &::-moz-range-thumb {
-    -webkit-appearance: none;
-    width: ${({ thumbSize }) => thumbSize};
-    height: ${({ thumbSize }) => thumbSize};
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: #3264fe;
-    pointer-events: auto;
-  }
-  &::-ms-thumb {
-    appearance: none;
-    width: ${({ thumbSize }) => thumbSize};
-    height: ${({ thumbSize }) => thumbSize};
-    cursor: pointer;
-    border-radius: 50%;
-    background-color: #3264fe;
-    pointer-events: auto;
-  }
-`;
+`
 
 const Slider = ({
   width = '100%',
@@ -95,15 +77,15 @@ const Slider = ({
   onChange,
   className,
 }) => {
-  const [sliderValue, setSliderValue] = useState();
+  const [sliderValue, setSliderValue] = useState()
   useEffect(() => {
-    setSliderValue(savedData);
-  }, []);
+    setSliderValue(savedData)
+  }, [])
 
   const onChangeHandler = (value, index) => {
-    onChange(value, index);
-    setSliderValue(value);
-  };
+    onChange(value, index)
+    setSliderValue(value)
+  }
 
   return (
     <SliderContainer
@@ -113,23 +95,23 @@ const Slider = ({
     >
       <SliderWrapper>
         <SliderTrack hideTrack={hideTrack} backgroundColor={backgroundColor} />
-        <SliderColor color='red' splitPosition={sliderValue}>
+        <SliderColor color="red" splitPosition={sliderValue}>
           <div />
           <div />
         </SliderColor>
         <SliderInput
-          type='range'
+          type="range"
           trackClickable={trackClickable}
           min={min}
           max={max}
           step={step}
           thumbSize={thumbSize}
           value={savedData}
-          onChange={(event) => onChangeHandler(event.target.value, index)}
+          onChange={event => onChangeHandler(event.target.value, index)}
         />
       </SliderWrapper>
     </SliderContainer>
-  );
-};
+  )
+}
 
-export default Slider;
+export default Slider

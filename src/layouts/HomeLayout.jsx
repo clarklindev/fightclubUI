@@ -110,13 +110,7 @@ const HomeLayoutContainer = styled.div`
 `
 
 export const HomeLayout = () => {
-  const [headerMarginTop, setHeaderMarginTop] = useState(0)
   const navigate = useNavigate()
-
-  useEffect(() => {
-    const headerHeight = document.querySelector('header').offsetHeight
-    setHeaderMarginTop(headerHeight)
-  }, [])
 
   return (
     <HomeLayoutContainer>

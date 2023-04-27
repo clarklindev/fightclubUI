@@ -10,7 +10,7 @@ const Introduction = () => {
         Swagfinger-UI is a design system meant for an easier developer
         experience.
       </Text>
-      <Text>It uses TailwindCSS under the hood</Text>
+      <Text>It uses Styled-Components and TailwindCSS under the hood</Text>
     </div>
   )
 }

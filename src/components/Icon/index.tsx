@@ -28,10 +28,8 @@ const IconContainer = styled.div<
   > svg {
     width: 100%;
     height: 100%;
-    stroke: ${({ theme, stroke }) =>
-      stroke ? stroke : theme?.Icon?.stroke || 'var()'};
-    fill: ${({ theme, fill }) =>
-      fill ? fill : theme?.Icon?.fill || 'var(--clr-background)'};
+    stroke: ${({ theme, stroke }) => (stroke ? stroke : theme?.Icon?.stroke)};
+    fill: ${({ theme, fill }) => (fill ? fill : theme?.Icon?.fill)};
     fill-opacity: ${({ theme, fillOpacity }) =>
       fillOpacity ? fillOpacity : theme?.Icon?.fillOpacity || 1};
   }

@@ -1,18 +1,17 @@
-import React from 'react';
-import styled from 'styled-components';
-import { MODIFIERS } from './modifiers';
+import React from 'react'
+import styled from 'styled-components'
+import { MODIFIERS } from './modifiers'
 
 const CardContainer = styled.div`
   border: ${({ borderColor, theme }) =>
     borderColor
       ? `1px solid ${borderColor}`
       : `1px solid ${theme.borderColor}`};
-  background-color: ${({ color }) => color};
   border-radius: ${({ borderRadius }) => borderRadius};
   width: ${({ width }) => width};
   height: ${({ height }) => height};
   padding: 15px;
-`;
+`
 
 const Card = ({
   color = 'white',
@@ -34,7 +33,7 @@ const Card = ({
     >
       {children}
     </CardContainer>
-  );
-};
+  )
+}
 
-export default Card;
+export default Card
