@@ -10,28 +10,42 @@ import ToggleDarkMode from '../components/ToggleDarkMode'
 
 const HomeLayoutContainer = styled.div`
   display: grid;
-  grid-template-columns: 250px 4fr;
   grid-template-areas:
-    'navigation header'
-    'navigation main';
-  width: 100%;
+    'head head head'
+    'nav main main'
+    'nav main main';
+  grid-template-columns: 250px auto auto;
+  height: 100vh;
 
   header {
-    grid-area: header;
+    grid-area: head;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     width: 100%;
     height: 70px;
-    top: 0;
-    position: fixed;
-    border-bottom: 1px solid lightgray;
-    display: flex;
-    gap: 10px;
-    justify-content: flex-end;
-    align-items: center;
-    z-index: 1;
-    padding: 20px;
 
+    position: sticky;
+    top: 0;
+
+    border-bottom: 1px solid lightgray;
+    z-index: 1;
     background: var(--clr-background);
     color: var(--clr-foreground);
+  }
+
+  .headerLeft {
+    display: flex;
+    align-items: center;
+  }
+
+  .headerRight {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 20px;
   }
 
   .logo {
@@ -59,13 +73,12 @@ const HomeLayoutContainer = styled.div`
   }
 
   aside {
-    grid-area: navigation;
-    width: 250px;
-    height: 100%;
+    grid-area: nav;
+    border-right: 1px solid lightgray;
     overflow-x: hidden;
-    position: fixed;
     overflow-y: auto;
-    z-index: 1;
+    position: sticky;
+    top: 0;
   }
 
   nav {
@@ -91,7 +104,8 @@ const HomeLayoutContainer = styled.div`
 
   main {
     grid-area: main;
-    padding: 25px;
+    overflow-y: auto;
+    padding: 40px;
   }
 `
 
@@ -107,19 +121,7 @@ export const HomeLayout = () => {
   return (
     <HomeLayoutContainer>
       <header>
-        <ToggleDarkMode />
-        <Link
-          to="https://github.com/swagfinger/swagfinger-ui"
-          target="_blank"
-          aria-label="github repo"
-        >
-          <Icon size="25px" fillOpacity="1">
-            <GithubIcon />
-          </Icon>
-        </Link>
-      </header>
-      <aside>
-        <div className="spacing" style={{ height: `${headerMarginTop}px` }}>
+        <div className="headerLeft">
           <div className="logo">
             <Button variation="icon" onClick={() => navigate('/')}>
               <Icon className="icon" size="60px">
@@ -129,6 +131,21 @@ export const HomeLayout = () => {
             </Button>
           </div>
         </div>
+
+        <div className="headerRight">
+          <ToggleDarkMode />
+          <Link
+            to="https://github.com/swagfinger/swagfinger-ui"
+            target="_blank"
+            aria-label="github repo"
+          >
+            <Icon size="25px" fillOpacity="1">
+              <GithubIcon />
+            </Icon>
+          </Link>
+        </div>
+      </header>
+      <aside>
         <nav>
           <NavLink to="routing">Routing</NavLink>
           <NavLink to="layout">Layout</NavLink>
@@ -160,9 +177,8 @@ export const HomeLayout = () => {
           <NavLink to="hooks">Hooks</NavLink>
         </nav>
       </aside>
-
-      <main style={{ marginTop: `${headerMarginTop}px` }}>
-        <Outlet style={{ overflow: 'hidden' }} />
+      <main>
+        <Outlet />
       </main>
     </HomeLayoutContainer>
   )
