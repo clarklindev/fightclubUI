@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import Input from '../Input';
-import MinusSmallIcon from '../../icons/MinusSmallIcon';
-import PlusSmallIcon from '../../icons/PlusSmallIcon';
-import Button from '../Button';
-import Icon from '../Icon';
+import Input from '../Input'
+import MinusSmallIcon from '../../icons/MinusSmallIcon'
+import PlusSmallIcon from '../../icons/PlusSmallIcon'
+import Button from '../Button'
+import Icon from '../Icon'
 
 const CounterContainer = styled.div`
   display: flex;
@@ -17,45 +17,43 @@ const CounterContainer = styled.div`
   Button {
     display: flex;
     align-items: center;
-    background: ${({ theme }) => theme?.Counter?.backgroundColor};
   }
   Input {
-    background: ${({ theme }) => theme?.Counter?.backgroundColor};
     height: auto;
   }
-`;
+`
 
 const Counter = ({ savedData, onChange }) => {
-  const decrement = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    console.log('decrement');
-    onChange(parseInt(savedData || 0) - 1);
-  };
+  const decrement = event => {
+    event.preventDefault()
+    event.stopPropagation()
+    console.log('decrement')
+    onChange(parseInt(savedData || 0) - 1)
+  }
 
-  const increment = (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    console.log('increment');
-    onChange(parseInt(savedData || 0) + 1);
-  };
+  const increment = event => {
+    event.preventDefault()
+    event.stopPropagation()
+    console.log('increment')
+    onChange(parseInt(savedData || 0) + 1)
+  }
 
   return (
     <CounterContainer>
       <Button
         className={['Button', 'left'].join(' ')}
         onClick={decrement}
-        variation='icon'
+        intent="icon"
         modifiers={['noborder']}
       >
-        <Icon size='25px' stroke='black' fill='black'>
+        <Icon size="25px">
           <MinusSmallIcon />
         </Icon>
       </Button>
 
       <Input
-        placeholder=''
-        onChange={(event) => !isNaN(event.target.value)}
+        placeholder=""
+        onChange={event => !isNaN(event.target.value)}
         modifiers={['nonselectable', 'textcenter', 'nopadding']}
         savedData={savedData}
       />
@@ -63,15 +61,15 @@ const Counter = ({ savedData, onChange }) => {
       <Button
         className={['Button', 'right'].join(' ')}
         onClick={increment}
-        variation='icon'
+        intent="icon"
         modifiers={['noborder']}
       >
-        <Icon size='25px' stroke='black' fill='black'>
+        <Icon size="25px">
           <PlusSmallIcon />
         </Icon>
       </Button>
     </CounterContainer>
-  );
-};
+  )
+}
 
-export default Counter;
+export default Counter

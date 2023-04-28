@@ -19,7 +19,7 @@ const Sliders = styled.div`
 
 //this is the background track for all the scrollbars - you want to show this instead of sliders' own track
 const SliderTrack = styled.div`
-  height: 2px;
+  height: 1px;
   border: 0px;
   border-radius: 0px;
   width: 100%;

@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
-import styled from 'styled-components';
-import Icon from '../Icon';
-import ChevronDownIcon from '../../icons/ChevronDownIcon';
+import styled from 'styled-components'
+import Icon from '../Icon'
+import ChevronDownIcon from '../../icons/ChevronDownIcon'
 
 const SelectWrapper = styled.div`
   position: relative;
@@ -13,7 +13,7 @@ const SelectWrapper = styled.div`
     position: absolute;
     pointer-events: none;
   }
-`;
+`
 
 const SelectContainer = styled.select`
   -webkit-appearance: none;
@@ -26,33 +26,32 @@ const SelectContainer = styled.select`
   cursor: pointer;  
   max-height: ${({ theme }) => theme?.Select?.inputHeight};
   height: ${({ theme }) => theme?.Select?.inputHeight};
-  color: ${({ theme }) => theme?.Select?.color};
+  color: currentColor;
   border: ${({ theme }) => theme?.Select?.border};
-  background: ${({ theme }) => theme?.Select?.backgroundColor};
   border-radius: ${({ theme }) => theme?.Select?.borderRadius};
   padding: ${({ theme }) => theme?.Select?.inputPadding};
   
-}`;
+}`
 
 const Select = ({ savedData, onChange, children }) => {
-  const onChangeHandler = (event) => {
-    onChange(event);
-  };
+  const onChangeHandler = event => {
+    onChange(event)
+  }
 
   return (
     <SelectWrapper>
       <SelectContainer value={savedData} onChange={onChangeHandler}>
         {children
-          ? children.map((each) => {
-              return each;
+          ? children.map(each => {
+              return each
             })
           : null}
       </SelectContainer>
-      <Icon className='Icon' iconSize='30px'>
+      <Icon className="Icon" iconSize="30px">
         <ChevronDownIcon />
       </Icon>
     </SelectWrapper>
-  );
-};
+  )
+}
 
-export default Select;
+export default Select

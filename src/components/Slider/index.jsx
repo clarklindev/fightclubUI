@@ -16,9 +16,9 @@ const SliderWrapper = styled.div`
 //you want to show teh SliderTrack if there is only one slider
 const SliderTrack = styled.div`
   border-radius: 0px;
-  height: 2px;
+  height: 1px;
   width: 100%;
-  top: 8px;
+  top: 7px;
   position: absolute;
   display: ${({ hideTrack }) => (hideTrack ? 'none' : 'block')};
   background-color: currentColor;
