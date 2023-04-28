@@ -70,7 +70,7 @@ const ToggleDarkMode = () => {
       id="theme-toggle"
       onClick={toggleState}
       className={darkMode ? 'isOn' : 'isOff'}
-      variation="icon"
+      intent="icon"
     >
       <Icon size="25px">
         <svg

@@ -1,16 +1,17 @@
-import React from 'react';
-import Button from '../index';
+import React from 'react'
+import Button from '../index'
 
 const ButtonOutlinedExample = () => {
   return (
     <Button
-      label='Outlined'
-      variation='outlined'
+      intent="outlined"
       onClick={() => {
-        console.log('hello world');
+        console.log('hello world')
       }}
-    />
-  );
-};
+    >
+      Outlined
+    </Button>
+  )
+}
 
-export default ButtonOutlinedExample;
+export default ButtonOutlinedExample

@@ -51,7 +51,7 @@ export const colors = {
     success: '#2e7d32',
     info: '#0288d1',
   },
-};
+}
 
 export const transparency = {
   100: 'FF',
@@ -65,7 +65,7 @@ export const transparency = {
   20: '33',
   10: '1A',
   0: '00',
-};
+}
 
 // components dont point to globals directly - only from theme
 export const global = {
@@ -88,9 +88,9 @@ export const global = {
 
   dividerColor: colors.neutral[200],
   componentIcons: colors.neutral[400],
-};
+}
 
-export type ThemeType = typeof defaultTheme;
+export type ThemeType = typeof defaultTheme
 
 // theme - styling for components
 export const defaultTheme = {
@@ -124,15 +124,15 @@ export const defaultTheme = {
   },
 
   Button: {
-    base: {
-      padding: `5px ${global.padding}`,
-      borderRadius: global.borderRadius,
-    },
+    primary: 'bg-green-500 hover:bg-green-600',
+
     contained: {
       color: colors.neutral[100],
       background: colors.neutral[400],
+      hover: colors.neutral[500],
       border: `1px solid ${colors.neutral[100]}`,
     },
+
     outlined: {
       color: colors.neutral[400],
       backgroundColor: 'transparent',
@@ -219,4 +219,4 @@ export const defaultTheme = {
     borderRadius: global.borderRadius,
     backgroundColor: global.backgroundColor,
   },
-};
+}

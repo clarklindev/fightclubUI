@@ -1,16 +1,18 @@
-import React from 'react';
-import Button from '../index';
+import React from 'react'
+import Button from '../index'
 
 const ButtonTextExample = () => {
   return (
     <Button
-      label='Text'
-      variation='text'
+      intent="text"
+      size="medium"
       onClick={() => {
-        console.log('hello world');
+        console.log('hello world')
       }}
-    />
-  );
-};
+    >
+      Text
+    </Button>
+  )
+}
 
-export default ButtonTextExample;
+export default ButtonTextExample

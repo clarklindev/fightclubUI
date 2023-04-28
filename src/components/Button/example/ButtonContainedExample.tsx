@@ -1,16 +1,17 @@
-import React from 'react';
-import Button from '../index';
+import React from 'react'
+import Button from '../index'
 
 const ButtonContainedExample = () => {
   return (
     <Button
-      label='Contained'
-      variation='contained'
+      intent="outlined"
       onClick={() => {
-        console.log('hello world');
+        console.log('hello world')
       }}
-    />
-  );
-};
+    >
+      Contained
+    </Button>
+  )
+}
 
-export default ButtonContainedExample;
+export default ButtonContainedExample

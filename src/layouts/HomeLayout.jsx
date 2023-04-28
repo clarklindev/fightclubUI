@@ -118,8 +118,8 @@ export const HomeLayout = () => {
       <header>
         <div className="headerLeft">
           <div className="logo">
-            <Button variation="icon" onClick={() => navigate('/')}>
-              <Icon className="icon" size="60px">
+            <Button intent="icon" onClick={() => navigate('/')}>
+              <Icon className="icon" size="50px">
                 <Logo />
               </Icon>
               <span>SWAGFINGER-UI</span>

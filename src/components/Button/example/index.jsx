@@ -14,33 +14,28 @@ import Layout from '../../Layout'
 const ButtonExample = () => {
   return (
     <>
-      <Heading variation="h4">Button</Heading>
-      <Button tw="bg-red-500 hover:bg-red-600" intent="primary" size="medium">
-        Click me
-      </Button>
-
-      {/* <Layout variation="block">
-        <Heading variation='h5'>Contained button</Heading>
+      <Layout variation="block">
+        <Heading variation="h5">Contained button</Heading>
         <ButtonContainedExample />
       </Layout>
 
-      <Layout variation="block">
-        <Heading variation='h5'>Outlined button</Heading>
+      {/* <Layout variation="block">
+        <Heading variation="h5">Outlined button</Heading>
         <ButtonOutlinedExample />
       </Layout>
 
       <Layout variation="block">
-        <Heading variation='h5'>Text button</Heading>
+        <Heading variation="h5">Text button</Heading>
         <ButtonTextExample />
       </Layout>
 
       <Layout variation="block">
-        <Heading variation='h5'>Icon button</Heading>
+        <Heading variation="h5">Icon button</Heading>
         <ButtonIconExample />
       </Layout>
 
       <Layout variation="block">
-        <Heading variation='h5'>Button+LabelSomething button</Heading>
+        <Heading variation="h5">Button+LabelSomething button</Heading>
         <ButtonWithLabelSomethingExample />
       </Layout> */}
     </>
