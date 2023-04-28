@@ -21,7 +21,7 @@ const SliderTrack = styled.div`
   top: 8px;
   position: absolute;
   display: ${({ hideTrack }) => (hideTrack ? 'none' : 'block')};
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: currentColor;
 `
 
 const SliderColor = styled.div`
