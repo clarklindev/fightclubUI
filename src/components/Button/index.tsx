@@ -1,6 +1,6 @@
 import React from 'react'
 
-import styled, { useTheme } from 'styled-components'
+import { useTheme } from 'styled-components'
 import { cva } from 'class-variance-authority'
 import clsx from 'clsx'
 import { ThemeType } from '../../themes/DefaultTheme'
@@ -79,10 +79,6 @@ const button = cva(
   },
 )
 
-const StyledButton = styled.button`
-  ${button}
-`
-
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   intent?: 'primary' | 'secondary' | 'outlined' | 'contained' | 'text' | 'icon'
   size?: 'small' | 'medium'
@@ -92,21 +88,19 @@ type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
 const Button = ({ intent, size, className, tw, ...rest }: ButtonProps) => {
   const theme = useTheme() as ThemeType
 
-  const primaryButtonStyles = theme.Button?.primary
-
   const classes = clsx(
     className,
     {
       [button({ intent, size })]: true,
     },
 
-    intent === 'primary' && primaryButtonStyles,
-
+    intent === 'primary' && theme.Button?.primary,
+    intent === 'outlined' && theme.Button?.outlined,
     tw,
   )
 
   return (
-    <StyledButton
+    <button
       className={classes}
       aria-label={rest['aria-label'] || 'Button'}
       role="button"

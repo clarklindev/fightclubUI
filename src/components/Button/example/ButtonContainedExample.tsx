@@ -4,7 +4,7 @@ import Button from '../index'
 const ButtonContainedExample = () => {
   return (
     <Button
-      intent="outlined"
+      intent="contained"
       onClick={() => {
         console.log('hello world')
       }}

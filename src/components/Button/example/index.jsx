@@ -19,7 +19,7 @@ const ButtonExample = () => {
         <ButtonContainedExample />
       </Layout>
 
-      {/* <Layout variation="block">
+      <Layout variation="block">
         <Heading variation="h5">Outlined button</Heading>
         <ButtonOutlinedExample />
       </Layout>
@@ -37,7 +37,7 @@ const ButtonExample = () => {
       <Layout variation="block">
         <Heading variation="h5">Button+LabelSomething button</Heading>
         <ButtonWithLabelSomethingExample />
-      </Layout> */}
+      </Layout>
     </>
   )
 }

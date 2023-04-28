@@ -90,11 +90,11 @@ export const global = {
   componentIcons: colors.neutral[400],
 }
 
-export type ThemeType = typeof defaultTheme
+export type ThemeType = typeof darkTheme
 
 // theme - styling for components
-export const defaultTheme = {
-  name: 'defaultTheme',
+export const darkTheme = {
+  name: 'darkTheme',
 
   Layout: {
     section: {
@@ -133,8 +133,7 @@ export const defaultTheme = {
       border: `1px solid ${colors.neutral[100]}`,
     },
 
-    outlined: 'bg-transparent text-black border-black',
-
+    outlined: 'bg-transparent text-white border-white',
     text: {
       color: colors.neutral[500],
     },

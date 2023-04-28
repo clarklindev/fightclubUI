@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
 import Icon from '../Icon'
 import Button from '../Button'
+
+//context
+import DarkModeContext from '../../context/DarkModeContext'
 
 const ToggleDarkModeContainer = styled(Button)`
   cursor: pointer;
@@ -40,15 +43,17 @@ const ToggleDarkModeContainer = styled(Button)`
 `
 
 const ToggleDarkMode = () => {
-  const [darkMode, setdarkMode] = useState(false)
+  const { state, setIsDarkMode } = useContext(DarkModeContext)
 
   const enableDarkMode = () => {
+    console.log('enableDarkMode')
     document.body.classList.remove('light-theme')
     document.body.classList.add('dark-theme')
     toggleColorScheme('dark')
   }
 
   const enableLightMode = () => {
+    console.log('enableLightMode')
     document.body.classList.remove('dark-theme')
     document.body.classList.add('light-theme')
     toggleColorScheme('light')
@@ -59,17 +64,15 @@ const ToggleDarkMode = () => {
   }
 
   const toggleState = () => {
-    setdarkMode(prevState => {
-      return !prevState
-    })
-    darkMode ? enableLightMode() : enableDarkMode()
+    setIsDarkMode(!state.darkMode)
+    state.darkMode ? enableLightMode() : enableDarkMode()
   }
 
   return (
     <ToggleDarkModeContainer
       id="theme-toggle"
       onClick={toggleState}
-      className={darkMode ? 'isOn' : 'isOff'}
+      className={state.darkMode ? 'isOn' : 'isOff'}
       intent="icon"
     >
       <Icon size="25px">

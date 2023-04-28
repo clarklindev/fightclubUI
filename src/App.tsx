@@ -1,23 +1,25 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './router'
+
+//context
+import DarkModeContext from './context/DarkModeContext'
 
 //styling
 import './App.css'
 
 //theming
 import { defaultTheme } from './themes/DefaultTheme'
+import { darkTheme } from './themes/DarkTheme'
 
 const App = () => {
-  const [theme, setTheme] = useState({})
+  const { state } = useContext(DarkModeContext)
 
-  useEffect(() => {
-    setTheme(defaultTheme)
-  }, [])
+  console.log('state: ', state)
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={state.darkMode ? darkTheme : defaultTheme}>
       <RouterProvider router={router} />
     </ThemeProvider>
   )
