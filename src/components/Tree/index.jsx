@@ -14,8 +14,9 @@ const TreeContainer = styled.div`
 
 const Node = styled.div`
   box-sizing: border-box;
-  padding-left: 20px;
-  border-left: 1px solid red;
+  margin-left: 6px;
+  padding-left: 15px;
+  border-left: 1px solid currentColor;
   display: block;
 
   &[data-expanded='false'] {
