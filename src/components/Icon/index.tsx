@@ -25,14 +25,6 @@ const IconContainer = styled.div<
     width: 100%;
     height: 100%;
   }
-  > svg {
-    width: 100%;
-    height: 100%;
-    stroke: ${({ theme, stroke }) => (stroke ? stroke : theme?.Icon?.stroke)};
-    fill: ${({ theme, fill }) => (fill ? fill : theme?.Icon?.fill)};
-    fill-opacity: ${({ theme, fillOpacity }) =>
-      fillOpacity ? fillOpacity : theme?.Icon?.fillOpacity || 1};
-  }
 `
 
 const Icon: React.FC<IconProps> = ({

@@ -1,27 +1,27 @@
-import React from 'react';
+import React from 'react'
 
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const Container = styled.div<{
-  labelDirection: FlexDirection;
-  gap: string;
+  labelDirection: FlexDirection
+  gap: string
 }>`
   display: inline-flex;
   align-items: center;
   justify-items: center;
   flex-direction: ${({ labelDirection }) => labelDirection};
   gap: ${({ gap }) => gap};
-`;
+`
 
-type LabelSomethingDirection = 'left' | 'right' | 'top' | 'bottom';
-type FlexDirection = 'row-reverse' | 'row' | 'column-reverse' | 'column';
+type LabelSomethingDirection = 'left' | 'right' | 'top' | 'bottom'
+type FlexDirection = 'row-reverse' | 'row' | 'column-reverse' | 'column'
 
 interface LabelSomethingProps {
-  label: string;
-  something: React.ReactNode;
-  labelDirection?: LabelSomethingDirection;
-  gap?: string;
-  labelClickable?: boolean;
+  label: string
+  something: React.ReactNode
+  labelDirection?: LabelSomethingDirection
+  gap?: string
+  labelClickable?: boolean
 }
 
 const LabelSomething: React.FC<LabelSomethingProps> = ({
@@ -36,7 +36,7 @@ const LabelSomething: React.FC<LabelSomethingProps> = ({
     right: 'row',
     top: 'column-reverse',
     bottom: 'column',
-  };
+  }
 
   return (
     <Container
@@ -47,7 +47,7 @@ const LabelSomething: React.FC<LabelSomethingProps> = ({
       {something}
       <div>{label}</div>
     </Container>
-  );
-};
+  )
+}
 
-export default LabelSomething;
+export default LabelSomething

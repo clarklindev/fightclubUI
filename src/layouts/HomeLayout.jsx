@@ -64,15 +64,6 @@ const HomeLayoutContainer = styled.div`
     fill: var(--clr-foreground);
   }
 
-  .spacing {
-    z-index: 1;
-    top: 0;
-    position: sticky;
-    border-bottom: 1px solid lightgray;
-    background: var(--clr-background);
-    color: var(--clr-foreground);
-  }
-
   aside {
     grid-area: nav;
     border-right: 1px solid lightgray;

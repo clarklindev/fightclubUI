@@ -1,19 +1,10 @@
-/* Define the light and dark themes */
-.light-theme{
-  --clr-foreground: hsl(0 0% 0%);
-  --clr-background: hsl(0 0% 100%);
-}
-
-.dark-theme {
-  --clr-background: hsl(0 0% 5%);
-  --clr-foreground: hsl(0 0% 100%);
-}
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
+
 
 html{
   color-scheme: var(--color-scheme);

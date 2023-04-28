@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useContext } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { RouterProvider } from 'react-router-dom'
 import { router } from './router'
