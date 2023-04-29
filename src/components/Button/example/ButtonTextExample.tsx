@@ -5,7 +5,6 @@ const ButtonTextExample = () => {
   return (
     <Button
       intent="text"
-      size="medium"
       onClick={() => {
         console.log('hello world')
       }}

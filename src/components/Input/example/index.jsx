@@ -25,7 +25,7 @@ const InputExample = () => {
         <InputNoBorderExample />
       </Layout>
 
-      <Layout variation="block">
+      {/* <Layout variation="block">
         <Heading variation="h5">Basic input</Heading>
         <InputBasicExample />
       </Layout>
@@ -53,7 +53,7 @@ const InputExample = () => {
       <Layout variation="block">
         <Heading variation="h5">Input Search</Heading>
         <InputSearchExample />
-      </Layout>
+      </Layout> */}
     </>
   )
 }

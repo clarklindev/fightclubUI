@@ -1,3 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html{
+  color-scheme: var(--color-scheme);
+}
+
+body{
+  background: var(--clr-background);
+  color: var(--clr-foreground);
+}

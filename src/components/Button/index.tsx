@@ -1,11 +1,12 @@
 import React from 'react'
 
 import { useTheme } from 'styled-components'
-import { cva } from 'class-variance-authority'
-import clsx from 'clsx'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { twMerge } from 'tailwind-merge'
+
 import { ThemeType } from '../../themes/DefaultTheme'
 
-const button = cva(
+const buttonVariants = cva(
   [
     'font-semibold',
     'border',
@@ -59,17 +60,17 @@ const button = cva(
       {
         intent: 'primary',
         size: 'medium',
-        class: 'uppercase',
+        className: 'uppercase',
       },
       {
         intent: 'text',
         size: ['medium', 'small'],
-        class: ['px-1', 'py-1'],
+        className: ['px-1', 'py-1'],
       },
       {
         intent: 'icon',
         size: ['medium', 'small'],
-        class: ['px-0', 'py-0'],
+        className: 'px-0 py-0',
       },
     ],
     defaultVariants: {
@@ -79,20 +80,26 @@ const button = cva(
   },
 )
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  intent?: 'primary' | 'secondary' | 'outlined' | 'contained' | 'text' | 'icon'
-  size?: 'small' | 'medium'
+export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
+  className?: string
   tw?: string
+  ariaLabel?: string
 }
 
-const Button = ({ intent, size, className, tw, ...rest }: ButtonProps) => {
+const Button = ({
+  intent,
+  size,
+  className,
+  tw,
+  ariaLabel,
+  ...rest
+}: ButtonVariants) => {
   const theme = useTheme() as ThemeType
 
-  const classes = clsx(
+  const classes = twMerge(
     className,
-    {
-      [button({ intent, size })]: true,
-    },
+
+    buttonVariants({ intent, size }),
 
     intent === 'primary' && theme.Button?.primary,
     intent === 'outlined' && theme.Button?.outlined,
@@ -102,7 +109,7 @@ const Button = ({ intent, size, className, tw, ...rest }: ButtonProps) => {
   return (
     <button
       className={classes}
-      aria-label={rest['aria-label'] || 'Button'}
+      aria-label={ariaLabel || 'Button'}
       role="button"
       tabIndex={0}
       {...rest}

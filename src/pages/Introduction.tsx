@@ -8,9 +8,11 @@ const Introduction = () => {
       <Heading variation="h4">Introduction</Heading>
       <Text>
         Swagfinger-UI is a design system meant for an easier developer
-        experience. It uses Styled-Components and TailwindCSS under the hood
+        experience. <br />
+        It uses Styled-Components / Class Variance Authority (CVA) and
+        TailwindCSS under the hood.
       </Text>
-
+      <br />
       <Heading variation="h5">Another Component library?</Heading>
       <Text>
         The goal of this library is to combine the user-friendly approach of
@@ -29,8 +31,13 @@ const Introduction = () => {
       </Text>
 
       <Text>
-        Pre-defined components - with default styling, support of theming and
-        darkmode. Accessibility - https://www.w3.org/WAI/ARIA/apg/patterns/
+        Pre-defined modular components - with default styling, support of
+        theming and darkmode. <br />
+        Built with accessibility in mind.
+        <br />
+        Leverage already well-built battle-tested libraries. We dont re-invent
+        the wheel.
+        <br />
       </Text>
     </div>
   )

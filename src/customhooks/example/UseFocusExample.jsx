@@ -1,17 +1,17 @@
-import React from 'react';
+import React from 'react'
 
-import { useFocus } from '../useFocus';
-import Button from '../../components/Button';
+import { useFocus } from '../useFocus'
+import Button from '../../components/Button'
 
 const UseFocusExample = () => {
-  const [isFocused, attrs] = useFocus();
+  const [isFocused, attrs] = useFocus()
 
   return (
     <>
-      <Button label='click' {...attrs} />
-      {isFocused && <div className='absolute'>hello world</div>}
+      <Button {...attrs}>Button</Button>
+      {isFocused && <div className="absolute">hello world</div>}
     </>
-  );
-};
+  )
+}
 
-export default UseFocusExample;
+export default UseFocusExample
