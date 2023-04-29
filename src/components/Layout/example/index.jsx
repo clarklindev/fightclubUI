@@ -1,10 +1,14 @@
-import React from 'react';
-import Heading from '../../Heading';
-import Text from '../../Text';
+import React from 'react'
+import Heading from '../../Heading'
+import Text from '../../Text'
 
-const LayoutExample = ()=>{
-  return (<><Heading variation='h4'>Layout</Heading><Text>TailwindCSS and CSS Grid</Text></>);
-
+const LayoutExample = () => {
+  return (
+    <>
+      <Heading variation="h4">Layout</Heading>
+      <Text>TailwindCSS and CSS Grid or CSS Flexbox</Text>
+    </>
+  )
 }
 
-export default LayoutExample;
+export default LayoutExample

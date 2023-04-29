@@ -84,14 +84,18 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
   className?: string
   tw?: string
   ariaLabel?: string
+  children: React.ReactNode
+  onClick?: () => void
 }
 
 const Button = ({
   intent,
   size,
   className,
+  onClick,
   tw,
   ariaLabel,
+  children,
   ...rest
 }: ButtonVariants) => {
   const theme = useTheme() as ThemeType
@@ -112,8 +116,11 @@ const Button = ({
       aria-label={ariaLabel || 'Button'}
       role="button"
       tabIndex={0}
+      onClick={onClick}
       {...rest}
-    />
+    >
+      {children}
+    </button>
   )
 }
 
