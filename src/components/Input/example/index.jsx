@@ -14,10 +14,6 @@ import Heading from '../../Heading'
 const InputExample = () => {
   return (
     <>
-      <div className="bg-red-400 text-white p-5 rounded mb-4">
-        work in progress (converting styled-components-modifiers to tailwindcss)
-      </div>
-
       <Heading variation="h4">Input</Heading>
 
       <Layout variation="block">
@@ -25,7 +21,7 @@ const InputExample = () => {
         <InputNoBorderExample />
       </Layout>
 
-      {/* <Layout variation="block">
+      <Layout variation="block">
         <Heading variation="h5">Basic input</Heading>
         <InputBasicExample />
       </Layout>
@@ -53,7 +49,7 @@ const InputExample = () => {
       <Layout variation="block">
         <Heading variation="h5">Input Search</Heading>
         <InputSearchExample />
-      </Layout> */}
+      </Layout>
     </>
   )
 }

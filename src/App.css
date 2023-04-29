@@ -1,15 +1,28 @@
+:root {
+  --clr-background: white;
+  --clr-foreground: black;
+  --input-background-color: #ffffff;
+  --input-text-color: #333333;
+  --border-color: rgba(0,0,0,.1);
+}
+
+html[color-scheme="dark"] {
+  --clr-background: black;
+  --clr-foreground: rgba(255,255,255,0.9);
+  --input-background-color: #333333;
+  --input-text-color: #ffffff;
+  --border-color: rgba(255,255,255,.1);
+}
+
+
+body {
+  background: var(--clr-background);
+  color: var(--clr-foreground);
+}
+
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-html{
-  color-scheme: var(--color-scheme);
-}
-
-body{
-  background: var(--clr-background);
-  color: var(--clr-foreground);
 }

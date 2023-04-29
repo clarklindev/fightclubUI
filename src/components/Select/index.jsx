@@ -26,8 +26,9 @@ const SelectContainer = styled.select`
   cursor: pointer;  
   max-height: ${({ theme }) => theme?.Select?.inputHeight};
   height: ${({ theme }) => theme?.Select?.inputHeight};
-  color: currentColor;
-  border: ${({ theme }) => theme?.Select?.border};
+  color: var(--input-text-color);
+  background: var(--input-background-color);
+  border: 1px solid var(--border-color);
   border-radius: ${({ theme }) => theme?.Select?.borderRadius};
   padding: ${({ theme }) => theme?.Select?.inputPadding};
   

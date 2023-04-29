@@ -23,10 +23,9 @@ const SeparatorHorizontal = styled(SeparatorContainer)<{
 }>`
   display: flex;
   width: 100%;
-  height: ${({ height }) => height};
-  border-bottom: ${({ theme }) => theme?.Separator?.border};
+  height: 1px;
   margin: ${({ margin }) => margin};
-  background: ${({ theme }) => theme?.Separator?.backgroundColor};
+  background: var(--border-color);
 `
 
 const SeparatorVertical = styled(SeparatorContainer)<{
@@ -36,8 +35,8 @@ const SeparatorVertical = styled(SeparatorContainer)<{
 }>`
   height: ${({ height }) => height};
   width: 1px;
-  background: ${({ theme }) => theme?.Separator?.backgroundColor};
   margin: ${({ margin }) => margin};
+  background: var(--border-color);
 `
 
 const SeparatorHorizontalLabelled = styled(SeparatorContainer)<{
@@ -54,8 +53,7 @@ const SeparatorHorizontalLabelled = styled(SeparatorContainer)<{
     display: flex;
     align-self: center;
     content: '';
-    border-bottom: ${({ theme }) => theme?.Separator?.border};
-    background: ${({ theme }) => theme?.Separator?.backgroundColor};
+    background: var(--border-color);
     width: 100%;
     height: 1px;
   }
@@ -63,8 +61,7 @@ const SeparatorHorizontalLabelled = styled(SeparatorContainer)<{
     display: flex;
     align-self: center;
     content: '';
-    border-bottom: ${({ theme }) => theme?.Separator?.border};
-    background: ${({ theme }) => theme?.Separator?.backgroundColor};
+    background: var(--border-color);
     width: 100%;
     height: 1px;
   }

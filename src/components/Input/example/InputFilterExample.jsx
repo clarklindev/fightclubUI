@@ -19,31 +19,20 @@ const InputFilterExample = () => {
         <SearchIcon />
       </Icon>
       <Input
-        className="px-25"
         savedData={savedData}
-        modifiers={[
-          'noborder',
-          'noborderleftradius',
-          savedData.length && 'noborderrightradius',
-        ]}
+        border={false}
         placeholder="placeholder"
         onChange={event => {
           setSavedData(event.target.value)
         }}
       />
 
-      {/* WRONG WAY {savedData.length && rightIcon} - 0 is a falsy value, so when it is evaluated by &&, it returns 0 */}
       {savedData.length > 0 && (
-        <Button
-          variation="icon"
-          modifiers={['noborderrightradius']}
-          onClick={clearHandler}
-          label={
-            <Icon size="25px">
-              <ClearIcon />
-            </Icon>
-          }
-        />
+        <Button intent="icon" onClick={clearHandler}>
+          <Icon size="25px">
+            <ClearIcon />
+          </Icon>
+        </Button>
       )}
     </InputWrapper>
   )

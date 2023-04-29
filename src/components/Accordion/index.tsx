@@ -1,19 +1,19 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from 'react'
 
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-import Icon from '../Icon';
-import Separator from '../Separator';
+import Icon from '../Icon'
+import Separator from '../Separator'
 
-import ChevronUpIcon from '../../icons/ChevronUpIcon';
-import ChevronDownIcon from '../../icons/ChevronDownIcon';
-import PlusSmallIcon from '../../icons/PlusSmallIcon';
-import MinusSmallIcon from '../../icons/MinusSmallIcon';
+import ChevronUpIcon from '../../icons/ChevronUpIcon'
+import ChevronDownIcon from '../../icons/ChevronDownIcon'
+import PlusSmallIcon from '../../icons/PlusSmallIcon'
+import MinusSmallIcon from '../../icons/MinusSmallIcon'
 
 export type AccordionDataType = {
-  title: string;
-  body: React.ReactElement | string;
-};
+  title: string
+  body: React.ReactElement | string
+}
 
 // AccordionSection
 const AccordionSectionHeader = styled.div`
@@ -21,7 +21,7 @@ const AccordionSectionHeader = styled.div`
   cursor: pointer;
   font-size: 1.2rem;
   font-weight: 500;
-  color: ${({ theme }) => (theme && theme?.Accordion?.title?.color) || 'var()'};
+  color: var(--clr-foreground);
 
   margin-bottom: 0px;
   margin-top: 0px;
@@ -30,17 +30,17 @@ const AccordionSectionHeader = styled.div`
     margin-bottom: 15px;
     margin-top: 15px;
   }
-`;
+`
 
 const AccordionSectionTitle = styled.div`
   display: flex;
   flex-grow: 1;
   justify-content: space-between;
   align-items: center;
-`;
+`
 
 const AccordionSectionPanel = styled.div<{
-  scrollHeight: string;
+  scrollHeight: string
 }>`
   overflow: hidden;
   color: ${({ theme }) =>
@@ -59,7 +59,7 @@ const AccordionSectionPanel = styled.div<{
     transition: all 0.1s ease-in-out;
     max-height: ${({ scrollHeight }) => scrollHeight + 'px'};
   }
-`;
+`
 
 const AccordionSectionPanelContent = styled.div`
   padding: 20px 0;
@@ -67,18 +67,18 @@ const AccordionSectionPanelContent = styled.div`
   &[data-separator='true'] {
     padding: 0 0 20px 0;
   }
-`;
+`
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
-type AccordionIconType = 'plusminus' | 'hidden' | 'chevron';
+type AccordionIconType = 'plusminus' | 'hidden' | 'chevron'
 
 type AccordionProps = {
-  data: Array<AccordionDataType>;
-  multiOpen?: boolean;
-  iconType?: AccordionIconType;
-  showSeparator?: boolean;
-};
+  data: Array<AccordionDataType>
+  multiOpen?: boolean
+  iconType?: AccordionIconType
+  showSeparator?: boolean
+}
 
 const Accordion: React.FC<AccordionProps> = ({
   data,
@@ -86,79 +86,79 @@ const Accordion: React.FC<AccordionProps> = ({
   iconType = 'plusminus',
   showSeparator = true,
 }) => {
-  const [indexes, setIndexes] = useState<number[]>([]);
+  const [indexes, setIndexes] = useState<number[]>([])
 
   //@index - filter-out/add or toggle
   const activeIndexesCheck = (index: number) => {
-    const found = indexes.includes(index);
+    const found = indexes.includes(index)
     if (multiOpen) {
       if (found) {
         // filter-out
         //if index is in the activeIndexes array... remove it
-        setIndexes(indexes.filter((item) => item !== index));
+        setIndexes(indexes.filter(item => item !== index))
       } else {
         //or add
         //add to activeIndexes = Set is unique values
-        setIndexes([...new Set([...indexes, index])]);
+        setIndexes([...new Set([...indexes, index])])
       }
     } else {
       //toggle
       //only allowed one open at a time
       if (found) {
         //remove it
-        setIndexes([]);
+        setIndexes([])
       } else {
         //add it
-        setIndexes([index]);
+        setIndexes([index])
       }
     }
-  };
+  }
 
   const handleClick = (index: number) => {
-    activeIndexesCheck(index);
-  };
+    activeIndexesCheck(index)
+  }
 
   const iconMap = {
     chevron: { open: <ChevronUpIcon />, closed: <ChevronDownIcon /> },
     plusminus: { open: <MinusSmallIcon />, closed: <PlusSmallIcon /> },
     hidden: {},
-  };
+  }
 
   return (
-    <div className='Accordion' role='tablist'>
+    <div className="Accordion" role="tablist">
       {data.map((each: AccordionDataType, index: number) => {
-        const panelRef = useRef<HTMLDivElement>(null);
+        const panelRef = useRef<HTMLDivElement>(null)
 
         return (
           <React.Fragment key={index}>
-            <div className='AccordionSection'>
+            <div className="AccordionSection">
               <AccordionSectionHeader
-                className='AccordionSectionHeader'
-                role='heading'
+                className="AccordionSectionHeader"
+                role="heading"
                 aria-level={3}
                 data-separator={showSeparator ? 'true' : 'false'}
               >
                 <AccordionSectionTitle
-                  role='button'
+                  role="button"
                   aria-expanded={indexes.includes(index) ? true : false}
                   aria-controls={`AccordionSectionPanel_${index}`}
                   aria-disabled={false}
                   id={`AccordionSectionTitle_${index}`}
                   tabIndex={0}
                   onClick={() => handleClick(index)}
-                  onKeyDown={(e) => {
-                    console.log(e.key);
+                  onKeyDown={e => {
+                    console.log(e.key)
                     switch (e.key) {
                       case 'Enter':
                       case ' ':
-                        handleClick(index);
-                        break;
+                        handleClick(index)
+                        break
                     }
                   }}
                 >
                   {each.title}
                   {iconType !== 'hidden' && (
-                    <Icon size='30px'>
+                    <Icon size="30px">
                       {indexes.includes(index)
                         ? iconMap[iconType].open
                         : iconMap[iconType].closed}
@@ -168,8 +168,8 @@ const Accordion: React.FC<AccordionProps> = ({
               </AccordionSectionHeader>
 
               <AccordionSectionPanel
-                className='AccordionSectionPanel'
-                role='region'
+                className="AccordionSectionPanel"
+                role="region"
                 aria-labelledby={`AccordionSectionTitle_${index}`}
                 id={`AccordionSectionPanel_${index}`}
                 ref={panelRef}
@@ -185,10 +185,10 @@ const Accordion: React.FC<AccordionProps> = ({
             </div>
             {showSeparator && <Separator />}
           </React.Fragment>
-        );
+        )
       })}
     </div>
-  );
-};
+  )
+}
 
-export default Accordion;
+export default Accordion

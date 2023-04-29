@@ -5,7 +5,7 @@ import styled from 'styled-components'
 import { ThemeType } from '../../themes/DefaultTheme'
 
 const HeadingBase = styled.div<{ theme: ThemeType }>`
-  color: ${({ theme }) => theme.Heading?.color || 'var(--clr-foreground)'};
+  color: var(--clr-foreground);
   margin: ${({ theme }) => theme.Heading?.margin};
   line-height: ${({ theme }) => theme.Heading?.lineHeight};
   font-weight: ${({ theme }) => theme.Heading?.fontWeight};

@@ -101,9 +101,8 @@ const Button = ({
   const theme = useTheme() as ThemeType
 
   const classes = twMerge(
-    className,
-
     buttonVariants({ intent, size }),
+    className,
 
     intent === 'primary' && theme.Button?.primary,
     intent === 'outlined' && theme.Button?.outlined,

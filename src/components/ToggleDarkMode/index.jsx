@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
 import Icon from '../Icon'
 import Button from '../Button'
-
 //context
 import DarkModeContext from '../../context/DarkModeContext'
 
@@ -21,7 +20,7 @@ const ToggleDarkModeContainer = styled(Button)`
     transition: transform 750ms cubic-bezier(0.11, 0.14, 0.29, 1.32);
   }
 
-  &.isOff {
+  &.lightMode {
     .toggle-circle {
       transform: translateX(-15%);
     }
@@ -41,30 +40,22 @@ const ToggleDarkModeContainer = styled(Button)`
 const ToggleDarkMode = () => {
   const { state, setIsDarkMode } = useContext(DarkModeContext)
 
-  const enableDarkMode = () => {
-    console.log('enableDarkMode')
-    toggleColorScheme('dark')
-  }
-
-  const enableLightMode = () => {
-    console.log('enableLightMode')
-    toggleColorScheme('light')
-  }
-
   const toggleColorScheme = colorScheme => {
+    const html = document.querySelector('html')
+    html.setAttribute('color-scheme', colorScheme)
     document.documentElement.style.setProperty('color-scheme', colorScheme)
   }
 
   const toggleState = () => {
     setIsDarkMode(!state.darkMode)
-    state.darkMode ? enableLightMode() : enableDarkMode()
+    state.darkMode ? toggleColorScheme('light') : toggleColorScheme('dark')
   }
 
   return (
     <ToggleDarkModeContainer
       id="theme-toggle"
       onClick={toggleState}
-      className={state.darkMode ? 'isOn' : 'isOff'}
+      className={state.darkMode ? 'darkMode' : 'lightMode'}
       intent="icon"
     >
       <Icon size="25px">

@@ -44,7 +44,6 @@ const Counter = ({ savedData, onChange }) => {
         className={['Button', 'left'].join(' ')}
         onClick={decrement}
         intent="icon"
-        modifiers={['noborder']}
       >
         <Icon size="25px">
           <MinusSmallIcon />
@@ -53,8 +52,8 @@ const Counter = ({ savedData, onChange }) => {
 
       <Input
         placeholder=""
+        tw="pointer-events-none text-center p-0"
         onChange={event => !isNaN(event.target.value)}
-        modifiers={['nonselectable', 'textcenter', 'nopadding']}
         savedData={savedData}
       />
 
@@ -62,7 +61,6 @@ const Counter = ({ savedData, onChange }) => {
         className={['Button', 'right'].join(' ')}
         onClick={increment}
         intent="icon"
-        modifiers={['noborder']}
       >
         <Icon size="25px">
           <PlusSmallIcon />

@@ -39,6 +39,20 @@ const Introduction = () => {
         the wheel.
         <br />
       </Text>
+      <br />
+      <Heading variation="h5">Features</Heading>
+      <Text>
+        Written in Typescript
+        <br />
+        Styled Components
+        <br />
+        Dark-mode compatible
+        <br />
+        Accessibility
+        <br />
+        Tested
+        <br />
+      </Text>
     </div>
   )
 }
