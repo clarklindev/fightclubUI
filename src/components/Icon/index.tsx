@@ -34,7 +34,7 @@ const IconContainer = styled.div<
 `
 
 const Icon: React.FC<IconProps> = ({
-  stroke,
+  stroke = 'currentColor',
   children,
   size = '25px',
   fill = undefined,
