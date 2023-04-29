@@ -21,7 +21,7 @@ const ToggleButtonExample = () => {
           size="25px"
           fill={savedData ? 'red' : 'black'}
           fillOpacity={savedData ? '1' : '0'}
-          stroke={savedData ? 'transparent' : 'black'}
+          stroke={savedData ? 'transparent' : 'currentColor'}
         >
           <HeartIcon />
         </Icon>
