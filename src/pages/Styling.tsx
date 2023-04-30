@@ -18,7 +18,8 @@ const Styling = () => {
         The dark-mode toggle adjusts the CSS 'color-scheme' property, and
         components and svg icons adapt based on 'currentColor'
         <br />
-        Theming takes precedence over default styling.
+        Theming takes precedence over default styling; however, tailwind classes
+        applied to component override theming and variant props.
         <br />
       </Text>
     </>

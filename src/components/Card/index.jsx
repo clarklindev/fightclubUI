@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import { MODIFIERS } from './modifiers'
 
 const CardContainer = styled.div`
   border: ${({ borderColor, theme }) =>
@@ -20,7 +19,6 @@ const Card = ({
   width = '250px',
   height = '300px',
   children,
-  modifiers = [],
 }) => {
   return (
     <CardContainer
@@ -29,7 +27,6 @@ const Card = ({
       borderRadius={borderRadius}
       width={width}
       height={height}
-      modifiers={Array.isArray(modifiers) ? [...modifiers] : modifiers}
     >
       {children}
     </CardContainer>

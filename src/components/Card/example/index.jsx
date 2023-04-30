@@ -13,7 +13,6 @@ const CardExample = () => {
         borderRadius="10px"
         width="550px"
         height="300px"
-        modifiers="shadow"
       >
         this is dummy text
       </Card>
