@@ -40,7 +40,7 @@ const Introduction = () => {
         <br />
       </Text>
       <br />
-      <Heading variation="h5">Features</Heading>
+      <Heading variation="h5">Ideal Release Features</Heading>
       <Text>
         Written in Typescript
         <br />
