@@ -9,7 +9,7 @@ const ButtonWithLabelSomethingExample = () => {
   return (
     <Button
       intent="contained"
-      tw="bg-red-500 hover:bg-red-600 text-white"
+      className="bg-red-500 hover:bg-red-600 text-white"
       onClick={() => {
         console.log('hello world')
       }}

@@ -101,8 +101,8 @@ const wrapperInputVariants = cva([
   'border-borderColor',
 ])
 
-export const InputWrapper = ({ children, tw }: Props) => {
-  const wrapperClasses = twMerge(wrapperInputVariants(), tw)
+export const InputWrapper = ({ children }: Props) => {
+  const wrapperClasses = twMerge(wrapperInputVariants())
 
   return <div className={wrapperClasses}>{children}</div>
 }

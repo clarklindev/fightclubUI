@@ -8,7 +8,7 @@ const InputNoBorderExample = () => {
     <Input
       savedData={savedData}
       placeholder="placeholder"
-      tw="bg-transparent"
+      className="bg-transparent"
       border={false}
       onChange={event => {
         setSavedData(event.target.value)

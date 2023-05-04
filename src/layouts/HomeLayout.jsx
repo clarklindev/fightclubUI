@@ -84,6 +84,7 @@ const HomeLayoutContainer = styled.div`
     padding: 3px 10xpx;
     border-radius: 5px;
     color: #7d7d7d;
+    font-size: 0.9rem;
   }
 
   nav a:hover {
@@ -167,6 +168,7 @@ export const HomeLayout = () => {
           <NavLink to="table">Table</NavLink>
           <NavLink to="card">Card</NavLink>
           <NavLink to="tree">Tree</NavLink>
+          <NavLink to="loader">Loader</NavLink>
         </nav>
       </aside>
       <main>

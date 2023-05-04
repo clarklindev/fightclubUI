@@ -52,7 +52,7 @@ const Counter = ({ savedData, onChange }) => {
 
       <Input
         placeholder=""
-        tw="pointer-events-none text-center p-0"
+        className="pointer-events-none text-center p-0"
         onChange={event => !isNaN(event.target.value)}
         savedData={savedData}
       />

@@ -82,7 +82,6 @@ const buttonVariants = cva(
 
 export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
   className?: string
-  tw?: string
   ariaLabel?: string
   children: React.ReactNode
   onClick?: () => void
@@ -93,7 +92,6 @@ const Button = ({
   size,
   className,
   onClick,
-  tw,
   ariaLabel,
   children,
   ...rest
@@ -106,7 +104,6 @@ const Button = ({
 
     intent === 'primary' && theme.Button?.primary,
     intent === 'outlined' && theme.Button?.outlined,
-    tw,
   )
 
   return (
