@@ -12,6 +12,7 @@ import { HomeLayout } from './layouts/HomeLayout'
 
 // pages
 import Introduction from './pages/Introduction'
+import GettingStarted from './pages/GettingStarted'
 import Routing from './pages/Routing'
 import Styling from './pages/Styling'
 import Themes from './pages/Themes'
@@ -40,7 +41,7 @@ import TableExample from './components/Table/example'
 import CardExample from './components/Card/example'
 import TreeExample from './components/Tree/example'
 import HooksExample from './customhooks/example'
-import LoaderExample from './components/Loader/example'
+import ProgressLoaderExample from './components/ProgressLoader/example'
 import SpinnerExample from './components/Spinner/example'
 
 export const router = createBrowserRouter(
@@ -48,6 +49,7 @@ export const router = createBrowserRouter(
     <Route path="/" element={<HomeLayout />}>
       <Route index element={<Introduction />} />
       <Route path="introduction" element={<Introduction />} />
+      <Route path="gettingstarted" element={<GettingStarted />} />
       <Route path="routing" element={<Routing />} />
       <Route path="themes" element={<Themes />} />
       <Route path="styling" element={<Styling />} />
@@ -76,7 +78,7 @@ export const router = createBrowserRouter(
       <Route path="card" element={<CardExample />} />
       <Route path="tree" element={<TreeExample />} />
       <Route path="hooks" element={<HooksExample />} />
-      <Route path="loader" element={<LoaderExample />} />
+      <Route path="progressloader" element={<ProgressLoaderExample />} />
       <Route path="spinner" element={<SpinnerExample />} />
       {/* <Route path='*' element={<NotFound />} /> */}
     </Route>,

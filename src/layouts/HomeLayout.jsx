@@ -137,6 +137,7 @@ export const HomeLayout = () => {
           <Heading variation="h5">Guide</Heading>
 
           <NavLink to="introduction">Introduction</NavLink>
+          <NavLink to="gettingstarted">Getting started</NavLink>
           <NavLink to="routing">Routing</NavLink>
           <NavLink to="layout">Layout</NavLink>
           <NavLink to="themes">Themes</NavLink>
@@ -168,7 +169,7 @@ export const HomeLayout = () => {
           <NavLink to="table">Table</NavLink>
           <NavLink to="card">Card</NavLink>
           <NavLink to="tree">Tree</NavLink>
-          <NavLink to="loader">Loader</NavLink>
+          <NavLink to="progressloader">Progress Loader</NavLink>
           <NavLink to="Spinner">Spinner</NavLink>
         </nav>
       </aside>
