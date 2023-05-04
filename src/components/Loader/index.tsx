@@ -4,7 +4,7 @@ import styled from 'styled-components'
 const LoaderCircle = styled.circle`
   fill: none;
   stroke: currentColor;
-  stroke-width: 3;
+  stroke-width: 2;
   stroke-linecap: round;
 `
 interface LoaderProps {

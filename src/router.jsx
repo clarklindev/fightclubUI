@@ -41,6 +41,7 @@ import CardExample from './components/Card/example'
 import TreeExample from './components/Tree/example'
 import HooksExample from './customhooks/example'
 import LoaderExample from './components/Loader/example'
+import SpinnerExample from './components/Spinner/example'
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -76,6 +77,7 @@ export const router = createBrowserRouter(
       <Route path="tree" element={<TreeExample />} />
       <Route path="hooks" element={<HooksExample />} />
       <Route path="loader" element={<LoaderExample />} />
+      <Route path="spinner" element={<SpinnerExample />} />
       {/* <Route path='*' element={<NotFound />} /> */}
     </Route>,
   ),
