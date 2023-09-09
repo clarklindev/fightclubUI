@@ -1,22 +1,22 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from 'react'
+import styled from 'styled-components'
 
-import { ThemeType } from '../../themes/DefaultTheme';
+import { ThemeType } from '../../themes/LightTheme'
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-type LayoutSectionProps = { theme: ThemeType };
+type LayoutSectionProps = { theme: ThemeType }
 const LayoutSection = styled.section<{ theme?: LayoutSectionProps }>`
   box-sizing: border-box;
   padding: ${({ theme }) => theme.Layout?.section?.padding};
   border-bottom: ${({ theme }) => theme.Layout?.section?.borderBottom};
-`;
+`
 
-type LayoutBlockProps = { theme?: ThemeType };
+type LayoutBlockProps = { theme?: ThemeType }
 const LayoutBlock = styled.div<{ theme: LayoutBlockProps }>`
   position: relative;
   padding: ${({ theme }) => theme.Layout?.block?.padding};
-`;
+`
 
 enum LayoutVariation {
   section = 'section',
@@ -25,13 +25,13 @@ enum LayoutVariation {
 
 // ---------------------------------------------------------------------------------------------------------------------
 
-type LayoutVariationType = keyof typeof LayoutVariation;
-type LayoutStyledComponentType = typeof LayoutSection | typeof LayoutBlock;
+type LayoutVariationType = keyof typeof LayoutVariation
+type LayoutStyledComponentType = typeof LayoutSection | typeof LayoutBlock
 
 interface LayoutProps {
-  variation: LayoutVariationType;
-  label?: string;
-  children?: React.ReactNode;
+  variation: LayoutVariationType
+  label?: string
+  children?: React.ReactNode
 }
 
 const Layout: React.FC<LayoutProps> = ({
@@ -42,11 +42,11 @@ const Layout: React.FC<LayoutProps> = ({
   const layoutMap: Record<LayoutVariationType, LayoutStyledComponentType> = {
     section: LayoutSection,
     block: LayoutBlock,
-  };
+  }
 
-  const Component = layoutMap[variation];
+  const Component = layoutMap[variation]
 
-  return <Component>{label ? label : children}</Component>;
-};
+  return <Component>{label ? label : children}</Component>
+}
 
-export default Layout;
+export default Layout

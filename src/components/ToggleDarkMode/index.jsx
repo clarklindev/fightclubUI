@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react'
-import styled from 'styled-components'
-import Icon from '../Icon'
-import Button from '../Button'
+import React, { useEffect, useState, useContext } from 'react';
+import styled from 'styled-components';
+import Icon from '../Icon';
+import Button from '../Button';
 //context
-import DarkModeContext from '../../context/DarkModeContext'
+import ThemeContext from '../../context/ThemeContext';
 
 const ToggleDarkModeContainer = styled(Button)`
   cursor: pointer;
@@ -35,37 +35,38 @@ const ToggleDarkModeContainer = styled(Button)`
     opacity: 1;
     background: hsl(0 0% 50% / 0.15);
   }
-`
+`;
 
 const ToggleDarkMode = () => {
-  const { state, setIsDarkMode } = useContext(DarkModeContext)
+  const { state, setIsDarkMode } = useContext(ThemeContext);
+  useEffect(() => {
+    toggleColorScheme(state.darkMode ? 'dark' : 'light');
+  }, []);
 
   const toggleColorScheme = colorScheme => {
-    const html = document.querySelector('html')
-    html.setAttribute('color-scheme', colorScheme)
-    document.documentElement.style.setProperty('color-scheme', colorScheme)
-  }
+    const html = document.querySelector('html');
+    html.setAttribute('color-scheme', colorScheme);
+    document.documentElement.style.setProperty('color-scheme', colorScheme);
+  };
 
   const toggleState = () => {
-    setIsDarkMode(!state.darkMode)
-    state.darkMode ? toggleColorScheme('light') : toggleColorScheme('dark')
-  }
+    setIsDarkMode(!state.darkMode);
+    state.darkMode ? toggleColorScheme('light') : toggleColorScheme('dark');
+  };
 
   return (
     <ToggleDarkModeContainer
       id="theme-toggle"
       onClick={toggleState}
       className={state.darkMode ? 'darkMode' : 'lightMode'}
-      intent="icon"
-    >
+      intent="icon">
       <Icon size="25px">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="472.39"
           height="472.39"
           viewBox="0 0 472.39 472.39"
-          fill="currentColor"
-        >
+          fill="currentColor">
           <g className="toggle-sun">
             <path d="M403.21,167V69.18H305.38L236.2,0,167,69.18H69.18V167L0,236.2l69.18,69.18v97.83H167l69.18,69.18,69.18-69.18h97.83V305.38l69.18-69.18Zm-167,198.17a129,129,0,1,1,129-129A129,129,0,0,1,236.2,365.19Z" />
           </g>
@@ -75,7 +76,7 @@ const ToggleDarkMode = () => {
         </svg>
       </Icon>
     </ToggleDarkModeContainer>
-  )
-}
+  );
+};
 
-export default ToggleDarkMode
+export default ToggleDarkMode;

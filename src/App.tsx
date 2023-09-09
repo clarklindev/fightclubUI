@@ -1,28 +1,26 @@
-import React, { useContext } from 'react'
-import { ThemeProvider } from 'styled-components'
-import { RouterProvider } from 'react-router-dom'
-import { router } from './router'
+import React, { useContext } from 'react';
+import { ThemeProvider } from 'styled-components';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
 
 //context
-import DarkModeContext from './context/DarkModeContext'
+import ThemeContext from './context/ThemeContext';
 
 //styling
-import './App.css'
+import './App.css';
 
 //theming
-import { defaultTheme } from './themes/DefaultTheme'
-import { darkTheme } from './themes/DarkTheme'
+import { lightTheme } from './themes/LightTheme';
+import { darkTheme } from './themes/DarkTheme';
 
 const App = () => {
-  const { state } = useContext(DarkModeContext)
-
-  console.log('state: ', state)
+  const { state } = useContext(ThemeContext);
 
   return (
-    <ThemeProvider theme={state.darkMode ? darkTheme : defaultTheme}>
+    <ThemeProvider theme={state.darkMode ? darkTheme : lightTheme}>
       <RouterProvider router={router} />
     </ThemeProvider>
-  )
-}
+  );
+};
 
-export default App
+export default App;

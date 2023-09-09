@@ -2,7 +2,7 @@ import React from 'react'
 
 import styled from 'styled-components'
 
-import { ThemeType } from '../../themes/DefaultTheme'
+import { ThemeType } from '../../themes/LightTheme'
 
 const HeadingBase = styled.div<{ theme: ThemeType }>`
   color: var(--clr-foreground);

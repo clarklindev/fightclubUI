@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { twMerge } from 'tailwind-merge'
 
-import { ThemeType } from '../../themes/DefaultTheme'
+import { ThemeType } from '../../themes/LightTheme'
 
 const buttonVariants = cva(
   [

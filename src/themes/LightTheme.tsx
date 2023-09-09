@@ -51,7 +51,7 @@ export const colors = {
     success: '#2e7d32',
     info: '#0288d1',
   },
-}
+};
 
 export const transparency = {
   100: 'FF',
@@ -65,7 +65,7 @@ export const transparency = {
   20: '33',
   10: '1A',
   0: '00',
-}
+};
 
 // components dont point to globals directly - only from theme
 export const global = {
@@ -88,13 +88,13 @@ export const global = {
 
   dividerColor: colors.neutral[200],
   componentIcons: colors.neutral[400],
-}
+};
 
-export type ThemeType = typeof defaultTheme
+export type ThemeType = typeof lightTheme;
 
 // theme - styling for components
-export const defaultTheme = {
-  name: 'defaultTheme',
+export const lightTheme = {
+  name: 'lightTheme',
 
   Layout: {
     section: {
@@ -216,4 +216,4 @@ export const defaultTheme = {
     borderRadius: global.borderRadius,
     backgroundColor: global.backgroundColor,
   },
-}
+};
