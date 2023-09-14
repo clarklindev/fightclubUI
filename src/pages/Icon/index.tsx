@@ -1,4 +1,3 @@
-import React from 'react';
 import { Icon, Heading } from '../../components';
 import { ShoppingCartIcon } from '../../icons';
 

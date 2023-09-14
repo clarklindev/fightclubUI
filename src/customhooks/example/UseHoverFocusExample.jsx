@@ -6,7 +6,7 @@ const UseHoverFocusExample = () => {
   const menuRef = useRef(null);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = event => {
       if (
         buttonRef.current &&
         !buttonRef.current.contains(event.target) &&
@@ -26,15 +26,13 @@ const UseHoverFocusExample = () => {
       <button
         ref={buttonRef}
         onMouseEnter={() => setMenuOpen(true)}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
+        onClick={() => setMenuOpen(!menuOpen)}>
         Open Menu
       </button>
       {menuOpen && (
         <div
           ref={menuRef}
-          style={{ background: 'red', display: 'inline-flex' }}
-        >
+          style={{ background: 'red', display: 'inline-flex' }}>
           <ul>
             <li onClick={() => setMenuOpen(false)}>Menu Item 1</li>
             <li>Menu Item 2</li>

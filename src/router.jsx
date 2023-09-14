@@ -44,6 +44,7 @@ import CardExample from './pages/Card';
 import TreeExample from './pages/Tree';
 import ProgressLoaderExample from './pages/ProgressLoader';
 import SpinnerExample from './pages/Spinner';
+import HooksExample from './customhooks/example';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -54,6 +55,7 @@ export const router = createBrowserRouter(
       <Route path="/routing" element={<Routing />} />
       <Route path="/themes" element={<Themes />} />
       <Route path="/styling" element={<Styling />} />
+      <Route path="/hooks" element={<HooksExample />} />
       <Route path="/layout" element={<LayoutExample />} />
       <Route path="/heading" element={<HeadingExample />} />
       <Route path="/text" element={<TextExample />} />
