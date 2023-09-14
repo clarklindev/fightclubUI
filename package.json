@@ -1,7 +1,7 @@
 {
   "name": "swagfingerui",
-  "private": true,
-  "version": "0.0.1",
+  "private": false,
+  "version": "0.0.25",
   "type": "module",
   "scripts": {
     "tailwind": "postcss src/App.css -o public/build/tailwind.css",
