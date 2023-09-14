@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 import { useTheme } from './context/ThemeContext';
@@ -7,7 +9,7 @@ import { darkTheme } from './themes/DarkTheme';
 import { router } from './router';
 import './App.css';
 
-export const App = () => {
+const App = () => {
   const { isDarkMode } = useTheme();
 
   return (
@@ -16,3 +18,5 @@ export const App = () => {
     </ThemeProvider>
   );
 };
+
+export default App;

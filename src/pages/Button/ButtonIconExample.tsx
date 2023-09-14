@@ -1,3 +1,4 @@
+import React from 'react';
 import { Button, Icon } from '../../components';
 import { ShoppingCartIcon } from '../../icons';
 
