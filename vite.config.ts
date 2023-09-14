@@ -5,17 +5,12 @@ import path from 'path';
 export default defineConfig({
   base: '/',
   plugins: [react(), splitVendorChunkPlugin()],
-  resolve: {
-    alias: {
-      swagfingerui: 'swagfingerui/src',
-    },
-  },
   build: {
     target: 'modules', //modules is the default - it support native esmodules / dynamic loading
     lib: {
       entry: path.resolve(__dirname, './src/main.tsx'),
       fileName: 'index', // defaults to package name
-      formats: ['es'],
+      formats: ['es', 'cjs'],
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
