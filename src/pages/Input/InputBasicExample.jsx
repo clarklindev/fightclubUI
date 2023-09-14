@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input } from 'swagfingerui';
+import { Input } from '../../components';
 
 //normal input
 const InputExample = () => {

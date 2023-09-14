@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
-import { Input, InputWrapper, Button, Icon } from 'swagfingerui';
-import SearchIcon from 'swagfingerui/icons/SearchIcon';
+import { Input, InputWrapper, Button, Icon } from '../../components';
+import { SearchIcon } from '../../icons';
 
 const InputSearchExample = () => {
   const ref = useRef(null);

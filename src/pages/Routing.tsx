@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Text } from 'swagfingerui';
+import { Heading, Text } from '../components';
 const Routing = () => {
   return (
     <>

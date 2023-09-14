@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, LabelSomething, Icon } from 'swagfingerui';
-import ThumbsUpIcon from 'swagfingerui/icons/ThumbsUpIcon';
+import { Button, LabelSomething, Icon } from '../../components';
+import { ThumbsUpIcon } from '../../icons';
 
 const ButtonWithLabelSomethingExample = () => {
   return (

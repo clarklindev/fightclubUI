@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Input } from 'swagfingerui';
+import { Input } from '../../components';
 
 const InputReadOnlyExample = () => {
   const [savedData, setSavedData] = useState('this is readonly');

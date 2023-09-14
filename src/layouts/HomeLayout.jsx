@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
-import { Icon, Button, Heading, ToggleDarkMode } from 'swagfingerui';
-import { GithubIcon } from 'swagfingerui/icons';
+import { Icon, Button, Heading, ToggleDarkMode } from '../components';
+import { GithubIcon } from '../icons';
 
 import Logo from '../assets/logo';
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from 'swagfingerui';
+import { Button } from '../../components';
 
 const ButtonContainedExample = () => {
   return (

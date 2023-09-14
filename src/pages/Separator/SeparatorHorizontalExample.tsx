@@ -1,5 +1,5 @@
 import React from 'react';
-import { Separator } from 'swagfingerui';
+import { Separator } from '../../components';
 
 const SeparatorHorizontalExample = () => {
   return <Separator variation="horizontal" />;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Icon, Heading } from 'swagfingerui';
-import ShoppingCartIcon from 'swagfingerui/icons/ShoppingCartIcon';
+import { Icon, Heading } from '../../components';
+import { ShoppingCartIcon } from '../../icons';
 
 const IconExample = () => {
   return (

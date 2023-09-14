@@ -1,5 +1,5 @@
 import React from 'react';
-import { Spinner, Heading } from 'swagfingerui';
+import { Spinner, Heading } from '../../components';
 
 const SpinnerExample = () => {
   return (

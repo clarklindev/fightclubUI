@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { Input, InputWrapper, Button, Icon } from 'swagfingerui';
-import SearchIcon from 'swagfingerui/icons/SearchIcon';
-import ClearIcon from 'swagfingerui/icons/ClearIcon';
+import { Input, InputWrapper, Button, Icon } from '../../components';
+import { SearchIcon, ClearIcon } from '../../icons';
 
 const InputFilterExample = () => {
   const [savedData, setSavedData] = useState('');

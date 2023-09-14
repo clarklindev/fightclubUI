@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SliderMultiRange, Heading } from 'swagfingerui';
+import { SliderMultiRange, Heading } from '../../components';
 
 const SliderMultiRangeExample = () => {
   const [sliderValues, setSliderValues] = useState([20, 50]); //holds positions of sliders

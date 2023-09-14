@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Slider, Heading } from 'swagfingerui';
+import { Slider, Heading } from '../../components';
 
 const SliderExample = () => {
   const [savedData, setSavedData] = useState(0);

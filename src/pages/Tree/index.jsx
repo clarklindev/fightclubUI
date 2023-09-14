@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Tree, Heading } from 'swagfingerui';
+import { Tree, Heading } from '../../components';
 
 // only endnodes can be links
 const TreeExample = () => {

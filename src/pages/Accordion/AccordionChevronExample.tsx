@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion } from 'swagfingerui';
+import { Accordion } from '../../components';
 
 import { data } from './data';
 

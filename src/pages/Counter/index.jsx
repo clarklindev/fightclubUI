@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Counter, Heading } from 'swagfingerui';
+import { Counter, Heading } from '../../components';
 
 const CounterExample = () => {
   const [savedData, setSavedData] = useState('0');

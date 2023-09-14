@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { RadioButton, Heading } from 'swagfingerui';
+import { RadioButton, Heading } from '../../components';
 
 const RadioButtonExample = () => {
   const [savedData, setSavedData] = useState(false);

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Heading } from 'swagfingerui';
+import { Card, Heading } from '../../components';
 
 const CardExample = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Layout } from 'swagfingerui';
+import { Heading, Layout } from '../../components';
 
 import CheckboxGroupHorizontalExample from './CheckboxGroupHorizontalExample';
 import CheckboxGroupVerticalExample from './CheckboxGroupVerticalExample';

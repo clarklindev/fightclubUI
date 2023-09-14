@@ -7,7 +7,6 @@
 
     /* Bundler mode */
     "moduleResolution": "node",
-    "extensions": [".js", ".jsx", ".ts", ".tsx"],
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
     "isolatedModules": true,

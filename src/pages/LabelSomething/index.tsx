@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Heading, LabelSomething, Icon } from 'swagfingerui';
-import SmileyIcon from 'swagfingerui/icons/SmileyIcon';
+import { Heading, LabelSomething, Icon } from '../../components';
+import { SmileyIcon } from '../../icons';
 
 const LabelSomethingExample = () => {
   const icon = <SmileyIcon />;

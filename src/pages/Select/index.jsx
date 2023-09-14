@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Select, Heading } from 'swagfingerui';
+import { Select, Heading } from '../../components';
 
 const SelectExample = () => {
   const [savedData, setSavedData] = useState();

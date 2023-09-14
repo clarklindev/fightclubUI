@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Checkbox, Heading } from 'swagfingerui';
+import { Checkbox, Heading } from '../../components';
 
 const CheckboxExample = () => {
   const [savedData, setSavedData] = useState(false);

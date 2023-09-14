@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, ProgressLoader } from 'swagfingerui';
+import { Heading, ProgressLoader } from '../../components';
 
 const ProgressLoaderExample = () => {
   return (

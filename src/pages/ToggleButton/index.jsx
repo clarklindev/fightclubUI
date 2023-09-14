@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { Icon, ToggleButton, Heading } from 'swagfingerui';
-import HeartIcon from 'swagfingerui/icons/HeartIcon';
+import { Icon, ToggleButton, Heading } from '../../components';
+import { HeartIcon } from '../../icons';
 
 const ToggleButtonExample = () => {
   const [savedData, setSavedData] = useState(false);

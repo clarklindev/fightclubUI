@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading } from 'swagfingerui';
+import { Heading } from '../../components';
 
 const HeadingExample = () => {
   return (

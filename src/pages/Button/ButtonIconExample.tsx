@@ -1,6 +1,6 @@
 import React from 'react';
-import { Button, Icon } from 'swagfingerui';
-import ShoppingCartIcon from 'swagfingerui/icons/ShoppingCartIcon';
+import { Button, Icon } from '../../components';
+import { ShoppingCartIcon } from '../../icons';
 
 const ButtonIconExample = () => {
   return (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Table, Heading } from 'swagfingerui';
+import { Table, Heading } from '../../components';
 
 const TableExample = () => {
   const configure = {

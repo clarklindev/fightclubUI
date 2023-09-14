@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Input, InputWrapper, Icon } from 'swagfingerui';
-import SpeechIcon from 'swagfingerui/icons/SpeechIcon';
+import { Input, InputWrapper, Icon } from '../../components';
+import { SpeechIcon } from '../../icons';
 
 const InputWithIconExample = () => {
   const [savedData, setSavedData] = useState('');

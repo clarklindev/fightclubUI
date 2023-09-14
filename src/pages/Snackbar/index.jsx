@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Snackbar, Button, Icon, Heading } from 'swagfingerui';
-import CopyIcon from 'swagfingerui/icons/CopyIcon';
+import { Snackbar, Button, Icon, Heading } from '../../components';
+import { CopyIcon } from '../../icons';
 
 const SnackbarExample = () => {
   const [showSnackbar, setShowSnackbar] = useState(false);

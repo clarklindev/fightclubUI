@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import { RadioButtonGroup, RadioButton, LabelSomething } from 'swagfingerui';
+import {
+  RadioButtonGroup,
+  RadioButton,
+  LabelSomething,
+} from '../../components';
 
 const RadioButtonGroupVerticalExample = () => {
   const options = [
