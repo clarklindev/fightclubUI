@@ -9,7 +9,7 @@ export default defineConfig({
     target: 'modules', //modules is the default - it support native esmodules / dynamic loading
     lib: {
       entry: path.resolve(__dirname, './src/main.tsx'),
-      fileName: 'swagfingerui', // defaults to package name
+      fileName: 'index', // defaults to package name
       formats: ['es'],
     },
     rollupOptions: {
