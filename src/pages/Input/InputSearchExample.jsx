@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+
 import { Input, InputWrapper, Button, Icon } from '../../components';
 import { SearchIcon } from '../../icons';
 

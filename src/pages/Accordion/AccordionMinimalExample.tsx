@@ -1,6 +1,6 @@
 import React from 'react';
-import { Accordion } from '../../components';
 
+import { Accordion } from '../../components';
 import { data } from './data';
 
 const AccordionMinimalExample = () => {

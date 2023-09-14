@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Spinner, Heading } from '../../components';
 
 const SpinnerExample = () => {

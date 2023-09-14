@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Heading, LabelSomething, Icon } from '../../components';
 import { SmileyIcon } from '../../icons';
 

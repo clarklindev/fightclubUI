@@ -1,6 +1,6 @@
 import React from 'react';
-import { Heading, Layout } from '../../components';
 
+import { Heading, Layout } from '../../components';
 import SeparatorHorizontalExample from './SeparatorHorizontalExample';
 import SeparatorHorizontalLabelledExample from './SeparatorHorizontalLabelledExample';
 import SeparatorVerticalExample from './SeparatorVerticalExample';

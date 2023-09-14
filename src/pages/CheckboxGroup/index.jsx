@@ -1,6 +1,6 @@
 import React from 'react';
-import { Heading, Layout } from '../../components';
 
+import { Heading, Layout } from '../../components';
 import CheckboxGroupHorizontalExample from './CheckboxGroupHorizontalExample';
 import CheckboxGroupVerticalExample from './CheckboxGroupVerticalExample';
 import CheckboxGroupIndeterminateExample from './CheckboxGroupIndeterminateExample';

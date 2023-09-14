@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { SliderMultiRange, Heading } from '../../components';
 
 const SliderMultiRangeExample = () => {

@@ -1,3 +1,5 @@
+import React from 'react';
+
 import { useState, createContext, useContext } from 'react';
 
 // Define an interface for the theme context

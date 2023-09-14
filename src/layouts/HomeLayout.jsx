@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+
 import { Icon, Button, Heading, ToggleDarkMode } from '../components';
 import { GithubIcon } from '../icons';
-
 import Logo from '../assets/logo';
 
 const HomeLayoutContainer = styled.div`

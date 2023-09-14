@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { CheckboxGroup, Checkbox, LabelSomething } from '../../components';
 
 const CheckboxGroupVerticalExample = () => {

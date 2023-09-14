@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { ToggleSwitch, Heading } from '../../components';
 
 const ToggleSwitchExample = () => {

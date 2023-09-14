@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { Input, InputWrapper, Button, Icon } from '../../components';
 import { SearchIcon, ClearIcon } from '../../icons';
 
