@@ -1,7 +1,5 @@
-import React from 'react'
-import Heading from '../components/Heading'
-import Text from '../components/Text'
-
+import React from 'react';
+import { Heading, Text } from 'swagfingerui';
 const Routing = () => {
   return (
     <>
@@ -11,6 +9,6 @@ const Routing = () => {
       </Text>
       <Text>NextJS Routing - https://nextjs.org/docs/routing/introduction</Text>
     </>
-  )
-}
-export default Routing
+  );
+};
+export default Routing;

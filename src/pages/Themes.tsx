@@ -1,5 +1,5 @@
-import React from 'react'
-import Heading from '../components/Heading'
+import React from 'react';
+import { Heading } from 'swagfingerui';
 
 const Themes = () => {
   return (
@@ -7,7 +7,7 @@ const Themes = () => {
       <Heading variation="h4">Themes</Heading>
       <div>Supports theming</div>
     </>
-  )
-}
+  );
+};
 
-export default Themes
+export default Themes;

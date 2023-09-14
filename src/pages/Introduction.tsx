@@ -1,6 +1,5 @@
-import React from 'react'
-import Heading from '../components/Heading'
-import Text from '../components/Text'
+import React from 'react';
+import { Heading, Text } from 'swagfingerui';
 
 const Introduction = () => {
   return (
@@ -54,7 +53,7 @@ const Introduction = () => {
         <br />
       </Text>
     </div>
-  )
-}
+  );
+};
 
-export default Introduction
+export default Introduction;

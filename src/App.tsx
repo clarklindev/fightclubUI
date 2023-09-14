@@ -1,25 +1,25 @@
-import React, { useContext } from 'react';
-import { ThemeProvider } from 'styled-components';
+import React from 'react';
 import { RouterProvider } from 'react-router-dom';
+import { ThemeProvider } from 'styled-components';
+import {
+  useTheme,
+  ThemeContextProvider,
+} from 'swagfingerui/context/ThemeContext';
+import { lightTheme } from 'swagfingerui/themes/LightTheme';
+import { darkTheme } from 'swagfingerui/themes/DarkTheme';
+
 import { router } from './router';
-
-//context
-import ThemeContext from './context/ThemeContext';
-
-//styling
 import './App.css';
 
-//theming
-import { lightTheme } from './themes/LightTheme';
-import { darkTheme } from './themes/DarkTheme';
-
 const App = () => {
-  const { state } = useContext(ThemeContext);
+  const { isDarkMode } = useTheme();
 
   return (
-    <ThemeProvider theme={state.darkMode ? darkTheme : lightTheme}>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <ThemeContextProvider>
+      <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </ThemeContextProvider>
   );
 };
 

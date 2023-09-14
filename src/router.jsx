@@ -1,5 +1,4 @@
 import React from 'react';
-
 import {
   createBrowserRouter,
   createRoutesFromElements,
@@ -19,34 +18,32 @@ import Styling from './pages/Styling';
 import Themes from './pages/Themes';
 import NotFound from './pages/NotFound';
 
-//components
-import LayoutExample from './components/Layout/example';
-import HeadingExample from './components/Heading/example';
-import TextExample from './components/Text/example';
-import IconExample from './components/Icon/example';
-import LabelSomethingExample from './components/LabelSomething/example';
-import ButtonExample from './components/Button/example';
-import InputExample from './components/Input/example';
-import AccordionExample from './components/Accordion/example';
-import RadioButtonExample from './components/RadioButton/example';
-import RadioButtonGroupExample from './components/RadioButtonGroup/example';
-import CheckboxExample from './components/Checkbox/example';
-import CheckboxGroupExample from './components/CheckboxGroup/example';
-import SelectExample from './components/Select/example';
-import CounterExample from './components/Counter/example';
-import ToggleButtonExample from './components/ToggleButton/example';
-import ToggleSwitchExample from './components/ToggleSwitch/example';
-import SnackbarExample from './components/Snackbar/example';
-import SliderExample from './components/Slider/example';
-import SliderMultiRangeExample from './components/SliderMultiRange/example';
-import SeparatorExample from './components/Separator/example';
-import ListExample from './components/List/example';
-import TableExample from './components/Table/example';
-import CardExample from './components/Card/example';
-import TreeExample from './components/Tree/example';
-import HooksExample from './customhooks/example';
-import ProgressLoaderExample from './components/ProgressLoader/example';
-import SpinnerExample from './components/Spinner/example';
+import LayoutExample from './pages/Layout';
+import HeadingExample from './pages/Heading';
+import TextExample from './pages/Text';
+import IconExample from './pages/Icon';
+import LabelSomethingExample from './pages/LabelSomething';
+import ButtonExample from './pages/Button';
+import InputExample from './pages/Input';
+import AccordionExample from './pages/Accordion';
+import RadioButtonExample from './pages/RadioButton';
+import RadioButtonGroupExample from './pages/RadioButtonGroup';
+import CheckboxExample from './pages/Checkbox';
+import CheckboxGroupExample from './pages/CheckboxGroup';
+import SelectExample from './pages/Select';
+import CounterExample from './pages/Counter';
+import ToggleButtonExample from './pages/ToggleButton';
+import ToggleSwitchExample from './pages/ToggleSwitch';
+import SnackbarExample from './pages/Snackbar';
+import SliderExample from './pages/Slider';
+import SliderMultiRangeExample from './pages/SliderMultiRange';
+import SeparatorExample from './pages/Separator';
+import ListExample from './pages/List';
+import TableExample from './pages/Table';
+import CardExample from './pages/Card';
+import TreeExample from './pages/Tree';
+import ProgressLoaderExample from './pages/ProgressLoader';
+import SpinnerExample from './pages/Spinner';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -81,7 +78,6 @@ export const router = createBrowserRouter(
       <Route path="/table" element={<TableExample />} />
       <Route path="/card" element={<CardExample />} />
       <Route path="/tree" element={<TreeExample />} />
-      <Route path="/hooks" element={<HooksExample />} />
       <Route path="/progressloader" element={<ProgressLoaderExample />} />
       <Route path="/spinner" element={<SpinnerExample />} />
       <Route path="/404" element={<NotFound />} />

@@ -1,6 +1,5 @@
-import React from 'react'
-import Heading from '../components/Heading'
-import Text from '../components/Text'
+import React from 'react';
+import { Heading, Text } from 'swagfingerui';
 
 const GettingStarted = () => {
   return (
@@ -8,7 +7,7 @@ const GettingStarted = () => {
       <Heading variation="h4">Getting Started</Heading>
       <Text>Getting started</Text>
     </div>
-  )
-}
+  );
+};
 
-export default GettingStarted
+export default GettingStarted;

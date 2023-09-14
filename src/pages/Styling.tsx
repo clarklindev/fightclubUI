@@ -1,6 +1,5 @@
-import React from 'react'
-import Heading from '../components/Heading'
-import Text from '../components/Text'
+import React from 'react';
+import { Heading, Text } from 'swagfingerui';
 
 const Styling = () => {
   return (
@@ -23,6 +22,6 @@ const Styling = () => {
         <br />
       </Text>
     </>
-  )
-}
-export default Styling
+  );
+};
+export default Styling;

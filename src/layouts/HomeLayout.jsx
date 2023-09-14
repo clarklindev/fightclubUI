@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from 'react'
-import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom'
+import React, { useState, useEffect } from 'react';
+import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom';
+import styled from 'styled-components';
+import { Icon, Button, Heading, ToggleDarkMode } from 'swagfingerui';
+import { GithubIcon } from 'swagfingerui/icons';
 
-import styled from 'styled-components'
-import Logo from '../assets/logo'
-import GithubIcon from '../icons/GithubIcon'
-import Icon from '../components/Icon'
-import Button from '../components/Button'
-import ToggleDarkMode from '../components/ToggleDarkMode'
-import Heading from '../components/Heading'
+import Logo from '../assets/logo';
 
 const HomeLayoutContainer = styled.div`
   display: grid;
@@ -100,10 +97,10 @@ const HomeLayoutContainer = styled.div`
     overflow-y: auto;
     padding: 40px;
   }
-`
+`;
 
 export const HomeLayout = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
     <HomeLayoutContainer>
@@ -124,8 +121,7 @@ export const HomeLayout = () => {
           <Link
             to="https://github.com/swagfinger/swagfinger-ui"
             target="_blank"
-            aria-label="github repo"
-          >
+            aria-label="github repo">
             <Icon size="25px" fillOpacity="1">
               <GithubIcon />
             </Icon>
@@ -177,5 +173,5 @@ export const HomeLayout = () => {
         <Outlet />
       </main>
     </HomeLayoutContainer>
-  )
-}
+  );
+};
