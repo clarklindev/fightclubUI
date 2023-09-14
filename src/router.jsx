@@ -9,7 +9,6 @@ import {
 
 // layouts
 import { HomeLayout } from './layouts/HomeLayout';
-
 // pages
 import Introduction from './pages/Introduction';
 import GettingStarted from './pages/GettingStarted';
@@ -17,7 +16,6 @@ import Routing from './pages/Routing';
 import Styling from './pages/Styling';
 import Themes from './pages/Themes';
 import NotFound from './pages/NotFound';
-
 import LayoutExample from './pages/Layout';
 import HeadingExample from './pages/Heading';
 import TextExample from './pages/Text';

@@ -18,7 +18,6 @@ export default ({ command, mode }) => {
           path.dirname(url.fileURLToPath(import.meta.url)),
           './src/main.tsx',
         ),
-        name: 'mylib',
         fileName: 'swagfingerui', // defaults to package name
         formats: ['es'],
       },
