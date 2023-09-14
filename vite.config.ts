@@ -5,6 +5,11 @@ import path from 'path';
 export default defineConfig({
   base: '/',
   plugins: [react(), splitVendorChunkPlugin()],
+  resolve: {
+    alias: {
+      swagfingerui: 'swagfingerui/src',
+    },
+  },
   build: {
     target: 'modules', //modules is the default - it support native esmodules / dynamic loading
     lib: {
