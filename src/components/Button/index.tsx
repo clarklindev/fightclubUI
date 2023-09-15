@@ -87,7 +87,7 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
   onClick?: () => void;
 }
 
-export const Button = ({
+export const Button: React.FC<ButtonVariants> = ({
   intent,
   size,
   className,
@@ -95,7 +95,7 @@ export const Button = ({
   ariaLabel,
   children,
   ...rest
-}: ButtonVariants) => {
+}) => {
   const theme = useTheme() as ThemeType;
 
   const classes = twMerge(

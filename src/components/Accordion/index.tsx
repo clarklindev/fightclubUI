@@ -132,6 +132,8 @@ export const Accordion: React.FC<AccordionProps> = ({
   );
 };
 
+//------------------------------------------------------------------------------------------------------------------------------------------------
+
 // AccordionSection
 const AccordionSectionHeader = styled.div`
   box-sizing: border-box;

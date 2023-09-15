@@ -1,17 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const CardContainer = styled.div`
-  border: ${({ borderColor, theme }) =>
-    borderColor
-      ? `1px solid ${borderColor}`
-      : `1px solid ${theme.borderColor}`};
-  border-radius: ${({ borderRadius }) => borderRadius};
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
-  padding: 15px;
-`;
-
 export const Card = ({
   color = 'white',
   borderColor = 'black',
@@ -31,3 +20,14 @@ export const Card = ({
     </CardContainer>
   );
 };
+
+const CardContainer = styled.div`
+  border: ${({ borderColor, theme }) =>
+    borderColor
+      ? `1px solid ${borderColor}`
+      : `1px solid ${theme.borderColor}`};
+  border-radius: ${({ borderRadius }) => borderRadius};
+  width: ${({ width }) => width};
+  height: ${({ height }) => height};
+  padding: 15px;
+`;
