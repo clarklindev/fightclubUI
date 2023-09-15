@@ -1,15 +1,12 @@
 {
   "name": "swagfingerui",
   "private": false,
-  "version": "0.0.30",
+  "version": "0.0.31",
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "exports": {
-    ".": {
-      "import": "./dist/my-lib.js",
-      "require": "./dist/my-lib.umd.cjs"
-    }
+    ".": "./dist/my-lib.js"
   },
   "scripts": {
     "tailwind": "postcss src/App.css -o public/build/tailwind.css",

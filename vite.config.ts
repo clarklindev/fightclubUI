@@ -11,7 +11,7 @@ export default ({ command }) => {
       lib: {
         entry: path.resolve(__dirname, 'src/main.tsx'),
         fileName: 'index', // defaults to package name
-        formats: ['es', 'cjs'],
+        formats: ['es'],
       },
       sourcemap: true,
       rollupOptions: {
