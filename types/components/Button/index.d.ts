@@ -9,6 +9,6 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
     children: React.ReactNode;
     onClick?: () => void;
 }
-export declare const Button: ({ intent, size, className, onClick, ariaLabel, children, ...rest }: ButtonVariants) => import("react/jsx-runtime").JSX.Element;
+export declare const Button: React.FC<ButtonVariants>;
 export {};
 //# sourceMappingURL=index.d.ts.map

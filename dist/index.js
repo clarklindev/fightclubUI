@@ -2517,52 +2517,7 @@ const O = zr, hs = () => /* @__PURE__ */ f.jsx(
       }
     )
   }
-), Ko = O.div`
-  box-sizing: border-box;
-  cursor: pointer;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--clr-foreground);
-
-  margin-bottom: 0px;
-  margin-top: 0px;
-
-  &[data-separator='true'] {
-    margin-bottom: 15px;
-    margin-top: 15px;
-  }
-`, Zo = O.div`
-  display: flex;
-  flex-grow: 1;
-  justify-content: space-between;
-  align-items: center;
-`, Jo = O.div`
-  overflow: hidden;
-  color: ${({ theme: e }) => {
-  var r, t;
-  return e && ((t = (r = e == null ? void 0 : e.Accordion) == null ? void 0 : r.content) == null ? void 0 : t.color) || "var()";
-}};
-
-  &[data-expanded='false'] {
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.1s ease-in-out;
-    max-height: 0px;
-  }
-
-  &[data-expanded='true'] {
-    visibility: visible;
-    opacity: 1;
-    transition: all 0.1s ease-in-out;
-    max-height: ${({ scrollHeight: e }) => e + "px"};
-  }
-`, Qo = O.div`
-  padding: 20px 0;
-
-  &[data-separator='true'] {
-    padding: 0 0 20px 0;
-  }
-`, js = ({
+), js = ({
   data: e,
   multiOpen: r = !0,
   iconType: t = "plusminus",
@@ -2639,7 +2594,52 @@ const O = zr, hs = () => /* @__PURE__ */ f.jsx(
       n && /* @__PURE__ */ f.jsx(oi, {})
     ] }, d);
   }) });
-}, $t = (e) => typeof e == "boolean" ? "".concat(e) : e === 0 ? "0" : e, It = function() {
+}, Ko = O.div`
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--clr-foreground);
+
+  margin-bottom: 0px;
+  margin-top: 0px;
+
+  &[data-separator='true'] {
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+`, Zo = O.div`
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+`, Jo = O.div`
+  overflow: hidden;
+  color: ${({ theme: e }) => {
+  var r, t;
+  return e && ((t = (r = e == null ? void 0 : e.Accordion) == null ? void 0 : r.content) == null ? void 0 : t.color) || "var()";
+}};
+
+  &[data-expanded='false'] {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.1s ease-in-out;
+    max-height: 0px;
+  }
+
+  &[data-expanded='true'] {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.1s ease-in-out;
+    max-height: ${({ scrollHeight: e }) => e + "px"};
+  }
+`, Qo = O.div`
+  padding: 20px 0;
+
+  &[data-separator='true'] {
+    padding: 0 0 20px 0;
+  }
+`, $t = (e) => typeof e == "boolean" ? "".concat(e) : e === 0 ? "0" : e, It = function() {
   for (var e = arguments.length, r = new Array(e), t = 0; t < e; t++)
     r[t] = arguments[t];
   return r.flat(1 / 0).filter(Boolean).join(" ");
@@ -5072,13 +5072,7 @@ const Aa = Qr(
       children: a
     }
   );
-}, _a = O.div`
-  border: ${({ borderColor: e, theme: r }) => e ? `1px solid ${e}` : `1px solid ${r.borderColor}`};
-  border-radius: ${({ borderRadius: e }) => e};
-  width: ${({ width: e }) => e};
-  height: ${({ height: e }) => e};
-  padding: 15px;
-`, Ps = ({
+}, Ps = ({
   color: e = "white",
   borderColor: r = "black",
   borderRadius: t = "10px",
@@ -5095,7 +5089,13 @@ const Aa = Qr(
     height: o,
     children: a
   }
-), ja = O.label`
+), _a = O.div`
+  border: ${({ borderColor: e, theme: r }) => e ? `1px solid ${e}` : `1px solid ${r.borderColor}`};
+  border-radius: ${({ borderRadius: e }) => e};
+  width: ${({ width: e }) => e};
+  height: ${({ height: e }) => e};
+  padding: 15px;
+`, ja = O.label`
   display: flex;
   flex-direction: row;
   align-items: center;

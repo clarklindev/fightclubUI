@@ -3,6 +3,8 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 
 export default ({ command }) => {
+  const isServe = command === 'serve';
+
   return defineConfig({
     base: '/',
     plugins: [react()],
