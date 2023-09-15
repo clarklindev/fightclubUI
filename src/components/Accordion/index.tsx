@@ -9,66 +9,12 @@ import {
   MinusSmallIcon,
 } from '../../icons';
 
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
 export type AccordionDataType = {
   title: string;
   body: React.ReactElement | string;
 };
-
-// AccordionSection
-const AccordionSectionHeader = styled.div`
-  box-sizing: border-box;
-  cursor: pointer;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--clr-foreground);
-
-  margin-bottom: 0px;
-  margin-top: 0px;
-
-  &[data-separator='true'] {
-    margin-bottom: 15px;
-    margin-top: 15px;
-  }
-`;
-
-const AccordionSectionTitle = styled.div`
-  display: flex;
-  flex-grow: 1;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-const AccordionSectionPanel = styled.div<{
-  scrollHeight: string;
-}>`
-  overflow: hidden;
-  color: ${({ theme }) =>
-    (theme && theme?.Accordion?.content?.color) || 'var()'};
-
-  &[data-expanded='false'] {
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.1s ease-in-out;
-    max-height: 0px;
-  }
-
-  &[data-expanded='true'] {
-    visibility: visible;
-    opacity: 1;
-    transition: all 0.1s ease-in-out;
-    max-height: ${({ scrollHeight }) => scrollHeight + 'px'};
-  }
-`;
-
-const AccordionSectionPanelContent = styled.div`
-  padding: 20px 0;
-
-  &[data-separator='true'] {
-    padding: 0 0 20px 0;
-  }
-`;
-
-// ------------------------------------------------------------------------------------------------------------------------------------------------
 
 type AccordionIconType = 'plusminus' | 'hidden' | 'chevron';
 
@@ -185,3 +131,57 @@ export const Accordion: React.FC<AccordionProps> = ({
     </div>
   );
 };
+
+// AccordionSection
+const AccordionSectionHeader = styled.div`
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--clr-foreground);
+
+  margin-bottom: 0px;
+  margin-top: 0px;
+
+  &[data-separator='true'] {
+    margin-bottom: 15px;
+    margin-top: 15px;
+  }
+`;
+
+const AccordionSectionTitle = styled.div`
+  display: flex;
+  flex-grow: 1;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const AccordionSectionPanel = styled.div<{
+  scrollHeight: string;
+}>`
+  overflow: hidden;
+  color: ${({ theme }) =>
+    (theme && theme?.Accordion?.content?.color) || 'var()'};
+
+  &[data-expanded='false'] {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.1s ease-in-out;
+    max-height: 0px;
+  }
+
+  &[data-expanded='true'] {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.1s ease-in-out;
+    max-height: ${({ scrollHeight }) => scrollHeight + 'px'};
+  }
+`;
+
+const AccordionSectionPanelContent = styled.div`
+  padding: 20px 0;
+
+  &[data-separator='true'] {
+    padding: 0 0 20px 0;
+  }
+`;
