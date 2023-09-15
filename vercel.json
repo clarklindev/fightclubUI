@@ -1,12 +1,3 @@
 {
-  "rewrites": [
-    {
-      "source": "/src/index.ts",
-      "destination": "/src/main.tsx"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
