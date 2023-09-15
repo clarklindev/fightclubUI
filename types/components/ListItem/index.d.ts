@@ -4,3 +4,4 @@ export declare const ListItem: React.FC<{
     lastname: string;
     email: string;
 }>;
+//# sourceMappingURL=index.d.ts.map

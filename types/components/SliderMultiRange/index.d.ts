@@ -8,3 +8,4 @@ export function SliderMultiRange({ sliderValues, onChange, step, min, max, thumb
     backgroundColor?: string | undefined;
     width?: string | undefined;
 }): import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

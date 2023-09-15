@@ -14,3 +14,4 @@ type HeadingProps = {
 };
 export declare const Heading: React.FC<HeadingProps>;
 export {};
+//# sourceMappingURL=index.d.ts.map

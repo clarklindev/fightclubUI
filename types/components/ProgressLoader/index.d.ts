@@ -5,3 +5,4 @@ interface ProgressLoaderProps {
 }
 export declare const ProgressLoader: React.FC<ProgressLoaderProps>;
 export {};
+//# sourceMappingURL=index.d.ts.map

@@ -10,13 +10,18 @@ export default ({ command }) => {
       target: 'modules', //modules is the default - it support native esmodules / dynamic loading
       lib: {
         entry: path.resolve(__dirname, 'src/index.ts'),
+        name: 'swagfingerui',
         fileName: 'index', // defaults to package name
         formats: ['es'],
       },
       sourcemap: true,
       rollupOptions: {
+        external: ['react'],
         output: {
           exports: 'named',
+          globals: {
+            react: 'react',
+          },
         },
       },
     },

@@ -3,3 +3,4 @@ export function CheckboxGroup({ direction, spacing, children, }: {
     spacing?: string | undefined;
     children: any;
 }): import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

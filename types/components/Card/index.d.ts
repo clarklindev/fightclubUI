@@ -6,3 +6,4 @@ export function Card({ color, borderColor, borderRadius, width, height, children
     height?: string | undefined;
     children: any;
 }): import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

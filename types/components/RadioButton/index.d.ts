@@ -5,3 +5,4 @@ export function RadioButton({ checked, name, label, onChange, iconSize }: {
     onChange: any;
     iconSize: any;
 }): import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

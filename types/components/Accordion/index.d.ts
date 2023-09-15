@@ -12,3 +12,4 @@ type AccordionProps = {
 };
 export declare const Accordion: React.FC<AccordionProps>;
 export {};
+//# sourceMappingURL=index.d.ts.map

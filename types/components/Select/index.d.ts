@@ -3,3 +3,4 @@ export function Select({ savedData, onChange, children }: {
     onChange: any;
     children: any;
 }): import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

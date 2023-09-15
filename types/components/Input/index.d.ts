@@ -19,3 +19,4 @@ interface Props {
 }
 export declare const InputWrapper: ({ children }: Props) => import("react/jsx-runtime").JSX.Element;
 export {};
+//# sourceMappingURL=index.d.ts.map

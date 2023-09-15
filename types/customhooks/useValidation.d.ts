@@ -3,3 +3,4 @@ export function checkValidity(value: any, rules: any): true | {
     errors: string[];
 };
 export default checkValidity;
+//# sourceMappingURL=useValidation.d.ts.map

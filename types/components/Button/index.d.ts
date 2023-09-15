@@ -11,3 +11,4 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
 }
 export declare const Button: ({ intent, size, className, onClick, ariaLabel, children, ...rest }: ButtonVariants) => import("react/jsx-runtime").JSX.Element;
 export {};
+//# sourceMappingURL=index.d.ts.map

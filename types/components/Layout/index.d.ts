@@ -11,3 +11,4 @@ interface LayoutProps {
 }
 export declare const Layout: React.FC<LayoutProps>;
 export {};
+//# sourceMappingURL=index.d.ts.map

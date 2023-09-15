@@ -4,3 +4,4 @@ interface SpinnerProps {
 }
 export declare const Spinner: React.FC<SpinnerProps>;
 export {};
+//# sourceMappingURL=index.d.ts.map

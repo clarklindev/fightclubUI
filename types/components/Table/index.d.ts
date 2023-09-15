@@ -3,3 +3,4 @@ export function Table({ headers, data, configure }: {
     data: any;
     configure: any;
 }): import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

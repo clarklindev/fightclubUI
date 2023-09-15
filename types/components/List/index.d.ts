@@ -4,3 +4,4 @@ interface ListProps {
 }
 export declare const List: React.FC<ListProps>;
 export {};
+//# sourceMappingURL=index.d.ts.map

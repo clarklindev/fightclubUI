@@ -9,3 +9,4 @@ interface LabelSomethingProps {
 }
 export declare const LabelSomething: React.FC<LabelSomethingProps>;
 export {};
+//# sourceMappingURL=index.d.ts.map

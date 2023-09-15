@@ -4,3 +4,4 @@ export function ToggleButton({ checked, onChange, icon, children }: {
     icon: any;
     children: any;
 }): import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
     "target": "ESNext",
+    "module": "ESNext",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "useDefineForClassFields": true,
-    "module": "ESNext",
     "skipLibCheck": true,
     "declaration": true, //declaration files
+    "declarationMap": true,
     "outDir": "./dist",
+    "types": ["node"],
     "declarationDir": "./types",
-
+    "esModuleInterop": true,
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
@@ -25,5 +27,6 @@
     "noFallthroughCasesInSwitch": true
   },
   "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -183,3 +183,4 @@ export declare const lightTheme: {
         backgroundColor: string;
     };
 };
+//# sourceMappingURL=LightTheme.d.ts.map

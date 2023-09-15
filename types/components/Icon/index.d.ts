@@ -7,3 +7,4 @@ export type IconProps = {
     children?: React.ReactNode;
 };
 export declare const Icon: React.FC<IconProps>;
+//# sourceMappingURL=index.d.ts.map

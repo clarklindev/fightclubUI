@@ -13,3 +13,4 @@ export function Slider({ width, hideTrack, trackClickable, min, max, step, index
     onChange: any;
     className: any;
 }): import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

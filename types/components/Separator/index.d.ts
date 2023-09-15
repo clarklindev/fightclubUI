@@ -9,3 +9,4 @@ type SeparatorProps = {
 };
 export declare const Separator: React.FC<SeparatorProps>;
 export {};
+//# sourceMappingURL=index.d.ts.map

@@ -6,3 +6,4 @@ export function Checkbox({ checked, name, label, onChange, iconSize, indetermina
     iconSize?: string | undefined;
     indeterminate?: boolean | undefined;
 }): import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=index.d.ts.map

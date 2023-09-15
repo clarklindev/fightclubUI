@@ -6,3 +6,4 @@ export declare const useTheme: () => {
 export declare const ThemeContextProvider: React.FC<{
     children: React.ReactNode;
 }>;
+//# sourceMappingURL=ThemeContext.d.ts.map
