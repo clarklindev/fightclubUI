@@ -9,7 +9,7 @@ export default ({ command }) => {
     build: {
       target: 'modules', //modules is the default - it support native esmodules / dynamic loading
       lib: {
-        entry: path.resolve(__dirname, 'src/main.tsx'),
+        entry: path.resolve(__dirname, 'src/index.ts'),
         fileName: 'index', // defaults to package name
         formats: ['es'],
       },

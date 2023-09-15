@@ -31,5 +31,3 @@ export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({
     </ThemeContext.Provider>
   );
 };
-
-export default ThemeContext;
