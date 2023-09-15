@@ -8,6 +8,7 @@
     "declaration": true, //declaration files
     "outDir": "./dist",
     "declarationDir": "./types",
+
     /* Bundler mode */
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
