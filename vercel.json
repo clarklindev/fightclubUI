@@ -1,12 +1,3 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "src/",
-      "use": "@vercel/node",
-      "config": { "maxLambdaSize": "50mb" },
-      "build": { "base": "src/", "cmd": "npm install && npm run dev" }
-    }
-  ],
-  "routes": [{ "src": "/(.*)", "dest": "index.html" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
