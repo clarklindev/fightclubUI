@@ -18,11 +18,6 @@ export default ({ command }) => {
         output: {
           exports: 'named',
         },
-        // Specify different input file for development
-        input:
-          command === 'serve'
-            ? path.resolve(__dirname, 'src/main.tsx')
-            : undefined,
       },
     },
   });
