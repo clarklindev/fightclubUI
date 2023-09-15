@@ -1,14 +1,12 @@
 {
   "rewrites": [
     {
+      "source": "/src/index.ts",
+      "destination": "/src/main.tsx"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/src/main.tsx",
-      "dest": "/index.html"
     }
   ]
 }
