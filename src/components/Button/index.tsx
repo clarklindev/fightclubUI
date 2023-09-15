@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
 import { ThemeType } from '../../themes/LightTheme';
 
-const buttonVariants = cva(
+const buttonVariants: any = cva(
   [
     'font-semibold',
     'border',
@@ -79,6 +79,8 @@ const buttonVariants = cva(
 );
 
 export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
+  intent?: string;
+  size?: string;
   className?: string;
   ariaLabel?: string;
   children: React.ReactNode;

@@ -2,7 +2,7 @@ import React, { ReactNode, forwardRef } from 'react';
 import { VariantProps, cva } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
 
-const inputVariants = cva(
+const inputVariants: any = cva(
   [
     'box-border',
     'cursor-text',
