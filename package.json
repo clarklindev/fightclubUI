@@ -1,7 +1,7 @@
 {
   "name": "swagfingerui",
   "private": false,
-  "version": "0.0.47",
+  "version": "0.0.48",
   "type": "module",
   "module": "dist/index.js",
   "types": "types/index.d.ts",
@@ -10,7 +10,8 @@
     "dev": "vite",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "build": "tsc && vite build --config vite.config.build.ts",
-    "preview": "vite build --config vite.config.preview.ts && vite preview --port 8080"
+    "build-preview": "tsc && vite build --config vite.config.preview.ts",
+    "preview": "vite preview port --8080"
   },
   "dependencies": {
     "class-variance-authority": "^0.5.2",
