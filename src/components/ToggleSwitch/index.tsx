@@ -3,6 +3,31 @@ import styled from 'styled-components';
 
 import { useUID } from '../../customhooks/useUID';
 
+type ToggleSwitchProps = {
+  color: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  savedData: boolean;
+};
+
+export const ToggleSwitch: React.FC<ToggleSwitchProps> = React.memo(
+  ({ color, onChange, savedData }) => {
+    const uniqueClassName = useUID('ToggleSwitch');
+
+    return (
+      <ToggleSwitchWrapper>
+        <ToggleSwitchInput type="checkbox" defaultChecked={savedData} onChange={onChange} />
+        <Slider className={uniqueClassName} color={color} />
+      </ToggleSwitchWrapper>
+    );
+  },
+  // what will cause this component to re-render - excludes onChange function
+  (prev, next) => {
+    return prev.savedData === next.savedData && prev.color === next.color;
+  },
+);
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
 const ToggleSwitchWrapper = styled.label`
   position: relative;
   display: inline-block;
@@ -52,24 +77,3 @@ const Slider = styled.span`
     transform: translateX(30px);
   }
 `;
-
-export const ToggleSwitch = React.memo(
-  ({ color, onChange, savedData }) => {
-    const uniqueClassName = useUID('ToggleSwitch');
-
-    return (
-      <ToggleSwitchWrapper>
-        <ToggleSwitchInput
-          type="checkbox"
-          defaultChecked={savedData}
-          onChange={onChange}
-        />
-        <Slider className={uniqueClassName} color={color} />
-      </ToggleSwitchWrapper>
-    );
-  },
-  // what will cause this component to re-render - excludes onChange function
-  (prev, next) => {
-    return prev.savedData === next.savedData && prev.color === next.color;
-  },
-);

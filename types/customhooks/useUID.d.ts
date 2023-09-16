@@ -1,2 +1,2 @@
-export function useUID(identifier?: string): null;
+export declare function useUID(identifier?: string): null;
 //# sourceMappingURL=useUID.d.ts.map

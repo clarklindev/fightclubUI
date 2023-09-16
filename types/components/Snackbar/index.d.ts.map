@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/Snackbar/index.jsx"],"names":[],"mappings":"AAqEO;;;4CAqBN"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/Snackbar/index.tsx"],"names":[],"mappings":"AAAA,OAAO,KAA8B,MAAM,OAAO,CAAC;AAGnD,KAAK,aAAa,GAAG;IACnB,eAAe,EAAE,CAAC,IAAI,EAAE,OAAO,KAAK,IAAI,CAAC;IACzC,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B,CAAC;AAEF,eAAO,MAAM,QAAQ,EAAE,KAAK,CAAC,EAAE,CAAC,aAAa,CAiB5C,CAAC"}

@@ -4,6 +4,31 @@ import styled from 'styled-components';
 import { Icon } from '../';
 import { ChevronDownIcon } from '../../icons';
 
+type SelectProps = {
+  savedData: any;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+  children: React.ReactNode[];
+};
+
+export const Select: React.FC<SelectProps> = ({ savedData, onChange, children }) => {
+  return (
+    <SelectWrapper>
+      <SelectContainer value={savedData} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => onChange(event)}>
+        {children
+          ? children.map(each => {
+              return each;
+            })
+          : null}
+      </SelectContainer>
+      <Icon size="30px">
+        <ChevronDownIcon />
+      </Icon>
+    </SelectWrapper>
+  );
+};
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
 const SelectWrapper = styled.div`
   position: relative;
   display: flex;
@@ -33,24 +58,3 @@ const SelectContainer = styled.select`
   padding: ${({ theme }) => theme?.Select?.inputPadding};
   
 }`;
-
-export const Select = ({ savedData, onChange, children }) => {
-  const onChangeHandler = event => {
-    onChange(event);
-  };
-
-  return (
-    <SelectWrapper>
-      <SelectContainer value={savedData} onChange={onChangeHandler}>
-        {children
-          ? children.map(each => {
-              return each;
-            })
-          : null}
-      </SelectContainer>
-      <Icon className="Icon" iconSize="30px">
-        <ChevronDownIcon />
-      </Icon>
-    </SelectWrapper>
-  );
-};

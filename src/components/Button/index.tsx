@@ -21,31 +21,10 @@ const buttonVariants: any = cva(
   {
     variants: {
       intent: {
-        primary: [
-          'bg-blue-500',
-          'text-white',
-          'border-transparent',
-          'hover:bg-blue-600',
-        ],
-        secondary: [
-          'bg-white',
-          'text-gray-800',
-          'border-gray-400',
-          'hover:bg-gray-100',
-        ],
-        contained: [
-          'bg-gray-300',
-          'text-gray-700',
-          'border-gray-300',
-          'hover:bg-gray-400',
-        ],
-        outlined: [
-          'text-black',
-          'border-black',
-          'bg-transparent',
-          'hover:bg-gray-700',
-          'hover:text-white',
-        ],
+        primary: ['bg-blue-500', 'text-white', 'border-transparent', 'hover:bg-blue-600'],
+        secondary: ['bg-white', 'text-gray-800', 'border-gray-400', 'hover:bg-gray-100'],
+        contained: ['bg-gray-300', 'text-gray-700', 'border-gray-300', 'hover:bg-gray-400'],
+        outlined: ['text-black', 'border-black', 'bg-transparent', 'hover:bg-gray-700', 'hover:text-white'],
         text: ['border-transparent', 'underline'],
         icon: ['border-transparent'],
       },
@@ -84,7 +63,7 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
   className?: string;
   ariaLabel?: string;
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
 export const Button: React.FC<ButtonVariants> = ({

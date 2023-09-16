@@ -3,16 +3,7 @@ import { VariantProps, cva } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
 
 const inputVariants: any = cva(
-  [
-    'box-border',
-    'cursor-text',
-    'outline-none',
-    'w-full',
-    'p-2',
-    'rounded-md',
-    'h-10',
-    'bg-inputBackground',
-  ],
+  ['box-border', 'cursor-text', 'outline-none', 'w-full', 'p-2', 'rounded-md', 'h-10', 'bg-inputBackground'],
   {
     variants: {
       border: {
@@ -32,25 +23,25 @@ const inputVariants: any = cva(
 export interface InputVariants extends VariantProps<typeof inputVariants> {
   className?: string;
   tw?: string;
-  type: string;
+  type?: string;
   border?: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   savedData: string;
-  placeholder: string;
-  readonly: boolean;
-  onChange?: () => void;
+  placeholder?: string;
+  readonly?: boolean;
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputVariants>(function Input(
   {
     onChange,
-    border,
+    border = true,
     savedData,
-    placeholder,
+    placeholder = '',
     className,
-    readonly,
+    readonly = false,
     children,
-    type,
+    type = 'text',
     tw,
     ...rest
   }: InputVariants,
@@ -73,10 +64,10 @@ export const Input = forwardRef<HTMLInputElement, InputVariants>(function Input(
   );
 });
 
-interface Props {
+type InputProps = {
   children: ReactNode;
   tw?: string;
-}
+};
 
 const wrapperInputVariants = cva([
   'overflow-hidden',
@@ -97,7 +88,7 @@ const wrapperInputVariants = cva([
   'border-borderColor',
 ]);
 
-export const InputWrapper = ({ children }: Props) => {
+export const InputWrapper = ({ children }: InputProps) => {
   const wrapperClasses = twMerge(wrapperInputVariants());
 
   return <div className={wrapperClasses}>{children}</div>;

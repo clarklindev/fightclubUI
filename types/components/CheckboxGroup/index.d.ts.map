@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/CheckboxGroup/index.jsx"],"names":[],"mappings":"AAeO;;;;4CAaN"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/CheckboxGroup/index.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAG1B,KAAK,kBAAkB,GAAG;IACxB,SAAS,EAAE,MAAM,CAAC;IAClB,OAAO,EAAE,MAAM,CAAC;IAChB,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B,CAAC;AAEF,eAAO,MAAM,aAAa,EAAE,KAAK,CAAC,EAAE,CAAC,kBAAkB,CAMtD,CAAC"}

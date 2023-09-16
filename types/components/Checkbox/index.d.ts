@@ -1,9 +1,12 @@
-export function Checkbox({ checked, name, label, onChange, iconSize, indeterminate, }: {
-    checked: any;
-    name: any;
-    label: any;
-    onChange: any;
-    iconSize?: string | undefined;
-    indeterminate?: boolean | undefined;
-}): import("react/jsx-runtime").JSX.Element;
+import React from 'react';
+type CheckboxProps = {
+    checked: boolean;
+    name: string;
+    label: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    iconSize: string;
+    indeterminate: boolean;
+};
+export declare const Checkbox: React.FC<CheckboxProps>;
+export {};
 //# sourceMappingURL=index.d.ts.map

@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/ToggleSwitch/index.jsx"],"names":[],"mappings":"AAuDA,8DAmBE;kBA1EgB,OAAO"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/ToggleSwitch/index.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAK1B,KAAK,iBAAiB,GAAG;IACvB,KAAK,EAAE,MAAM,CAAC;IACd,QAAQ,EAAE,CAAC,KAAK,EAAE,KAAK,CAAC,WAAW,CAAC,gBAAgB,CAAC,KAAK,IAAI,CAAC;IAC/D,SAAS,EAAE,OAAO,CAAC;CACpB,CAAC;AAEF,eAAO,MAAM,YAAY,EAAE,KAAK,CAAC,EAAE,CAAC,iBAAiB,CAepD,CAAC"}

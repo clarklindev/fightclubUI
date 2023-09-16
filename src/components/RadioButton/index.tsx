@@ -4,6 +4,27 @@ import styled from 'styled-components';
 import { RadioButtonIcon } from '../../icons';
 import { Icon } from '../';
 
+type RadioButtonProps = {
+  checked: boolean;
+  name: string;
+  label: string;
+  iconSize: string;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
+
+export const RadioButton: React.FC<RadioButtonProps> = ({ checked, name, label, onChange, iconSize }) => {
+  return (
+    <RadioButtonContainer className="RadioButton">
+      <HiddenRadioButton checked={checked} onChange={onChange} name={name} />
+      <StyledRadioButton>
+        <Icon size={iconSize}>{checked && <RadioButtonIcon />}</Icon>
+      </StyledRadioButton>
+      {label}
+    </RadioButtonContainer>
+  );
+};
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
 const RadioButtonContainer = styled.label`
   display: flex;
   flex-direction: row;
@@ -37,15 +58,3 @@ const StyledRadioButton = styled.div`
   border: ${({ theme }) => theme?.RadioButton?.border};
   background-color: ${({ theme }) => theme?.RadioButton?.backgroundColor};
 `;
-
-export const RadioButton = ({ checked, name, label, onChange, iconSize }) => {
-  return (
-    <RadioButtonContainer className="RadioButton">
-      <HiddenRadioButton checked={checked} onChange={onChange} name={name} />
-      <StyledRadioButton checked={checked}>
-        <Icon size={iconSize}>{checked && <RadioButtonIcon />}</Icon>
-      </StyledRadioButton>
-      {label}
-    </RadioButtonContainer>
-  );
-};

@@ -1,5 +1,8 @@
-export function Counter({ savedData, onChange }: {
-    savedData: any;
-    onChange: any;
-}): import("react/jsx-runtime").JSX.Element;
+import React from 'react';
+type CounterProps = {
+    savedData: number;
+    onChange: (prop: number) => void;
+};
+export declare const Counter: React.FC<CounterProps>;
+export {};
 //# sourceMappingURL=index.d.ts.map

@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import { Icon, Button, Heading, ToggleDarkMode } from '../components';
 import { GithubIcon } from '../icons';
-import Logo from '../assets/logo';
+import { Logo } from '../assets/logo';
 
 const HomeLayoutContainer = styled.div`
   display: grid;

@@ -1,11 +1,14 @@
-export function SliderMultiRange({ sliderValues, onChange, step, min, max, thumbSize, backgroundColor, width, }: {
-    sliderValues: any;
-    onChange: any;
-    step?: number | undefined;
-    min?: number | undefined;
-    max?: number | undefined;
-    thumbSize?: string | undefined;
-    backgroundColor?: string | undefined;
-    width?: string | undefined;
-}): import("react/jsx-runtime").JSX.Element;
+import React from 'react';
+type SliderMultiRange = {
+    sliderValues: Array<Number>;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    step: number;
+    min: number;
+    max: number;
+    thumbSize: string;
+    backgroundColor: string;
+    width: string;
+};
+export declare const SliderMultiRange: React.FC<SliderMultiRange>;
+export {};
 //# sourceMappingURL=index.d.ts.map

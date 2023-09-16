@@ -1,2 +1,4 @@
-export declare const ToggleDarkMode: () => import("react/jsx-runtime").JSX.Element;
+type ToggleDarkMode = {};
+export declare const ToggleDarkMode: React.FC<ToggleDarkMode>;
+export {};
 //# sourceMappingURL=index.d.ts.map

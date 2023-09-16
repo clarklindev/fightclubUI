@@ -1,4 +1,4 @@
-export function useFocus(): (boolean | {
+export declare const useFocus: () => (boolean | {
     onFocus: () => void;
     onBlur: () => void;
 })[];

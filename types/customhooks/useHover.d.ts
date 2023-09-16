@@ -1,4 +1,4 @@
-export function useHover(): (boolean | {
+export declare const useHover: () => (boolean | {
     onMouseOver: () => void;
     onMouseOut: () => void;
 })[];

@@ -1,6 +1,9 @@
-export function Select({ savedData, onChange, children }: {
+import React from 'react';
+type SelectProps = {
     savedData: any;
-    onChange: any;
-    children: any;
-}): import("react/jsx-runtime").JSX.Element;
+    onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+    children: React.ReactNode[];
+};
+export declare const Select: React.FC<SelectProps>;
+export {};
 //# sourceMappingURL=index.d.ts.map

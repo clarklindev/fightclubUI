@@ -11,6 +11,34 @@ type SeparatorProps = {
   label?: string;
 };
 
+export const Separator: React.FC<SeparatorProps> = ({
+  variation = 'horizontal',
+  margin = '0px',
+  height = 'inherit',
+  width = 'inherit',
+  label = undefined,
+}: SeparatorProps) => {
+  switch (variation) {
+    case 'horizontal':
+      return <SeparatorHorizontal className="Separator" height={height} width={width} margin={margin} />;
+
+    case 'vertical':
+      return <SeparatorVertical className="Separator" height={height} width={width} margin={margin} />;
+
+    case 'horizontal-labelled':
+      return (
+        <SeparatorHorizontalLabelled className="Separator" height={height} width={width} margin={margin}>
+          <span>{label}</span>
+        </SeparatorHorizontalLabelled>
+      );
+
+    default:
+      return null;
+  }
+};
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
 const SeparatorContainer = styled.div`
   box-sizing: border-box;
   display: flex;
@@ -66,47 +94,3 @@ const SeparatorHorizontalLabelled = styled(SeparatorContainer)<{
     height: 1px;
   }
 `;
-
-export const Separator: React.FC<SeparatorProps> = ({
-  variation = 'horizontal',
-  margin = '0px',
-  height = 'inherit',
-  width = 'inherit',
-  label = undefined,
-}: SeparatorProps) => {
-  switch (variation) {
-    case 'horizontal':
-      return (
-        <SeparatorHorizontal
-          className="Separator"
-          height={height}
-          width={width}
-          margin={margin}
-        />
-      );
-
-    case 'vertical':
-      return (
-        <SeparatorVertical
-          className="Separator"
-          height={height}
-          width={width}
-          margin={margin}
-        />
-      );
-
-    case 'horizontal-labelled':
-      return (
-        <SeparatorHorizontalLabelled
-          className="Separator"
-          height={height}
-          width={width}
-          margin={margin}>
-          <span>{label}</span>
-        </SeparatorHorizontalLabelled>
-      );
-
-    default:
-      return null;
-  }
-};

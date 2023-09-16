@@ -1,5 +1,8 @@
-export function Snackbar({ setShowSnackbar, children }: {
-    setShowSnackbar: any;
-    children: any;
-}): import("react/jsx-runtime").JSX.Element;
+import React from 'react';
+type SnackbarProps = {
+    setShowSnackbar: (prop: boolean) => void;
+    children: React.ReactNode;
+};
+export declare const Snackbar: React.FC<SnackbarProps>;
+export {};
 //# sourceMappingURL=index.d.ts.map

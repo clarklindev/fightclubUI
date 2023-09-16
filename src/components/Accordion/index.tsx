@@ -2,12 +2,7 @@ import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 
 import { Icon, Separator } from '../';
-import {
-  ChevronUpIcon,
-  ChevronDownIcon,
-  PlusSmallIcon,
-  MinusSmallIcon,
-} from '../../icons';
+import { ChevronUpIcon, ChevronDownIcon, PlusSmallIcon, MinusSmallIcon } from '../../icons';
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -102,9 +97,7 @@ export const Accordion: React.FC<AccordionProps> = ({
                   {each.title}
                   {iconType !== 'hidden' && (
                     <Icon size="30px">
-                      {indexes.includes(index)
-                        ? iconMap[iconType].open
-                        : iconMap[iconType].closed}
+                      {indexes.includes(index) ? iconMap[iconType].open : iconMap[iconType].closed}
                     </Icon>
                   )}
                 </AccordionSectionTitle>
@@ -118,8 +111,7 @@ export const Accordion: React.FC<AccordionProps> = ({
                 ref={panelRef}
                 data-expanded={indexes.includes(index) ? 'true' : 'false'}
                 scrollHeight={String(panelRef?.current?.scrollHeight)}>
-                <AccordionSectionPanelContent
-                  data-separator={showSeparator ? 'true' : 'false'}>
+                <AccordionSectionPanelContent data-separator={showSeparator ? 'true' : 'false'}>
                   {each.body}
                 </AccordionSectionPanelContent>
               </AccordionSectionPanel>
@@ -162,8 +154,7 @@ const AccordionSectionPanel = styled.div<{
   scrollHeight: string;
 }>`
   overflow: hidden;
-  color: ${({ theme }) =>
-    (theme && theme?.Accordion?.content?.color) || 'var()'};
+  color: ${({ theme }) => (theme && theme?.Accordion?.content?.color) || 'var()'};
 
   &[data-expanded='false'] {
     visibility: hidden;

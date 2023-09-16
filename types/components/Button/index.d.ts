@@ -7,7 +7,7 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
     className?: string;
     ariaLabel?: string;
     children: React.ReactNode;
-    onClick?: () => void;
+    onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 export declare const Button: React.FC<ButtonVariants>;
 export {};

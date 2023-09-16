@@ -1,1 +1,1 @@
-{"version":3,"file":"useValidation.d.ts","sourceRoot":"","sources":["../../src/customhooks/useValidation.js"],"names":[],"mappings":"AAAO;;;EAkFN"}
+{"version":3,"file":"useValidation.d.ts","sourceRoot":"","sources":["../../src/customhooks/useValidation.ts"],"names":[],"mappings":"AAAA,eAAO,MAAM,aAAa;;;CAkFzB,CAAC;AAEF,eAAe,aAAa,CAAC"}

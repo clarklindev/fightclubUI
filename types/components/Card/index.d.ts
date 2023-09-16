@@ -1,9 +1,12 @@
-export function Card({ color, borderColor, borderRadius, width, height, children, }: {
-    color?: string | undefined;
-    borderColor?: string | undefined;
-    borderRadius?: string | undefined;
-    width?: string | undefined;
-    height?: string | undefined;
-    children: any;
-}): import("react/jsx-runtime").JSX.Element;
+import React from 'react';
+type CardProps = {
+    children: React.ReactNode;
+    color?: string;
+    borderColor?: string;
+    borderRadius?: string;
+    width?: string;
+    height?: string;
+};
+export declare const Card: React.FC<CardProps>;
+export {};
 //# sourceMappingURL=index.d.ts.map

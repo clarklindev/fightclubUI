@@ -7,7 +7,25 @@ export type IconProps = {
   stroke?: string;
   fillOpacity?: string;
   children?: React.ReactNode;
+  className?: string;
 };
+
+export const Icon: React.FC<IconProps> = ({
+  stroke = 'currentColor',
+  children,
+  size = '25px',
+  fill = undefined,
+  fillOpacity,
+  ...rest
+}) => {
+  return (
+    <IconContainer className="Icon" size={size} stroke={stroke} fill={fill} fillOpacity={fillOpacity} {...rest}>
+      {children}
+    </IconContainer>
+  );
+};
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
 
 const IconContainer = styled.div<
   Omit<IconProps, 'children'> & {
@@ -31,24 +49,3 @@ const IconContainer = styled.div<
     fill-opacity: ${({ fillOpacity }) => fillOpacity};
   }
 `;
-
-export const Icon: React.FC<IconProps> = ({
-  stroke = 'currentColor',
-  children,
-  size = '25px',
-  fill = undefined,
-  fillOpacity,
-  ...rest
-}) => {
-  return (
-    <IconContainer
-      className="Icon"
-      size={size}
-      stroke={stroke}
-      fill={fill}
-      fillOpacity={fillOpacity}
-      {...rest}>
-      {children}
-    </IconContainer>
-  );
-};

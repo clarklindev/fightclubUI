@@ -4,19 +4,19 @@ declare const inputVariants: any;
 export interface InputVariants extends VariantProps<typeof inputVariants> {
     className?: string;
     tw?: string;
-    type: string;
+    type?: string;
     border?: boolean;
-    children: React.ReactNode;
+    children?: React.ReactNode;
     savedData: string;
-    placeholder: string;
-    readonly: boolean;
-    onChange?: () => void;
+    placeholder?: string;
+    readonly?: boolean;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 export declare const Input: React.ForwardRefExoticComponent<InputVariants & React.RefAttributes<HTMLInputElement>>;
-interface Props {
+type InputProps = {
     children: ReactNode;
     tw?: string;
-}
-export declare const InputWrapper: ({ children }: Props) => import("react/jsx-runtime").JSX.Element;
+};
+export declare const InputWrapper: ({ children }: InputProps) => import("react/jsx-runtime").JSX.Element;
 export {};
 //# sourceMappingURL=index.d.ts.map

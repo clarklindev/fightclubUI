@@ -1,8 +1,11 @@
-export function RadioButton({ checked, name, label, onChange, iconSize }: {
-    checked: any;
-    name: any;
-    label: any;
-    onChange: any;
-    iconSize: any;
-}): import("react/jsx-runtime").JSX.Element;
+import React from 'react';
+type RadioButtonProps = {
+    checked: boolean;
+    name: string;
+    label: string;
+    iconSize: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+};
+export declare const RadioButton: React.FC<RadioButtonProps>;
+export {};
 //# sourceMappingURL=index.d.ts.map

@@ -1,6 +1,25 @@
 import React from 'react';
 
-export const Table = ({ headers, data, configure }) => {
+type Header = {
+  header: string;
+  headerIndex: number;
+  width: string;
+  alignHeader: 'center' | 'left' | 'right' | 'justify' | 'char' | undefined;
+  title: string;
+};
+
+type TableProps = {
+  headers: Array<Header>;
+  data: {
+    item: any;
+    rowIndex: number;
+  };
+  configure: {
+    padding: string;
+  };
+};
+
+export const Table: React.FC<TableProps> = ({ headers, data, configure }) => {
   return (
     <table className="border">
       <thead>
@@ -24,10 +43,7 @@ export const Table = ({ headers, data, configure }) => {
             <tr key={rowindex}>
               {headers.map((header, dataindex) => {
                 return (
-                  <td
-                    className={configure.padding}
-                    align={header['alignContent']}
-                    key={dataindex}>
+                  <td className={configure.padding} align={header['alignContent']} key={dataindex}>
                     {item[header['mapToDataAttribute']]}
                   </td>
                 );

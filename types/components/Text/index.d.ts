@@ -1,5 +1,7 @@
-export function Text({ children, ...rest }: {
-    [x: string]: any;
+import React from 'react';
+type TextProps = {
     children: any;
-}): import("react/jsx-runtime").JSX.Element;
+};
+export declare const Text: React.FC<TextProps>;
+export {};
 //# sourceMappingURL=index.d.ts.map

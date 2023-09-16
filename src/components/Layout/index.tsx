@@ -3,9 +3,29 @@ import styled from 'styled-components';
 
 import { ThemeType } from '../../themes/LightTheme';
 
-// ---------------------------------------------------------------------------------------------------------------------
-
 type LayoutStyledComponentProps = { theme?: ThemeType };
+
+type LayoutVariationType = keyof typeof LayoutVariation;
+type LayoutStyledComponentType = typeof LayoutSection | typeof LayoutBlock;
+
+type LayoutProps = {
+  variation: LayoutVariationType;
+  label?: string;
+  children?: React.ReactNode;
+};
+
+export const Layout: React.FC<LayoutProps> = ({ label, children, variation }: LayoutProps) => {
+  const layoutMap: Record<LayoutVariationType, LayoutStyledComponentType> = {
+    section: LayoutSection,
+    block: LayoutBlock,
+  };
+
+  const Component = layoutMap[variation];
+
+  return <Component>{label ? label : children}</Component>;
+};
+
+// ---------------------------------------------------------------------------------------------------------------------
 
 const LayoutSection = styled.section<LayoutStyledComponentProps>`
   box-sizing: border-box;
@@ -22,29 +42,3 @@ enum LayoutVariation {
   section = 'section',
   block = 'block',
 }
-
-// ---------------------------------------------------------------------------------------------------------------------
-
-type LayoutVariationType = keyof typeof LayoutVariation;
-type LayoutStyledComponentType = typeof LayoutSection | typeof LayoutBlock;
-
-interface LayoutProps {
-  variation: LayoutVariationType;
-  label?: string;
-  children?: React.ReactNode;
-}
-
-export const Layout: React.FC<LayoutProps> = ({
-  label,
-  children,
-  variation,
-}: LayoutProps) => {
-  const layoutMap: Record<LayoutVariationType, LayoutStyledComponentType> = {
-    section: LayoutSection,
-    block: LayoutBlock,
-  };
-
-  const Component = layoutMap[variation];
-
-  return <Component>{label ? label : children}</Component>;
-};

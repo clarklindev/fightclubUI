@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Counter, Heading } from '../../components';
 
 const CounterExample = () => {
-  const [savedData, setSavedData] = useState('0');
+  const [savedData, setSavedData] = useState(0);
 
   return (
     <>

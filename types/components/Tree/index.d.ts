@@ -1,5 +1,8 @@
-export function Tree({ data, depth }: {
-    data: any;
-    depth?: number | undefined;
-}): import("react/jsx-runtime").JSX.Element;
+import React from 'react';
+type TreeProps = {
+    data: object;
+    depth: number;
+};
+export declare const Tree: React.FC<TreeProps>;
+export {};
 //# sourceMappingURL=index.d.ts.map

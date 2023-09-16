@@ -1,6 +1,32 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+type SnackbarProps = {
+  setShowSnackbar: (prop: boolean) => void;
+  children: React.ReactNode;
+};
+
+export const Snackbar: React.FC<SnackbarProps> = ({ setShowSnackbar, children }) => {
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+
+  useEffect(() => {
+    setSnackbarOpen(true);
+
+    const timeout = setTimeout(() => {
+      setSnackbarOpen(false);
+      setShowSnackbar(false);
+    }, 2000);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [setShowSnackbar]);
+
+  return <SnackbarContainer className={snackbarOpen ? 'show' : ''}>{children}</SnackbarContainer>;
+};
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
 const SnackbarContainer = styled.div`
   visibility: hidden;
   min-width: 250px;
@@ -66,26 +92,3 @@ const SnackbarContainer = styled.div`
     }
   }
 `;
-
-export const Snackbar = ({ setShowSnackbar, children }) => {
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
-
-  useEffect(() => {
-    setSnackbarOpen(true);
-
-    const timeout = setTimeout(() => {
-      setSnackbarOpen(false);
-      setShowSnackbar(false);
-    }, 2000);
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [setShowSnackbar]);
-
-  return (
-    <SnackbarContainer className={snackbarOpen ? 'show' : ''}>
-      {children}
-    </SnackbarContainer>
-  );
-};

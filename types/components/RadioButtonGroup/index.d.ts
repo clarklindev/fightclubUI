@@ -1,6 +1,9 @@
-export function RadioButtonGroup({ direction, spacing, children, }: {
-    direction?: string | undefined;
-    spacing?: string | undefined;
-    children: any;
-}): import("react/jsx-runtime").JSX.Element;
+import React from 'react';
+type RadioButtonGroupProps = {
+    direction: string;
+    spacing: string;
+    children: React.ReactNode;
+};
+export declare const RadioButtonGroup: React.FC<RadioButtonGroupProps>;
+export {};
 //# sourceMappingURL=index.d.ts.map

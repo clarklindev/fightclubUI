@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/ToggleDarkMode/index.tsx"],"names":[],"mappings":"AAsCA,eAAO,MAAM,cAAc,+CA2C1B,CAAC"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/ToggleDarkMode/index.tsx"],"names":[],"mappings":"AAMA,KAAK,cAAc,GAAG,EAAE,CAAC;AAEzB,eAAO,MAAM,cAAc,EAAE,KAAK,CAAC,EAAE,CAAC,cAAc,CAwCnD,CAAC"}

@@ -1,9 +1,15 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
-interface SpinnerProps {
+type SpinnerProps = {
   size?: string;
-}
+};
+
+export const Spinner: React.FC<SpinnerProps> = ({ size = '30px' }) => {
+  return <SpinnerContainer size={size} />;
+};
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
 
 const spin = keyframes`
   from { transform: rotate(0deg); }
@@ -19,7 +25,3 @@ const SpinnerContainer = styled.div<SpinnerProps>`
   animation: ${spin} 1s linear infinite;
   will-change: border-top-color;
 `;
-
-export const Spinner: React.FC<SpinnerProps> = ({ size = '30px' }) => {
-  return <SpinnerContainer size={size} />;
-};

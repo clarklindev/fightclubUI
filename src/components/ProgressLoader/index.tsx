@@ -1,21 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const ProgressLoaderCircle = styled.circle`
-  fill: none;
-  stroke: currentColor;
-  stroke-width: 2;
-  stroke-linecap: round;
-`;
-interface ProgressLoaderProps {
+type ProgressLoaderProps = {
   progress: number; // Progress as a percentage
   size: number; // Circle size in pixels
-}
+};
 
-export const ProgressLoader: React.FC<ProgressLoaderProps> = ({
-  progress,
-  size,
-}) => {
+export const ProgressLoader: React.FC<ProgressLoaderProps> = ({ progress, size }) => {
   const radius = size / 2 - size / 10;
   const circumference = 2 * Math.PI * radius;
   const dashoffset = circumference - (progress / 100) * circumference;
@@ -36,3 +27,12 @@ export const ProgressLoader: React.FC<ProgressLoaderProps> = ({
     </svg>
   );
 };
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
+const ProgressLoaderCircle = styled.circle`
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+`;

@@ -3,33 +3,18 @@ import styled from 'styled-components';
 
 import { Slider } from '../Slider';
 
-const SliderMultiRangeContainer = styled.div`
-  height: 30px;
-  width: ${({ width }) => width};
-`;
+type SliderMultiRange = {
+  sliderValues: Array<Number>;
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  step: number;
+  min: number;
+  max: number;
+  thumbSize: string;
+  backgroundColor: string;
+  width: string;
+};
 
-const SliderWrapper = styled.div`
-  height: 15px;
-  position: relative;
-`;
-
-const Sliders = styled.div`
-  width: ${({ offset }) => `calc(100% - ${offset})`};
-  position: absolute;
-`;
-
-//this is the background track for all the scrollbars - you want to show this instead of sliders' own track
-const SliderTrack = styled.div`
-  height: 1px;
-  border: 0px;
-  border-radius: 0px;
-  width: 100%;
-  position: absolute;
-  top: 7px;
-  background-color: currentColor;
-`;
-
-export const SliderMultiRange = ({
+export const SliderMultiRange: React.FC<SliderMultiRange> = ({
   sliderValues,
   onChange,
   step = 1,
@@ -39,16 +24,16 @@ export const SliderMultiRange = ({
   backgroundColor = 'red',
   width = '100%',
 }) => {
-  const restrictBoundaries = (index, value) => {
+  const restrictBoundaries = (index: number, value: number) => {
     //min
-    let min;
+    let min: number;
     if (sliderValues.length === 1 || index === 0) {
       min = min;
     } else {
       min = sliderValues[index - 1];
     }
 
-    let max;
+    let max: number;
     //check if single element in sliderValues || if last element in sliderValues
     if (sliderValues.length === 1 || index === sliderValues.length - 1) {
       max = max;
@@ -76,14 +61,11 @@ export const SliderMultiRange = ({
     onChange(updatedValues);
   };
 
-  //----------------------------------------------------------------------------------
   return (
     <SliderMultiRangeContainer className="SliderMultiRange" width={width}>
       <SliderWrapper className="SliderWrapper">
         <SliderTrack className="SliderTrack" thumbSize={thumbSize} />
-        <Sliders
-          className="Sliders"
-          offset={parseInt(thumbSize) * (sliderValues.length - 1) + 'px'}>
+        <Sliders className="Sliders" offset={parseInt(thumbSize) * (sliderValues.length - 1) + 'px'}>
           {(sliderValues || []).map((sliderValue, index) => {
             //cater for the width of scrollbar thumbSize
 
@@ -110,3 +92,31 @@ export const SliderMultiRange = ({
     </SliderMultiRangeContainer>
   );
 };
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
+const SliderMultiRangeContainer = styled.div`
+  height: 30px;
+  width: ${({ width }) => width};
+`;
+
+const SliderWrapper = styled.div`
+  height: 15px;
+  position: relative;
+`;
+
+const Sliders = styled.div`
+  width: ${({ offset }) => `calc(100% - ${offset})`};
+  position: absolute;
+`;
+
+//this is the background track for all the scrollbars - you want to show this instead of sliders' own track
+const SliderTrack = styled.div`
+  height: 1px;
+  border: 0px;
+  border-radius: 0px;
+  width: 100%;
+  position: absolute;
+  top: 7px;
+  background-color: currentColor;
+`;

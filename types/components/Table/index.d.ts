@@ -1,6 +1,21 @@
-export function Table({ headers, data, configure }: {
-    headers: any;
-    data: any;
-    configure: any;
-}): import("react/jsx-runtime").JSX.Element;
+import React from 'react';
+type Header = {
+    header: string;
+    headerIndex: number;
+    width: string;
+    alignHeader: 'center' | 'left' | 'right' | 'justify' | 'char' | undefined;
+    title: string;
+};
+type TableProps = {
+    headers: Array<Header>;
+    data: {
+        item: any;
+        rowIndex: number;
+    };
+    configure: {
+        padding: string;
+    };
+};
+export declare const Table: React.FC<TableProps>;
+export {};
 //# sourceMappingURL=index.d.ts.map
