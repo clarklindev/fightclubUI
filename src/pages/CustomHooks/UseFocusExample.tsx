@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useFocus } from '../useFocus';
+import { useFocus } from '../../customhooks';
 import { Button } from '../../components';
 
 const UseFocusExample = () => {

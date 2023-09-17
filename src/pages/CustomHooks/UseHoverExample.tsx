@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useHover } from '../useHover';
+import { useHover } from '../../customhooks';
 import { Button } from '../../components';
 
 const UseHoverExample = () => {

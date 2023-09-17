@@ -26,7 +26,7 @@ export const Slider: React.FC<SliderProps> = ({
   step = 1,
   index = 0,
   thumbSize = '16px',
-  backgroundColor,
+  backgroundColor = 'red',
   savedData = 0,
   offset = 0,
   onChange,
@@ -53,10 +53,10 @@ export const Slider: React.FC<SliderProps> = ({
         <SliderInput
           type="range"
           trackClickable={trackClickable}
+          thumbSize={thumbSize}
           min={min}
           max={max}
           step={step}
-          thumbSize={thumbSize}
           value={savedData}
           onChange={event => onChangeHandler(event.target.value, index)}
         />
@@ -67,7 +67,7 @@ export const Slider: React.FC<SliderProps> = ({
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
-const SliderContainer = styled.div`
+const SliderContainer = styled.div<{ width: string; offset: number }>`
   box-sizing: border-box;
   width: ${({ width }) => width};
   margin-left: ${({ offset }) => offset};
@@ -79,18 +79,20 @@ const SliderWrapper = styled.div`
   position: relative;
 `;
 
-//you want to show teh SliderTrack if there is only one slider
-const SliderTrack = styled.div`
+//you want to show the SliderTrack if there is only one slider
+//TODO: use backgroundColor
+const SliderTrack = styled.div<{ hideTrack: boolean; backgroundColor: string }>`
   border-radius: 0px;
   height: 1px;
   width: 100%;
   top: 7px;
   position: absolute;
   display: ${({ hideTrack }) => (hideTrack ? 'none' : 'block')};
-  background-color: currentColor;
+  background-color: ${({ backgroundColor }) => backgroundColor};
 `;
 
-const SliderColor = styled.div`
+// TODO: use splitPosition to give background color (think using gradient)
+const SliderColor = styled.div<{ splitPosition: number }>`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 4px;
@@ -99,10 +101,12 @@ const SliderColor = styled.div`
   }
 `;
 
-const SliderInput = styled.input.attrs(({ index }) => ({
-  index: index,
+const SliderInput = styled.input.attrs<{
+  index?: number; // Declare the index prop
+}>(props => ({
+  index: props.index || 0,
   type: 'range',
-}))`
+}))<{ trackClickable: boolean; thumbSize: string }>`
   /* Add styles for the input element */
   -webkit-appearance: none;
   -moz-appearance: none;

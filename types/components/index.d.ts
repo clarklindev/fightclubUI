@@ -16,14 +16,9 @@ export { RadioButton } from './RadioButton';
 export { RadioButtonGroup } from './RadioButtonGroup';
 export { Select } from './Select';
 export { Separator } from './Separator';
-export { Slider } from './Slider';
-export { SliderMultiRange } from './SliderMultiRange';
 export { Snackbar } from './Snackbar';
 export { Spinner } from './Spinner';
-export { Table } from './Table';
 export { Text } from './Text';
 export { ToggleButton } from './ToggleButton';
 export { ToggleDarkMode } from './ToggleDarkMode';
-export { ToggleSwitch } from './ToggleSwitch';
-export { Tree } from './Tree';
 //# sourceMappingURL=index.d.ts.map
