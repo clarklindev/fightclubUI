@@ -28,7 +28,7 @@ const HomeLayoutContainer = styled.div`
     position: sticky;
     top: 0;
 
-    border-bottom: 1px solid lightgray;
+    border-bottom: 1px solid hsla(255, 50%, 50%, 0.2);
     z-index: 1;
     background: var(--clr-background);
     color: var(--clr-foreground);
@@ -63,7 +63,6 @@ const HomeLayoutContainer = styled.div`
 
   aside {
     grid-area: nav;
-    border-right: 1px solid lightgray;
     overflow-x: hidden;
     overflow-y: auto;
     position: sticky;
@@ -118,10 +117,7 @@ export const HomeLayout = () => {
 
         <div className="headerRight">
           <ToggleDarkMode />
-          <Link
-            to="https://github.com/swagfinger/swagfinger-ui"
-            target="_blank"
-            aria-label="github repo">
+          <Link to="https://github.com/swagfinger/swagfinger-ui" target="_blank" aria-label="github repo">
             <Icon size="25px" fillOpacity="1">
               <GithubIcon />
             </Icon>
