@@ -82,6 +82,7 @@ export const Accordion: React.FC<AccordionProps> = ({
                   aria-expanded={indexes.includes(index) ? true : false}
                   aria-controls={`AccordionSectionPanel_${index}`}
                   aria-disabled={false}
+                  data-separator={showSeparator ? 'true' : 'false'}
                   id={`AccordionSectionTitle_${index}`}
                   tabIndex={0}
                   onClick={() => handleClick(index)}
@@ -148,6 +149,12 @@ const AccordionSectionTitle = styled.div`
   flex-grow: 1;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 5px;
+  margin-top: 5px;
+  &[data-separator='true'] {
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
 `;
 
 const AccordionSectionPanel = styled.div<{

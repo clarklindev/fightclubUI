@@ -3,7 +3,8 @@
   --clr-foreground: black;
   --input-background-color: #ffffff;
   --input-text-color: #333333;
-  --border-color: rgba(0, 0, 0, 0.1);
+  --border: 1px solid rgba(0, 0, 0, 0.1);
+  --border-color: hsla(0, 0%, 0%, 0.1);
   --thumb-default: #999;
   --thumb-hover: #777;
 }
@@ -13,7 +14,8 @@ html[color-scheme='dark'] {
   --clr-foreground: rgba(255, 255, 255, 0.9);
   --input-background-color: #333333;
   --input-text-color: #ffffff;
-  --border-color: rgba(255, 255, 255, 0.1);
+  --border: 1px solid rgba(255, 255, 255, 0.1);
+  --border-color: hsla(255, 100%, 100%, 0.1);
   --thumb-default: #666;
   --thumb-hover: #888;
 }

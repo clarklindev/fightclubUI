@@ -28,7 +28,7 @@ const HomeLayoutContainer = styled.div`
     position: sticky;
     top: 0;
 
-    border-bottom: 1px solid hsla(255, 50%, 50%, 0.2);
+    border-bottom: var(--border);
     z-index: 1;
     background: var(--clr-background);
     color: var(--clr-foreground);
