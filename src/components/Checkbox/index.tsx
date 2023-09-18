@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-import { CheckIcon, MinusSmallIcon } from '../../icons';
+import { CheckIcon, CheckboxIndeterminateIcon } from '../../icons';
 import { Icon } from '../';
 
 type CheckboxProps = {
@@ -33,7 +33,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     <CheckboxContainer className="Checkbox">
       <HiddenCheckbox checked={checked} ref={inputRef} onChange={onChange} name={name} />
       <StyledCheckbox checked={checked}>
-        <Icon size={iconSize}>{indeterminate ? <MinusSmallIcon /> : checked ? <CheckIcon /> : null}</Icon>
+        <Icon size={iconSize}>{indeterminate ? <CheckboxIndeterminateIcon /> : checked ? <CheckIcon /> : null}</Icon>
       </StyledCheckbox>
       {label}
     </CheckboxContainer>

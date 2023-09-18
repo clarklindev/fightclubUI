@@ -1,5 +1,6 @@
 export { BookmarkIcon } from './BookmarkIcon';
 export { CheckIcon } from './CheckIcon';
+export { CheckboxIndeterminateIcon } from './CheckboxIndeterminateIcon';
 export { ChevronDownIcon } from './ChevronDownIcon';
 export { ChevronRightIcon } from './ChevronRightIcon';
 export { ChevronUpIcon } from './ChevronUpIcon';
