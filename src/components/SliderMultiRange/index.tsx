@@ -3,51 +3,48 @@ import styled from 'styled-components';
 
 import { Slider } from '../Slider';
 
-type SliderMultiRange = {
-  sliderValues: Array<Number>;
+//valueGradient
+// const startPercentage = sliderValue; // Adjust this value to set the start point
+// const endPercentage = '80%'; // Adjust this value to set the start point
+//middle
+// start would be previous' end
+// end would be next's start
+//const valueGradient =  `linear-gradient(90deg, transparent 0%, transparent ${startPercentage}%, ${activeColor} ${sliderValue}%,  ${activeColor} ${endPercentage}, transparent ${endPercentage} )`;
+//last
+//const valueGradient =  `linear-gradient(90deg, transparent 0%, transparent ${sliderValue}%, ${activeColor} ${sliderValue}%,  ${activeColor} ${endPercentage}, transparent ${endPercentage} )`;
+
+type SliderMultiRangeProps = {
+  sliderValues: Array<number>;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  step: number;
-  min: number;
-  max: number;
-  thumbSize: string;
-  backgroundColor: string;
-  width: string;
+
+  step?: number;
+  min?: number;
+  max?: number;
+  thumbSize?: number;
+  thickness?: number;
+  // backgroundColor: string;
+  length: string;
 };
 
-export const SliderMultiRange: React.FC<SliderMultiRange> = ({
-  sliderValues,
+export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
+  sliderValues = [0, 0],
   onChange,
   step = 1,
   min = 0,
-  max = 0,
-  thumbSize = '16px',
-  backgroundColor = 'red',
-  width = '100%',
+  max = 100,
+  length = '100%',
 }) => {
   const restrictBoundaries = (index: number, value: number) => {
-    //min
-    let min: number;
-    if (sliderValues.length === 1 || index === 0) {
-      min = min;
-    } else {
-      min = sliderValues[index - 1];
-    }
-
-    let max: number;
     //check if single element in sliderValues || if last element in sliderValues
-    if (sliderValues.length === 1 || index === sliderValues.length - 1) {
-      max = max;
-    } else {
-      max = sliderValues[index + 1];
-    }
+    let _min: number = sliderValues.length === 1 || index === 0 ? min : sliderValues[index - 1];
+    let _max: number = sliderValues.length === 1 || index === sliderValues.length - 1 ? max : sliderValues[index + 1];
 
-    if (value <= min) {
-      value = min;
+    if (value <= _min) {
+      value = _min;
     }
-    if (value >= max) {
-      value = max;
+    if (value >= _max) {
+      value = _max;
     }
-    console.log('value: ', value);
     return value;
   };
 
@@ -62,10 +59,13 @@ export const SliderMultiRange: React.FC<SliderMultiRange> = ({
   };
 
   return (
-    <SliderMultiRangeContainer className="SliderMultiRange" width={width}>
+    <SliderMultiRangeContainer className="SliderMultiRange" length={length}>
       <SliderWrapper className="SliderWrapper">
-        <SliderTrack className="SliderTrack" thumbSize={thumbSize} />
-        <Sliders className="Sliders" offset={parseInt(thumbSize) * (sliderValues.length - 1) + 'px'}>
+        <SliderTrack className="SliderTrack" />
+        <Sliders
+          className="Sliders"
+          offset={parseInt(thumbSize) * (sliderValues.length - 1) + 'px'}
+          thumbSize={thumbSize}>
           {(sliderValues || []).map((sliderValue, index) => {
             //cater for the width of scrollbar thumbSize
 
@@ -73,10 +73,10 @@ export const SliderMultiRange: React.FC<SliderMultiRange> = ({
               <Slider
                 className=""
                 key={index}
-                savedData={sliderValue}
-                step={step}
+                value={sliderValue}
                 index={index}
                 onChange={onChangeHandler}
+                step={step}
                 min={min}
                 max={max}
                 offset={parseInt(thumbSize) * index + 'px'}

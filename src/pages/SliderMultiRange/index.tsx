@@ -8,7 +8,7 @@ const SliderMultiRangeExample = () => {
   return (
     <>
       <Heading variation="h4">Slider (Multirange)</Heading>
-      <SliderMultiRange sliderValues={sliderValues} min={0} max={100} width="300px" onChange={setSliderValues} />
+      <SliderMultiRange sliderValues={sliderValues} onChange={setSliderValues} />
     </>
   );
 };

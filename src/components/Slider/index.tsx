@@ -8,41 +8,43 @@ enum Orientation {
 
 type SliderProps = {
   onChange: (value: number, index: number) => void;
-  value: number;
-
   orientation?: Orientation | string;
   length?: string;
   offset?: string;
   thickness?: number;
-  trackClickable?: boolean;
+  value: number;
   min?: number;
   max?: number;
   step?: number;
   index?: number;
-  hideTrack?: boolean;
   thumbSize?: number;
+  trackClickable?: boolean;
+  hideTrack?: boolean;
+  className?: string;
+
+  //atleast one of below must be provided: "valueGradient" (precedence) OR "activeColor" and "trackColor"
+  valueGradient?: string | undefined;
   activeColor?: string;
   trackColor?: string;
-  className?: string;
 };
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 export const Slider: React.FC<SliderProps> = ({
   onChange,
-  value = 0,
-
   orientation = Orientation.HORIZONTAL,
   length = '100%',
   offset = '0px',
   thickness = 6,
-  trackClickable = true,
+  value = 0,
   min = 0,
   max = 100,
   step = 1,
   index = 0,
-  hideTrack = false,
   thumbSize = 12,
+  trackClickable = true,
+  hideTrack = false,
+  valueGradient = undefined,
   activeColor = 'red',
   trackColor = '#FF000055',
   className = index,
@@ -62,41 +64,25 @@ export const Slider: React.FC<SliderProps> = ({
     onChange(parseInt(value), index);
   };
 
-  // const startPercentage = sliderValue; // Adjust this value to set the start point
-  // const endPercentage = '80%'; // Adjust this value to set the start point
-
-  //first
-  activeColor = `linear-gradient(90deg, ${activeColor} 0%, ${activeColor} ${value}%, ${trackColor} ${value}%, ${trackColor} 100% )`;
-
-  //middle
-  // start would be previous' end
-  // end would be next's start
-  //const activeColor = `linear-gradient(90deg, transparent 0%, transparent ${startPercentage}%, ${activeColor} ${sliderValue}%,  ${activeColor} ${endPercentage}, transparent ${endPercentage} )`;
-
-  //last
-  //const activeColor = `linear-gradient(90deg, transparent 0%, transparent ${sliderValue}%, ${activeColor} ${sliderValue}%,  ${activeColor} ${endPercentage}, transparent ${endPercentage} )`;
-
   return (
-    <SliderContainer
-      className={['Slider_', className].join(' ')}
-      orientation={orientation}
-      offset={offset}
-      ref={myRef}
-      length={length}>
+    <SliderContainer orientation={orientation} length={length} offset={offset} ref={myRef}>
       <SliderInput
+        onChange={event => onChangeHandler(event.target.value, index)}
         orientation={orientation}
-        trackClickable={trackClickable}
-        thumbSize={thumbSize}
         thickness={thickness}
-        computedHeight={computedHeight}
-        trackColor={trackColor}
-        activeColor={activeColor}
+        value={value}
         min={min}
         max={max}
         step={step}
-        value={value}
+        thumbSize={thumbSize}
+        trackClickable={trackClickable}
         hideTrack={hideTrack}
-        onChange={event => onChangeHandler(event.target.value, index)}
+        computedHeight={computedHeight}
+        background={
+          valueGradient ||
+          `linear-gradient(90deg, ${activeColor} 0%, ${activeColor} ${value}%, ${trackColor} ${value}%, ${trackColor} 100% )`
+        }
+        className={['Slider_', className].join(' ')}
       />
     </SliderContainer>
   );
@@ -135,8 +121,7 @@ const SliderInput = styled.input.attrs({
   trackClickable: boolean;
   computedHeight: string;
   thickness: number;
-  activeColor: string;
-  trackColor: string;
+  background: string;
   thumbSize: number;
   hideTrack: boolean;
 }>`
@@ -167,24 +152,23 @@ const SliderInput = styled.input.attrs({
   -moz-appearance: none; 
 
   //slider track
-  ${({ hideTrack, activeColor, thickness }) =>
+  ${({ hideTrack, background, thickness }) =>
     hideTrack === true
       ? `background:none`
       : `
     &::-moz-range-track{
-      background: ${activeColor};
+      background: ${background};
       height: ${thickness}px;
       border-radius: 10px;
     }
 
     &::-webkit-slider-runnable-track {
-      background: ${activeColor};
+      background: ${background};
       height: ${thickness}px;
       border-radius: 10px;
     }
   `};
  
-
   // slider thumb
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
