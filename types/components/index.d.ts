@@ -16,6 +16,7 @@ export { RadioButton } from './RadioButton';
 export { RadioButtonGroup } from './RadioButtonGroup';
 export { Select } from './Select';
 export { Separator } from './Separator';
+export { Slider } from './Slider';
 export { Snackbar } from './Snackbar';
 export { Spinner } from './Spinner';
 export { Text } from './Text';

@@ -1,133 +1,214 @@
-import React, { useState, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
+enum Orientation {
+  HORIZONTAL = 'horizontal',
+  VERTICAL = 'vertical',
+}
+
 type SliderProps = {
-  width: string;
-  hideTrack: boolean;
-  trackClickable: boolean;
-  min: number;
-  max: number;
-  step: number;
-  index: number;
-  thumbSize: string;
-  backgroundColor: string;
-  savedData: number;
-  offset: number;
-  className: string;
   onChange: (value: number, index: number) => void;
+  value: number;
+
+  orientation?: Orientation | string;
+  length?: string;
+  offset?: string;
+  thickness?: number;
+  trackClickable?: boolean;
+  min?: number;
+  max?: number;
+  step?: number;
+  index?: number;
+  hideTrack?: boolean;
+  thumbSize?: number;
+  activeColor?: string;
+  trackColor?: string;
+  className?: string;
 };
 
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
 export const Slider: React.FC<SliderProps> = ({
-  width = '100%',
-  hideTrack = false,
+  onChange,
+  value = 0,
+
+  orientation = Orientation.HORIZONTAL,
+  length = '100%',
+  offset = '0px',
+  thickness = 6,
   trackClickable = true,
   min = 0,
   max = 100,
   step = 1,
   index = 0,
-  thumbSize = '16px',
-  backgroundColor = 'red',
-  savedData = 0,
-  offset = 0,
-  onChange,
-  className,
+  hideTrack = false,
+  thumbSize = 12,
+  activeColor = 'red',
+  trackColor = '#FF000055',
+  className = index,
 }) => {
-  const [sliderValue, setSliderValue] = useState(0);
+  const myRef: React.Ref<HTMLDivElement> = useRef(null);
+
+  const [computedHeight, setComputedHeight] = useState('0px');
+
   useEffect(() => {
-    setSliderValue(savedData);
+    // Access and use the ref
+    if (myRef.current !== null) {
+      setComputedHeight(myRef.current?.clientHeight + 'px');
+    }
   }, []);
 
   const onChangeHandler = (value: string, index: number) => {
     onChange(parseInt(value), index);
-    setSliderValue(parseInt(value));
   };
 
+  // const startPercentage = sliderValue; // Adjust this value to set the start point
+  // const endPercentage = '80%'; // Adjust this value to set the start point
+
+  //first
+  activeColor = `linear-gradient(90deg, ${activeColor} 0%, ${activeColor} ${value}%, ${trackColor} ${value}%, ${trackColor} 100% )`;
+
+  //middle
+  // start would be previous' end
+  // end would be next's start
+  //const activeColor = `linear-gradient(90deg, transparent 0%, transparent ${startPercentage}%, ${activeColor} ${sliderValue}%,  ${activeColor} ${endPercentage}, transparent ${endPercentage} )`;
+
+  //last
+  //const activeColor = `linear-gradient(90deg, transparent 0%, transparent ${sliderValue}%, ${activeColor} ${sliderValue}%,  ${activeColor} ${endPercentage}, transparent ${endPercentage} )`;
+
   return (
-    <SliderContainer width={width} offset={offset} className={['Slider', className].join(' ')}>
-      <SliderWrapper>
-        <SliderTrack hideTrack={hideTrack} backgroundColor={backgroundColor} />
-        <SliderColor color="red" splitPosition={sliderValue}>
-          <div />
-          <div />
-        </SliderColor>
-        <SliderInput
-          type="range"
-          trackClickable={trackClickable}
-          thumbSize={thumbSize}
-          min={min}
-          max={max}
-          step={step}
-          value={savedData}
-          onChange={event => onChangeHandler(event.target.value, index)}
-        />
-      </SliderWrapper>
+    <SliderContainer
+      className={['Slider_', className].join(' ')}
+      orientation={orientation}
+      offset={offset}
+      ref={myRef}
+      length={length}>
+      <SliderInput
+        orientation={orientation}
+        trackClickable={trackClickable}
+        thumbSize={thumbSize}
+        thickness={thickness}
+        computedHeight={computedHeight}
+        trackColor={trackColor}
+        activeColor={activeColor}
+        min={min}
+        max={max}
+        step={step}
+        value={value}
+        hideTrack={hideTrack}
+        onChange={event => onChangeHandler(event.target.value, index)}
+      />
     </SliderContainer>
   );
 };
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
-const SliderContainer = styled.div<{ width: string; offset: number }>`
+const SliderContainer = styled.div<{
+  orientation: Orientation | string;
+  offset: string;
+  ref: React.Ref<any>;
+  length: string;
+}>`
   box-sizing: border-box;
-  width: ${({ width }) => width};
-  margin-left: ${({ offset }) => offset};
-`;
-
-const SliderWrapper = styled.div`
-  width: 100%;
-  background: red;
   position: relative;
+  ${({ orientation, offset, length }) =>
+    orientation === Orientation.HORIZONTAL &&
+    `
+    width: ${length ? length : '100%'};
+    margin-left: ${offset};
+  `};
+
+  ${({ orientation, offset, length }) =>
+    orientation === Orientation.VERTICAL &&
+    `
+    height: ${length ? length : '100%'};
+    margin-top: ${offset};
+  `};
 `;
 
-//you want to show the SliderTrack if there is only one slider
-//TODO: use backgroundColor
-const SliderTrack = styled.div<{ hideTrack: boolean; backgroundColor: string }>`
-  border-radius: 0px;
-  height: 1px;
-  width: 100%;
-  top: 7px;
-  position: absolute;
-  display: ${({ hideTrack }) => (hideTrack ? 'none' : 'block')};
-  background-color: ${({ backgroundColor }) => backgroundColor};
-`;
-
-// TODO: use splitPosition to give background color (think using gradient)
-const SliderColor = styled.div<{ splitPosition: number }>`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 4px;
-  > div {
-    background-color: pink;
-  }
-`;
-
-const SliderInput = styled.input.attrs<{
-  index?: number; // Declare the index prop
-}>(props => ({
-  index: props.index || 0,
+const SliderInput = styled.input.attrs({
   type: 'range',
-}))<{ trackClickable: boolean; thumbSize: string }>`
-  /* Add styles for the input element */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  pointer-events: ${({ trackClickable }) => (trackClickable ? 'auto' : 'none')};
+})<{
+  index?: number;
+  orientation: Orientation | string;
+  trackClickable: boolean;
+  computedHeight: string;
+  thickness: number;
+  activeColor: string;
+  trackColor: string;
+  thumbSize: number;
+  hideTrack: boolean;
+}>`
   position: absolute;
-  top: 0;
-  width: 100%;
-  border-radius: 2px;
-  outline: none;
-  background: transparent; //the actual clickable part of scrolltrack
-  display: flex;
 
+  ${({ orientation, thickness }) =>
+    orientation === Orientation.HORIZONTAL &&
+    `
+    width: 100%;
+    height: ${thickness}px;
+  `};
+
+  ${({ orientation, thickness, computedHeight }) =>
+    orientation === Orientation.VERTICAL &&
+    `
+  height: ${thickness}px;
+  width: ${computedHeight};  //width should now be height of container when vertical - use js to get height of container or use prop's length value 
+  transform: rotate(-90deg) translateX(-100%); /* Rotate the scrollbar counterclockwise by 90 degrees */
+  transform-origin: top left; /* Set the rotation origin to the top-left corner */
+`};
+
+  pointer-events: ${({ trackClickable }) => (trackClickable ? 'auto' : 'none')};
+  border-radius: 10px;
+  outline: none;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; 
+
+  //slider track
+  ${({ hideTrack, activeColor, thickness }) =>
+    hideTrack === true
+      ? `background:none`
+      : `
+    &::-moz-range-track{
+      background: ${activeColor};
+      height: ${thickness}px;
+      border-radius: 10px;
+    }
+
+    &::-webkit-slider-runnable-track {
+      background: ${activeColor};
+      height: ${thickness}px;
+      border-radius: 10px;
+    }
+  `};
+ 
+
+  // slider thumb
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: ${({ thumbSize }) => thumbSize};
-    height: ${({ thumbSize }) => thumbSize};
+    width: ${({ thumbSize }) => thumbSize}px;
+    height: ${({ thumbSize }) => thumbSize}px;
     background: #666;
     border-radius: 50%;
     cursor: pointer;
     pointer-events: auto;
-  }
+    ${({ thumbSize, thickness }) =>
+      `transform: translateY(${
+        thickness > thumbSize ? -0.5 * (thumbSize - thickness) : 0.5 * (thickness - thumbSize)
+      }px);`};
+
+  &::-moz-range-thumb {
+    width: ${({ thumbSize }) => thumbSize}px;
+    height: ${({ thumbSize }) => thumbSize}px;
+    background: #666;
+    border-radius: 50%;
+    cursor: pointer;
+    pointer-events: auto;
+    ${({ thumbSize, thickness }) =>
+      `transform: translateY(${
+        thickness > thumbSize ? -0.5 * (thumbSize - thickness) : 0.5 * (thickness - thumbSize)
+      }px);`}
 `;

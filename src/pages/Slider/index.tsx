@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
-import { Slider, Heading } from '../../components';
+import { Heading } from '../../components';
+import { Slider } from '../../components/Slider';
 
 const SliderExample = () => {
   const [savedData, setSavedData] = useState(0);
@@ -8,13 +9,9 @@ const SliderExample = () => {
   return (
     <>
       <Heading variation="h4">Slider</Heading>
-      <Slider
-        savedData={savedData}
-        min={0}
-        max={100}
-        onChange={setSavedData}
-        width="300px"
-      />
+      <div style={{ width: '100px', height: '300px' }}>
+        <Slider value={savedData} orientation="horizontal" length="100px" onChange={setSavedData} />
+      </div>
     </>
   );
 };
