@@ -28,7 +28,7 @@ import ToggleButtonExample from './pages/ToggleButton';
 // import ToggleSwitchExample from './pages/ToggleSwitch';
 import SnackbarExample from './pages/Snackbar';
 import SliderExample from './pages/Slider';
-// import SliderMultiRangeExample from './pages/SliderMultiRange';
+import SliderMultiRangeExample from './pages/SliderMultiRange';
 import SeparatorExample from './pages/Separator';
 import ListExample from './pages/List';
 // import TableExample from './pages/Table';
@@ -66,7 +66,7 @@ export const router = createBrowserRouter(
       {/* <Route path="/toggleswitch" element={<ToggleSwitchExample />} /> */}
       <Route path="/snackbar" element={<SnackbarExample />} />
       <Route path="/slider" element={<SliderExample />} />
-      {/* <Route path="/slidermultirange" element={<SliderMultiRangeExample />} /> */}
+      <Route path="/slidermultirange" element={<SliderMultiRangeExample />} />
       <Route path="/separator" element={<SeparatorExample />} />
       <Route path="/list" element={<ListExample />} />
       {/* <Route path="/table" element={<TableExample />} /> */}

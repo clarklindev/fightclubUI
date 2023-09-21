@@ -1,10 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
-
-enum Orientation {
-  HORIZONTAL = 'horizontal',
-  VERTICAL = 'vertical',
-}
+import { Orientation } from '../../types/Orientation';
 
 type SliderProps = {
   onChange: (value: number, index: number) => void;
@@ -35,13 +31,13 @@ export const Slider: React.FC<SliderProps> = ({
   orientation = Orientation.HORIZONTAL,
   length = '100%',
   offset = '0px',
-  thickness = 6,
+  thickness = 30,
   value = 0,
   min = 0,
   max = 100,
   step = 1,
   index = 0,
-  thumbSize = 12,
+  thumbSize = 15,
   trackClickable = true,
   hideTrack = false,
   valueGradient = undefined,
@@ -61,7 +57,7 @@ export const Slider: React.FC<SliderProps> = ({
   }, []);
 
   const onChangeHandler = (value: string, index: number) => {
-    onChange(parseInt(value), index);
+    onChange(parseInt(value), index); //reads string from target, but passes number
   };
 
   return (
@@ -153,21 +149,23 @@ const SliderInput = styled.input.attrs({
 
   //slider track
   ${({ hideTrack, background, thickness }) =>
-    hideTrack === true
-      ? `background:none`
-      : `
+    `
+    background: ${hideTrack ? 'transparent' : background};
+    height: ${thickness}px;
+    border-radius: 10px;
+    
     &::-moz-range-track{
-      background: ${background};
+      background: ${hideTrack ? 'transparent' : background};
       height: ${thickness}px;
       border-radius: 10px;
     }
 
     &::-webkit-slider-runnable-track {
-      background: ${background};
+      background: ${hideTrack ? 'transparent' : background};
       height: ${thickness}px;
       border-radius: 10px;
     }
-  `};
+    `};
  
   // slider thumb
   &::-webkit-slider-thumb {
@@ -179,10 +177,9 @@ const SliderInput = styled.input.attrs({
     border-radius: 50%;
     cursor: pointer;
     pointer-events: auto;
-    ${({ thumbSize, thickness }) =>
-      `transform: translateY(${
-        thickness > thumbSize ? -0.5 * (thumbSize - thickness) : 0.5 * (thickness - thumbSize)
-      }px);`};
+    transform: translateY(
+      ${({ thumbSize, thickness }) =>
+        `${thickness > thumbSize ? -0.5 * (thumbSize - thickness) : 0.5 * (thickness - thumbSize)}px`});
 
   &::-moz-range-thumb {
     width: ${({ thumbSize }) => thumbSize}px;
@@ -191,8 +188,7 @@ const SliderInput = styled.input.attrs({
     border-radius: 50%;
     cursor: pointer;
     pointer-events: auto;
-    ${({ thumbSize, thickness }) =>
-      `transform: translateY(${
-        thickness > thumbSize ? -0.5 * (thumbSize - thickness) : 0.5 * (thickness - thumbSize)
-      }px);`}
+    transform: translateY(
+      ${({ thumbSize, thickness }) =>
+        `${thickness > thumbSize ? -0.5 * (thumbSize - thickness) : 0.5 * (thickness - thumbSize)}px`});
 `;

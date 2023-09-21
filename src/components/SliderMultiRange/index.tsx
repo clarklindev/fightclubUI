@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Slider } from '../Slider';
+import { Orientation } from '../../types/Orientation';
 
 //valueGradient
 // const startPercentage = sliderValue; // Adjust this value to set the start point
@@ -15,28 +16,28 @@ import { Slider } from '../Slider';
 
 type SliderMultiRangeProps = {
   sliderValues: Array<number>;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-
-  step?: number;
+  onChange: (updated: Array<number>) => void; //function to update the values
   min?: number;
   max?: number;
-  thumbSize?: number;
   thickness?: number;
-  // backgroundColor: string;
-  length: string;
+  thumbSize?: number;
+  length?: string;
+  orientation?: Orientation | string;
 };
 
 export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
   sliderValues = [0, 0],
   onChange,
-  step = 1,
   min = 0,
   max = 100,
+  thickness = 10,
+  thumbSize = 15,
   length = '100%',
+  orientation = Orientation.HORIZONTAL,
 }) => {
   const restrictBoundaries = (index: number, value: number) => {
     //check if single element in sliderValues || if last element in sliderValues
-    let _min: number = sliderValues.length === 1 || index === 0 ? min : sliderValues[index - 1];
+    let _min: number = sliderValues.length === 1 || index === 0 ? min : sliderValues[index - 1]; //can check index-1 because index[0] is covered
     let _max: number = sliderValues.length === 1 || index === sliderValues.length - 1 ? max : sliderValues[index + 1];
 
     if (value <= _min) {
@@ -49,8 +50,8 @@ export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
   };
 
   //function that gets called everytime one of the sliders value changes
-  const onChangeHandler = (value, index = 0) => {
-    const restricted = restrictBoundaries(index, parseInt(value));
+  const onChangeHandler = (value: number, index = 0) => {
+    const restricted = restrictBoundaries(index, value);
 
     let updatedValues = sliderValues.slice();
     updatedValues[index] = restricted;
@@ -59,31 +60,31 @@ export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
   };
 
   return (
-    <SliderMultiRangeContainer className="SliderMultiRange" length={length}>
-      <SliderWrapper className="SliderWrapper">
-        <SliderTrack className="SliderTrack" />
+    <SliderMultiRangeContainer className="SliderMultiRange" orientation={orientation} length={length}>
+      <SliderWrapper>
+        <SliderTrack className="SliderTrack" thickness={thickness} thumbSize={thumbSize} />
         <Sliders
           className="Sliders"
-          offset={parseInt(thumbSize) * (sliderValues.length - 1) + 'px'}
-          thumbSize={thumbSize}>
+          widthAdjust={thumbSize * (sliderValues.length - 1) + 'px'} //cater for the width of scrollbar thumbSize
+          thumbSize={thumbSize}
+          thickness={thickness}>
           {(sliderValues || []).map((sliderValue, index) => {
-            //cater for the width of scrollbar thumbSize
-
             return (
               <Slider
+                orientation={orientation}
                 className=""
                 key={index}
                 value={sliderValue}
                 index={index}
                 onChange={onChangeHandler}
-                step={step}
                 min={min}
                 max={max}
-                offset={parseInt(thumbSize) * index + 'px'}
-                //x position to place the <Slider/> you cant see this of each individual slider if <Slider className="absolute">. only when className = "" and hideTrack="false"
+                offset={thumbSize * index + 'px'}
+                //x position to place the <Slider/> you cant see this of each individual slider if position="absolute". only when className = "" and hideTrack="false"
                 trackClickable={false} //you want to leave this FALSE for multirange input
                 hideTrack={true} //you want to leave this as TRUE for multirange input - <SliderTrack /> replaces this
                 thumbSize={thumbSize}
+                thickness={thickness}
               />
             );
           })}
@@ -95,28 +96,40 @@ export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
-const SliderMultiRangeContainer = styled.div`
-  height: 30px;
-  width: ${({ width }) => width};
-`;
-
-const SliderWrapper = styled.div`
-  height: 15px;
+const SliderMultiRangeContainer = styled.div<{
+  orientation: Orientation | string;
+  length: string;
+}>`
   position: relative;
 `;
 
-const Sliders = styled.div`
-  width: ${({ offset }) => `calc(100% - ${offset})`};
+const SliderWrapper = styled.div`
+  position: relative;
+  // DO NOT USE THIS FOR STYLING - its used for positioning ONLY
+  display: flex;
+  flex-direction: center;
+  align-items: center;
+`;
+
+const Sliders = styled.div<{
+  widthAdjust: string;
+  thumbSize: number;
+  thickness: number;
+}>`
   position: absolute;
+  width: ${({ widthAdjust }) => `calc(100% - ${widthAdjust})`};
 `;
 
 //this is the background track for all the scrollbars - you want to show this instead of sliders' own track
-const SliderTrack = styled.div`
-  height: 1px;
+const SliderTrack = styled.div<{
+  thickness: number;
+  thumbSize: number;
+}>`
+  height: ${({ thickness }) => `${thickness}px`};
+  top: ${({ thickness, thumbSize }) => (thickness > thumbSize ? `0` : `100%`)};
+  position: absolute;
   border: 0px;
   border-radius: 0px;
   width: 100%;
-  position: absolute;
-  top: 7px;
-  background-color: currentColor;
+  background: green;
 `;
