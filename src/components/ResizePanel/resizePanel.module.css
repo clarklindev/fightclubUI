@@ -1,0 +1,58 @@
+/* reset, prefix-free */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: sans-serif;
+  background: #555;
+}
+
+#accordion {
+  height: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.panel {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.panel-toolbar {
+  background: #333;
+  color: #ccc;
+  padding: 10px;
+  border-top: 1px solid #666;
+  border-bottom: 1px solid #111;
+}
+
+.panel-2 .panel-toolbar,
+.panel-3 .panel-toolbar {
+  cursor: row-resize;
+}
+
+.panel-content {
+  height: 100px;
+  overflow-y: scroll;
+  padding: 0 10px;
+  color: white;
+  background: #444;
+}
+
+.panel-content p {
+  margin-bottom: 0.8em;
+}
+
+.is-dragging .panel-toolbar {
+  background: #700;
+}

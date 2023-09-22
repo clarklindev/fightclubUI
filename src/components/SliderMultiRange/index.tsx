@@ -16,6 +16,7 @@ import { Orientation } from '../../types/Orientation';
 
 type SliderMultiRangeProps = {
   sliderValues: Array<number>;
+  colors: Array<string>;
   onChange: (updated: Array<number>) => void; //function to update the values
   min?: number;
   max?: number;
@@ -26,19 +27,20 @@ type SliderMultiRangeProps = {
 };
 
 export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
-  sliderValues = [0, 0],
+  sliderValues = [0, 0, 0],
+  colors = ['red', 'yellow', 'blue'],
   onChange,
   min = 0,
   max = 100,
-  thickness = 10,
-  thumbSize = 15,
+  thickness = 15,
+  thumbSize = 30,
   length = '100%',
   orientation = Orientation.HORIZONTAL,
 }) => {
   const restrictBoundaries = (index: number, value: number) => {
     //check if single element in sliderValues || if last element in sliderValues
-    let _min: number = sliderValues.length === 1 || index === 0 ? min : sliderValues[index - 1]; //can check index-1 because index[0] is covered
-    let _max: number = sliderValues.length === 1 || index === sliderValues.length - 1 ? max : sliderValues[index + 1];
+    let _min: number = sliderValues.length === 1 || index === 0 ? min : sliderValues[index - 1]; //can check index-1 because index (0) is covered
+    let _max: number = sliderValues.length === 1 || index === sliderValues.length - 1 ? max : sliderValues[index + 1]; //can check index+1 because index (sliderValues.length - 1) is covered
 
     if (value <= _min) {
       value = _min;
@@ -51,11 +53,34 @@ export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
 
   //function that gets called everytime one of the sliders value changes
   const onChangeHandler = (value: number, index = 0) => {
-    const restricted = restrictBoundaries(index, value);
+    //restrict method - values dont go below prev or over next's value
+    // const restricted = restrictBoundaries(index, value);
+    // let updatedValues = sliderValues.slice();
+    // updatedValues[index] = restricted;
 
+    //magnet effect
+    // change other values too - slide other values
     let updatedValues = sliderValues.slice();
-    updatedValues[index] = restricted;
-
+    //if its opposite direction to linked movement
+    //note if you use a value of <=1 and >= 1 in the difference if() check, it will have a magnetic effect. we use 0.5
+    if (value < updatedValues[index]) {
+      updatedValues[index] = value;
+      for (var i = index; i > 0; i--) {
+        //use comparison <=1 for magnetic effect
+        if (updatedValues[i] - updatedValues[i - 1] <= 0) {
+          updatedValues[i - 1] = updatedValues[i];
+        }
+      }
+    }
+    if (value > updatedValues[index]) {
+      updatedValues[index] = value;
+      for (var i = index; i < sliderValues.length - 1; i++) {
+        //use comparison <=1 for magnetic effect
+        if (updatedValues[i + 1] - updatedValues[i] <= 0) {
+          updatedValues[i + 1] = updatedValues[i];
+        }
+      }
+    }
     onChange(updatedValues);
   };
 

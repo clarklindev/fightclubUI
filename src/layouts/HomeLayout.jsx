@@ -162,7 +162,8 @@ export const HomeLayout = () => {
           <NavLink to="card">Card</NavLink>
           <NavLink to="tree">Tree</NavLink>
           <NavLink to="progressloader">Progress Loader</NavLink>
-          <NavLink to="Spinner">Spinner</NavLink>
+          <NavLink to="spinner">Spinner</NavLink>
+          <NavLink to="resizepanel">Resize panel</NavLink>
         </nav>
       </aside>
       <main>

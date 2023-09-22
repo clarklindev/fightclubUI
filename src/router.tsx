@@ -37,6 +37,7 @@ import CardExample from './pages/Card';
 import ProgressLoaderExample from './pages/ProgressLoader';
 import SpinnerExample from './pages/Spinner';
 import HooksExample from './pages/customhooks';
+import ResizePanelExample from './pages/ResizePanel';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -74,6 +75,8 @@ export const router = createBrowserRouter(
       {/* <Route path="/tree" element={<TreeExample />} /> */}
       <Route path="/progressloader" element={<ProgressLoaderExample />} />
       <Route path="/spinner" element={<SpinnerExample />} />
+      <Route path="/resizepanel" element={<ResizePanelExample />} />
+
       <Route path="/404" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/404" replace />} />
     </Route>,

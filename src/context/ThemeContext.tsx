@@ -2,6 +2,9 @@ import React from 'react';
 
 import { useState, createContext, useContext } from 'react';
 
+//todo: needs to get initial state from local storage since isSystemDarkMode would be overridden by switching mode.
+//todo: cant have 2 state button (needs 3) - system mode, dark, light
+
 // Define an interface for the theme context
 const ThemeContext = createContext({
   isDarkMode: false,
@@ -17,17 +20,9 @@ export const useTheme = () => {
 };
 
 // Define the props for your ThemeProvider component
-export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const isSystemDark = window.matchMedia(
-    '(prefers-color-scheme: dark)',
-  ).matches;
+export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   const [isDarkMode, setIsDarkMode] = useState(isSystemDark);
 
-  return (
-    <ThemeContext.Provider value={{ isDarkMode, setIsDarkMode }}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ isDarkMode, setIsDarkMode }}>{children}</ThemeContext.Provider>;
 };
