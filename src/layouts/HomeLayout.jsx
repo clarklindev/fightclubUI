@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -64,9 +64,13 @@ const HomeLayoutContainer = styled.div`
   aside {
     grid-area: nav;
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: hidden;
     position: sticky;
     top: 0;
+    transition: overflow-y 1s ease;
+    &:hover {
+      overflow-y: auto;
+    }
   }
 
   nav {
@@ -77,7 +81,7 @@ const HomeLayoutContainer = styled.div`
   }
 
   nav a {
-    padding: 3px 10xpx;
+    padding: 5px 10px 5px 0px;
     border-radius: 5px;
     color: #7d7d7d;
     font-size: 0.9rem;
@@ -126,7 +130,7 @@ export const HomeLayout = () => {
       </header>
       <aside>
         <nav>
-          <Heading variation="h5">Guide</Heading>
+          <Heading variation="h6">Guide</Heading>
 
           <NavLink to="introduction">Introduction</NavLink>
           <NavLink to="gettingstarted">Getting started</NavLink>
@@ -137,7 +141,7 @@ export const HomeLayout = () => {
           <NavLink to="hooks">Hooks</NavLink>
 
           <br />
-          <Heading variation="h5">Components</Heading>
+          <Heading variation="h6">Components</Heading>
           <NavLink to="heading">Heading</NavLink>
           <NavLink to="text">Text</NavLink>
           <NavLink to="icon">Icon</NavLink>
