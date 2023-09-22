@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import { Slider } from '../Slider';
@@ -14,6 +14,12 @@ import { Orientation } from '../../types/Orientation';
 //last
 //const valueGradient =  `linear-gradient(90deg, transparent 0%, transparent ${sliderValue}%, ${activeColor} ${sliderValue}%,  ${activeColor} ${endPercentage}, transparent ${endPercentage} )`;
 
+enum SlideMode {
+  RESTRICT = 'restrict',
+  MAGNETIC = 'magnetic',
+  SLIDETHROUGH = 'slidethrough',
+}
+
 type SliderMultiRangeProps = {
   sliderValues: Array<number>;
   colors: Array<string>;
@@ -24,6 +30,7 @@ type SliderMultiRangeProps = {
   thumbSize?: number;
   length?: string;
   orientation?: Orientation | string;
+  slideMode?: SlideMode | string;
 };
 
 export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
@@ -35,8 +42,11 @@ export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
   thickness = 15,
   thumbSize = 30,
   length = '100%',
+  slideMode = SlideMode.SLIDETHROUGH,
   orientation = Orientation.HORIZONTAL,
 }) => {
+  const [activeIndex, setActiveIndex] = useState<number | null>(null); // To track the active element
+
   const restrictBoundaries = (index: number, value: number) => {
     //check if single element in sliderValues || if last element in sliderValues
     let _min: number = sliderValues.length === 1 || index === 0 ? min : sliderValues[index - 1]; //can check index-1 because index (0) is covered
@@ -53,35 +63,53 @@ export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
 
   //function that gets called everytime one of the sliders value changes
   const onChangeHandler = (value: number, index = 0) => {
-    //restrict method - values dont go below prev or over next's value
-    // const restricted = restrictBoundaries(index, value);
-    // let updatedValues = sliderValues.slice();
-    // updatedValues[index] = restricted;
+    let updatedValues;
 
-    //magnet effect
-    // change other values too - slide other values
-    let updatedValues = sliderValues.slice();
-    //if its opposite direction to linked movement
-    //note if you use a value of <=1 and >= 1 in the difference if() check, it will have a magnetic effect. we use 0.5
-    if (value < updatedValues[index]) {
-      updatedValues[index] = value;
-      for (var i = index; i > 0; i--) {
-        //use comparison <=1 for magnetic effect
-        if (updatedValues[i] - updatedValues[i - 1] <= 0) {
-          updatedValues[i - 1] = updatedValues[i];
+    console.log('slideMode: ', slideMode);
+    setActiveIndex(index);
+
+    if (slideMode === SlideMode.RESTRICT) {
+      //restrict method - values dont go below prev or over next's value
+      const restricted = restrictBoundaries(index, value);
+      updatedValues = [...sliderValues];
+      updatedValues[index] = restricted;
+    }
+
+    if (slideMode === SlideMode.MAGNETIC) {
+      //magnet effect
+      // change other values too - slide other values
+      updatedValues = [...sliderValues];
+      // //if its opposite direction to linked movement
+      // //note if you use a value of <=1 and >= 1 in the difference if() check, it will have a magnetic effect. we use 0.5
+      if (value < updatedValues[index]) {
+        updatedValues[index] = value;
+        for (var i = index; i > 0; i--) {
+          //use comparison <=1 for magnetic effect
+          if (updatedValues[i] - updatedValues[i - 1] <= 0) {
+            updatedValues[i - 1] = updatedValues[i];
+          }
+        }
+      }
+      if (value > updatedValues[index]) {
+        updatedValues[index] = value;
+        for (var i = index; i < sliderValues.length - 1; i++) {
+          //use comparison <=1 for magnetic effect
+          if (updatedValues[i + 1] - updatedValues[i] <= 0) {
+            updatedValues[i + 1] = updatedValues[i];
+          }
         }
       }
     }
-    if (value > updatedValues[index]) {
+
+    if (slideMode === SlideMode.SLIDETHROUGH) {
+      //mode is slidethrough
+      updatedValues = [...sliderValues];
       updatedValues[index] = value;
-      for (var i = index; i < sliderValues.length - 1; i++) {
-        //use comparison <=1 for magnetic effect
-        if (updatedValues[i + 1] - updatedValues[i] <= 0) {
-          updatedValues[i + 1] = updatedValues[i];
-        }
-      }
     }
-    onChange(updatedValues);
+
+    if (updatedValues) {
+      onChange(updatedValues);
+    }
   };
 
   return (
@@ -90,7 +118,7 @@ export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
         <SliderTrack className="SliderTrack" thickness={thickness} thumbSize={thumbSize} />
         <Sliders
           className="Sliders"
-          widthAdjust={thumbSize * (sliderValues.length - 1) + 'px'} //cater for the width of scrollbar thumbSize
+          widthAdjust={slideMode === SlideMode.SLIDETHROUGH ? '0px' : thumbSize * (sliderValues.length - 1) + 'px'} //cater for the width of scrollbar thumbSize
           thumbSize={thumbSize}
           thickness={thickness}>
           {(sliderValues || []).map((sliderValue, index) => {
@@ -104,7 +132,8 @@ export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
                 onChange={onChangeHandler}
                 min={min}
                 max={max}
-                offset={thumbSize * index + 'px'}
+                style={{ zIndex: index === activeIndex ? 1 : 0 }}
+                offset={slideMode === SlideMode.SLIDETHROUGH ? '0px' : thumbSize * index + 'px'}
                 //x position to place the <Slider/> you cant see this of each individual slider if position="absolute". only when className = "" and hideTrack="false"
                 trackClickable={false} //you want to leave this FALSE for multirange input
                 hideTrack={true} //you want to leave this as TRUE for multirange input - <SliderTrack /> replaces this
@@ -142,6 +171,8 @@ const Sliders = styled.div<{
   thickness: number;
 }>`
   position: absolute;
+  display: flex;
+  flex-direction: column;
   width: ${({ widthAdjust }) => `calc(100% - ${widthAdjust})`};
 `;
 

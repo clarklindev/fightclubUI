@@ -22,6 +22,7 @@ type SliderProps = {
   valueGradient?: string | undefined;
   activeColor?: string;
   trackColor?: string;
+  style?: React.CSSProperties;
 };
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -44,6 +45,7 @@ export const Slider: React.FC<SliderProps> = ({
   activeColor = 'red',
   trackColor = '#FF000055',
   className = index,
+  style = {},
 }) => {
   const myRef: React.Ref<HTMLDivElement> = useRef(null);
 
@@ -61,7 +63,7 @@ export const Slider: React.FC<SliderProps> = ({
   };
 
   return (
-    <SliderContainer orientation={orientation} length={length} offset={offset} ref={myRef}>
+    <SliderContainer orientation={orientation} length={length} offset={offset} ref={myRef} style={style}>
       <SliderInput
         onChange={event => onChangeHandler(event.target.value, index)}
         orientation={orientation}
@@ -94,6 +96,7 @@ const SliderContainer = styled.div<{
 }>`
   box-sizing: border-box;
   position: relative;
+
   ${({ orientation, offset, length }) =>
     orientation === Orientation.HORIZONTAL &&
     `
@@ -122,6 +125,7 @@ const SliderInput = styled.input.attrs({
   hideTrack: boolean;
 }>`
   position: absolute;
+  
 
   ${({ orientation, thickness }) =>
     orientation === Orientation.HORIZONTAL &&
@@ -174,6 +178,7 @@ const SliderInput = styled.input.attrs({
     width: ${({ thumbSize }) => thumbSize}px;
     height: ${({ thumbSize }) => thumbSize}px;
     background: #666;
+    border: 1px solid red;
     border-radius: 50%;
     cursor: pointer;
     pointer-events: auto;
@@ -185,6 +190,7 @@ const SliderInput = styled.input.attrs({
     width: ${({ thumbSize }) => thumbSize}px;
     height: ${({ thumbSize }) => thumbSize}px;
     background: #666;
+    border: 1px solid red;
     border-radius: 50%;
     cursor: pointer;
     pointer-events: auto;
