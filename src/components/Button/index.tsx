@@ -25,6 +25,7 @@ const buttonVariants: any = cva(
         secondary: ['bg-white', 'text-gray-800', 'border-gray-400', 'hover:bg-gray-100'],
         contained: ['bg-gray-300', 'text-gray-700', 'border-gray-300', 'hover:bg-gray-400'],
         outlined: ['text-black', 'border-black', 'bg-transparent', 'hover:bg-gray-700', 'hover:text-white'],
+        removeoutline: ['border-transparent', 'outline-none', 'ring-transparent'],
         text: ['border-transparent', 'underline'],
         icon: ['border-transparent'],
       },

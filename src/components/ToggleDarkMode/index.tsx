@@ -4,9 +4,7 @@ import styled from 'styled-components';
 import { Icon, Button } from '../';
 import { useTheme } from '../../context/ThemeContext';
 
-type ToggleDarkMode = {};
-
-export const ToggleDarkMode: React.FC<ToggleDarkMode> = () => {
+export const ToggleDarkMode: React.FC = () => {
   const { isDarkMode, setIsDarkMode } = useTheme();
 
   useEffect(() => {
@@ -28,7 +26,10 @@ export const ToggleDarkMode: React.FC<ToggleDarkMode> = () => {
   };
 
   return (
-    <ToggleDarkModeContainer onClick={toggleState} className={isDarkMode ? 'darkMode' : 'lightMode'} intent="icon">
+    <ToggleDarkModeContainer
+      onClick={toggleState}
+      className={isDarkMode ? 'darkMode' : 'lightMode'}
+      intent="removeoutline">
       <Icon size="25px">
         <svg
           xmlns="http://www.w3.org/2000/svg"

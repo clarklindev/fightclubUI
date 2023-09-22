@@ -106,7 +106,7 @@ export const HomeLayout = () => {
       <header>
         <div className="headerLeft">
           <div className="logo">
-            <Button intent="icon" onClick={() => navigate('/')}>
+            <Button intent="removeoutline" onClick={() => navigate('/')}>
               <Icon className="icon" size="50px">
                 <Logo />
               </Icon>
