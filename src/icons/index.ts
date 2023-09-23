@@ -7,7 +7,6 @@ export { ChevronUpIcon } from './ChevronUpIcon';
 export { ClearIcon } from './ClearIcon';
 export { CloseIcon } from './CloseIcon';
 export { CopyIcon } from './CopyIcon';
-export { GithubIcon } from './GithubIcon';
 export { HeartIcon } from './HeartIcon';
 export { HideIcon } from './HideIcon';
 export { MinusIcon } from './MinusIcon';

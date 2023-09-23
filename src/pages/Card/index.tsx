@@ -6,12 +6,7 @@ const CardExample = () => {
   return (
     <>
       <Heading variation="h4">Card</Heading>
-      <Card
-        color="white"
-        borderColor="#DDD"
-        borderRadius="10px"
-        width="550px"
-        height="300px">
+      <Card color="white" borderColor="#DDD" borderRadius="10px" height="300px">
         this is dummy text
       </Card>
     </>

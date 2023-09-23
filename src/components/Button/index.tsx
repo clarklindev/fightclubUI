@@ -25,13 +25,18 @@ const buttonVariants: any = cva(
         secondary: ['bg-white', 'text-gray-800', 'border-gray-400', 'hover:bg-gray-100'],
         contained: ['bg-gray-300', 'text-gray-700', 'border-gray-300', 'hover:bg-gray-400'],
         outlined: ['text-black', 'border-black', 'bg-transparent', 'hover:bg-gray-700', 'hover:text-white'],
-        removeoutline: ['border-transparent', 'outline-none', 'ring-transparent'],
+        plain: ['border-transparent', 'outline-none', 'ring-transparent'],
         text: ['border-transparent', 'underline'],
         icon: ['border-transparent'],
       },
+      padding: {
+        none: ['px-0', 'py-0'],
+        small: ['px-2', 'py-1'],
+        medium: ['px-4', 'py-2'],
+      },
       size: {
-        small: ['text-sm', 'py-1', 'px-2'],
-        medium: ['text-base', 'py-2', 'px-4'],
+        small: ['text-sm'],
+        medium: ['text-base'],
       },
     },
     compoundVariants: [
@@ -48,11 +53,12 @@ const buttonVariants: any = cva(
       {
         intent: 'icon',
         size: ['medium', 'small'],
-        className: 'px-0 py-0',
+        className: ['px-0', 'py-0'],
       },
     ],
     defaultVariants: {
       intent: 'primary',
+      padding: 'medium',
       size: 'medium',
     },
   },

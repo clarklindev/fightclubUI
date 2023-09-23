@@ -14,7 +14,7 @@ export const Card: React.FC<CardProps> = ({
   color = 'white',
   borderColor = 'black',
   borderRadius = '10px',
-  width = '250px',
+  width = 'auto',
   height = '300px',
   children,
 }) => {

@@ -5,8 +5,8 @@
   --input-text-color: #333333;
   --border: 1px solid rgba(0, 0, 0, 0.1);
   --border-color: hsla(0, 0%, 0%, 0.1);
-  --thumb-default: #999;
-  --thumb-hover: #777;
+  --thumb-default: #999999;
+  --thumb-hover: hsla(255, 0%, 0%, 0.3);
 }
 
 html[color-scheme='dark'] {
@@ -16,8 +16,8 @@ html[color-scheme='dark'] {
   --input-text-color: #ffffff;
   --border: 1px solid rgba(255, 255, 255, 0.1);
   --border-color: hsla(255, 100%, 100%, 0.1);
-  --thumb-default: #666;
-  --thumb-hover: #888;
+  --thumb-default: #666666;
+  --thumb-hover: hsla(255, 0%, 0%, 0.3);
 }
 
 body {
@@ -28,12 +28,6 @@ body {
 /* Hide the default scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
-}
-
-/* Define the track */
-::-webkit-scrollbar-track {
-  background: var(--border-color);
-  border-radius: 0;
 }
 
 /* Define the thumb */
