@@ -85,6 +85,7 @@ const HomeLayoutContainer = styled.div`
     border-radius: 5px;
     color: #7d7d7d;
     font-size: 0.9rem;
+    font-weight: 600;
   }
 
   nav a:hover {
