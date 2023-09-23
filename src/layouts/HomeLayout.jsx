@@ -17,6 +17,7 @@ const HomeLayoutContainer = styled.div`
   overflow-y: scroll;
 
   header {
+    min-width: 640px;
     grid-area: header;
     display: flex;
     justify-content: space-between;
@@ -24,97 +25,84 @@ const HomeLayoutContainer = styled.div`
     width: 100%;
     height: 50px;
     position: fixed;
-    padding: 0 4rem;
-
     border-bottom: var(--border);
     z-index: 1;
     background: var(--clr-background);
-
     color: var(--clr-foreground);
+
+    padding: 0 2rem;
+    @media (min-width: 768px) {
+      padding: 0 2rem;
+    }
+
+    @media (min-width: 1200px) {
+      padding: 0 4rem 0 4rem;
+    }
 
     .headerLeft {
       display: flex;
       align-items: center;
     }
-
     .headerRight {
       display: flex;
       align-items: center;
       gap: 10px;
-      margin-right: 5px; //margin must be same as scrollbar width
     }
+  }
 
-    .logo {
-      position: fixed;
-      z-index: 2;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-    }
+  .logo {
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 
-    .logo span {
-      font-weight: 600;
-    }
-    .logo .icon {
-      fill: var(--clr-foreground);
-    }
+  .logo span {
+    font-weight: 600;
+  }
+  .logo .icon {
+    fill: var(--clr-foreground);
   }
 
   .container {
+    width: 100%;
     grid-area: container;
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: 1fr;
     grid-template-areas: 'content';
-  }
-
-  aside.nav {
-    display: none;
-  }
-
-  .content {
-    grid-area: content;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-areas: 'main';
-  }
-
-  aside.onthispage {
-    display: none;
-  }
-
-  main {
-    grid-area: main;
-    padding: 2rem;
-  }
-
-  @media (min-width: 768px) {
-    .container {
+    max-width: 100%;
+    @media (min-width: 768px) {
       margin: 0 auto;
-      padding: 0 2rem;
+      grid-template-columns: 300px 1fr;
       grid-template-areas: 'nav content';
-      grid-template-columns: 250px auto;
     }
+    @media (min-width: 1200px) {
+      padding: 0 2rem;
+    }
+  }
 
-    aside.nav {
+  aside.navigation {
+    display: none;
+
+    @media (min-width: 768px) {
       display: block;
       height: calc(100vh - 50px);
       position: fixed;
-      min-width: 250px;
+      min-width: 300px;
       grid-area: nav;
       overflow-x: hidden;
       overflow-y: hidden;
       border-right: var(--border);
+      padding: 2rem;
       &:hover {
         overflow-y: auto;
       }
-
       nav {
-        padding: 2rem 0px;
         display: flex;
         flex-direction: column;
         z-index: 1;
       }
-
       nav a {
         padding: 5px 10px 5px 0px;
         border-radius: 5px;
@@ -131,31 +119,40 @@ const HomeLayoutContainer = styled.div`
         }
       }
     }
-  }
-
-  @media (min-width: 992px) {
-    aside.nav {
-      width: 250px;
+    @media (min-width: 1024px) {
+      min-width: 300px;
     }
-    .container: {
-      padding: 0px 3rem;
+    @media (min-width: 1200px) {
+      min-width: 300px;
     }
   }
 
-  @media (min-width: 1200px) {
-    .container: {
-      padding: 0px 4rem;
-    }
-    .content {
-      grid-template-columns: auto 250px;
+  .content {
+    grid-area: content;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas: 'main';
+
+    @media (min-width: 1200px) {
+      grid-template-columns: 1fr 300px;
       grid-template-areas: 'main onthispage';
     }
-    aside.onthispage {
+  }
+
+  aside.onthispage {
+    display: none;
+    @media (min-width: 1200px) {
       display: block;
       grid-area: onthispage;
       border-left: var(--border);
-      border-right: var(--border);
     }
+  }
+
+  main {
+    grid-area: main;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
   }
 `;
 
@@ -204,7 +201,7 @@ export const HomeLayout = () => {
       </header>
 
       <div className="container" ref={containerRef}>
-        <aside className="nav" ref={navRef}>
+        <aside className="navigation" ref={navRef}>
           <nav>
             <Heading variation="h6">Components</Heading>
             <NavLink to="heading">Heading</NavLink>
