@@ -17,22 +17,20 @@ const HomeLayoutContainer = styled.div`
   overflow-y: scroll;
 
   header {
-    min-width: 640px;
+    justify-content: center;
     grid-area: header;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 50px;
     position: fixed;
     border-bottom: var(--border);
-    z-index: 1;
     background: var(--clr-background);
     color: var(--clr-foreground);
-
     padding: 0 2rem;
+
     @media (min-width: 768px) {
-      padding: 0 2rem;
+      justify-content: space-between;
     }
 
     @media (min-width: 1200px) {
@@ -41,17 +39,21 @@ const HomeLayoutContainer = styled.div`
 
     .headerLeft {
       display: flex;
+      flex-direction: row;
+      justify-content: center;
       align-items: center;
     }
     .headerRight {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      display: none;
+      @media (min-width: 768px) {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
     }
   }
 
   .logo {
-    position: fixed;
     z-index: 2;
     display: flex;
     flex-direction: row;
@@ -84,6 +86,12 @@ const HomeLayoutContainer = styled.div`
 
   aside.navigation {
     display: none;
+    overflow-y: hidden;
+    transition: overflow-y 1s ease; /* Add a transition to the overflow-y property */
+
+    &:hover {
+      overflow-y: auto;
+    }
 
     @media (min-width: 768px) {
       display: block;
@@ -92,12 +100,8 @@ const HomeLayoutContainer = styled.div`
       min-width: 300px;
       grid-area: nav;
       overflow-x: hidden;
-      overflow-y: hidden;
       border-right: var(--border);
       padding: 2rem;
-      &:hover {
-        overflow-y: auto;
-      }
       nav {
         display: flex;
         flex-direction: column;
@@ -178,7 +182,7 @@ export const HomeLayout = () => {
       <header>
         <div className="headerLeft">
           <div className="logo">
-            <Button intent="icon" padding="none" onClick={() => navigate('/')}>
+            <Button intent="plain" padding="none" className="gap-2" onClick={() => navigate('/')}>
               <Icon className="icon" size="25px">
                 <img src={logo} alt="logo" />
               </Icon>

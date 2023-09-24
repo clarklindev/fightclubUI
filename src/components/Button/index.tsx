@@ -5,6 +5,7 @@ import { twMerge } from 'tailwind-merge';
 import { ThemeType } from '../../themes/LightTheme';
 
 const buttonVariants: any = cva(
+  //default styles
   [
     'font-semibold',
     'border',
@@ -20,6 +21,7 @@ const buttonVariants: any = cva(
   ],
   {
     variants: {
+      //apply styles based on prop passed though
       intent: {
         primary: ['bg-blue-500', 'text-white', 'border-transparent', 'hover:bg-blue-600'],
         secondary: ['bg-white', 'text-gray-800', 'border-gray-400', 'hover:bg-gray-100'],
@@ -56,6 +58,8 @@ const buttonVariants: any = cva(
         className: ['px-0', 'py-0'],
       },
     ],
+
+    //if no intent is passed in, use below..
     defaultVariants: {
       intent: 'primary',
       padding: 'medium',
@@ -66,6 +70,7 @@ const buttonVariants: any = cva(
 
 export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
   intent?: string;
+  padding?: string;
   size?: string;
   className?: string;
   ariaLabel?: string;
@@ -75,6 +80,7 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
 
 export const Button: React.FC<ButtonVariants> = ({
   intent,
+  padding,
   size,
   className,
   onClick,
@@ -85,7 +91,7 @@ export const Button: React.FC<ButtonVariants> = ({
   const theme = useTheme() as ThemeType;
 
   const classes = twMerge(
-    buttonVariants({ intent, size }),
+    buttonVariants({ intent, size, padding }),
     className,
 
     intent === 'primary' && theme.Button?.primary,
