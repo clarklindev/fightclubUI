@@ -12,7 +12,7 @@ const InputFilterExample = () => {
 
   return (
     <InputWrapper>
-      <Icon size="25px">
+      <Icon size="20px">
         <SearchIcon />
       </Icon>
       <Input
@@ -26,7 +26,7 @@ const InputFilterExample = () => {
 
       {savedData.length > 0 && (
         <Button intent="icon" onClick={clearHandler}>
-          <Icon size="25px">
+          <Icon size="20px">
             <ClearIcon />
           </Icon>
         </Button>

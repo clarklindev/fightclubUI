@@ -19,7 +19,7 @@ const InputPasswordExample = () => {
         }}
       />
       <Button intent="icon" onClick={() => setPasswordVisible(!passwordVisible)}>
-        <Icon size="25px">{passwordVisible ? <HideIcon /> : <ShowIcon />}</Icon>
+        <Icon size="20px">{passwordVisible ? <HideIcon /> : <ShowIcon />}</Icon>
       </Button>
     </InputWrapper>
   );

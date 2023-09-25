@@ -16,7 +16,7 @@ const SnackbarExample = () => {
       <Heading variation="h4">Snackbar</Heading>
       {showSnackbar && <Snackbar setShowSnackbar={setShowSnackbar}>copied to clipboard</Snackbar>}
       <Button onClick={onClickHandler} intent="icon">
-        <Icon size="25px">
+        <Icon size="20px">
           <CopyIcon />
         </Icon>
       </Button>

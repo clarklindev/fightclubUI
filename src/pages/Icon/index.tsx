@@ -6,7 +6,7 @@ const IconExample = () => {
     <>
       <Heading variation="h4">Icon</Heading>
 
-      <Icon size="25px">
+      <Icon size="20px">
         <ShoppingCartIcon />
       </Icon>
     </>

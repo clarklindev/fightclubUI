@@ -27,7 +27,7 @@ export const Counter: React.FC<CounterProps> = ({ savedData, onChange }) => {
   return (
     <CounterContainer>
       <Button className={['Button', 'left'].join(' ')} onClick={decrement} intent="icon">
-        <Icon size="25px">
+        <Icon size="20px">
           <MinusSmallIcon />
         </Icon>
       </Button>
@@ -40,7 +40,7 @@ export const Counter: React.FC<CounterProps> = ({ savedData, onChange }) => {
       />
 
       <Button className={['Button', 'right'].join(' ')} onClick={increment} intent="icon">
-        <Icon size="25px">
+        <Icon size="20px">
           <PlusSmallIcon />
         </Icon>
       </Button>

@@ -8,7 +8,7 @@ const ButtonIconExample = () => {
       onClick={() => {
         console.log('hello world');
       }}>
-      <Icon size="25px">
+      <Icon size="20px">
         <ShoppingCartIcon />
       </Icon>
     </Button>

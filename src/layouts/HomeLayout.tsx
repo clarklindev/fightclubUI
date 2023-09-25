@@ -210,12 +210,12 @@ export const HomeLayout = () => {
 
         <div className="headerRight">
           <Link to="https://github.com/swagfinger/swagfinger-ui" target="_blank" aria-label="github repo">
-            <Icon size="25px" fillOpacity="1" fill="#FFF" stroke="#FFF">
+            <Icon size="20px" fillOpacity="1" fill="#FFF" stroke="#FFF">
               <img src={githubIcon} alt="github" />
             </Icon>
           </Link>
 
-          <Icon size="25px">
+          <Icon size="20px">
             <img src={darkmodeIcon} alt="darkmode" />
           </Icon>
         </div>

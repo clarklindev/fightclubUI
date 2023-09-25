@@ -8,7 +8,7 @@ const InputWithIconExample = () => {
 
   return (
     <InputWrapper>
-      <Icon size="25px">
+      <Icon size="20px">
         <SpeechIcon />
       </Icon>
       <Input

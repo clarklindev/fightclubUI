@@ -20,7 +20,7 @@ export const Select: React.FC<SelectProps> = ({ savedData, onChange, children })
             })
           : null}
       </SelectContainer>
-      <Icon size="30px">
+      <Icon size="20px">
         <ChevronDownIcon />
       </Icon>
     </SelectWrapper>

@@ -13,7 +13,7 @@ export type IconProps = {
 export const Icon: React.FC<IconProps> = ({
   stroke = 'currentColor',
   children,
-  size = '25px',
+  size = '20px',
   fill = undefined,
   fillOpacity,
   ...rest

@@ -14,7 +14,7 @@ const InputSearchExample = () => {
     <InputWrapper>
       <Input ref={ref} border={false} placeholder="placeholder" />
       <Button intent="icon" onClick={clickHandler}>
-        <Icon size="25px">
+        <Icon size="20px">
           <SearchIcon />
         </Icon>
       </Button>

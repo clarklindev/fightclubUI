@@ -97,7 +97,7 @@ export const Accordion: React.FC<AccordionProps> = ({
                   }}>
                   {each.title}
                   {iconType !== 'hidden' && (
-                    <Icon size="30px">
+                    <Icon size="20px">
                       {indexes.includes(index) ? iconMap[iconType].open : iconMap[iconType].closed}
                     </Icon>
                   )}

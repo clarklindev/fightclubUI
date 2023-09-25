@@ -14,4 +14,5 @@ export const Text: React.FC<TextProps> = ({ children, ...rest }) => {
 const TextContainer = styled.p`
   color: ${({ theme }) => theme?.Text?.marginBottom};
   margin-bottom: ${({ theme }) => theme?.Text?.marginBottom};
+  line-height: 1.7;
 `;

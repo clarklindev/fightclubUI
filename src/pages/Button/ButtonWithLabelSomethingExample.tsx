@@ -14,7 +14,7 @@ const ButtonWithLabelSomethingExample = () => {
         label="right"
         labelDirection="right"
         something={
-          <Icon size="25px" stroke="white">
+          <Icon size="20px" stroke="white">
             <ThumbsUpIcon />
           </Icon>
         }
