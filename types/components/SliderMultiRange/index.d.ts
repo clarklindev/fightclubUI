@@ -1,14 +1,22 @@
 import React from 'react';
-type SliderMultiRange = {
-    sliderValues: Array<Number>;
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    step: number;
-    min: number;
-    max: number;
-    thumbSize: string;
-    backgroundColor: string;
-    width: string;
+import { Orientation } from '../../types/Orientation';
+declare enum SlideMode {
+    RESTRICT = "restrict",
+    MAGNETIC = "magnetic",
+    SLIDETHROUGH = "slidethrough"
+}
+type SliderMultiRangeProps = {
+    sliderValues: Array<number>;
+    colors: Array<string>;
+    onChange: (updated: Array<number>) => void;
+    min?: number;
+    max?: number;
+    thickness?: number;
+    thumbSize?: number;
+    length?: string;
+    orientation?: Orientation | string;
+    slideMode?: SlideMode | string;
 };
-export declare const SliderMultiRange: React.FC<SliderMultiRange>;
+export declare const SliderMultiRange: React.FC<SliderMultiRangeProps>;
 export {};
 //# sourceMappingURL=index.d.ts.map

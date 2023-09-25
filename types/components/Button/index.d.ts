@@ -3,6 +3,7 @@ import { type VariantProps } from 'class-variance-authority';
 declare const buttonVariants: any;
 export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
     intent?: string;
+    padding?: string;
     size?: string;
     className?: string;
     ariaLabel?: string;

@@ -17,9 +17,10 @@ export { RadioButtonGroup } from './RadioButtonGroup';
 export { Select } from './Select';
 export { Separator } from './Separator';
 export { Slider } from './Slider';
+export { SliderMultiRange } from './SliderMultiRange';
 export { Snackbar } from './Snackbar';
 export { Spinner } from './Spinner';
 export { Text } from './Text';
 export { ToggleButton } from './ToggleButton';
-export { ToggleDarkMode } from './ToggleDarkMode';
+export { ResizePanel } from './ResizePanel';
 //# sourceMappingURL=index.d.ts.map
