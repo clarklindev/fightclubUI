@@ -1,6 +1,4 @@
-import React from 'react';
-
-import { Card, Heading } from '../../components';
+import { Card, Heading } from '../../../components';
 
 const CardExample = () => {
   return (

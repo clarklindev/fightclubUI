@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { CheckboxGroup, Checkbox, LabelSomething } from '../../components';
 
@@ -9,11 +9,9 @@ const CheckboxGroupHorizontalExample = () => {
     { label: 'C', value: 'c' },
   ];
 
-  const [savedData, updateSavedData] = useState(
-    Array(options.length).fill(false),
-  );
+  const [savedData, updateSavedData] = useState(Array(options.length).fill(false));
 
-  const onChange = (index, newValue) => {
+  const onChange = (index: number, newValue) => {
     const newValues = [...savedData];
     newValues[index] = newValue;
     updateSavedData(newValues);

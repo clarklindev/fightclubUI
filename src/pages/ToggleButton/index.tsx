@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Icon, ToggleButton, Heading } from '../../components';
 import { HeartIcon } from '../../icons';

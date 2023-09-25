@@ -1,7 +1,7 @@
 import React from 'react';
 type TreeProps = {
     data: object;
-    depth: number;
+    depth?: number;
 };
 export declare const Tree: React.FC<TreeProps>;
 export {};

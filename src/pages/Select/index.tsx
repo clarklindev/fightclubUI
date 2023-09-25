@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Select, Heading } from '../../components';
 
 const SelectExample = () => {
-  const [savedData, setSavedData] = useState();
+  const [savedData, setSavedData] = useState<string | null>();
 
   const data = [
     { value: 'option0', text: 'Select an option' },
@@ -15,9 +15,7 @@ const SelectExample = () => {
   return (
     <>
       <Heading variation="h4">Select</Heading>
-      <Select
-        savedData={savedData}
-        onChange={event => setSavedData(event.target.value)}>
+      <Select savedData={savedData} onChange={event => setSavedData(event.target.value)}>
         {data.map((each, index) => (
           <option key={index} value={each.value}>
             {each.text}

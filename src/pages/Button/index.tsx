@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Heading, Layout } from '../../components';
 import ButtonContainedExample from './ButtonContainedExample';
 import ButtonOutlinedExample from './ButtonOutlinedExample';

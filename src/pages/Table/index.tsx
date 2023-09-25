@@ -1,37 +1,38 @@
-import React from 'react';
-
 import { Table, Heading } from '../../components';
+import type { Header } from '../../components/Table';
 
 const TableExample = () => {
   const configure = {
     padding: 'p-5',
+    align: 'align-top',
   };
-  const HEADERS = [
+
+  const HEADERS: Array<Header> = [
     {
       title: 'year',
       mapToDataAttribute: 'year',
-      width: 150,
+      width: '150px',
       alignHeader: 'left',
       alignContent: 'left',
     },
     {
       title: 'artist',
       mapToDataAttribute: 'artist',
-      width: 150,
+      width: '150px',
       alignHeader: 'left',
       alignContent: 'left',
     },
     {
       title: 'song',
       mapToDataAttribute: 'song',
-      width: 300,
+      width: '300px',
       alignHeader: 'left',
       alignContent: 'left',
     },
     {
       title: 'amount ($)',
       mapToDataAttribute: 'amount',
-      width: 120,
+      width: '120px',
       alignHeader: 'right',
       alignContent: 'right',
     },

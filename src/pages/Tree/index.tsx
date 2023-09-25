@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Tree, Heading } from '../../components';
 
 // only endnodes can be links

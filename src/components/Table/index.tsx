@@ -1,19 +1,18 @@
 import React from 'react';
 
-type Header = {
-  header: string;
-  headerIndex: number;
+type Align = 'left' | 'right' | 'center' | 'justify' | undefined;
+
+export type Header = {
   width: string;
-  alignHeader: 'center' | 'left' | 'right' | 'justify' | 'char' | undefined;
+  alignHeader?: Align;
+  alignContent?: Align;
   title: string;
+  mapToDataAttribute: string;
 };
 
-type TableProps = {
+export type TableProps = {
   headers: Array<Header>;
-  data: {
-    item: any;
-    rowIndex: number;
-  };
+  data: Array<any>;
   configure: {
     padding: string;
   };
@@ -41,9 +40,12 @@ export const Table: React.FC<TableProps> = ({ headers, data, configure }) => {
         {data.map((item, rowindex) => {
           return (
             <tr key={rowindex}>
-              {headers.map((header, dataindex) => {
+              {headers.map((header, index) => {
                 return (
-                  <td className={configure.padding} align={header['alignContent']} key={dataindex}>
+                  <td
+                    className={[configure.padding, configure.align].join(' ')}
+                    align={header['alignContent']}
+                    key={index}>
                     {item[header['mapToDataAttribute']]}
                   </td>
                 );

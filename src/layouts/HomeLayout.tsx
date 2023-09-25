@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -6,10 +6,9 @@ import { Icon, Button, Heading } from '../components';
 import logo from '../assets/logo.svg';
 import githubIcon from '../assets/github.svg';
 import darkmodeIcon from '../assets/darkmode.svg';
-import { Dimensions } from '../components/Dimensions';
 
 const HomeLayoutContainer = styled.div`
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   overflow-y: scroll;
   display: grid;
@@ -114,7 +113,7 @@ const AsideNavigation = styled.aside`
 
   @media (min-width: 768px) {
     display: block;
-    height: calc(100vh - 50px);
+    height: calc(100dvh - 50px);
     position: fixed;
     min-width: 250px;
     grid-area: nav;
@@ -150,7 +149,7 @@ const AsideNavigation = styled.aside`
 `;
 
 const AsideOnThePage = styled.aside`
-  height: calc(100vh - 50px);
+  height: calc(100dvh - 50px);
   grid-area: onthispage;
   display: none;
   background: transparent;
@@ -172,16 +171,21 @@ const AsideOnThePage = styled.aside`
 export const HomeLayout = () => {
   const navigate = useNavigate();
 
-  const navRef = useRef(null);
-  const containerRef = useRef(null);
-  const mainRef = useRef(null);
+  const navRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const mainRef = useRef<HTMLDivElement | null>(null);
 
-  const [mainWidth, setMainWidth] = useState();
+  const [mainWidth, setMainWidth] = useState<number>();
 
   useEffect(() => {
-    setMainWidth(mainRef?.current.clientWidth);
+    if (mainRef?.current) {
+      setMainWidth(mainRef.current.clientWidth);
+    }
+
     const resize = () => {
-      setMainWidth(mainRef?.current.clientWidth);
+      if (mainRef?.current) {
+        setMainWidth(mainRef.current.clientWidth);
+      }
     };
 
     window.addEventListener('resize', resize);
@@ -262,7 +266,6 @@ export const HomeLayout = () => {
           </nav>
         </AsideNavigation>
         <main ref={mainRef}>
-          {/* <Dimensions value={mainWidth} /> */}
           <Outlet />
         </main>
         <AsideOnThePage />

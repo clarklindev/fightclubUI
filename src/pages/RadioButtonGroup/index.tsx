@@ -1,5 +1,4 @@
 // //RadioButtonGroup
-import React from 'react';
 
 import { Layout, Heading } from '../../components';
 import RadioButtonGroupVerticalExample from './RadioButtonGroupVerticalExample';

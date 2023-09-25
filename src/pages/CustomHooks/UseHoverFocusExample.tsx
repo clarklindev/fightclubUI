@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 
 const UseHoverFocusExample = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,16 +23,11 @@ const UseHoverFocusExample = () => {
 
   return (
     <div>
-      <button
-        ref={buttonRef}
-        onMouseEnter={() => setMenuOpen(true)}
-        onClick={() => setMenuOpen(!menuOpen)}>
+      <button ref={buttonRef} onMouseEnter={() => setMenuOpen(true)} onClick={() => setMenuOpen(!menuOpen)}>
         Open Menu
       </button>
       {menuOpen && (
-        <div
-          ref={menuRef}
-          style={{ background: 'red', display: 'inline-flex' }}>
+        <div ref={menuRef} style={{ background: 'red', display: 'inline-flex' }}>
           <ul>
             <li onClick={() => setMenuOpen(false)}>Menu Item 1</li>
             <li>Menu Item 2</li>

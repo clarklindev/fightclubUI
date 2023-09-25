@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Heading, Text } from '../components';
 
 const Introduction = () => {

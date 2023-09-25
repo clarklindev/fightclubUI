@@ -1,12 +1,19 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { List, ListItem, Heading } from '../../components';
 
+type ExampleData = {
+  id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+};
+
 const ListExample = () => {
-  const [data, setData] = useState();
+  const [data, setData] = useState<ExampleData[] | null>();
 
   useEffect(() => {
-    const DATA = [
+    const DATA: Array<ExampleData> = [
       {
         id: 1,
         first_name: 'Tansy',

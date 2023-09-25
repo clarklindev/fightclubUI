@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ResizePanel } from '../../components';
 
 const ResizePanelExample = () => {

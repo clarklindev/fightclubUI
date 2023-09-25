@@ -11,7 +11,11 @@ const DimensionsWrapper = styled.div`
   padding: 2px;
 `;
 
-export const Dimensions = props => {
+type DimensionsProps = {
+  value: string;
+};
+
+export const Dimensions = (props: DimensionsProps) => {
   const { value } = props;
   return value ? <DimensionsWrapper>{value}</DimensionsWrapper> : null;
 };

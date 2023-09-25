@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { Dimensions } from '../Dimensions';
 
-export const ResizePanel = () => {
+export const ResizePanel: React.FC = () => {
   const [resizing, setResizing] = useState(false);
   const [width, setWidth] = useState(); // Initial width
   const [maxWidth, setMaxWidth] = useState();
@@ -10,7 +10,7 @@ export const ResizePanel = () => {
   const componentRef = useRef(null);
 
   useEffect(() => {
-    if (componentRef?.current) {
+    if (componentRef && componentRef.current !== null) {
       setWidth(componentRef.current.clientWidth);
 
       const computedStyles = getComputedStyle(componentRef.current.parentNode);

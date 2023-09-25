@@ -1,8 +1,13 @@
 import { useState } from 'react';
 
+type FocusAttributes = {
+  onFocus: () => void;
+  onBlur: () => void;
+};
+
 //custom hook
 export const useFocus = () => {
-  const [isFocused, setIsFocused] = useState(false);
+  const [isFocused, setIsFocused] = useState<boolean>(false);
   const handleFocus = () => {
     setIsFocused(true);
     console.log('focused');
@@ -13,7 +18,7 @@ export const useFocus = () => {
     setIsFocused(false);
   };
 
-  const attrs = {
+  const attrs: FocusAttributes = {
     onFocus: handleFocus,
     onBlur: handleBlur,
   };

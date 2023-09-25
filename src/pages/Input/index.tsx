@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Layout, Heading } from '../../components';
 import InputBasicExample from './InputBasicExample';
 import InputReadOnlyExample from './InputReadOnlyExample';

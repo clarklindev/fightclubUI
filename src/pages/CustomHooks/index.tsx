@@ -1,5 +1,3 @@
-import React from 'react';
-
 import UseFocusExample from './UseFocusExample';
 import UseHoverExample from './UseHoverExample';
 import UseHoverFocusExample from './UseHoverFocusExample';

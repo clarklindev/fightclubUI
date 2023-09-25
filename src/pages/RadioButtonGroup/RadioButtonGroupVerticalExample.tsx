@@ -1,10 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import {
-  RadioButtonGroup,
-  RadioButton,
-  LabelSomething,
-} from '../../components';
+import { RadioButtonGroup, RadioButton, LabelSomething } from '../../components';
 
 const RadioButtonGroupVerticalExample = () => {
   const options = [
@@ -14,9 +10,7 @@ const RadioButtonGroupVerticalExample = () => {
     { label: 'D', value: 'd' },
   ];
 
-  const [savedData, updateSavedData] = useState(
-    Array(options.length).fill(false),
-  );
+  const [savedData, updateSavedData] = useState(Array(options.length).fill(false));
 
   const onChange = (index, newValue) => {
     let newValues = [...savedData].fill(false);

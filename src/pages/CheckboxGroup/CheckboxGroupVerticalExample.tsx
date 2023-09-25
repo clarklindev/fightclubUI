@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { CheckboxGroup, Checkbox, LabelSomething } from '../../components';
 
@@ -9,9 +9,7 @@ const CheckboxGroupVerticalExample = () => {
     { label: 'C', value: 'c' },
   ];
 
-  const [savedData, updateSavedData] = useState(
-    Array(options.length).fill(false),
-  );
+  const [savedData, updateSavedData] = useState(Array(options.length).fill(false));
 
   const onChange = (index, newValue) => {
     const newValues = [...savedData];

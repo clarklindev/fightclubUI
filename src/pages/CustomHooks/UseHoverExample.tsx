@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useHover } from '../../customhooks';
 import { Button } from '../../components';
 

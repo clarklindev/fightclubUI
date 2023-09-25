@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Heading, Layout } from '../../components';
 import AccordionChevronExample from './AccordionChevronExample';
 import AccordionPlusMinusExample from './AccordionPlusMinusExample';

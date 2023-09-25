@@ -1,17 +1,15 @@
 import React from 'react';
-type Header = {
-    header: string;
-    headerIndex: number;
+type Align = 'left' | 'right' | 'center' | 'justify' | undefined;
+export type Header = {
     width: string;
-    alignHeader: 'center' | 'left' | 'right' | 'justify' | 'char' | undefined;
+    alignHeader?: Align;
+    alignContent?: Align;
     title: string;
+    mapToDataAttribute: string;
 };
-type TableProps = {
+export type TableProps = {
     headers: Array<Header>;
-    data: {
-        item: any;
-        rowIndex: number;
-    };
+    data: Array<any>;
     configure: {
         padding: string;
     };

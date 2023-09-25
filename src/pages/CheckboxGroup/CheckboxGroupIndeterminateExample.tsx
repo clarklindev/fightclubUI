@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { CheckboxGroup, Checkbox, LabelSomething } from '../../components';
 
@@ -9,9 +9,7 @@ const CheckboxGroupIndeterminateExample = () => {
     { label: 'C', value: 'c' },
   ];
 
-  const [savedData, updateSavedData] = useState(
-    Array(options.length).fill(false),
-  );
+  const [savedData, updateSavedData] = useState(Array(options.length).fill(false));
 
   const onChange = (index, newValue) => {
     const newValues = [...savedData];
@@ -23,10 +21,7 @@ const CheckboxGroupIndeterminateExample = () => {
     <div className="flex flex-col justify-items-start items-start space-y-10">
       <Checkbox
         checked={savedData.every(item => item === true)}
-        indeterminate={
-          !savedData.every(item => item === true) &&
-          savedData.some(item => item === true)
-        }
+        indeterminate={!savedData.every(item => item === true) && savedData.some(item => item === true)}
         name="checkbox"
         label="label"
         iconSize="20px"

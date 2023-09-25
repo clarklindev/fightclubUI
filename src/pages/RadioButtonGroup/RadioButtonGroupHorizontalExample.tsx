@@ -1,10 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
-import {
-  RadioButtonGroup,
-  RadioButton,
-  LabelSomething,
-} from '../../components';
+import { RadioButtonGroup, RadioButton, LabelSomething } from '../../components';
 
 const RadioButtonGroupHorizontalExample = () => {
   const options = [
@@ -14,11 +10,9 @@ const RadioButtonGroupHorizontalExample = () => {
     { label: 'D', value: 'd' },
   ];
 
-  const [savedData, updateSavedData] = useState(
-    Array(options.length).fill(false),
-  );
+  const [savedData, updateSavedData] = useState(Array(options.length).fill(false));
 
-  const onChange = (index, newValue) => {
+  const onChange = (index: number, newValue) => {
     let newValues = [...savedData].fill(false);
     newValues[index] = newValue;
     updateSavedData(newValues);
@@ -31,7 +25,7 @@ const RadioButtonGroupHorizontalExample = () => {
           <LabelSomething
             key={'RadioButtonGroup' + index}
             label={each.label}
-            labelPosition="bottom"
+            labelDirection="bottom"
             gap="10px"
             something={
               <RadioButton

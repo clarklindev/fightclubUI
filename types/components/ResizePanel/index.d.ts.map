@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/ResizePanel/index.tsx"],"names":[],"mappings":"AAIA,eAAO,MAAM,WAAW,+CAyFvB,CAAC"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/ResizePanel/index.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAsC,MAAM,OAAO,CAAC;AAI3D,eAAO,MAAM,WAAW,EAAE,KAAK,CAAC,EAyF/B,CAAC"}

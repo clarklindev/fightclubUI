@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { useFocus } from '../../customhooks';
 import { Button } from '../../components';
 
@@ -8,7 +6,7 @@ const UseFocusExample = () => {
 
   return (
     <>
-      <Button {...attrs}>Button</Button>
+      <Button {...(attrs as React.HTMLAttributes<HTMLButtonElement>)}>Button</Button>
       {isFocused && <div className="absolute">hello world</div>}
     </>
   );

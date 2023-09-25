@@ -9,7 +9,7 @@ import { ChevronRightIcon, ChevronDownIcon } from '../../icons/';
 
 type TreeProps = {
   data: object;
-  depth: number;
+  depth?: number;
 };
 
 export const Tree: React.FC<TreeProps> = ({ data, depth = 0 }) => {
@@ -31,7 +31,7 @@ export const Tree: React.FC<TreeProps> = ({ data, depth = 0 }) => {
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column' }}>
-      {data.map(({ label = undefined, path, children = undefined }, index) => {
+      {data.map(({ label = undefined, path, children = undefined }, index: number) => {
         const childRef = useRef();
         return (
           <TreeContainer

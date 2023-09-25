@@ -2,7 +2,7 @@ import React from 'react';
 type RadioButtonProps = {
     checked: boolean;
     name: string;
-    label: string;
+    label?: string;
     iconSize: string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };

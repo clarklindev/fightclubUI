@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { Snackbar, Button, Icon, Heading } from '../../components';
 import { CopyIcon } from '../../icons';
@@ -14,11 +14,7 @@ const SnackbarExample = () => {
   return (
     <>
       <Heading variation="h4">Snackbar</Heading>
-      {showSnackbar && (
-        <Snackbar setShowSnackbar={setShowSnackbar}>
-          copied to clipboard
-        </Snackbar>
-      )}
+      {showSnackbar && <Snackbar setShowSnackbar={setShowSnackbar}>copied to clipboard</Snackbar>}
       <Button onClick={onClickHandler} intent="icon">
         <Icon size="25px">
           <CopyIcon />
