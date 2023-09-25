@@ -6,15 +6,17 @@ import { Icon, Button, Heading } from '../components';
 import logo from '../assets/logo.svg';
 import githubIcon from '../assets/github.svg';
 import darkmodeIcon from '../assets/darkmode.svg';
+import { Dimensions } from '../components/Dimensions';
 
 const HomeLayoutContainer = styled.div`
   height: 100vh;
+  width: 100%;
+  overflow-y: scroll;
   display: grid;
   grid-template-rows: 50px auto;
   grid-template-areas:
     'header'
     'container';
-  overflow-y: scroll;
 
   header {
     justify-content: center;
@@ -24,6 +26,7 @@ const HomeLayoutContainer = styled.div`
     width: 100%;
     height: 50px;
     position: fixed;
+    z-index: 1;
     border-bottom: var(--border);
     background: var(--clr-background);
     color: var(--clr-foreground);
@@ -68,23 +71,30 @@ const HomeLayoutContainer = styled.div`
   }
 
   .container {
-    width: 100%;
+    top: 50px;
+    background: transparent;
     grid-area: container;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-areas: 'content';
+    grid-template-areas: 'main';
     max-width: 100%;
     @media (min-width: 768px) {
-      margin: 0 auto;
-      grid-template-columns: 300px 1fr;
-      grid-template-areas: 'nav content';
+      grid-template-columns: 250px auto;
+      grid-template-areas: 'nav main';
+    }
+    @media (min-width: 1024px) {
+      grid-template-columns: 300px auto;
+      grid-template-areas: 'nav main';
     }
     @media (min-width: 1200px) {
-      padding: 0 2rem;
+      grid-template-columns: 300px auto 300px;
+      grid-template-areas: 'nav main onthispage';
+      padding: 0 4rem;
     }
   }
 
   aside.navigation {
+    background: transparent;
     display: none;
     overflow-y: hidden;
     transition: overflow-y 1s ease; /* Add a transition to the overflow-y property */
@@ -97,7 +107,7 @@ const HomeLayoutContainer = styled.div`
       display: block;
       height: calc(100vh - 50px);
       position: fixed;
-      min-width: 300px;
+      min-width: 250px;
       grid-area: nav;
       overflow-x: hidden;
       border-right: var(--border);
@@ -131,32 +141,29 @@ const HomeLayoutContainer = styled.div`
     }
   }
 
-  .content {
-    grid-area: content;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas: 'main';
-
-    @media (min-width: 1200px) {
-      grid-template-columns: 1fr 300px;
-      grid-template-areas: 'main onthispage';
-    }
+  main {
+    position: relative;
+    background: transparent;
+    grid-area: main;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 4rem;
+    overflow-x: hidden;
   }
 
   aside.onthispage {
+    grid-area: onthispage;
     display: none;
+    background: transparent;
+    overflow: hidden;
+    &:hover {
+      overflow-y: auto;
+    }
     @media (min-width: 1200px) {
       display: block;
-      grid-area: onthispage;
       border-left: var(--border);
+      border-right: var(--border);
     }
-  }
-
-  main {
-    grid-area: main;
-    padding: 2rem 4rem;
-    display: flex;
-    flex-direction: column;
   }
 `;
 
@@ -165,6 +172,7 @@ export const HomeLayout = () => {
 
   const navRef = useRef(null);
   const containerRef = useRef(null);
+  const mainRef = useRef(null);
 
   const [position, setPosition] = useState(0);
 
@@ -248,12 +256,11 @@ export const HomeLayout = () => {
             <br />
           </nav>
         </aside>
-        <div className="content">
-          <main>
-            <Outlet />
-          </main>
-          <aside className="onthispage"></aside>
-        </div>
+        <main ref={mainRef}>
+          <Dimensions value={mainRef?.current?.offsetWidth} />
+          <Outlet />
+        </main>
+        <aside className="onthispage"></aside>
       </div>
     </HomeLayoutContainer>
   );

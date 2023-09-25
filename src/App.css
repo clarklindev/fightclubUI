@@ -28,6 +28,7 @@ body {
 /* Hide the default scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
+  background: rgba(0, 0, 0, 0);
 }
 
 /* Define the thumb */
