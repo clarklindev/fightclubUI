@@ -18,66 +18,14 @@ const HomeLayoutContainer = styled.div`
     'header'
     'container';
 
-  header {
-    justify-content: center;
-    grid-area: header;
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 50px;
-    position: fixed;
-    z-index: 1;
-    border-bottom: var(--border);
-    background: var(--clr-background);
-    color: var(--clr-foreground);
-    padding: 0 2rem;
-
-    @media (min-width: 768px) {
-      justify-content: space-between;
-    }
-
-    @media (min-width: 1200px) {
-      padding: 0 4rem 0 4rem;
-    }
-
-    .headerLeft {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-    }
-    .headerRight {
-      display: none;
-      @media (min-width: 768px) {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-      }
-    }
-  }
-
-  .logo {
-    z-index: 2;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .logo span {
-    font-weight: 600;
-  }
-  .logo .icon {
-    fill: var(--clr-foreground);
-  }
-
   .container {
-    top: 50px;
     background: transparent;
     grid-area: container;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-areas: 'main';
     max-width: 100%;
+    position: relative;
     @media (min-width: 768px) {
       grid-template-columns: 250px auto;
       grid-template-areas: 'nav main';
@@ -93,54 +41,6 @@ const HomeLayoutContainer = styled.div`
     }
   }
 
-  aside.navigation {
-    background: transparent;
-    display: none;
-    overflow-y: hidden;
-    transition: overflow-y 1s ease; /* Add a transition to the overflow-y property */
-
-    &:hover {
-      overflow-y: auto;
-    }
-
-    @media (min-width: 768px) {
-      display: block;
-      height: calc(100vh - 50px);
-      position: fixed;
-      min-width: 250px;
-      grid-area: nav;
-      overflow-x: hidden;
-      border-right: var(--border);
-      padding: 2rem;
-      nav {
-        display: flex;
-        flex-direction: column;
-        z-index: 1;
-      }
-      nav a {
-        padding: 5px 10px 5px 0px;
-        border-radius: 5px;
-        color: #7d7d7d;
-        font-size: 0.9rem;
-        font-weight: 400;
-
-        &:hover {
-          color: var(--clr-foreground);
-        }
-
-        &.active {
-          color: var(--clr-foreground);
-        }
-      }
-    }
-    @media (min-width: 1024px) {
-      min-width: 300px;
-    }
-    @media (min-width: 1200px) {
-      min-width: 300px;
-    }
-  }
-
   main {
     position: relative;
     background: transparent;
@@ -150,20 +50,122 @@ const HomeLayoutContainer = styled.div`
     padding: 2rem 4rem;
     overflow-x: hidden;
   }
+`;
 
-  aside.onthispage {
-    grid-area: onthispage;
+const Header = styled.header`
+  justify-content: center;
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  width: calc(100%);
+  height: 50px;
+  position: fixed;
+  z-index: 1;
+  border-right: var(--border);
+  border-bottom: var(--border);
+  background: white;
+  color: var(--clr-foreground);
+  padding: 0 2rem;
+
+  @media (min-width: 768px) {
+    justify-content: space-between;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 0 4rem 0 4rem;
+  }
+
+  .headerLeft {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .headerRight {
     display: none;
-    background: transparent;
-    overflow: hidden;
-    &:hover {
-      overflow-y: auto;
+    @media (min-width: 768px) {
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-    @media (min-width: 1200px) {
-      display: block;
-      border-left: var(--border);
-      border-right: var(--border);
+  }
+
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .logo span {
+    font-weight: 600;
+  }
+  .logo .icon {
+    fill: var(--clr-foreground);
+  }
+`;
+
+const AsideNavigation = styled.aside`
+  background: transparent;
+  display: none;
+  overflow-y: hidden;
+  &:hover {
+    overflow-y: auto;
+  }
+
+  @media (min-width: 768px) {
+    display: block;
+    height: calc(100vh - 50px);
+    position: fixed;
+    min-width: 250px;
+    grid-area: nav;
+    overflow-x: hidden;
+    border-right: var(--border);
+    padding: 2rem;
+    nav {
+      display: flex;
+      flex-direction: column;
     }
+    nav a {
+      padding: 5px 10px 5px 0px;
+      border-radius: 5px;
+      color: #7d7d7d;
+      font-size: 0.9rem;
+      font-weight: 400;
+
+      &:hover {
+        color: var(--clr-foreground);
+      }
+
+      &.active {
+        color: var(--clr-foreground);
+      }
+    }
+  }
+  @media (min-width: 1024px) {
+    min-width: 300px;
+  }
+  @media (min-width: 1200px) {
+    min-width: 300px;
+  }
+`;
+
+const AsideOnThePage = styled.aside`
+  height: calc(100vh - 50px);
+  grid-area: onthispage;
+  display: none;
+  background: transparent;
+  position: fixed;
+  overflow: hidden;
+  &:hover {
+    overflow-y: auto;
+  }
+  padding: 2rem;
+
+  @media (min-width: 1200px) {
+    right: 4rem;
+    display: block;
+    border-left: var(--border);
+    min-width: 300px;
   }
 `;
 
@@ -174,20 +176,23 @@ export const HomeLayout = () => {
   const containerRef = useRef(null);
   const mainRef = useRef(null);
 
-  const [position, setPosition] = useState(0);
+  const [mainWidth, setMainWidth] = useState();
 
   useEffect(() => {
-    const handleScroll = () => {};
+    setMainWidth(mainRef?.current.clientWidth);
+    const resize = () => {
+      setMainWidth(mainRef?.current.clientWidth);
+    };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', resize);
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', resize);
     };
   }, []);
 
   return (
     <HomeLayoutContainer>
-      <header>
+      <Header>
         <div className="headerLeft">
           <div className="logo">
             <Button intent="plain" padding="none" className="gap-2" onClick={() => navigate('/')}>
@@ -210,10 +215,10 @@ export const HomeLayout = () => {
             <img src={darkmodeIcon} alt="darkmode" />
           </Icon>
         </div>
-      </header>
+      </Header>
 
       <div className="container" ref={containerRef}>
-        <aside className="navigation" ref={navRef}>
+        <AsideNavigation ref={navRef}>
           <nav>
             <Heading variation="h6">Components</Heading>
             <NavLink to="heading">Heading</NavLink>
@@ -255,12 +260,12 @@ export const HomeLayout = () => {
 
             <br />
           </nav>
-        </aside>
+        </AsideNavigation>
         <main ref={mainRef}>
-          <Dimensions value={mainRef?.current?.offsetWidth} />
+          {/* <Dimensions value={mainWidth} /> */}
           <Outlet />
         </main>
-        <aside className="onthispage"></aside>
+        <AsideOnThePage />
       </div>
     </HomeLayoutContainer>
   );

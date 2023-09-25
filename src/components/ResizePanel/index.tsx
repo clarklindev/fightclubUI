@@ -12,7 +12,11 @@ export const ResizePanel = () => {
   useEffect(() => {
     if (componentRef?.current) {
       setWidth(componentRef.current.clientWidth);
-      setMaxWidth(componentRef.current.parentNode.clientWidth);
+
+      const computedStyles = getComputedStyle(componentRef.current.parentNode);
+      const paddingLeft = parseFloat(computedStyles.paddingLeft);
+      const paddingRight = parseFloat(computedStyles.paddingRight);
+      setMaxWidth(componentRef.current.parentNode.clientWidth - paddingLeft - paddingRight);
     }
   }, []);
 
@@ -20,11 +24,13 @@ export const ResizePanel = () => {
     // Handle window resize event
     const handleResize = () => {
       const maxWidth = componentRef.current.parentNode.clientWidth;
+      console.log('parent clientWidth:', maxWidth);
 
       const computedStyles = getComputedStyle(componentRef.current.parentNode);
       const paddingLeft = parseFloat(computedStyles.paddingLeft);
       const paddingRight = parseFloat(computedStyles.paddingRight);
       const newMax = maxWidth - paddingLeft - paddingRight;
+      console.log('newMax clientWidth:', newMax);
 
       setMaxWidth(newMax);
       setWidth(newMax);
@@ -46,9 +52,13 @@ export const ResizePanel = () => {
   const handleMouseMove = e => {
     if (resizing) {
       console.log('maxWidth: ', maxWidth);
+      const computedStyles = getComputedStyle(componentRef.current.parentNode);
+      const paddingLeft = parseFloat(computedStyles.paddingLeft);
+      const paddingRight = parseFloat(computedStyles.paddingRight);
+      const newMax = maxWidth - paddingLeft - paddingRight;
 
       const deltaX = initialX.current - e.clientX;
-      setWidth(prev => Math.min(prev - deltaX, maxWidth));
+      setWidth(prev => Math.max(0, Math.min(prev - deltaX, maxWidth)));
       initialX.current = e.clientX;
     }
   };
@@ -77,7 +87,7 @@ export const ResizePanel = () => {
 
   return (
     <ResizePanelWrapper width={width} ref={componentRef}>
-      <Dimensions value={width} />
+      <Dimensions value={width > 0 ? width : 0} />
       <Handle onMouseDown={handleMouseDown} />
     </ResizePanelWrapper>
   );

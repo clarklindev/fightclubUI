@@ -13,5 +13,5 @@ const DimensionsWrapper = styled.div`
 
 export const Dimensions = props => {
   const { value } = props;
-  return value > 0 ? <DimensionsWrapper>{value}</DimensionsWrapper> : null;
+  return value ? <DimensionsWrapper>{value}</DimensionsWrapper> : null;
 };
