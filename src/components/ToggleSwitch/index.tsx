@@ -31,8 +31,8 @@ export const ToggleSwitch: React.FC<ToggleSwitchProps> = React.memo(
 const ToggleSwitchWrapper = styled.label`
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 30px;
+  width: 50px;
+  height: 25px;
 `;
 
 const ToggleSwitchInput = styled.input`
@@ -59,8 +59,8 @@ const Slider = styled.span`
     content: '';
     height: 20px;
     width: 20px;
-    left: 5px;
-    bottom: 5px;
+    left: 2px;
+    top: 2px;
     background-color: white;
     -webkit-transition: 0.2s;
     transition: 0.2s;
@@ -72,8 +72,6 @@ const Slider = styled.span`
 
   &.${({ className }) => className} {
     input[type='checkbox']:checked + &:before {
-    -webkit-transform: translateX(30px);
-    -ms-transform: translateX(30px);
-    transform: translateX(30px);
+    transform: translateX(25px);
   }
 `;
