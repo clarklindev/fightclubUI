@@ -2,18 +2,15 @@ import { useState, useRef, useEffect } from 'react';
 
 const UseHoverFocusExample = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const buttonRef = useRef(null);
-  const menuRef = useRef(null);
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const handleClickOutside = event => {
-      if (
-        buttonRef.current &&
-        !buttonRef.current.contains(event.target) &&
-        menuRef.current &&
-        !menuRef.current.contains(event.target)
-      ) {
-        setMenuOpen(false);
+    const handleClickOutside = (event: MouseEvent) => {
+      if (buttonRef.current && menuRef.current) {
+        if (!buttonRef.current.contains(event.target as Node) && !menuRef.current.contains(event.target as Node)) {
+          setMenuOpen(false);
+        }
       }
     };
 

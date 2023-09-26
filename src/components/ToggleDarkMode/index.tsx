@@ -1,29 +1,26 @@
-import { useEffect } from 'react';
-import styled from 'styled-components';
-
-import { Icon, Button } from '../';
-import { useTheme } from '../../context/ThemeContext';
+// import { useEffect } from 'react';
+// import { useTheme } from '../../context/ThemeContext';
 
 export const ToggleDarkMode: React.FC = () => {
-  const { isDarkMode, setIsDarkMode } = useTheme();
+  // const { isDarkMode, setIsDarkMode } = useTheme();
 
-  useEffect(() => {
-    toggleColorScheme(isDarkMode ? 'dark' : 'light');
-  }, []);
+  // useEffect(() => {
+  //   toggleColorScheme(isDarkMode ? 'dark' : 'light');
+  // }, []);
 
-  const toggleColorScheme = (colorScheme: string) => {
-    const html = document.querySelector('html');
-    if (html) {
-      html.setAttribute('color-scheme', colorScheme);
-      document.documentElement.style.setProperty('color-scheme', colorScheme);
-    }
-  };
+  // const toggleColorScheme = (colorScheme: string) => {
+  //   const html = document.querySelector('html');
+  //   if (html) {
+  //     html.setAttribute('color-scheme', colorScheme);
+  //     document.documentElement.style.setProperty('color-scheme', colorScheme);
+  //   }
+  // };
 
-  const toggleState = () => {
-    console.log('toggle state');
-    setIsDarkMode(!isDarkMode);
-    isDarkMode ? toggleColorScheme('light') : toggleColorScheme('dark');
-  };
+  // const toggleState = () => {
+  //   console.log('toggle state');
+  //   setIsDarkMode(!isDarkMode);
+  //   isDarkMode ? toggleColorScheme('light') : toggleColorScheme('dark');
+  // };
 
   return (
     <div>darkmode</div>

@@ -10,7 +10,7 @@ const InputPasswordExample = () => {
   return (
     <InputWrapper>
       <Input
-        savedData={savedData}
+        value={savedData}
         placeholder={'placeholder'}
         border={false}
         type={passwordVisible ? 'text' : 'password'}

@@ -1,9 +1,9 @@
-import React, { useState, useRef } from 'react';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import React from 'react';
+// import { NavLink } from 'react-router-dom';
+// import styled from 'styled-components';
 
-import { Icon, LabelSomething } from '../';
-import { ChevronRightIcon, ChevronDownIcon } from '../../icons/';
+// import { Icon, LabelSomething } from '../';
+// import { ChevronRightIcon, ChevronDownIcon } from '../../icons/';
 
 // recursive function - destruct off props
 
@@ -12,26 +12,28 @@ type TreeProps = {
   depth?: number;
 };
 
-export const Tree: React.FC<TreeProps> = ({ data, depth = 0 }) => {
-  const [childrenVisible, setChildrenVisible] = useState([]);
+export const Tree: React.FC<TreeProps> = () =>
+  // { data, depth = 0 }
+  {
+    // const [childrenVisible, setChildrenVisible] = useState([]);
 
-  const openChildrenHandler = (depth: number, index: number) => {
-    console.log(`depth: ${depth}, index:${index}`);
-    const found = childrenVisible.includes(`${depth}-${index}`);
-    if (found) {
-      // filter-out
-      //if index is in the activeIndexes array... remove it
-      setChildrenVisible(childrenVisible.filter(path => path !== `${depth}-${index}`));
-    } else {
-      //or add
-      //add to activeIndexes = Set is unique values
-      setChildrenVisible([...new Set([...childrenVisible, `${depth}-${index}`])]);
-    }
-  };
+    // const openChildrenHandler = (depth: number, index: number) => {
+    // console.log(`depth: ${depth}, index:${index}`);
+    // const found = childrenVisible.includes(`${depth}-${index}`);
+    // if (found) {
+    //   // filter-out
+    //   //if index is in the activeIndexes array... remove it
+    //   setChildrenVisible(childrenVisible.filter(path => path !== `${depth}-${index}`));
+    // } else {
+    //   //or add
+    //   //add to activeIndexes = Set is unique values
+    //   setChildrenVisible([...new Set([...childrenVisible, `${depth}-${index}`])]);
+    // }
+    // };
 
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column' }}>
-      {data.map(({ label = undefined, path, children = undefined }, index: number) => {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        {/* {data.map(({ label = undefined, path, children = undefined }, index: number) => {
         const childRef = useRef();
         return (
           <TreeContainer
@@ -73,36 +75,36 @@ export const Tree: React.FC<TreeProps> = ({ data, depth = 0 }) => {
             </div>
           </TreeContainer>
         );
-      })}
-    </div>
-  );
-};
+      })} */}
+      </div>
+    );
+  };
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
-const TreeContainer = styled.div`
-  display: flex;
-  justify-items: flex-start;
-  align-items: flex-start;
-`;
+// const TreeContainer = styled.div`
+//   display: flex;
+//   justify-items: flex-start;
+//   align-items: flex-start;
+// `;
 
-const Node = styled.div`
-  box-sizing: border-box;
-  margin-left: 6px;
-  padding-left: 15px;
-  border-left: 1px solid currentColor;
-  display: block;
+// const Node = styled.div`
+//   box-sizing: border-box;
+//   margin-left: 6px;
+//   padding-left: 15px;
+//   border-left: 1px solid currentColor;
+//   display: block;
 
-  &[data-expanded='false'] {
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.1s ease-out;
-    max-height: 0px;
-  }
+//   &[data-expanded='false'] {
+//     visibility: hidden;
+//     opacity: 0;
+//     transition: all 0.1s ease-out;
+//     max-height: 0px;
+//   }
 
-  &[data-expanded='true'] {
-    visibility: visible;
-    opacity: 1;
-    transition: all 0.1s ease-out;
-    max-height: auto;
-  }
-`;
+//   &[data-expanded='true'] {
+//     visibility: visible;
+//     opacity: 1;
+//     transition: all 0.1s ease-out;
+//     max-height: auto;
+//   }
+// `;

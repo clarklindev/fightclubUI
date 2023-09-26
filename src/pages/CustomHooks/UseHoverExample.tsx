@@ -6,7 +6,7 @@ const UseHoverExample = () => {
 
   return (
     <div style={{ position: 'relative' }}>
-      <Button {...attrs}>Button</Button>
+      <Button {...(attrs as React.HTMLAttributes<HTMLButtonElement>)}>Button</Button>
       {hovering && <div className="absolute">hello world</div>}
     </div>
   );

@@ -12,7 +12,7 @@ const RadioButtonGroupHorizontalExample = () => {
 
   const [savedData, updateSavedData] = useState(Array(options.length).fill(false));
 
-  const onChange = (index: number, newValue) => {
+  const onChange = (index: number, newValue: boolean) => {
     let newValues = [...savedData].fill(false);
     newValues[index] = newValue;
     updateSavedData(newValues);

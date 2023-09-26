@@ -32,7 +32,7 @@ import SeparatorExample from './pages/Separator';
 import ListExample from './pages/List';
 import TableExample from './pages/Table';
 import CardExample from './pages/Button/Card';
-import TreeExample from './pages/Tree';
+// import TreeExample from './pages/Tree';
 import ProgressLoaderExample from './pages/ProgressLoader';
 import SpinnerExample from './pages/Spinner';
 import HooksExample from './pages/CustomHooks';
@@ -71,7 +71,7 @@ export const router = createBrowserRouter(
       <Route path="/list" element={<ListExample />} />
       <Route path="/table" element={<TableExample />} />
       <Route path="/card" element={<CardExample />} />
-      <Route path="/tree" element={<TreeExample />} />
+      {/* <Route path="/tree" element={<TreeExample />} /> */}
       <Route path="/progressloader" element={<ProgressLoaderExample />} />
       <Route path="/spinner" element={<SpinnerExample />} />
       <Route path="/resizepanel" element={<ResizePanelExample />} />

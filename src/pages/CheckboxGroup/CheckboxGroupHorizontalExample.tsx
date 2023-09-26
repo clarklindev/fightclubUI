@@ -11,7 +11,7 @@ const CheckboxGroupHorizontalExample = () => {
 
   const [savedData, updateSavedData] = useState(Array(options.length).fill(false));
 
-  const onChange = (index: number, newValue) => {
+  const onChange = (index: number, newValue: boolean) => {
     const newValues = [...savedData];
     newValues[index] = newValue;
     updateSavedData(newValues);

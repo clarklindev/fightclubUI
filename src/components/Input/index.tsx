@@ -26,7 +26,7 @@ export interface InputVariants extends VariantProps<typeof inputVariants> {
   type?: string;
   border?: boolean;
   children?: React.ReactNode;
-  savedData: string;
+  value: string;
   placeholder?: string;
   readonly?: boolean;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -36,7 +36,7 @@ export const Input = forwardRef<HTMLInputElement, InputVariants>(function Input(
   {
     onChange,
     border = true,
-    savedData,
+    value,
     placeholder = '',
     className,
     readonly = false,
@@ -53,7 +53,7 @@ export const Input = forwardRef<HTMLInputElement, InputVariants>(function Input(
     <input
       type={type}
       onChange={onChange}
-      value={savedData}
+      value={value}
       placeholder={placeholder}
       className={classes}
       readOnly={readonly}

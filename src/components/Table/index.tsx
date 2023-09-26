@@ -15,6 +15,7 @@ export type TableProps = {
   data: Array<any>;
   configure: {
     padding: string;
+    align: string; //vertical align of text
   };
 };
 

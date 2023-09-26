@@ -7,7 +7,7 @@ export interface InputVariants extends VariantProps<typeof inputVariants> {
     type?: string;
     border?: boolean;
     children?: React.ReactNode;
-    savedData: string;
+    value: string;
     placeholder?: string;
     readonly?: boolean;
     onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;

@@ -12,7 +12,7 @@ const InputWithIconExample = () => {
         <SpeechIcon />
       </Icon>
       <Input
-        savedData={savedData}
+        value={savedData}
         border={false}
         placeholder="placeholder"
         onChange={event => {

@@ -1,1 +1,1 @@
-{"version":3,"file":"useHover.d.ts","sourceRoot":"","sources":["../../src/customhooks/useHover.ts"],"names":[],"mappings":"AAGA,eAAO,MAAM,QAAQ;;;IAapB,CAAC"}
+{"version":3,"file":"useHover.d.ts","sourceRoot":"","sources":["../../src/customhooks/useHover.ts"],"names":[],"mappings":"AAEA,KAAK,eAAe,GAAG;IACrB,WAAW,EAAE,MAAM,IAAI,CAAC;IACxB,UAAU,EAAE,MAAM,IAAI,CAAC;CACxB,CAAC;AAEF,eAAO,MAAM,QAAQ,qCAapB,CAAC"}

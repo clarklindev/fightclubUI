@@ -35,7 +35,7 @@ type SliderMultiRangeProps = {
 
 export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
   sliderValues = [0, 0, 0],
-  colors = ['red', 'yellow', 'blue'],
+  // colors = ['red', 'yellow', 'blue'],
   onChange,
   min = 0,
   max = 100,

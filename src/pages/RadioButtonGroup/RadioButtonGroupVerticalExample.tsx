@@ -12,7 +12,7 @@ const RadioButtonGroupVerticalExample = () => {
 
   const [savedData, updateSavedData] = useState(Array(options.length).fill(false));
 
-  const onChange = (index, newValue) => {
+  const onChange = (index: number, newValue: boolean) => {
     let newValues = [...savedData].fill(false);
     newValues[index] = newValue;
     updateSavedData(newValues);
@@ -25,7 +25,7 @@ const RadioButtonGroupVerticalExample = () => {
           <LabelSomething
             key={'RadioButtonGroup' + index}
             label={each.label}
-            labelPosition="right"
+            labelDirection="right"
             gap="10px"
             something={
               <RadioButton

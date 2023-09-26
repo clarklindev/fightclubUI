@@ -36,7 +36,7 @@ export const Counter: React.FC<CounterProps> = ({ savedData, onChange }) => {
         placeholder=""
         className="pointer-events-none text-center p-0"
         onChange={event => event.target.value}
-        savedData={savedData.toString()}
+        value={savedData.toString()}
       />
 
       <Button className={['Button', 'right'].join(' ')} onClick={increment} intent="icon">

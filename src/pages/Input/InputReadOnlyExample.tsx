@@ -7,7 +7,7 @@ const InputReadOnlyExample = () => {
 
   return (
     <Input
-      savedData={savedData}
+      value={savedData}
       readonly
       onChange={event => {
         setSavedData(event.target.value);

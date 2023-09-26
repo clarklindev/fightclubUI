@@ -2,63 +2,58 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { Dimensions } from '../Dimensions';
 
+type ResizePanelWrapperProps = {
+  width?: number | null;
+};
+
 export const ResizePanel: React.FC = () => {
   const [resizing, setResizing] = useState(false);
-  const [width, setWidth] = useState(); // Initial width
-  const [maxWidth, setMaxWidth] = useState();
-  const initialX = useRef(null);
-  const componentRef = useRef(null);
+  const [width, setWidth] = useState<number | null>(); // Initial width
+  const [maxWidth, setMaxWidth] = useState<number | undefined>();
+  const initialX = useRef<number | null>(null);
+  const componentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (componentRef && componentRef.current !== null) {
+    if (componentRef?.current) {
       setWidth(componentRef.current.clientWidth);
-
-      const computedStyles = getComputedStyle(componentRef.current.parentNode);
-      const paddingLeft = parseFloat(computedStyles.paddingLeft);
-      const paddingRight = parseFloat(computedStyles.paddingRight);
-      setMaxWidth(componentRef.current.parentNode.clientWidth - paddingLeft - paddingRight);
+      setMaxWidth(componentRef.current.clientWidth);
     }
   }, []);
 
   useEffect(() => {
     // Handle window resize event
     const handleResize = () => {
-      const maxWidth = componentRef.current.parentNode.clientWidth;
-      console.log('parent clientWidth:', maxWidth);
+      if (componentRef?.current) {
+        const parentElement = componentRef.current.parentNode as HTMLElement;
 
-      const computedStyles = getComputedStyle(componentRef.current.parentNode);
-      const paddingLeft = parseFloat(computedStyles.paddingLeft);
-      const paddingRight = parseFloat(computedStyles.paddingRight);
-      const newMax = maxWidth - paddingLeft - paddingRight;
-      console.log('newMax clientWidth:', newMax);
-
-      setMaxWidth(newMax);
-      setWidth(newMax);
+        const maxWidth = parentElement.clientWidth;
+        const computedStyles = getComputedStyle(parentElement);
+        const paddingLeft = parseFloat(computedStyles.paddingLeft);
+        const paddingRight = parseFloat(computedStyles.paddingRight);
+        const newMax = maxWidth - paddingLeft - paddingRight;
+        setMaxWidth(newMax);
+        setWidth(Math.min(componentRef.current.offsetWidth, newMax));
+      }
     };
 
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [componentRef?.current?.parentNode.clientWidth]);
+  }, [componentRef?.current?.parentNode]);
 
-  const handleMouseDown = e => {
+  const handleMouseDown = (e: React.MouseEvent<HTMLSpanElement>) => {
     console.log('press down');
     e.preventDefault();
     setResizing(true);
     initialX.current = e.clientX;
   };
 
-  const handleMouseMove = e => {
-    if (resizing) {
+  const handleMouseMove = (e: MouseEvent) => {
+    if (resizing && maxWidth) {
       console.log('maxWidth: ', maxWidth);
-      const computedStyles = getComputedStyle(componentRef.current.parentNode);
-      const paddingLeft = parseFloat(computedStyles.paddingLeft);
-      const paddingRight = parseFloat(computedStyles.paddingRight);
-      const newMax = maxWidth - paddingLeft - paddingRight;
-
-      const deltaX = initialX.current - e.clientX;
-      setWidth(prev => Math.max(0, Math.min(prev - deltaX, maxWidth)));
+      const deltaX = (initialX?.current ?? 0) - e.clientX;
+      setWidth(prev => (prev === null || prev === undefined ? 0 : Math.max(0, Math.min(prev - deltaX, maxWidth))));
       initialX.current = e.clientX;
     }
   };
@@ -87,18 +82,15 @@ export const ResizePanel: React.FC = () => {
 
   return (
     <ResizePanelWrapper width={width} ref={componentRef}>
-      <Dimensions value={width > 0 ? width : 0} />
+      <Dimensions value={width && width > 0 ? width : 0} />
       <Handle onMouseDown={handleMouseDown} />
     </ResizePanelWrapper>
   );
 };
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
-const ResizePanelWrapper = styled.div.attrs(props => ({
-  style: {
-    width: `${props.width}px` /* Apply the width from props */,
-  },
-}))`
+const ResizePanelWrapper = styled.div<ResizePanelWrapperProps>`
+  width: ${props => (props.width ? `${props.width}px` : 'auto')};
   height: 100%;
   background: white;
   border: var(--border);

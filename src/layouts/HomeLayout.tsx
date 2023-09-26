@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef } from 'react';
 import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -171,29 +170,6 @@ const AsideOnThePage = styled.aside`
 export const HomeLayout = () => {
   const navigate = useNavigate();
 
-  const navRef = useRef<HTMLDivElement | null>(null);
-  const containerRef = useRef<HTMLDivElement | null>(null);
-  const mainRef = useRef<HTMLDivElement | null>(null);
-
-  const [mainWidth, setMainWidth] = useState<number>();
-
-  useEffect(() => {
-    if (mainRef?.current) {
-      setMainWidth(mainRef.current.clientWidth);
-    }
-
-    const resize = () => {
-      if (mainRef?.current) {
-        setMainWidth(mainRef.current.clientWidth);
-      }
-    };
-
-    window.addEventListener('resize', resize);
-    return () => {
-      window.removeEventListener('resize', resize);
-    };
-  }, []);
-
   return (
     <HomeLayoutContainer>
       <Header>
@@ -221,8 +197,8 @@ export const HomeLayout = () => {
         </div>
       </Header>
 
-      <div className="container" ref={containerRef}>
-        <AsideNavigation ref={navRef}>
+      <div className="container">
+        <AsideNavigation>
           <nav>
             <Heading variation="h6">Components</Heading>
             <NavLink to="heading">Heading</NavLink>
@@ -265,7 +241,7 @@ export const HomeLayout = () => {
             <br />
           </nav>
         </AsideNavigation>
-        <main ref={mainRef}>
+        <main>
           <Outlet />
         </main>
         <AsideOnThePage />

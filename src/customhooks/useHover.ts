@@ -1,12 +1,16 @@
 import { useState } from 'react';
 
-//custom hook
+type HoverAttributes = {
+  onMouseOver: () => void;
+  onMouseOut: () => void;
+};
+
 export const useHover = () => {
   const [hovering, setHover] = useState(false);
   const mouseOver = () => setHover(true);
   const mouseOut = () => setHover(false);
 
-  const attrs = {
+  const attrs: HoverAttributes = {
     onMouseOver: mouseOver,
     onMouseOut: mouseOut,
   };

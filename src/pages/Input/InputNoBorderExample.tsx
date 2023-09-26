@@ -7,7 +7,7 @@ const InputNoBorderExample = () => {
 
   return (
     <Input
-      savedData={savedData}
+      value={savedData}
       placeholder="placeholder"
       className="bg-transparent"
       border={false}

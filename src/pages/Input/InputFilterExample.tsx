@@ -16,7 +16,7 @@ const InputFilterExample = () => {
         <SearchIcon />
       </Icon>
       <Input
-        savedData={savedData}
+        value={savedData}
         border={false}
         placeholder="placeholder"
         onChange={event => {

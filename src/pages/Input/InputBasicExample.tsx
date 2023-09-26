@@ -8,7 +8,7 @@ const InputExample = () => {
 
   return (
     <Input
-      savedData={savedData}
+      value={savedData}
       onChange={event => {
         setSavedData(event.target.value);
       }}

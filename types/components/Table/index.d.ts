@@ -12,6 +12,7 @@ export type TableProps = {
     data: Array<any>;
     configure: {
         padding: string;
+        align: string;
     };
 };
 export declare const Table: React.FC<TableProps>;
