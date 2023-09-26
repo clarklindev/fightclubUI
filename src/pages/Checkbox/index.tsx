@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Checkbox, Heading } from '../../components';
+import { Checkbox, LabelSomething, Heading } from '../../components';
 
 const CheckboxExample = () => {
   const [savedData, setSavedData] = useState(false);
@@ -8,13 +8,19 @@ const CheckboxExample = () => {
   return (
     <>
       <Heading variation="h4">Checkbox</Heading>
-      <Checkbox
-        checked={savedData}
-        name="checkbox"
+      <LabelSomething
         label="label"
-        onChange={event => {
-          setSavedData(event.target.checked);
-        }}
+        labelDirection="right"
+        gap="10px"
+        something={
+          <Checkbox
+            checked={savedData}
+            name="checkbox"
+            onChange={event => {
+              setSavedData(event.target.checked);
+            }}
+          />
+        }
       />
     </>
   );

@@ -201,7 +201,7 @@ export const lightTheme = {
   Checkbox: {
     borderRadius: global.borderRadius,
     border: global.border,
-    backgroundColor: global.backgroundColor,
+    backgroundColor: 'red',
   },
 
   RadioButton: {

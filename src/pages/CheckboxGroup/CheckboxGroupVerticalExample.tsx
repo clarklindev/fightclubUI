@@ -24,13 +24,12 @@ const CheckboxGroupVerticalExample = () => {
           <LabelSomething
             key={'CheckboxGroup_Checkbox' + index}
             label={each.label}
-            labelPosition="right"
+            labelDirection="right"
             gap="10px"
             something={
               <Checkbox
                 checked={savedData[index]}
                 name="Checkbox_ABC"
-                iconSize="20px"
                 onChange={() => onChange(index, !savedData[index])}
               />
             }

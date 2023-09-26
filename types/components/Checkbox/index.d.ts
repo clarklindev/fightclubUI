@@ -2,9 +2,9 @@ import React from 'react';
 type CheckboxProps = {
     checked: boolean;
     name: string;
-    label: string;
+    label?: string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    iconSize?: string;
+    size?: string;
     indeterminate?: boolean;
 };
 export declare const Checkbox: React.FC<CheckboxProps>;
