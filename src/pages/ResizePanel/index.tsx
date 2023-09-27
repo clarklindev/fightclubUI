@@ -1,7 +1,7 @@
 import { ResizePanel } from '../../components';
 
 const ResizePanelExample = () => {
-  return <ResizePanel />;
+  return <ResizePanel style={{ padding: 0 }} minWidth="0px" />;
 };
 
 export default ResizePanelExample;

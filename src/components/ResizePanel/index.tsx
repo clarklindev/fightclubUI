@@ -6,9 +6,10 @@ type ResizePanelProps = {
   style?: React.CSSProperties;
   children?: React.ReactNode;
   className?: string;
+  minWidth?: string;
 };
 
-export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, className }) => {
+export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, className, minWidth = '300px' }) => {
   const [resizing, setResizing] = useState(false);
   const [width, setWidth] = useState<number | undefined>(); // Initial width
   const [maxWidth, setMaxWidth] = useState<number | undefined>();
@@ -52,7 +53,9 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
   const handleMouseMove = (e: MouseEvent) => {
     if (resizing && componentRef.current && maxWidth && childComponentsRef.current) {
       const deltaX = (initialX?.current ?? 0) - e.clientX;
-      setWidth(prev => (prev === null || prev === undefined ? 0 : Math.max(300, Math.min(prev - deltaX, maxWidth))));
+      setWidth(prev =>
+        prev === null || prev === undefined ? 0 : Math.max(parseInt(minWidth), Math.min(prev - deltaX, maxWidth)),
+      );
       initialX.current = e.clientX;
     }
   };
@@ -80,34 +83,40 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
   }, [resizing]);
 
   return (
-    <ResizePanelWrapper style={{ width }} ref={componentRef}>
-      {/* <Dimensions value={width && width > 0 ? width : 0} /> */}
+    // width passed here is the state
+    <ResizePanelWrapper style={{ ...style, width }} ref={componentRef}>
+      {/* <Dimensions value={width && width > 0 , padding? width : 0} /> */}
       <Handle onMouseDown={handleMouseDown} />
-      <div className={className} ref={childComponentsRef}>
+      <ChildContainer className={className} ref={childComponentsRef}>
         {children}
-      </div>
+      </ChildContainer>
     </ResizePanelWrapper>
   );
 };
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 const ResizePanelWrapper = styled.div<{ style: React.CSSProperties }>`
-  width: ${({ style }) => `${style.width}px`};
-  padding: 2rem;
+  width: ${({ style }) => `${style.width}`};
+  padding: ${({ style }) => `${style.padding || '2rem'}`};
   height: 100%;
   background: white;
   border: var(--border);
   border-radius: 4px;
   position: relative;
-  display: flex;
-  flex-direction: column;
   max-width: 100%;
   justify-content: center;
+`;
+
+const ChildContainer = styled.div`
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
 `;
 
 const Handle = styled.span`
   position: absolute;
   right: 0;
+  top: 50%;
   display: flex;
   flex-direction: row;
   align-items: center;
