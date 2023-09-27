@@ -94,10 +94,21 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
   );
 };
 // ------------------------------------------------------------------------------------------------------------------------------------------------
+// Styled-component warning: for frequently used attributes, use this syntax:
 
-const ResizePanelWrapper = styled.div<{ style: React.CSSProperties }>`
-  width: ${({ style }) => `${style.width}`};
-  padding: ${({ style }) => `${style.padding || '2rem'}`};
+// Example:
+//   const Component = styled.div.attrs(props => ({
+//     style: {
+//       background: props.background,
+//     },
+//   }))`width: 100%;`
+
+const ResizePanelWrapper = styled.div.attrs<{ style: React.CSSProperties }>(props => ({
+  style: {
+    width: props?.style?.width,
+    padding: props?.style?.padding || '2rem',
+  },
+}))`
   height: 100%;
   background: white;
   border: var(--border);
