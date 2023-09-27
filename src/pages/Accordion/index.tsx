@@ -2,7 +2,7 @@ import { Heading, Layout } from '../../components';
 import AccordionChevronExample from './AccordionChevronExample';
 import AccordionPlusMinusExample from './AccordionPlusMinusExample';
 import AccordionMinimalExample from './AccordionMinimalExample';
-
+import { ResizePanel } from '../../components';
 const AccordionExample = () => {
   return (
     <>
@@ -10,17 +10,23 @@ const AccordionExample = () => {
 
       <Layout variation="block">
         <Heading variation="h5">Accordion (chevron)</Heading>
-        <AccordionChevronExample />
+        <ResizePanel>
+          <AccordionChevronExample />
+        </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Accordion (plus/minus)</Heading>
-        <AccordionPlusMinusExample />
+        <ResizePanel>
+          <AccordionPlusMinusExample />
+        </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Accordion (minimal)</Heading>
-        <AccordionMinimalExample />
+        <ResizePanel>
+          <AccordionMinimalExample />
+        </ResizePanel>
       </Layout>
     </>
   );

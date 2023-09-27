@@ -6,6 +6,7 @@ import InputNoBorderExample from './InputNoBorderExample';
 import InputPasswordExample from './InputPasswordExample';
 import InputFilterExample from './InputFilterExample';
 import InputSearchExample from './InputSearchExample';
+import { ResizePanel } from '../../components';
 
 const InputExample = () => {
   return (
@@ -14,37 +15,51 @@ const InputExample = () => {
 
       <Layout variation="block">
         <Heading variation="h5">Input (no-border)</Heading>
-        <InputNoBorderExample />
+        <ResizePanel>
+          <InputNoBorderExample />
+        </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Basic input</Heading>
-        <InputBasicExample />
+        <ResizePanel>
+          <InputBasicExample />
+        </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Input (readonly)</Heading>
-        <InputReadOnlyExample />
+        <ResizePanel>
+          <InputReadOnlyExample />
+        </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Input + Icon</Heading>
-        <InputWithIconExample />
+        <ResizePanel>
+          <InputWithIconExample />
+        </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Input Password</Heading>
-        <InputPasswordExample />
+        <ResizePanel>
+          <InputPasswordExample />
+        </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Input Filter</Heading>
-        <InputFilterExample />
+        <ResizePanel>
+          <InputFilterExample />
+        </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Input Search</Heading>
-        <InputSearchExample />
+        <ResizePanel>
+          <InputSearchExample />
+        </ResizePanel>
       </Layout>
     </>
   );

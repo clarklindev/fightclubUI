@@ -35,6 +35,8 @@ const LayoutSection = styled.section<LayoutStyledComponentProps>`
 
 const LayoutBlock = styled.div<LayoutStyledComponentProps>`
   position: relative;
+  flex-direction: column;
+  display: flex;
   padding: ${({ theme }) => theme.Layout?.block?.padding};
 `;
 
