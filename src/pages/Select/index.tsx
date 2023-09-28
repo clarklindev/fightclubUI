@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Select, Heading } from '../../components';
+import { Select, Heading, ResizePanel } from '../../components';
 
 const SelectExample = () => {
   const [savedData, setSavedData] = useState<string | null>();
@@ -15,13 +15,15 @@ const SelectExample = () => {
   return (
     <>
       <Heading variation="h4">Select</Heading>
-      <Select savedData={savedData} onChange={event => setSavedData(event.target.value)}>
-        {data.map((each, index) => (
-          <option key={index} value={each.value}>
-            {each.text}
-          </option>
-        ))}
-      </Select>
+      <ResizePanel>
+        <Select savedData={savedData} onChange={event => setSavedData(event.target.value)}>
+          {data.map((each, index) => (
+            <option key={index} value={each.value}>
+              {each.text}
+            </option>
+          ))}
+        </Select>
+      </ResizePanel>
     </>
   );
 };

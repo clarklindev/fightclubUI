@@ -1,4 +1,4 @@
-import { Heading, Layout } from '../../components';
+import { Heading, Layout, ResizePanel } from '../../components';
 import SeparatorHorizontalExample from './SeparatorHorizontalExample';
 import SeparatorHorizontalLabelledExample from './SeparatorHorizontalLabelledExample';
 import SeparatorVerticalExample from './SeparatorVerticalExample';
@@ -9,15 +9,21 @@ const SeparatorExample = () => {
       <Heading variation="h4">Separator</Heading>
       <Layout variation="block">
         <Heading variation="h5">Separator (horizontal)</Heading>
-        <SeparatorHorizontalExample />
+        <ResizePanel>
+          <SeparatorHorizontalExample />
+        </ResizePanel>
       </Layout>
       <Layout variation="block">
         <Heading variation="h5">Separator labelled (horizontal)</Heading>
-        <SeparatorHorizontalLabelledExample />
+        <ResizePanel>
+          <SeparatorHorizontalLabelledExample />
+        </ResizePanel>
       </Layout>
       <Layout variation="block">
         <Heading variation="h5">Separator (vertical)</Heading>
-        <SeparatorVerticalExample />
+        <ResizePanel>
+          <SeparatorVerticalExample />
+        </ResizePanel>
       </Layout>
     </>
   );

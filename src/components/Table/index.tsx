@@ -29,7 +29,7 @@ export const Table: React.FC<TableProps> = ({ headers, data, configure }) => {
               <th
                 className={configure.padding}
                 key={headerindex}
-                style={{ width: header['width'] }}
+                style={{ width: header['width'], verticalAlign: 'top' }}
                 align={header['alignHeader']}>
                 {header['title']}
               </th>

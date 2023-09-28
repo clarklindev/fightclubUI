@@ -1,4 +1,4 @@
-import { Table, Heading } from '../../components';
+import { Table, Heading, ResizePanel } from '../../components';
 import type { Header } from '../../components/Table';
 
 const TableExample = () => {
@@ -62,7 +62,9 @@ const TableExample = () => {
   return (
     <>
       <Heading variation="h4">Table</Heading>
-      <Table headers={HEADERS} data={DATA} configure={configure} />
+      <ResizePanel>
+        <Table headers={HEADERS} data={DATA} configure={configure} />
+      </ResizePanel>
     </>
   );
 };
