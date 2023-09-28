@@ -1,10 +1,14 @@
 import { Spinner, Heading } from '../../components';
+import { ResizePanel } from '../../components';
 
 const SpinnerExample = () => {
   return (
     <>
       <Heading variation="h4">Spinner</Heading>
-      <Spinner size="15px" />
+
+      <ResizePanel style={{ height: '200px' }}>
+        <Spinner size="20px" />
+      </ResizePanel>
     </>
   );
 };
