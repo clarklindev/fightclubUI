@@ -13,9 +13,11 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
   const [resizing, setResizing] = useState(false);
   const [width, setWidth] = useState<number | undefined>(); // Initial width
   const [maxWidth, setMaxWidth] = useState<number | undefined>();
+
   const initialX = useRef<number | null>(null);
   const componentRef = useRef<HTMLDivElement | null>(null);
   const childComponentsRef = useRef<HTMLDivElement>(null);
+  const handleRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (componentRef?.current) {
@@ -51,7 +53,7 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
   };
 
   const handleMouseMove = (e: MouseEvent) => {
-    if (resizing && componentRef.current && maxWidth && childComponentsRef.current) {
+    if (resizing && maxWidth) {
       const deltaX = (initialX?.current ?? 0) - e.clientX;
       setWidth(prev =>
         prev === null || prev === undefined ? 0 : Math.max(parseInt(minWidth), Math.min(prev - deltaX, maxWidth)),
@@ -66,19 +68,57 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
     }
   };
 
+  //touch
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setResizing(true);
+    initialX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: TouchEvent) => {
+    if (resizing && maxWidth) {
+      const deltaX = (initialX?.current ?? 0) - e.touches[0].clientX;
+      setWidth(prev =>
+        prev === null || prev === undefined ? 0 : Math.max(parseInt(minWidth), Math.min(prev - deltaX, maxWidth)),
+      );
+      initialX.current = e.touches[0].clientX;
+    }
+    e.preventDefault();
+  };
+
+  const handleTouchEnd = () => {
+    if (resizing) {
+      setResizing(false);
+    }
+  };
+
+  const handleTouchCancel = () => {
+    if (resizing) {
+      setResizing(false);
+    }
+  };
+
+  const cleanupListeners = () => {
+    window.removeEventListener('mousemove', handleMouseMove);
+    window.removeEventListener('mouseup', handleMouseUp);
+    window.removeEventListener('touchend', handleTouchEnd);
+    window.removeEventListener('touchcancel', handleTouchCancel);
+    window.removeEventListener('touchmove', handleTouchMove);
+  };
+
   React.useEffect(() => {
     if (resizing) {
       window.addEventListener('mouseup', handleMouseUp);
       window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('touchend', handleTouchEnd);
+      window.addEventListener('touchcancel', handleTouchCancel);
+      window.addEventListener('touchmove', handleTouchMove);
     } else {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
+      cleanupListeners();
     }
 
     return () => {
       // Cleanup event listeners when the component unmounts
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
+      cleanupListeners();
     };
   }, [resizing]);
 
@@ -86,7 +126,7 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
     // width passed here is the state
     <ResizePanelWrapper style={{ ...style, width }} ref={componentRef}>
       {/* <Dimensions value={width && width > 0 , padding? width : 0} /> */}
-      <Handle onMouseDown={handleMouseDown} />
+      <Handle onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} ref={handleRef} />
       <ChildContainer className={className} ref={childComponentsRef}>
         {children}
       </ChildContainer>
@@ -95,27 +135,22 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
 };
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 // Styled-component warning: for frequently used attributes, use this syntax:
-
-// Example:
-//   const Component = styled.div.attrs(props => ({
-//     style: {
-//       background: props.background,
-//     },
-//   }))`width: 100%;`
-
+// Example: styled.div.attrs(props => ({}))``
 const ResizePanelWrapper = styled.div.attrs<{ style: React.CSSProperties }>(props => ({
   style: {
     width: props?.style?.width,
+    height: props?.style?.height || 'auto',
     padding: props?.style?.padding || '2rem',
   },
 }))`
-  height: 100%;
   background: white;
   border: var(--border);
   border-radius: 4px;
   position: relative;
   max-width: 100%;
+  min-height: 50px;
   justify-content: center;
+  vertical-align: center;
 `;
 
 const ChildContainer = styled.div`
