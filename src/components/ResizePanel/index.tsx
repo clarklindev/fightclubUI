@@ -160,16 +160,14 @@ const ChildContainer = styled.div`
 `;
 
 const Handle = styled.span`
-  position: absolute;
-  right: 0;
   top: 50%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background: rgba(255, 0, 0, 0.8);
+  right: 0;
   cursor: ew-resize;
+  position: absolute;
 
-  &:after {
+  &::after {
+    top: 50%;
+    transform: translateY(-50%);
     content: '';
     right: -10px;
     position: absolute;
@@ -177,5 +175,16 @@ const Handle = styled.span`
     width: 5px;
     border-radius: 5px;
     background: hsla(200, 0%, 0%, 0.4);
+  }
+
+  // increase size of touch target
+  &::before {
+    background: transparent;
+    content: '';
+    position: absolute;
+    top: -20px;
+    bottom: -20px;
+    left: 0px;
+    right: -20px;
   }
 `;
