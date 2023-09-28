@@ -70,7 +70,6 @@ type InputProps = {
 };
 
 const wrapperInputVariants = cva([
-  'overflow-hidden',
   'box-border',
   'h-auto',
   'w-full',
@@ -86,6 +85,7 @@ const wrapperInputVariants = cva([
   'gap-2',
   'bg-inputBackground',
   'border-borderColor',
+  'overflow-hidden',
 ]);
 
 export const InputWrapper = ({ children }: InputProps) => {

@@ -15,49 +15,49 @@ const InputExample = () => {
 
       <Layout variation="block">
         <Heading variation="h5">Input (no-border)</Heading>
-        <ResizePanel minWidth="0px">
+        <ResizePanel>
           <InputNoBorderExample />
         </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Basic input</Heading>
-        <ResizePanel minWidth="0px">
+        <ResizePanel>
           <InputBasicExample />
         </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Input (readonly)</Heading>
-        <ResizePanel minWidth="0px">
+        <ResizePanel>
           <InputReadOnlyExample />
         </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Input + Icon</Heading>
-        <ResizePanel minWidth="0px">
+        <ResizePanel>
           <InputWithIconExample />
         </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Input Password</Heading>
-        <ResizePanel minWidth="0px">
+        <ResizePanel>
           <InputPasswordExample />
         </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Input Filter</Heading>
-        <ResizePanel minWidth="0px">
+        <ResizePanel>
           <InputFilterExample />
         </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Input Search</Heading>
-        <ResizePanel minWidth="0px">
+        <ResizePanel>
           <InputSearchExample />
         </ResizePanel>
       </Layout>

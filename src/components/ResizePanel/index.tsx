@@ -157,7 +157,7 @@ const ChildContainer = styled.div`
   gap: 1rem;
   display: flex;
   flex-direction: column;
-  overflow-x: scroll;
+  overflow: auto;
 `;
 
 const Handle = styled.span`

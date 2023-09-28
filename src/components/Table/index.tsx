@@ -21,7 +21,7 @@ export type TableProps = {
 
 export const Table: React.FC<TableProps> = ({ headers, data, configure }) => {
   return (
-    <table className="border">
+    <table className="border" style={{ overflowX: 'scroll' }}>
       <thead>
         <tr>
           {headers.map((header, headerindex) => {
