@@ -45,8 +45,11 @@ const HomeLayoutContainer = styled.div`
     grid-area: main;
     display: flex;
     flex-direction: column;
-    padding: 2rem 4rem;
+    padding: 1rem 2rem;
     overflow-x: hidden;
+    @media (min-width: 768px) {
+      padding: 2rem 4rem;
+    }
   }
 `;
 
