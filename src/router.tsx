@@ -31,7 +31,7 @@ import SliderMultiRangeExample from './pages/SliderMultiRange';
 import SeparatorExample from './pages/Separator';
 import ListExample from './pages/List';
 import TableExample from './pages/Table';
-import CardExample from './pages/Button/Card';
+import CardExample from './pages/Card';
 // import TreeExample from './pages/Tree';
 import ProgressLoaderExample from './pages/ProgressLoader';
 import SpinnerExample from './pages/Spinner';
