@@ -16,7 +16,6 @@ export const ListItem: React.FC<ListDataProp> = props => {
   return (
     <li className="flex flex-col mb-5 last:mb-0">
       <div className="flex justify-between">
-        {index}
         {firstname} {lastname}
       </div>
       <div>{email}</div>

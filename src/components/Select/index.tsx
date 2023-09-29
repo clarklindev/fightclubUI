@@ -32,6 +32,8 @@ export const Select: React.FC<SelectProps> = ({ savedData, onChange, children })
 const SelectWrapper = styled.div`
   position: relative;
   display: flex;
+  flex-grow: 1;
+  width: 100%;
   align-items: center;
   .Icon {
     right: ${({ theme }) => theme?.Select?.padding};

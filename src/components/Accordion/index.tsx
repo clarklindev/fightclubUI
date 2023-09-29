@@ -65,7 +65,7 @@ export const Accordion: React.FC<AccordionProps> = ({
   };
 
   return (
-    <div className="Accordion" role="tablist">
+    <AccordionWrapper role="tablist">
       {data.map((each: AccordionDataType, index: number) => {
         const panelRef = useRef<HTMLDivElement>(null);
 
@@ -121,17 +121,24 @@ export const Accordion: React.FC<AccordionProps> = ({
           </React.Fragment>
         );
       })}
-    </div>
+    </AccordionWrapper>
   );
 };
 
 //------------------------------------------------------------------------------------------------------------------------------------------------
 
 // AccordionSection
+
+const AccordionWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+`;
+
 const AccordionSectionHeader = styled.div`
   box-sizing: border-box;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1rem;
   font-weight: 500;
   color: var(--clr-foreground);
 

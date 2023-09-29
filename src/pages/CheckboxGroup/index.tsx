@@ -1,4 +1,4 @@
-import { Heading, Layout } from '../../components';
+import { Heading, Layout, ResizePanel } from '../../components';
 import CheckboxGroupHorizontalExample from './CheckboxGroupHorizontalExample';
 import CheckboxGroupVerticalExample from './CheckboxGroupVerticalExample';
 import CheckboxGroupIndeterminateExample from './CheckboxGroupIndeterminateExample';
@@ -9,17 +9,23 @@ const CheckboxExample = () => {
       <Heading variation="h4">Checkbox Group</Heading>
       <Layout variation="block">
         <Heading variation="h5">Checkbox Group (horizontal)</Heading>
-        <CheckboxGroupHorizontalExample />
+        <ResizePanel>
+          <CheckboxGroupHorizontalExample />
+        </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Checkbox Group (vertical)</Heading>
-        <CheckboxGroupVerticalExample />
+        <ResizePanel>
+          <CheckboxGroupVerticalExample />
+        </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Checkbox Group (indeterminate)</Heading>
-        <CheckboxGroupIndeterminateExample />
+        <ResizePanel>
+          <CheckboxGroupIndeterminateExample />
+        </ResizePanel>
       </Layout>
     </>
   );

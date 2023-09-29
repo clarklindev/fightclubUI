@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Snackbar, Button, Icon, Heading } from '../../components';
+import { Snackbar, Button, Icon, Heading, ResizePanel } from '../../components';
 import { CopyIcon } from '../../icons';
 
 const SnackbarExample = () => {
@@ -14,12 +14,14 @@ const SnackbarExample = () => {
   return (
     <>
       <Heading variation="h4">Snackbar</Heading>
-      {showSnackbar && <Snackbar setShowSnackbar={setShowSnackbar}>copied to clipboard</Snackbar>}
-      <Button onClick={onClickHandler} intent="icon">
-        <Icon size="20px">
-          <CopyIcon />
-        </Icon>
-      </Button>
+      <ResizePanel>
+        {showSnackbar && <Snackbar setShowSnackbar={setShowSnackbar}>copied to clipboard</Snackbar>}
+        <Button onClick={onClickHandler} intent="icon">
+          <Icon size="20px">
+            <CopyIcon />
+          </Icon>
+        </Button>
+      </ResizePanel>
     </>
   );
 };

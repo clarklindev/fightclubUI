@@ -124,10 +124,10 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
 
   return (
     // width passed here is the state
-    <ResizePanelWrapper style={{ ...style, width }} ref={componentRef}>
+    <ResizePanelWrapper className="ResizePanelWrapper" style={{ ...style, width }} ref={componentRef}>
       {/* <Dimensions value={width && width > 0 , padding? width : 0} /> */}
       <Handle onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} ref={handleRef} />
-      <ChildContainer className={className} ref={childComponentsRef}>
+      <ChildContainer className={className} ref={childComponentsRef} style={{ ...style }}>
         {children}
       </ChildContainer>
     </ResizePanelWrapper>
@@ -153,11 +153,17 @@ const ResizePanelWrapper = styled.div.attrs<{ style: React.CSSProperties }>(prop
   vertical-align: center;
 `;
 
-const ChildContainer = styled.div`
+const ChildContainer = styled.div.attrs<{ style: React.CSSProperties }>(props => ({
+  style: {
+    alignItems: props?.style?.alignItems || 'center',
+  },
+}))`
   gap: 1rem;
   display: flex;
   flex-direction: column;
   overflow: auto;
+  justify-content: center;
+  align-items: start;
 `;
 
 const Handle = styled.span`
@@ -172,10 +178,10 @@ const Handle = styled.span`
     content: '';
     right: -10px;
     position: absolute;
-    height: 30px;
+    height: 2rem;
     width: 5px;
     border-radius: 5px;
-    background: hsla(200, 0%, 0%, 0.4);
+    background: hsla(200, 0%, 0%, 0.3);
   }
 
   // increase size of touch target

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Counter, Heading } from '../../components';
+import { Counter, Heading, ResizePanel } from '../../components';
 
 const CounterExample = () => {
   const [savedData, setSavedData] = useState(0);
@@ -8,7 +8,9 @@ const CounterExample = () => {
   return (
     <>
       <Heading variation="h4">Counter</Heading>
-      <Counter savedData={savedData} onChange={newValue => setSavedData(newValue)} />
+      <ResizePanel>
+        <Counter savedData={savedData} onChange={newValue => setSavedData(newValue)} />
+      </ResizePanel>
     </>
   );
 };

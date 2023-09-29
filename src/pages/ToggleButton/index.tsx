@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Icon, ToggleButton, Heading } from '../../components';
+import { Icon, ToggleButton, Heading, ResizePanel } from '../../components';
 import { HeartIcon } from '../../icons';
 
 const ToggleButtonExample = () => {
@@ -9,19 +9,21 @@ const ToggleButtonExample = () => {
   return (
     <>
       <Heading variation="h4">Toggle Button</Heading>
-      <ToggleButton
-        checked={savedData}
-        onChange={event => {
-          setSavedData(event.target.checked);
-        }}>
-        <Icon
-          size="25px"
-          fill={savedData ? 'red' : 'black'}
-          fillOpacity={savedData ? '1' : '0'}
-          stroke={savedData ? 'transparent' : 'currentColor'}>
-          <HeartIcon />
-        </Icon>
-      </ToggleButton>
+      <ResizePanel>
+        <ToggleButton
+          checked={savedData}
+          onChange={event => {
+            setSavedData(event.target.checked);
+          }}>
+          <Icon
+            size="25px"
+            fill={savedData ? 'red' : 'black'}
+            fillOpacity={savedData ? '1' : '0'}
+            stroke={savedData ? 'transparent' : 'currentColor'}>
+            <HeartIcon />
+          </Icon>
+        </ToggleButton>
+      </ResizePanel>
     </>
   );
 };

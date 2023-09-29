@@ -44,7 +44,6 @@ export const Heading: React.FC<HeadingProps> = ({ variation, children }) => {
 
 const HeadingBase = styled.div<{ theme: ThemeType }>`
   color: var(--clr-foreground);
-  margin: ${({ theme }) => theme.Heading?.margin};
   line-height: ${({ theme }) => theme.Heading?.lineHeight};
   font-weight: ${({ theme }) => theme.Heading?.fontWeight};
   font-family: ${({ theme }) => theme.Heading?.fontFamily};

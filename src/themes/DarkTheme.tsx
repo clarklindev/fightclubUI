@@ -69,7 +69,7 @@ export const transparency = {
 
 // components dont point to globals directly - only from theme
 export const global = {
-  fontFamily: "'Roboto', 'sans-serif'",
+  fontFamily: "Roboto, 'sans-serif'",
   color: colors.neutral[400],
   backgroundColor: 'transparent',
   padding: '10px',
@@ -77,7 +77,7 @@ export const global = {
   gap: '5px',
 
   headingColor: colors.neutral[500],
-  headingFontFamily: 'Arial, Helvetica, sans-serif',
+  headingFontFamily: 'Roboto, Arial, Helvetica, sans-serif',
 
   borderWidth: '1px',
   border: `1px solid ${colors.neutral[500]}`,
@@ -98,28 +98,28 @@ export const darkTheme = {
 
   Layout: {
     section: {
-      padding: '50px',
+      padding: '2rem',
       borderBottom: `1px solid ${global.dividerColor}`,
     },
     block: {
-      padding: '0 0 50px',
+      padding: '0 0 2rem',
     },
   },
 
   Heading: {
     color: global.headingColor,
-    margin: '0 0 1rem',
     lineHeight: '1.3',
     fontWeight: '400',
     fontFamily: global.headingFontFamily,
 
+    // typescale.com - Scale - 1.125 Major Second
     fontSize: {
-      h1: '3.209rem',
-      h2: '2.757rem',
-      h3: '2.069rem',
-      h4: '1.677rem',
-      h5: '1.333rem',
-      h6: '1.1rem',
+      h1: '2.027rem',
+      h2: '1.802rem',
+      h3: '1.602rem',
+      h4: '1.424rem',
+      h5: '1.266rem',
+      h6: '1.125rem',
     },
   },
 

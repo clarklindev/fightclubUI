@@ -1,6 +1,6 @@
 // //RadioButtonGroup
 
-import { Layout, Heading } from '../../components';
+import { Layout, Heading, ResizePanel } from '../../components';
 import RadioButtonGroupVerticalExample from './RadioButtonGroupVerticalExample';
 import RadioButtonGroupHorizontalExample from './RadioButtonGroupHorizontalExample';
 
@@ -10,11 +10,15 @@ const RadioButtonGroupExample = () => {
       <Heading variation="h4">RadioButton Group</Heading>
       <Layout variation="block">
         <Heading variation="h5">RadioButton Group (horizontal)</Heading>
-        <RadioButtonGroupHorizontalExample />
+        <ResizePanel>
+          <RadioButtonGroupHorizontalExample />
+        </ResizePanel>
       </Layout>
       <Layout variation="block">
         <Heading variation="h5">RadioButton Group (vertical)</Heading>
-        <RadioButtonGroupVerticalExample />
+        <ResizePanel>
+          <RadioButtonGroupVerticalExample />
+        </ResizePanel>
       </Layout>
     </>
   );

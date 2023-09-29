@@ -35,6 +35,9 @@ const CardContainer = styled.div<{
   height?: string;
   theme: DefaultTheme;
 }>`
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
   border: ${({ borderColor, theme }) => (borderColor ? `1px solid ${borderColor}` : `1px solid ${theme.borderColor}`)};
   border-radius: ${({ borderRadius }) => borderRadius};
   width: ${({ width }) => width};

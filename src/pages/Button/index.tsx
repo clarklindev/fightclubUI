@@ -1,4 +1,4 @@
-import { Heading, Layout } from '../../components';
+import { Heading, Layout, ResizePanel } from '../../components';
 import ButtonContainedExample from './ButtonContainedExample';
 import ButtonOutlinedExample from './ButtonOutlinedExample';
 import ButtonTextExample from './ButtonTextExample';
@@ -10,27 +10,37 @@ const ButtonExample = () => {
     <>
       <Layout variation="block">
         <Heading variation="h5">Contained button</Heading>
-        <ButtonContainedExample />
+        <ResizePanel>
+          <ButtonContainedExample />
+        </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Outlined button</Heading>
-        <ButtonOutlinedExample />
+        <ResizePanel>
+          <ButtonOutlinedExample />
+        </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Text button</Heading>
-        <ButtonTextExample />
+        <ResizePanel>
+          <ButtonTextExample />
+        </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Icon button</Heading>
-        <ButtonIconExample />
+        <ResizePanel>
+          <ButtonIconExample />
+        </ResizePanel>
       </Layout>
 
       <Layout variation="block">
         <Heading variation="h5">Button+LabelSomething button</Heading>
-        <ButtonWithLabelSomethingExample />
+        <ResizePanel>
+          <ButtonWithLabelSomethingExample />
+        </ResizePanel>
       </Layout>
     </>
   );

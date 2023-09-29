@@ -40,7 +40,7 @@ const Container = styled.div<{
   labelDirection: FlexDirection;
   gap: string;
 }>`
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-items: center;
   flex-direction: ${({ labelDirection }) => labelDirection};

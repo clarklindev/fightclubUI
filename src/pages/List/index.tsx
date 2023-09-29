@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { List, ListItem, Heading } from '../../components';
+import { List, ListItem, Heading, ResizePanel } from '../../components';
 
 type ExampleData = {
   id: number;
@@ -39,24 +39,25 @@ const ListExample = () => {
   return (
     <>
       <Heading variation="h4">List</Heading>
-
-      {data && (
-        <List>
-          {data.map(({ id, first_name, last_name, email }, index) => {
-            return (
-              <ListItem
-                key={id}
-                data={{
-                  index,
-                  firstname: first_name,
-                  lastname: last_name,
-                  email,
-                }}
-              />
-            );
-          })}
-        </List>
-      )}
+      <ResizePanel>
+        {data && (
+          <List>
+            {data.map(({ id, first_name, last_name, email }, index) => {
+              return (
+                <ListItem
+                  key={id}
+                  data={{
+                    index,
+                    firstname: first_name,
+                    lastname: last_name,
+                    email,
+                  }}
+                />
+              );
+            })}
+          </List>
+        )}
+      </ResizePanel>
     </>
   );
 };

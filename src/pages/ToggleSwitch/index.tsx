@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { ToggleSwitch, Heading } from '../../components';
+import { ToggleSwitch, Heading, ResizePanel } from '../../components';
 
 const ToggleSwitchExample = () => {
   const [savedData, setSavedData] = useState(false);
@@ -10,13 +10,15 @@ const ToggleSwitchExample = () => {
   return (
     <>
       <Heading variation="h4">Toggle Switch</Heading>
-      <ToggleSwitch
-        savedData={savedData}
-        color="grey"
-        onChange={event => {
-          setSavedData(event.target.checked);
-        }}
-      />
+      <ResizePanel>
+        <ToggleSwitch
+          savedData={savedData}
+          color="grey"
+          onChange={event => {
+            setSavedData(event.target.checked);
+          }}
+        />
+      </ResizePanel>
     </>
   );
 };
