@@ -37,6 +37,8 @@ const IconContainer = styled.div<
 >`
   width: ${({ size }) => size};
   height: ${({ size }) => size};
+  min-width: ${({ size }) => size};
+  min-height: ${({ size }) => size};
   display: flex;
   > * {
     width: 100%;

@@ -90,7 +90,6 @@ export declare const lightTheme: {
     };
     Heading: {
         color: string;
-        margin: string;
         lineHeight: string;
         fontWeight: string;
         fontFamily: string;

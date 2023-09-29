@@ -34,7 +34,7 @@ export const Counter: React.FC<CounterProps> = ({ savedData, onChange }) => {
 
       <Input
         placeholder=""
-        className="pointer-events-none text-center p-0"
+        className="pointer-events-none text-center p-0 min-w-min"
         onChange={event => event.target.value}
         value={savedData.toString()}
       />

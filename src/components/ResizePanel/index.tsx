@@ -9,7 +9,7 @@ type ResizePanelProps = {
   minWidth?: string;
 };
 
-export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, className, minWidth = '300px' }) => {
+export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, className }) => {
   const [resizing, setResizing] = useState(false);
   const [width, setWidth] = useState<number | undefined>(); // Initial width
   const [maxWidth, setMaxWidth] = useState<number | undefined>();
@@ -55,9 +55,7 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
   const handleMouseMove = (e: MouseEvent) => {
     if (resizing && maxWidth) {
       const deltaX = (initialX?.current ?? 0) - e.clientX;
-      setWidth(prev =>
-        prev === null || prev === undefined ? 0 : Math.max(parseInt(minWidth), Math.min(prev - deltaX, maxWidth)),
-      );
+      setWidth(prev => (prev === null || prev === undefined ? 0 : Math.min(prev - deltaX, maxWidth)));
       initialX.current = e.clientX;
     }
   };
@@ -77,9 +75,7 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
   const handleTouchMove = (e: TouchEvent) => {
     if (resizing && maxWidth) {
       const deltaX = (initialX?.current ?? 0) - e.touches[0].clientX;
-      setWidth(prev =>
-        prev === null || prev === undefined ? 0 : Math.max(parseInt(minWidth), Math.min(prev - deltaX, maxWidth)),
-      );
+      setWidth(prev => (prev === null || prev === undefined ? 0 : Math.min(prev - deltaX, maxWidth)));
       initialX.current = e.touches[0].clientX;
     }
     e.preventDefault();
@@ -141,6 +137,7 @@ const ResizePanelWrapper = styled.div.attrs<{ style: React.CSSProperties }>(prop
     width: props?.style?.width,
     height: props?.style?.height || 'auto',
     padding: props?.style?.padding || '2rem',
+    minWidth: props?.style?.minWidth || 'min-content',
   },
 }))`
   background: white;
