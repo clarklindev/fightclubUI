@@ -146,21 +146,18 @@ const ResizePanelWrapper = styled.div.attrs<{ style: React.CSSProperties }>(prop
   position: relative;
   max-width: 100%;
   min-height: 50px;
-  justify-content: center;
-  vertical-align: center;
 `;
 
-const ChildContainer = styled.div.attrs<{ style: React.CSSProperties }>(props => ({
-  style: {
-    alignItems: props?.style?.alignItems || 'center',
-  },
-}))`
+const ChildContainer = styled.div<{ style: React.CSSProperties }>`
   gap: 1rem;
-  display: flex;
+  position: relative;
   flex-direction: column;
-  overflow: auto;
-  justify-content: center;
-  align-items: start;
+  overflow: visible;
+
+  // center content in resizePanel
+  // display: flex;
+  // align-items: center;
+  // justify-content: center;
 `;
 
 const Handle = styled.span`

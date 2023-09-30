@@ -203,11 +203,19 @@ export const HomeLayout = () => {
       <div className="container">
         <AsideNavigation>
           <nav>
+            <Heading variation="h6">Guide</Heading>
+            <NavLink to="introduction">Introduction</NavLink>
+            <NavLink to="gettingstarted">Getting started</NavLink>
+            <NavLink to="routing">Routing</NavLink>
+            <NavLink to="layout">Layout</NavLink>
+            <NavLink to="themes">Themes</NavLink>
+            <NavLink to="styling">Styling</NavLink>
+            <NavLink to="hooks">Hooks</NavLink>
+            <br />
             <Heading variation="h6">Components</Heading>
             <NavLink to="heading">Heading</NavLink>
             <NavLink to="text">Text</NavLink>
             <NavLink to="icon">Icon</NavLink>
-            <NavLink to="labelsomething">LabelSomething</NavLink>
             <NavLink to="button">Button</NavLink>
             <NavLink to="input">Input</NavLink>
             <NavLink to="select">Select</NavLink>
@@ -229,18 +237,11 @@ export const HomeLayout = () => {
             <NavLink to="tree">Tree</NavLink>
             <NavLink to="progressloader">Progress Loader</NavLink>
             <NavLink to="spinner">Spinner</NavLink>
-            <NavLink to="resizepanel">Resize panel</NavLink>
             <br />
-
-            <Heading variation="h6">Guide</Heading>
-            <NavLink to="introduction">Introduction</NavLink>
-            <NavLink to="gettingstarted">Getting started</NavLink>
-            <NavLink to="routing">Routing</NavLink>
-            <NavLink to="layout">Layout</NavLink>
-            <NavLink to="themes">Themes</NavLink>
-            <NavLink to="styling">Styling</NavLink>
-            <NavLink to="hooks">Hooks</NavLink>
-
+            {/* utility helper components */}
+            <Heading variation="h6">Utility</Heading>
+            <NavLink to="labelsomething">LabelSomething</NavLink>
+            <NavLink to="resizepanel">Resize panel</NavLink>
             <br />
           </nav>
         </AsideNavigation>

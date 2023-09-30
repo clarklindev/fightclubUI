@@ -9,9 +9,7 @@ const SliderExample = () => {
     <>
       <Heading variation="h4">Slider</Heading>
       <ResizePanel>
-        <div style={{ width: '100px', height: '300px' }}>
-          <Slider value={savedData} orientation="horizontal" length="100px" onChange={setSavedData} />
-        </div>
+        <Slider value={savedData} orientation="horizontal" length="100px" onChange={setSavedData} />
       </ResizePanel>
     </>
   );

@@ -35,6 +35,7 @@ const SelectWrapper = styled.div`
   flex-grow: 1;
   width: 100%;
   align-items: center;
+  min-width: 180px;
   .Icon {
     right: ${({ theme }) => theme?.Select?.padding};
     position: absolute;

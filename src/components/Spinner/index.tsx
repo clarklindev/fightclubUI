@@ -24,12 +24,4 @@ const SpinnerContainer = styled.div<SpinnerProps>`
   border-top-color: #333;
   animation: ${spin} 1s linear infinite;
   will-change: border-top-color;
-
-  //always centered in relation to parent
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  margin: auto;
 `;

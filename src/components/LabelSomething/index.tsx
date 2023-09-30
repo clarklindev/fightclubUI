@@ -27,22 +27,36 @@ export const LabelSomething: React.FC<LabelSomethingProps> = ({
   };
 
   return (
-    <Container as={labelClickable ? 'label' : 'div'} labelDirection={positionMap[labelDirection]} gap={gap}>
-      {something}
-      <div>{label}</div>
-    </Container>
+    <LabelSomethingWrapper as={labelClickable ? 'label' : 'div'}>
+      <Container labelDirection={positionMap[labelDirection]} gap={gap}>
+        {something}
+        <div>{label}</div>
+      </Container>
+    </LabelSomethingWrapper>
   );
 };
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
+const LabelSomethingWrapper = styled.div<{}>`
+  position: relative;
+  display: flex;
+  flex-direction: row;
+`;
 
 const Container = styled.div<{
   labelDirection: FlexDirection;
   gap: string;
 }>`
+  flex-direction: ${({ labelDirection }) => labelDirection};
+  gap: ${({ gap }) => gap};
+
   display: flex;
   align-items: center;
   justify-items: center;
-  flex-direction: ${({ labelDirection }) => labelDirection};
-  gap: ${({ gap }) => gap};
+
+  align-content: start;
+  justify-content: start;
+
+  align-self: start;
+  justify-self: start;
 `;

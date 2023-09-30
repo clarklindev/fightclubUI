@@ -133,6 +133,7 @@ const AccordionWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-self: stretch;
+  min-width: max-content;
 `;
 
 const AccordionSectionHeader = styled.div`

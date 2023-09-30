@@ -154,15 +154,12 @@ const SliderMultiRangeContainer = styled.div<{
   orientation: Orientation | string;
   length: string;
 }>`
-  position: relative;
+  width: 100%;
 `;
 
 const SliderWrapper = styled.div`
-  position: relative;
   // DO NOT USE THIS FOR STYLING - its used for positioning ONLY
-  display: flex;
-  flex-direction: center;
-  align-items: center;
+  position: relative;
 `;
 
 const Sliders = styled.div<{
@@ -187,5 +184,5 @@ const SliderTrack = styled.div<{
   border: 0px;
   border-radius: 0px;
   width: 100%;
-  background: green;
+  background: rgba(255, 255, 0, 0.3);
 `;
