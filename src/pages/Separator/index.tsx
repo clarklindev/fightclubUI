@@ -1,7 +1,4 @@
-import { Heading, Layout, ResizePanel } from '../../components';
-import SeparatorHorizontalExample from './SeparatorHorizontalExample';
-import SeparatorHorizontalLabelledExample from './SeparatorHorizontalLabelledExample';
-import SeparatorVerticalExample from './SeparatorVerticalExample';
+import { Heading, Layout, ResizePanel, Separator } from '../../components';
 
 const SeparatorExample = () => {
   return (
@@ -10,19 +7,19 @@ const SeparatorExample = () => {
       <Layout variation="block">
         <Heading variation="h5">Separator (horizontal)</Heading>
         <ResizePanel>
-          <SeparatorHorizontalExample />
+          <Separator variation="horizontal" />
         </ResizePanel>
       </Layout>
       <Layout variation="block">
         <Heading variation="h5">Separator labelled (horizontal)</Heading>
         <ResizePanel>
-          <SeparatorHorizontalLabelledExample />
+          <Separator variation="horizontal">OR</Separator>
         </ResizePanel>
       </Layout>
       <Layout variation="block">
         <Heading variation="h5">Separator (vertical)</Heading>
         <ResizePanel>
-          <SeparatorVerticalExample />
+          <Separator variation="vertical" height="30px" />
         </ResizePanel>
       </Layout>
     </>

@@ -7,29 +7,31 @@ type SeparatorProps = {
   variation?: SeparatorVariation;
   width?: string;
   height?: string;
-  margin?: string;
+  gap?: string;
   label?: string;
+  children?: React.ReactNode;
 };
 
 export const Separator: React.FC<SeparatorProps> = ({
   variation = 'horizontal',
-  margin = '0px',
+  gap = '1rem',
   height = 'inherit',
   width = 'inherit',
-  label = undefined,
+  children = undefined,
 }: SeparatorProps) => {
   switch (variation) {
     case 'horizontal':
-      return <SeparatorHorizontal className="Separator" height={height} width={width} margin={margin} />;
+      return (
+        <SeparatorHorizontal className="Separator" height={height} width={width} gap={gap}>
+          {children && <span>{children}</span>}
+        </SeparatorHorizontal>
+      );
 
     case 'vertical':
-      return <SeparatorVertical className="Separator" height={height} width={width} margin={margin} />;
-
-    case 'horizontal-labelled':
       return (
-        <SeparatorHorizontalLabelled className="Separator" height={height} width={width} margin={margin}>
-          <span>{label}</span>
-        </SeparatorHorizontalLabelled>
+        <SeparatorVertical className="Separator" height={height} width={width} gap={gap}>
+          {children && <span>{children}</span>}
+        </SeparatorVertical>
       );
 
     default:
@@ -42,51 +44,56 @@ export const Separator: React.FC<SeparatorProps> = ({
 const SeparatorContainer = styled.div`
   box-sizing: border-box;
   display: flex;
+  position: relative;
 `;
 
 const SeparatorHorizontal = styled(SeparatorContainer)<{
   height: string;
-  width: string;
-  margin: string;
+  width?: string;
+  gap?: string;
+  children?: React.ReactNode;
 }>`
+  border-bottom: ${({ children }) => (children ? 'none' : `1px solid var(--border-color)`)};
   display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: row;
   width: 100%;
-  margin: ${({ margin }) => margin};
-  border-bottom: 1px solid var(--border-color);
+
+  span {
+    display: flex;
+    align-items: center;
+
+    width: ${({ width }) => width || '100%'}; //full width
+
+    height: auto;
+    position: relative;
+    flex-direction: row;
+
+    &::before,
+    &::after {
+      flex: 1;
+      content: '';
+      width: 100%;
+      height: 0px;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    &::before {
+      margin-right: ${({ gap }) => gap};
+    }
+    &::after {
+      margin-left: ${({ gap }) => gap};
+    }
+  }
 `;
 
 const SeparatorVertical = styled(SeparatorContainer)<{
   height: string;
   width: string;
-  margin: string;
+  gap: string;
 }>`
-  height: ${({ height }) => height};
-  margin: ${({ margin }) => margin};
+  width: 0px;
+  height: ${({ height }) => `${height}`};
   border-right: 1px solid var(--border-color);
-`;
-
-const SeparatorHorizontalLabelled = styled(SeparatorContainer)<{
-  margin: string;
-  height: string;
-  width: string;
-}>`
-  span {
-    color: ${({ theme }) => theme?.Separator?.color};
-    margin: ${({ margin }) => margin};
-  }
-
-  &::before {
-    display: flex;
-    align-self: center;
-    content: '';
-    width: 100%;
-    border-bottom: 1px solid var(--border-color);
-  }
-  &::after {
-    display: flex;
-    align-self: center;
-    content: '';
-    width: 100%;
-    border-bottom: 1px solid var(--border-color);
-  }
 `;
