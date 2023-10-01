@@ -1,11 +1,11 @@
 import React from 'react';
-type SeparatorVariation = 'horizontal' | 'vertical' | 'horizontal-labelled';
+type SeparatorVariation = 'horizontal' | 'vertical';
 type SeparatorProps = {
     variation?: SeparatorVariation;
     width?: string;
     height?: string;
-    margin?: string;
-    label?: string;
+    gap?: string;
+    children?: React.ReactNode;
 };
 export declare const Separator: React.FC<SeparatorProps>;
 export {};

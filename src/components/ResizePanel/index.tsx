@@ -138,6 +138,7 @@ const ResizePanelWrapper = styled.div.attrs<{ style: React.CSSProperties }>(prop
     height: props?.style?.height || 'auto',
     padding: props?.style?.padding || '2rem',
     minWidth: props?.style?.minWidth || 'min-content',
+    minHeight: props?.style?.minHeight || '50px',
   },
 }))`
   background: white;
@@ -145,7 +146,7 @@ const ResizePanelWrapper = styled.div.attrs<{ style: React.CSSProperties }>(prop
   border-radius: 4px;
   position: relative;
   max-width: 100%;
-  min-height: 50px;
+  max-height: 100%;
 `;
 
 const ChildContainer = styled.div<{ style: React.CSSProperties }>`

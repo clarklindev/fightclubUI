@@ -1,20 +1,19 @@
-import React from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-type SeparatorVariation = 'horizontal' | 'vertical' | 'horizontal-labelled';
+type SeparatorVariation = 'horizontal' | 'vertical';
 
 type SeparatorProps = {
   variation?: SeparatorVariation;
   width?: string;
   height?: string;
   gap?: string;
-  label?: string;
   children?: React.ReactNode;
 };
 
 export const Separator: React.FC<SeparatorProps> = ({
   variation = 'horizontal',
-  gap = '1rem',
+  gap = variation === 'horizontal' ? '1rem' : '0px',
   height = 'inherit',
   width = 'inherit',
   children = undefined,
@@ -43,42 +42,36 @@ export const Separator: React.FC<SeparatorProps> = ({
 
 const SeparatorContainer = styled.div`
   box-sizing: border-box;
-  display: flex;
   position: relative;
+  display: flex;
 `;
 
 const SeparatorHorizontal = styled(SeparatorContainer)<{
-  height: string;
+  className?: string;
+  height?: string;
   width?: string;
   gap?: string;
   children?: React.ReactNode;
 }>`
   border-bottom: ${({ children }) => (children ? 'none' : `1px solid var(--border-color)`)};
-  display: flex;
-  justify-content: center;
-  align-content: center;
   flex-direction: row;
+  height: 0px;
   width: 100%;
 
   span {
     display: flex;
+    flex-direction: row;
     align-items: center;
-
     width: ${({ width }) => width || '100%'}; //full width
-
     height: auto;
     position: relative;
-    flex-direction: row;
-
     &::before,
     &::after {
-      flex: 1;
       content: '';
       width: 100%;
       height: 0px;
       border-bottom: 1px solid var(--border-color);
     }
-
     &::before {
       margin-right: ${({ gap }) => gap};
     }
@@ -89,11 +82,50 @@ const SeparatorHorizontal = styled(SeparatorContainer)<{
 `;
 
 const SeparatorVertical = styled(SeparatorContainer)<{
-  height: string;
-  width: string;
-  gap: string;
+  className?: string;
+  height?: string;
+  width?: string;
+  gap?: string;
+  children?: React.ReactNode;
 }>`
+  border-right: ${({ children }) => (children ? 'none' : `1px solid var(--border-color)`)};
+  flex-direction: column;
   width: 0px;
-  height: ${({ height }) => `${height}`};
-  border-right: 1px solid var(--border-color);
+  height: ${({ height }) => height};
+  align-items: center;
+
+  ${({ children }) =>
+    children
+      ? `
+      min-height: 1rem;
+      `
+      : `
+      min-height: 2rem;
+      `};
+
+  span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 10px;
+    height: ${({ height }) => height};
+    position: relative;
+
+    &::before,
+    &::after {
+      width: 0px;
+      height: 100%;
+      content: '';
+      border-right: 1px solid var(--border-color);
+    }
+
+    &::before {
+      min-height: 5px;
+      margin-bottom: ${({ gap }) => gap};
+    }
+    &::after {
+      min-height: 5px;
+      margin-top: ${({ gap }) => gap};
+    }
+  }
 `;

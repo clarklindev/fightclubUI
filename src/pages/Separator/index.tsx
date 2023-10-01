@@ -19,7 +19,15 @@ const SeparatorExample = () => {
       <Layout variation="block">
         <Heading variation="h5">Separator (vertical)</Heading>
         <ResizePanel>
-          <Separator variation="vertical" height="30px" />
+          <Separator variation="vertical" />
+        </ResizePanel>
+      </Layout>
+      <Layout variation="block">
+        <Heading variation="h5">Separator labelled (vertical)</Heading>
+        <ResizePanel>
+          <Separator variation="vertical" gap="5px">
+            OR
+          </Separator>
         </ResizePanel>
       </Layout>
     </>
