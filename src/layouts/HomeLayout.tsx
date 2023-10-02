@@ -143,11 +143,12 @@ const AsideNavigation = styled.aside<{ isOpen: boolean }>`
   background: white;
 
   nav > .close-btn {
-    border: 1px solid var(--border-color);
-    padding: 10px;
+    padding: 1rem 2rem;
     position: fixed;
-    top: 70px;
-    right: 20px;
+    top: 0;
+    right: 0px;
+    border-radius: 0;
+    background: transparent;
   }
 
   @media only screen and (max-width: 576px) {
