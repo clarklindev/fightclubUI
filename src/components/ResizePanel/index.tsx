@@ -35,8 +35,8 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
       const parentNode = componentRef?.current?.parentNode as HTMLElement;
       //this needs to be here for resize
       if (parentNode) {
-        const maxWidth = parentNode.offsetWidth; //full parent width including padding
-        const maxHeight = parentNode.offsetHeight;
+        const maxWidth = parentNode.clientWidth; //full parent width including padding
+        const maxHeight = parentNode.clientHeight;
 
         const computedParent = getComputedStyle(parentNode);
         const paddingLeft = parseFloat(computedParent.paddingLeft);
