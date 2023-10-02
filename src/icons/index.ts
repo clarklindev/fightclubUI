@@ -20,3 +20,4 @@ export { ShowIcon } from './ShowIcon';
 export { SmileyIcon } from './SmileyIcon';
 export { SpeechIcon } from './SpeechIcon';
 export { ThumbsUpIcon } from './ThumbsUpIcon';
+export { MenuIcon } from './MenuIcon';

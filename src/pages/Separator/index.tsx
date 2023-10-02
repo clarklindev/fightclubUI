@@ -24,7 +24,7 @@ const SeparatorExample = () => {
       </Layout>
       <Layout variation="block">
         <Heading variation="h5">Separator labelled (vertical)</Heading>
-        <ResizePanel>
+        <ResizePanel style={{ height: '300px' }}>
           <Separator variation="vertical" gap="5px">
             OR
           </Separator>

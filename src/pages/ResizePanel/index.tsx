@@ -5,7 +5,7 @@ const ResizePanelExample = () => {
   return (
     <>
       <Heading variation="h4">Resize panel</Heading>
-      <ResizePanel style={{ padding: '0px' }} />
+      <ResizePanel style={{ padding: '0px', minWidth: '200px' }} />
     </>
   );
 };

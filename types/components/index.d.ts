@@ -27,4 +27,6 @@ export { ToggleDarkMode } from './ToggleDarkMode';
 export { ToggleSwitch } from './ToggleSwitch';
 export { Tree } from './Tree';
 export { ResizePanel } from './ResizePanel';
+export { Dimensions } from './Dimensions';
+export { CustomNavLink } from './CustomNavLink';
 //# sourceMappingURL=index.d.ts.map

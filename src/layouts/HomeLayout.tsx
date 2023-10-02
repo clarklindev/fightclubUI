@@ -1,7 +1,10 @@
-import { NavLink, Outlet, Link, useNavigate } from 'react-router-dom';
+import { Outlet, Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Icon, Button, Heading } from '../components';
+import { Icon, Button, Heading, CustomNavLink } from '../components';
+import { CloseIcon, MenuIcon } from '../icons';
+import { useSideMenu } from '../context/SidemenuContext';
+
 import logo from '../assets/logo.svg';
 import githubIcon from '../assets/github.svg';
 import darkmodeIcon from '../assets/darkmode.svg';
@@ -82,6 +85,19 @@ const Header = styled.header`
     justify-content: center;
     align-items: center;
   }
+  .headerLeft > .menu-btn {
+    border-radius: 0;
+    background: transparent;
+    padding: 1rem 2rem;
+    display: fixed;
+    position: absolute;
+    left: 0;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
   .headerRight {
     display: none;
     @media (min-width: 768px) {
@@ -105,27 +121,50 @@ const Header = styled.header`
   }
 `;
 
-const AsideNavigation = styled.aside`
-  background: transparent;
-  display: none;
+const AsideNavigation = styled.aside<{ isOpen: boolean }>`
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+  padding: 1rem 2rem;
+  z-index: 1;
+
+  min-width: 100%;
+  display: block;
+  position: fixed;
+  height: calc(100dvh - 50px);
+  overflow-x: hidden;
   overflow-y: hidden;
   &:hover {
     overflow-y: auto;
   }
 
-  @media (min-width: 768px) {
-    display: block;
-    height: calc(100dvh - 50px);
+  ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};
+  background: white;
+
+  nav > .close-btn {
+    border: 1px solid var(--border-color);
+    padding: 10px;
     position: fixed;
-    min-width: 250px;
-    grid-area: nav;
-    overflow-x: hidden;
-    border-right: var(--border);
-    padding: 2rem;
-    nav {
-      display: flex;
-      flex-direction: column;
+    top: 70px;
+    right: 20px;
+  }
+
+  @media only screen and (max-width: 576px) {
+    width: 100%;
+    body {
+      font-size: 1.2rem;
     }
+    nav a {
+      padding: 10px 10px 10px 0px;
+    }
+  }
+
+  @media (min-width: 577px) {
+    ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};
+
+    border-right: var(--border);
+
     nav a {
       padding: 5px 10px 5px 0px;
       border-radius: 5px;
@@ -142,6 +181,24 @@ const AsideNavigation = styled.aside`
       }
     }
   }
+
+  @media (min-width: 768px) {
+    min-width: 250px;
+
+    padding: 2rem;
+
+    background: transparent;
+    display: block;
+    grid-area: nav;
+    nav a {
+      font-size: 0.9rem;
+      padding: 5px 10px 5px 0px;
+    }
+    .close-btn {
+      display: none;
+    }
+  }
+
   @media (min-width: 1024px) {
     min-width: 300px;
   }
@@ -172,11 +229,19 @@ const AsideOnThePage = styled.aside`
 
 export const HomeLayout = () => {
   const navigate = useNavigate();
+  const { isOpen, toggleMenu, closeMenu } = useSideMenu();
 
   return (
     <HomeLayoutContainer>
       <Header>
         <div className="headerLeft">
+          {!isOpen && (
+            <Button className="menu-btn" intent="icon" onClick={toggleMenu}>
+              <Icon size="20px">
+                <MenuIcon />
+              </Icon>
+            </Button>
+          )}
           <div className="logo">
             <Button intent="plain" padding="none" className="gap-2" onClick={() => navigate('/')}>
               <Icon className="icon" size="25px">
@@ -201,50 +266,57 @@ export const HomeLayout = () => {
       </Header>
 
       <div className="container">
-        <AsideNavigation>
+        <AsideNavigation isOpen={isOpen}>
           <nav>
+            <Button className="close-btn" intent="icon" onClick={toggleMenu}>
+              <Icon size="20px">
+                <CloseIcon />
+              </Icon>
+            </Button>
             <Heading variation="h6">Guide</Heading>
-            <NavLink to="introduction">Introduction</NavLink>
-            <NavLink to="gettingstarted">Getting started</NavLink>
-            <NavLink to="routing">Routing</NavLink>
-            <NavLink to="layout">Layout</NavLink>
-            <NavLink to="themes">Themes</NavLink>
-            <NavLink to="styling">Styling</NavLink>
-            <NavLink to="hooks">Hooks</NavLink>
+            <CustomNavLink to="introduction">Introduction</CustomNavLink>
+            <CustomNavLink to="gettingstarted">Getting started</CustomNavLink>
+            <CustomNavLink to="routing">Routing</CustomNavLink>
+            <CustomNavLink to="layout">Layout</CustomNavLink>
+            <CustomNavLink to="themes">Themes</CustomNavLink>
+            <CustomNavLink to="styling">Styling</CustomNavLink>
+            <CustomNavLink to="hooks">Hooks</CustomNavLink>
             <br />
             <Heading variation="h6">Components</Heading>
-            <NavLink to="heading">Heading</NavLink>
-            <NavLink to="text">Text</NavLink>
-            <NavLink to="icon">Icon</NavLink>
-            <NavLink to="button">Button</NavLink>
-            <NavLink to="input">Input</NavLink>
-            <NavLink to="select">Select</NavLink>
-            <NavLink to="accordion">Accordion</NavLink>
-            <NavLink to="radiobutton">RadioButton</NavLink>
-            <NavLink to="radiobuttongroup">RadioButton Group</NavLink>
-            <NavLink to="checkbox">Checkbox</NavLink>
-            <NavLink to="checkboxgroup">Checkbox Group</NavLink>
-            <NavLink to="counter">Counter</NavLink>
-            <NavLink to="togglebutton">Toggle Button</NavLink>
-            <NavLink to="toggleswitch">Toggle Switch</NavLink>
-            <NavLink to="snackbar">Snackbar</NavLink>
-            <NavLink to="slider">Slider</NavLink>
-            <NavLink to="slidermultirange">Slider (Multirange)</NavLink>
-            <NavLink to="separator">Separator</NavLink>
-            <NavLink to="list">List</NavLink>
-            <NavLink to="table">Table</NavLink>
-            <NavLink to="card">Card</NavLink>
-            <NavLink to="tree">Tree</NavLink>
-            <NavLink to="progressloader">Progress Loader</NavLink>
-            <NavLink to="spinner">Spinner</NavLink>
+            <CustomNavLink to="heading">Heading</CustomNavLink>
+            <CustomNavLink to="text">Text</CustomNavLink>
+            <CustomNavLink to="icon">Icon</CustomNavLink>
+            <CustomNavLink to="button">Button</CustomNavLink>
+            <CustomNavLink to="input">Input</CustomNavLink>
+            <CustomNavLink to="select">Select</CustomNavLink>
+            <CustomNavLink to="accordion">Accordion</CustomNavLink>
+            <CustomNavLink to="radiobutton">RadioButton</CustomNavLink>
+            <CustomNavLink to="radiobuttongroup">RadioButton Group</CustomNavLink>
+            <CustomNavLink to="checkbox">Checkbox</CustomNavLink>
+            <CustomNavLink to="checkboxgroup">Checkbox Group</CustomNavLink>
+            <CustomNavLink to="counter">Counter</CustomNavLink>
+            <CustomNavLink to="togglebutton">Toggle Button</CustomNavLink>
+            <CustomNavLink to="toggleswitch">Toggle Switch</CustomNavLink>
+            <CustomNavLink to="snackbar">Snackbar</CustomNavLink>
+            <CustomNavLink to="slider">Slider</CustomNavLink>
+            <CustomNavLink to="slidermultirange">Slider (Multirange)</CustomNavLink>
+            <CustomNavLink to="separator">Separator</CustomNavLink>
+            <CustomNavLink to="list">List</CustomNavLink>
+            <CustomNavLink to="table">Table</CustomNavLink>
+            <CustomNavLink to="card">Card</CustomNavLink>
+            <CustomNavLink to="tree">Tree</CustomNavLink>
+            <CustomNavLink to="progressloader">Progress Loader</CustomNavLink>
+            <CustomNavLink to="spinner">Spinner</CustomNavLink>
             <br />
             {/* utility helper components */}
             <Heading variation="h6">Utility</Heading>
-            <NavLink to="labelsomething">LabelSomething</NavLink>
-            <NavLink to="resizepanel">Resize panel</NavLink>
+            <CustomNavLink to="labelsomething">LabelSomething</CustomNavLink>
+            <CustomNavLink to="resizepanel">Resize panel</CustomNavLink>
+            <CustomNavLink to="dimensions">Dimensions</CustomNavLink>
             <br />
           </nav>
         </AsideNavigation>
+
         <main>
           <Outlet />
         </main>

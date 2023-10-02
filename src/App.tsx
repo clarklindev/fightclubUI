@@ -1,5 +1,6 @@
 import { RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
+import { SideMenuProvider } from './context/SidemenuContext';
 
 import { useTheme } from './context/ThemeContext';
 import { lightTheme } from './themes/LightTheme';
@@ -12,9 +13,11 @@ const App = () => {
   const { isDarkMode } = useTheme();
 
   return (
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
-      <RouterProvider router={router} />
-    </ThemeProvider>
+    <SideMenuProvider>
+      <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+        <RouterProvider router={router} />
+      </ThemeProvider>
+    </SideMenuProvider>
   );
 };
 

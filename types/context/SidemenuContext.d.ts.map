@@ -1,0 +1,1 @@
+{"version":3,"file":"SidemenuContext.d.ts","sourceRoot":"","sources":["../../src/context/SidemenuContext.tsx"],"names":[],"mappings":"AAAA,OAAO,KAA8C,MAAM,OAAO,CAAC;AASnE,KAAK,qBAAqB,GAAG;IAC3B,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B,CAAC;AAGF,eAAO,MAAM,gBAAgB,iBAAkB,qBAAqB,4CAYnE,CAAC;AAGF,eAAO,MAAM,WAAW;;;;CAEvB,CAAC"}

@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-// import { Dimensions } from '../Dimensions';
+import { Dimensions } from '../Dimensions';
 
 type ResizePanelProps = {
   style?: React.CSSProperties;
@@ -10,36 +10,57 @@ type ResizePanelProps = {
 };
 
 export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, className }) => {
+  const componentRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const handleRef = useRef<HTMLDivElement>(null);
+  const initialX = useRef<number | null>(null);
+
   const [resizing, setResizing] = useState(false);
+
   const [width, setWidth] = useState<number | undefined>(); // Initial width
   const [maxWidth, setMaxWidth] = useState<number | undefined>();
-
-  const initialX = useRef<number | null>(null);
-  const componentRef = useRef<HTMLDivElement | null>(null);
-  const childComponentsRef = useRef<HTMLDivElement>(null);
-  const handleRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState<number | undefined>(); // Initial height
+  const [maxHeight, setMaxHeight] = useState<number | undefined>();
+  const [allowedHeight, setAllowedHeight] = useState<number | undefined>();
 
   useEffect(() => {
-    if (componentRef?.current) {
+    //set initial width
+    if (componentRef.current) {
       setWidth(componentRef.current.clientWidth);
       setMaxWidth(componentRef.current.clientWidth);
     }
 
     // Handle window resize event
-    const handleResize = () => {
+    const handleResize = async () => {
       const parentNode = componentRef?.current?.parentNode as HTMLElement;
+      //this needs to be here for resize
       if (parentNode) {
-        //this needs to be here for resize
-        const maxWidth = parentNode.clientWidth;
-        const computedStyles = getComputedStyle(parentNode);
-        const paddingLeft = parseFloat(computedStyles.paddingLeft);
-        const paddingRight = parseFloat(computedStyles.paddingRight);
-        const newMax = maxWidth - paddingLeft - paddingRight;
-        setMaxWidth(newMax);
-        setWidth(newMax);
+        const maxWidth = parentNode.offsetWidth; //full parent width including padding
+        const maxHeight = parentNode.offsetHeight;
+
+        const computedParent = getComputedStyle(parentNode);
+        const paddingLeft = parseFloat(computedParent.paddingLeft);
+        const paddingRight = parseFloat(computedParent.paddingRight);
+        const paddingTop = parseFloat(computedParent.paddingTop);
+        const paddingBottom = parseFloat(computedParent.paddingBottom);
+
+        const newMaxWidth = maxWidth - paddingLeft - paddingRight;
+        const newMaxHeight = maxHeight - paddingTop - paddingBottom;
+
+        setMaxWidth(newMaxWidth);
+        setWidth(newMaxWidth);
+      }
+
+      if (containerRef.current && maxHeight) {
+        const rect = await containerRef.current.getBoundingClientRect();
+        const containerY = rect.top;
+        console.log('containerY: ', containerY);
+        const calcHeight = maxHeight - containerY;
+        setAllowedHeight(calcHeight);
       }
     };
 
+    //resizing the browser windows
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
@@ -61,9 +82,7 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
   };
 
   const handleMouseUp = () => {
-    if (resizing) {
-      setResizing(false);
-    }
+    disableResizing();
   };
 
   //touch
@@ -82,12 +101,14 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
   };
 
   const handleTouchEnd = () => {
-    if (resizing) {
-      setResizing(false);
-    }
+    disableResizing();
   };
 
   const handleTouchCancel = () => {
+    disableResizing();
+  };
+
+  const disableResizing = () => {
     if (resizing) {
       setResizing(false);
     }
@@ -119,11 +140,11 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
   }, [resizing]);
 
   return (
-    // width passed here is the state
+    // width - passed here to style={{width}} is state "width"
     <ResizePanelWrapper className="ResizePanelWrapper" style={{ ...style, width }} ref={componentRef}>
-      {/* <Dimensions value={width && width > 0 , padding? width : 0} /> */}
+      <Dimensions value={`${width}px`} />
       <Handle onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} ref={handleRef} />
-      <ChildContainer className={className} ref={childComponentsRef} style={{ ...style }}>
+      <ChildContainer className={className} ref={containerRef}>
         {children}
       </ChildContainer>
     </ResizePanelWrapper>
@@ -141,19 +162,18 @@ const ResizePanelWrapper = styled.div.attrs<{ style: React.CSSProperties }>(prop
     minHeight: props?.style?.minHeight || '50px',
   },
 }))`
-  background: white;
+  background: rgba(255, 0, 0, 0.1);
   border: var(--border);
   border-radius: 4px;
   position: relative;
   max-width: 100%;
-  max-height: 100%;
 `;
 
-const ChildContainer = styled.div<{ style: React.CSSProperties }>`
+const ChildContainer = styled.div`
   gap: 1rem;
   position: relative;
   flex-direction: column;
-  overflow: visible;
+  background: rgba(0, 255, 255, 0.4);
 
   // center content in resizePanel
   // display: flex;

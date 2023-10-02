@@ -12,7 +12,7 @@ const DimensionsWrapper = styled.div`
 `;
 
 type DimensionsProps = {
-  value: number | null | undefined;
+  value: string | null | undefined;
 };
 
 export const Dimensions = (props: DimensionsProps) => {

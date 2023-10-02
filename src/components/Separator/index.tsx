@@ -14,10 +14,29 @@ type SeparatorProps = {
 export const Separator: React.FC<SeparatorProps> = ({
   variation = 'horizontal',
   gap = variation === 'horizontal' ? '1rem' : '0px',
-  height = 'inherit',
-  width = 'inherit',
+  height,
+  width,
   children = undefined,
 }: SeparatorProps) => {
+  const separatorRef = useRef<HTMLDivElement | null>(null);
+  let parentRef;
+
+  useEffect(() => {
+    if (separatorRef?.current?.parentNode) {
+      parentRef = separatorRef?.current?.parentNode.parentNode;
+      console.log('parentRef: ', parentRef);
+
+      //we are trying to ensure the <span> element is the size of container without the padding..
+
+      //      const passedInHeight = parseInt(`${height || 0}px`); //if height not passedin, use 0
+
+      //      check which is bigger use that..., passedin prop height(if not available use 0 as value)
+      //      check the passedInHeight value against parent height, whichever is bigger, use that.
+      //      const useHeight = Math.max(firstCheck, parseInt(`${parent?.clientHeight}px`));
+      //      setUseHeight(`${useHeight}px`);
+    }
+  }, [separatorRef.current]);
+
   switch (variation) {
     case 'horizontal':
       return (
@@ -28,7 +47,7 @@ export const Separator: React.FC<SeparatorProps> = ({
 
     case 'vertical':
       return (
-        <SeparatorVertical className="Separator" height={height} width={width} gap={gap}>
+        <SeparatorVertical className="Separator" ref={separatorRef} height={height} width={width} gap={gap}>
           {children && <span>{children}</span>}
         </SeparatorVertical>
       );
@@ -40,13 +59,7 @@ export const Separator: React.FC<SeparatorProps> = ({
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
-const SeparatorContainer = styled.div`
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-`;
-
-const SeparatorHorizontal = styled(SeparatorContainer)<{
+const SeparatorHorizontal = styled.div<{
   className?: string;
   height?: string;
   width?: string;
@@ -54,9 +67,13 @@ const SeparatorHorizontal = styled(SeparatorContainer)<{
   children?: React.ReactNode;
 }>`
   border-bottom: ${({ children }) => (children ? 'none' : `1px solid var(--border-color)`)};
-  flex-direction: row;
   height: 0px;
   width: 100%;
+
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: row;
 
   span {
     display: flex;
@@ -81,7 +98,7 @@ const SeparatorHorizontal = styled(SeparatorContainer)<{
   }
 `;
 
-const SeparatorVertical = styled(SeparatorContainer)<{
+const SeparatorVertical = styled.div<{
   className?: string;
   height?: string;
   width?: string;
@@ -89,10 +106,12 @@ const SeparatorVertical = styled(SeparatorContainer)<{
   children?: React.ReactNode;
 }>`
   border-right: ${({ children }) => (children ? 'none' : `1px solid var(--border-color)`)};
-  flex-direction: column;
+  height: 100%;
   width: 0px;
-  height: ${({ height }) => height};
-  align-items: center;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
 
   ${({ children }) =>
     children
@@ -106,14 +125,13 @@ const SeparatorVertical = styled(SeparatorContainer)<{
   span {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    width: 10px;
-    height: ${({ height }) => height};
     position: relative;
+    width: 20px;
+    background: rgba(255, 0, 0, 0.1);
 
     &::before,
     &::after {
-      width: 0px;
+      align-self: center;
       height: 100%;
       content: '';
       border-right: 1px solid var(--border-color);

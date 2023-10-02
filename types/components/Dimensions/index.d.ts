@@ -1,5 +1,5 @@
 type DimensionsProps = {
-    value: number | null | undefined;
+    value: string | null | undefined;
 };
 export declare const Dimensions: (props: DimensionsProps) => import("react/jsx-runtime").JSX.Element | null;
 export {};
