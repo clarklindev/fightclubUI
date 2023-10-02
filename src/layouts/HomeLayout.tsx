@@ -85,13 +85,14 @@ const Header = styled.header`
     justify-content: center;
     align-items: center;
   }
+  .headerLeft > .close-btn,
   .headerLeft > .menu-btn {
     border-radius: 0;
-    background: transparent;
     padding: 1rem 2rem;
     display: fixed;
     position: absolute;
     left: 0;
+    background: transparent;
 
     @media (min-width: 768px) {
       display: none;
@@ -141,15 +142,6 @@ const AsideNavigation = styled.aside<{ isOpen: boolean }>`
 
   ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};
   background: white;
-
-  nav > .close-btn {
-    padding: 1rem 2rem;
-    position: fixed;
-    top: 0;
-    right: 0px;
-    border-radius: 0;
-    background: transparent;
-  }
 
   @media only screen and (max-width: 576px) {
     width: 100%;
@@ -237,10 +229,16 @@ export const HomeLayout = () => {
     <HomeLayoutContainer>
       <Header>
         <div className="headerLeft">
-          {!isOpen && (
+          {!isOpen ? (
             <Button className="menu-btn" intent="icon" onClick={toggleMenu}>
               <Icon size="20px">
                 <MenuIcon />
+              </Icon>
+            </Button>
+          ) : (
+            <Button className="close-btn" intent="icon" onClick={toggleMenu}>
+              <Icon size="20px">
+                <CloseIcon />
               </Icon>
             </Button>
           )}
@@ -270,11 +268,6 @@ export const HomeLayout = () => {
       <div className="container">
         <AsideNavigation isOpen={isOpen}>
           <nav>
-            <Button className="close-btn" intent="icon" onClick={toggleMenu}>
-              <Icon size="20px">
-                <CloseIcon />
-              </Icon>
-            </Button>
             <Heading variation="h6">Guide</Heading>
             <CustomNavLink to="introduction">Introduction</CustomNavLink>
             <CustomNavLink to="gettingstarted">Getting started</CustomNavLink>
