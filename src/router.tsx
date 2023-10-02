@@ -5,6 +5,7 @@ import { HomeLayout } from './layouts/HomeLayout';
 // pages
 import Introduction from './pages/Introduction';
 import GettingStarted from './pages/GettingStarted';
+import SystemDesign from './pages/SystemDesign';
 import Routing from './pages/Routing';
 import Styling from './pages/Styling';
 import Themes from './pages/Themes';
@@ -38,13 +39,13 @@ import SpinnerExample from './pages/Spinner';
 import HooksExample from './pages/CustomHooks';
 import ResizePanelExample from './pages/ResizePanel';
 import DimensionsExample from './pages/Dimensions';
-
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<HomeLayout />}>
       <Route index element={<Introduction />} />
       <Route path="/introduction" element={<Introduction />} />
       <Route path="/gettingstarted" element={<GettingStarted />} />
+      <Route path="/systemdesign" element={<SystemDesign />} />
       <Route path="/routing" element={<Routing />} />
       <Route path="/themes" element={<Themes />} />
       <Route path="/styling" element={<Styling />} />

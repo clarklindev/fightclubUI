@@ -271,6 +271,7 @@ export const HomeLayout = () => {
             <Heading variation="h6">Guide</Heading>
             <CustomNavLink to="introduction">Introduction</CustomNavLink>
             <CustomNavLink to="gettingstarted">Getting started</CustomNavLink>
+            <CustomNavLink to="systemdesign">System design</CustomNavLink>
             <CustomNavLink to="routing">Routing</CustomNavLink>
             <CustomNavLink to="layout">Layout</CustomNavLink>
             <CustomNavLink to="themes">Themes</CustomNavLink>
