@@ -152,6 +152,7 @@ const AsideNavigation = styled.aside<{ isOpen: boolean }>`
 
   @media only screen and (max-width: 576px) {
     width: 100%;
+    overflow-y: auto;
     body {
       font-size: 1.2rem;
     }
