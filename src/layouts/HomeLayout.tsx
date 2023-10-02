@@ -282,6 +282,12 @@ export const HomeLayout = () => {
             <CustomNavLink to="layout">Layout</CustomNavLink>
             <CustomNavLink to="themes">Themes</CustomNavLink>
             <CustomNavLink to="styling">Styling</CustomNavLink>
+            <br />
+            {/* utility helper components */}
+            <Heading variation="h6">Utility</Heading>
+            <CustomNavLink to="labelsomething">LabelSomething</CustomNavLink>
+            <CustomNavLink to="resizepanel">Resize panel</CustomNavLink>
+            <CustomNavLink to="dimensions">Dimensions</CustomNavLink>
             <CustomNavLink to="hooks">Hooks</CustomNavLink>
             <br />
             <Heading variation="h6">Components</Heading>
@@ -309,12 +315,6 @@ export const HomeLayout = () => {
             <CustomNavLink to="tree">Tree</CustomNavLink>
             <CustomNavLink to="progressloader">Progress Loader</CustomNavLink>
             <CustomNavLink to="spinner">Spinner</CustomNavLink>
-            <br />
-            {/* utility helper components */}
-            <Heading variation="h6">Utility</Heading>
-            <CustomNavLink to="labelsomething">LabelSomething</CustomNavLink>
-            <CustomNavLink to="resizepanel">Resize panel</CustomNavLink>
-            <CustomNavLink to="dimensions">Dimensions</CustomNavLink>
             <br />
           </nav>
         </AsideNavigation>

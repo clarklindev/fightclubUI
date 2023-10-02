@@ -132,7 +132,7 @@ export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
                 onChange={onChangeHandler}
                 min={min}
                 max={max}
-                style={{ zIndex: index === activeIndex ? 1 : 0 }}
+                style={{ zIndex: index === activeIndex ? 1 : 0 }} //z-index
                 offset={slideMode === SlideMode.SLIDETHROUGH ? '0px' : thumbSize * index + 'px'}
                 //x position to place the <Slider/> you cant see this of each individual slider if position="absolute". only when className = "" and hideTrack="false"
                 trackClickable={false} //you want to leave this FALSE for multirange input
