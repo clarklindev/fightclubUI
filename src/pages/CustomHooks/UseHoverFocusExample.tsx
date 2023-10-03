@@ -22,29 +22,41 @@ useEffect(() => {
   }, []);
 */
 const UseHoverFocusExample = () => {
-  const [isFocused, focusAttrs] = useFocus();
+  const [isFocused, { onFocus, onBlur }] = useFocus();
 
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
-  const { onFocus, onBlur } = focusAttrs;
+  // useEffect(() => {
+  //   const handleClickOutside = (event: MouseEvent) => {
+  //     if (buttonRef.current && menuRef.current) {
+  //       if (!buttonRef.current.contains(event.target as Node) && !menuRef.current.contains(event.target as Node)) {
+  //         onBlur();
+  //       }
+  //     }
+  //   };
+
+  //   document.addEventListener('mousedown', handleClickOutside);
+  //   return () => document.removeEventListener('mousedown', handleClickOutside);
+  // }, []);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (buttonRef.current && menuRef.current) {
-        if (!buttonRef.current.contains(event.target as Node) && !menuRef.current.contains(event.target as Node)) {
-          onBlur();
-        }
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+    //actually call blur
+    if (!isFocused && buttonRef.current) {
+      buttonRef.current.blur();
+    }
+    if (isFocused && buttonRef.current) {
+      buttonRef.current.focus();
+    }
+  }, [isFocused]);
 
   return (
     <div style={{ position: 'relative' }}>
-      <Button ref={buttonRef} onMouseOver={onFocus} {...(focusAttrs as React.HTMLAttributes<HTMLButtonElement>)}>
+      <Button
+        ref={buttonRef}
+        onMouseOver={onFocus}
+        onMouseEnter={onFocus}
+        {...({ onFocus, onBlur } as React.HTMLAttributes<HTMLButtonElement>)}>
         Button
       </Button>
 

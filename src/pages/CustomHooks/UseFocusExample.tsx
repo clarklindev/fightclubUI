@@ -1,13 +1,31 @@
+import React, { useEffect, useRef } from 'react';
+
 import { useFocus } from '../../customhooks';
 import { Button } from '../../components';
 
 const UseFocusExample = () => {
-  const [isFocused, attrs] = useFocus();
-  const { onFocus, onBlur } = attrs;
+  const [isFocused, { onFocus, onBlur }] = useFocus();
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
+    //actually call blur
+    if (!isFocused && buttonRef.current) {
+      buttonRef.current.blur();
+    }
+    if (isFocused && buttonRef.current) {
+      buttonRef.current.focus();
+    }
+  }, [isFocused]);
 
   return (
     <div style={{ position: 'relative' }}>
-      <Button {...(attrs as React.HTMLAttributes<HTMLButtonElement>)}>Button</Button>
+      <Button
+        ref={buttonRef}
+        // onMouseOver={onFocus}
+        // onMouseEnter={onFocus}
+        {...({ onFocus, onBlur } as React.HTMLAttributes<HTMLButtonElement>)}>
+        Button
+      </Button>
       {isFocused && (
         <div
           style={{
