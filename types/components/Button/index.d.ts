@@ -9,7 +9,9 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
     ariaLabel?: string;
     children: React.ReactNode;
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    onMouseEnter?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    onMouseLeave?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
-export declare const Button: React.FC<ButtonVariants>;
+export declare const Button: React.ForwardRefExoticComponent<ButtonVariants & React.RefAttributes<HTMLButtonElement>>;
 export {};
 //# sourceMappingURL=index.d.ts.map

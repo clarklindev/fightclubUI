@@ -13,12 +13,12 @@ const HooksExample = () => {
         <UseHoverExample />
       </Layout>
       <Layout variation="block">
-        <Heading variation="h5">useFocus</Heading>
-        <UseFocusExample />
-      </Layout>
-      <Layout variation="block">
         <Heading variation="h5">useHoverFocus</Heading>
         <UseHoverFocusExample />
+      </Layout>
+      <Layout variation="block">
+        <Heading variation="h5">useFocus</Heading>
+        <UseFocusExample />
       </Layout>
     </>
   );

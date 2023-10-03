@@ -12,7 +12,7 @@ type SideMenuProviderProps = {
 };
 
 // Create a Context Provider
-export const SideMenuProvider = ({ children }: SideMenuProviderProps) => {
+export const SideMenuContextProvider = ({ children }: SideMenuProviderProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {

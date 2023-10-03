@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
+
 import { useTheme } from 'styled-components';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
@@ -74,18 +75,15 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
   ariaLabel?: string;
   children: React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseEnter?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseLeave?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseOver?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onMouseOut?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 
-export const Button: React.FC<ButtonVariants> = ({
-  intent,
-  padding,
-  size,
-  className,
-  onClick,
-  ariaLabel,
-  children,
-  ...rest
-}) => {
+export const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref) => {
+  const { intent, padding, size, className, onClick, ariaLabel, children, ...rest } = props;
+
   const theme = useTheme() as ThemeType;
 
   const classes = twMerge(
@@ -103,8 +101,9 @@ export const Button: React.FC<ButtonVariants> = ({
       role="button"
       tabIndex={0}
       onClick={onClick}
+      ref={ref}
       {...rest}>
       {children}
     </button>
   );
-};
+});

@@ -8,13 +8,12 @@ type FocusAttributes = {
 //custom hook
 export const useFocus = () => {
   const [isFocused, setIsFocused] = useState<boolean>(false);
-  const handleFocus = () => {
+
+  const handleFocus = (): void => {
     setIsFocused(true);
-    console.log('focused');
   };
 
-  const handleBlur = () => {
-    console.log('blurred');
+  const handleBlur = (): void => {
     setIsFocused(false);
   };
 
@@ -25,5 +24,5 @@ export const useFocus = () => {
 
   //your component receives helper methods from useFocus: onFocus() onBlur()
   //and state: hovering
-  return [isFocused, attrs];
+  return [isFocused, attrs] as [boolean, FocusAttributes];
 };
