@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 
 import { useFocus } from '../../customhooks';
 import { Button } from '../../components';
@@ -6,28 +6,24 @@ import { Button } from '../../components';
 const UseFocusExample = () => {
   const [isFocused, { onFocus, onBlur }] = useFocus();
   const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     //actually call blur
-    if (!isFocused && buttonRef.current) {
-      buttonRef.current.blur();
-    }
-    if (isFocused && buttonRef.current) {
-      buttonRef.current.focus();
+    if (buttonRef.current) {
+      !isFocused ? buttonRef.current.blur() : buttonRef.current.focus();
     }
   }, [isFocused]);
 
   return (
     <div style={{ position: 'relative' }}>
-      <Button
-        ref={buttonRef}
-        // onMouseOver={onFocus}
-        // onMouseEnter={onFocus}
-        {...({ onFocus, onBlur } as React.HTMLAttributes<HTMLButtonElement>)}>
+      <Button ref={buttonRef} {...({ onFocus, onBlur } as React.HTMLAttributes<HTMLButtonElement>)}>
         Button
       </Button>
+
       {isFocused && (
         <div
+          ref={menuRef}
           style={{
             background: 'red',
             display: 'flex',
