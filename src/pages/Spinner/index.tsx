@@ -7,7 +7,7 @@ const SpinnerExample = () => {
       <Heading variation="h4">Spinner</Heading>
 
       <ResizePanel>
-        <Spinner size="20px" />
+        <Spinner size="15px" />
       </ResizePanel>
     </>
   );

@@ -272,7 +272,6 @@ export const HomeLayout = () => {
             <CustomNavLink to="introduction">Introduction</CustomNavLink>
             <CustomNavLink to="gettingstarted">Getting started</CustomNavLink>
             <CustomNavLink to="systemdesign">System design</CustomNavLink>
-            <CustomNavLink to="routing">Routing</CustomNavLink>
             <CustomNavLink to="layout">Layout</CustomNavLink>
             <CustomNavLink to="themes">Themes</CustomNavLink>
             <CustomNavLink to="styling">Styling</CustomNavLink>

@@ -10,14 +10,14 @@ type ProgressLoaderProps = {
 
 export const ProgressLoader: React.FC<ProgressLoaderProps> = ({
   progress,
-  size = 20,
-  strokeWidth = 2,
+  size = 15,
+  strokeWidth = 1,
   color = 'currentColor',
 }) => {
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const dashoffset = circumference - (progress / 100) * circumference;
-  const viewBoxSize = size + strokeWidth * 2; // Adjust viewBox size to accommodate strokeWidth
+  const viewBoxSize = size; // Adjust viewBox size to accommodate strokeWidth
 
   return (
     <ProgressLoaderWrapper width={size} height={size} viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}>

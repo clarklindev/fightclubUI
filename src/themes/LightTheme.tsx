@@ -114,12 +114,12 @@ export const lightTheme = {
 
     // typescale.com - Scale - 1.125 Major Second
     fontSize: {
-      h1: '2.027rem',
-      h2: '1.802rem',
-      h3: '1.602rem',
-      h4: '1.424rem',
-      h5: '1.266rem',
-      h6: '1.125rem',
+      h1: '1.383rem',
+      h2: '1.296rem',
+      h3: '1.215rem',
+      h4: '1.138rem',
+      h5: '1.067rem',
+      h6: '0.937rem',
     },
   },
 

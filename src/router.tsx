@@ -46,7 +46,6 @@ export const router = createBrowserRouter(
       <Route path="/introduction" element={<Introduction />} />
       <Route path="/gettingstarted" element={<GettingStarted />} />
       <Route path="/systemdesign" element={<SystemDesign />} />
-      <Route path="/routing" element={<Routing />} />
       <Route path="/themes" element={<Themes />} />
       <Route path="/styling" element={<Styling />} />
       <Route path="/hooks" element={<HooksExample />} />

@@ -5,7 +5,7 @@ type SpinnerProps = {
   size?: string;
 };
 
-export const Spinner: React.FC<SpinnerProps> = ({ size = '20px' }) => {
+export const Spinner: React.FC<SpinnerProps> = ({ size = '15px' }) => {
   return <SpinnerContainer size={size} />;
 };
 
@@ -20,8 +20,8 @@ const SpinnerContainer = styled.div<SpinnerProps>`
   width: ${props => props.size};
   height: ${props => props.size};
   border-radius: 50%;
-  border: 2px solid #ccc;
+  border: 1px solid #ccc;
   border-top-color: #333;
-  animation: ${spin} 1s linear infinite;
+  animation: ${spin} 0.3s linear infinite;
   will-change: border-top-color;
 `;

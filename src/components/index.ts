@@ -29,3 +29,4 @@ export { Tree } from './Tree';
 export { ResizePanel } from './ResizePanel';
 export { Dimensions } from './Dimensions';
 export { CustomNavLink } from './CustomNavLink';
+export { CodeBlock } from './CodeBlock';
