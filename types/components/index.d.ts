@@ -29,4 +29,7 @@ export { Tree } from './Tree';
 export { ResizePanel } from './ResizePanel';
 export { Dimensions } from './Dimensions';
 export { CustomNavLink } from './CustomNavLink';
+export { CodeBlock } from './CodeBlock';
+export { TopNav } from './TopNav';
+export { SideNav } from './SideNav';
 //# sourceMappingURL=index.d.ts.map

@@ -2,15 +2,13 @@ import { createBrowserRouter, createRoutesFromElements, Route, Navigate } from '
 
 // layouts
 import { HomeLayout } from './layouts/HomeLayout';
+
 // pages
-import Introduction from './pages/Introduction';
 import GettingStarted from './pages/GettingStarted';
 import SystemDesign from './pages/SystemDesign';
-import Routing from './pages/Routing';
-import Styling from './pages/Styling';
-import Themes from './pages/Themes';
 import NotFound from './pages/NotFound';
-import LayoutExample from './pages/Layout';
+
+//components
 import HeadingExample from './pages/Heading';
 import TextExample from './pages/Text';
 import IconExample from './pages/Icon';
@@ -33,23 +31,21 @@ import SeparatorExample from './pages/Separator';
 import ListExample from './pages/List';
 import TableExample from './pages/Table';
 import CardExample from './pages/Card';
-// import TreeExample from './pages/Tree';
 import ProgressLoaderExample from './pages/ProgressLoader';
 import SpinnerExample from './pages/Spinner';
 import HooksExample from './pages/CustomHooks';
 import ResizePanelExample from './pages/ResizePanel';
 import DimensionsExample from './pages/Dimensions';
+import CodeBlockExample from './pages/CodeBlock';
+// import TreeExample from './pages/Tree';
+
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<HomeLayout />}>
-      <Route index element={<Introduction />} />
-      <Route path="/introduction" element={<Introduction />} />
+      <Route index element={<GettingStarted />} />
       <Route path="/gettingstarted" element={<GettingStarted />} />
       <Route path="/systemdesign" element={<SystemDesign />} />
-      <Route path="/themes" element={<Themes />} />
-      <Route path="/styling" element={<Styling />} />
       <Route path="/hooks" element={<HooksExample />} />
-      <Route path="/layout" element={<LayoutExample />} />
       <Route path="/heading" element={<HeadingExample />} />
       <Route path="/text" element={<TextExample />} />
       <Route path="/icon" element={<IconExample />} />
@@ -72,11 +68,12 @@ export const router = createBrowserRouter(
       <Route path="/list" element={<ListExample />} />
       <Route path="/table" element={<TableExample />} />
       <Route path="/card" element={<CardExample />} />
-      {/* <Route path="/tree" element={<TreeExample />} /> */}
       <Route path="/progressloader" element={<ProgressLoaderExample />} />
       <Route path="/spinner" element={<SpinnerExample />} />
       <Route path="/resizepanel" element={<ResizePanelExample />} />
       <Route path="/dimensions" element={<DimensionsExample />} />
+      <Route path="/codeblock" element={<CodeBlockExample />} />
+      {/* <Route path="/tree" element={<TreeExample />} /> */}
 
       <Route path="/404" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/404" replace />} />

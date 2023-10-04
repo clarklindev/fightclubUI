@@ -28,7 +28,7 @@ const UseFocusExample = () => {
             background: 'red',
             display: 'flex',
             position: 'absolute',
-            top: '60px',
+            top: '45px',
             zIndex: '10',
             cursor: 'pointer',
           }}>

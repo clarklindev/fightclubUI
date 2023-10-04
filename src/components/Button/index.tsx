@@ -84,6 +84,8 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
 export const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref) => {
   const { intent, padding, size, className, onClick, ariaLabel, children, ...rest } = props;
 
+  //<Button className={`cn(buttonVariants(...`{ intent: 'primary'}), className)}/>;
+
   const theme = useTheme() as ThemeType;
 
   const classes = twMerge(

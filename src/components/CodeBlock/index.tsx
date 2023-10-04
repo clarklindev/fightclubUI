@@ -9,16 +9,15 @@ type CodeBlockProps = {
 
 export const CodeBlock = (props: CodeBlockProps) => {
   useEffect(() => {
-    // Initialize Prism.js for syntax highlighting
     Prism.highlightAll();
   }, []);
 
   const { language, children } = props;
   const trimmedtext = (children as string).trim();
   return (
-    <div className={`language-${language}`}>
+    <div>
       <pre>
-        <code>{trimmedtext}</code>
+        <code className={`language-${language}`}>{trimmedtext}</code>
       </pre>
     </div>
   );

@@ -1,46 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { twMerge } from 'tailwind-merge';
+import { cn } from '../../utils/cn';
 
-import styled, { DefaultTheme } from 'styled-components';
-
-type CardProps = {
-  children: React.ReactNode;
-  color?: string;
-  borderColor?: string;
-  borderRadius?: string;
-  width?: string;
-  height?: string;
+type CardProps = React.HTMLProps<HTMLDivElement> & {
+  children?: React.ReactNode;
 };
 
-export const Card: React.FC<CardProps> = ({
-  color = 'white',
-  borderColor = 'black',
-  borderRadius = '10px',
-  width = 'auto',
-  height = '300px',
-  children,
-}) => {
+export const Card: React.FC<CardProps> = ({ className, ...props }) => {
+  const [loading] = useState(false);
   return (
-    <CardContainer color={color} borderColor={borderColor} borderRadius={borderRadius} width={width} height={height}>
-      {children}
-    </CardContainer>
+    <div
+      className={cn('text-white border-gray-300 border rounded-lg h-200', className, { 'bg-gray-400': loading })}
+      {...props}
+    />
   );
 };
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
-
-const CardContainer = styled.div<{
-  borderColor?: string;
-  borderRadius?: string;
-  width?: string;
-  height?: string;
-  theme: DefaultTheme;
-}>`
-  display: flex;
-  flex-direction: column;
-  align-self: stretch;
-  border: ${({ borderColor, theme }) => (borderColor ? `1px solid ${borderColor}` : `1px solid ${theme.borderColor}`)};
-  border-radius: ${({ borderRadius }) => borderRadius};
-  width: ${({ width }) => width};
-  height: ${({ height }) => height};
-  padding: 15px;
-`;

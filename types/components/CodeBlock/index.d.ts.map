@@ -1,0 +1,1 @@
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/CodeBlock/index.tsx"],"names":[],"mappings":";AAEA,OAAO,0BAA0B,CAAC;AAElC,KAAK,cAAc,GAAG;IACpB,QAAQ,EAAE,MAAM,CAAC;IACjB,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B,CAAC;AAEF,eAAO,MAAM,SAAS,UAAW,cAAc,4CAc9C,CAAC"}

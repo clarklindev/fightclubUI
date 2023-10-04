@@ -11,6 +11,8 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
     onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
     onMouseEnter?: (event: React.MouseEvent<HTMLButtonElement>) => void;
     onMouseLeave?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    onMouseOver?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+    onMouseOut?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 }
 export declare const Button: React.ForwardRefExoticComponent<ButtonVariants & React.RefAttributes<HTMLButtonElement>>;
 export {};
