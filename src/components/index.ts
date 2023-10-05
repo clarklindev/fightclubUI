@@ -32,4 +32,4 @@ export { CustomNavLink } from './CustomNavLink';
 export { CodeBlock } from './CodeBlock';
 export { NavTop } from './NavTop';
 export { NavSide } from './NavSide';
-export { NavOnThePage } from './NavOnThePage';
+export { NavOnThisPage } from './NavOnThisPage';

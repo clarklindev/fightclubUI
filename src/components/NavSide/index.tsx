@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import { useSideMenu } from '../../context/SidemenuContext';
 import { Heading, CustomNavLink } from '..';
 
-const NavSideigation = styled.aside<{ isOpen: boolean }>`
+const Navigation = styled.aside<{ isOpen: boolean }>`
   nav {
     display: flex;
     flex-direction: column;
   }
+
   padding: 1rem 2rem;
   z-index: 1;
 
@@ -15,13 +16,13 @@ const NavSideigation = styled.aside<{ isOpen: boolean }>`
   display: block;
   position: fixed;
   height: calc(100dvh - 50px);
-  overflow-x: hidden;
-  overflow-y: hidden;
+  overflow: hidden;
+
   &:hover {
     overflow-y: auto;
   }
-
   ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};
+
   background: white;
 
   @media only screen and (max-width: 576px) {
@@ -36,8 +37,6 @@ const NavSideigation = styled.aside<{ isOpen: boolean }>`
   }
 
   @media (min-width: 577px) {
-    ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};
-
     border-right: var(--border);
 
     nav a {
@@ -58,13 +57,15 @@ const NavSideigation = styled.aside<{ isOpen: boolean }>`
   }
 
   @media (min-width: 768px) {
+    display: block;
+
     min-width: 250px;
 
     padding: 2rem;
 
-    background: transparent;
-    display: block;
-    grid-area: nav;
+    background: white;
+    grid-area: navside;
+
     nav a {
       font-size: 0.9rem;
       padding: 5px 10px 5px 0px;
@@ -76,9 +77,11 @@ const NavSideigation = styled.aside<{ isOpen: boolean }>`
 
   @media (min-width: 1024px) {
     min-width: 300px;
+    padding: 2rem 4rem;
   }
   @media (min-width: 1200px) {
     min-width: 300px;
+    padding: 2rem;
   }
 `;
 
@@ -86,7 +89,7 @@ export const NavSide = () => {
   const { isOpen } = useSideMenu();
 
   return (
-    <NavSideigation isOpen={isOpen}>
+    <Navigation isOpen={isOpen}>
       <nav>
         <Heading variation="h6">Guide</Heading>
         <CustomNavLink to="introduction">Introduction</CustomNavLink>
@@ -128,6 +131,6 @@ export const NavSide = () => {
         <CustomNavLink to="spinner">Spinner</CustomNavLink>
         <br />
       </nav>
-    </NavSideigation>
+    </Navigation>
   );
 };

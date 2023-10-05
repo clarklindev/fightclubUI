@@ -16,7 +16,7 @@ const Header = styled.header`
   grid-area: header;
   display: flex;
   align-items: center;
-  width: calc(100% - 5px);
+  width: calc(100%);
   min-height: 50px;
   position: fixed;
   z-index: 1;
@@ -42,6 +42,9 @@ const Header = styled.header`
     justify-content: space-between;
   }
 
+  @media (min-width: 1024px) {
+  }
+
   @media (min-width: 1200px) {
     padding: 0 4rem 0 4rem;
   }
@@ -64,6 +67,8 @@ const Header = styled.header`
     @media (min-width: 768px) {
       display: none;
     }
+    @media (min-width: 1024px) {
+    }
   }
 
   .headerRight {
@@ -72,6 +77,8 @@ const Header = styled.header`
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+    @media (min-width: 1024px) {
     }
   }
 `;

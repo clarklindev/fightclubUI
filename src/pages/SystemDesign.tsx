@@ -14,6 +14,17 @@ const SystemDesign = () => {
       <br />
       <br />
 
+      <Heading variation="h5">Validation</Heading>
+      <Text>
+        For Validation: leaning towards ZOD
+        <br />
+        https://zod.dev/ <br />
+        https://validatejs.org/
+        <br />
+      </Text>
+      <br />
+      <br />
+
       <Heading variation="h5">Layout</Heading>
       <Text>TailwindCSS (https://tailwindui.com/documentation) and CSS Grid or CSS Flexbox</Text>
       <br />
@@ -208,6 +219,10 @@ Button.Icon = () => {
 export { Button, Button.Icon }; // Export both the Button component and Button.Icon
 `}
       </CodeBlock>
+      <Text>
+        Note: here even though we dont redeclare a new const for Button.Icon, we can export it, and use it directly
+        after import without the need to import Button.
+      </Text>
       <CodeBlock language="tsx">
         {`// Some other component
 import React from 'react';
@@ -225,11 +240,6 @@ function AnotherComponent() {
 export default AnotherComponent;
 `}
       </CodeBlock>
-      <Text>
-        Note: here even though we dont redeclare a new const for Button.Icon, we can export it, and use it directly
-        after import without the need to import Button.
-      </Text>
-
       <br />
 
       <Heading variation="h6">Composition</Heading>
