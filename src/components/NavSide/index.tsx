@@ -38,7 +38,7 @@ const Navigation = styled.aside<{ isOpen: boolean }>`
 
   @media (min-width: 577px) {
     border-right: var(--border);
-
+    overflow-y: auto;
     nav a {
       padding: 5px 10px 5px 0px;
       border-radius: 5px;
@@ -58,6 +58,7 @@ const Navigation = styled.aside<{ isOpen: boolean }>`
 
   @media (min-width: 768px) {
     display: block;
+    overflow-y: hidden;
 
     min-width: 250px;
 

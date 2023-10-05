@@ -8,6 +8,7 @@ const HomeLayoutContainer = styled.div<{ isOpen: boolean }>`
   height: 100dvh;
   width: 100%;
   display: grid;
+  overflow-x: hidden;
   overflow-y: scroll;
 
   grid-template-columns: 1fr;
@@ -52,7 +53,7 @@ const HomeLayoutContainer = styled.div<{ isOpen: boolean }>`
     padding: 1rem 2rem;
     overflow-y: auto;
     @media only screen and (max-width: 768px) {
-      ${({ isOpen }) => isOpen && `display: none;`};
+      ${({ isOpen }) => isOpen && `overflow: hidden;`};
     }
 
     @media (min-width: 768px) {

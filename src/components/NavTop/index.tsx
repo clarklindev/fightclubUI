@@ -10,13 +10,13 @@ import { useSideMenu } from '../../context/SidemenuContext';
 import { Icon, Button } from '..';
 import { CloseIcon, MenuIcon } from '../../icons';
 
-const Header = styled.header`
+const Header = styled.header<{ isOpen: boolean }>`
   flex-direction: 'row';
   justify-content: center;
   grid-area: header;
   display: flex;
   align-items: center;
-  width: calc(100% - 5px);
+  ${({ isOpen }) => (isOpen ? `width: calc(100%)` : `width: calc(100% - 5px)`)};
   min-height: 50px;
   position: fixed;
   z-index: 1;
@@ -43,6 +43,7 @@ const Header = styled.header`
   }
 
   @media (min-width: 1024px) {
+    width: calc(100% - 5px);
   }
 
   @media (min-width: 1200px) {
@@ -88,7 +89,7 @@ export const NavTop = () => {
   const navigate = useNavigate();
 
   return (
-    <Header>
+    <Header isOpen={isOpen}>
       <div className="headerLeft">
         {!isOpen ? (
           <Button className="menu-btn" intent="icon" onClick={toggleMenu}>
