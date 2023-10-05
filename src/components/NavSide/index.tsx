@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { useSideMenu } from '../../context/SidemenuContext';
 import { Heading, CustomNavLink } from '..';
 
-const SideNavigation = styled.aside<{ isOpen: boolean }>`
+const NavSideigation = styled.aside<{ isOpen: boolean }>`
   nav {
     display: flex;
     flex-direction: column;
@@ -82,13 +82,14 @@ const SideNavigation = styled.aside<{ isOpen: boolean }>`
   }
 `;
 
-export const SideNav = () => {
+export const NavSide = () => {
   const { isOpen } = useSideMenu();
 
   return (
-    <SideNavigation isOpen={isOpen}>
+    <NavSideigation isOpen={isOpen}>
       <nav>
         <Heading variation="h6">Guide</Heading>
+        <CustomNavLink to="introduction">Introduction</CustomNavLink>
         <CustomNavLink to="gettingstarted">Getting started</CustomNavLink>
         <CustomNavLink to="systemdesign">System design</CustomNavLink>
         <br />
@@ -127,6 +128,6 @@ export const SideNav = () => {
         <CustomNavLink to="spinner">Spinner</CustomNavLink>
         <br />
       </nav>
-    </SideNavigation>
+    </NavSideigation>
   );
 };

@@ -5,6 +5,7 @@ import { HomeLayout } from './layouts/HomeLayout';
 
 // pages
 import GettingStarted from './pages/GettingStarted';
+import Introduction from './pages/Introduction';
 import SystemDesign from './pages/SystemDesign';
 import NotFound from './pages/NotFound';
 
@@ -42,7 +43,8 @@ import CodeBlockExample from './pages/CodeBlock';
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<HomeLayout />}>
-      <Route index element={<GettingStarted />} />
+      <Route index element={<Introduction />} />
+      <Route path="/introduction" element={<Introduction />} />
       <Route path="/gettingstarted" element={<GettingStarted />} />
       <Route path="/systemdesign" element={<SystemDesign />} />
       <Route path="/hooks" element={<HooksExample />} />

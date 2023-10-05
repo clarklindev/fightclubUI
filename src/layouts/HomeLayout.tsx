@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { TopNav, SideNav } from '../components';
+import { NavTop, NavSide, NavOnThePage } from '../components';
 
 const HomeLayoutContainer = styled.div`
   height: 100dvh;
@@ -50,39 +50,19 @@ const HomeLayoutContainer = styled.div`
   }
 `;
 
-const AsideOnThePage = styled.aside`
-  height: calc(100dvh - 50px);
-  grid-area: onthispage;
-  display: none;
-  background: transparent;
-  position: fixed;
-  overflow: hidden;
-  &:hover {
-    overflow-y: auto;
-  }
-  padding: 2rem;
-
-  @media (min-width: 1200px) {
-    right: 4rem;
-    display: block;
-    border-left: var(--border);
-    min-width: 300px;
-  }
-`;
-
 export const HomeLayout = () => {
   return (
     <HomeLayoutContainer>
-      <TopNav />
+      <NavTop />
 
       <div className="container">
-        <SideNav />
+        <NavSide />
 
         <main id="main">
           <Outlet />
         </main>
 
-        <AsideOnThePage />
+        <NavOnThePage />
       </div>
     </HomeLayoutContainer>
   );

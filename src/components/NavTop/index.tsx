@@ -76,7 +76,7 @@ const Header = styled.header`
   }
 `;
 
-export const TopNav = () => {
+export const NavTop = () => {
   const { isOpen, toggleMenu, closeMenu } = useSideMenu();
   const navigate = useNavigate();
 
