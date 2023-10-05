@@ -8,6 +8,7 @@ const HomeLayoutContainer = styled.div<{ isOpen: boolean }>`
   height: 100dvh;
   width: 100%;
   display: grid;
+  overflow-y: scroll;
 
   grid-template-columns: 1fr;
   grid-template-rows: 50px auto;

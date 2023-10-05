@@ -16,7 +16,7 @@ const Header = styled.header`
   grid-area: header;
   display: flex;
   align-items: center;
-  width: calc(100%);
+  width: calc(100% - 5px);
   min-height: 50px;
   position: fixed;
   z-index: 1;
