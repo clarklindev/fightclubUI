@@ -62,11 +62,20 @@ const SystemDesign = () => {
       <br />
 
       <Heading variation="h5">Component Design</Heading>
+      <Text>
+        Components should be accessible, following accessibility best practices using guidelines:
+        https://www.w3.org/WAI/ARIA/apg/patterns/
+      </Text>
       <br />
       <Heading variation="h6">referencing</Heading>
       <Text>
         Components should have reference so they are accesible from higher up the component render chain, <br />
         for reference: https://react.dev/reference/react/forwardRef
+      </Text>
+
+      <Text>
+        references to props that are not normal html element attributes should use the data- props formatted like
+        [data-*]
       </Text>
       <br />
 
@@ -112,6 +121,114 @@ const SystemDesign = () => {
   outline-offset: 10px;
 }`}
       </CodeBlock>
+
+      <br />
+
+      <Heading variation="h6">Modular component structure</Heading>
+      <Text>
+        Components should be designed in such a way that it promotes modularity. If you've every seen that syntax
+        {`<Button.Icon>`}, whats happening is logical grouping (helpful with Readability) of Button and its
+        sub-components. if you export 'Button', when used in code, you can reference subcomponents via Button eg.
+        {`<Button.Icon>`}. when you define {`Button.Icon = () => { ... }`}, you are not including the const keyword
+        because you are not declaring a new variable. Instead, you are adding a property named Icon to the existing
+        Button object. This is a way to extend the Button component by adding functionality (in this case, the Icon
+        sub-component) without re-declaring a new variable or component. When you use this module in other parts of your
+        application, you can access the Button.Icon component as a nested component of Button. This can be shown via
+        example:
+      </Text>
+      <CodeBlock language="tsx">{`// Button.js
+
+import React from 'react';
+
+const Button = () => {
+  // Button component logic
+  return (
+    <button>
+      {/* Button content */}
+    </button>
+  );
+};
+
+Button.Icon = () => {
+  // Icon component logic
+  return (
+    <div>
+      {/* Icon content */}
+    </div>
+  );
+};
+
+export { Button }; 
+`}</CodeBlock>
+
+      <CodeBlock language="tsx">
+        {`// Usage in another component
+import React from 'react';
+import Button from './Button';
+
+function MyComponent() {
+  return (
+    <Button>
+      <Button.Icon /> {/* Use the Button.Icon component */}
+      Button Text
+    </Button>
+  );
+}`}
+      </CodeBlock>
+      <Text>
+        note how you can use Button.Icon after importing Button, but you cant use it independently. To use the
+        subcomponent independent of whether the Component is imported, export it too. If you define Button.Icon as a
+        separate export, you can import it without needing to import the entire Button component. This can be beneficial
+        in scenarios where you want to use Button.Icon independently in different parts of your application without
+        importing unnecessary code.
+      </Text>
+      <CodeBlock language="tsx">
+        {`// Button.js
+
+import React from 'react';
+
+const Button = () => {
+  // Button component logic
+  return (
+    <button>
+      {/* Button content */}
+    </button>
+  );
+};
+
+Button.Icon = () => {
+  // Icon component logic
+  return (
+    <div>
+      {/* Icon content */}
+    </div>
+  );
+};
+
+export { Button, Button.Icon }; // Export both the Button component and Button.Icon
+`}
+      </CodeBlock>
+      <CodeBlock language="tsx">
+        {`// Some other component
+import React from 'react';
+import { Button, Button.Icon } from './Button'; // Import only Button.Icon
+
+function AnotherComponent() {
+  return (
+    <div>
+      {/* Use the Button.Icon component independently */}
+      <Button.Icon />
+    </div>
+  );
+}
+
+export default AnotherComponent;
+`}
+      </CodeBlock>
+      <Text>
+        Note: here even though we dont redeclare a new const for Button.Icon, we can export it, and use it directly
+        after import without the need to import Button.
+      </Text>
 
       <br />
 

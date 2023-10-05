@@ -25,12 +25,12 @@ const UseFocusExample = () => {
         <div
           ref={menuRef}
           style={{
-            background: 'red',
+            background: 'white',
             display: 'flex',
             position: 'absolute',
             top: '45px',
             zIndex: '10',
-            cursor: 'pointer',
+            cursor: 'pointerx',
           }}>
           <ul>
             <li onClick={onBlur}>Menu Item 1</li>

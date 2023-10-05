@@ -17,9 +17,9 @@ const UseFocusExample = () => {
     // Set a timeout to update isMenuOpen after 400ms
     timeoutId = setTimeout(() => {
       setIsMenuOpen(isFocused);
-    }, 400);
+      //actually call blur
+    }, 300);
 
-    //actually call blur
     if (buttonRef.current) {
       !isFocused ? buttonRef.current.blur() : buttonRef.current.focus();
     }
@@ -57,7 +57,7 @@ const UseFocusExample = () => {
           onMouseLeave={handleMouseLeave}
           ref={menuRef}
           style={{
-            background: 'red',
+            background: 'white',
             display: 'flex',
             position: 'absolute',
             top: '45px',
