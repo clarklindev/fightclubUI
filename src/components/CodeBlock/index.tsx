@@ -15,10 +15,10 @@ export const CodeBlock = (props: CodeBlockProps) => {
   const { language, children } = props;
   const trimmedtext = (children as string).trim();
   return (
-    <div>
-      <pre>
+    <div style={{ width: 'auto', display: 'flex' }}>
+      {/* <pre>
         <code className={`language-${language}`}>{trimmedtext}</code>
-      </pre>
+      </pre> */}
     </div>
   );
 };

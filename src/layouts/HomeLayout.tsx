@@ -6,58 +6,78 @@ import { NavTop, NavSide, NavOnThisPage } from '../components';
 
 const HomeLayoutContainer = styled.div<{ isOpen: boolean }>`
   height: 100dvh;
-  width: 100%;
+
   display: grid;
   overflow-x: hidden;
-  overflow-y: scroll;
-
-  grid-template-columns: 1fr;
+  overflow-y: hidden;
+  grid-template-columns: auto;
   grid-template-rows: 50px auto;
 
   grid-template-areas:
     'header'
     'container';
 
+  @media (min-width: 1200px) {
+    position: relative;
+  }
+
   .container {
     grid-area: container;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas: 'main';
-    max-width: 100%;
+    grid-template-columns: auto;
+    grid-template-areas: 'fullwidthwrapper';
     position: relative;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: 100%;
+
+    @media (min-width: 640px) {
+      max-width: 100%; //override tailwinds presets
+    }
 
     @media (min-width: 768px) {
       display: grid;
-      grid-template-areas: 'navside main';
-      grid-template-columns: 250px auto;
+      grid-template-areas: 'navside fullwidthwrapper';
+      grid-template-columns: 300px auto;
     }
     @media (min-width: 1024px) {
-      grid-template-areas: 'navside main';
+      grid-template-areas: 'navside fullwidthwrapper';
       grid-template-columns: 300px auto;
     }
     @media (min-width: 1200px) {
-      grid-template-areas: 'navside main onthispage';
-      grid-template-columns: 300px auto 300px;
-      padding: 0 4rem;
+    }
+  }
+
+  .full-width-wrapper {
+    grid-area: fullwidthwrapper;
+    display: grid;
+    position: relative;
+    height: calc(100dvh - 50px);
+    overflow-y: scroll;
+
+    grid-template-areas: 'main';
+    grid-template-columns: auto;
+
+    @media (min-width: 768px) {
+    }
+    @media (min-width: 1024px) {
+    }
+    @media (min-width: 1200px) {
+      grid-template-areas: 'main onthispage';
+      grid-template-columns: auto 300px;
     }
   }
 
   main {
-    display: grid;
-
     position: relative;
     background: transparent;
     grid-area: main;
-    display: flex;
-    flex-direction: column;
     padding: 1rem 2rem;
-    overflow-y: auto;
-    @media only screen and (max-width: 768px) {
-      ${({ isOpen }) => isOpen && `overflow: hidden;`};
-    }
 
     @media (min-width: 768px) {
       padding: 2rem 4rem;
+    }
+    @media (min-width: 1200px) {
     }
   }
 `;
@@ -72,11 +92,13 @@ export const HomeLayout = () => {
       <div className="container">
         <NavSide />
 
-        <main id="main">
-          <Outlet />
-        </main>
+        <div className="full-width-wrapper">
+          <main id="main">
+            <Outlet />
+          </main>
 
-        <NavOnThisPage />
+          <NavOnThisPage />
+        </div>
       </div>
     </HomeLayoutContainer>
   );

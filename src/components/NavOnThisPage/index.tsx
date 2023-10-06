@@ -4,18 +4,13 @@ export const NavOnThisPageContainer = styled.aside`
   height: calc(100dvh - 50px);
   grid-area: onthispage;
   display: none;
+  min-width: 300px;
+  width: 300px;
 
   @media (min-width: 1200px) {
-    background: transparent;
-    position: fixed;
-    overflow: hidden;
-    &:hover {
-      overflow-y: auto;
-    }
-    padding: 2rem;
     display: block;
-    right: 4rem;
-    min-width: 300px;
+    position: sticky;
+    top: 0;
     border-left: var(--border);
   }
 `;

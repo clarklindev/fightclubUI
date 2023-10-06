@@ -8,13 +8,15 @@ const Navigation = styled.aside<{ isOpen: boolean }>`
     display: flex;
     flex-direction: column;
   }
+  background: white;
 
-  padding: 1rem 2rem;
+  padding: 2rem 4rem;
+
   z-index: 1;
 
   min-width: 100%;
   display: block;
-  position: fixed;
+  position: fixed; //needed for mobile
   height: calc(100dvh - 50px);
   overflow: hidden;
 
@@ -22,8 +24,6 @@ const Navigation = styled.aside<{ isOpen: boolean }>`
     overflow-y: auto;
   }
   ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};
-
-  background: white;
 
   @media only screen and (max-width: 576px) {
     width: 100%;
@@ -39,6 +39,7 @@ const Navigation = styled.aside<{ isOpen: boolean }>`
   @media (min-width: 577px) {
     border-right: var(--border);
     overflow-y: auto;
+
     nav a {
       padding: 5px 10px 5px 0px;
       border-radius: 5px;
@@ -60,11 +61,9 @@ const Navigation = styled.aside<{ isOpen: boolean }>`
     display: block;
     overflow-y: hidden;
 
-    min-width: 250px;
+    min-width: 300px;
 
-    padding: 2rem;
-
-    background: white;
+    padding: 2rem 4rem;
     grid-area: navside;
 
     nav a {
@@ -78,11 +77,10 @@ const Navigation = styled.aside<{ isOpen: boolean }>`
 
   @media (min-width: 1024px) {
     min-width: 300px;
-    padding: 2rem 4rem;
   }
   @media (min-width: 1200px) {
     min-width: 300px;
-    padding: 2rem;
+    position: fixed;
   }
 `;
 

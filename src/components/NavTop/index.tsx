@@ -16,8 +16,11 @@ const Header = styled.header<{ isOpen: boolean }>`
   grid-area: header;
   display: flex;
   align-items: center;
-  ${({ isOpen }) => (isOpen ? `width: calc(100%)` : `width: calc(100% - 5px)`)};
+  width: 100%;
   min-height: 50px;
+  min-width: 300px;
+  overflow: hidden;
+
   position: fixed;
   z-index: 1;
   color: var(--clr-foreground);
@@ -40,14 +43,14 @@ const Header = styled.header<{ isOpen: boolean }>`
 
   @media (min-width: 768px) {
     justify-content: space-between;
+    padding: 0 4rem;
   }
 
   @media (min-width: 1024px) {
-    width: calc(100% - 5px);
+    width: 100%;
   }
 
   @media (min-width: 1200px) {
-    padding: 0 4rem 0 4rem;
   }
 
   .headerLeft {
