@@ -61,6 +61,7 @@ const HomeLayoutContainer = styled.div`
   .onthispage {
     grid-area: onthispage;
     display: none;
+    background: pink;
     height: calc(100dvh - 50px);
     padding: 2rem;
     overflow-wrap: break-word;
@@ -83,12 +84,17 @@ const HomeLayoutContainer = styled.div`
 
   main {
     grid-area: main;
-    border: 1px solid black;
-
+    background: rgba(255, 255, 0, 0.2);
     white-space: normal;
     padding: 2rem 4rem;
     width: auto;
+    height: 100%;
     overflow-wrap: break-word; /* Break long words */
+
+    @media (min-width: 768px) {
+      height: auto;
+      min-height: 100%;
+    }
   }
 `;
 

@@ -5,7 +5,7 @@ interface NavOnThisPageProps {
 }
 
 const NavOnThisPageContainer = styled.aside<{ className?: string }>`
-  border: 1px solid purple;
+  border: 1px solid pink;
 `;
 
 export const NavOnThisPage = (props: NavOnThisPageProps) => {

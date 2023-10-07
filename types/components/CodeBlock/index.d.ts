@@ -1,9 +1,4 @@
-/// <reference types="react" />
-import 'prismjs/themes/prism.css';
-type CodeBlockProps = {
-    language: string;
+export declare const CodeBlock: ({ children }: {
     children: React.ReactNode;
-};
-export declare const CodeBlock: (props: CodeBlockProps) => import("react/jsx-runtime").JSX.Element;
-export {};
+}) => import("react/jsx-runtime").JSX.Element;
 //# sourceMappingURL=index.d.ts.map

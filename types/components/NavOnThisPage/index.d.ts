@@ -1,3 +1,6 @@
-export declare const NavOnThisPageContainer: import("styled-components").StyledComponent<"aside", any, {}, never>;
-export declare const NavOnThisPage: () => import("react/jsx-runtime").JSX.Element;
+interface NavOnThisPageProps {
+    className?: string;
+}
+export declare const NavOnThisPage: (props: NavOnThisPageProps) => import("react/jsx-runtime").JSX.Element;
+export {};
 //# sourceMappingURL=index.d.ts.map
