@@ -47,7 +47,8 @@ const HeadingBase = styled.div<{ theme: ThemeType }>`
   line-height: ${({ theme }) => theme.Heading?.lineHeight};
   font-weight: ${({ theme }) => theme.Heading?.fontWeight};
   font-family: ${({ theme }) => theme.Heading?.fontFamily};
-  white-space: nowrap;
+  white-space: break-word;
+  overflow-wrap: break-word;
 `;
 
 const Heading1 = styled(HeadingBase)<{ theme: ThemeType }>`

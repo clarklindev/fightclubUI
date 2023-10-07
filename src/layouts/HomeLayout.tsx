@@ -17,16 +17,14 @@ const HomeLayoutContainer = styled.div`
   .container {
     grid-area: container;
     position: relative;
-    overflow-x: hidden;
-    overflow-y: hidden;
+    // overflow-x: hidden;
+    // overflow-y: hidden;
 
     @media (min-width: 640px) {
       max-width: 100%;
     }
 
-    display: grid;
-    grid-template-areas: 'fullwidthwrapper';
-    grid-template-columns: auto;
+    overflow: hidden;
 
     @media (min-width: 768px) {
       display: grid;
@@ -42,27 +40,37 @@ const HomeLayoutContainer = styled.div`
   .full-width-wrapper {
     grid-area: fullwidthwrapper;
     position: relative;
+    height: calc(100dvh - 50px);
+
     overflow-y: scroll;
     overflow-x: hidden;
-    display: unset;
+
     border: 1px solid red;
 
     @media (min-width: 768px) {
-      grid-template-areas: 'main';
-      grid-template-columns: 1fr;
     }
     @media (min-width: 1024px) {
     }
     @media (min-width: 1200px) {
+      display: grid;
       grid-template-areas: 'main onthispage';
       grid-template-columns: 1fr 300px;
     }
   }
 
+  .onthispage {
+    display: none;
+    @media (min-width: 1200px) {
+      display: block;
+    }
+  }
+
   main {
     grid-area: main;
-    position: relative;
-    padding: 1rem 2rem;
+
+    white-space: normal;
+    padding: 2rem 4rem;
+    overflow-wrap: break-word; /* Break long words */
 
     @media (min-width: 768px) {
       padding: 2rem 4rem;
@@ -85,7 +93,7 @@ export const HomeLayout = () => {
             <Outlet />
           </main>
 
-          <NavOnThisPage />
+          <NavOnThisPage className="onthispage" />
         </div>
       </div>
     </HomeLayoutContainer>
