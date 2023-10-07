@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from 'styled-components';
 
 type Align = 'left' | 'right' | 'center' | 'justify' | undefined;
 
@@ -19,9 +20,37 @@ export type TableProps = {
   };
 };
 
+const TableContainer = styled.table<{ gridTemplateColumns: string }>`
+  width: 100%;
+  overflow-x: auto;
+  display: grid;
+
+  tr {
+    background: orange;
+    display: grid;
+    grid-template-columns: ${({ gridTemplateColumns }) => gridTemplateColumns.replace(/fr/gi, 'px')};
+  }
+
+  th,
+  td {
+    border: 1px solid red;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; /* Prevent text from wrapping by default */
+  }
+
+  @media (min-width: 1024px) {
+    tr {
+      grid-template-columns: ${({ gridTemplateColumns }) => gridTemplateColumns};
+    }
+  }
+`;
+
 export const Table: React.FC<TableProps> = ({ headers, data, configure }) => {
+  const columns = headers.map(each => each.width).join(' ');
+  console.log('columns: ', columns);
   return (
-    <table className="border" style={{ overflowX: 'scroll' }}>
+    <TableContainer className="border" gridTemplateColumns={columns}>
       <thead>
         <tr>
           {headers.map((header, headerindex) => {
@@ -29,8 +58,9 @@ export const Table: React.FC<TableProps> = ({ headers, data, configure }) => {
               <th
                 className={configure.padding}
                 key={headerindex}
-                style={{ width: header['width'], verticalAlign: 'top' }}
-                align={header['alignHeader']}>
+                style={{ verticalAlign: 'top' }}
+                align={header['alignHeader']}
+                title={header['title']}>
                 {header['title']}
               </th>
             );
@@ -46,7 +76,8 @@ export const Table: React.FC<TableProps> = ({ headers, data, configure }) => {
                   <td
                     className={[configure.padding, configure.align].join(' ')}
                     align={header['alignContent']}
-                    key={index}>
+                    key={index}
+                    title={item[header['mapToDataAttribute']]}>
                     {item[header['mapToDataAttribute']]}
                   </td>
                 );
@@ -55,6 +86,6 @@ export const Table: React.FC<TableProps> = ({ headers, data, configure }) => {
           );
         })}
       </tbody>
-    </table>
+    </TableContainer>
   );
 };

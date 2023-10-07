@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/NavSide/index.tsx"],"names":[],"mappings":"AA2DA,eAAO,MAAM,OAAO,+CA+CnB,CAAC"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/NavSide/index.tsx"],"names":[],"mappings":";AAyDA,KAAK,YAAY,GAAG;IAClB,QAAQ,CAAC,EAAE,KAAK,CAAC,SAAS,CAAC;CAC5B,CAAC;AAEF,eAAO,MAAM,OAAO,UAAW,YAAY,4CAU1C,CAAC"}
