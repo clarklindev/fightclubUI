@@ -1,10 +1,15 @@
 import styled from 'styled-components';
 
-export const NavOnThisPageContainer = styled.aside`
-  grid-area: onthispage;
+interface NavOnThisPageProps {
+  className?: string;
+}
+
+const NavOnThisPageContainer = styled.aside<{ className?: string }>`
   border: 1px solid purple;
 `;
 
-export const NavOnThisPage = () => {
-  return <NavOnThisPageContainer></NavOnThisPageContainer>;
+export const NavOnThisPage = (props: NavOnThisPageProps) => {
+  const { className } = props;
+
+  return <NavOnThisPageContainer className={className}></NavOnThisPageContainer>;
 };

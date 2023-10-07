@@ -17,14 +17,11 @@ const HomeLayoutContainer = styled.div`
   .container {
     grid-area: container;
     position: relative;
-    // overflow-x: hidden;
-    // overflow-y: hidden;
+    overflow: hidden;
 
     @media (min-width: 640px) {
       max-width: 100%;
     }
-
-    overflow: hidden;
 
     @media (min-width: 768px) {
       display: grid;
@@ -59,6 +56,7 @@ const HomeLayoutContainer = styled.div`
   }
 
   .onthispage {
+    grid-area: onthispage;
     display: none;
     @media (min-width: 1200px) {
       display: block;
@@ -71,12 +69,6 @@ const HomeLayoutContainer = styled.div`
     white-space: normal;
     padding: 2rem 4rem;
     overflow-wrap: break-word; /* Break long words */
-
-    @media (min-width: 768px) {
-      padding: 2rem 4rem;
-    }
-    @media (min-width: 1200px) {
-    }
   }
 `;
 
