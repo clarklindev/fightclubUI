@@ -47,27 +47,47 @@ const HomeLayoutContainer = styled.div`
     @media (min-width: 768px) {
     }
     @media (min-width: 1024px) {
+      display: grid;
+      grid-template-areas: 'main';
+      grid-template-columns: auto;
     }
     @media (min-width: 1200px) {
       display: grid;
       grid-template-areas: 'main onthispage';
-      grid-template-columns: 1fr 300px;
+      grid-template-columns: calc(100% - 300px) 300px;
     }
   }
 
   .onthispage {
     grid-area: onthispage;
     display: none;
+    height: calc(100dvh - 50px);
+    padding: 2rem;
+    overflow-wrap: break-word;
+    overflow-y: hidden;
+    overflow-x: hidden;
+
     @media (min-width: 1200px) {
       display: block;
+      position: sticky;
+      top: 0px;
+      right: 0px;
+      overflow: hidden;
+    }
+
+    /* Show scrollbar on hover */
+    &:hover {
+      overflow-y: auto;
     }
   }
 
   main {
     grid-area: main;
+    border: 1px solid black;
 
     white-space: normal;
     padding: 2rem 4rem;
+    width: auto;
     overflow-wrap: break-word; /* Break long words */
   }
 `;

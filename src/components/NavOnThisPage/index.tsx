@@ -11,5 +11,5 @@ const NavOnThisPageContainer = styled.aside<{ className?: string }>`
 export const NavOnThisPage = (props: NavOnThisPageProps) => {
   const { className } = props;
 
-  return <NavOnThisPageContainer className={className}></NavOnThisPageContainer>;
+  return <NavOnThisPageContainer className={className}>aside</NavOnThisPageContainer>;
 };
