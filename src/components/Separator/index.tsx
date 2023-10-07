@@ -128,6 +128,7 @@ const SeparatorVertical = styled.div<{
     position: relative;
     width: 20px;
     background: rgba(255, 0, 0, 0.1);
+    overflow-wrap: normal;
 
     &::before,
     &::after {
