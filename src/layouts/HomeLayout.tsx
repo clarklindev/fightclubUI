@@ -42,8 +42,6 @@ const HomeLayoutContainer = styled.div`
     overflow-y: scroll;
     overflow-x: hidden;
 
-    border: 1px solid red;
-
     @media (min-width: 768px) {
     }
     @media (min-width: 1024px) {
@@ -58,10 +56,21 @@ const HomeLayoutContainer = styled.div`
     }
   }
 
+  main {
+    grid-area: main;
+    white-space: normal;
+    padding: 2rem 4rem;
+    width: auto;
+
+    overflow-wrap: break-word; /* Break long words */
+
+    @media (min-width: 768px) {
+    }
+  }
+
   .onthispage {
     grid-area: onthispage;
     display: none;
-    background: pink;
     height: calc(100dvh - 50px);
     padding: 2rem;
     overflow-wrap: break-word;
@@ -78,20 +87,7 @@ const HomeLayoutContainer = styled.div`
 
     /* Show scrollbar on hover */
     &:hover {
-      overflow-y: auto;
-    }
-  }
-
-  main {
-    grid-area: main;
-    background: rgba(255, 0, 255, 0.2);
-    white-space: normal;
-    padding: 2rem 4rem;
-    width: auto;
-
-    overflow-wrap: break-word; /* Break long words */
-
-    @media (min-width: 768px) {
+      // overflow-y: auto;
     }
   }
 `;

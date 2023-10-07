@@ -5,11 +5,13 @@ interface NavOnThisPageProps {
 }
 
 const NavOnThisPageContainer = styled.aside<{ className?: string }>`
-  border: 1px solid pink;
+  @media (min-width: 1200px) {
+    border-left: var(--border);
+  }
 `;
 
 export const NavOnThisPage = (props: NavOnThisPageProps) => {
   const { className } = props;
 
-  return <NavOnThisPageContainer className={className}>aside</NavOnThisPageContainer>;
+  return <NavOnThisPageContainer className={className}>On this page</NavOnThisPageContainer>;
 };

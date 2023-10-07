@@ -5,7 +5,6 @@ import { Heading, CustomNavLink } from '..';
 
 const Navigation = styled.aside<{ isOpen: boolean }>`
   background: white;
-  border: 1px solid red;
   padding: 2rem 4rem;
   z-index: 1;
   ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};
