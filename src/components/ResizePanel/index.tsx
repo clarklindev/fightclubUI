@@ -141,12 +141,13 @@ export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, class
 
   return (
     // width - passed here to style={{width}} is state "width"
-    <ResizePanelWrapper className="ResizePanelWrapper" style={{ ...style, width }} ref={componentRef}>
-      <Dimensions value={`${width}px`} />
+    // <ResizePanelWrapper className="ResizePanelWrapper" style={{ ...style, width }} ref={componentRef}>
+    <ResizePanelWrapper>
+      {/* <Dimensions value={`${width}px`} />
       <Handle onMouseDown={handleMouseDown} onTouchStart={handleTouchStart} ref={handleRef} />
-      <ChildContainer className={className} ref={containerRef}>
-        {children}
-      </ChildContainer>
+      <ChildContainer className={className} ref={containerRef}> */}
+      {children}
+      {/* </ChildContainer>*/}
     </ResizePanelWrapper>
   );
 };
@@ -158,7 +159,7 @@ const ResizePanelWrapper = styled.div.attrs<{ style: React.CSSProperties }>(prop
     width: props?.style?.width,
     height: props?.style?.height || 'auto',
     padding: props?.style?.padding || '2rem',
-    minWidth: props?.style?.minWidth || 'min-content',
+    minWidth: props?.style?.minWidth || '100%',
     minHeight: props?.style?.minHeight || '50px',
   },
 }))`

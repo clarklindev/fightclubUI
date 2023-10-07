@@ -124,13 +124,13 @@ const SystemDesign = () => {
       <br />
 
       <Heading variation="h6">using :focus</Heading>
-      <CodeBlock language="css">
+      <CodeBlock>
         {`button:focus {
   outline-width: 3px;
   outline-style: dashed;
   outline-color: orange;
   outline-offset: 10px;
-}`}
+        }`}
       </CodeBlock>
 
       <br />
@@ -147,45 +147,43 @@ const SystemDesign = () => {
         application, you can access the Button.Icon component as a nested component of Button. This can be shown via
         example:
       </Text>
-      <CodeBlock language="tsx">{`// Button.js
+      <CodeBlock>{`// Button.js
 
-import React from 'react';
+      import React from 'react';
+      
+      const Button = () => {
+        // Button component logic
+        return (
+          <button>
+            {/* Button content */}
+          </button>
+        );
+      };
+      
+      Button.Icon = () => {
+        // Icon component logic
+        return (
+          <div>
+            {/* Icon content */}
+          </div>
+        );
+      };
+      
+      export { Button }; `}</CodeBlock>
+      <br />
+      <CodeBlock>{`// Usage in another component
+      import React from 'react';
+      import Button from './Button';
+      
+      function MyComponent() {
+        return (
+          <Button>
+            <Button.Icon /> {/* Use the Button.Icon component */}
+            Button Text
+          </Button>
+        );
+      }`}</CodeBlock>
 
-const Button = () => {
-  // Button component logic
-  return (
-    <button>
-      {/* Button content */}
-    </button>
-  );
-};
-
-Button.Icon = () => {
-  // Icon component logic
-  return (
-    <div>
-      {/* Icon content */}
-    </div>
-  );
-};
-
-export { Button }; 
-`}</CodeBlock>
-
-      <CodeBlock language="tsx">
-        {`// Usage in another component
-import React from 'react';
-import Button from './Button';
-
-function MyComponent() {
-  return (
-    <Button>
-      <Button.Icon /> {/* Use the Button.Icon component */}
-      Button Text
-    </Button>
-  );
-}`}
-      </CodeBlock>
       <Text>
         note how you can use Button.Icon after importing Button, but you cant use it independently. To use the
         subcomponent independent of whether the Component is imported, export it too. If you define Button.Icon as a
@@ -193,38 +191,13 @@ function MyComponent() {
         in scenarios where you want to use Button.Icon independently in different parts of your application without
         importing unnecessary code.
       </Text>
-      <CodeBlock language="tsx">
-        {`// Button.js
 
-import React from 'react';
-
-const Button = () => {
-  // Button component logic
-  return (
-    <button>
-      {/* Button content */}
-    </button>
-  );
-};
-
-Button.Icon = () => {
-  // Icon component logic
-  return (
-    <div>
-      {/* Icon content */}
-    </div>
-  );
-};
-
-export { Button, Button.Icon }; // Export both the Button component and Button.Icon
-`}
-      </CodeBlock>
       <Text>
         Note: here even though we dont redeclare a new const for Button.Icon, we can export it, and use it directly
         after import without the need to import Button.
       </Text>
-      <CodeBlock language="tsx">
-        {`// Some other component
+      <CodeBlock
+        text="// Some other component
 import React from 'react';
 import { Button, Button.Icon } from './Button'; // Import only Button.Icon
 
@@ -237,9 +210,9 @@ function AnotherComponent() {
   );
 }
 
-export default AnotherComponent;
-`}
-      </CodeBlock>
+export default AnotherComponent;"
+      />
+
       <br />
 
       <Heading variation="h6">Composition</Heading>
@@ -255,12 +228,10 @@ export default AnotherComponent;
 
       <Heading variation="h6">Method 1: cn / tw-merge / clsx</Heading>
       <Text>Instead of passing individual props to components...</Text>
-      <CodeBlock language="jsx">
-        {`<Card color="white" borderColor="#DDD" borderRadius="10px" height="200px">}`}
-      </CodeBlock>
+      <CodeBlock text="<Card color='white' borderColor='#DDD' borderRadius='10px' height='200px'/>" />
 
       <Text>Use classes (tailwind) instead</Text>
-      <CodeBlock language="jsx">{`<Card className="text-white border-gray-300 border rounded-lg h-200"/>}`}</CodeBlock>
+      <CodeBlock text="<Card className='text-white border-gray-300 border rounded-lg h-200'/>" />
       <br />
 
       <Text>
@@ -277,21 +248,19 @@ export default AnotherComponent;
         the developer sleep better. as a developer you want to be in control to a certain extent of how your component
         is allowed to be used. back to the drawing board:
       </Text>
-      <CodeBlock language="tsx">
-        {`
-        uses twMerge(clsx())  which allows clsx to pass an object like syntax as an argument for twMerge
+      <CodeBlock
+        text="uses twMerge(clsx())  which allows clsx to pass an object like syntax as an argument for twMerge
         import {twMerge} from 'tailwind-merge';
         import {clsx, ClassValue} from 'clsx'; //classValue is the type
 
         export function cn(...inputs:ClassValue[] ){
           return twMerge(clsx(inputs)) //object sytax with clsx and result passed into twMerge
-        }
-        `}
-      </CodeBlock>
+        }"
+      />
       <br />
 
-      <CodeBlock language="tsx">
-        {`import React from 'react';
+      <CodeBlock
+        text="import React from 'react';
 
 type CardProps = {
   className?: string;
@@ -303,8 +272,8 @@ export const Card: React.FC<CardProps> = ({
   children,
 }) => {
   return <div className={className}>{children}</div>;
-};`}
-      </CodeBlock>
+};"
+      />
 
       <br />
       <Heading variation="h6">Method 2: (cn / tw-merge / clsx) + CVA</Heading>

@@ -1,24 +1,6 @@
-import { useEffect } from 'react';
-import Prism from 'prismjs'; // Import Prism.js library
-import 'prismjs/themes/prism.css'; // Import Prism.js CSS theme for styling
+import { CopyBlock, dracula } from 'react-code-blocks';
+import styled from 'styled-components';
 
-type CodeBlockProps = {
-  language: string;
-  children: React.ReactNode;
-};
-
-export const CodeBlock = (props: CodeBlockProps) => {
-  useEffect(() => {
-    Prism.highlightAll();
-  }, []);
-
-  const { language, children } = props;
-  const trimmedtext = (children as string).trim();
-  return (
-    <div style={{ width: 'auto', display: 'flex' }}>
-      {/* <pre>
-        <code className={`language-${language}`}>{trimmedtext}</code>
-      </pre> */}
-    </div>
-  );
+export const CodeBlock = ({ children }: { children: React.ReactNode }) => {
+  return <CopyBlock language="jsx" text={children} showLineNumbers="true" theme={dracula} wrapLines={true} codeBlock />;
 };

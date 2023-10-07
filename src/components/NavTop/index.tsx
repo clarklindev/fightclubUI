@@ -10,7 +10,7 @@ import { useSideMenu } from '../../context/SidemenuContext';
 import { Icon, Button } from '..';
 import { CloseIcon, MenuIcon } from '../../icons';
 
-const Header = styled.header<{ isOpen: boolean }>`
+const Header = styled.header`
   flex-direction: 'row';
   justify-content: center;
   grid-area: header;
@@ -92,7 +92,7 @@ export const NavTop = () => {
   const navigate = useNavigate();
 
   return (
-    <Header isOpen={isOpen}>
+    <Header>
       <div className="headerLeft">
         {!isOpen ? (
           <Button className="menu-btn" intent="icon" onClick={toggleMenu}>
