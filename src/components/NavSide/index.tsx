@@ -9,9 +9,8 @@ const Navigation = styled.aside<{ isOpen: boolean }>`
   ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};
   height: calc(100dvh - 50px);
   overflow: hidden;
-  &:hover {
-    overflow-y: auto;
-  }
+  overflow-y: scroll;
+
   nav {
     display: flex;
     flex-direction: column;
@@ -45,6 +44,12 @@ const Navigation = styled.aside<{ isOpen: boolean }>`
   }
 
   @media (min-width: 768px) {
+    overflow-y: hidden;
+
+    &:hover {
+      overflow-y: scroll;
+    }
+
     display: block;
 
     grid-area: navside;
