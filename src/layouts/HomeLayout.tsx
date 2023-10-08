@@ -45,9 +45,6 @@ const HomeLayoutContainer = styled.div`
     @media (min-width: 768px) {
     }
     @media (min-width: 1024px) {
-      display: grid;
-      grid-template-areas: 'main';
-      grid-template-columns: auto;
     }
     @media (min-width: 1200px) {
       display: grid;
