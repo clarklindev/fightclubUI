@@ -1,1 +1,1 @@
-{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/CodeBlock/index.tsx"],"names":[],"mappings":"AAEA,eAAO,MAAM,SAAS;cAA8B,MAAM,SAAS;6CAWlE,CAAC"}
+{"version":3,"file":"index.d.ts","sourceRoot":"","sources":["../../../src/components/CodeBlock/index.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAI1B,KAAK,cAAc,GAAG;IACpB,QAAQ,CAAC,EAAE,KAAK,CAAC,SAAS,GAAG,IAAI,CAAC;IAClC,IAAI,CAAC,EAAE,MAAM,CAAC;CACf,CAAC;AAEF,eAAO,MAAM,SAAS,uBAAgC,cAAc,wDASnE,CAAC"}

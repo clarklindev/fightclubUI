@@ -196,8 +196,7 @@ const SystemDesign = () => {
         Note: here even though we dont redeclare a new const for Button.Icon, we can export it, and use it directly
         after import without the need to import Button.
       </Text>
-      <CodeBlock
-        text="// Some other component
+      <CodeBlock>{`// Some other component
 import React from 'react';
 import { Button, Button.Icon } from './Button'; // Import only Button.Icon
 
@@ -210,8 +209,7 @@ function AnotherComponent() {
   );
 }
 
-export default AnotherComponent;"
-      />
+export default AnotherComponent;`}</CodeBlock>
 
       <br />
 
@@ -228,10 +226,10 @@ export default AnotherComponent;"
 
       <Heading variation="h6">Method 1: cn / tw-merge / clsx</Heading>
       <Text>Instead of passing individual props to components...</Text>
-      <CodeBlock text="<Card color='white' borderColor='#DDD' borderRadius='10px' height='200px'/>" />
+      <CodeBlock>{`<Card color='white' borderColor='#DDD' borderRadius='10px' height='200px'/>`}</CodeBlock>
 
       <Text>Use classes (tailwind) instead</Text>
-      <CodeBlock text="<Card className='text-white border-gray-300 border rounded-lg h-200'/>" />
+      <CodeBlock>{`<Card className='text-white border-gray-300 border rounded-lg h-200'/>`}</CodeBlock>
       <br />
 
       <Text>
@@ -248,19 +246,17 @@ export default AnotherComponent;"
         the developer sleep better. as a developer you want to be in control to a certain extent of how your component
         is allowed to be used. back to the drawing board:
       </Text>
-      <CodeBlock
-        text="uses twMerge(clsx())  which allows clsx to pass an object like syntax as an argument for twMerge
+      <CodeBlock>{`uses twMerge(clsx())  which allows clsx to pass an object like syntax as an argument for twMerge
         import {twMerge} from 'tailwind-merge';
         import {clsx, ClassValue} from 'clsx'; //classValue is the type
 
         export function cn(...inputs:ClassValue[] ){
           return twMerge(clsx(inputs)) //object sytax with clsx and result passed into twMerge
-        }"
-      />
+        }`}</CodeBlock>
       <br />
 
-      <CodeBlock
-        text="import React from 'react';
+      <CodeBlock>
+        {`import React from 'react';
 
 type CardProps = {
   className?: string;
@@ -272,9 +268,8 @@ export const Card: React.FC<CardProps> = ({
   children,
 }) => {
   return <div className={className}>{children}</div>;
-};"
-      />
-
+};`}
+      </CodeBlock>
       <br />
       <Heading variation="h6">Method 2: (cn / tw-merge / clsx) + CVA</Heading>
       <Text>

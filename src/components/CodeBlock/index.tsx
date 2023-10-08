@@ -1,14 +1,19 @@
-import { CopyBlock, dracula } from 'react-code-blocks';
+import React from 'react';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { sunburst } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-export const CodeBlock = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <CopyBlock
-      language="jsx"
-      text={children?.toString()}
-      showLineNumbers={true}
-      theme={dracula}
-      wrapLines={true}
-      codeBlock
-    />
-  );
+type CodeBlockProps = {
+  children?: React.ReactNode | null;
+  type?: string;
+};
+
+export const CodeBlock = ({ children, type = 'tsx' }: CodeBlockProps) => {
+  if (children) {
+    return (
+      <SyntaxHighlighter language={type} style={sunburst} customStyle={{ padding: '1rem', borderRadius: '10px' }}>
+        {[children.toString()]}
+      </SyntaxHighlighter>
+    );
+  }
+  return;
 };
