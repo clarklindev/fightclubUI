@@ -5,7 +5,7 @@ const CardExample = () => {
     <>
       <Heading variation="h4">Card</Heading>
       <ResizePanel>
-        <Card className="">this is dummy text</Card>
+        <Card>this is dummy text</Card>
       </ResizePanel>
     </>
   );

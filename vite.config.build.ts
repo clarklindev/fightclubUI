@@ -4,7 +4,6 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-
   build: {
     target: 'modules',
     lib: {

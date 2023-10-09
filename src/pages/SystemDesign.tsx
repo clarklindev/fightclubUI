@@ -7,13 +7,11 @@ const SystemDesign = () => {
       <Heading variation="h4">System Design</Heading>
       <br />
       <br />
-
       <Heading variation="h5">Routing</Heading>
       <Text>React Router 6 - https://github.com/swagfinger/template-react-router-6</Text>
       <Text>NextJS Routing - https://nextjs.org/docs/routing/introduction</Text>
       <br />
       <br />
-
       <Heading variation="h5">Validation</Heading>
       <Text>
         For Validation: leaning towards ZOD
@@ -24,12 +22,10 @@ const SystemDesign = () => {
       </Text>
       <br />
       <br />
-
       <Heading variation="h5">Layout</Heading>
       <Text>TailwindCSS (https://tailwindui.com/documentation) and CSS Grid or CSS Flexbox</Text>
       <br />
       <br />
-
       <Heading variation="h5">Styling</Heading>
       <Text>
         The main reason this component library was created, was to address the support for variants and props AND the
@@ -46,19 +42,45 @@ const SystemDesign = () => {
       </Text>
       <br />
       <br />
-
       <Heading variation="h5">Themes</Heading>
       <div>Supports theming</div>
       <br />
       <br />
-
       <Heading variation="h5">Icons</Heading>
-      <div>
+      <Text>
         SVG vector icons are the way to go, there are many icon libraries, i prefer Hero Icons: https://heroicons.com/
-      </div>
+      </Text>
       <br />
+      <Heading variation="h5">Static assets</Heading>
+      <Text>
+        Vite helps you to copy any files placed in public/ folder as static assets; On build, it will copy these files
+        into dist/ folder (as is). However, vite will also by default optimises any static assets placed in public/
+        folder, meaning it will also be copied to dist/assets/ folder optimized (with appended filename suffixes for
+        cache-busting) thus a duplication of files. depending on the href path, the index template uses the /public/
+        folder to reference optimized files, or '/' absolute path for unoptimized.
+      </Text>
+      <CodeBlock>{`<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /> //this is not optimised
+<link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png" /> //this is optimised`}</CodeBlock>
+      <Text>
+        To not have duplication of files (ie. only use optimized cache busting filenaming), dont use the public folder,
+        name asset folder as something else eg. 'static-assets' and reference that from index.html eg.
+      </Text>
+      <CodeBlock>{`<link rel="icon" type="image/png" sizes="16x16" href="/static-assets/favicon-16x16.png" /> //this is optimised`}</CodeBlock>
+      <Text>
+        vite.config.ts - The "assetsDir" configuration option in a Vite project specifies the directory where your
+        static assets, such as images, fonts, and other non-JavaScript or non-CSS files, are located (default is
+        'assets' - if you don't specify the assetsDir option in your Vite configuration, Vite will assume that your
+        static assets are located in an 'assets' directory at the root of your project). When you set assetsDir to a
+        specific directory name, Vite will treat that directory as the source for static assets, and it will be copied
+        to the build output directory (typically dist) during the build process.
+      </Text>
+      <Text>
+        The solution that works for me is not to use a public directory and let vite optimise files - use the config
+        'assetsDir'. Note: assetsDir: 'static-assets', has no effect in library mode (only works for
+        vite.config.preview). Vite's Library Mode focuses on bundling and distributing JavaScript code as a library or
+        module, and asset handling in the consumer's project is typically separate from your library's responsibilities
+      </Text>
       <br />
-
       <Heading variation="h5">Darkmode</Heading>
       <div>
         Darkmode is a variation of each theme, themes are independent of each other but they all have their own
@@ -71,7 +93,6 @@ const SystemDesign = () => {
       </Text>
       <br />
       <br />
-
       <Heading variation="h5">Component Design</Heading>
       <Text>
         Components should be accessible, following accessibility best practices using guidelines:
@@ -83,13 +104,11 @@ const SystemDesign = () => {
         Components should have reference so they are accesible from higher up the component render chain, <br />
         for reference: https://react.dev/reference/react/forwardRef
       </Text>
-
       <Text>
         references to props that are not normal html element attributes should use the data- props formatted like
         [data-*]
       </Text>
       <br />
-
       <Heading variation="h6">Positioning</Heading>
       <Text>components are placed in relation to their parents orientation (eg. column / row)</Text>
       <Text>
@@ -104,7 +123,6 @@ const SystemDesign = () => {
         the contents of the page, when the heading reaches the page, the title should highlight on the aside menu.
       </Text>
       <br />
-
       <Heading variation="h6">Modals</Heading>
       <Text>
         Modals should make use of React's portals: <br />
@@ -112,17 +130,13 @@ const SystemDesign = () => {
       </Text>
       <br />
       <Heading variation="h6">Focus</Heading>
-
       <Text>when components receive focus, it uses Tailwind focus ring instead of styling :focus.</Text>
       <Text>for this to happen we change component on focus to outline: none;</Text>
-
       <Text>
         where possible use the useHoverFocus hook, it has support for both mobile clicking and hovering on larger
         screens
       </Text>
-
       <br />
-
       <Heading variation="h6">using :focus</Heading>
       <CodeBlock>
         {`button:focus {
@@ -132,9 +146,7 @@ const SystemDesign = () => {
   outline-offset: 10px;
         }`}
       </CodeBlock>
-
       <br />
-
       <Heading variation="h6">Modular component structure</Heading>
       <Text>
         Components should be designed in such a way that it promotes modularity. If you've every seen that syntax
@@ -183,7 +195,6 @@ const SystemDesign = () => {
           </Button>
         );
       }`}</CodeBlock>
-
       <Text>
         note how you can use Button.Icon after importing Button, but you cant use it independently. To use the
         subcomponent independent of whether the Component is imported, export it too. If you define Button.Icon as a
@@ -191,7 +202,6 @@ const SystemDesign = () => {
         in scenarios where you want to use Button.Icon independently in different parts of your application without
         importing unnecessary code.
       </Text>
-
       <Text>
         Note: here even though we dont redeclare a new const for Button.Icon, we can export it, and use it directly
         after import without the need to import Button.
@@ -210,9 +220,7 @@ function AnotherComponent() {
 }
 
 export default AnotherComponent;`}</CodeBlock>
-
       <br />
-
       <Heading variation="h6">Composition</Heading>
       <Text>using Tailwind-merge, clsx (https://github.com/lukeed/clsx), cn utility helper, CVA</Text>
       <br />
@@ -223,15 +231,12 @@ export default AnotherComponent;`}</CodeBlock>
         is either to have a controlled predefined props or opengates tailwind classes for each part of the component.
       </Text>
       <br />
-
       <Heading variation="h6">Method 1: cn / tw-merge / clsx</Heading>
       <Text>Instead of passing individual props to components...</Text>
       <CodeBlock>{`<Card color='white' borderColor='#DDD' borderRadius='10px' height='200px'/>`}</CodeBlock>
-
       <Text>Use classes (tailwind) instead</Text>
       <CodeBlock>{`<Card className='text-white border-gray-300 border rounded-lg h-200'/>`}</CodeBlock>
       <br />
-
       <Text>
         by definining type as {`HTMLProps<HTMLDivElement>`} you say that all props afforded to html div element will
         also get inherited it includes all the props that are valid for a standard HTML div element, but it does not
@@ -254,7 +259,6 @@ export default AnotherComponent;`}</CodeBlock>
           return twMerge(clsx(inputs)) //object sytax with clsx and result passed into twMerge
         }`}</CodeBlock>
       <br />
-
       <CodeBlock>
         {`import React from 'react';
 
