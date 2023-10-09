@@ -80,6 +80,10 @@ const SystemDesign = () => {
         vite.config.preview). Vite's Library Mode focuses on bundling and distributing JavaScript code as a library or
         module, and asset handling in the consumer's project is typically separate from your library's responsibilities
       </Text>
+      <Text>
+        If you are struggling to deploy your build (eg. seeing black white on vercel), you need to ensure that you can
+        run the command: 'npm run build-preview' without errors as this is the production build files.
+      </Text>
       <br />
       <Heading variation="h5">Darkmode</Heading>
       <div>
