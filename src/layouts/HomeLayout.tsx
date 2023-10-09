@@ -28,9 +28,15 @@ const HomeLayoutContainer = styled.div`
       grid-template-areas: 'navside fullwidthwrapper';
       grid-template-columns: 250px auto;
     }
+
     @media (min-width: 1024px) {
       grid-template-areas: 'navside fullwidthwrapper';
       grid-template-columns: 300px auto;
+    }
+
+    @media (min-width: 1200px) {
+      grid-template-areas: 'navside fullwidthwrapper';
+      grid-template-columns: 400px auto;
     }
   }
 
@@ -49,7 +55,7 @@ const HomeLayoutContainer = styled.div`
     @media (min-width: 1200px) {
       display: grid;
       grid-template-areas: 'main onthispage';
-      grid-template-columns: calc(100% - 300px) 300px;
+      grid-template-columns: calc(100% - 400px) 400px;
     }
   }
 

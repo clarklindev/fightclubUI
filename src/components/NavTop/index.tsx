@@ -48,9 +48,11 @@ const Header = styled.header`
 
   @media (min-width: 1024px) {
     width: 100%;
+    padding: 0 6rem;
   }
 
   @media (min-width: 1200px) {
+    padding: 0 8rem;
   }
 
   .headerLeft {

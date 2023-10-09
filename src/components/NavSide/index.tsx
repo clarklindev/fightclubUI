@@ -4,7 +4,7 @@ import { useSideMenu } from '../../context/SidemenuContext';
 
 const Navigation = styled.aside<{ isOpen: boolean }>`
   background: white;
-  padding: 2rem 4rem;
+  padding: 2rem 2rem 2rem 2rem;
   z-index: 1;
   ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};
   height: calc(100dvh - 50px);
@@ -45,6 +45,7 @@ const Navigation = styled.aside<{ isOpen: boolean }>`
 
   @media (min-width: 768px) {
     overflow-y: hidden;
+    padding: 2rem 2rem 2rem 4rem;
 
     &:hover {
       overflow-y: scroll;
@@ -57,6 +58,14 @@ const Navigation = styled.aside<{ isOpen: boolean }>`
     .close-btn {
       display: none;
     }
+  }
+
+  @media (min-width: 1024px) {
+    padding: 2rem 2rem 2rem 6rem;
+  }
+
+  @media (min-width: 1200px) {
+    padding: 2rem 2rem 2rem 8rem;
   }
 `;
 

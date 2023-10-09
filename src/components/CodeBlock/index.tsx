@@ -16,7 +16,7 @@ export const CodeBlock = ({ children, type = 'tsx' }: CodeBlockProps) => {
   if (children) {
     return (
       <CodeBlockWrapper>
-        <SyntaxHighlighter language={type} style={sunburst}>
+        <SyntaxHighlighter language={type} style={sunburst} customStyle={{ padding: '2rem', borderRadius: '10px' }}>
           {[children.toString()]}
         </SyntaxHighlighter>
       </CodeBlockWrapper>
