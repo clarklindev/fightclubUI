@@ -33,6 +33,12 @@ const Introduction = () => {
         <br />
         https://ui.shadcn.com/
         <br />
+        https://vercel.com/design/introduction
+        <br />
+        https://x.com
+        <br />
+        https://vitejs.dev/guide/
+        <br />
         https://www.radix-ui.com/
         <br />
         https://react-spectrum.adobe.com/react-aria/index.html
