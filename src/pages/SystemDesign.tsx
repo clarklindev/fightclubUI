@@ -25,6 +25,11 @@ const SystemDesign = () => {
       <Heading variation="h5">Layout</Heading>
       <Text>TailwindCSS (https://tailwindui.com/documentation) and CSS Grid or CSS Flexbox</Text>
       <br />
+      <Text>
+        with layout using css grid, sometimes its better not to specify any css. eg. if you have 1 column, 1 row (that
+        later at a high media query breakpoint becomes complex grid layout), it is better to not have any styles and
+        only specify at that higher breakpoint where you specify the grid layouts 'grid-template-columns'.
+      </Text>
       <br />
       <Heading variation="h5">Styling</Heading>
       <Text>
@@ -78,11 +83,13 @@ const SystemDesign = () => {
         The solution that works for me is not to use a public directory and let vite optimise files - use the config
         'assetsDir'. Note: assetsDir: 'static-assets', has no effect in library mode (only works for
         vite.config.preview). Vite's Library Mode focuses on bundling and distributing JavaScript code as a library or
-        module, and asset handling in the consumer's project is typically separate from your library's responsibilities
+        module, and asset handling in the consumer's project is typically separate from your library's responsibilities.
+        In library mode you will need to instruct user to make assets available in their project's directory structure
+        (copy assets from x to y folder) or served via a CDN.
       </Text>
       <Text>
-        If you are struggling to deploy your build (eg. seeing black white on vercel), you need to ensure that you can
-        run the command: 'npm run build-preview' without errors as this is the production build files.
+        If you are struggling to deploy your build (eg. seeing blank white page on vercel), you need to ensure that you
+        can run the command: 'npm run build-preview' without errors as this is the production build files.
       </Text>
       <br />
       <Heading variation="h5">Darkmode</Heading>
