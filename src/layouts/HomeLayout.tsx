@@ -62,12 +62,13 @@ const HomeLayoutContainer = styled.div`
   main {
     grid-area: main;
     white-space: normal;
-    padding: 2rem 4rem;
+    padding: 1rem 2rem;
     width: auto;
 
     overflow-wrap: break-word; /* Break long words */
 
     @media (min-width: 768px) {
+      padding: 2rem 4rem;
     }
   }
 
