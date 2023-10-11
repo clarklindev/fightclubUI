@@ -134,6 +134,7 @@ export const HomeLayout = () => {
             <CustomNavLink to="tree">Tree</CustomNavLink>
             <CustomNavLink to="progressloader">Progress Loader</CustomNavLink>
             <CustomNavLink to="spinner">Spinner</CustomNavLink>
+            <CustomNavLink to="dropdown">Dropdown</CustomNavLink>
             <br />
             {/* utility helper components */}
             <Heading variation="h6">Utility</Heading>

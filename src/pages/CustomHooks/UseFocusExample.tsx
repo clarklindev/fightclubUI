@@ -30,7 +30,7 @@ const UseFocusExample = () => {
             position: 'absolute',
             top: '45px',
             zIndex: '10',
-            cursor: 'pointerx',
+            cursor: 'pointer',
           }}>
           <ul>
             <li onClick={onBlur}>Menu Item 1</li>

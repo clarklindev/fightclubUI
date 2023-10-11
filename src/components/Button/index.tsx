@@ -8,10 +8,13 @@ import { ThemeType } from '../../themes/LightTheme';
 const buttonVariants: any = cva(
   //default styles
   [
+    'block',
     'font-semibold',
-    'border',
+    'border-2',
+    'border-red-600',
     'rounded',
     'focus:outline-none',
+    'focus:border-black',
     'box-border',
     'inline-flex',
     'items-center',

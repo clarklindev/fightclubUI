@@ -7,7 +7,7 @@ import darkmodeIcon from '../../assets/darkmode.svg';
 
 import { useSideMenu } from '../../context/SidemenuContext';
 
-import { Icon, Button } from '..';
+import { Icon, Button, Dropdown } from '..';
 import { CloseIcon, MenuIcon } from '../../icons';
 
 const Header = styled.header`
@@ -19,7 +19,7 @@ const Header = styled.header`
   width: 100%;
   min-height: 50px;
   min-width: 300px;
-  overflow: hidden;
+  // overflow: hidden;//dont do this, it hides menu component container
 
   position: fixed;
   z-index: 1;
@@ -125,9 +125,11 @@ export const NavTop = () => {
           </Icon>
         </Link>
 
-        <Icon size="20px">
-          <img src={darkmodeIcon} alt="darkmode" />
-        </Icon>
+        <Dropdown>
+          <Icon size="20px">
+            <img src={darkmodeIcon} alt="darkmode" />
+          </Icon>
+        </Dropdown>
       </div>
     </Header>
   );

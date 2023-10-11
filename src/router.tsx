@@ -39,6 +39,7 @@ import ResizePanelExample from './pages/ResizePanel';
 import DimensionsExample from './pages/Dimensions';
 import CodeBlockExample from './pages/CodeBlock';
 // import TreeExample from './pages/Tree';
+import DropdownExample from './pages/Dropdown';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -75,6 +76,7 @@ export const router = createBrowserRouter(
       <Route path="/resizepanel" element={<ResizePanelExample />} />
       <Route path="/dimensions" element={<DimensionsExample />} />
       <Route path="/codeblock" element={<CodeBlockExample />} />
+      <Route path="/dropdown" element={<DropdownExample />} />
       {/* <Route path="/tree" element={<TreeExample />} /> */}
 
       <Route path="/404" element={<NotFound />} />
