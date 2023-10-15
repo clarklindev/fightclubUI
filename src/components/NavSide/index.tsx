@@ -3,9 +3,8 @@ import styled from 'styled-components';
 import { useSideMenu } from '../../context/SidemenuContext';
 
 const Navigation = styled.aside<{ isOpen: boolean }>`
-  background: white;
+  background: rgba(255, 0, 0, 0.3);
   padding: 2rem 2rem 2rem 2rem;
-  z-index: 1;
   ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};
   height: calc(100dvh - 50px);
   overflow: hidden;
@@ -79,7 +78,7 @@ export const NavSide = (props: NavSideProps) => {
   const { isOpen } = useSideMenu();
 
   return (
-    <Navigation isOpen={isOpen}>
+    <Navigation isOpen={isOpen} className="navside">
       <nav>{children}</nav>
     </Navigation>
   );

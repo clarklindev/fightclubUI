@@ -82,10 +82,12 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
   onMouseLeave?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onMouseOver?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   onMouseOut?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  onFocus?: (event: React.FocusEvent<HTMLButtonElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLButtonElement>) => void;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref) => {
-  const { intent, padding, size, className, onClick, ariaLabel, children, ...rest } = props;
+  const { intent, padding, size, className, onClick, onFocus, onBlur, ariaLabel, children, ...rest } = props;
 
   //<Button className={`cn(buttonVariants(...`{ intent: 'primary'}), className)}/>;
 
@@ -106,6 +108,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref)
       role="button"
       tabIndex={0}
       onClick={onClick}
+      onFocus={onFocus} // Pass onFocus
+      onBlur={onBlur} // Pass onBlur
       ref={ref}
       {...rest}>
       {children}

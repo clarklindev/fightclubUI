@@ -30,6 +30,10 @@ const SystemDesign = () => {
         later at a high media query breakpoint becomes complex grid layout), it is better to not have any styles and
         only specify at that higher breakpoint where you specify the grid layouts 'grid-template-columns'.
       </Text>
+      <Text>
+        Components should take into consideration when it has 'overflow: hidden', this may possibly hide child
+        components which overflow its dimensions.
+      </Text>
       <br />
       <Heading variation="h5">Styling</Heading>
       <Text>
@@ -105,6 +109,17 @@ const SystemDesign = () => {
       <br />
       <br />
       <Heading variation="h5">Component Design</Heading>
+      <br />
+      <Heading variation="h6">An evolution of component design</Heading>
+      <Text>
+        Current perceived best practice is to use compound components, especially when building component libraries that
+        need to have design flexibility. React has a concept of context that allows passing of state though the
+        component hierarchy without the need to pass them as props. Context allows you to predefine and hide the
+        underlying wiring of event handling. It promotes modular component composition and this component library has
+        evolved from the easier but more difficult to customize approach which uses props which become a nightmare to
+        maintain and eventually bloats into a mess which developers are hesitant to maintain.
+      </Text>
+      <br />
       <Text>
         Components should be accessible, following accessibility best practices using guidelines:
         https://www.w3.org/WAI/ARIA/apg/patterns/

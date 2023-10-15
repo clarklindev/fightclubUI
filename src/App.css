@@ -36,6 +36,10 @@ body {
   height: 5px;
 }
 
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 /* Define the thumb */
 ::-webkit-scrollbar-thumb {
   background: var(--thumb-default);

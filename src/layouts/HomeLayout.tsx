@@ -24,29 +24,30 @@ const HomeLayoutContainer = styled.div`
     }
 
     @media (min-width: 768px) {
+      max-width: reset;
+
       display: grid;
       grid-template-areas: 'navside fullwidthwrapper';
-      grid-template-columns: 250px auto;
+      grid-template-columns: 250px calc(100% - 250px);
     }
 
     @media (min-width: 1024px) {
       grid-template-areas: 'navside fullwidthwrapper';
-      grid-template-columns: 300px auto;
+      grid-template-columns: 300px calc(100% - 300px);
     }
 
     @media (min-width: 1200px) {
       grid-template-areas: 'navside fullwidthwrapper';
-      grid-template-columns: 400px auto;
+      grid-template-columns: 400px calc(100% - 400px);
     }
   }
 
   .full-width-wrapper {
-    grid-area: fullwidthwrapper;
     position: relative;
-    height: calc(100dvh - 50px);
-
+    grid-area: fullwidthwrapper;
     overflow-y: scroll;
-    overflow-x: hidden;
+
+    height: calc(100dvh - 50px);
 
     @media (min-width: 768px) {
     }
@@ -60,38 +61,38 @@ const HomeLayoutContainer = styled.div`
   }
 
   main {
+    background: rgba(0, 255, 0, 0.4);
     grid-area: main;
     white-space: normal;
     padding: 1rem 2rem;
-    width: auto;
-
-    overflow-wrap: break-word; /* Break long words */
+    overflow-wrap: break-word;
 
     @media (min-width: 768px) {
       padding: 2rem 4rem;
     }
   }
 
+  .navside {
+    position: relative;
+    z-index: 1;
+  }
+
   .onthispage {
+    background: rgba(0, 0, 255, 0.5);
     grid-area: onthispage;
-    display: none;
     height: calc(100dvh - 50px);
-    padding: 2rem;
     overflow-wrap: break-word;
     overflow-y: hidden;
     overflow-x: hidden;
+    position: sticky;
+    top: 0;
+    display: none;
 
     @media (min-width: 1200px) {
+      box-sizing: border-box;
+      width: 400px;
       display: block;
-      position: sticky;
-      top: 0px;
-      right: 0px;
-      overflow: hidden;
-    }
-
-    /* Show scrollbar on hover */
-    &:hover {
-      // overflow-y: auto;
+      padding: 2rem 4rem;
     }
   }
 `;
@@ -99,8 +100,6 @@ const HomeLayoutContainer = styled.div`
 export const HomeLayout = () => {
   return (
     <HomeLayoutContainer>
-      <NavTop />
-
       <div className="container">
         <NavSide>
           <>
@@ -135,6 +134,7 @@ export const HomeLayout = () => {
             <CustomNavLink to="progressloader">Progress Loader</CustomNavLink>
             <CustomNavLink to="spinner">Spinner</CustomNavLink>
             <CustomNavLink to="dropdown">Dropdown</CustomNavLink>
+            <CustomNavLink to="tabs">Tabs</CustomNavLink>
             <br />
             {/* utility helper components */}
             <Heading variation="h6">Utility</Heading>
@@ -150,10 +150,11 @@ export const HomeLayout = () => {
           <main id="main">
             <Outlet />
           </main>
-
           <NavOnThisPage className="onthispage" />
         </div>
       </div>
+
+      <NavTop />
     </HomeLayoutContainer>
   );
 };

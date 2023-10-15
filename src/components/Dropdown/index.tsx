@@ -1,10 +1,19 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useEffect, useRef, ButtonHTMLAttributes } from 'react';
 import styled from 'styled-components';
 
-import { useFocus } from '../../customhooks';
+import { useDropdown, DropdownContextProvider } from '../../context/DropdownContext';
 import { Button } from '../../components';
+import { getQuadrantWithRespectToViewport } from '../../utils/getQuadrant';
 
-const DropdownMenuContent = styled.div`
+const StyledDropdownWrapper = styled.div`
+  tabindex: -1;
+  display: inline-block;
+  background: pink;
+  position: relative;
+`;
+
+const StyledDropdownMenu = styled.div`
+  tabindex:-1;
   border: 1px solid var(--border-color);
   display: flex;
   flex-direction:column;
@@ -12,70 +21,128 @@ const DropdownMenuContent = styled.div`
   gap: 5px;
   border-radius: 5px;
   padding 5px 5px;
-
-  background: red;
   position: absolute;
-  right: 0;
+  right:0;
+  background: red;
+  cursor: pointer;
   z-index: 10;
+
 `;
-const DropdownMenuItem = styled.button`
+
+const StyledDropdownMenuItem = styled.button`
   min-width: 120px;
   min-height: 36px;
-
+  padding: 5px;
+  tabindex: -1;
   &:hover {
     background: rgba(0, 0, 0, 0.3);
-    padding: 5px;
   }
   border-radius: 5px;
 `;
 
-type DropdownProps = {
-  children?: React.ReactNode;
+const Dropdown = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <DropdownContextProvider>
+      <DropdownWrapper>{children}</DropdownWrapper>
+    </DropdownContextProvider>
+  );
 };
 
-export const Dropdown = ({ children }: DropdownProps) => {
-  const [isFocused, { onFocus, onBlur }] = useFocus();
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
-  const menuRef = useRef<HTMLDivElement | null>(null);
+const DropdownWrapper = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) => {
+  const { isFocused, onBlur, setIsMenuOpen } = useDropdown();
 
   useEffect(() => {
-    //actually call blur
+    const keyboardHandler = e => {
+      if (e.key === 'Esc' || e.key === 'Escape') {
+        onBlur();
+      }
+    };
+    document.addEventListener('keydown', keyboardHandler);
+    return () => {
+      document.removeEventListener('keydown', keyboardHandler);
+    };
+  }, []);
+
+  useEffect(() => {
+    let timeoutId: NodeJS.Timeout | undefined;
+
+    // Set a timeout to update isMenuOpen after 400ms
+    timeoutId = setTimeout(() => {
+      setIsMenuOpen(isFocused);
+      //actually call blur
+    }, 300);
+
+    // Cleanup the timeout if the component unmounts or isFocused changes again
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId);
+      }
+    };
+  }, [isFocused]);
+
+  return <StyledDropdownWrapper>{children}</StyledDropdownWrapper>;
+};
+
+const DropdownTrigger = ({ onClick, children }: ButtonHTMLAttributes<HTMLButtonElement>) => {
+  const { isFocused, onFocus, onBlur, handleMouseOver, handleMouseLeave } = useDropdown();
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
+
+  useEffect(() => {
     if (buttonRef.current) {
       !isFocused ? buttonRef.current.blur() : buttonRef.current.focus();
     }
   }, [isFocused]);
 
-  useEffect(() => {
-    const handleEscape = e => {
-      if (e.key === 'Esc' || e.key === 'Escape') {
-        onBlur();
-      }
-    };
-
-    document.addEventListener('keydown', handleEscape);
-
-    return () => {
-      document.removeEventListener('keydown', handleEscape);
-    };
-  }, []);
-
   return (
-    <div
-      style={{
-        position: 'relative',
-        display: 'inline-block',
-      }}>
-      <Button ref={buttonRef} intent="plain" {...({ onFocus, onBlur } as React.HTMLAttributes<HTMLButtonElement>)}>
-        {children}
-      </Button>
+    <Button
+      ref={buttonRef}
+      onClick={e => {
+        onClick && onClick(e);
+        console.log('clicked');
+        const quad = getQuadrantWithRespectToViewport(e.target);
+        console.log('quad:', quad);
 
-      {isFocused && (
-        <DropdownMenuContent ref={menuRef}>
-          <DropdownMenuItem onClick={onBlur}>Menu Item 1</DropdownMenuItem>
-          <DropdownMenuItem onClick={onBlur}>Menu Item 2</DropdownMenuItem>
-          <DropdownMenuItem onClick={onBlur}>Menu Item 3</DropdownMenuItem>
-        </DropdownMenuContent>
-      )}
-    </div>
+        onFocus();
+      }}
+      onMouseEnter={handleMouseOver}
+      onMouseLeave={handleMouseLeave}
+      {...({ onFocus, onBlur } as React.HTMLAttributes<HTMLButtonElement>)}>
+      {children}
+    </Button>
   );
 };
+
+const DropdownMenu = ({ children }: { children: React.ReactNode }) => {
+  const { isMenuOpen, handleMouseOver, handleMouseLeave } = useDropdown();
+  return (
+    isMenuOpen && (
+      <StyledDropdownMenu onMouseEnter={handleMouseOver} onMouseLeave={handleMouseLeave}>
+        {children}
+      </StyledDropdownMenu>
+    )
+  );
+};
+
+const DropdownMenuItem = ({ children }: { children: React.ReactNode }) => {
+  const { onFocus, setIsMenuOpen, onBlur } = useDropdown();
+  const [quadrant, setQuadrant] = useState();
+
+  return (
+    <StyledDropdownMenuItem
+      onFocus={() => {
+        setIsMenuOpen(true);
+        onFocus();
+      }}
+      onClick={e => {
+        onBlur();
+      }}>
+      {children}
+    </StyledDropdownMenuItem>
+  );
+};
+
+Dropdown.DropdownTrigger = DropdownTrigger;
+Dropdown.DropdownMenu = DropdownMenu;
+Dropdown.DropdownMenuItem = DropdownMenuItem;
+
+export { Dropdown };

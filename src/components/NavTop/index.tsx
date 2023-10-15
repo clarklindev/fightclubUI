@@ -7,7 +7,7 @@ import darkmodeIcon from '../../assets/darkmode.svg';
 
 import { useSideMenu } from '../../context/SidemenuContext';
 
-import { Icon, Button, Dropdown } from '..';
+import { Icon, Button, Dropdown, CustomNavLink } from '..';
 import { CloseIcon, MenuIcon } from '../../icons';
 
 const Header = styled.header`
@@ -124,11 +124,19 @@ export const NavTop = () => {
             <img src={githubIcon} alt="github" />
           </Icon>
         </Link>
-
         <Dropdown>
-          <Icon size="20px">
-            <img src={darkmodeIcon} alt="darkmode" />
-          </Icon>
+          <Dropdown.DropdownTrigger>hi</Dropdown.DropdownTrigger>
+          <Dropdown.DropdownMenu>
+            <Dropdown.DropdownMenuItem>
+              <CustomNavLink to="labelsomething">LabelSomething</CustomNavLink>
+            </Dropdown.DropdownMenuItem>
+            <Dropdown.DropdownMenuItem>
+              <CustomNavLink to="labelsomething">LabelSomething</CustomNavLink>
+            </Dropdown.DropdownMenuItem>
+            <Dropdown.DropdownMenuItem>
+              <CustomNavLink to="labelsomething">LabelSomething</CustomNavLink>
+            </Dropdown.DropdownMenuItem>
+          </Dropdown.DropdownMenu>
         </Dropdown>
       </div>
     </Header>

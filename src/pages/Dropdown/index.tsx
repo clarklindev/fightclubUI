@@ -4,7 +4,12 @@ const DropdownExample = () => {
   return (
     <>
       <Heading variation="h4">Dropdown</Heading>
-      <Dropdown>hello</Dropdown>
+      <Dropdown>
+        <Dropdown.DropdownTrigger>hi</Dropdown.DropdownTrigger>
+        <Dropdown.DropdownMenu>
+          <Dropdown.DropdownMenuItem>click me</Dropdown.DropdownMenuItem>
+        </Dropdown.DropdownMenu>
+      </Dropdown>
     </>
   );
 };

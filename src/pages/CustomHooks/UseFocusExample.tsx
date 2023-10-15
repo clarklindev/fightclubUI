@@ -4,7 +4,7 @@ import { useFocus } from '../../customhooks';
 import { Button } from '../../components';
 
 const UseFocusExample = () => {
-  const [isFocused, { onFocus, onBlur }] = useFocus();
+  const { isFocused, onFocus, onBlur } = useFocus();
   const buttonRef = useRef<HTMLButtonElement | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
 

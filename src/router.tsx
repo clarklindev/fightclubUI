@@ -40,6 +40,7 @@ import DimensionsExample from './pages/Dimensions';
 import CodeBlockExample from './pages/CodeBlock';
 // import TreeExample from './pages/Tree';
 import DropdownExample from './pages/Dropdown';
+import TabsExample from './pages/Tabs';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -78,6 +79,7 @@ export const router = createBrowserRouter(
       <Route path="/codeblock" element={<CodeBlockExample />} />
       <Route path="/dropdown" element={<DropdownExample />} />
       {/* <Route path="/tree" element={<TreeExample />} /> */}
+      <Route path="/tabs" element={<TabsExample />} />
 
       <Route path="/404" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/404" replace />} />
