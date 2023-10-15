@@ -52,7 +52,7 @@ const DropdownWrapper = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) 
   const { isFocused, onBlur, setIsMenuOpen } = useDropdown();
 
   useEffect(() => {
-    const keyboardHandler = e => {
+    const keyboardHandler = (e: KeyboardEvent) => {
       if (e.key === 'Esc' || e.key === 'Escape') {
         onBlur();
       }
@@ -99,7 +99,7 @@ const DropdownTrigger = ({ onClick, children }: ButtonHTMLAttributes<HTMLButtonE
       onClick={e => {
         onClick && onClick(e);
         console.log('clicked');
-        const quad = getQuadrantWithRespectToViewport(e.target);
+        const quad = getQuadrantWithRespectToViewport(e.target as HTMLElement);
         console.log('quad:', quad);
 
         onFocus();
@@ -133,7 +133,7 @@ const DropdownMenuItem = ({ children }: { children: React.ReactNode }) => {
         setIsMenuOpen(true);
         onFocus();
       }}
-      onClick={e => {
+      onClick={() => {
         onBlur();
       }}>
       {children}

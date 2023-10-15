@@ -7,7 +7,7 @@ const DropdownContext = createContext({
   onBlur: () => {},
   onFocus: () => {},
   isMenuOpen: false,
-  setIsMenuOpen: (bool: boolean) => {},
+  setIsMenuOpen: (_bool: boolean) => {},
   handleMouseOver: () => {},
   handleMouseLeave: () => {},
 });

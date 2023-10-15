@@ -5,7 +5,7 @@ export enum Quadrant {
   BR = 'bottom-right',
 }
 
-export const getQuadrantWithRespectToViewport = element => {
+export const getQuadrantWithRespectToViewport = (element: HTMLElement) => {
   try {
     const rect = element.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -27,7 +27,7 @@ export const getQuadrantWithRespectToViewport = element => {
         return Quadrant.BR;
       }
     }
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error: ' + error.message);
     return null;
   }

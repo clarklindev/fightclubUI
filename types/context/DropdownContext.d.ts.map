@@ -1,0 +1,1 @@
+{"version":3,"file":"DropdownContext.d.ts","sourceRoot":"","sources":["../../src/context/DropdownContext.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAoC,MAAM,OAAO,CAAC;AAezD,eAAO,MAAM,WAAW;;;;;2BANC,OAAO;;;CAQ/B,CAAC;AAEF,KAAK,4BAA4B,GAAG;IAClC,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B,CAAC;AAGF,eAAO,MAAM,uBAAuB,iBAAkB,4BAA4B,4CAmBjF,CAAC"}

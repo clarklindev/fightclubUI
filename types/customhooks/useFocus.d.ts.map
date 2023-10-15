@@ -1,1 +1,1 @@
-{"version":3,"file":"useFocus.d.ts","sourceRoot":"","sources":["../../src/customhooks/useFocus.ts"],"names":[],"mappings":"AAEA,KAAK,eAAe,GAAG;IACrB,OAAO,EAAE,MAAM,IAAI,CAAC;IACpB,MAAM,EAAE,MAAM,IAAI,CAAC;CACpB,CAAC;AAGF,eAAO,MAAM,QAAQ,kCAmBpB,CAAC"}
+{"version":3,"file":"useFocus.d.ts","sourceRoot":"","sources":["../../src/customhooks/useFocus.ts"],"names":[],"mappings":"AAEA,eAAO,MAAM,QAAQ;;mBAGC,IAAI;kBAIL,IAAI;CAOxB,CAAC"}

@@ -1,7 +1,6 @@
-type HoverAttributes = {
+export declare const useHover: () => {
+    hovering: boolean;
     onMouseOver: () => void;
     onMouseOut: () => void;
 };
-export declare const useHover: () => (boolean | HoverAttributes)[];
-export {};
 //# sourceMappingURL=useHover.d.ts.map

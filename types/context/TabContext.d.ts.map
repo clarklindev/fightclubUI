@@ -1,0 +1,1 @@
+{"version":3,"file":"TabContext.d.ts","sourceRoot":"","sources":["../../src/context/TabContext.tsx"],"names":[],"mappings":"AAAA,OAAO,KAA8C,MAAM,OAAO,CAAC;AAOnE,KAAK,wBAAwB,GAAG;IAC9B,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B,CAAC;AAoBF,eAAO,MAAM,OAAO;;+BAVS,MAAM;;;CAYlC,CAAC;AAGF,eAAO,MAAM,mBAAmB,iBAAkB,wBAAwB,4CAqBzE,CAAC"}

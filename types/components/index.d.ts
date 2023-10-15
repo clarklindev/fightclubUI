@@ -33,4 +33,6 @@ export { CodeBlock } from './CodeBlock';
 export { NavTop } from './NavTop';
 export { NavSide } from './NavSide';
 export { NavOnThisPage } from './NavOnThisPage';
+export { Dropdown } from './Dropdown';
+export { Tabs } from './Tabs';
 //# sourceMappingURL=index.d.ts.map

@@ -17,7 +17,7 @@ const tabsData: Header[] = [
 
 const TabsContext = createContext({
   selectedTabIndex: 0,
-  selectTab: (updatedIndex: number) => {
+  selectTab: (_updatedIndex: number) => {
     // console.log(newSelected);
   },
   headers: tabsData.map(each => {
