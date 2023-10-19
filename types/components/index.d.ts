@@ -30,9 +30,8 @@ export { ResizePanel } from './ResizePanel';
 export { Dimensions } from './Dimensions';
 export { CustomNavLink } from './CustomNavLink';
 export { CodeBlock } from './CodeBlock';
-export { NavTop } from './NavTop';
-export { NavSide } from './NavSide';
-export { NavOnThisPage } from './NavOnThisPage';
+export { Navbar } from './Navbar';
+export { MenuSide } from './MenuSide';
 export { Dropdown } from './Dropdown';
 export { Tabs } from './Tabs';
 //# sourceMappingURL=index.d.ts.map

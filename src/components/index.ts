@@ -32,5 +32,6 @@ export { CustomNavLink } from './CustomNavLink';
 export { CodeBlock } from './CodeBlock';
 export { Navbar } from './Navbar';
 export { MenuSide } from './MenuSide';
+export { OnThisPage } from './OnThisPage';
 export { Dropdown } from './Dropdown';
 export { Tabs } from './Tabs';

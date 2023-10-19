@@ -1,15 +1,12 @@
 import styled from 'styled-components';
 
-const StyledMenuSide = styled.aside<{ isOpen: boolean; className?: string }>`
-  ::-webkit-scrollbar {
-    width: 5px;
-    height: 5px;
-  }
+import { Button, Icon } from '../../components';
+import { CloseIcon } from '../../icons';
+import { useMenu } from '../../context/MenuContext';
 
+const StyledMenuSide = styled.aside<{ isOpen: boolean; className?: string }>`
   ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};
   background: rgba(255, 0, 0, 0.3);
-  overflow-x: hidden;
-  overflow-y: scroll;
 
   nav {
     display: flex;
@@ -42,6 +39,8 @@ export const MenuSide = ({
   children?: React.ReactNode;
   className?: string;
 }) => {
+  const { toggleMenu } = useMenu();
+
   return (
     <StyledMenuSide isOpen={isOpen} className={className}>
       <nav>{children}</nav>

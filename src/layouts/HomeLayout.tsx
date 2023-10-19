@@ -2,38 +2,44 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Outlet, useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Navbar, MenuSide, Heading, CustomNavLink, Button, Icon, Dropdown } from '../components';
+import { Navbar, MenuSide, Heading, CustomNavLink, Button, Icon, Dropdown, OnThisPage } from '../components';
 import { MenuIcon, CloseIcon } from '../icons';
 import { useMenu } from '../context/MenuContext';
 import logo from '../assets/logo.svg';
 import githubIcon from '../assets/github.svg';
 
-const HomeLayoutContainer = styled.div`
+const HomeLayoutContainer = styled.div<{ isOpen: boolean; className?: string }>`
   position: relative;
   height: 100dvh;
-  display: grid;
-  grid-template-areas:
-    'menubar'
-    'content';
-  grid-template-rows: 50px auto;
+  ${({ isOpen }) => isOpen && `overflow: unset`}};
+
+  @media (min-width: 768px) {
+    overflow: unset;
+    display:unset;
+
+  }
 
   @media (min-width: 2400px) {
     max-width: 2400px;
     margin: 0 auto;
   }
+
+  .navbar {
+    grid-area: navbar;
+    z-index: 15;
+    position: fixed;
+    top: 0;
+  }
 `;
 
-const Content = styled.div`
+const Content = styled.div<{ isOpen: boolean; className?: string }>`
   background: pink;
   grid-area: content;
-  border: 1px solid blue;
   position: relative;
+  top: 50px;
   overflow: hidden;
-  display: flex;
 
   @media (min-width: 768px) {
-    overflow: unset;
-
     display: grid;
     grid-template-areas: 'navside container';
     grid-template-columns: 250px 1fr;
@@ -49,28 +55,27 @@ const Content = styled.div`
   }
 
   .container {
+    ${({ isOpen }) => isOpen && `display: none`};
+    top: 50px;
     grid-area: container;
     background: purple;
-    position: relative;
-    border: 1px solid red;
-    overflow-y: auto;
+    min-height: calc(100vh - 50px);
+    overflow: hidden;
 
     // this needs to be here.. to reset tailwind
     @media (min-width: 640px) {
       max-width: 100%;
     }
-
     @media (min-width: 768px) {
       overflow: hidden;
+      display: block;
     }
   }
 
   main {
-    height: 100%;
     white-space: normal;
     padding: 1rem 2rem;
     overflow-wrap: break-word;
-
     @media (min-width: 768px) {
       padding: 2rem 2rem;
     }
@@ -81,14 +86,11 @@ const Content = styled.div`
   }
 
   .navside {
+    position: relative;
     grid-area: navside;
-    background: rgba(0, 255, 255, 1);
-    height: calc(100dvh - 50px);
+    background: cyan;
     padding: 2rem 2rem 2rem 2rem;
-    width: 100%;
-    position: fixed;
-    left: 0;
-    z-index: 1;
+    overflow: hidden;
 
     &:hover {
       color: var(--clr-foreground);
@@ -96,7 +98,6 @@ const Content = styled.div`
     &.active {
       color: var(--clr-foreground);
     }
-
     @media only screen and (max-width: 576px) {
       body {
         font-size: 1.2rem;
@@ -105,31 +106,19 @@ const Content = styled.div`
         // padding: 10px 10px 10px 0px;
       }
     }
-
-    @media (min-width: 577px) {
-      border-right: var(--border);
-
-      nav a {
-        // padding: 5px 10px 5px 0px;
-        border-radius: 5px;
-        color: #7d7d7d;
-        font-size: 0.9rem;
-        font-weight: 400;
-      }
-    }
-
     @media (min-width: 768px) {
       width: 250px;
       display: block;
       position: fixed;
       padding: 2rem 2rem 2rem 2rem;
+      height: calc(100dvh - 50px);
+      overflow-y: scroll;
+      top: 50px;
     }
-
     @media (min-width: 1024px) {
       width: 300px;
       padding: 2rem 2rem 2rem 4rem;
     }
-
     @media (min-width: 1200px) {
       width: 400px;
       padding: 2rem 2rem 2rem 6rem;
@@ -138,16 +127,13 @@ const Content = styled.div`
 
   .onthispage {
     grid-area: onthispage;
-    background: rgba(0, 0, 255, 0.3);
-    position: fixed;
-    height: calc(100% - 50px);
-    top: 50px;
+    background: rgba(0, 0, 255, 0.5);
+    height: calc(100dvh - 50px);
     display: none;
-    border: 1px solid black;
-    overflow: hidden;
 
     @media (min-width: 1200px) {
       display: block;
+      position: fixed;
       width: 400px;
       padding: 2rem 4rem;
       border-left: var(--border);
@@ -181,9 +167,9 @@ export const HomeLayout = () => {
   }, []);
 
   return (
-    <HomeLayoutContainer>
-      <Navbar className="menubar flex">
-        <Navbar.Group className="header-left flex justify-between min-[320px]:justify-center flex-row w-full min-w-min gap-2 items-center md:justify-start">
+    <HomeLayoutContainer isOpen={isOpen}>
+      <Navbar className="navbar">
+        <Navbar.Group className="header-left flex justify-center flex-row w-full min-w-min gap-2 items-center md:justify-start">
           <Navbar.Group className="min-[320px]:absolute left-8 md:hidden">
             {!isOpen ? (
               <Button className="menu-btn" intent="icon" onClick={toggleMenu}>
@@ -233,7 +219,7 @@ export const HomeLayout = () => {
         </Navbar.Group>
       </Navbar>
 
-      <Content ref={contentRef}>
+      <Content ref={contentRef} isOpen={isOpen}>
         <MenuSide className="navside" isOpen={isOpen}>
           <Heading variation="h6">Guide</Heading>
           <CustomNavLink to="introduction">Introduction</CustomNavLink>
@@ -283,7 +269,7 @@ export const HomeLayout = () => {
           </main>
         </div>
 
-        <MenuSide className="onthispage">B</MenuSide>
+        <OnThisPage className="onthispage">B</OnThisPage>
       </Content>
     </HomeLayoutContainer>
   );

@@ -1,0 +1,1 @@
+{"version":3,"file":"MenuContext.d.ts","sourceRoot":"","sources":["../../src/context/MenuContext.tsx"],"names":[],"mappings":"AAAA,OAAO,KAA8C,MAAM,OAAO,CAAC;AASnE,KAAK,iBAAiB,GAAG;IACvB,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;CAC3B,CAAC;AAGF,eAAO,MAAM,mBAAmB,iBAAkB,iBAAiB,4CAalE,CAAC;AAGF,eAAO,MAAM,OAAO;;;;CAEnB,CAAC"}
