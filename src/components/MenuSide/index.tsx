@@ -8,6 +8,11 @@ const StyledMenuSide = styled.aside<{ isOpen: boolean; className?: string }>`
   ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};
   background: rgba(255, 0, 0, 0.3);
 
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
   nav {
     display: flex;
     flex-direction: column;

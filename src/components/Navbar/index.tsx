@@ -22,6 +22,7 @@ const StyledNavbar = styled.header`
 
   @media (min-width: 2400px) {
     max-width: 2400px;
+    margin: 0 auto;
   }
 `;
 

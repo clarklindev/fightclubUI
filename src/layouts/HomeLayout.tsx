@@ -11,6 +11,7 @@ import githubIcon from '../assets/github.svg';
 const HomeLayoutContainer = styled.div<{ isOpen: boolean; className?: string }>`
   position: relative;
   height: 100dvh;
+
   ${({ isOpen }) => isOpen && `overflow: unset`}};
 
   @media (min-width: 768px) {
@@ -19,24 +20,19 @@ const HomeLayoutContainer = styled.div<{ isOpen: boolean; className?: string }>`
 
   }
 
-  @media (min-width: 2400px) {
-    max-width: 2400px;
-    margin: 0 auto;
-  }
-
   .navbar {
     grid-area: navbar;
     z-index: 15;
-    position: fixed;
+    position: sticky;
     top: 0;
   }
 `;
 
 const Content = styled.div<{ isOpen: boolean; className?: string }>`
+  margin: 0 auto;
   background: pink;
   grid-area: content;
   position: relative;
-  top: 50px;
   overflow: hidden;
 
   @media (min-width: 768px) {
@@ -52,6 +48,10 @@ const Content = styled.div<{ isOpen: boolean; className?: string }>`
   @media (min-width: 1200px) {
     grid-template-areas: 'navside container onthispage';
     grid-template-columns: 400px 1fr 400px;
+  }
+
+  @media (min-width: 2400px) {
+    max-width: 2400px;
   }
 
   .container {
