@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-import { useSideMenu } from '../../context/SidemenuContext';
+import { useMenu } from '../../context/MenuContext';
 
 type CustomNavLink = {
   to: string;
@@ -8,7 +8,7 @@ type CustomNavLink = {
 };
 
 export const CustomNavLink = ({ to, children }: CustomNavLink) => {
-  const { closeMenu } = useSideMenu();
+  const { closeMenu } = useMenu();
 
   return (
     <NavLink to={to} onClick={closeMenu}>

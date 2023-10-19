@@ -28,25 +28,24 @@ body {
   background: var(--clr-background);
   color: var(--clr-foreground);
   font-family: 'Inter', sans-serif;
+  background: black;
 }
 
-/* Hide the default scrollbar */
+/* 
 ::-webkit-scrollbar {
   width: 5px;
   height: 5px;
-}
+}*/
 
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 
-/* Define the thumb */
 ::-webkit-scrollbar-thumb {
   background: var(--thumb-default);
   border-radius: 4px;
 }
 
-/* Define the thumb when hovered */
 ::-webkit-scrollbar-thumb:hover {
   background: var(--thumb-hover);
 }

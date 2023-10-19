@@ -79,27 +79,30 @@ type InputProps = {
   tw?: string;
 };
 
-const wrapperInputVariants = cva([
-  'box-border',
-  'h-auto',
-  'w-full',
-  'flex',
-  'items-center',
-  'flex-grow-1',
-  'outline-none',
-  'border',
-  'border-solid',
-  'rounded-md',
-  'max-h-10',
-  'px-2',
-  'gap-2',
-  'bg-inputBackground',
-  'border-borderColor',
-  'overflow-hidden',
-]);
-
 export const InputWrapper = ({ children }: InputProps) => {
-  const wrapperClasses = twMerge(wrapperInputVariants());
-
-  return <div className={wrapperClasses}>{children}</div>;
+  return (
+    <div
+      className={twMerge(
+        cva([
+          'box-border',
+          'h-auto',
+          'w-full',
+          'flex',
+          'items-center',
+          'flex-grow-1',
+          'outline-none',
+          'border',
+          'border-solid',
+          'rounded-md',
+          'max-h-10',
+          'px-2',
+          'gap-2',
+          'bg-inputBackground',
+          'border-borderColor',
+          'overflow-hidden',
+        ])(),
+      )}>
+      {children}
+    </div>
+  );
 };

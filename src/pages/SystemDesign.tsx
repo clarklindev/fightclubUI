@@ -48,6 +48,10 @@ const SystemDesign = () => {
         <br />
         Theming takes precedence over default styling; however, tailwind classes applied to component override theming
         and variant props.
+        <br />
+        by exposing component's subcomponents we are allowing styling to be set directly on the sub components
+        eliminating the need to pass styles as props.
+        <br />
       </Text>
       <br />
       <br />

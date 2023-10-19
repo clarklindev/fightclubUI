@@ -3,15 +3,15 @@ import ReactDOM from 'react-dom/client';
 
 import App from './App';
 import './index.css';
-import { ThemeContextProvider } from './context';
-import { SideMenuContextProvider } from './context';
+import { ThemeContextProvider } from './context/ThemeContext';
+import { MenuContextProvider } from './context/MenuContext';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
-    <SideMenuContextProvider>
-      <ThemeContextProvider>
+    <ThemeContextProvider>
+      <MenuContextProvider>
         <App />
-      </ThemeContextProvider>
-    </SideMenuContextProvider>
+      </MenuContextProvider>
+    </ThemeContextProvider>
   </React.StrictMode>,
 );
