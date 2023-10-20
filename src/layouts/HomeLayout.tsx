@@ -56,6 +56,7 @@ const Content = styled.div`
   @media (min-width: 2400px) {
     margin: 0 auto;
     max-width: 2400px;
+    width: 2400px;
   }
 
   .navside {
@@ -129,10 +130,10 @@ const Container = styled.div<{ isOpen: boolean; className?: string }>`
 
   main {
     white-space: normal;
-    padding: 1rem 2rem;
+    padding: 2rem;
     overflow-wrap: break-word;
     @media (min-width: 768px) {
-      padding: 2rem 2rem;
+      padding: 2rem;
     }
 
     @media (min-width: 1024px) {
