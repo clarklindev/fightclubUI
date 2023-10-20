@@ -17,15 +17,18 @@ const HomeLayoutContainer = styled.div`
     'navbar'
     'content';
 
+  @media (min-width: 2400px) {
+    width: 2400px;
+    margin: 0 auto;
+    max-width: 2400px;
+  }
+
   .navbar {
     grid-area: navbar;
     position: fixed;
     top: 0;
     z-index: 1;
-
     @media (min-width: 2400px) {
-      position: relative;
-      margin: 0 auto;
       max-width: 2400px;
     }
   }
@@ -53,18 +56,11 @@ const Content = styled.div`
     grid-template-columns: 400px minmax(0, 1fr) 400px;
   }
 
-  @media (min-width: 2400px) {
-    margin: 0 auto;
-    max-width: 2400px;
-    width: 2400px;
-  }
-
   .navside {
     background: rgba(0, 255, 255, 1);
-    padding: 2rem 2rem 2rem 2rem;
+    padding: 2rem;
 
     top: 50px;
-    margin-bottom: 50px;
 
     &:hover {
       color: var(--clr-foreground);

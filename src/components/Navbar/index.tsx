@@ -1,23 +1,24 @@
 import styled from 'styled-components';
 
 const StyledNavbar = styled.header`
-  background: rgba(0, 0, 255, 0.5);
+  background: rgba(0, 0, 255, 1);
   min-height: 50px;
   display: flex;
   align-items: center;
   padding: 0 2rem;
   width: 100%;
 
-  ::before {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    content: '';
-    backdrop-filter: blur(10px);
-    z-index: -1;
-  }
+  // blur effect
+  // ::before {
+  //   position: absolute;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 100%;
+  //   content: '';
+  //   backdrop-filter: blur(10px);
+  //   z-index: -1;
+  // }
 
   @media (min-width: 768px) {
     padding: 0 2rem;
