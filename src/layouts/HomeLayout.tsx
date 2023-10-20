@@ -8,89 +8,62 @@ import { useMenu } from '../context/MenuContext';
 import logo from '../assets/logo.svg';
 import githubIcon from '../assets/github.svg';
 
-const HomeLayoutContainer = styled.div<{ isOpen: boolean; className?: string }>`
+const HomeLayoutContainer = styled.div`
   position: relative;
   height: 100dvh;
-
-  ${({ isOpen }) => isOpen && `overflow: unset`}};
-
-  @media (min-width: 768px) {
-    overflow: unset;
-    display:unset;
-
-  }
+  display: grid;
+  grid-template-rows: 50px minmax(0, 1fr);
+  grid-template-areas:
+    'navbar'
+    'content';
 
   .navbar {
     grid-area: navbar;
-    z-index: 15;
-    position: sticky;
+    position: fixed;
     top: 0;
+    z-index: 1;
+
+    @media (min-width: 2400px) {
+      position: relative;
+      margin: 0 auto;
+      max-width: 2400px;
+    }
   }
 `;
 
-const Content = styled.div<{ isOpen: boolean; className?: string }>`
-  margin: 0 auto;
-  background: pink;
+const Content = styled.div`
   grid-area: content;
   position: relative;
-  overflow: hidden;
+  display: grid;
+  grid-template-areas: 'container';
+  grid-template-columns: minmax(0, 1fr); //NOTE: need grid layout to keep container width in check.
 
   @media (min-width: 768px) {
     display: grid;
     grid-template-areas: 'navside container';
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: 250px minmax(0, 1fr);
   }
 
   @media (min-width: 1024px) {
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 300px minmax(0, 1fr);
   }
 
   @media (min-width: 1200px) {
     grid-template-areas: 'navside container onthispage';
-    grid-template-columns: 400px 1fr 400px;
+    grid-template-columns: 400px minmax(0, 1fr) 400px;
   }
 
   @media (min-width: 2400px) {
+    margin: 0 auto;
     max-width: 2400px;
   }
 
-  .container {
-    ${({ isOpen }) => isOpen && `display: none`};
-    top: 50px;
-    grid-area: container;
-    background: purple;
-    min-height: calc(100vh - 50px);
-    overflow: hidden;
-
-    // this needs to be here.. to reset tailwind
-    @media (min-width: 640px) {
-      max-width: 100%;
-    }
-    @media (min-width: 768px) {
-      overflow: hidden;
-      display: block;
-    }
-  }
-
-  main {
-    white-space: normal;
-    padding: 1rem 2rem;
-    overflow-wrap: break-word;
-    @media (min-width: 768px) {
-      padding: 2rem 2rem;
-    }
-
-    @media (min-width: 1024px) {
-      padding: 2rem 4rem;
-    }
-  }
-
   .navside {
-    position: relative;
-    grid-area: navside;
-    background: cyan;
+    background: rgba(0, 255, 255, 1);
     padding: 2rem 2rem 2rem 2rem;
-    overflow: hidden;
+
+    top: 50px;
+    margin-bottom: 50px;
 
     &:hover {
       color: var(--clr-foreground);
@@ -107,6 +80,7 @@ const Content = styled.div<{ isOpen: boolean; className?: string }>`
       }
     }
     @media (min-width: 768px) {
+      grid-area: navside;
       width: 250px;
       display: block;
       position: fixed;
@@ -127,7 +101,7 @@ const Content = styled.div<{ isOpen: boolean; className?: string }>`
 
   .onthispage {
     grid-area: onthispage;
-    background: rgba(0, 0, 255, 0.5);
+    background: rgba(255, 0, 0, 0.5);
     height: calc(100dvh - 50px);
     display: none;
 
@@ -141,33 +115,39 @@ const Content = styled.div<{ isOpen: boolean; className?: string }>`
   }
 `;
 
+const Container = styled.div<{ isOpen: boolean; className?: string }>`
+  ${({ isOpen }) => isOpen && `display: none`};
+  grid-area: container;
+  background: yellow;
+
+  @media (min-width: 640px) {
+    max-width: 100%; // NOTE: this needs to be here to reset tailwind
+  }
+  @media (min-width: 768px) {
+    display: block;
+  }
+
+  main {
+    white-space: normal;
+    padding: 1rem 2rem;
+    overflow-wrap: break-word;
+    @media (min-width: 768px) {
+      padding: 2rem 2rem;
+    }
+
+    @media (min-width: 1024px) {
+      padding: 2rem 4rem;
+    }
+  }
+`;
+
 export const HomeLayout = () => {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [contentWidth, setContentWidth] = useState<number>();
   const { isOpen, toggleMenu, closeMenu } = useMenu();
 
   const navigate = useNavigate();
 
-  const handleResize = () => {
-    if (contentRef.current) {
-      const rect = contentRef.current?.getBoundingClientRect();
-
-      console.log('here: ', rect.width);
-      setContentWidth(rect.width);
-    }
-  };
-
-  useEffect(() => {
-    window.addEventListener('resize', handleResize);
-    handleResize();
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   return (
-    <HomeLayoutContainer isOpen={isOpen}>
+    <HomeLayoutContainer>
       <Navbar className="navbar">
         <Navbar.Group className="header-left flex justify-center flex-row w-full min-w-min gap-2 items-center md:justify-start">
           <Navbar.Group className="min-[320px]:absolute left-8 md:hidden">
@@ -219,8 +199,8 @@ export const HomeLayout = () => {
         </Navbar.Group>
       </Navbar>
 
-      <Content ref={contentRef} isOpen={isOpen}>
-        <MenuSide className="navside" isOpen={isOpen}>
+      <Content>
+        <MenuSide className="navside">
           <Heading variation="h6">Guide</Heading>
           <CustomNavLink to="introduction">Introduction</CustomNavLink>
           <CustomNavLink to="gettingstarted">Getting started</CustomNavLink>
@@ -263,11 +243,11 @@ export const HomeLayout = () => {
           <CustomNavLink to="codeblock">CodeBlock</CustomNavLink>
         </MenuSide>
 
-        <div className="container">
+        <Container isOpen={isOpen}>
           <main id="main">
             <Outlet />
           </main>
-        </div>
+        </Container>
 
         <OnThisPage className="onthispage">B</OnThisPage>
       </Content>

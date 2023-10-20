@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledNavbar = styled.header`
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 255, 0.5);
   min-height: 50px;
   display: flex;
   align-items: center;
@@ -15,7 +15,7 @@ const StyledNavbar = styled.header`
     width: 100%;
     height: 100%;
     content: '';
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(10px);
     z-index: -1;
   }
 
@@ -29,11 +29,6 @@ const StyledNavbar = styled.header`
 
   @media (min-width: 1200px) {
     padding: 0 6rem;
-  }
-
-  @media (min-width: 2400px) {
-    max-width: 2400px;
-    margin: 0 auto;
   }
 `;
 
