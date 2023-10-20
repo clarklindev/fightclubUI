@@ -59,8 +59,8 @@ const Content = styled.div`
   .navside {
     background: rgba(0, 255, 255, 1);
     padding: 2rem;
-
     top: 50px;
+    overflow-wrap: break-word;
 
     &:hover {
       color: var(--clr-foreground);

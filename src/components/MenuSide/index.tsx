@@ -15,10 +15,6 @@ const StyledMenuSide = styled.aside<{ isOpen: boolean; className?: string }>`
     display: flex;
     flex-direction: column;
   }
-
-  @media (min-width: 768px) {
-    overflow-y: hidden;
-  }
 `;
 
 type MenuSideProps = {
