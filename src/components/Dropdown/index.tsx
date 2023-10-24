@@ -11,7 +11,14 @@ const Dropdown = ({ children }: { children: React.ReactNode }) => {
 
 const DropdownWrapper = ({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) => {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
-  const { onBlur } = useDropdown();
+
+  const { onBlur, setDropdownRef } = useDropdown();
+
+  useEffect(() => {
+    if (dropdownRef.current) {
+      setDropdownRef(dropdownRef);
+    }
+  }, [dropdownRef]);
 
   useEffect(() => {
     const keyboardHandler = (e: KeyboardEvent) => {
@@ -85,6 +92,7 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
     triggerRef,
     setMenuOrientationX,
     setMenuOrientationY,
+    dropdownRef,
   } = useDropdown();
 
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -100,14 +108,22 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
     let menuBounds: DOMRect;
     let triggerBounds: DOMRect;
 
-    if (menuRef?.current && triggerRef?.current) {
+    if (menuRef?.current && triggerRef?.current && dropdownRef?.current) {
       menuBounds = (menuRef.current as HTMLElement).getBoundingClientRect();
       triggerBounds = (triggerRef.current as HTMLElement).getBoundingClientRect();
 
       setTriggerHeight(Math.round(triggerBounds?.height));
       setMenuHeight(Math.round(menuBounds?.height));
 
-      triggerBounds.x + menuBounds.width + scrollbarThickness > viewWidth
+      const parentNode = (dropdownRef.current as HTMLElement).parentNode as HTMLElement;
+      const styles = window.getComputedStyle(dropdownRef.current as HTMLElement);
+      // Check the value of the justifyContent property
+      const justifyContentValue = styles.getPropertyValue('justify-content');
+      console.log('justifyContentValue: ', justifyContentValue);
+
+      triggerBounds.x + menuBounds.width + scrollbarThickness > viewWidth ||
+      (triggerBounds.x + menuBounds.width + scrollbarThickness > parentNode.clientWidth &&
+        justifyContentValue === 'end')
         ? setMenuOrientationX(Position.LEFT)
         : setMenuOrientationX(Position.RIGHT);
 
@@ -115,7 +131,7 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
         ? setMenuOrientationY(Position.TOP)
         : setMenuOrientationY(Position.BOTTOM);
     }
-  }, [isMenuOpen]);
+  }, [isMenuOpen, menuRef, triggerRef]);
 
   return (
     <div

@@ -12,6 +12,8 @@ const DropdownContext = createContext<{
   setIsMenuOpen: (isOpen: boolean) => void;
   handleMouseOver: () => void;
   handleMouseLeave: () => void;
+  dropdownRef: React.RefObject<React.ReactNode | HTMLElement> | null;
+  setDropdownRef: (dropdownRef: React.RefObject<React.ReactNode | HTMLElement>) => void;
   triggerRef: React.RefObject<React.ReactNode | HTMLElement> | null;
   setTriggerRef: (buttonRef: React.RefObject<React.ReactNode | HTMLElement>) => void;
   menuRef: React.RefObject<React.ReactNode | HTMLElement> | null;
@@ -32,6 +34,8 @@ const DropdownContext = createContext<{
   setIsMenuOpen: () => {},
   handleMouseOver: () => {},
   handleMouseLeave: () => {},
+  dropdownRef: null,
+  setDropdownRef: _dropdownRef => {},
   triggerRef: null,
   setTriggerRef: _buttonRef => {},
   menuRef: null,
@@ -61,6 +65,8 @@ export const DropdownContextProvider = ({ children }: DropdownContextProviderPro
   const { isMenuOpen, setIsMenuOpen } = useMenu();
   const [triggerRef, setTriggerRef] = useState<React.RefObject<React.ReactNode | HTMLElement> | null>(null);
   const [menuRef, setMenuRef] = useState<React.RefObject<React.ReactNode | HTMLElement> | null>(null);
+  const [dropdownRef, setDropdownRef] = useState<React.RefObject<React.ReactNode | HTMLElement> | null>(null);
+
   const [menuOrientationX, setMenuOrientationX] = useState<null | string>(null);
   const [menuOrientationY, setMenuOrientationY] = useState<null | string>(null);
   const [menuBoundsObject, setMenuBoundsObject] = useState<DOMRect>({} as DOMRect);
@@ -85,6 +91,8 @@ export const DropdownContextProvider = ({ children }: DropdownContextProviderPro
         setIsMenuOpen,
         handleMouseOver,
         handleMouseLeave,
+        dropdownRef,
+        setDropdownRef,
         triggerRef,
         setTriggerRef,
         menuRef,
