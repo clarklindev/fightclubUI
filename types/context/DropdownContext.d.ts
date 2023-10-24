@@ -17,6 +17,8 @@ export declare const useDropdown: () => {
     setMenuOrientationY: (orientation: string) => void;
     menuBoundsObject: DOMRect;
     setMenuBoundsObject: (obj: DOMRect) => void;
+    triggerBoundsObject: DOMRect;
+    setTriggerBoundsObject: (obj: DOMRect) => void;
 };
 type DropdownContextProviderProps = {
     children: React.ReactNode;
