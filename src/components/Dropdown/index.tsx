@@ -1,4 +1,4 @@
-import React, { forwardRef, useState, useEffect, useRef, ButtonHTMLAttributes } from 'react';
+import React, { useState, useEffect, useRef, ButtonHTMLAttributes } from 'react';
 
 import { useDropdown, DropdownContextProvider } from '../../context/DropdownContext';
 import { Button } from '../../components';
@@ -43,7 +43,7 @@ const DropdownWrapper = ({ children, style }: { children: React.ReactNode; style
         setMenuOrientationY(Position.TOP);
       }
     }
-  }, [menuRef, triggerRef, isMenuOpen]);
+  }, [isMenuOpen]);
 
   useEffect(() => {
     const keyboardHandler = (e: KeyboardEvent) => {
@@ -86,7 +86,7 @@ const DropdownTrigger = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) 
     timeoutId = setTimeout(() => {
       setIsMenuOpen(isFocused);
       //actually call blur
-    }, 300);
+    }, 0.3);
 
     return () => {
       if (timeoutId) {
