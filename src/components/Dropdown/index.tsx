@@ -87,7 +87,6 @@ const DropdownTrigger = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) 
 
     let timeoutId: NodeJS.Timeout | undefined;
 
-    // Set a timeout to update isMenuOpen after 400ms
     timeoutId = setTimeout(() => {
       setIsMenuOpen(isFocused);
       //actually call blur
