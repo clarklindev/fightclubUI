@@ -13,7 +13,7 @@ const DropdownExample = () => {
         }}>
         toggle align
       </Button>
-      <div style={{ height: '600px' }}></div>
+      <div style={{ height: '500px' }}></div>
       <Dropdown>
         <Dropdown.DropdownWrapper style={{ justifyContent: align }}>
           <Dropdown.DropdownTrigger>hi</Dropdown.DropdownTrigger>
@@ -24,7 +24,7 @@ const DropdownExample = () => {
           </Dropdown.DropdownMenu>
         </Dropdown.DropdownWrapper>
       </Dropdown>
-      <div style={{ height: '600px' }}></div>
+      <div style={{ height: '500px' }}></div>
     </>
   );
 };
