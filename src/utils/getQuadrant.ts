@@ -5,6 +5,12 @@ export enum Quadrant {
   BR = 'bottom-right',
 }
 
+//usage:
+// const quad = getQuadrantWithRespectToViewport(buttonRef.current as HTMLElement);
+// if (quad) {
+//   console.log('quad: ', quad);
+// }
+
 export const getQuadrantWithRespectToViewport = (element: HTMLElement) => {
   try {
     const rect = element.getBoundingClientRect();

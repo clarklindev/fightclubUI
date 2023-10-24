@@ -7,11 +7,11 @@ import { ThemeContextProvider } from './context/ThemeContext';
 import { MenuContextProvider } from './context/MenuContext';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
-    <ThemeContextProvider>
-      <MenuContextProvider>
-        <App />
-      </MenuContextProvider>
-    </ThemeContextProvider>
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <ThemeContextProvider>
+    <MenuContextProvider>
+      <App />
+    </MenuContextProvider>
+  </ThemeContextProvider>,
+  // </React.StrictMode>,
 );

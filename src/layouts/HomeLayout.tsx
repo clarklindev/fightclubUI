@@ -180,18 +180,14 @@ export const HomeLayout = () => {
           </Link>
 
           <Dropdown>
-            <Dropdown.DropdownTrigger>hi</Dropdown.DropdownTrigger>
-            <Dropdown.DropdownMenu>
-              <Dropdown.DropdownMenuItem>
-                <CustomNavLink to="labelsomething">Dark mode</CustomNavLink>
-              </Dropdown.DropdownMenuItem>
-              <Dropdown.DropdownMenuItem>
-                <CustomNavLink to="labelsomething">Light mode</CustomNavLink>
-              </Dropdown.DropdownMenuItem>
-              <Dropdown.DropdownMenuItem>
-                <CustomNavLink to="labelsomething">System mode</CustomNavLink>
-              </Dropdown.DropdownMenuItem>
-            </Dropdown.DropdownMenu>
+            <Dropdown.DropdownWrapper>
+              <Dropdown.DropdownTrigger>hi</Dropdown.DropdownTrigger>
+              <Dropdown.DropdownMenu>
+                <Dropdown.DropdownMenuItem>Dark mode</Dropdown.DropdownMenuItem>
+                <Dropdown.DropdownMenuItem>Light mode</Dropdown.DropdownMenuItem>
+                <Dropdown.DropdownMenuItem>System mode</Dropdown.DropdownMenuItem>
+              </Dropdown.DropdownMenu>
+            </Dropdown.DropdownWrapper>
           </Dropdown>
         </Navbar.Group>
       </Navbar>

@@ -8,18 +8,6 @@ const StyledNavbar = styled.header`
   padding: 0 2rem;
   width: 100%;
 
-  // blur effect
-  // ::before {
-  //   position: absolute;
-  //   top: 0;
-  //   left: 0;
-  //   width: 100%;
-  //   height: 100%;
-  //   content: '';
-  //   backdrop-filter: blur(10px);
-  //   z-index: -1;
-  // }
-
   @media (min-width: 768px) {
     padding: 0 2rem;
   }

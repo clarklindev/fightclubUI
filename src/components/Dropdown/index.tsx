@@ -1,55 +1,44 @@
-import React, { useState, useEffect, useRef, ButtonHTMLAttributes } from 'react';
-import styled from 'styled-components';
+import React, { forwardRef, useEffect, useRef, ButtonHTMLAttributes } from 'react';
 
 import { useDropdown, DropdownContextProvider } from '../../context/DropdownContext';
 import { Button } from '../../components';
-import { getQuadrantWithRespectToViewport } from '../../utils/getQuadrant';
-
-const StyledDropdownWrapper = styled.div`
-  tabindex: -1;
-  display: inline-block;
-  background: pink;
-  position: relative;
-`;
-
-const StyledDropdownMenu = styled.div`
-  tabindex:-1;
-  border: 1px solid var(--border-color);
-  display: flex;
-  flex-direction:column;
-  margin-top: 5px;
-  gap: 5px;
-  border-radius: 5px;
-  padding 5px 5px;
-  position: absolute;
-  right:0;
-  background: red;
-  cursor: pointer;
-  z-index: 10;
-
-`;
-
-const StyledDropdownMenuItem = styled.button`
-  min-width: 120px;
-  min-height: 36px;
-  padding: 5px;
-  tabindex: -1;
-  &:hover {
-    background: rgba(0, 0, 0, 0.3);
-  }
-  border-radius: 5px;
-`;
+import { useNavigate } from 'react-router-dom';
+import { Position } from '../../utils/position';
 
 const Dropdown = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <DropdownContextProvider>
-      <DropdownWrapper>{children}</DropdownWrapper>
-    </DropdownContextProvider>
-  );
+  return <DropdownContextProvider>{children}</DropdownContextProvider>;
 };
 
-const DropdownWrapper = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) => {
-  const { isFocused, onBlur, setIsMenuOpen } = useDropdown();
+const DropdownWrapper = ({ children }: { children: React.ReactNode }) => {
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const { menuRef, onBlur, setMenuOrientationX, isMenuOpen } = useDropdown();
+
+  useEffect(() => {
+    setMenuOrientationX(Position.RIGHT);
+
+    if (isMenuOpen && menuRef?.current) {
+      const viewHeight = window.innerHeight;
+      const viewWidth = window.innerWidth;
+
+      console.log('viewHeight: ', viewHeight);
+      console.log('viewWidth: ', viewWidth);
+
+      const menuBounds = (menuRef.current as HTMLElement).getBoundingClientRect();
+      console.log('menuBounds: ', menuBounds);
+
+      console.log(`menuBounds.x (${menuBounds.x})`);
+      console.log(`menuBounds.width (${menuBounds.width})`);
+
+      console.log(`viewWidth: ${viewWidth} | menu: ${menuBounds.x + menuBounds.width}`);
+
+      const scrollbarWidth = 50;
+      if (menuBounds.x + menuBounds.width + scrollbarWidth > viewWidth) {
+        setMenuOrientationX(Position.LEFT);
+      }
+    }
+  }, [menuRef, isMenuOpen]);
+
+  const positionCheck = () => {};
 
   useEffect(() => {
     const keyboardHandler = (e: KeyboardEvent) => {
@@ -57,13 +46,39 @@ const DropdownWrapper = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) 
         onBlur();
       }
     };
+    positionCheck();
+
     document.addEventListener('keydown', keyboardHandler);
+    document.addEventListener('scroll', positionCheck);
+
     return () => {
       document.removeEventListener('keydown', keyboardHandler);
+      document.removeEventListener('scroll', positionCheck);
     };
   }, []);
 
+  return (
+    <div className="inline-block relative" ref={dropdownRef}>
+      {children}
+    </div>
+  );
+};
+
+const DropdownTrigger = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) => {
+  const { isFocused, setIsMenuOpen, onFocus, onBlur, handleMouseOver, handleMouseLeave, setTriggerRef } = useDropdown();
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+
   useEffect(() => {
+    if (triggerRef.current) {
+      setTriggerRef(triggerRef);
+    }
+  }, [triggerRef]);
+
+  useEffect(() => {
+    if (triggerRef?.current) {
+      !isFocused ? triggerRef.current.blur() : triggerRef.current.focus();
+    }
+
     let timeoutId: NodeJS.Timeout | undefined;
 
     // Set a timeout to update isMenuOpen after 400ms
@@ -72,7 +87,6 @@ const DropdownWrapper = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) 
       //actually call blur
     }, 300);
 
-    // Cleanup the timeout if the component unmounts or isFocused changes again
     return () => {
       if (timeoutId) {
         clearTimeout(timeoutId);
@@ -80,30 +94,9 @@ const DropdownWrapper = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) 
     };
   }, [isFocused]);
 
-  return <StyledDropdownWrapper>{children}</StyledDropdownWrapper>;
-};
-
-const DropdownTrigger = ({ onClick, children }: ButtonHTMLAttributes<HTMLButtonElement>) => {
-  const { isFocused, onFocus, onBlur, handleMouseOver, handleMouseLeave } = useDropdown();
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
-
-  useEffect(() => {
-    if (buttonRef.current) {
-      !isFocused ? buttonRef.current.blur() : buttonRef.current.focus();
-    }
-  }, [isFocused]);
-
   return (
     <Button
-      ref={buttonRef}
-      onClick={e => {
-        onClick && onClick(e);
-        console.log('clicked');
-        const quad = getQuadrantWithRespectToViewport(e.target as HTMLElement);
-        console.log('quad:', quad);
-
-        onFocus();
-      }}
+      ref={triggerRef}
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseLeave}
       {...({ onFocus, onBlur } as React.HTMLAttributes<HTMLButtonElement>)}>
@@ -112,35 +105,70 @@ const DropdownTrigger = ({ onClick, children }: ButtonHTMLAttributes<HTMLButtonE
   );
 };
 
-const DropdownMenu = ({ children }: { children: React.ReactNode }) => {
-  const { isMenuOpen, handleMouseOver, handleMouseLeave } = useDropdown();
+const DropdownMenu = ({ children, className }: { children: React.ReactNode; className?: string }) => {
+  const { isMenuOpen, handleMouseOver, handleMouseLeave, setMenuRef, menuOrientationX } = useDropdown();
+  const menuRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (menuRef.current) {
+      setMenuRef(menuRef);
+    }
+  }, [menuRef]);
+
   return (
-    isMenuOpen && (
-      <StyledDropdownMenu onMouseEnter={handleMouseOver} onMouseLeave={handleMouseLeave}>
-        {children}
-      </StyledDropdownMenu>
-    )
+    <div
+      ref={menuRef}
+      className={`
+      
+      ${isMenuOpen ? 'block' : 'hidden'} 
+      ${menuOrientationX === Position.LEFT ? 'right-0 ' : 'left-0'} 
+      
+      tabindex:-1 border-2 flex flex-col mt-1 gap-1 rounded absolute bg-blue-500 cursor-pointer p-2 z-10 w-32
+      
+       ${className ? className : ''}
+      `}
+      onMouseEnter={handleMouseOver}
+      onMouseLeave={handleMouseLeave}>
+      {children}
+    </div>
   );
 };
 
-const DropdownMenuItem = ({ children }: { children: React.ReactNode }) => {
+const DropdownMenuItem = ({
+  children,
+  asChild,
+  onClick,
+}: {
+  children: React.ReactNode;
+  asChild?: boolean;
+  onClick?: () => void;
+}) => {
   const { onFocus, setIsMenuOpen, onBlur } = useDropdown();
-  const [quadrant, setQuadrant] = useState();
+  const navigate = useNavigate();
 
-  return (
-    <StyledDropdownMenuItem
+  return asChild ? (
+    <>{children}</>
+  ) : (
+    <button
+      className="p-1 tabindex:-1 bg-green-300 hover:bg-opacity-30 rounded min-w-120"
       onFocus={() => {
         setIsMenuOpen(true);
         onFocus();
       }}
       onClick={() => {
         onBlur();
+
+        if (onClick) {
+          console.log('onClick');
+          onClick();
+        }
       }}>
       {children}
-    </StyledDropdownMenuItem>
+    </button>
   );
 };
 
+Dropdown.DropdownWrapper = DropdownWrapper;
 Dropdown.DropdownTrigger = DropdownTrigger;
 Dropdown.DropdownMenu = DropdownMenu;
 Dropdown.DropdownMenuItem = DropdownMenuItem;
