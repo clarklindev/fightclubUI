@@ -59,7 +59,6 @@ type DropdownContextProviderProps = {
 export const DropdownContextProvider = ({ children }: DropdownContextProviderProps) => {
   const { isFocused, onBlur, onFocus } = useFocus();
   const { isMenuOpen, setIsMenuOpen } = useMenu();
-  const [quadrant, setQuadrant] = useState(Quadrant.TL);
   const [triggerRef, setTriggerRef] = useState<React.RefObject<React.ReactNode | HTMLElement> | null>(null);
   const [menuRef, setMenuRef] = useState<React.RefObject<React.ReactNode | HTMLElement> | null>(null);
   const [menuOrientationX, setMenuOrientationX] = useState<null | string>(null);

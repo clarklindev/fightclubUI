@@ -80,7 +80,6 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
     isMenuOpen,
     handleMouseOver,
     handleMouseLeave,
-    setMenuRef,
     menuOrientationX,
     menuOrientationY,
     menuBoundsObject,
@@ -101,13 +100,13 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
     if (menuBoundsObject.height) {
       setMenuHeight(Math.round(menuBoundsObject?.height));
     }
-  }, [menuBoundsObject]);
+  }, [menuBoundsObject.height]);
 
   useEffect(() => {
     if (triggerBoundsObject.height) {
       setTriggerHeight(Math.round(triggerBoundsObject?.height));
     }
-  }, [triggerBoundsObject]);
+  }, [triggerBoundsObject.height]);
 
   useEffect(() => {
     const viewHeight = window.innerHeight;
@@ -125,30 +124,32 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
       if (triggerBounds.x + menuBounds.width + scrollbarThickness > viewWidth) {
         setMenuOrientationX(Position.LEFT);
       }
-
       if (menuBounds.y + menuBounds.height + scrollbarThickness > viewHeight) {
         setMenuOrientationY(Position.TOP);
       }
     }
-  }, [isMenuOpen, menuRef, triggerRef]);
+  }, [isMenuOpen, menuRef.current, triggerRef?.current]);
 
-  return isMenuOpen ? (
+  return (
     <div
       ref={menuRef}
       style={{
         ...(menuHeight &&
-          triggerHeight &&
           menuOrientationY === Position.TOP && {
             transform: `translateY(-${menuHeight + 2}px)`,
+            opacity: isMenuOpen ? 1 : 0,
+            transition: 'transform 0s ease, opacity 0.3s ease',
           }),
-        ...(menuHeight &&
-          triggerHeight &&
+        ...(triggerHeight &&
           menuOrientationY === Position.BOTTOM && {
             transform: `translateY(${triggerHeight + 2}px)`,
+            opacity: isMenuOpen ? 1 : 0,
+            transition: 'transform 0s ease, opacity 0.3s ease',
           }),
       }}
       className={`
       tabindex:-1 border-2 flex flex-col gap-1 rounded absolute bg-blue-500 cursor-pointer p-2 z-10 w-32 
+      ${isMenuOpen ? 'block' : 'hidden'}
       ${menuOrientationX === Position.LEFT ? 'right-0' : 'left-0'} 
        ${className ? className : ''}
       `}
@@ -156,7 +157,7 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
       onMouseLeave={handleMouseLeave}>
       {children}
     </div>
-  ) : null;
+  );
 };
 
 const DropdownMenuItem = ({
