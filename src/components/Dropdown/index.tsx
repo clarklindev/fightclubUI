@@ -54,7 +54,7 @@ const DropdownTrigger = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) 
     timeoutId = setTimeout(() => {
       setIsMenuOpen(isFocused);
       //actually call blur
-    }, 0.3);
+    }, 300);
 
     return () => {
       if (timeoutId) {
@@ -98,12 +98,6 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
   const [triggerHeight, setTriggerHeight] = useState<number | undefined>();
 
   useEffect(() => {
-    if (menuRef.current) {
-      setMenuRef(menuRef);
-    }
-  }, [menuRef]);
-
-  useEffect(() => {
     if (menuBoundsObject.height) {
       setMenuHeight(Math.round(menuBoundsObject?.height));
     }
@@ -116,11 +110,11 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
   }, [triggerBoundsObject]);
 
   useEffect(() => {
-    setMenuOrientationX(Position.RIGHT);
-    setMenuOrientationY(Position.BOTTOM);
     const viewHeight = window.innerHeight;
     const viewWidth = window.innerWidth;
     const scrollbarThickness = 50;
+    setMenuOrientationX(Position.RIGHT);
+    setMenuOrientationY(Position.BOTTOM);
 
     if (isMenuOpen && menuRef?.current && triggerRef?.current) {
       const menuBounds: DOMRect = (menuRef.current as HTMLElement).getBoundingClientRect();
@@ -136,9 +130,9 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
         setMenuOrientationY(Position.TOP);
       }
     }
-  }, [isMenuOpen]);
+  }, [isMenuOpen, menuRef, triggerRef]);
 
-  return (
+  return isMenuOpen ? (
     <div
       ref={menuRef}
       style={{
@@ -154,19 +148,15 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
           }),
       }}
       className={`
-      
-      ${isMenuOpen ? 'block' : 'hidden'} 
-      ${menuOrientationX === Position.LEFT ? 'right-0' : 'left-0'} 
-      
       tabindex:-1 border-2 flex flex-col gap-1 rounded absolute bg-blue-500 cursor-pointer p-2 z-10 w-32 
-      
+      ${menuOrientationX === Position.LEFT ? 'right-0' : 'left-0'} 
        ${className ? className : ''}
       `}
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseLeave}>
       {children}
     </div>
-  );
+  ) : null;
 };
 
 const DropdownMenuItem = ({
