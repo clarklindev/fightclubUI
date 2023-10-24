@@ -20,6 +20,8 @@ const DropdownContext = createContext<{
   setMenuOrientationX: (orientation: string) => void;
   menuOrientationY: string | null;
   setMenuOrientationY: (orientation: string) => void;
+  menuBoundsObject: DOMRect;
+  setMenuBoundsObject: (obj: DOMRect) => void;
 }>({
   isFocused: false,
   onBlur: () => {},
@@ -36,6 +38,8 @@ const DropdownContext = createContext<{
   setMenuOrientationX: () => {},
   menuOrientationY: null,
   setMenuOrientationY: () => {},
+  menuBoundsObject: {} as DOMRect,
+  setMenuBoundsObject: () => {},
 });
 
 // Custom Hook to Access the Context
@@ -56,6 +60,7 @@ export const DropdownContextProvider = ({ children }: DropdownContextProviderPro
   const [menuRef, setMenuRef] = useState<React.RefObject<React.ReactNode | HTMLElement> | null>(null);
   const [menuOrientationX, setMenuOrientationX] = useState<null | string>(null);
   const [menuOrientationY, setMenuOrientationY] = useState<null | string>(null);
+  const [menuBoundsObject, setMenuBoundsObject] = useState<DOMRect>({} as DOMRect);
 
   const handleMouseOver = () => {
     onFocus();
@@ -84,6 +89,8 @@ export const DropdownContextProvider = ({ children }: DropdownContextProviderPro
         setMenuOrientationX,
         menuOrientationY,
         setMenuOrientationY,
+        menuBoundsObject,
+        setMenuBoundsObject,
       }}>
       {children}
     </DropdownContext.Provider>

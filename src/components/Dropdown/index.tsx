@@ -1,4 +1,4 @@
-import React, { forwardRef, useEffect, useRef, ButtonHTMLAttributes } from 'react';
+import React, { forwardRef, useState, useEffect, useRef, ButtonHTMLAttributes } from 'react';
 
 import { useDropdown, DropdownContextProvider } from '../../context/DropdownContext';
 import { Button } from '../../components';
@@ -11,29 +11,35 @@ const Dropdown = ({ children }: { children: React.ReactNode }) => {
 
 const DropdownWrapper = ({ children }: { children: React.ReactNode }) => {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
-  const { menuRef, onBlur, setMenuOrientationX, isMenuOpen } = useDropdown();
+  const { menuRef, onBlur, setMenuOrientationX, setMenuOrientationY, isMenuOpen, setMenuBoundsObject } = useDropdown();
 
   useEffect(() => {
     setMenuOrientationX(Position.RIGHT);
-
+    setMenuOrientationY(Position.BOTTOM);
     if (isMenuOpen && menuRef?.current) {
       const viewHeight = window.innerHeight;
       const viewWidth = window.innerWidth;
 
-      console.log('viewHeight: ', viewHeight);
-      console.log('viewWidth: ', viewWidth);
+      // console.log('viewHeight: ', viewHeight);
+      // console.log('viewWidth: ', viewWidth);
 
-      const menuBounds = (menuRef.current as HTMLElement).getBoundingClientRect();
-      console.log('menuBounds: ', menuBounds);
+      const menuBounds: DOMRect = (menuRef.current as HTMLElement).getBoundingClientRect();
+      console.log('type: ', typeof menuBounds);
+      setMenuBoundsObject(menuBounds);
+      // console.log('menuBounds: ', menuBounds);
 
-      console.log(`menuBounds.x (${menuBounds.x})`);
-      console.log(`menuBounds.width (${menuBounds.width})`);
+      // console.log(`menuBounds.x (${menuBounds.x})`);
+      // console.log(`menuBounds.width (${menuBounds.width})`);
 
-      console.log(`viewWidth: ${viewWidth} | menu: ${menuBounds.x + menuBounds.width}`);
+      // console.log(`viewWidth: ${viewWidth} | menu: ${menuBounds.x + menuBounds.width}`);
 
       const scrollbarWidth = 50;
-      if (menuBounds.x + menuBounds.width + scrollbarWidth > viewWidth) {
+      if (menuBounds.x + menuBounds.width + 50 > viewWidth) {
         setMenuOrientationX(Position.LEFT);
+      }
+
+      if (menuBounds.y + menuBounds.height + 50 > viewHeight) {
+        setMenuOrientationY(Position.TOP);
       }
     }
   }, [menuRef, isMenuOpen]);
@@ -58,7 +64,7 @@ const DropdownWrapper = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   return (
-    <div className="inline-block relative" ref={dropdownRef}>
+    <div className="relative" ref={dropdownRef}>
       {children}
     </div>
   );
@@ -97,6 +103,7 @@ const DropdownTrigger = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) 
   return (
     <Button
       ref={triggerRef}
+      className={'block'}
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseLeave}
       {...({ onFocus, onBlur } as React.HTMLAttributes<HTMLButtonElement>)}>
@@ -106,8 +113,18 @@ const DropdownTrigger = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) 
 };
 
 const DropdownMenu = ({ children, className }: { children: React.ReactNode; className?: string }) => {
-  const { isMenuOpen, handleMouseOver, handleMouseLeave, setMenuRef, menuOrientationX } = useDropdown();
+  const {
+    isMenuOpen,
+    handleMouseOver,
+    handleMouseLeave,
+    setMenuRef,
+    menuOrientationX,
+    menuOrientationY,
+    menuBoundsObject,
+  } = useDropdown();
   const menuRef = useRef<HTMLDivElement | null>(null);
+
+  const [menuHeight, setMenuHeight] = useState<number>();
 
   useEffect(() => {
     if (menuRef.current) {
@@ -115,15 +132,30 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
     }
   }, [menuRef]);
 
+  useEffect(() => {
+    if (menuBoundsObject.height) {
+      setMenuHeight(Math.round(menuBoundsObject?.height));
+    }
+  }, [menuBoundsObject]);
+
   return (
     <div
       ref={menuRef}
+      style={
+        menuHeight && menuOrientationY === Position.TOP
+          ? {
+              // Use the style attribute to apply dynamic styles
+              transform: `translateY(-${menuHeight + 2}px)`,
+            }
+          : {}
+      }
       className={`
       
       ${isMenuOpen ? 'block' : 'hidden'} 
       ${menuOrientationX === Position.LEFT ? 'right-0 ' : 'left-0'} 
+      ${menuOrientationY === Position.TOP ? 'top-0 bot-0' : 'mt-1'}
       
-      tabindex:-1 border-2 flex flex-col mt-1 gap-1 rounded absolute bg-blue-500 cursor-pointer p-2 z-10 w-32
+      tabindex:-1 border-2 flex flex-col gap-1 rounded absolute bg-blue-500 cursor-pointer p-2 z-10 w-32 
       
        ${className ? className : ''}
       `}

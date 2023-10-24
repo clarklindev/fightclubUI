@@ -3,12 +3,18 @@ declare const Dropdown: {
     ({ children }: {
         children: React.ReactNode;
     }): import("react/jsx-runtime").JSX.Element;
-    DropdownTrigger: ({ onClick, children }: ButtonHTMLAttributes<HTMLButtonElement>) => import("react/jsx-runtime").JSX.Element;
-    DropdownMenu: ({ children }: {
+    DropdownWrapper: ({ children }: {
         children: React.ReactNode;
-    }) => false | import("react/jsx-runtime").JSX.Element;
-    DropdownMenuItem: ({ children }: {
+    }) => import("react/jsx-runtime").JSX.Element;
+    DropdownTrigger: ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) => import("react/jsx-runtime").JSX.Element;
+    DropdownMenu: ({ children, className }: {
         children: React.ReactNode;
+        className?: string | undefined;
+    }) => import("react/jsx-runtime").JSX.Element;
+    DropdownMenuItem: ({ children, asChild, onClick, }: {
+        children: React.ReactNode;
+        asChild?: boolean | undefined;
+        onClick?: (() => void) | undefined;
     }) => import("react/jsx-runtime").JSX.Element;
 };
 export { Dropdown };

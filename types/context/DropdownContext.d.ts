@@ -4,9 +4,17 @@ export declare const useDropdown: () => {
     onBlur: () => void;
     onFocus: () => void;
     isMenuOpen: boolean;
-    setIsMenuOpen: (_bool: boolean) => void;
+    setIsMenuOpen: (isOpen: boolean) => void;
     handleMouseOver: () => void;
     handleMouseLeave: () => void;
+    triggerRef: React.RefObject<React.ReactNode | HTMLElement> | null;
+    setTriggerRef: (buttonRef: React.RefObject<React.ReactNode | HTMLElement>) => void;
+    menuRef: React.RefObject<React.ReactNode | HTMLElement> | null;
+    setMenuRef: (menuRef: React.RefObject<React.ReactNode | HTMLElement>) => void;
+    menuOrientationX: string | null;
+    setMenuOrientationX: (orientation: string) => void;
+    menuOrientationY: string | null;
+    setMenuOrientationY: (orientation: string) => void;
 };
 type DropdownContextProviderProps = {
     children: React.ReactNode;

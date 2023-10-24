@@ -8,7 +8,9 @@ const DropdownExample = () => {
         <Dropdown.DropdownWrapper>
           <Dropdown.DropdownTrigger>hi</Dropdown.DropdownTrigger>
           <Dropdown.DropdownMenu>
-            <Dropdown.DropdownMenuItem>click me</Dropdown.DropdownMenuItem>
+            <Dropdown.DropdownMenuItem>A</Dropdown.DropdownMenuItem>
+            <Dropdown.DropdownMenuItem>B</Dropdown.DropdownMenuItem>
+            <Dropdown.DropdownMenuItem>C</Dropdown.DropdownMenuItem>
           </Dropdown.DropdownMenu>
         </Dropdown.DropdownWrapper>
       </Dropdown>
