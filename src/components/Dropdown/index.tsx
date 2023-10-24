@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, ButtonHTMLAttributes } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef, ButtonHTMLAttributes } from 'react';
 
 import { useDropdown, DropdownContextProvider } from '../../context/DropdownContext';
 import { Button } from '../../components';
@@ -82,13 +82,9 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
     handleMouseLeave,
     menuOrientationX,
     menuOrientationY,
-    menuBoundsObject,
-    triggerBoundsObject,
     triggerRef,
     setMenuOrientationX,
     setMenuOrientationY,
-    setMenuBoundsObject,
-    setTriggerBoundsObject,
   } = useDropdown();
 
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -96,7 +92,7 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
   const [menuHeight, setMenuHeight] = useState<number | undefined>();
   const [triggerHeight, setTriggerHeight] = useState<number | undefined>();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const viewHeight = window.innerHeight;
     const viewWidth = window.innerWidth;
     const scrollbarThickness = 50;
