@@ -1,11 +1,21 @@
-import { Dropdown, Heading } from '../../components';
+import { useState } from 'react';
+
+import { Button, Dropdown, Heading } from '../../components';
 
 const DropdownExample = () => {
+  const [align, setAlign] = useState<string>('start');
   return (
     <>
       <Heading variation="h4">Dropdown</Heading>
+      <Button
+        onClick={() => {
+          setAlign(prev => (prev === 'start' ? 'end' : 'start'));
+        }}>
+        toggle align
+      </Button>
+      <div style={{ height: '400px' }}></div>
       <Dropdown>
-        <Dropdown.DropdownWrapper>
+        <Dropdown.DropdownWrapper style={{ justifyContent: align }}>
           <Dropdown.DropdownTrigger>hi</Dropdown.DropdownTrigger>
           <Dropdown.DropdownMenu>
             <Dropdown.DropdownMenuItem>A</Dropdown.DropdownMenuItem>
@@ -14,6 +24,7 @@ const DropdownExample = () => {
           </Dropdown.DropdownMenu>
         </Dropdown.DropdownWrapper>
       </Dropdown>
+      <div style={{ height: '400px' }}></div>
     </>
   );
 };
