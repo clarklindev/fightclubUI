@@ -112,8 +112,6 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
     const viewHeight = window.innerHeight;
     const viewWidth = window.innerWidth;
     const scrollbarThickness = 50;
-    setMenuOrientationX(Position.RIGHT);
-    setMenuOrientationY(Position.BOTTOM);
 
     if (isMenuOpen && menuRef?.current && triggerRef?.current) {
       const menuBounds: DOMRect = (menuRef.current as HTMLElement).getBoundingClientRect();
@@ -121,12 +119,13 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
       const triggerBounds: DOMRect = (triggerRef.current as HTMLElement).getBoundingClientRect();
       setTriggerBoundsObject(triggerBounds);
 
-      if (triggerBounds.x + menuBounds.width + scrollbarThickness > viewWidth) {
-        setMenuOrientationX(Position.LEFT);
-      }
-      if (menuBounds.y + menuBounds.height + scrollbarThickness > viewHeight) {
-        setMenuOrientationY(Position.TOP);
-      }
+      triggerBounds.x + menuBounds.width + scrollbarThickness > viewWidth
+        ? setMenuOrientationX(Position.LEFT)
+        : setMenuOrientationX(Position.RIGHT);
+
+      triggerBounds.y + menuBounds.height + scrollbarThickness > viewHeight
+        ? setMenuOrientationY(Position.TOP)
+        : setMenuOrientationY(Position.BOTTOM);
     }
   }, [isMenuOpen, menuRef.current, triggerRef?.current]);
 
