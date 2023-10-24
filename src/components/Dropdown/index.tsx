@@ -143,11 +143,13 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
             transform: `translateY(${triggerHeight + 2}px)`,
             transition: 'none',
           }),
+        right: menuOrientationX === Position.LEFT ? '0' : 'auto',
+        left: menuOrientationX === Position.RIGHT ? '0' : 'auto',
       }}
       className={`
       tabindex:-1 border-2 flex flex-col gap-1 rounded absolute bg-blue-500 cursor-pointer p-2 z-10 w-32 
       ${isMenuOpen ? 'block' : 'hidden'}
-      ${menuOrientationX === Position.LEFT ? 'right-0' : 'left-0'}
+
       ${className}
       `}
       onMouseEnter={handleMouseOver}
