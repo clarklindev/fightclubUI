@@ -11,39 +11,7 @@ const Dropdown = ({ children }: { children: React.ReactNode }) => {
 
 const DropdownWrapper = ({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) => {
   const dropdownRef = useRef<HTMLDivElement | null>(null);
-  const {
-    menuRef,
-    triggerRef,
-    onBlur,
-    setMenuOrientationX,
-    setMenuOrientationY,
-    isMenuOpen,
-    setMenuBoundsObject,
-    setTriggerBoundsObject,
-  } = useDropdown();
-
-  useEffect(() => {
-    setMenuOrientationX(Position.RIGHT);
-    setMenuOrientationY(Position.BOTTOM);
-    const viewHeight = window.innerHeight;
-    const viewWidth = window.innerWidth;
-    const scrollbarThickness = 50;
-
-    if (isMenuOpen && menuRef?.current && triggerRef?.current) {
-      const menuBounds: DOMRect = (menuRef.current as HTMLElement).getBoundingClientRect();
-      setMenuBoundsObject(menuBounds);
-      const triggerBounds: DOMRect = (triggerRef.current as HTMLElement).getBoundingClientRect();
-      setTriggerBoundsObject(triggerBounds);
-
-      if (triggerBounds.x + menuBounds.width + scrollbarThickness > viewWidth) {
-        setMenuOrientationX(Position.LEFT);
-      }
-
-      if (menuBounds.y + menuBounds.height + scrollbarThickness > viewHeight) {
-        setMenuOrientationY(Position.TOP);
-      }
-    }
-  }, [isMenuOpen]);
+  const { onBlur } = useDropdown();
 
   useEffect(() => {
     const keyboardHandler = (e: KeyboardEvent) => {
@@ -117,6 +85,11 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
     menuOrientationY,
     menuBoundsObject,
     triggerBoundsObject,
+    triggerRef,
+    setMenuOrientationX,
+    setMenuOrientationY,
+    setMenuBoundsObject,
+    setTriggerBoundsObject,
   } = useDropdown();
 
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -141,6 +114,29 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
       setTriggerHeight(Math.round(triggerBoundsObject?.height));
     }
   }, [triggerBoundsObject]);
+
+  useEffect(() => {
+    setMenuOrientationX(Position.RIGHT);
+    setMenuOrientationY(Position.BOTTOM);
+    const viewHeight = window.innerHeight;
+    const viewWidth = window.innerWidth;
+    const scrollbarThickness = 50;
+
+    if (isMenuOpen && menuRef?.current && triggerRef?.current) {
+      const menuBounds: DOMRect = (menuRef.current as HTMLElement).getBoundingClientRect();
+      setMenuBoundsObject(menuBounds);
+      const triggerBounds: DOMRect = (triggerRef.current as HTMLElement).getBoundingClientRect();
+      setTriggerBoundsObject(triggerBounds);
+
+      if (triggerBounds.x + menuBounds.width + scrollbarThickness > viewWidth) {
+        setMenuOrientationX(Position.LEFT);
+      }
+
+      if (menuBounds.y + menuBounds.height + scrollbarThickness > viewHeight) {
+        setMenuOrientationY(Position.TOP);
+      }
+    }
+  }, [isMenuOpen]);
 
   return (
     <div
