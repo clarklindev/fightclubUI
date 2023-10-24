@@ -97,27 +97,19 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
   const [triggerHeight, setTriggerHeight] = useState<number | undefined>();
 
   useEffect(() => {
-    if (menuBoundsObject.height) {
-      setMenuHeight(Math.round(menuBoundsObject?.height));
-    }
-  }, [menuBoundsObject.height]);
-
-  useEffect(() => {
-    if (triggerBoundsObject.height) {
-      setTriggerHeight(Math.round(triggerBoundsObject?.height));
-    }
-  }, [triggerBoundsObject.height]);
-
-  useEffect(() => {
     const viewHeight = window.innerHeight;
     const viewWidth = window.innerWidth;
     const scrollbarThickness = 50;
 
-    if (isMenuOpen && menuRef?.current && triggerRef?.current) {
-      const menuBounds: DOMRect = (menuRef.current as HTMLElement).getBoundingClientRect();
-      setMenuBoundsObject(menuBounds);
-      const triggerBounds: DOMRect = (triggerRef.current as HTMLElement).getBoundingClientRect();
-      setTriggerBoundsObject(triggerBounds);
+    let menuBounds: DOMRect;
+    let triggerBounds: DOMRect;
+
+    if (menuRef?.current && triggerRef?.current) {
+      menuBounds = (menuRef.current as HTMLElement).getBoundingClientRect();
+      triggerBounds = (triggerRef.current as HTMLElement).getBoundingClientRect();
+
+      setTriggerHeight(Math.round(triggerBounds?.height));
+      setMenuHeight(Math.round(menuBounds?.height));
 
       triggerBounds.x + menuBounds.width + scrollbarThickness > viewWidth
         ? setMenuOrientationX(Position.LEFT)
@@ -127,7 +119,7 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
         ? setMenuOrientationY(Position.TOP)
         : setMenuOrientationY(Position.BOTTOM);
     }
-  }, [isMenuOpen, menuRef.current, triggerRef?.current]);
+  }, [isMenuOpen]);
 
   return (
     <div
