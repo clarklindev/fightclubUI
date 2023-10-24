@@ -137,21 +137,18 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
         ...(menuHeight &&
           menuOrientationY === Position.TOP && {
             transform: `translateY(-${menuHeight + 2}px)`,
-            opacity: isMenuOpen ? 1 : 0,
-            transition: 'transform 0s ease, opacity 0.3s ease',
+            transition: 'none',
           }),
         ...(triggerHeight &&
           menuOrientationY === Position.BOTTOM && {
             transform: `translateY(${triggerHeight + 2}px)`,
-            opacity: isMenuOpen ? 1 : 0,
-            transition: 'transform 0s ease, opacity 0.3s ease',
+            transition: 'none',
           }),
       }}
       className={`
       tabindex:-1 border-2 flex flex-col gap-1 rounded absolute bg-blue-500 cursor-pointer p-2 z-10 w-32 
       ${isMenuOpen ? 'block' : 'hidden'}
-      ${menuOrientationX === Position.LEFT ? 'right-0' : 'left-0'} 
-       ${className ? className : ''}
+      ${menuOrientationX === Position.LEFT ? 'right-0' : 'left-0'}
       `}
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseLeave}>
