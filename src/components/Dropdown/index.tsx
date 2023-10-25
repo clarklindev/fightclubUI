@@ -35,7 +35,7 @@ const DropdownWrapper = ({ children, style }: { children: React.ReactNode; style
   }, []);
 
   return (
-    <div className="relative flex" ref={dropdownRef} style={style}>
+    <div className="relative flex justify-start" ref={dropdownRef} style={style}>
       {children}
     </div>
   );
@@ -121,11 +121,17 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
       const justifyContentValue = styles.getPropertyValue('justify-content');
       console.log('justifyContentValue: ', justifyContentValue);
 
-      triggerBounds.x + menuBounds.width + scrollbarThickness > viewWidth ||
-      (triggerBounds.x + menuBounds.width + scrollbarThickness > parentNode.clientWidth &&
-        justifyContentValue === 'end')
-        ? setMenuOrientationX(Position.LEFT)
-        : setMenuOrientationX(Position.RIGHT);
+      if (
+        triggerBounds.x + menuBounds.width + scrollbarThickness > viewWidth ||
+        (triggerBounds.x + menuBounds.width + scrollbarThickness > parentNode.clientWidth &&
+          justifyContentValue === 'end')
+      ) {
+        setMenuOrientationX(Position.LEFT);
+      } else if (justifyContentValue === 'start') {
+        setMenuOrientationX(Position.RIGHT);
+      } else {
+        setMenuOrientationX(Position.CENTER);
+      }
 
       triggerBounds.y + menuBounds.height + scrollbarThickness > viewHeight
         ? setMenuOrientationY(Position.TOP)
