@@ -12,6 +12,7 @@ const App = () => {
   const { isDarkMode } = useTheme();
 
   return (
+    // NOTE: ThemeProvider here is from styled-components
     <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
       <RouterProvider router={router} />
     </ThemeProvider>

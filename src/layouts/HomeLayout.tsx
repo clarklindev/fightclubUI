@@ -7,6 +7,7 @@ import { MenuIcon, CloseIcon } from '../icons';
 import { useMenu } from '../context/MenuContext';
 import logo from '../assets/logo.svg';
 import githubIcon from '../assets/github.svg';
+import { useTheme } from '../context/ThemeContext';
 
 const HomeLayoutContainer = styled.div`
   position: relative;
@@ -57,7 +58,7 @@ const Content = styled.div`
   }
 
   .navside {
-    background: rgba(0, 255, 255, 1);
+    // background: rgba(0, 255, 255, 1);
     padding: 2rem;
     top: 50px;
     overflow-wrap: break-word;
@@ -98,7 +99,7 @@ const Content = styled.div`
 
   .onthispage {
     grid-area: onthispage;
-    background: rgba(255, 0, 0, 0.5);
+    // background: rgba(255, 0, 0, 0.5);
     height: calc(100dvh - 50px);
     display: none;
 
@@ -115,7 +116,7 @@ const Content = styled.div`
 const Container = styled.div<{ isOpen: boolean; className?: string }>`
   ${({ isOpen }) => isOpen && `display: none`};
   grid-area: container;
-  background: yellow;
+  // background: yellow;
 
   @media (min-width: 640px) {
     max-width: 100%; // NOTE: this needs to be here to reset tailwind
@@ -140,7 +141,7 @@ const Container = styled.div<{ isOpen: boolean; className?: string }>`
 
 export const HomeLayout = () => {
   const { isOpen, toggleMenu, closeMenu } = useMenu();
-
+  const { setIsDarkMode } = useTheme();
   const navigate = useNavigate();
 
   return (
@@ -183,8 +184,18 @@ export const HomeLayout = () => {
             <Dropdown.DropdownWrapper>
               <Dropdown.DropdownTrigger>hi</Dropdown.DropdownTrigger>
               <Dropdown.DropdownMenu>
-                <Dropdown.DropdownMenuItem>Dark mode</Dropdown.DropdownMenuItem>
-                <Dropdown.DropdownMenuItem>Light mode</Dropdown.DropdownMenuItem>
+                <Dropdown.DropdownMenuItem
+                  onClick={() => {
+                    setIsDarkMode(true);
+                  }}>
+                  Dark mode
+                </Dropdown.DropdownMenuItem>
+                <Dropdown.DropdownMenuItem
+                  onClick={() => {
+                    setIsDarkMode(false);
+                  }}>
+                  Light mode
+                </Dropdown.DropdownMenuItem>
                 <Dropdown.DropdownMenuItem>System mode</Dropdown.DropdownMenuItem>
               </Dropdown.DropdownMenu>
             </Dropdown.DropdownWrapper>

@@ -71,7 +71,7 @@ export const transparency = {
 export const global = {
   fontFamily: "Roboto, 'sans-serif'",
   color: colors.neutral[400],
-  backgroundColor: 'transparent',
+  backgroundColor: 'white',
   padding: '10px',
   margin: '1rem',
   gap: '5px',
