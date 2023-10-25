@@ -2,7 +2,6 @@ import React, { useState, useEffect, useLayoutEffect, useRef, ButtonHTMLAttribut
 
 import { useDropdown, DropdownContextProvider } from '../../context/DropdownContext';
 import { Button } from '../../components';
-import { useNavigate } from 'react-router-dom';
 import { Position } from '../../utils/position';
 
 const Dropdown = ({ children }: { children: React.ReactNode }) => {
@@ -127,10 +126,12 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
           justifyContentValue === 'end')
       ) {
         setMenuOrientationX(Position.LEFT);
-      } else if (justifyContentValue === 'center') {
-        setMenuOrientationX(Position.CENTER);
       } else {
         setMenuOrientationX(Position.RIGHT);
+      }
+
+      if (justifyContentValue === 'center') {
+        setMenuOrientationX(Position.CENTER);
       }
 
       triggerBounds.y + menuBounds.height + scrollbarThickness > viewHeight
@@ -178,7 +179,6 @@ const DropdownMenuItem = ({
   onClick?: () => void;
 }) => {
   const { onFocus, setIsMenuOpen, onBlur } = useDropdown();
-  const navigate = useNavigate();
 
   return asChild ? (
     <>{children}</>
