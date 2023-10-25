@@ -127,7 +127,11 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
           justifyContentValue === 'end')
       ) {
         setMenuOrientationX(Position.LEFT);
-      } else if (justifyContentValue === 'start') {
+      } else if (
+        triggerBounds.x + menuBounds.width + scrollbarThickness > viewWidth ||
+        (triggerBounds.x + menuBounds.width + scrollbarThickness > parentNode.clientWidth &&
+          justifyContentValue === 'start')
+      ) {
         setMenuOrientationX(Position.RIGHT);
       } else {
         setMenuOrientationX(Position.CENTER);
