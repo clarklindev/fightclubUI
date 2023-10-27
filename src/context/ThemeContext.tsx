@@ -40,11 +40,15 @@ export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({ 
   const defaultMode = 'system';
 
   const [colorMode, setColorMode] = useState(window.localStorage.getItem('colorMode') || defaultMode); //system, dark, light
-  const [isDarkMode, setIsDarkMode] = useState(checkIsDark(colorMode) || checkIsDark(defaultMode));
+  const [isDarkMode, setIsDarkMode] = useState(checkIsDark(defaultMode));
 
   useEffect(() => {
     isDarkMode ? toggleColorScheme('dark') : toggleColorScheme('light');
   }, [isDarkMode]);
+
+  useEffect(() => {
+    setIsDarkMode(checkIsDark(colorMode));
+  }, [colorMode]);
 
   const toggleColorScheme = (colorScheme: string) => {
     const html = document.querySelector('html');
