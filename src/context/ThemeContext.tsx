@@ -35,8 +35,10 @@ const checkIsDark = (colorMode: string | null): boolean => {
 
 //NOTE: Todo: if no theme is in localstorage, default should be system. the icon on colorMode should default to system.
 export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(checkIsDark(window.localStorage.getItem('colorMode')));
-  const [colorMode, setColorMode] = useState<string | null>(window.localStorage.getItem('colorMode'));
+  const defaultMode = 'system';
+
+  const [colorMode, setColorMode] = useState(window.localStorage.getItem('colorMode') || defaultMode); //system, dark, light
+  const [isDarkMode, setIsDarkMode] = useState(checkIsDark(colorMode) || checkIsDark(defaultMode));
 
   useEffect(() => {
     isDarkMode ? toggleColorScheme('dark') : toggleColorScheme('light');
