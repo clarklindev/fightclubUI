@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledNavbar = styled.header`
-  // background: rgba(0, 0, 255, 1);
+  background: var(--clr-background);
   min-height: 50px;
   display: flex;
   align-items: center;
