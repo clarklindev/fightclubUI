@@ -4,9 +4,11 @@ import { useState, createContext, useContext } from 'react';
 
 const ThemeContext = createContext<{
   colorMode: string | null;
+  isDarkMode: boolean | null;
   setLightDarkSystemMode: (mode: string) => void;
 }>({
   colorMode: null,
+  isDarkMode: null,
   setLightDarkSystemMode: _ => {},
 });
 
@@ -58,5 +60,7 @@ export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({ 
     setIsDarkMode(checkIsDark(mode));
   };
 
-  return <ThemeContext.Provider value={{ colorMode, setLightDarkSystemMode }}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={{ colorMode, isDarkMode, setLightDarkSystemMode }}>{children}</ThemeContext.Provider>
+  );
 };

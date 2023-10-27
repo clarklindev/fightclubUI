@@ -7,6 +7,8 @@ export declare const useDropdown: () => {
     setIsMenuOpen: (isOpen: boolean) => void;
     handleMouseOver: () => void;
     handleMouseLeave: () => void;
+    dropdownRef: React.RefObject<React.ReactNode | HTMLElement> | null;
+    setDropdownRef: (dropdownRef: React.RefObject<React.ReactNode | HTMLElement>) => void;
     triggerRef: React.RefObject<React.ReactNode | HTMLElement> | null;
     setTriggerRef: (buttonRef: React.RefObject<React.ReactNode | HTMLElement>) => void;
     menuRef: React.RefObject<React.ReactNode | HTMLElement> | null;

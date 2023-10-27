@@ -2,6 +2,7 @@ export declare enum Position {
     TOP = "top",
     BOTTOM = "bottom",
     LEFT = "left",
-    RIGHT = "right"
+    RIGHT = "right",
+    CENTER = "center"
 }
 //# sourceMappingURL=position.d.ts.map
