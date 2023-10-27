@@ -1,8 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 import { useFocus, useMenu } from '../customhooks';
 
-import { Quadrant } from '../utils/getQuadrant';
-
 // Create a Context
 const DropdownContext = createContext<{
   isFocused: boolean;
@@ -31,23 +29,23 @@ const DropdownContext = createContext<{
   onBlur: () => {},
   onFocus: () => {},
   isMenuOpen: false,
-  setIsMenuOpen: () => {},
+  setIsMenuOpen: _ => {},
   handleMouseOver: () => {},
   handleMouseLeave: () => {},
   dropdownRef: null,
-  setDropdownRef: _dropdownRef => {},
+  setDropdownRef: _ => {},
   triggerRef: null,
-  setTriggerRef: _buttonRef => {},
+  setTriggerRef: _ => {},
   menuRef: null,
-  setMenuRef: _menuRef => {},
+  setMenuRef: _ => {},
   menuOrientationX: null,
-  setMenuOrientationX: () => {},
+  setMenuOrientationX: _ => {},
   menuOrientationY: null,
-  setMenuOrientationY: () => {},
+  setMenuOrientationY: _ => {},
   menuBoundsObject: {} as DOMRect,
-  setMenuBoundsObject: () => {},
+  setMenuBoundsObject: _ => {},
   triggerBoundsObject: {} as DOMRect,
-  setTriggerBoundsObject: () => {},
+  setTriggerBoundsObject: _ => {},
 });
 
 // Custom Hook to Access the Context

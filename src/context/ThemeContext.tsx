@@ -1,28 +1,60 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { useState, createContext, useContext } from 'react';
 
-//todo: needs to get initial state from local storage since isSystemDarkMode would be overridden by switching mode.
-//todo: cant have 2 state button (needs 3) - system mode, dark, light
-
-// Define an interface for the theme context
-const ThemeContext = createContext({
-  isDarkMode: false,
-
-  // eslint-disable-next-line
-  setIsDarkMode: (_: boolean) => {},
+const ThemeContext = createContext<{
+  colorMode: string | null;
+  setLightDarkSystemMode: (mode: string) => void;
+}>({
+  colorMode: null,
+  setLightDarkSystemMode: _ => {},
 });
 
-// Create a custom hook to simplify accessing the context values
-//usage: import { useTheme } from '../../context/ThemeContext';  const { isDarkMode, setIsDarkMode } = useTheme();
 export const useTheme = () => {
   return useContext(ThemeContext);
 };
 
-// Define the props for your ThemeProvider component
-export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const isSystemDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const [isDarkMode, setIsDarkMode] = useState(isSystemDark);
+const checkIsDark = (colorMode: string | null): boolean => {
+  let isDark; //stores a boolean - true is darkmode - false is lightmode
+  switch (colorMode) {
+    case 'system':
+      isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      break;
+    case 'dark':
+      isDark = true;
+      break;
+    case 'light':
+      isDark = false;
+      break;
+    default:
+      const error = new Error("Error: you need to set a valid option: 'system', 'dark', 'light'");
+      throw error;
+  }
+  return isDark;
+};
 
-  return <ThemeContext.Provider value={{ isDarkMode, setIsDarkMode }}>{children}</ThemeContext.Provider>;
+//NOTE: Todo: if no theme is in localstorage, default should be system. the icon on colorMode should default to system.
+export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+  const [isDarkMode, setIsDarkMode] = useState(checkIsDark(window.localStorage.getItem('colorMode')));
+  const [colorMode, setColorMode] = useState<string | null>(window.localStorage.getItem('colorMode'));
+
+  useEffect(() => {
+    isDarkMode ? toggleColorScheme('dark') : toggleColorScheme('light');
+  }, [isDarkMode]);
+
+  const toggleColorScheme = (colorScheme: string) => {
+    const html = document.querySelector('html');
+    if (html) {
+      html.setAttribute('color-scheme', colorScheme);
+      document.documentElement.style.setProperty('color-scheme', colorScheme);
+    }
+  };
+
+  const setLightDarkSystemMode = (mode: string) => {
+    window.localStorage.setItem('colorMode', mode); //stores 'system', 'dark', 'light'
+    setColorMode(mode);
+    setIsDarkMode(checkIsDark(mode));
+  };
+
+  return <ThemeContext.Provider value={{ colorMode, setLightDarkSystemMode }}>{children}</ThemeContext.Provider>;
 };

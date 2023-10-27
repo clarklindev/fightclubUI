@@ -141,7 +141,7 @@ const Container = styled.div<{ isOpen: boolean; className?: string }>`
 
 export const HomeLayout = () => {
   const { isOpen, toggleMenu, closeMenu } = useMenu();
-  const { setIsDarkMode } = useTheme();
+  const { colorMode, setLightDarkSystemMode } = useTheme();
   const navigate = useNavigate();
 
   return (
@@ -182,27 +182,31 @@ export const HomeLayout = () => {
 
           <Dropdown>
             <Dropdown.DropdownWrapper>
-              <Dropdown.DropdownTrigger>hi</Dropdown.DropdownTrigger>
+              <Dropdown.DropdownTrigger>{colorMode}</Dropdown.DropdownTrigger>
               <Dropdown.DropdownMenu>
                 <Dropdown.DropdownMenuItem
                   onClick={() => {
-                    setIsDarkMode(true);
+                    setLightDarkSystemMode('dark');
                   }}>
                   Dark mode
                 </Dropdown.DropdownMenuItem>
                 <Dropdown.DropdownMenuItem
                   onClick={() => {
-                    setIsDarkMode(false);
+                    setLightDarkSystemMode('light');
                   }}>
                   Light mode
                 </Dropdown.DropdownMenuItem>
-                <Dropdown.DropdownMenuItem>System mode</Dropdown.DropdownMenuItem>
+                <Dropdown.DropdownMenuItem
+                  onClick={() => {
+                    setLightDarkSystemMode('system');
+                  }}>
+                  System mode
+                </Dropdown.DropdownMenuItem>
               </Dropdown.DropdownMenu>
             </Dropdown.DropdownWrapper>
           </Dropdown>
         </Navbar.Group>
       </Navbar>
-
       <Content>
         <MenuSide className="navside">
           <Heading variation="h6">Guide</Heading>
