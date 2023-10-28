@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 const StyledNavbar = styled.header`
+  grid-area: navbar;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+
   background: var(--clr-background);
   min-height: 50px;
   display: flex;
@@ -19,6 +24,10 @@ const StyledNavbar = styled.header`
 
   @media (min-width: 1200px) {
     padding: 0 6rem;
+  }
+
+  @media (min-width: 2400px) {
+    max-width: 2400px;
   }
 `;
 
