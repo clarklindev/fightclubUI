@@ -15,6 +15,9 @@ const StyledMenuSide = styled.aside<{ isOpen: boolean; className?: string }>`
     display: flex;
     flex-direction: column;
   }
+
+  nav a {
+  }
 `;
 
 type MenuSideProps = {

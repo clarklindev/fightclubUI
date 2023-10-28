@@ -21,8 +21,7 @@ const DropdownExample = () => {
   return (
     <>
       <Heading variation="h4">Dropdown</Heading>
-      <Button onClick={iterateEnum}>toggle align</Button>
-      <div style={{ height: '500px' }}></div>
+
       <Dropdown>
         <Dropdown.DropdownWrapper style={{ justifyContent: align }}>
           <Dropdown.DropdownTrigger>hi</Dropdown.DropdownTrigger>
@@ -30,10 +29,10 @@ const DropdownExample = () => {
             <Dropdown.DropdownMenuItem>A</Dropdown.DropdownMenuItem>
             <Dropdown.DropdownMenuItem>B</Dropdown.DropdownMenuItem>
             <Dropdown.DropdownMenuItem>C</Dropdown.DropdownMenuItem>
+            <Dropdown.DropdownMenuItem>D</Dropdown.DropdownMenuItem>
           </Dropdown.DropdownMenu>
         </Dropdown.DropdownWrapper>
       </Dropdown>
-      <div style={{ height: '500px' }}></div>
     </>
   );
 };

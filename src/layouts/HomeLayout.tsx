@@ -73,9 +73,6 @@ const Content = styled.div`
       body {
         font-size: 1.2rem;
       }
-      nav a {
-        // padding: 10px 10px 10px 0px;
-      }
     }
     @media (min-width: 768px) {
       grid-area: navside;
@@ -244,10 +241,8 @@ export const HomeLayout = () => {
           <br />
           {/* utility helper components */}
           <Heading variation="h6">Utility</Heading>
-          <CustomNavLink to="labelsomething">LabelSomething</CustomNavLink>
           <CustomNavLink to="resizepanel">Resize panel</CustomNavLink>
           <CustomNavLink to="dimensions">Dimensions</CustomNavLink>
-          <CustomNavLink to="hooks">Hooks</CustomNavLink>
           <CustomNavLink to="codeblock">CodeBlock</CustomNavLink>
         </MenuSide>
 

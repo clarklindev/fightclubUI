@@ -9,10 +9,6 @@
   --thumb-hover: hsla(255, 0%, 0%, 0.3);
 }
 
-* {
-  box-sizing: border-box;
-}
-
 html[color-scheme='dark'] {
   --clr-background: black;
   --clr-foreground: rgba(255, 255, 255, 0.9);
@@ -22,6 +18,10 @@ html[color-scheme='dark'] {
   --border-color: hsla(255, 100%, 100%, 0.1);
   --thumb-default: #666666;
   --thumb-hover: hsla(255, 0%, 0%, 0.3);
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {

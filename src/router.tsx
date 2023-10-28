@@ -49,11 +49,9 @@ export const router = createBrowserRouter(
       <Route path="/introduction" element={<Introduction />} />
       <Route path="/gettingstarted" element={<GettingStarted />} />
       <Route path="/systemdesign" element={<SystemDesign />} />
-      <Route path="/hooks" element={<HooksExample />} />
       <Route path="/heading" element={<HeadingExample />} />
       <Route path="/text" element={<TextExample />} />
       <Route path="/icon" element={<IconExample />} />
-      <Route path="/labelsomething" element={<LabelSomethingExample />} />
       <Route path="/button" element={<ButtonExample />} />
       <Route path="/input" element={<InputExample />} />
       <Route path="/select" element={<SelectExample />} />

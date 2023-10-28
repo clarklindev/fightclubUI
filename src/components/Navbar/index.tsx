@@ -9,6 +9,7 @@ const StyledNavbar = styled.header`
   width: 100%;
 
   @media (min-width: 768px) {
+    border-bottom: 1px solid var(--border-color);
     padding: 0 2rem;
   }
 
