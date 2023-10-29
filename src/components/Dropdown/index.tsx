@@ -3,21 +3,43 @@ import React, { useState, useEffect, useLayoutEffect, useRef, ButtonHTMLAttribut
 import { useDropdown, DropdownContextProvider } from '../../context/DropdownContext';
 import { Button } from '../../components';
 import { Position } from '../../utils/position';
+import { getHorizontalQuadrant } from '../../utils/getQuadrant';
 
 const Dropdown = ({ children }: { children: React.ReactNode }) => {
   return <DropdownContextProvider>{children}</DropdownContextProvider>;
 };
 
-const DropdownWrapper = ({ children, style }: { children: React.ReactNode; style?: React.CSSProperties }) => {
-  const dropdownRef = useRef<HTMLDivElement | null>(null);
-
-  const { onBlur, setDropdownRef } = useDropdown();
+const DropdownWrapper = ({
+  children,
+  className = 'justify-start', //button
+  id = 'default',
+  autoAdjust = true,
+  menuAlign = Position.AUTO, //menu
+  layoutContainer = null,
+}: {
+  children: React.ReactNode;
+  className?: string;
+  id?: string;
+  autoAdjust?: boolean;
+  menuAlign?: Position | string;
+  layoutContainer?: (HTMLElement | React.ReactNode) | null;
+}) => {
+  const { onBlur, setId, setAutoAdjust, setMenuAlign, setLayoutContainer } = useDropdown();
+  useEffect(() => {
+    setId(id);
+  }, [id]);
 
   useEffect(() => {
-    if (dropdownRef.current) {
-      setDropdownRef(dropdownRef);
-    }
-  }, [dropdownRef]);
+    setAutoAdjust(autoAdjust);
+  }, [autoAdjust]);
+
+  useEffect(() => {
+    setMenuAlign(menuAlign);
+  }, [menuAlign]);
+
+  useEffect(() => {
+    setLayoutContainer(layoutContainer as HTMLElement);
+  }, [layoutContainer]);
 
   useEffect(() => {
     const keyboardHandler = (e: KeyboardEvent) => {
@@ -34,12 +56,10 @@ const DropdownWrapper = ({ children, style }: { children: React.ReactNode; style
   }, []);
 
   return (
-    <div className="relative flex justify-start" ref={dropdownRef} style={style}>
-      {children}
-    </div>
+    // className is using tailwind syntax: justify-center justify-self-center justify-items-center justify-center
+    <div className={`relative flex ${className}`}>{children}</div>
   );
 };
-
 const DropdownTrigger = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) => {
   const { isFocused, setIsMenuOpen, onFocus, onBlur, handleMouseOver, handleMouseLeave, setTriggerRef } = useDropdown();
   const triggerRef = useRef<HTMLButtonElement | null>(null);
@@ -72,7 +92,7 @@ const DropdownTrigger = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) 
   return (
     <Button
       ref={triggerRef}
-      className={'block'}
+      className={'relative'}
       onMouseEnter={handleMouseOver}
       onMouseLeave={handleMouseLeave}
       {...({ onFocus, onBlur } as React.HTMLAttributes<HTMLButtonElement>)}>
@@ -86,12 +106,15 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
     isMenuOpen,
     handleMouseOver,
     handleMouseLeave,
+    menuAlign,
     menuOrientationX,
     menuOrientationY,
-    triggerRef,
     setMenuOrientationX,
     setMenuOrientationY,
-    dropdownRef,
+    autoAdjust,
+    id,
+    layoutContainer,
+    triggerRef,
   } = useDropdown();
 
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -107,38 +130,60 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
     let menuBounds: DOMRect;
     let triggerBounds: DOMRect;
 
-    if (menuRef?.current && triggerRef?.current && dropdownRef?.current) {
+    if (menuRef?.current && triggerRef?.current) {
+      console.log('layoutContainer: ', layoutContainer);
+
       menuBounds = (menuRef.current as HTMLElement).getBoundingClientRect();
       triggerBounds = (triggerRef.current as HTMLElement).getBoundingClientRect();
 
       setTriggerHeight(Math.round(triggerBounds?.height));
       setMenuHeight(Math.round(menuBounds?.height));
 
-      const parentNode = (dropdownRef.current as HTMLElement).parentNode as HTMLElement;
-      const styles = window.getComputedStyle(dropdownRef.current as HTMLElement);
-      // Check the value of the justifyContent property
-      const justifyContentValue = styles.getPropertyValue('justify-content');
-      console.log('justifyContentValue: ', justifyContentValue);
+      // if (menuAlign === Position.LEFT) {
+      //   setMenuOrientationX(Position.LEFT);
+      // }
+      // if (menuAlign === Position.RIGHT) {
+      //   setMenuOrientationX(Position.RIGHT);
+      // }
 
-      if (
-        triggerBounds.x + menuBounds.width + scrollbarThickness > viewWidth ||
-        (triggerBounds.x + menuBounds.width + scrollbarThickness > parentNode.clientWidth &&
-          justifyContentValue === 'end')
-      ) {
-        setMenuOrientationX(Position.LEFT);
-      } else {
-        setMenuOrientationX(Position.RIGHT);
+      if (menuAlign === 'auto' || menuAlign === Position.AUTO) {
+        setMenuOrientationX(Position.CENTER);
+        console.log('menuAlign: ', menuAlign);
+
+        //check where is the trigger on the page , place setMenuOrientationX in relation to that position
+
+        const horizontalQuad = getHorizontalQuadrant(
+          triggerRef.current as HTMLElement,
+          layoutContainer ? (layoutContainer as HTMLElement) : undefined,
+        );
+
+        console.log('horizontalQuad: ', horizontalQuad);
+
+        if (horizontalQuad === Position.LEFT) {
+          setMenuOrientationX(Position.LEFT);
+        }
+
+        if (horizontalQuad === Position.RIGHT) {
+          setMenuOrientationX(Position.RIGHT);
+        }
       }
 
-      if (justifyContentValue === 'center') {
-        setMenuOrientationX(Position.CENTER);
+      if (autoAdjust) {
+        console.log('autoAdjust');
+        if (triggerBounds.x + menuBounds.width + scrollbarThickness > viewWidth) {
+          console.log('auto adjust Position.RIGHT');
+          setMenuOrientationX(Position.RIGHT);
+        } else if (menuBounds.x < 0) {
+          console.log('auto adjust Position.LEFT');
+          setMenuOrientationX(Position.LEFT);
+        }
       }
 
       triggerBounds.y + menuBounds.height + scrollbarThickness > viewHeight
         ? setMenuOrientationY(Position.TOP)
         : setMenuOrientationY(Position.BOTTOM);
     }
-  }, [isMenuOpen, menuRef, triggerRef]);
+  }, [autoAdjust, menuAlign, layoutContainer, triggerRef, menuRef]);
 
   return (
     <div
@@ -154,11 +199,12 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
             transform: `translateY(${triggerHeight + 2}px)`,
             transition: 'none',
           }),
-        right: menuOrientationX === Position.LEFT ? '0' : 'auto',
-        left: menuOrientationX === Position.RIGHT ? '0' : 'auto',
+        left: menuOrientationX === Position.LEFT ? '0' : 'auto',
+        right: menuOrientationX === Position.RIGHT ? '0' : 'auto',
       }}
       className={`
-      tabindex:-1 border-2 flex flex-col gap-1 rounded absolute bg-blue-500 cursor-pointer p-2 z-10 w-32 
+      tabindex:-1 border-2 flex flex-col gap-1 rounded absolute bg-blue-500 cursor-pointer p-2 z-10 
+
       ${isMenuOpen ? 'block' : 'hidden'}
       ${className}
       `}
@@ -191,7 +237,6 @@ const DropdownMenuItem = ({
       }}
       onClick={() => {
         onBlur();
-
         if (onClick) {
           console.log('onClick');
           onClick();

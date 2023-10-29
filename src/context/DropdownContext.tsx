@@ -16,6 +16,8 @@ const DropdownContext = createContext<{
   setTriggerRef: (buttonRef: React.RefObject<React.ReactNode | HTMLElement>) => void;
   menuRef: React.RefObject<React.ReactNode | HTMLElement> | null;
   setMenuRef: (menuRef: React.RefObject<React.ReactNode | HTMLElement>) => void;
+  menuAlign: string | null;
+  setMenuAlign: (align: string) => void;
   menuOrientationX: string | null;
   setMenuOrientationX: (orientation: string) => void;
   menuOrientationY: string | null;
@@ -24,6 +26,12 @@ const DropdownContext = createContext<{
   setMenuBoundsObject: (obj: DOMRect) => void;
   triggerBoundsObject: DOMRect;
   setTriggerBoundsObject: (obj: DOMRect) => void;
+  autoAdjust: boolean;
+  setAutoAdjust: (autoAdjust: boolean) => void;
+  id: string | null;
+  setId: (id: string) => void;
+  layoutContainer: null | (HTMLElement | React.ReactElement);
+  setLayoutContainer: (element: HTMLElement | React.ReactElement) => void;
 }>({
   isFocused: false,
   onBlur: () => {},
@@ -39,6 +47,8 @@ const DropdownContext = createContext<{
   menuRef: null,
   setMenuRef: _ => {},
   menuOrientationX: null,
+  menuAlign: null,
+  setMenuAlign: _ => {},
   setMenuOrientationX: _ => {},
   menuOrientationY: null,
   setMenuOrientationY: _ => {},
@@ -46,6 +56,12 @@ const DropdownContext = createContext<{
   setMenuBoundsObject: _ => {},
   triggerBoundsObject: {} as DOMRect,
   setTriggerBoundsObject: _ => {},
+  autoAdjust: true,
+  setAutoAdjust: _ => {},
+  id: null,
+  setId: _ => {},
+  layoutContainer: null,
+  setLayoutContainer: _ => {},
 });
 
 // Custom Hook to Access the Context
@@ -64,11 +80,14 @@ export const DropdownContextProvider = ({ children }: DropdownContextProviderPro
   const [triggerRef, setTriggerRef] = useState<React.RefObject<React.ReactNode | HTMLElement> | null>(null);
   const [menuRef, setMenuRef] = useState<React.RefObject<React.ReactNode | HTMLElement> | null>(null);
   const [dropdownRef, setDropdownRef] = useState<React.RefObject<React.ReactNode | HTMLElement> | null>(null);
-
+  const [menuAlign, setMenuAlign] = useState<string | null>(null);
   const [menuOrientationX, setMenuOrientationX] = useState<null | string>(null);
   const [menuOrientationY, setMenuOrientationY] = useState<null | string>(null);
   const [menuBoundsObject, setMenuBoundsObject] = useState<DOMRect>({} as DOMRect);
   const [triggerBoundsObject, setTriggerBoundsObject] = useState<DOMRect>({} as DOMRect);
+  const [autoAdjust, setAutoAdjust] = useState<boolean>(true);
+  const [id, setId] = useState<null | string>(null);
+  const [layoutContainer, setLayoutContainer] = useState<null | (HTMLElement | React.ReactElement)>(null);
 
   const handleMouseOver = () => {
     onFocus();
@@ -95,6 +114,8 @@ export const DropdownContextProvider = ({ children }: DropdownContextProviderPro
         setTriggerRef,
         menuRef,
         setMenuRef,
+        menuAlign,
+        setMenuAlign,
         menuOrientationX,
         setMenuOrientationX,
         menuOrientationY,
@@ -103,6 +124,12 @@ export const DropdownContextProvider = ({ children }: DropdownContextProviderPro
         setMenuBoundsObject,
         triggerBoundsObject,
         setTriggerBoundsObject,
+        autoAdjust,
+        setAutoAdjust,
+        id,
+        setId,
+        layoutContainer,
+        setLayoutContainer,
       }}>
       {children}
     </DropdownContext.Provider>

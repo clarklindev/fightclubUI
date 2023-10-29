@@ -8,6 +8,7 @@ import { useMenu } from '../context/MenuContext';
 import logo from '../assets/logo.svg';
 import githubIcon from '../assets/github.svg';
 import { useTheme } from '../context/ThemeContext';
+import { Position } from '../utils/position';
 
 const HomeLayoutContainer = styled.div`
   position: relative;
@@ -83,7 +84,7 @@ export const HomeLayout = () => {
     <HomeLayoutContainer>
       <Navbar className="navbar">
         <Navbar.Group className="header-left flex justify-center flex-row w-full min-w-min gap-2 items-center md:justify-start">
-          <Navbar.Group className="min-[320px]:absolute left-8 md:hidden">
+          <div className="min-[320px]:absolute left-8 md:hidden">
             {!isOpen ? (
               <Button className="menu-btn" intent="icon" onClick={toggleMenu}>
                 <Icon size="20px">
@@ -97,7 +98,7 @@ export const HomeLayout = () => {
                 </Icon>
               </Button>
             )}
-          </Navbar.Group>
+          </div>
           <div className="logo">
             <Button intent="plain" padding="none" className="gap-2" onClick={() => navigate('/')}>
               <Icon className="icon" size="25px">
@@ -116,9 +117,9 @@ export const HomeLayout = () => {
           </Link>
 
           <Dropdown>
-            <Dropdown.DropdownWrapper>
+            <Dropdown.DropdownWrapper id="1">
               <Dropdown.DropdownTrigger>{colorMode}</Dropdown.DropdownTrigger>
-              <Dropdown.DropdownMenu>
+              <Dropdown.DropdownMenu className="w-40">
                 <Dropdown.DropdownMenuItem
                   onClick={() => {
                     setLightDarkSystemMode('dark');
