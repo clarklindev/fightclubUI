@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useLayoutEffect, useEffect, useState, RefObject } from 'react';
 import { Outlet, useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -8,7 +8,6 @@ import { useMenu } from '../context/MenuContext';
 import logo from '../assets/logo.svg';
 import githubIcon from '../assets/github.svg';
 import { useTheme } from '../context/ThemeContext';
-import { Position } from '../utils/position';
 
 const HomeLayoutContainer = styled.div`
   position: relative;
@@ -29,6 +28,7 @@ const HomeLayoutContainer = styled.div`
 const Content = styled.div`
   grid-area: content;
   position: relative;
+
   display: grid;
   grid-template-areas: 'container';
   grid-template-columns: minmax(0, 1fr); //NOTE: need grid layout to keep container width in check.
@@ -51,12 +51,14 @@ const Content = styled.div`
 
 const Container = styled.div<{ isOpen: boolean; className?: string }>`
   ${({ isOpen }) => isOpen && `display: none`};
+
   grid-area: container;
   // background: yellow;
 
   @media (min-width: 640px) {
-    max-width: 100%; // NOTE: this needs to be here to reset tailwind
+    max-width: 100%;
   }
+
   @media (min-width: 768px) {
     display: block;
   }
@@ -79,6 +81,9 @@ export const HomeLayout = () => {
   const { isOpen, toggleMenu, closeMenu } = useMenu();
   const { colorMode, setLightDarkSystemMode } = useTheme();
   const navigate = useNavigate();
+
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <HomeLayoutContainer>
@@ -143,7 +148,7 @@ export const HomeLayout = () => {
           </Dropdown>
         </Navbar.Group>
       </Navbar>
-      <Content>
+      <Content ref={contentRef}>
         <MenuSide className="navside">
           <Heading variation="h6">Guide</Heading>
           <CustomNavLink to="introduction">Introduction</CustomNavLink>
@@ -184,8 +189,7 @@ export const HomeLayout = () => {
           <CustomNavLink to="dimensions">Dimensions</CustomNavLink>
           <CustomNavLink to="codeblock">CodeBlock</CustomNavLink>
         </MenuSide>
-
-        <Container isOpen={isOpen}>
+        <Container isOpen={isOpen} ref={containerRef}>
           <main id="main">
             <Outlet />
           </main>

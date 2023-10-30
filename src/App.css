@@ -25,8 +25,7 @@ html[color-scheme='dark'] {
 }
 
 html {
-  /* scrollbar-gutter: stable both-edges; */
-  scrollbar-gutter: auto;
+  scrollbar-gutter: stable both-edges;
 }
 
 body {
