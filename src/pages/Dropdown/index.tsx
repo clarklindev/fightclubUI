@@ -5,7 +5,7 @@ import { useDropdown } from '../../context/DropdownContext';
 import { Position } from '../../utils/position';
 
 const DropdownExample = () => {
-  //temp code to get layout container: have to use useState because access to context is within Dropdown
+  //temp code to get layout container: have to use useState because access to context is within Dropdown so not available yet
   const tempWrapperRef = useRef<HTMLDivElement | null>(null);
   const [layoutContainer, setLayoutContainer] = useState<null | (HTMLElement | React.ReactNode)>(null);
   useEffect(() => {
@@ -20,7 +20,7 @@ const DropdownExample = () => {
       <Heading variation="h4">Dropdown</Heading>
 
       <Dropdown>
-        <Dropdown.DropdownWrapper id="2" layoutContainer={layoutContainer} className="justify-start">
+        <Dropdown.DropdownWrapper id="2" layoutContainer={layoutContainer}>
           <Dropdown.DropdownTrigger>hi</Dropdown.DropdownTrigger>
           <Dropdown.DropdownMenu className="w-40">
             <Dropdown.DropdownMenuItem>A</Dropdown.DropdownMenuItem>

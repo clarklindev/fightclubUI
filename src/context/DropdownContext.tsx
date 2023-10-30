@@ -32,6 +32,8 @@ const DropdownContext = createContext<{
   setId: (id: string) => void;
   layoutContainer: null | (HTMLElement | React.ReactElement);
   setLayoutContainer: (element: HTMLElement | React.ReactElement) => void;
+  hoverMode: boolean;
+  setHoverMode: (hoverMode: boolean) => void;
 }>({
   isFocused: false,
   onBlur: () => {},
@@ -62,6 +64,8 @@ const DropdownContext = createContext<{
   setId: _ => {},
   layoutContainer: null,
   setLayoutContainer: _ => {},
+  hoverMode: false,
+  setHoverMode: _ => {},
 });
 
 // Custom Hook to Access the Context
@@ -88,6 +92,7 @@ export const DropdownContextProvider = ({ children }: DropdownContextProviderPro
   const [autoAdjust, setAutoAdjust] = useState<boolean>(true);
   const [id, setId] = useState<null | string>(null);
   const [layoutContainer, setLayoutContainer] = useState<null | (HTMLElement | React.ReactElement)>(null);
+  const [hoverMode, setHoverMode] = useState<boolean>(false);
 
   const handleMouseOver = () => {
     onFocus();
@@ -130,6 +135,8 @@ export const DropdownContextProvider = ({ children }: DropdownContextProviderPro
         setId,
         layoutContainer,
         setLayoutContainer,
+        hoverMode,
+        setHoverMode,
       }}>
       {children}
     </DropdownContext.Provider>

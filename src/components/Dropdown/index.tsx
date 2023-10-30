@@ -16,6 +16,7 @@ const DropdownWrapper = ({
   autoAdjust = true,
   menuAlign = Position.AUTO, //menu
   layoutContainer = null,
+  hoverMode = false,
 }: {
   children: React.ReactNode;
   className?: string;
@@ -23,8 +24,9 @@ const DropdownWrapper = ({
   autoAdjust?: boolean;
   menuAlign?: Position | string;
   layoutContainer?: (HTMLElement | React.ReactNode) | null;
+  hoverMode?: boolean;
 }) => {
-  const { onBlur, setId, setAutoAdjust, setMenuAlign, setLayoutContainer } = useDropdown();
+  const { onBlur, setId, setAutoAdjust, setMenuAlign, setLayoutContainer, setHoverMode } = useDropdown();
   useEffect(() => {
     setId(id);
   }, [id]);
@@ -40,6 +42,10 @@ const DropdownWrapper = ({
   useEffect(() => {
     setLayoutContainer(layoutContainer as HTMLElement);
   }, [layoutContainer]);
+
+  useEffect(() => {
+    setHoverMode(hoverMode);
+  }, [hoverMode]);
 
   useEffect(() => {
     const keyboardHandler = (e: KeyboardEvent) => {
@@ -61,7 +67,8 @@ const DropdownWrapper = ({
   );
 };
 const DropdownTrigger = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) => {
-  const { isFocused, setIsMenuOpen, onFocus, onBlur, handleMouseOver, handleMouseLeave, setTriggerRef } = useDropdown();
+  const { isFocused, setIsMenuOpen, onFocus, onBlur, handleMouseOver, handleMouseLeave, setTriggerRef, hoverMode } =
+    useDropdown();
   const triggerRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
@@ -93,8 +100,8 @@ const DropdownTrigger = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) 
     <Button
       ref={triggerRef}
       className={'relative'}
-      onMouseEnter={handleMouseOver}
-      onMouseLeave={handleMouseLeave}
+      onMouseEnter={hoverMode ? handleMouseOver : undefined}
+      onMouseLeave={hoverMode ? handleMouseLeave : undefined}
       {...({ onFocus, onBlur } as React.HTMLAttributes<HTMLButtonElement>)}>
       {children}
     </Button>
@@ -115,6 +122,7 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
     id,
     layoutContainer,
     triggerRef,
+    hoverMode,
   } = useDropdown();
 
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -138,13 +146,6 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
 
       setTriggerHeight(Math.round(triggerBounds?.height));
       setMenuHeight(Math.round(menuBounds?.height));
-
-      // if (menuAlign === Position.LEFT) {
-      //   setMenuOrientationX(Position.LEFT);
-      // }
-      // if (menuAlign === Position.RIGHT) {
-      //   setMenuOrientationX(Position.RIGHT);
-      // }
 
       if (menuAlign === 'auto' || menuAlign === Position.AUTO) {
         setMenuOrientationX(Position.CENTER);
@@ -208,8 +209,8 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
       ${isMenuOpen ? 'block' : 'hidden'}
       ${className}
       `}
-      onMouseEnter={handleMouseOver}
-      onMouseLeave={handleMouseLeave}>
+      onMouseEnter={hoverMode ? handleMouseOver : undefined}
+      onMouseLeave={hoverMode ? handleMouseLeave : undefined}>
       {children}
     </div>
   );
