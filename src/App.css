@@ -24,6 +24,10 @@ html[color-scheme='dark'] {
   box-sizing: border-box;
 }
 
+html {
+  scrollbar-gutter: stable both-edges;
+}
+
 body {
   background: var(--clr-background);
   color: var(--clr-foreground);

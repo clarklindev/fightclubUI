@@ -1,3 +1,5 @@
+import React, { useRef, useEffect, RefObject } from 'react';
+
 import styled from 'styled-components';
 
 const StyledNavbar = styled.header`
@@ -32,7 +34,47 @@ const StyledNavbar = styled.header`
 `;
 
 const Navbar = ({ children, className }: { className?: string; children?: React.ReactNode }) => {
-  return <StyledNavbar className={className}>{children}</StyledNavbar>;
+  const navbarRef = useRef<HTMLDivElement | null>(null);
+  const initialWidth = useRef<string | null>(null);
+
+  useEffect(() => {
+    const navbar = navbarRef.current;
+
+    const adjustNavbarWidth = async () => {
+      try {
+        await new Promise(resolve => requestAnimationFrame(resolve)); // Wait for the next animation frame
+        if (navbar) {
+          navbar.style.width = initialWidth.current || ''; // Set the width back to its original value
+        }
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    const handleResize = () => {
+      if (navbar) {
+        initialWidth.current = getComputedStyle(navbar).width;
+        adjustNavbarWidth();
+      }
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    if (navbar) {
+      initialWidth.current = getComputedStyle(navbar).width;
+      adjustNavbarWidth();
+    }
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return (
+    <StyledNavbar ref={navbarRef} className={className}>
+      {children}
+    </StyledNavbar>
+  );
 };
 
 const Group = ({ children, className }: { children?: React.ReactNode; className?: string }) => {
