@@ -1,29 +1,29 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
 
-type SeparatorVariation = 'horizontal' | 'vertical';
+type DividerVariation = 'horizontal' | 'vertical';
 
-type SeparatorProps = {
-  variation?: SeparatorVariation;
+type DividerProps = {
+  variation?: DividerVariation;
   width?: string;
   height?: string;
   gap?: string;
   children?: React.ReactNode;
 };
 
-export const Separator: React.FC<SeparatorProps> = ({
+export const Divider: React.FC<DividerProps> = ({
   variation = 'horizontal',
   gap = variation === 'horizontal' ? '1rem' : '0px',
   height,
   width,
   children = undefined,
-}: SeparatorProps) => {
-  const separatorRef = useRef<HTMLDivElement | null>(null);
+}: DividerProps) => {
+  const dividerRef = useRef<HTMLDivElement | null>(null);
   let parentRef;
 
   useEffect(() => {
-    if (separatorRef?.current?.parentNode) {
-      parentRef = separatorRef?.current?.parentNode.parentNode;
+    if (dividerRef?.current?.parentNode) {
+      parentRef = dividerRef?.current?.parentNode.parentNode;
       console.log('parentRef: ', parentRef);
 
       //we are trying to ensure the <span> element is the size of container without the padding..
@@ -35,21 +35,21 @@ export const Separator: React.FC<SeparatorProps> = ({
       //      const useHeight = Math.max(firstCheck, parseInt(`${parent?.clientHeight}px`));
       //      setUseHeight(`${useHeight}px`);
     }
-  }, [separatorRef.current]);
+  }, [dividerRef.current]);
 
   switch (variation) {
     case 'horizontal':
       return (
-        <SeparatorHorizontal className="Separator" height={height} width={width} gap={gap}>
+        <DividerHorizontal className="Divider" height={height} width={width} gap={gap}>
           {children && <span>{children}</span>}
-        </SeparatorHorizontal>
+        </DividerHorizontal>
       );
 
     case 'vertical':
       return (
-        <SeparatorVertical className="Separator" ref={separatorRef} height={height} width={width} gap={gap}>
+        <DividerVertical className="Divider" ref={dividerRef} height={height} width={width} gap={gap}>
           {children && <span>{children}</span>}
-        </SeparatorVertical>
+        </DividerVertical>
       );
 
     default:
@@ -59,7 +59,7 @@ export const Separator: React.FC<SeparatorProps> = ({
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
-const SeparatorHorizontal = styled.div<{
+const DividerHorizontal = styled.div<{
   className?: string;
   height?: string;
   width?: string;
@@ -98,7 +98,7 @@ const SeparatorHorizontal = styled.div<{
   }
 `;
 
-const SeparatorVertical = styled.div<{
+const DividerVertical = styled.div<{
   className?: string;
   height?: string;
   width?: string;

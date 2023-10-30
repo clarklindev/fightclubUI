@@ -15,7 +15,7 @@ export { ProgressLoader } from './ProgressLoader';
 export { RadioButton } from './RadioButton';
 export { RadioButtonGroup } from './RadioButtonGroup';
 export { Select } from './Select';
-export { Separator } from './Separator';
+export { Divider } from './Divider';
 export { Slider } from './Slider';
 export { SliderMultiRange } from './SliderMultiRange';
 export { Snackbar } from './Snackbar';

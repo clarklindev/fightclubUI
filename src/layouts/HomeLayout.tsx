@@ -168,7 +168,7 @@ export const HomeLayout = () => {
           <CustomNavLink to="snackbar">Snackbar</CustomNavLink>
           <CustomNavLink to="slider">Slider</CustomNavLink>
           <CustomNavLink to="slidermultirange">Slider (Multirange)</CustomNavLink>
-          <CustomNavLink to="separator">Separator</CustomNavLink>
+          <CustomNavLink to="divider">Divider</CustomNavLink>
           <CustomNavLink to="list">List</CustomNavLink>
           <CustomNavLink to="table">Table</CustomNavLink>
           <CustomNavLink to="card">Card</CustomNavLink>

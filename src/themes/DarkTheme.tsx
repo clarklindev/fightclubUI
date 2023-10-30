@@ -175,7 +175,7 @@ export const darkTheme = {
     gap: global.gap,
   },
 
-  Separator: {
+  Divider: {
     color: global.dividerColor,
     borderColor: global.dividerColor,
     backgroundColor: global.dividerColor,

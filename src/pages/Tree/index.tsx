@@ -42,7 +42,7 @@ const TreeExample = () => {
                 { label: 'Snackbar', path: '/snackbar' },
                 { label: 'List', path: '/list' },
                 { label: 'Table', path: '/table' },
-                { label: 'Separator', path: '/separator' },
+                { label: 'Divider', path: '/divider' },
                 { label: 'Card', path: '/card' },
                 { label: 'Tree', path: '/tree' },
               ],

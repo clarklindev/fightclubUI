@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 
-import { Icon, Separator } from '../';
+import { Icon, Divider } from '../';
 import { ChevronUpIcon, ChevronDownIcon, PlusSmallIcon, MinusSmallIcon } from '../../icons';
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -17,14 +17,14 @@ type AccordionProps = {
   data: Array<AccordionDataType>;
   multiOpen?: boolean;
   iconType?: AccordionIconType;
-  showSeparator?: boolean;
+  showDivider?: boolean;
 };
 
 export const Accordion: React.FC<AccordionProps> = ({
   data,
   multiOpen = true,
   iconType = 'plusminus',
-  showSeparator = true,
+  showDivider = true,
 }) => {
   const [indexes, setIndexes] = useState<number[]>([]);
 
@@ -76,13 +76,13 @@ export const Accordion: React.FC<AccordionProps> = ({
                 className="AccordionSectionHeader"
                 role="heading"
                 aria-level={3}
-                data-separator={showSeparator ? 'true' : 'false'}>
+                data-divider={showDivider ? 'true' : 'false'}>
                 <AccordionSectionTitle
                   role="button"
                   aria-expanded={indexes.includes(index) ? true : false}
                   aria-controls={`AccordionSectionPanel_${index}`}
                   aria-disabled={false}
-                  data-separator={showSeparator ? 'true' : 'false'}
+                  data-divider={showDivider ? 'true' : 'false'}
                   id={`AccordionSectionTitle_${index}`}
                   tabIndex={0}
                   onClick={() => handleClick(index)}
@@ -112,12 +112,12 @@ export const Accordion: React.FC<AccordionProps> = ({
                 ref={panelRef}
                 data-expanded={indexes.includes(index) ? 'true' : 'false'}
                 scrollHeight={String(panelRef?.current?.scrollHeight)}>
-                <AccordionSectionPanelContent data-separator={showSeparator ? 'true' : 'false'}>
+                <AccordionSectionPanelContent data-divider={showDivider ? 'true' : 'false'}>
                   {each.body}
                 </AccordionSectionPanelContent>
               </AccordionSectionPanel>
             </div>
-            {showSeparator && <Separator />}
+            {showDivider && <Divider />}
           </React.Fragment>
         );
       })}
@@ -146,7 +146,7 @@ const AccordionSectionHeader = styled.div`
   margin-bottom: 0px;
   margin-top: 0px;
 
-  &[data-separator='true'] {
+  &[data-divider='true'] {
     margin-bottom: 15px;
     margin-top: 15px;
   }
@@ -159,7 +159,7 @@ const AccordionSectionTitle = styled.div`
   align-items: center;
   margin-bottom: 5px;
   margin-top: 5px;
-  &[data-separator='true'] {
+  &[data-divider='true'] {
     margin-bottom: 0px;
     margin-top: 0px;
   }
@@ -189,7 +189,7 @@ const AccordionSectionPanel = styled.div<{
 const AccordionSectionPanelContent = styled.div`
   padding: 20px 0;
 
-  &[data-separator='true'] {
+  &[data-divider='true'] {
     padding: 0 0 20px 0;
   }
 `;
