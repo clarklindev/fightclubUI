@@ -25,7 +25,7 @@ const HomeLayoutContainer = styled.div`
   }
 `;
 
-const Content = styled.div<{ isOverflow: boolean }>`
+const Content = styled.div`
   grid-area: content;
   position: relative;
 
@@ -40,7 +40,7 @@ const Content = styled.div<{ isOverflow: boolean }>`
 
   @media (min-width: 768px) {
     display: grid;
-    grid-template-areas: 'navside container ';
+    grid-template-areas: 'navside container';
     grid-template-columns: 250px minmax(0, 1fr);
   }
 
@@ -50,7 +50,7 @@ const Content = styled.div<{ isOverflow: boolean }>`
   }
 
   @media (min-width: 1200px) {
-    grid-template-areas: 'navside container onthispage ';
+    grid-template-areas: 'navside container onthispage';
     grid-template-columns: 400px minmax(0, 1fr) 400px;
   }
 `;
@@ -115,7 +115,6 @@ const setModeIcon = (mode: string | null) => {
 export const HomeLayout = () => {
   const { isOpen, toggleMenu, closeMenu } = useMenu();
   const { colorMode, setLightDarkSystemMode } = useTheme();
-  const [isOverflow, setIsOverflow] = useState(false);
   const navigate = useNavigate();
 
   const contentRef = useRef<HTMLDivElement | null>(null);
@@ -123,17 +122,11 @@ export const HomeLayout = () => {
 
   useEffect(() => {
     const renderwait = async () => {
-      if (document.body.scrollHeight > window.innerHeight) {
-        await new Promise(resolve => requestAnimationFrame(resolve));
-        document.documentElement.style.scrollbarGutter = 'stable';
-        setIsOverflow(true);
-        console.log('yes');
-      } else {
-        await new Promise(resolve => requestAnimationFrame(resolve));
-        document.documentElement.style.scrollbarGutter = 'stable';
-        setIsOverflow(false);
-        console.log('no');
-      }
+      // if (document.body.scrollHeight > window.innerHeight) {
+      //   console.log('yes');
+      // } else {
+      //   console.log('no');
+      // }
     };
     renderwait();
   });
@@ -179,6 +172,7 @@ export const HomeLayout = () => {
               <Dropdown.DropdownTrigger asChild>
                 <Button intent="icon">{setModeIcon(colorMode)}</Button>
               </Dropdown.DropdownTrigger>
+              {/* <Dropdown.DropdownTrigger>{setModeIcon(colorMode)}</Dropdown.DropdownTrigger> */}
               <Dropdown.DropdownMenu className="w-40">
                 <Dropdown.DropdownMenuItem
                   onClick={() => {
@@ -203,7 +197,7 @@ export const HomeLayout = () => {
           </Dropdown>
         </Navbar.Group>
       </Navbar>
-      <Content ref={contentRef} isOverflow={isOverflow}>
+      <Content ref={contentRef}>
         <MenuSide className="navside">
           <Heading variation="h6">Guide</Heading>
           <CustomNavLink to="introduction">Introduction</CustomNavLink>

@@ -103,8 +103,12 @@ const DropdownTrigger = ({
   const additionalProps = {
     ref: triggerRef,
     className: 'relative',
-    onMouseEnter: hoverMode ? handleMouseOver : undefined,
-    onMouseLeave: hoverMode ? handleMouseLeave : undefined,
+    ...(hoverMode
+      ? {
+          onMouseEnter: handleMouseOver,
+          onMouseLeave: handleMouseLeave,
+        }
+      : {}),
     ...({ onFocus, onBlur } as React.HTMLAttributes<HTMLButtonElement>),
     ...rest,
   };

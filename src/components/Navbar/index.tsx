@@ -36,16 +36,6 @@ const StyledNavbar = styled.header`
 const Navbar = ({ children, className }: { className?: string; children?: React.ReactNode }) => {
   const navbarRef = useRef<HTMLDivElement | null>(null);
 
-  useEffect(() => {
-    if (navbarRef.current) {
-      if (document.body.scrollHeight > window.innerHeight) {
-        navbarRef.current.style.width = `${window.innerWidth}px`;
-      } else {
-        navbarRef.current.style.width = `100%`;
-      }
-    }
-  });
-
   return (
     <StyledNavbar ref={navbarRef} className={className}>
       {children}
