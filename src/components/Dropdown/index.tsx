@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useLayoutEffect, useRef, ButtonHTMLAttributes } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef, ButtonHTMLAttributes, ReactElement } from 'react';
 
 import { useDropdown, DropdownContextProvider } from '../../context/DropdownContext';
 import { Button } from '../../components';
@@ -66,7 +66,11 @@ const DropdownWrapper = ({
     <div className={`relative flex ${className}`}>{children}</div>
   );
 };
-const DropdownTrigger = ({ asChild, children }: ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean }) => {
+const DropdownTrigger = ({
+  asChild,
+  children,
+  ...rest
+}: ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean }) => {
   const { isFocused, setIsMenuOpen, onFocus, onBlur, handleMouseOver, handleMouseLeave, setTriggerRef, hoverMode } =
     useDropdown();
   const triggerRef = useRef<HTMLButtonElement | null>(null);
@@ -96,18 +100,19 @@ const DropdownTrigger = ({ asChild, children }: ButtonHTMLAttributes<HTMLButtonE
     };
   }, [isFocused]);
 
+  const additionalProps = {
+    ref: triggerRef,
+    className: 'relative',
+    onMouseEnter: hoverMode ? handleMouseOver : undefined,
+    onMouseLeave: hoverMode ? handleMouseLeave : undefined,
+    ...({ onFocus, onBlur } as React.HTMLAttributes<HTMLButtonElement>),
+    ...rest,
+  };
+
   return asChild ? (
-    children
+    <>{React.cloneElement(children as ReactElement, additionalProps)}</>
   ) : (
-    <Button
-      ref={triggerRef}
-      className={'relative'}
-      intent="icon"
-      onMouseEnter={hoverMode ? handleMouseOver : undefined}
-      onMouseLeave={hoverMode ? handleMouseLeave : undefined}
-      {...({ onFocus, onBlur } as React.HTMLAttributes<HTMLButtonElement>)}>
-      {children}
-    </Button>
+    <Button {...additionalProps}>{children}</Button>
   );
 };
 

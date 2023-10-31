@@ -176,7 +176,9 @@ export const HomeLayout = () => {
 
           <Dropdown>
             <Dropdown.DropdownWrapper id="1">
-              <Dropdown.DropdownTrigger>{setModeIcon(colorMode)}</Dropdown.DropdownTrigger>
+              <Dropdown.DropdownTrigger asChild>
+                <Button intent="icon">{setModeIcon(colorMode)}</Button>
+              </Dropdown.DropdownTrigger>
               <Dropdown.DropdownMenu className="w-40">
                 <Dropdown.DropdownMenuItem
                   onClick={() => {
