@@ -3,7 +3,7 @@ import { Outlet, useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Navbar, MenuSide, Heading, CustomNavLink, Button, Icon, Dropdown, OnThisPage } from '../components';
-import { MenuIcon, CloseIcon } from '../icons';
+import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon } from '../icons';
 import { useMenu } from '../context/MenuContext';
 import logo from '../assets/logo.svg';
 import githubIcon from '../assets/github.svg';
@@ -25,7 +25,7 @@ const HomeLayoutContainer = styled.div`
   }
 `;
 
-const Content = styled.div`
+const Content = styled.div<{ isOverflow: boolean }>`
   grid-area: content;
   position: relative;
 
@@ -33,18 +33,24 @@ const Content = styled.div`
   grid-template-areas: 'container';
   grid-template-columns: minmax(0, 1fr); //NOTE: need grid layout to keep container width in check.
 
+  .gutter {
+    grid-area: gutter;
+    background: rgba(255, 0, 0, 0.1);
+  }
+
   @media (min-width: 768px) {
     display: grid;
-    grid-template-areas: 'navside container';
+    grid-template-areas: 'navside container ';
     grid-template-columns: 250px minmax(0, 1fr);
   }
 
   @media (min-width: 1024px) {
+    grid-template-areas: 'navside container';
     grid-template-columns: 300px minmax(0, 1fr);
   }
 
   @media (min-width: 1200px) {
-    grid-template-areas: 'navside container onthispage';
+    grid-template-areas: 'navside container onthispage ';
     grid-template-columns: 400px minmax(0, 1fr) 400px;
   }
 `;
@@ -77,13 +83,60 @@ const Container = styled.div<{ isOpen: boolean; className?: string }>`
   }
 `;
 
+const setModeIcon = (mode: string | null) => {
+  if (null) {
+    return;
+  }
+
+  switch (mode) {
+    case 'dark':
+      return (
+        <Icon size="20px">
+          <ModeDarkIcon />
+        </Icon>
+      );
+    case 'light':
+      return (
+        <Icon size="20px">
+          <ModeLightIcon />
+        </Icon>
+      );
+    case 'system':
+      return (
+        <Icon size="20px">
+          <ModeSystemIcon />
+        </Icon>
+      );
+    default:
+      return;
+  }
+};
+
 export const HomeLayout = () => {
   const { isOpen, toggleMenu, closeMenu } = useMenu();
   const { colorMode, setLightDarkSystemMode } = useTheme();
+  const [isOverflow, setIsOverflow] = useState(false);
   const navigate = useNavigate();
 
   const contentRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const renderwait = async () => {
+      if (document.body.scrollHeight > window.innerHeight) {
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        document.documentElement.style.scrollbarGutter = 'stable';
+        setIsOverflow(true);
+        console.log('yes');
+      } else {
+        await new Promise(resolve => requestAnimationFrame(resolve));
+        document.documentElement.style.scrollbarGutter = 'stable';
+        setIsOverflow(false);
+        console.log('no');
+      }
+    };
+    renderwait();
+  });
 
   return (
     <HomeLayoutContainer>
@@ -123,7 +176,7 @@ export const HomeLayout = () => {
 
           <Dropdown>
             <Dropdown.DropdownWrapper id="1">
-              <Dropdown.DropdownTrigger>{colorMode}</Dropdown.DropdownTrigger>
+              <Dropdown.DropdownTrigger>{setModeIcon(colorMode)}</Dropdown.DropdownTrigger>
               <Dropdown.DropdownMenu className="w-40">
                 <Dropdown.DropdownMenuItem
                   onClick={() => {
@@ -148,7 +201,7 @@ export const HomeLayout = () => {
           </Dropdown>
         </Navbar.Group>
       </Navbar>
-      <Content ref={contentRef}>
+      <Content ref={contentRef} isOverflow={isOverflow}>
         <MenuSide className="navside">
           <Heading variation="h6">Guide</Heading>
           <CustomNavLink to="introduction">Introduction</CustomNavLink>
@@ -194,6 +247,7 @@ export const HomeLayout = () => {
             <Outlet />
           </main>
         </Container>
+        <div className="gutter"></div>
 
         <OnThisPage className="onthispage">B</OnThisPage>
       </Content>

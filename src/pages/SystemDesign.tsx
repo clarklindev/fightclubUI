@@ -63,7 +63,14 @@ const SystemDesign = () => {
       <Text>
         SVG vector icons are the way to go, there are many icon libraries, i prefer Hero Icons: https://heroicons.com/
       </Text>
+      <Text>
+        Icons vs Icons library, Icons used in interface components are actually a necessity they are part of the library
+        because they are required for components to work. Whereas an icon library is icons used as assets when
+        developing using the design system. There should be a separation between the two as an icon library is
+        technically optional third-party dependency but icons required for your components are non-negotiably required.
+      </Text>
       <br />
+
       <Heading variation="h5">Static assets</Heading>
       <Text>
         Vite helps you to copy any files placed in public/ folder as static assets; On build, it will copy these files

@@ -66,7 +66,7 @@ const DropdownWrapper = ({
     <div className={`relative flex ${className}`}>{children}</div>
   );
 };
-const DropdownTrigger = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) => {
+const DropdownTrigger = ({ asChild, children }: ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean }) => {
   const { isFocused, setIsMenuOpen, onFocus, onBlur, handleMouseOver, handleMouseLeave, setTriggerRef, hoverMode } =
     useDropdown();
   const triggerRef = useRef<HTMLButtonElement | null>(null);
@@ -96,10 +96,13 @@ const DropdownTrigger = ({ children }: ButtonHTMLAttributes<HTMLButtonElement>) 
     };
   }, [isFocused]);
 
-  return (
+  return asChild ? (
+    children
+  ) : (
     <Button
       ref={triggerRef}
       className={'relative'}
+      intent="icon"
       onMouseEnter={hoverMode ? handleMouseOver : undefined}
       onMouseLeave={hoverMode ? handleMouseLeave : undefined}
       {...({ onFocus, onBlur } as React.HTMLAttributes<HTMLButtonElement>)}>
