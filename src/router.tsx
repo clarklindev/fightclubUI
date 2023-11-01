@@ -13,7 +13,6 @@ import NotFound from './pages/NotFound';
 import HeadingExample from './pages/Heading';
 import TextExample from './pages/Text';
 import IconExample from './pages/Icon';
-import LabelSomethingExample from './pages/LabelSomething';
 import ButtonExample from './pages/Button';
 import InputExample from './pages/Input';
 import AccordionExample from './pages/Accordion';
@@ -34,11 +33,10 @@ import TableExample from './pages/Table';
 import CardExample from './pages/Card';
 import ProgressLoaderExample from './pages/ProgressLoader';
 import SpinnerExample from './pages/Spinner';
-import HooksExample from './pages/CustomHooks';
 import ResizePanelExample from './pages/ResizePanel';
 import DimensionsExample from './pages/Dimensions';
 import CodeBlockExample from './pages/CodeBlock';
-// import TreeExample from './pages/Tree';
+import TreeExample from './pages/Tree';
 import DropdownExample from './pages/Dropdown';
 import TabsExample from './pages/Tabs';
 
@@ -76,7 +74,7 @@ export const router = createBrowserRouter(
       <Route path="/dimensions" element={<DimensionsExample />} />
       <Route path="/codeblock" element={<CodeBlockExample />} />
       <Route path="/dropdown" element={<DropdownExample />} />
-      {/* <Route path="/tree" element={<TreeExample />} /> */}
+      <Route path="/tree" element={<TreeExample />} />
       <Route path="/tabs" element={<TabsExample />} />
 
       <Route path="/404" element={<NotFound />} />
