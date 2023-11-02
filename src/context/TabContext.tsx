@@ -1,29 +1,23 @@
 import React, { createContext, useContext, useState } from 'react';
 
-type Header = {
-  name: string;
-  description: string;
-};
+import { TabData } from '../components/Tabs';
 
 type TabsContextProviderProps = {
   children: React.ReactNode;
 };
 
-const tabsData: Header[] = [
-  { name: 'tab1', description: 'content for tab 1' },
-  { name: 'tab2', description: 'content for tab 2' },
-  { name: 'tab3', description: 'content for tab 3' },
-];
-
-const TabsContext = createContext({
+const TabsContext = createContext<{
+  selectedTabIndex: number;
+  selectTab: (index: number) => void;
+  data: Array<TabData>;
+  setData: (data: Array<TabData>) => void;
+}>({
   selectedTabIndex: 0,
   selectTab: (_updatedIndex: number) => {
     // console.log(newSelected);
   },
-  headers: tabsData.map(each => {
-    return each.name;
-  }),
-  tabDetails: '',
+  data: [],
+  setData: _ => {},
 });
 
 // Custom Hook to Access the Context
@@ -34,21 +28,19 @@ export const useTabs = () => {
 // Create a Context Provider
 export const TabsContextProvider = ({ children }: TabsContextProviderProps) => {
   const [selectedTabIndex, setSelectedTabIndex] = useState(0);
+  const [data, setData] = useState<Array<TabData>>([]);
 
   const selectTab = (updatedIndex: number) => {
     setSelectedTabIndex(updatedIndex);
   };
-
-  const headers = tabsData.map(each => each.name);
-  console.log('headers: ', headers);
 
   return (
     <TabsContext.Provider
       value={{
         selectedTabIndex,
         selectTab,
-        headers,
-        tabDetails: tabsData[selectedTabIndex].description,
+        data,
+        setData,
       }}>
       {children}
     </TabsContext.Provider>
