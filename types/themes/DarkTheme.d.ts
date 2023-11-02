@@ -73,6 +73,7 @@ export declare const global: {
     borderRadius: string;
     inputHeight: string;
     inputPadding: string;
+    textMarginBottom: string;
     dividerColor: string;
     componentIcons: string;
 };

@@ -1,4 +1,4 @@
-import { Heading, Layout } from '../../components';
+import { Heading, H1, H2, H3, H4, H5, H6, Layout } from '../../components';
 import AccordionChevronExample from './AccordionChevronExample';
 import AccordionPlusMinusExample from './AccordionPlusMinusExample';
 import AccordionMinimalExample from './AccordionMinimalExample';

@@ -12,26 +12,32 @@ enum HeadingVariation {
   h6 = 'h6',
 }
 
-type HeadingVariationType = keyof typeof HeadingVariation;
-type HeadingVariationComponentType = typeof h1 | typeof h2 | typeof h3 | typeof h4 | typeof h5 | typeof h6;
-
 type HeadingProps = {
   variation: HeadingVariationType;
+  size?: string;
   children: string;
 };
 
-export const Heading: React.FC<HeadingProps> = ({ variation, children }) => {
+type HeadingVariationType = keyof typeof HeadingVariation; //h1,h2,h3,h4,h5,h6
+type HeadingVariationComponentType = typeof H1 | typeof H2 | typeof H3 | typeof H4 | typeof H5 | typeof H6;
+
+export const Heading: React.FC<HeadingProps> = ({ variation, size = '', children }) => {
   const headingMap: Record<HeadingVariationType, HeadingVariationComponentType> = {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
+    h1: H1,
+    h2: H2,
+    h3: H3,
+    h4: H4,
+    h5: H5,
+    h6: H6,
   };
 
   const Component = headingMap[variation];
-  return <Component as={variation}>{children}</Component>;
+
+  return (
+    <Component as={variation} size={size}>
+      {children}
+    </Component>
+  );
 };
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
@@ -46,21 +52,27 @@ const HeadingBase = styled.div<{ theme: ThemeType }>`
   margin: 1.5rem 0 1rem;
 `;
 
-const h1 = styled(HeadingBase)<{ theme: ThemeType }>`
+export const H1 = styled(HeadingBase)<{ theme: ThemeType; size: string }>`
   font-size: ${({ theme }) => theme.Heading?.fontSize?.h1};
+  font-size: ${({ size }) => size !== '' && size};
 `;
-const h2 = styled(HeadingBase)<{ theme: ThemeType }>`
+export const H2 = styled(HeadingBase)<{ theme: ThemeType; size: string }>`
   font-size: ${({ theme }) => theme.Heading?.fontSize?.h2};
+  font-size: ${({ size }) => size !== '' && size};
 `;
-const h3 = styled(HeadingBase)<{ theme: ThemeType }>`
+export const H3 = styled(HeadingBase)<{ theme: ThemeType; size: string }>`
   font-size: ${({ theme }) => theme.Heading?.fontSize?.h3};
+  font-size: ${({ size }) => size !== '' && size};
 `;
-const h4 = styled(HeadingBase)<{ theme: ThemeType }>`
+export const H4 = styled(HeadingBase)<{ theme: ThemeType; size: string }>`
   font-size: ${({ theme }) => theme.Heading?.fontSize?.h4};
+  font-size: ${({ size }) => size !== '' && size};
 `;
-const h5 = styled(HeadingBase)<{ theme: ThemeType }>`
+export const H5 = styled(HeadingBase)<{ theme: ThemeType; size: string }>`
   font-size: ${({ theme }) => theme.Heading?.fontSize?.h5};
+  font-size: ${({ size }) => size !== '' && size};
 `;
-const h6 = styled(HeadingBase)<{ theme: ThemeType }>`
+export const H6 = styled(HeadingBase)<{ theme: ThemeType; size: string }>`
   font-size: ${({ theme }) => theme.Heading?.fontSize?.h6};
+  font-size: ${({ size }) => size !== '' && size};
 `;
