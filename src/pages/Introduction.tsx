@@ -4,10 +4,8 @@ const Introduction = () => {
   return (
     <div>
       <Heading variation="h4">Introduction</Heading>
-      <Text>
-        Swagfinger-UI is a design system meant for an easier developer experience. <br />
-        It uses Styled-Components / Class Variance Authority (CVA) and TailwindCSS under the hood.
-      </Text>
+      <Text>Swagfinger-UI is a design system meant for an easier developer experience.</Text>
+      <Text>It uses Styled-Components / Class Variance Authority (CVA) and TailwindCSS under the hood.</Text>
       <Text>
         The goal of this library is to combine the user-friendly approach of TailwindCSS, which is known for its
         comprehensive documentation, with the structure of Styled Components / CVA (Class Variance Authority). The aim
@@ -19,52 +17,30 @@ const Introduction = () => {
         pre-defined styles and components, while also providing the ability to customize and tailor the output to meet
         their specific requirements.
       </Text>
-
-      <Text>
-        Pre-defined modular components - with default styling, support of theming and darkmode. <br />
-        Built with accessibility in mind.
-        <br />
-        Leverage already well-built battle-tested libraries. We dont re-invent the wheel.
-        <br />
-        <br />
-        Motivation:
-        <br />
-        https://tailwindui.com/components/preview
-        <br />
-        https://ui.shadcn.com/
-        <br />
-        https://vercel.com/design/introduction
-        <br />
-        https://x.com
-        <br />
-        https://vitejs.dev/guide/
-        <br />
-        https://www.radix-ui.com/
-        <br />
-        https://react-spectrum.adobe.com/react-aria/index.html
-        <br />
-        https://mui.com/
-        <br />
-        https://headlessui.com/
-        <br />
-      </Text>
-      <br />
+      <Text>Pre-defined modular components - with default styling, support of theming and darkmode.</Text>
+      <Text>Built with accessibility in mind.</Text>
+      <Text>Leverage already well-built battle-tested libraries. We dont re-invent the wheel.</Text>
+      <Text>Motivation:</Text>
+      https://tailwindui.com/components/preview
+      <Text>https://ui.shadcn.com/</Text>
+      https://vercel.com/design/introduction
+      <Text>https://x.com</Text>
+      https://vitejs.dev/guide/
+      <Text>https://www.radix-ui.com/</Text>
+      https://react-spectrum.adobe.com/react-aria/index.html
+      <Text>https://mui.com/</Text>
+      <Text>https://headlessui.com/</Text>
       <Heading variation="h5">Release Features</Heading>
-      <Text>
-        Written in Typescript
-        <br />
-        Styled Components, TailwindCSS, CVA, (tw-merge, CLSX, cn),
-        <br />
-        Dark-mode compatible
-        <br />
-        Theming
-        <br />
-        Accessibility
-        <br />
-        Tested
-        <br />
-      </Text>
-      <br />
+      <div>
+        <ul>
+          <li>Written in Typescript</li>
+          <li>Styled Components, TailwindCSS, CVA, (tw-merge, CLSX, cn)</li>
+          <li>Dark-mode compatible</li>
+          <li>Theming</li>
+          <li>Accessibility</li>
+          <li>Tested</li>
+        </ul>
+      </div>
     </div>
   );
 };

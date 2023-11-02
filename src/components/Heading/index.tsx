@@ -13,13 +13,7 @@ enum HeadingVariation {
 }
 
 type HeadingVariationType = keyof typeof HeadingVariation;
-type HeadingVariationComponentType =
-  | typeof Heading1
-  | typeof Heading2
-  | typeof Heading3
-  | typeof Heading4
-  | typeof Heading5
-  | typeof Heading6;
+type HeadingVariationComponentType = typeof h1 | typeof h2 | typeof h3 | typeof h4 | typeof h5 | typeof h6;
 
 type HeadingProps = {
   variation: HeadingVariationType;
@@ -28,12 +22,12 @@ type HeadingProps = {
 
 export const Heading: React.FC<HeadingProps> = ({ variation, children }) => {
   const headingMap: Record<HeadingVariationType, HeadingVariationComponentType> = {
-    h1: Heading1,
-    h2: Heading2,
-    h3: Heading3,
-    h4: Heading4,
-    h5: Heading5,
-    h6: Heading6,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
   };
 
   const Component = headingMap[variation];
@@ -49,23 +43,24 @@ const HeadingBase = styled.div<{ theme: ThemeType }>`
   font-family: ${({ theme }) => theme.Heading?.fontFamily};
   white-space: break-word;
   overflow-wrap: break-word;
+  margin: 1.5rem 0 1rem;
 `;
 
-const Heading1 = styled(HeadingBase)<{ theme: ThemeType }>`
+const h1 = styled(HeadingBase)<{ theme: ThemeType }>`
   font-size: ${({ theme }) => theme.Heading?.fontSize?.h1};
 `;
-const Heading2 = styled(HeadingBase)<{ theme: ThemeType }>`
+const h2 = styled(HeadingBase)<{ theme: ThemeType }>`
   font-size: ${({ theme }) => theme.Heading?.fontSize?.h2};
 `;
-const Heading3 = styled(HeadingBase)<{ theme: ThemeType }>`
+const h3 = styled(HeadingBase)<{ theme: ThemeType }>`
   font-size: ${({ theme }) => theme.Heading?.fontSize?.h3};
 `;
-const Heading4 = styled(HeadingBase)<{ theme: ThemeType }>`
+const h4 = styled(HeadingBase)<{ theme: ThemeType }>`
   font-size: ${({ theme }) => theme.Heading?.fontSize?.h4};
 `;
-const Heading5 = styled(HeadingBase)<{ theme: ThemeType }>`
+const h5 = styled(HeadingBase)<{ theme: ThemeType }>`
   font-size: ${({ theme }) => theme.Heading?.fontSize?.h5};
 `;
-const Heading6 = styled(HeadingBase)<{ theme: ThemeType }>`
+const h6 = styled(HeadingBase)<{ theme: ThemeType }>`
   font-size: ${({ theme }) => theme.Heading?.fontSize?.h6};
 `;

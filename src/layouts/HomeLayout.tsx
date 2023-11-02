@@ -2,7 +2,7 @@ import React, { useRef, useLayoutEffect, useEffect, useState, RefObject } from '
 import { Outlet, useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Navbar, MenuSide, Heading, CustomNavLink, Button, Icon, Dropdown, OnThisPage } from '../components';
+import { Navbar, MenuSide, Heading, CustomNavLink, Button, Icon, Dropdown, OnThisPage, Divider } from '../components';
 import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon } from '../icons';
 import { useMenu } from '../context/MenuContext';
 import logo from '../assets/logo.svg';
@@ -203,7 +203,7 @@ export const HomeLayout = () => {
           <CustomNavLink to="introduction">Introduction</CustomNavLink>
           <CustomNavLink to="gettingstarted">Getting started</CustomNavLink>
           <CustomNavLink to="systemdesign">System design</CustomNavLink>
-          <br />
+
           <Heading variation="h6">Components</Heading>
           <CustomNavLink to="heading">Heading</CustomNavLink>
           <CustomNavLink to="text">Text</CustomNavLink>
@@ -231,7 +231,6 @@ export const HomeLayout = () => {
           <CustomNavLink to="spinner">Spinner</CustomNavLink>
           <CustomNavLink to="dropdown">Dropdown</CustomNavLink>
           <CustomNavLink to="tabs">Tabs</CustomNavLink>
-          <br />
           {/* utility helper components */}
           <Heading variation="h6">Utility</Heading>
           <CustomNavLink to="resizepanel">Resize panel</CustomNavLink>

@@ -39,7 +39,6 @@ const TabsExample = () => {
           <Tabs.TabContent />
         </Tabs.TabWrapper>
       </Tabs>
-      <br />
     </>
   );
 };
