@@ -26,7 +26,7 @@ const HeadingExample = () => {
       content: (
         <CodeBlock type="tsx">
           {`
-import {Heading} from '../../components';
+import {Heading} from '@swagfinger/components';
 
 ${previewString}
 `}
