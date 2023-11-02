@@ -19,7 +19,7 @@ type HeadingProps = {
 };
 
 type HeadingVariationType = keyof typeof HeadingVariation; //h1,h2,h3,h4,h5,h6
-type HeadingVariationComponentType = typeof H1 | typeof H2 | typeof H3 | typeof H4 | typeof H5 | typeof H6;
+type HeadingVariationComponentType = typeof H1 | typeof H2 | typeof H3 | typeof H4 | typeof H5 | typeof H6; //reference to component H1,H2,H3,H4,H5,H6
 
 export const Heading: React.FC<HeadingProps> = ({ variation, size = '', children }) => {
   const headingMap: Record<HeadingVariationType, HeadingVariationComponentType> = {
