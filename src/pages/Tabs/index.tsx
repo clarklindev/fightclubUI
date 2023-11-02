@@ -1,10 +1,32 @@
-import { Tabs, Heading } from '../../components';
+import { Tabs, Heading, CodeBlock, Text } from '../../components';
+import reactElementToJSXString from 'react-element-to-jsx-string';
 
 const TabsExample = () => {
   const tabsData = [
-    { label: 'tab1', content: 'content for tab 1' },
-    { label: 'tab2', content: 'content for tab 2' },
-    { label: 'tab3', content: 'content for tab 3' },
+    {
+      label: 'code',
+      content: (
+        <>
+          tabsData should have this format: <br />
+          <CodeBlock>
+            {`const tabsData = [
+  { label: 'label 1', content: 'content 1' }, 
+  { label:  'label 2', content: 'content 2' }
+]`}
+          </CodeBlock>
+          <br />
+          <CodeBlock>
+            {`<Tabs>
+  <Tabs.TabWrapper data={tabsData}>
+    <Tabs.TabHeaders />
+    <Tabs.TabContent />
+  </Tabs.TabWrapper>
+</Tabs>
+`}
+          </CodeBlock>
+        </>
+      ),
+    },
   ];
 
   return (
@@ -17,6 +39,7 @@ const TabsExample = () => {
           <Tabs.TabContent />
         </Tabs.TabWrapper>
       </Tabs>
+      <br />
     </>
   );
 };
