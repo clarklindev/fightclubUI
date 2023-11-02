@@ -8,7 +8,7 @@ type AccordionProps = {
     data: Array<AccordionDataType>;
     multiOpen?: boolean;
     iconType?: AccordionIconType;
-    showSeparator?: boolean;
+    showDivider?: boolean;
 };
 export declare const Accordion: React.FC<AccordionProps>;
 export {};

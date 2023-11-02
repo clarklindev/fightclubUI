@@ -15,33 +15,9 @@ type TabProps = {
   selected: boolean;
 };
 
-const Tab = ({ name, handleClick, selected }: TabProps) => {
-  const classNames = selected ? 'tab tab-selected' : 'tab';
-
-  return (
-    <button onClick={handleClick} className={classNames} style={{ padding: '10px 5px', border: '1px solid red' }}>
-      {name}
-    </button>
-  );
-};
-
-const TabDetails = () => {
-  const { selectedDetails } = useTabs();
-
-  return (
-    <div className="details">
-      <div>{selectedDetails}</div>
-    </div>
-  );
-};
-
 const TabHeaders = () => {
   const { selectedTabIndex, headers, selectTab } = useTabs();
-
-  console.log('headers:', headers);
-
   const tabHeaders = headers.map((header, index) => {
-    console.log('header: ', header);
     return (
       <Tab
         key={index}
@@ -55,7 +31,27 @@ const TabHeaders = () => {
     );
   });
 
-  return <div className="tabheader">{tabHeaders}</div>;
+  return <div className="tabheader flex flex-row gap-2 py-1">{tabHeaders}</div>;
+};
+
+const Tab = ({ name, handleClick, selected }: TabProps) => {
+  const className = selected ? 'tab data-selected border-b border-red-500' : 'tab';
+
+  return (
+    <button onClick={handleClick} className={`${className}`}>
+      {name}
+    </button>
+  );
+};
+
+const TabDetails = () => {
+  const { tabDetails } = useTabs();
+
+  return (
+    <div className="details">
+      <div>{tabDetails}</div>
+    </div>
+  );
 };
 
 Tabs.TabDetails = TabDetails;

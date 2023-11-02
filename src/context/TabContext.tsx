@@ -23,7 +23,7 @@ const TabsContext = createContext({
   headers: tabsData.map(each => {
     return each.name;
   }),
-  selectedDetails: '',
+  tabDetails: '',
 });
 
 // Custom Hook to Access the Context
@@ -48,7 +48,7 @@ export const TabsContextProvider = ({ children }: TabsContextProviderProps) => {
         selectedTabIndex,
         selectTab,
         headers,
-        selectedDetails: tabsData[selectedTabIndex].description,
+        tabDetails: tabsData[selectedTabIndex].description,
       }}>
       {children}
     </TabsContext.Provider>

@@ -11,7 +11,6 @@ const TreeExample = () => {
         { label: 'Themes', path: '/themes' },
         { label: 'Styling', path: '/styling' },
         { label: 'Layout', path: '/layout' },
-        { label: 'Hooks', path: '/hooks' },
       ],
     },
     {

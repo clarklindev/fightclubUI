@@ -13,6 +13,8 @@ export declare const useDropdown: () => {
     setTriggerRef: (buttonRef: React.RefObject<React.ReactNode | HTMLElement>) => void;
     menuRef: React.RefObject<React.ReactNode | HTMLElement> | null;
     setMenuRef: (menuRef: React.RefObject<React.ReactNode | HTMLElement>) => void;
+    menuAlign: string | null;
+    setMenuAlign: (align: string) => void;
     menuOrientationX: string | null;
     setMenuOrientationX: (orientation: string) => void;
     menuOrientationY: string | null;
@@ -21,6 +23,14 @@ export declare const useDropdown: () => {
     setMenuBoundsObject: (obj: DOMRect) => void;
     triggerBoundsObject: DOMRect;
     setTriggerBoundsObject: (obj: DOMRect) => void;
+    autoAdjust: boolean;
+    setAutoAdjust: (autoAdjust: boolean) => void;
+    id: string | null;
+    setId: (id: string) => void;
+    layoutContainer: null | (HTMLElement | React.ReactElement);
+    setLayoutContainer: (element: HTMLElement | React.ReactElement) => void;
+    hoverMode: boolean;
+    setHoverMode: (hoverMode: boolean) => void;
 };
 type DropdownContextProviderProps = {
     children: React.ReactNode;

@@ -146,7 +146,7 @@ export declare const lightTheme: {
     LabelSomething: {
         gap: string;
     };
-    Separator: {
+    Divider: {
         color: string;
         borderColor: string;
         backgroundColor: string;

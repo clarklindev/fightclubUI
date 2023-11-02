@@ -1,3 +1,4 @@
+import React from 'react';
 declare const Navbar: {
     ({ children, className }: {
         className?: string | undefined;

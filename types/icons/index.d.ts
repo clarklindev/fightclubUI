@@ -21,4 +21,7 @@ export { SmileyIcon } from './SmileyIcon';
 export { SpeechIcon } from './SpeechIcon';
 export { ThumbsUpIcon } from './ThumbsUpIcon';
 export { MenuIcon } from './MenuIcon';
+export { ModeDarkIcon } from './ModeDarkIcon';
+export { ModeLightIcon } from './ModeLightIcon';
+export { ModeSystemIcon } from './ModeSystemIcon';
 //# sourceMappingURL=index.d.ts.map
