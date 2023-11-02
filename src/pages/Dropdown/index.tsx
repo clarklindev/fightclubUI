@@ -28,11 +28,13 @@ const DropdownExample = () => {
     </Dropdown>
   );
 
+  const previewString = reactElementToJSXString(preview);
+
   const tabsData = [
     { label: 'preview', content: preview },
     {
       label: 'code',
-      content: <CodeBlock type="tsx">{reactElementToJSXString(preview)}</CodeBlock>,
+      content: <CodeBlock type="tsx">{previewString}</CodeBlock>,
     },
   ];
 
