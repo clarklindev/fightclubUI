@@ -1,5 +1,5 @@
 import reactElementToJSXString from 'react-element-to-jsx-string';
-import { Heading, ResizePanel, Layout, CodeBlock, Tabs } from '../../components';
+import { Heading, CodeBlock, Tabs } from '@swagfinger/components';
 
 const HeadingExample = () => {
   const preview = (

@@ -20,7 +20,10 @@
     "noEmit": false,
     "jsx": "react-jsx",
     "allowJs": true,
-
+    "baseUrl": "./",
+    "paths": {
+      "@swagfinger/*": ["./src/*"]
+    },
     /* Linting */
     "strict": true,
     "noUnusedLocals": false,
