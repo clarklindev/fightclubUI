@@ -57,6 +57,32 @@ const SystemDesign = () => {
         developing using the design system. There should be a separation between the two as an icon library is
         technically optional third-party dependency but icons required for your components are non-negotiably required.
       </Text>
+      <Heading variation="h5">bundler</Heading>
+      <Text>Using Vite to compile and bundle code - it uses es modules and its fast.</Text>
+      <Heading variation="h5">module alias</Heading>
+      <Text>created aliases for links so that instead of using relative pathing, you can use absolute path</Text>
+      <Text>This is made possible via creating aliases for path in vite.config.ts:</Text>
+      <CodeBlock>{`
+      //vite.config.ts
+      resolve: {
+        alias: {
+          '@swagfinger': path.resolve(__dirname, './src'),
+          '@swagfinger/components': path.resolve(__dirname, './src/components'),
+        },
+      },
+      `}</CodeBlock>
+      <Text>And tsconfig.ts</Text>
+      <CodeBlock>{`
+      //tsconfig.ts
+      "baseUrl": "./",
+      "paths": {
+        "@swagfinger/*": ["./src/*"]
+      },
+      `}</CodeBlock>
+      <Text>Which simplifies importing dependency modules from relative pathing: </Text>
+      <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '../../components';`}</CodeBlock>
+      <Text>to this (Absolute pathing)</Text>
+      <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '@swagfinger/components';`}</CodeBlock>
       <Heading variation="h5">Static assets</Heading>
       <Text>
         Vite helps you to copy any files placed in public/ folder as static assets; On build, it will copy these files
