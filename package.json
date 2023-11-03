@@ -11,7 +11,7 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "build": "tsc && vite build --config vite.config.ts",
     "build-preview": "tsc && vite build --config vite.config.preview.ts",
-    "preview": "vite preview port --8080"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^4.1.1",
