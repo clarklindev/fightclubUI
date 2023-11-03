@@ -30,7 +30,11 @@ const DropdownExample = () => {
 
   console.log('preview: ', preview);
 
-  const previewString = reactElementToJSXString(preview, { showFunctions: true });
+  const previewString = reactElementToJSXString(preview, {
+    showFunctions: true,
+    useFragmentShortSyntax: true,
+    maxInlineAttributesLineLength: 1000,
+  });
   console.log('previewString: ', previewString);
 
   const tabsData = [

@@ -11,4 +11,8 @@ export default defineConfig({
       '@swagfinger/components': path.resolve(__dirname, './src/components'),
     },
   },
+  build: {
+    target: 'modules',
+    sourcemap: true,
+  },
 });
