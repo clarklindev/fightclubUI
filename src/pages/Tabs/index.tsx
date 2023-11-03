@@ -1,5 +1,4 @@
 import { Tabs, Heading, CodeBlock, Text } from '../../components';
-import reactElementToJSXString from 'react-element-to-jsx-string';
 
 const TabsExample = () => {
   const tabsData = [

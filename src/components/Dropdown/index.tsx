@@ -265,4 +265,4 @@ Dropdown.DropdownTrigger = DropdownTrigger;
 Dropdown.DropdownMenu = DropdownMenu;
 Dropdown.DropdownMenuItem = DropdownMenuItem;
 
-export { Dropdown };
+export { Dropdown, DropdownWrapper, DropdownTrigger, DropdownMenu, DropdownMenuItem };

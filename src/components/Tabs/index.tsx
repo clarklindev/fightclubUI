@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useEffect } from 'react';
 import { useTabs, TabsContextProvider } from '../../context/TabContext';
 
 const Tabs = ({ children }: { children: React.ReactNode }) => {
@@ -17,7 +17,10 @@ type TabWrapperProps = {
 
 const TabWrapper: React.FC<TabWrapperProps> = ({ data, children }) => {
   const { setData } = useTabs();
-  setData(data);
+
+  useEffect(() => {
+    setData(data);
+  }, [data]);
 
   return <>{children}</>;
 };
