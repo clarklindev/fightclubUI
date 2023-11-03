@@ -62,8 +62,9 @@ const SystemDesign = () => {
       <Heading variation="h5">module alias</Heading>
       <Text>created aliases for links so that instead of using relative pathing, you can use absolute path</Text>
       <Text>This is made possible via creating aliases for path in vite.config.ts:</Text>
-      <CodeBlock>{`
-      //vite.config.ts
+      <CodeBlock type="tsx">{`
+      //vite.config.ts (snippet)
+
       resolve: {
         alias: {
           '@swagfinger': path.resolve(__dirname, './src'),
@@ -72,8 +73,9 @@ const SystemDesign = () => {
       },
       `}</CodeBlock>
       <Text>And tsconfig.ts</Text>
-      <CodeBlock>{`
-      //tsconfig.ts
+      <CodeBlock type="tsx">{`
+      //tsconfig.ts (snippet)
+
       "baseUrl": "./",
       "paths": {
         "@swagfinger/*": ["./src/*"]

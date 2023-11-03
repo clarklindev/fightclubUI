@@ -1,9 +1,14 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import mainConfig from './vite.config'; // Import the main config
+import path from 'path';
 
 export default defineConfig({
-  ...mainConfig,
   plugins: [react()],
   publicDir: 'static-assets',
+  resolve: {
+    alias: {
+      '@swagfinger': path.resolve(__dirname, './src'),
+      '@swagfinger/components': path.resolve(__dirname, './src/components'),
+    },
+  },
 });
