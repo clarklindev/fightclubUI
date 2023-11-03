@@ -1,5 +1,3 @@
-import React, { useState, useRef, useEffect } from 'react';
-
 import { Dropdown, Heading, Tabs, CodeBlock } from '../../components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
@@ -20,14 +18,7 @@ const DropdownExample = () => {
     </>
   );
 
-  console.log('preview: ', preview);
-
-  const previewString = reactElementToJSXString(preview, {
-    showFunctions: true,
-    useFragmentShortSyntax: true,
-    maxInlineAttributesLineLength: 1000,
-  });
-  console.log('previewString: ', previewString);
+  const previewString = reactElementToJSXString(preview);
 
   const tabsData = [
     { label: 'preview', content: preview },
