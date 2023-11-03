@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 
-import { Heading, Tabs, CodeBlock } from '../../components';
-import { Dropdown, DropdownTrigger, DropdownMenu, DropdownMenuItem, DropdownWrapper } from '../../components/Dropdown';
+import { Dropdown, Heading, Tabs, CodeBlock } from '../../components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
 const DropdownExample = () => {
@@ -17,15 +16,15 @@ const DropdownExample = () => {
 
   const preview = (
     <Dropdown>
-      <DropdownWrapper id="2" layoutContainer={layoutContainer}>
-        <DropdownTrigger>hi</DropdownTrigger>
-        <DropdownMenu className="w-40">
-          <DropdownMenuItem>A</DropdownMenuItem>
-          <DropdownMenuItem>B</DropdownMenuItem>
-          <DropdownMenuItem>C</DropdownMenuItem>
-          <DropdownMenuItem>D</DropdownMenuItem>
-        </DropdownMenu>
-      </DropdownWrapper>
+      <Dropdown.DropdownWrapper id="2" layoutContainer={layoutContainer}>
+        <Dropdown.DropdownTrigger>hi</Dropdown.DropdownTrigger>
+        <Dropdown.DropdownMenu className="w-40">
+          <Dropdown.DropdownMenuItem>A</Dropdown.DropdownMenuItem>
+          <Dropdown.DropdownMenuItem>B</Dropdown.DropdownMenuItem>
+          <Dropdown.DropdownMenuItem>C</Dropdown.DropdownMenuItem>
+          <Dropdown.DropdownMenuItem>D</Dropdown.DropdownMenuItem>
+        </Dropdown.DropdownMenu>
+      </Dropdown.DropdownWrapper>
     </Dropdown>
   );
 
