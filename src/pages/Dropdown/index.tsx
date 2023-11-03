@@ -34,7 +34,7 @@ const DropdownExample = () => {
     { label: 'preview', content: preview },
     {
       label: 'code',
-      content: <CodeBlock type="tsx">{previewString}</CodeBlock>,
+      content: <CodeBlock>{previewString}</CodeBlock>,
     },
   ];
 
