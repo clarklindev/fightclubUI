@@ -28,7 +28,8 @@ const DropdownExample = () => {
     </Dropdown>
   );
 
-  const previewString = reactElementToJSXString(preview);
+  const previewString = reactElementToJSXString(preview, { showFunctions: true });
+  console.log('previewString: ', previewString);
 
   const tabsData = [
     { label: 'preview', content: preview },
