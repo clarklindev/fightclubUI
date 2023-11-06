@@ -12,16 +12,33 @@ enum HeadingVariation {
   h6 = 'h6',
 }
 
+// https://typescale.com/
+//Inter
+//Minor scale
+
+enum HeadingSize {
+  XXXS = '0.823rem',
+  XXS = '0.878rem',
+  XS = '0.937rem',
+  S = '1rem',
+  M = '1.067rem',
+  L = '1.138rem',
+  XL = '1.215rem',
+  XXL = '1.296rem',
+  XXXL = '1.383rem',
+}
+
 type HeadingProps = {
   variation: HeadingVariationType;
-  size?: string;
+  size?: keyof typeof HeadingSize; //XXXS,XXS,XS,S,M,L,XL,XXL,XXXL
+  className?: string;
   children: string;
 };
 
 type HeadingVariationType = keyof typeof HeadingVariation; //h1,h2,h3,h4,h5,h6
 type HeadingVariationComponentType = typeof H1 | typeof H2 | typeof H3 | typeof H4 | typeof H5 | typeof H6; //reference to component H1,H2,H3,H4,H5,H6
 
-export const Heading: React.FC<HeadingProps> = ({ variation, size = '', children }) => {
+export const Heading: React.FC<HeadingProps> = ({ variation, size = 'S', className, children }) => {
   const headingMap: Record<HeadingVariationType, HeadingVariationComponentType> = {
     h1: H1,
     h2: H2,
@@ -34,7 +51,7 @@ export const Heading: React.FC<HeadingProps> = ({ variation, size = '', children
   const Component = headingMap[variation];
 
   return (
-    <Component as={variation} size={size}>
+    <Component as={variation} size={size} className={className}>
       {children}
     </Component>
   );
