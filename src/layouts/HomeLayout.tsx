@@ -6,9 +6,11 @@ import { Navbar, NavSide, Heading, Button, Icon, Dropdown, OnThisPage, Divider }
 import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon } from '../icons';
 import { useMenu } from '../context/MenuContext';
 import { useTheme } from '../context/ThemeContext';
+import { useOnThisPage } from '@swagfinger/context/OnThisPageContext';
 
 import logo from '../assets/logo.svg';
 import githubIcon from '../assets/github.svg';
+import getDocumentScrollPercentage from '@swagfinger/utils/getDocumentScrollPercentage';
 
 const HomeLayoutContainer = styled.div`
   position: relative;
@@ -122,10 +124,26 @@ const setModeIcon = (mode: string | null) => {
 export const HomeLayout = () => {
   const { isOpen, toggleMenu, closeMenu } = useMenu();
   const { colorMode, setLightDarkSystemMode } = useTheme();
+  const { setScrollPercentage } = useOnThisPage();
   const navigate = useNavigate();
 
   const contentRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
+  const mainRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    const scrollHandler = () => {
+      const percentage = getDocumentScrollPercentage();
+      console.log(`Scroll position: ${percentage.toFixed(2)}%`);
+      setScrollPercentage(percentage);
+    };
+
+    window.addEventListener('scroll', scrollHandler);
+
+    return () => {
+      window.removeEventListener('scroll', scrollHandler);
+    };
+  }, []);
 
   return (
     <HomeLayoutContainer>
@@ -250,7 +268,7 @@ export const HomeLayout = () => {
         </NavSide>
 
         <Container isOpen={isOpen} ref={containerRef}>
-          <main id="main">
+          <main id="main" ref={mainRef}>
             <Outlet />
           </main>
         </Container>
