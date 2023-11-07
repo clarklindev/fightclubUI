@@ -7,7 +7,6 @@ import styled from 'styled-components';
 const StyledOnThisPage = styled.aside`
   display: none;
   overflow-y: hidden;
-  border-left: 1px solid var(--border-color);
 
   @media (min-width: 1200px) {
     display: block;
@@ -24,7 +23,8 @@ const StyledContainer = styled.div`
     height: 10px;
   }
 
-  // border: 1px solid blue;
+  border: 1px solid var(--border-color);
+  padding: 1rem;
   border-radius: 5px;
   height: calc(100dvh - 100px - 5rem);
   width: 80%;
@@ -48,7 +48,7 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
 
   return (
     <StyledOnThisPage className={className} {...rest}>
-      <Heading variation="h2" className="pb-3">
+      <Heading variation="h2" className="pb-3 px-6">
         On this page
       </Heading>
       <Container>
