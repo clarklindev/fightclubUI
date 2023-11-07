@@ -4,7 +4,7 @@ export { Card } from './Card';
 export { Checkbox } from './Checkbox';
 export { CheckboxGroup } from './CheckboxGroup';
 export { Counter } from './Counter';
-export { Heading, type HeadingProps } from './Heading';
+export { Heading, H1, H2, H3, H4, H5, H6, type HeadingProps } from './Heading';
 
 export { Icon } from './Icon';
 export { Input, InputWrapper } from './Input';

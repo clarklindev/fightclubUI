@@ -95,12 +95,12 @@ export declare const darkTheme: {
         fontWeight: string;
         fontFamily: string;
         fontSize: {
-            h1: string;
-            h2: string;
-            h3: string;
-            h4: string;
-            h5: string;
-            h6: string;
+            level1: string;
+            level2: string;
+            level3: string;
+            level4: string;
+            level5: string;
+            level6: string;
         };
     };
     Button: {

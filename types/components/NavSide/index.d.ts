@@ -1,7 +1,20 @@
 /// <reference types="react" />
+import { HeadingProps } from '../';
 type NavSideProps = {
     children?: React.ReactNode;
+    className?: string;
 };
-export declare const NavSide: (props: NavSideProps) => import("react/jsx-runtime").JSX.Element;
-export {};
+declare const NavSide: {
+    ({ children, className }: NavSideProps): import("react/jsx-runtime").JSX.Element;
+    Heading: ({ variation, children }: HeadingProps) => import("react/jsx-runtime").JSX.Element;
+    Link: ({ children, to }: {
+        children: React.ReactNode;
+        to: string;
+    }) => import("react/jsx-runtime").JSX.Element;
+    Group: ({ children, className }: {
+        className?: string | undefined;
+        children: React.ReactNode;
+    }) => import("react/jsx-runtime").JSX.Element;
+};
+export { NavSide };
 //# sourceMappingURL=index.d.ts.map

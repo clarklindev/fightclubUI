@@ -51,10 +51,10 @@ const Content = styled.div`
   }
 
   [data-id='navside'] {
-    height: calc(100dvh - 50px);
     @media (min-width: 768px) {
       grid-area: navside;
     }
+    height: calc(100dvh - 50px);
   }
 
   [data-id='onthispage'] {
@@ -201,6 +201,14 @@ export const HomeLayout = () => {
             <NavSide.Link to="introduction">Introduction</NavSide.Link>
             <NavSide.Link to="gettingstarted">Getting started</NavSide.Link>
             <NavSide.Link to="systemdesign">System design</NavSide.Link>
+          </NavSide.Group>
+
+          <NavSide.Group>
+            <NavSide.Heading variation="h2">Interface</NavSide.Heading>
+            <NavSide.Link to="navbar">Navbar</NavSide.Link>
+            <NavSide.Link to="navside">NavSide</NavSide.Link>
+            <NavSide.Link to="outlet">Outlet</NavSide.Link>
+            <NavSide.Link to="onthispage">On this page</NavSide.Link>
           </NavSide.Group>
 
           <NavSide.Group>
