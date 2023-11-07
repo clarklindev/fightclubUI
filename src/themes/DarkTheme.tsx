@@ -114,14 +114,13 @@ export const darkTheme = {
     fontWeight: '400',
     fontFamily: global.headingFontFamily,
 
-    // typescale.com - Scale - 1.125 Major Second
     fontSize: {
-      h1: '2.027rem',
-      h2: '1.802rem',
-      h3: '1.602rem',
-      h4: '1.424rem',
-      h5: '1.266rem',
-      h6: '1.125rem',
+      level1: '1.383rem',
+      level2: '1.296rem',
+      level3: '1.215rem',
+      level4: '1.138rem',
+      level5: '1.067rem',
+      level6: '1rem',
     },
   },
 

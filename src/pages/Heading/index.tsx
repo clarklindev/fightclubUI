@@ -37,7 +37,7 @@ ${previewString}
 
   return (
     <>
-      <Heading variation="h4">Headings</Heading>
+      <Heading variation="h1">Headings</Heading>
 
       <Tabs>
         <Tabs.TabWrapper data={tabsData}>

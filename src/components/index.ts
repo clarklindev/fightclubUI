@@ -4,7 +4,8 @@ export { Card } from './Card';
 export { Checkbox } from './Checkbox';
 export { CheckboxGroup } from './CheckboxGroup';
 export { Counter } from './Counter';
-export { Heading, H1, H2, H3, H4, H5, H6 } from './Heading';
+export { Heading, type HeadingProps } from './Heading';
+
 export { Icon } from './Icon';
 export { Input, InputWrapper } from './Input';
 export { LabelSomething } from './LabelSomething';
@@ -31,7 +32,7 @@ export { Dimensions } from './Dimensions';
 export { CustomNavLink } from './CustomNavLink';
 export { CodeBlock } from './CodeBlock';
 export { Navbar } from './Navbar';
-export { MenuSide } from './MenuSide';
+export { NavSide } from './NavSide';
 export { OnThisPage } from './OnThisPage';
 export { Dropdown } from './Dropdown';
 export { Tabs } from './Tabs';

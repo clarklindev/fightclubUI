@@ -2,12 +2,13 @@ import React, { useRef, useLayoutEffect, useEffect, useState, RefObject } from '
 import { Outlet, useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Navbar, MenuSide, Heading, CustomNavLink, Button, Icon, Dropdown, OnThisPage, Divider } from '../components';
+import { Navbar, NavSide, Heading, Button, Icon, Dropdown, OnThisPage, Divider } from '../components';
 import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon } from '../icons';
 import { useMenu } from '../context/MenuContext';
+import { useTheme } from '../context/ThemeContext';
+
 import logo from '../assets/logo.svg';
 import githubIcon from '../assets/github.svg';
-import { useTheme } from '../context/ThemeContext';
 
 const HomeLayoutContainer = styled.div`
   position: relative;
@@ -33,11 +34,6 @@ const Content = styled.div`
   grid-template-areas: 'container';
   grid-template-columns: minmax(0, 1fr); //NOTE: need grid layout to keep container width in check.
 
-  .gutter {
-    grid-area: gutter;
-    background: rgba(255, 0, 0, 0.1);
-  }
-
   @media (min-width: 768px) {
     display: grid;
     grid-template-areas: 'navside container';
@@ -53,13 +49,23 @@ const Content = styled.div`
     grid-template-areas: 'navside container onthispage';
     grid-template-columns: 400px minmax(0, 1fr) 400px;
   }
+
+  [data-id='navside'] {
+    height: calc(100dvh - 50px);
+    @media (min-width: 768px) {
+      grid-area: navside;
+    }
+  }
+
+  [data-id='onthispage'] {
+    grid-area: onthispage;
+    height: calc(100dvh - 50px);
+  }
 `;
 
 const Container = styled.div<{ isOpen: boolean; className?: string }>`
   ${({ isOpen }) => isOpen && `display: none`};
-
   grid-area: container;
-  // background: yellow;
 
   @media (min-width: 640px) {
     max-width: 100%;
@@ -73,6 +79,7 @@ const Container = styled.div<{ isOpen: boolean; className?: string }>`
     white-space: normal;
     padding: 2rem;
     overflow-wrap: break-word;
+
     @media (min-width: 768px) {
       padding: 2rem;
     }
@@ -119,17 +126,6 @@ export const HomeLayout = () => {
 
   const contentRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const renderwait = async () => {
-      // if (document.body.scrollHeight > window.innerHeight) {
-      //   console.log('yes');
-      // } else {
-      //   console.log('no');
-      // }
-    };
-    renderwait();
-  });
 
   return (
     <HomeLayoutContainer>
@@ -197,54 +193,61 @@ export const HomeLayout = () => {
           </Dropdown>
         </Navbar.Group>
       </Navbar>
-      <Content ref={contentRef}>
-        <MenuSide className="navside">
-          <Heading variation="h6">Guide</Heading>
-          <CustomNavLink to="introduction">Introduction</CustomNavLink>
-          <CustomNavLink to="gettingstarted">Getting started</CustomNavLink>
-          <CustomNavLink to="systemdesign">System design</CustomNavLink>
 
-          <Heading variation="h6">Components</Heading>
-          <CustomNavLink to="heading">Heading</CustomNavLink>
-          <CustomNavLink to="text">Text</CustomNavLink>
-          <CustomNavLink to="icon">Icon</CustomNavLink>
-          <CustomNavLink to="button">Button</CustomNavLink>
-          <CustomNavLink to="input">Input</CustomNavLink>
-          <CustomNavLink to="select">Select</CustomNavLink>
-          <CustomNavLink to="accordion">Accordion</CustomNavLink>
-          <CustomNavLink to="radiobutton">RadioButton</CustomNavLink>
-          <CustomNavLink to="radiobuttongroup">RadioButton Group</CustomNavLink>
-          <CustomNavLink to="checkbox">Checkbox</CustomNavLink>
-          <CustomNavLink to="checkboxgroup">Checkbox Group</CustomNavLink>
-          <CustomNavLink to="counter">Counter</CustomNavLink>
-          <CustomNavLink to="togglebutton">Toggle Button</CustomNavLink>
-          <CustomNavLink to="toggleswitch">Toggle Switch</CustomNavLink>
-          <CustomNavLink to="snackbar">Snackbar</CustomNavLink>
-          <CustomNavLink to="slider">Slider</CustomNavLink>
-          <CustomNavLink to="slidermultirange">Slider (Multirange)</CustomNavLink>
-          <CustomNavLink to="divider">Divider</CustomNavLink>
-          <CustomNavLink to="list">List</CustomNavLink>
-          <CustomNavLink to="table">Table</CustomNavLink>
-          <CustomNavLink to="card">Card</CustomNavLink>
-          <CustomNavLink to="tree">Tree</CustomNavLink>
-          <CustomNavLink to="progressloader">Progress Loader</CustomNavLink>
-          <CustomNavLink to="spinner">Spinner</CustomNavLink>
-          <CustomNavLink to="dropdown">Dropdown</CustomNavLink>
-          <CustomNavLink to="tabs">Tabs</CustomNavLink>
-          {/* utility helper components */}
-          <Heading variation="h6">Utility</Heading>
-          <CustomNavLink to="resizepanel">Resize panel</CustomNavLink>
-          <CustomNavLink to="dimensions">Dimensions</CustomNavLink>
-          <CustomNavLink to="codeblock">CodeBlock</CustomNavLink>
-        </MenuSide>
+      <Content ref={contentRef}>
+        <NavSide data-id="navside">
+          <NavSide.Group>
+            <NavSide.Heading variation="h2">Guide</NavSide.Heading>
+            <NavSide.Link to="introduction">Introduction</NavSide.Link>
+            <NavSide.Link to="gettingstarted">Getting started</NavSide.Link>
+            <NavSide.Link to="systemdesign">System design</NavSide.Link>
+          </NavSide.Group>
+
+          <NavSide.Group>
+            <NavSide.Heading variation="h2">Components</NavSide.Heading>
+            <NavSide.Link to="heading">Heading</NavSide.Link>
+            <NavSide.Link to="text">Text</NavSide.Link>
+            <NavSide.Link to="icon">Icon</NavSide.Link>
+            <NavSide.Link to="button">Button</NavSide.Link>
+            <NavSide.Link to="input">Input</NavSide.Link>
+            <NavSide.Link to="select">Select</NavSide.Link>
+            <NavSide.Link to="accordion">Accordion</NavSide.Link>
+            <NavSide.Link to="radiobutton">RadioButton</NavSide.Link>
+            <NavSide.Link to="radiobuttongroup">RadioButton Group</NavSide.Link>
+            <NavSide.Link to="checkbox">Checkbox</NavSide.Link>
+            <NavSide.Link to="checkboxgroup">Checkbox Group</NavSide.Link>
+            <NavSide.Link to="counter">Counter</NavSide.Link>
+            <NavSide.Link to="togglebutton">Toggle Button</NavSide.Link>
+            <NavSide.Link to="toggleswitch">Toggle Switch</NavSide.Link>
+            <NavSide.Link to="snackbar">Snackbar</NavSide.Link>
+            <NavSide.Link to="slider">Slider</NavSide.Link>
+            <NavSide.Link to="slidermultirange">Slider (Multirange)</NavSide.Link>
+            <NavSide.Link to="divider">Divider</NavSide.Link>
+            <NavSide.Link to="list">List</NavSide.Link>
+            <NavSide.Link to="table">Table</NavSide.Link>
+            <NavSide.Link to="card">Card</NavSide.Link>
+            <NavSide.Link to="tree">Tree</NavSide.Link>
+            <NavSide.Link to="progressloader">Progress Loader</NavSide.Link>
+            <NavSide.Link to="spinner">Spinner</NavSide.Link>
+            <NavSide.Link to="dropdown">Dropdown</NavSide.Link>
+            <NavSide.Link to="tabs">Tabs</NavSide.Link>
+          </NavSide.Group>
+
+          <NavSide.Group>
+            <NavSide.Heading variation="h2">Utility</NavSide.Heading>
+            <NavSide.Link to="resizepanel">Resize panel</NavSide.Link>
+            <NavSide.Link to="dimensions">Dimensions</NavSide.Link>
+            <NavSide.Link to="codeblock">CodeBlock</NavSide.Link>
+          </NavSide.Group>
+        </NavSide>
+
         <Container isOpen={isOpen} ref={containerRef}>
           <main id="main">
             <Outlet />
           </main>
         </Container>
-        <div className="gutter"></div>
 
-        <OnThisPage className="onthispage">B</OnThisPage>
+        <OnThisPage data-id="onthispage" />
       </Content>
     </HomeLayoutContainer>
   );

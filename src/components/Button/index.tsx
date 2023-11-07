@@ -9,7 +9,6 @@ const buttonVariants: any = cva(
   //default styles
   [
     'block',
-    'font-semibold',
     'border-2',
     'border-red-600',
     'rounded',

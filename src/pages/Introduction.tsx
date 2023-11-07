@@ -3,7 +3,7 @@ import { Text, Heading } from '../components';
 const Introduction = () => {
   return (
     <div>
-      <Heading variation="h4">Introduction</Heading>
+      <Heading variation="h1">Introduction</Heading>
       <Text>Swagfinger-UI is a design system meant for an easier developer experience.</Text>
       <Text>It uses Styled-Components / Class Variance Authority (CVA) and TailwindCSS under the hood.</Text>
       <Text>

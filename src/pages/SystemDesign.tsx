@@ -4,18 +4,24 @@ import { Heading, Text, CodeBlock } from '../components';
 const SystemDesign = () => {
   return (
     <div>
-      <Heading variation="h4">System Design</Heading>
-      <Heading variation="h5">Routing</Heading>
+      <Heading variation="h1">System Design</Heading>
+      <Heading variation="h2" className="observable">
+        Routing
+      </Heading>
       <Text>React Router 6 - https://github.com/swagfinger/template-react-router-6</Text>
       <Text>NextJS Routing - https://nextjs.org/docs/routing/introduction</Text>
-      <Heading variation="h5">Validation</Heading>
+      <Heading variation="h2" className="observable">
+        Validation
+      </Heading>
       <Text>
         For Validation: leaning towards ZOD
         <br />
         https://zod.dev/ <br />
         https://validatejs.org/
       </Text>
-      <Heading variation="h5">Layout</Heading>
+      <Heading variation="h2" className="observable">
+        Layout
+      </Heading>
       <Text>TailwindCSS (https://tailwindui.com/documentation) and CSS Grid or CSS Flexbox</Text>
       <Text>
         with layout using css grid, sometimes its better not to specify any css. eg. if you have 1 column, 1 row (that
@@ -26,7 +32,9 @@ const SystemDesign = () => {
         Components should take into consideration when it has 'overflow: hidden', this may possibly hide child
         components which overflow its dimensions.
       </Text>
-      <Heading variation="h5">Styling</Heading>
+      <Heading variation="h2" className="observable">
+        Styling
+      </Heading>
       <Text>
         The main reason this component library was created, was to address the support for variants and props AND the
         ability to use Tailwindcss to style components.
@@ -45,9 +53,13 @@ const SystemDesign = () => {
         by exposing component's subcomponents we are allowing styling to be set directly on the sub components
         eliminating the need to pass styles as props.
       </Text>
-      <Heading variation="h5">Themes</Heading>
+      <Heading variation="h2" className="observable">
+        Themes
+      </Heading>
       <Text>Supports theming</Text>
-      <Heading variation="h5">Icons</Heading>
+      <Heading variation="h2" className="observable">
+        Icons
+      </Heading>
       <Text>
         SVG vector icons are the way to go, there are many icon libraries, i prefer Hero Icons: https://heroicons.com/
       </Text>
@@ -57,9 +69,13 @@ const SystemDesign = () => {
         developing using the design system. There should be a separation between the two as an icon library is
         technically optional third-party dependency but icons required for your components are non-negotiably required.
       </Text>
-      <Heading variation="h5">bundler</Heading>
+      <Heading variation="h2" className="observable">
+        bundler
+      </Heading>
       <Text>Using Vite to compile and bundle code - it uses es modules and its fast.</Text>
-      <Heading variation="h5">module alias</Heading>
+      <Heading variation="h2" className="observable">
+        module alias
+      </Heading>
       <Text>created aliases for links so that instead of using relative pathing, you can use absolute path</Text>
       <Text>This is made possible via creating aliases for path in vite.config.ts:</Text>
       <CodeBlock type="tsx">{`
@@ -85,7 +101,9 @@ const SystemDesign = () => {
       <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '../../components';`}</CodeBlock>
       <Text>to this (Absolute pathing)</Text>
       <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '@swagfinger/components';`}</CodeBlock>
-      <Heading variation="h5">Static assets</Heading>
+      <Heading variation="h2" className="observable">
+        Static assets
+      </Heading>
       <Text>
         Vite helps you to copy any files placed in public/ folder as static assets; On build, it will copy these files
         into dist/ folder (as is). However, vite will also by default optimises any static assets placed in public/
@@ -120,7 +138,9 @@ const SystemDesign = () => {
         If you are struggling to deploy your build (eg. seeing blank white page on vercel), you need to ensure that you
         can run the command: 'npm run build-preview' without errors as this is the production build files.
       </Text>
-      <Heading variation="h5">Darkmode</Heading>
+      <Heading variation="h2" className="observable">
+        Darkmode
+      </Heading>
       <Text>
         Darkmode is a variation of each theme, themes are independent of each other but they all have their own
         light/dark mode.
@@ -130,8 +150,10 @@ const SystemDesign = () => {
         Really like this transitioning button for the darkmode button, might implement but will think about it as I
         would prefer something cleaner: https://codepen.io/chriscoyier/pen/gOQPqBj
       </Text>
-      <Heading variation="h5">Component Design</Heading>
-      <Heading variation="h6">An evolution of component design</Heading>
+      <Heading variation="h2" className="observable">
+        Component Design
+      </Heading>
+      <Heading variation="h3">An evolution of component design</Heading>
       <Text>
         Current perceived best practice is to use compound components, especially when building component libraries that
         need to have design flexibility. React has a concept of context that allows passing of state though the
@@ -144,7 +166,9 @@ const SystemDesign = () => {
         Components should be accessible, following accessibility best practices using guidelines:
         https://www.w3.org/WAI/ARIA/apg/patterns/
       </Text>
-      <Heading variation="h6">referencing</Heading>
+      <Heading variation="h2" className="observable">
+        referencing
+      </Heading>
       <Text>
         Components should have reference so they are accesible from higher up the component render chain, <br />
         for reference: https://react.dev/reference/react/forwardRef
@@ -153,7 +177,9 @@ const SystemDesign = () => {
         references to props that are not normal html element attributes should use the data- props formatted like
         [data-*]
       </Text>
-      <Heading variation="h6">Positioning</Heading>
+      <Heading variation="h2" className="observable">
+        Positioning
+      </Heading>
       <Text>components are placed in relation to their parents orientation (eg. column / row)</Text>
       <Text>
         Intersection observer: for drop-down components - use IntersectionObserver to check if component is on top half
@@ -166,19 +192,23 @@ const SystemDesign = () => {
         Intersection observer: another use of intersection observer is the aside menu section 'on this page' that lists
         the contents of the page, when the heading reaches the page, the title should highlight on the aside menu.
       </Text>
-      <Heading variation="h6">Modals</Heading>
+      <Heading variation="h2" className="observable">
+        Modals
+      </Heading>
       <Text>
         Modals should make use of React's portals: <br />
         https://react.dev/reference/react-dom/createPortal
       </Text>
-      <Heading variation="h6">Focus</Heading>
+      <Heading variation="h2" className="observable">
+        Focus
+      </Heading>
       <Text>when components receive focus, it uses Tailwind focus ring instead of styling :focus.</Text>
       <Text>for this to happen we change component on focus to outline: none;</Text>
       <Text>
         where possible use the useHoverFocus hook, it has support for both mobile clicking and hovering on larger
         screens
       </Text>
-      <Heading variation="h6">using :focus</Heading>
+      <Heading variation="h3">using :focus</Heading>
       <CodeBlock>
         {`button:focus {
   outline-width: 3px;
@@ -260,7 +290,9 @@ function AnotherComponent() {
 }
 
 export default AnotherComponent;`}</CodeBlock>
-      <Heading variation="h6">Composition</Heading>
+      <Heading variation="h2" className="observable">
+        Composition
+      </Heading>
       <Text>using Tailwind-merge, clsx (https://github.com/lukeed/clsx), cn utility helper, CVA</Text>
       <Text>
         when a component uses multiple pieces to build up the component, import theses individual exports so you can
@@ -268,7 +300,7 @@ export default AnotherComponent;`}</CodeBlock>
         which styles are meant for which part of the component? you would not know, thats why the architectural decision
         is either to have a controlled predefined props or opengates tailwind classes for each part of the component.
       </Text>
-      <Heading variation="h6">Method 1: cn / tw-merge / clsx</Heading>
+      <Heading variation="h3">Method 1: cn / tw-merge / clsx</Heading>
       <Text>Instead of passing individual props to components...</Text>
       <CodeBlock>{`<Card color='white' borderColor='#DDD' borderRadius='10px' height='200px'/>`}</CodeBlock>
       <Text>Use classes (tailwind) instead</Text>
@@ -309,7 +341,7 @@ export const Card: React.FC<CardProps> = ({
   return <div className={className}>{children}</div>;
 };`}
       </CodeBlock>
-      <Heading variation="h6">Method 2: (cn / tw-merge / clsx) + CVA</Heading>
+      <Heading variation="h3">Method 2: (cn / tw-merge / clsx) + CVA</Heading>
       <Text>
         with CVA you have predefined styles which are called 'variants', each variant is a prop for the component with a
         set of values mapped to a variant
