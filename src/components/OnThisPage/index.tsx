@@ -66,7 +66,22 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
         {observables && observables.length > 0 ? (
           <div className="flex flex-col">
             {observables.map((observable, index) => (
-              <Button intent="plain" padding="small" key={index}>
+              <Button
+                intent="plain"
+                padding="small"
+                key={index}
+                onClick={e => {
+                  e.preventDefault();
+                  const offset = -50; //height of navbar
+                  const targetPosition = observable.getBoundingClientRect().top + window.scrollY + offset;
+                  window.scrollTo({ top: targetPosition, behavior: 'instant' });
+
+                  // observable.scrollIntoView({
+                  //   behavior: 'instant',
+                  //   block: 'start', // Scroll to the top of the viewport
+                  //   offset: { top: 20 },
+                  // });
+                }}>
                 {observable.innerHTML}
               </Button>
             ))}
