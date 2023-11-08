@@ -5,6 +5,7 @@ import { Heading, Button } from '..';
 import { useOnThisPage } from '@swagfinger/context/OnThisPageContext';
 import scrollToPercentage from '@swagfinger/utils/scrollToPercentage';
 import styled from 'styled-components';
+import { smoothScroll } from '@swagfinger/utils/smoothScroll';
 
 const StyledOnThisPage = styled.aside`
   display: none;
@@ -73,14 +74,14 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
                 onClick={e => {
                   e.preventDefault();
                   const offset = -50; //height of navbar
+
+                  //method 1 - scrollTo internal function cant control duration of animation
                   const targetPosition = observable.getBoundingClientRect().top + window.scrollY + offset;
                   window.scrollTo({ top: targetPosition, behavior: 'instant' });
 
-                  // observable.scrollIntoView({
-                  //   behavior: 'instant',
-                  //   block: 'start', // Scroll to the top of the viewport
-                  //   offset: { top: 20 },
-                  // });
+                  //method 2 - util function smoothScroll
+                  // const duration = 0; // 1 second (in milliseconds)
+                  // smoothScroll(observable as HTMLElement, duration, offset);
                 }}>
                 {observable.innerHTML}
               </Button>
