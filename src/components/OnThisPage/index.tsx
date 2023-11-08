@@ -80,7 +80,8 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
                   const offset = -50; //height of navbar
 
                   //method 1 - scrollTo internal function cant control duration of animation
-                  const targetPosition = observable.getBoundingClientRect().top + window.scrollY + offset;
+                  const targetPosition =
+                    index === 0 ? 0 : observable.getBoundingClientRect().top + window.scrollY + offset;
                   window.scrollTo({ top: targetPosition, behavior: 'instant' });
 
                   //method 2 - util function smoothScroll
