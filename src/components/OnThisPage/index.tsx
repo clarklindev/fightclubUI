@@ -40,17 +40,21 @@ const StyledContainer = styled.div`
 export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
   const location = useLocation();
   const currentPath = location.pathname;
-  const main = document.querySelector('main');
   const { scrollPercentage } = useOnThisPage();
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [observables, setObservables] = useState<Element[] | null>(null);
 
-  useEffect(() => {
+  const startObserve = () => {
     let observableDom: Array<Element>;
+    const main = document.querySelector('main');
     if (main) {
       observableDom = Array.from(main.querySelectorAll('.observable'));
       setObservables(observableDom);
     }
+  };
+
+  useEffect(() => {
+    startObserve();
   }, [currentPath]);
 
   useEffect(() => {
