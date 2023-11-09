@@ -9,6 +9,12 @@ import Introduction from '@swagfinger/pages/Introduction';
 import SystemDesign from '@swagfinger/pages/SystemDesign';
 import NotFound from '@swagfinger/pages/NotFound';
 
+// interface
+import NavbarExample from '@swagfinger/pages/Navbar';
+import NavSideExample from '@swagfinger/pages/NavSide';
+import OutletExample from '@swagfinger/pages/Outlet';
+import OnThisPageExample from '@swagfinger/pages/OnThisPage';
+
 //components
 import HeadingExample from '@swagfinger/pages/Heading';
 import TextExample from '@swagfinger/pages/Text';
@@ -33,20 +39,32 @@ import TableExample from '@swagfinger/pages/Table';
 import CardExample from '@swagfinger/pages/Card';
 import ProgressLoaderExample from '@swagfinger/pages/ProgressLoader';
 import SpinnerExample from '@swagfinger/pages/Spinner';
-import ResizePanelExample from '@swagfinger/pages/ResizePanel';
-import DimensionsExample from '@swagfinger/pages/Dimensions';
-import CodeBlockExample from '@swagfinger/pages/CodeBlock';
 import TreeExample from '@swagfinger/pages/Tree';
 import DropdownExample from '@swagfinger/pages/Dropdown';
 import TabsExample from '@swagfinger/pages/Tabs';
+
+// Utility
+import ResizePanelExample from '@swagfinger/pages/ResizePanel';
+import DimensionsExample from '@swagfinger/pages/Dimensions';
+import CodeBlockExample from '@swagfinger/pages/CodeBlock';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<HomeLayout />}>
       <Route index element={<Introduction />} />
+
+      {/* guide */}
       <Route path="/introduction" element={<Introduction />} />
       <Route path="/gettingstarted" element={<GettingStarted />} />
       <Route path="/systemdesign" element={<SystemDesign />} />
+
+      {/* Interface */}
+      <Route path="/navbar" element={<NavbarExample />} />
+      <Route path="/navside" element={<NavSideExample />} />
+      <Route path="/outlet" element={<OutletExample />} />
+      <Route path="/onthispage" element={<OnThisPageExample />} />
+
+      {/* components */}
       <Route path="/heading" element={<HeadingExample />} />
       <Route path="/text" element={<TextExample />} />
       <Route path="/icon" element={<IconExample />} />
@@ -70,13 +88,16 @@ export const router = createBrowserRouter(
       <Route path="/card" element={<CardExample />} />
       <Route path="/progressloader" element={<ProgressLoaderExample />} />
       <Route path="/spinner" element={<SpinnerExample />} />
-      <Route path="/resizepanel" element={<ResizePanelExample />} />
-      <Route path="/dimensions" element={<DimensionsExample />} />
-      <Route path="/codeblock" element={<CodeBlockExample />} />
       <Route path="/dropdown" element={<DropdownExample />} />
       <Route path="/tree" element={<TreeExample />} />
       <Route path="/tabs" element={<TabsExample />} />
 
+      {/* utility */}
+      <Route path="/resizepanel" element={<ResizePanelExample />} />
+      <Route path="/dimensions" element={<DimensionsExample />} />
+      <Route path="/codeblock" element={<CodeBlockExample />} />
+
+      {/* router */}
       <Route path="/404" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/404" replace />} />
     </Route>,
