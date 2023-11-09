@@ -109,6 +109,10 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
           console.log('DISCONNECT');
           observerRef.current.disconnect();
         }
+
+        if (selectedItemIndex.current) {
+          selectedItemIndex.current = null;
+        }
         console.log('CLEANUP END-------------------------');
       };
     }
@@ -130,6 +134,7 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
               <Button
                 intent="plain"
                 padding="p-1"
+                focus="none"
                 key={index}
                 className={observablesInView && observablesInView[index] ? 'bg-red-500' : ''}
                 onClick={e => {

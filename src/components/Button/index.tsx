@@ -12,8 +12,6 @@ const buttonVariants: any = cva(
     'border-2',
     'border-red-600',
     'rounded',
-    'focus:outline-none',
-    'focus:border-black',
     'box-border',
     'inline-flex',
     'items-center',
@@ -44,6 +42,10 @@ const buttonVariants: any = cva(
         small: ['text-sm'],
         medium: ['text-base'],
       },
+      focus: {
+        border: ['focus:outline-none', 'focus:border-black'],
+        none: [''],
+      },
     },
     compoundVariants: [
       {
@@ -68,6 +70,7 @@ const buttonVariants: any = cva(
       intent: 'primary',
       padding: 'medium',
       size: 'medium',
+      focus: 'border',
     },
   },
 );
@@ -76,6 +79,7 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
   intent?: string;
   padding?: string;
   size?: string;
+  focus?: string;
   className?: string;
   ariaLabel?: string;
   children: React.ReactNode;
@@ -89,14 +93,14 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref) => {
-  const { intent, padding, size, className, onClick, onFocus, onBlur, ariaLabel, children, ...rest } = props;
+  const { intent, padding, size, focus, className, onClick, onFocus, onBlur, ariaLabel, children, ...rest } = props;
 
   //<Button className={`cn(buttonVariants(...`{ intent: 'primary'}), className)}/>;
 
   const theme = useTheme() as ThemeType;
 
   const classes = twMerge(
-    buttonVariants({ intent, size, padding }),
+    buttonVariants({ intent, size, padding, focus }),
     className,
 
     intent === 'primary' && theme.Button?.primary,
