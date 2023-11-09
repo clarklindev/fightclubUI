@@ -40,15 +40,18 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
       // Create a new array with all elements set to false initially
       const newObservablesInView = new Array(observables.length).fill(false);
 
-      entries.forEach(entry => {
+      // Find the first entry that is intersecting
+      const firstIntersectingEntry = entries.find(entry => entry.isIntersecting);
+
+      if (firstIntersectingEntry) {
         // Try to find the entry's index in observables
-        const index = observables.indexOf(entry.target as HTMLElement);
+        const index = observables.indexOf(firstIntersectingEntry.target as HTMLElement);
 
         if (index !== -1) {
           // Update the value in the new array with the most recent isIntersecting value
-          newObservablesInView[index] = entry.isIntersecting;
+          newObservablesInView[index] = true;
         }
-      });
+      }
 
       // Ensure there's at least one true value before updating the state
       if (newObservablesInView.some(value => value === true)) {
