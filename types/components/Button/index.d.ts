@@ -5,6 +5,7 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
     intent?: string;
     padding?: string;
     size?: string;
+    focus?: string;
     className?: string;
     ariaLabel?: string;
     children: React.ReactNode;

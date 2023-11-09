@@ -1,5 +1,5 @@
 /// <reference types="react" />
-import { HeadingProps } from '../';
+import { HeadingProps } from '@swagfinger/components';
 type NavSideProps = {
     children?: React.ReactNode;
     className?: string;

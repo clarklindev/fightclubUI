@@ -1,5 +1,5 @@
-export * from './components';
-export * from './icons';
-export * from './themes';
-export * from './customhooks';
+export * from '@swagfinger/components';
+export * from '@swagfinger/icons';
+export * from '@swagfinger/themes';
+export * from '@swagfinger/customhooks';
 //# sourceMappingURL=index.d.ts.map

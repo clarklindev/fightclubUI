@@ -124,19 +124,23 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
 
   return (
     <StyledOnThisPage className={className} {...rest}>
-      <Heading variation="h2" className="pb-3 px-8">
+      <Heading variation="h2" size="XS" className="pb-3 px-10">
         On this page
       </Heading>
       <Container ref={containerRef}>
         {observables && observables.length > 0 ? (
-          <div className="flex flex-col">
+          <div className="flex flex-col relative">
             {observables.map((observable, index) => (
               <Button
                 intent="plain"
                 padding="p-1"
                 focus="none"
                 key={index}
-                className={observablesInView && observablesInView[index] ? 'bg-red-500' : ''}
+                className={
+                  observablesInView && observablesInView[index]
+                    ? "before:absolute before:w-1 before:h-8 before:bg-red-500 before:ml-[-20px] before:content-''"
+                    : ''
+                }
                 onClick={e => {
                   e.preventDefault();
                   selectedItemIndex.current = index;

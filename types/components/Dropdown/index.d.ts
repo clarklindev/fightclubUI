@@ -1,5 +1,5 @@
 import React, { ButtonHTMLAttributes } from 'react';
-import { Position } from '../../utils/position';
+import { Position } from '@swagfinger/utils/position';
 declare const Dropdown: {
     ({ children }: {
         children: React.ReactNode;

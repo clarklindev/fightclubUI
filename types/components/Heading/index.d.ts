@@ -1,5 +1,5 @@
 import React from 'react';
-import { ThemeType } from '../../themes/LightTheme';
+import { ThemeType } from '@swagfinger/themes/LightTheme';
 declare enum HeadingVariation {
     h1 = "h1",
     h2 = "h2",

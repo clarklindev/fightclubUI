@@ -1,5 +1,5 @@
 import React from 'react';
-import { Orientation } from '../../types/Orientation';
+import { Orientation } from '@swagfinger/types/Orientation';
 declare enum SlideMode {
     RESTRICT = "restrict",
     MAGNETIC = "magnetic",

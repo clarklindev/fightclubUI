@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon } from '../';
+import { Icon } from '@swagfinger/components';
 type ToggleButtonProps = {
     checked: boolean;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
