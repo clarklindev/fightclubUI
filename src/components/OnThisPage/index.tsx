@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, forwardRef } from 'react';
+import React, { useEffect, useRef, forwardRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -15,6 +15,7 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
 
   const { observablesInView, setObservablesInView, observables, setObservables } = useOnThisPage();
   const { scrollPercentage, scrollToPercentage } = useScroll();
+  const selectedItemIndex = useRef<number | null>(null);
 
   useEffect(() => {
     console.log('\n\n\n\n\n');
@@ -40,21 +41,38 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
     if (observables) {
       // Create a new array with all elements set to false initially
       const newObservablesInView = new Array(observables.length).fill(false);
+      // Check if the selectedItemIndex is set, and set it to true in the new array
+      if (selectedItemIndex.current !== null) {
+        newObservablesInView[selectedItemIndex.current] = true;
+        // Reset selectedItemIndex to null
+        selectedItemIndex.current = null;
+      } else {
+        // Find the entry closest to the top within the viewport
+        const firstIntersectingEntry = entries.reduce(
+          (closestEntry: IntersectionObserverEntry | null, entry: IntersectionObserverEntry) => {
+            if (
+              entry.isIntersecting &&
+              (!closestEntry || entry.boundingClientRect.top < closestEntry.boundingClientRect.top)
+            ) {
+              return entry;
+            }
+            return closestEntry;
+          },
+          null,
+        );
 
-      // Find the first entry that is intersecting
-      const firstIntersectingEntry = entries.find(entry => entry.isIntersecting);
+        if (firstIntersectingEntry) {
+          console.log('firstIntersectingEntry: ', (firstIntersectingEntry?.target as HTMLElement).innerHTML);
+          // Try to find the entry's index in observables
+          const index = observables.indexOf(firstIntersectingEntry.target as HTMLElement);
 
-      if (firstIntersectingEntry) {
-        // Try to find the entry's index in observables
-        const index = observables.indexOf(firstIntersectingEntry.target as HTMLElement);
-
-        if (index !== -1) {
-          // Update the value in the new array with the most recent isIntersecting value
-          newObservablesInView[index] = true;
+          if (index !== -1) {
+            // Update the value in the new array with the most recent isIntersecting value
+            newObservablesInView[index] = true;
+          }
         }
       }
 
-      // Ensure there's at least one true value before updating the state
       if (newObservablesInView.some(value => value === true)) {
         // Set the updated array as the new state
         setObservablesInView(newObservablesInView);
@@ -65,7 +83,9 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
   useEffect(() => {
     let observer: IntersectionObserver;
     console.log('CREATE OBSERVER');
-    observer = new IntersectionObserver(intersectionCallback);
+    observer = new IntersectionObserver(intersectionCallback, {
+      rootMargin: '50px 0px 0px 0px', //50px from top
+    });
     //IntersectionObserverCallback function()
 
     console.log('NEW OBSERVE');
@@ -114,6 +134,7 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
                 className={observablesInView && observablesInView[index] ? 'bg-red-500' : ''}
                 onClick={e => {
                   e.preventDefault();
+                  selectedItemIndex.current = index;
                   const offset = -50;
                   const targetPosition =
                     index === 0 ? 0 : observable.getBoundingClientRect().top + window.scrollY + offset;
