@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, NavLink } from 'react-router-dom';
-import { useMenu } from '../../context/MenuContext';
+import { useMenu } from '@swagfinger/context/MenuContext';
 
 type CustomNavLink = {
   to: string;

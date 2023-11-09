@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import { useMenu } from '../../context/MenuContext';
-import { CustomNavLink, Heading, HeadingProps } from '../';
+import { useMenu } from '@swagfinger/context/MenuContext';
+import { CustomNavLink, Heading, HeadingProps } from '@swagfinger/components';
 
 const StyledNavSide = styled.aside<{ isOpen: boolean; className?: string }>`
   ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};

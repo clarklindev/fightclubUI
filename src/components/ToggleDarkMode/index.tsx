@@ -1,5 +1,5 @@
 // import { useEffect } from 'react';
-// import { useTheme } from '../../context/ThemeContext';
+// import { useTheme } from '@swagfinger/context/ThemeContext';
 
 export const ToggleDarkMode: React.FC = () => {
   // const { isDarkMode, setIsDarkMode } = useTheme();

@@ -1,4 +1,5 @@
-import { Layout, Heading } from '../../components';
+import { Layout, Heading, ResizePanel } from '@swagfinger/components';
+
 import InputBasicExample from './InputBasicExample';
 import InputReadOnlyExample from './InputReadOnlyExample';
 import InputWithIconExample from './InputWithIconExample';
@@ -6,7 +7,6 @@ import InputNoBorderExample from './InputNoBorderExample';
 import InputPasswordExample from './InputPasswordExample';
 import InputFilterExample from './InputFilterExample';
 import InputSearchExample from './InputSearchExample';
-import { ResizePanel } from '../../components';
 
 const InputExample = () => {
   return (

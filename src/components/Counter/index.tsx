@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Input, Button, Icon } from '../..';
-import { MinusSmallIcon, PlusSmallIcon } from '../../icons';
+import { Input, Button, Icon } from '@swagfinger/components';
+import { MinusSmallIcon, PlusSmallIcon } from '@swagfinger/icons';
 
 type CounterProps = {
   savedData: number;

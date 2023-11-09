@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-
-import { Slider } from '../Slider';
-import { Orientation } from '../../types/Orientation';
+import { Slider } from '@swagfinger/components';
+import { Orientation } from '@swagfinger/types/Orientation';
 
 //valueGradient
 // const startPercentage = sliderValue; // Adjust this value to set the start point

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { Orientation } from '../../types/Orientation';
+import { Orientation } from '@swagfinger/types/Orientation';
 
 type SliderProps = {
   onChange: (value: number, index: number) => void;

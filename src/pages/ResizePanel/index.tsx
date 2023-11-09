@@ -1,5 +1,4 @@
-import { ResizePanel } from '../../components';
-import { Heading } from '../../components';
+import { Heading, ResizePanel } from '@swagfinger/components';
 
 const ResizePanelExample = () => {
   return (

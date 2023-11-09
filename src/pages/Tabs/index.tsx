@@ -1,4 +1,4 @@
-import { Tabs, Heading, CodeBlock, Text } from '../../components';
+import { Tabs, Heading, CodeBlock, Text } from '@swagfinger/components';
 
 const TabsExample = () => {
   const tabsData = [

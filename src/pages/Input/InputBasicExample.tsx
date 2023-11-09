@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Input } from '../../components';
+import { Input } from '@swagfinger/components';
 
 //normal input
 const InputExample = () => {

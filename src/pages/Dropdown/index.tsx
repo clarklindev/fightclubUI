@@ -1,4 +1,4 @@
-import { Dropdown, Heading, Tabs, CodeBlock } from '../../components';
+import { Dropdown, Heading, Tabs, CodeBlock } from '@swagfinger/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
 const DropdownExample = () => {

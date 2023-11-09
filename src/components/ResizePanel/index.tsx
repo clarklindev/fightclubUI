@@ -1,6 +1,6 @@
 //import React, { useState, useRef, useEffect } from 'react';
 //import styled from 'styled-components';
-//import { Dimensions } from '../Dimensions';
+//import { Dimensions } from '@swagfinger/components';
 
 type ResizePanelProps = {
   style?: React.CSSProperties;

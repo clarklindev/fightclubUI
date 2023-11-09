@@ -1,5 +1,5 @@
-import { Heading, LabelSomething, Icon, ResizePanel, Layout } from '../../components';
-import { SmileyIcon } from '../../icons';
+import { Heading, LabelSomething, Icon, ResizePanel, Layout } from '@swagfinger/components';
+import { SmileyIcon } from '@swagfinger/icons';
 
 const LabelSomethingExample = () => {
   const icon = <SmileyIcon />;

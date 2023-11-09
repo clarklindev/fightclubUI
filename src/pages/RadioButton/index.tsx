@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { RadioButton, Heading, ResizePanel } from '../../components';
+import { RadioButton, Heading, ResizePanel } from '@swagfinger/components';
 
 const RadioButtonExample = () => {
   const [savedData, setSavedData] = useState(false);

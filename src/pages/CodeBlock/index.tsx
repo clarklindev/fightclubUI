@@ -1,4 +1,4 @@
-import { Heading, ResizePanel, CodeBlock } from '../../components';
+import { Heading, ResizePanel, CodeBlock } from '@swagfinger/components';
 
 const CodeBlockExample = () => {
   return (

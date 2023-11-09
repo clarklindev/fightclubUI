@@ -1,5 +1,4 @@
-import { Spinner, Heading } from '../../components';
-import { ResizePanel } from '../../components';
+import { Spinner, Heading, ResizePanel } from '@swagfinger/components';
 
 const SpinnerExample = () => {
   return (

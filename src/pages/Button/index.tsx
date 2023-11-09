@@ -1,4 +1,4 @@
-import { Heading, Layout, ResizePanel } from '../../components';
+import { Heading, Layout, ResizePanel } from '@swagfinger/components';
 import ButtonContainedExample from './ButtonContainedExample';
 import ButtonOutlinedExample from './ButtonOutlinedExample';
 import ButtonTextExample from './ButtonTextExample';

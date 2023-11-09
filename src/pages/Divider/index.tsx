@@ -1,4 +1,4 @@
-import { Heading, Layout, ResizePanel, Divider } from '../../components';
+import { Heading, Layout, ResizePanel, Divider } from '@swagfinger/components';
 
 const DividerExample = () => {
   return (

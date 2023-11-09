@@ -1,5 +1,5 @@
-import { Button, Icon } from '../../components';
-import { ShoppingCartIcon } from '../../icons';
+import { Button, Icon } from '@swagfinger/components';
+import { ShoppingCartIcon } from '@swagfinger/icons';
 
 const ButtonIconExample = () => {
   return (

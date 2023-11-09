@@ -1,4 +1,4 @@
-import { CodeBlock, Heading, Text } from '../components';
+import { CodeBlock, Heading, Text } from '@swagfinger/components';
 
 const GettingStarted = () => {
   return (

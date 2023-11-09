@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { CheckboxGroup, Checkbox, LabelSomething } from '../../components';
+import { CheckboxGroup, Checkbox, LabelSomething } from '@swagfinger/components';
 
 const CheckboxGroupVerticalExample = () => {
   const options = [

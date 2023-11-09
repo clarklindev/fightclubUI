@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { useFocus, useMenu } from '../customhooks';
+import { useFocus, useMenu } from '@swagfinger/customhooks';
 
 // Create a Context
 const DropdownContext = createContext<{

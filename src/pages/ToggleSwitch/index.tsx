@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { ToggleSwitch, Heading, ResizePanel } from '../../components';
+import { ToggleSwitch, Heading, ResizePanel } from '@swagfinger/components';
 
 const ToggleSwitchExample = () => {
   const [savedData, setSavedData] = useState(false);

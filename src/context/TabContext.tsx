@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
 
-import { TabData } from '../components/Tabs';
+import { TabData } from '@swagfinger/components/Tabs';
 
 type TabsContextProviderProps = {
   children: React.ReactNode;

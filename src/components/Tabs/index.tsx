@@ -1,5 +1,5 @@
 import React, { ReactNode, useEffect } from 'react';
-import { useTabs, TabsContextProvider } from '../../context/TabContext';
+import { useTabs, TabsContextProvider } from '@swagfinger/context/TabContext';
 
 const Tabs = ({ children }: { children: React.ReactNode }) => {
   return <TabsContextProvider>{children}</TabsContextProvider>;

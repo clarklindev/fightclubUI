@@ -1,5 +1,5 @@
-import { Heading, ProgressLoader } from '../../components';
-import { ResizePanel } from '../../components';
+import { Heading, ProgressLoader } from '@swagfinger/components';
+import { ResizePanel } from '@swagfinger/components';
 
 const ProgressLoaderExample = () => {
   return (

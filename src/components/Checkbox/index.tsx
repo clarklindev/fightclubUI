@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import styled from 'styled-components';
 
-import { CheckIcon, CheckboxIndeterminateIcon } from '../../icons';
+import { CheckIcon, CheckboxIndeterminateIcon } from '@swagfinger/icons';
 
 type CheckboxProps = {
   checked: boolean;

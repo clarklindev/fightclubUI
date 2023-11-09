@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Counter, Heading, ResizePanel } from '../../components';
+import { Counter, Heading, ResizePanel } from '@swagfinger/components';
 
 const CounterExample = () => {
   const [savedData, setSavedData] = useState(0);

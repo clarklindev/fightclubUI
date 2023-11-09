@@ -3,7 +3,7 @@ import React, { forwardRef } from 'react';
 import { useTheme } from 'styled-components';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
-import { ThemeType } from '../../themes/LightTheme';
+import { ThemeType } from '@swagfinger/themes/LightTheme';
 
 const buttonVariants: any = cva(
   //default styles

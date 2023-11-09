@@ -1,8 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Icon } from '../';
-import { ChevronDownIcon } from '../../icons';
+import { Icon } from '@swagfinger/components';
+import { ChevronDownIcon } from '@swagfinger/icons';
 
 type SelectProps = {
   savedData: any;

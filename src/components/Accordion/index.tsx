@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 
-import { Icon, Divider } from '../';
-import { ChevronUpIcon, ChevronDownIcon, PlusSmallIcon, MinusSmallIcon } from '../../icons';
+import { Icon, Divider } from '@swagfinger/components';
+import { ChevronUpIcon, ChevronDownIcon, PlusSmallIcon, MinusSmallIcon } from '@swagfinger/icons';
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 

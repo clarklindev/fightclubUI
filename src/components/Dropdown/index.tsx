@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useLayoutEffect, useRef, ButtonHTMLAttributes, ReactElement } from 'react';
 
-import { useDropdown, DropdownContextProvider } from '../../context/DropdownContext';
-import { Button } from '../../components';
-import { Position } from '../../utils/position';
-import { getHorizontalQuadrant } from '../../utils/getQuadrant';
+import { useDropdown, DropdownContextProvider } from '@swagfinger/context/DropdownContext';
+import { Button } from '@swagfinger/components';
+import { Position } from '@swagfinger/utils/position';
+import { getHorizontalQuadrant } from '@swagfinger/utils/getQuadrant';
 
 const Dropdown = ({ children }: { children: React.ReactNode }) => {
   return <DropdownContextProvider>{children}</DropdownContextProvider>;

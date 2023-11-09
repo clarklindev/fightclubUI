@@ -1,5 +1,5 @@
-import { Button, LabelSomething, Icon } from '../../components';
-import { ThumbsUpIcon } from '../../icons';
+import { Button, LabelSomething, Icon } from '@swagfinger/components';
+import { ThumbsUpIcon } from '@swagfinger/icons';
 
 const ButtonWithLabelSomethingExample = () => {
   return (

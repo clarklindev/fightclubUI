@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { Input, InputWrapper, Button, Icon } from '../../components';
-import { ShowIcon, HideIcon } from '../../icons';
+import { Input, InputWrapper, Button, Icon } from '@swagfinger/components';
+import { ShowIcon, HideIcon } from '@swagfinger/icons';
 
 const InputPasswordExample = () => {
   const [savedData, setSavedData] = useState('');

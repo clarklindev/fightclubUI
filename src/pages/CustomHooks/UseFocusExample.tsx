@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 
-import { useFocus } from '../../customhooks';
-import { Button } from '../../components';
+import { useFocus } from '@swagfinger/customhooks';
+import { Button } from '@swagfinger/components';
 
 const UseFocusExample = () => {
   const { isFocused, onFocus, onBlur } = useFocus();

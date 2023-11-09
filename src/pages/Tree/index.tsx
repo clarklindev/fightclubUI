@@ -1,5 +1,5 @@
 //new
-import { Tree, Heading } from '../../components';
+import { Tree, Heading } from '@swagfinger/components';
 
 // only endnodes can be links
 const TreeExample = () => {

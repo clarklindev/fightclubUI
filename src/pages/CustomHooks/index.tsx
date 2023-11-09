@@ -1,6 +1,6 @@
 import UseFocusExample from './UseFocusExample';
 
-import { Heading, Layout } from '../../components';
+import { Heading, Layout } from '@swagfinger/components';
 
 const HooksExample = () => {
   return (

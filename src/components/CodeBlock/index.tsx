@@ -2,10 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import InlineCode from 'react-syntax-highlighter';
-
-import { useTheme } from '../../context/ThemeContext';
-
 import { sunburst } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { useTheme } from '@swagfinger/context/ThemeContext';
 
 type CodeBlockProps = {
   children?: React.ReactNode | null;

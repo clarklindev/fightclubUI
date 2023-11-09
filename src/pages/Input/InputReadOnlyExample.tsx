@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Input } from '../../components';
+import { Input } from '@swagfinger/components';
 
 const InputReadOnlyExample = () => {
   const [savedData, setSavedData] = useState('this is readonly');

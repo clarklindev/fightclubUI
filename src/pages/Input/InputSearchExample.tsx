@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 
-import { Input, InputWrapper, Button, Icon } from '../../components';
-import { SearchIcon } from '../../icons';
+import { Input, InputWrapper, Button, Icon } from '@swagfinger/components';
+import { SearchIcon } from '@swagfinger/icons';
 
 const InputSearchExample = () => {
   const ref = useRef<HTMLInputElement | null>(null);

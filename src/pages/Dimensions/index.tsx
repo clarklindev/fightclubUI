@@ -1,4 +1,4 @@
-import { Dimensions, Heading, ResizePanel } from '../../components';
+import { Dimensions, Heading, ResizePanel } from '@swagfinger/components';
 
 const DimensionsExample = () => {
   return (

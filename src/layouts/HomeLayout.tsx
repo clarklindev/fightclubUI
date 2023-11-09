@@ -2,15 +2,15 @@ import { useRef, useEffect } from 'react';
 import { Outlet, useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Navbar, NavSide, Button, Icon, Dropdown, OnThisPage } from '../components';
-import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon } from '../icons';
-import { useMenu } from '../context/MenuContext';
-import { useTheme } from '../context/ThemeContext';
+import { Navbar, NavSide, Button, Icon, Dropdown, OnThisPage } from '@swagfinger/components';
+import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon } from '@swagfinger/icons';
+import { useMenu } from '@swagfinger/context/MenuContext';
+import { useTheme } from '@swagfinger/context/ThemeContext';
 import { useScroll } from '@swagfinger/context/ScrollContext';
 import { OnThisPageContextProvider } from '@swagfinger/context/OnThisPageContext';
 
-import logo from '../assets/logo.svg';
-import githubIcon from '../assets/github.svg';
+import logo from '@swagfinger/assets/logo.svg';
+import githubIcon from '@swagfinger/assets/github.svg';
 
 const HomeLayoutContainer = styled.div`
   position: relative;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { Input, InputWrapper, Button, Icon } from '../../components';
-import { SearchIcon, ClearIcon } from '../../icons';
+import { Input, InputWrapper, Button, Icon } from '@swagfinger/components';
+import { SearchIcon, ClearIcon } from '@swagfinger/icons';
 
 const InputFilterExample = () => {
   const [savedData, setSavedData] = useState('');

@@ -1,4 +1,3 @@
-import { useDropdown } from '../context/DropdownContext';
 import { Position } from './position';
 
 export enum Quadrant {

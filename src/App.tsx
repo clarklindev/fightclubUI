@@ -1,12 +1,12 @@
 import { RouterProvider } from 'react-router-dom';
 import { ThemeProvider } from 'styled-components';
 
-import { useTheme } from './context/ThemeContext';
-import { lightTheme } from './themes/LightTheme';
-import { darkTheme } from './themes/DarkTheme';
-import { router } from './router';
+import { useTheme } from '@swagfinger/context/ThemeContext';
+import { lightTheme } from '@swagfinger/themes/LightTheme';
+import { darkTheme } from '@swagfinger/themes/DarkTheme';
+import { router } from '@swagfinger/router';
 
-import './App.css';
+import '@swagfinger/App.css';
 
 const App = () => {
   const { isDarkMode } = useTheme();

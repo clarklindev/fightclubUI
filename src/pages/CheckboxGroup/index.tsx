@@ -1,4 +1,4 @@
-import { Heading, Layout, ResizePanel } from '../../components';
+import { Heading, Layout, ResizePanel } from '@swagfinger/components';
 import CheckboxGroupHorizontalExample from './CheckboxGroupHorizontalExample';
 import CheckboxGroupVerticalExample from './CheckboxGroupVerticalExample';
 import CheckboxGroupIndeterminateExample from './CheckboxGroupIndeterminateExample';

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, forwardRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Heading, Button } from '..';
+import { Heading, Button } from '@swagfinger/components';
 import { useOnThisPage } from '@swagfinger/context/OnThisPageContext';
 import { useScroll } from '@swagfinger/context/ScrollContext';
 

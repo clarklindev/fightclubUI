@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { RadioButtonGroup, RadioButton, LabelSomething } from '../../components';
+import { RadioButtonGroup, RadioButton, LabelSomething } from '@swagfinger/components';
 
 const RadioButtonGroupVerticalExample = () => {
   const options = [

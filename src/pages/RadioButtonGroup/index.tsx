@@ -1,6 +1,6 @@
 // //RadioButtonGroup
 
-import { Layout, Heading, ResizePanel } from '../../components';
+import { Layout, Heading, ResizePanel } from '@swagfinger/components';
 import RadioButtonGroupVerticalExample from './RadioButtonGroupVerticalExample';
 import RadioButtonGroupHorizontalExample from './RadioButtonGroupHorizontalExample';
 

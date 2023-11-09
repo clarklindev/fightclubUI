@@ -1,4 +1,4 @@
-import { Accordion } from '../../components';
+import { Accordion } from '@swagfinger/components';
 import { data } from './data';
 
 const AccordionMinimalExample = () => {

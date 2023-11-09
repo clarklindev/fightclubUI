@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
-import { ResizePanel } from '../../components';
-import { SliderMultiRange, Heading } from '../../components';
+import { SliderMultiRange, Heading, ResizePanel } from '@swagfinger/components';
 
 const SliderMultiRangeExample = () => {
   const [sliderValues, setSliderValues] = useState([0, 20, 20, 20]); //holds positions of sliders

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Heading, Slider, ResizePanel } from '../../components';
+import { Heading, Slider, ResizePanel } from '@swagfinger/components';
 
 const SliderExample = () => {
   const [savedData, setSavedData] = useState(0);

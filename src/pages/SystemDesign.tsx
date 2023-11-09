@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Text, CodeBlock } from '../components';
+import { Heading, Text, CodeBlock } from '@swagfinger/components';
 
 const SystemDesign = () => {
   return (
@@ -98,7 +98,7 @@ const SystemDesign = () => {
       },
       `}</CodeBlock>
       <Text>Which simplifies importing dependency modules from relative pathing: </Text>
-      <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '../../components';`}</CodeBlock>
+      <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '@swagfinger/components';`}</CodeBlock>
       <Text>to this (Absolute pathing)</Text>
       <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '@swagfinger/components';`}</CodeBlock>
       <Heading variation="h2" className="observable">

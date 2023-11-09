@@ -1,5 +1,5 @@
-import { Icon, Heading, ResizePanel } from '../../components';
-import { ShoppingCartIcon } from '../../icons';
+import { Icon, Heading, ResizePanel } from '@swagfinger/components';
+import { ShoppingCartIcon } from '@swagfinger/icons';
 
 const IconExample = () => {
   return (

@@ -1,44 +1,44 @@
 import { createBrowserRouter, createRoutesFromElements, Route, Navigate } from 'react-router-dom';
 
 // layouts
-import { HomeLayout } from './layouts/HomeLayout';
+import { HomeLayout } from '@swagfinger/layouts/HomeLayout';
 
 // pages
-import GettingStarted from './pages/GettingStarted';
-import Introduction from './pages/Introduction';
-import SystemDesign from './pages/SystemDesign';
-import NotFound from './pages/NotFound';
+import GettingStarted from '@swagfinger/pages/GettingStarted';
+import Introduction from '@swagfinger/pages/Introduction';
+import SystemDesign from '@swagfinger/pages/SystemDesign';
+import NotFound from '@swagfinger/pages/NotFound';
 
 //components
-import HeadingExample from './pages/Heading';
-import TextExample from './pages/Text';
-import IconExample from './pages/Icon';
-import ButtonExample from './pages/Button';
-import InputExample from './pages/Input';
-import AccordionExample from './pages/Accordion';
-import RadioButtonExample from './pages/RadioButton';
-import RadioButtonGroupExample from './pages/RadioButtonGroup';
-import CheckboxExample from './pages/Checkbox';
-import CheckboxGroupExample from './pages/CheckboxGroup';
-import SelectExample from './pages/Select';
-import CounterExample from './pages/Counter';
-import ToggleButtonExample from './pages/ToggleButton';
-import ToggleSwitchExample from './pages/ToggleSwitch';
-import SnackbarExample from './pages/Snackbar';
-import SliderExample from './pages/Slider';
-import SliderMultiRangeExample from './pages/SliderMultiRange';
-import DividerExample from './pages/Divider';
-import ListExample from './pages/List';
-import TableExample from './pages/Table';
-import CardExample from './pages/Card';
-import ProgressLoaderExample from './pages/ProgressLoader';
-import SpinnerExample from './pages/Spinner';
-import ResizePanelExample from './pages/ResizePanel';
-import DimensionsExample from './pages/Dimensions';
-import CodeBlockExample from './pages/CodeBlock';
-import TreeExample from './pages/Tree';
-import DropdownExample from './pages/Dropdown';
-import TabsExample from './pages/Tabs';
+import HeadingExample from '@swagfinger/pages/Heading';
+import TextExample from '@swagfinger/pages/Text';
+import IconExample from '@swagfinger/pages/Icon';
+import ButtonExample from '@swagfinger/pages/Button';
+import InputExample from '@swagfinger/pages/Input';
+import AccordionExample from '@swagfinger/pages/Accordion';
+import RadioButtonExample from '@swagfinger/pages/RadioButton';
+import RadioButtonGroupExample from '@swagfinger/pages/RadioButtonGroup';
+import CheckboxExample from '@swagfinger/pages/Checkbox';
+import CheckboxGroupExample from '@swagfinger/pages/CheckboxGroup';
+import SelectExample from '@swagfinger/pages/Select';
+import CounterExample from '@swagfinger/pages/Counter';
+import ToggleButtonExample from '@swagfinger/pages/ToggleButton';
+import ToggleSwitchExample from '@swagfinger/pages/ToggleSwitch';
+import SnackbarExample from '@swagfinger/pages/Snackbar';
+import SliderExample from '@swagfinger/pages/Slider';
+import SliderMultiRangeExample from '@swagfinger/pages/SliderMultiRange';
+import DividerExample from '@swagfinger/pages/Divider';
+import ListExample from '@swagfinger/pages/List';
+import TableExample from '@swagfinger/pages/Table';
+import CardExample from '@swagfinger/pages/Card';
+import ProgressLoaderExample from '@swagfinger/pages/ProgressLoader';
+import SpinnerExample from '@swagfinger/pages/Spinner';
+import ResizePanelExample from '@swagfinger/pages/ResizePanel';
+import DimensionsExample from '@swagfinger/pages/Dimensions';
+import CodeBlockExample from '@swagfinger/pages/CodeBlock';
+import TreeExample from '@swagfinger/pages/Tree';
+import DropdownExample from '@swagfinger/pages/Dropdown';
+import TabsExample from '@swagfinger/pages/Tabs';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

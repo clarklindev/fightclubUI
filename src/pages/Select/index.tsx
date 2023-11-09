@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Select, Heading, ResizePanel } from '../../components';
+import { Select, Heading, ResizePanel } from '@swagfinger/components';
 
 const SelectExample = () => {
   const [savedData, setSavedData] = useState<string | null>();

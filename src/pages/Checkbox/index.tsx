@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Checkbox, LabelSomething, Heading, ResizePanel } from '../../components';
+import { Checkbox, LabelSomething, Heading, ResizePanel } from '@swagfinger/components';
 
 const CheckboxExample = () => {
   const [savedData, setSavedData] = useState(false);

@@ -1,5 +1,5 @@
-import { Table, Heading, ResizePanel } from '../../components';
-import type { Header } from '../../components/Table';
+import { Table, Heading, ResizePanel } from '@swagfinger/components';
+import type { Header } from '@swagfinger/components/Table';
 
 const TableExample = () => {
   const configure = {

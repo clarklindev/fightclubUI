@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { Snackbar, Button, Icon, Heading, ResizePanel } from '../../components';
-import { CopyIcon } from '../../icons';
+import { Snackbar, Button, Icon, Heading, ResizePanel } from '@swagfinger/components';
+import { CopyIcon } from '@swagfinger/icons';
 
 const SnackbarExample = () => {
   const [showSnackbar, setShowSnackbar] = useState(false);

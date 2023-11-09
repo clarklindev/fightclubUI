@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { ThemeType } from '../../themes/LightTheme';
+import { ThemeType } from '@swagfinger/themes/LightTheme';
 
 enum HeadingVariation {
   h1 = 'h1',

@@ -1,4 +1,4 @@
-import { Card, Heading, ResizePanel } from '../../components';
+import { Card, Heading, ResizePanel } from '@swagfinger/components';
 
 const CardExample = () => {
   return (

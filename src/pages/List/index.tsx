@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { List, ListItem, Heading, ResizePanel } from '../../components';
+import { List, ListItem, Heading, ResizePanel } from '@swagfinger/components';
 
 type ExampleData = {
   id: number;
