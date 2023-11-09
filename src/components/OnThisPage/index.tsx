@@ -27,38 +27,44 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
 
       console.log('SET OBSERVABLES');
       setObservables(observableDom);
+      setObservablesInView(new Array(observableDom.length).fill(false));
+
       console.log('END----------------------------');
     }
   }, [currentPage]);
 
+  const intersectionCallback = async (entries: IntersectionObserverEntry[]): Promise<void> => {
+    console.log('CALLBACK-------------------------------');
+
+    if (observables) {
+      // Create a new array with all elements set to false initially
+      const newObservablesInView = new Array(observables.length).fill(false);
+
+      entries.forEach(entry => {
+        // Try to find the entry's index in observables
+        const index = observables.indexOf(entry.target as HTMLElement);
+
+        if (index !== -1) {
+          // Update the value in the new array with the most recent isIntersecting value
+          newObservablesInView[index] = entry.isIntersecting;
+        }
+      });
+
+      // Ensure there's at least one true value before updating the state
+      if (newObservablesInView.some(value => value === true)) {
+        // Set the updated array as the new state
+        setObservablesInView(newObservablesInView);
+      }
+    }
+  };
+
   useEffect(() => {
     let observer: IntersectionObserver;
-
     console.log('CREATE OBSERVER');
-
-    observer = new IntersectionObserver(
-      //IntersectionObserverCallback function()
-      async (entries: IntersectionObserverEntry[]): Promise<void> => {
-        console.log('CALLBACK-------------------------------');
-        if (observables) {
-          const newArray = new Array(observables.length).fill(false);
-
-          entries.map(entry => {
-            //try find entry in observables
-            const index = observables.indexOf(entry.target as HTMLElement);
-
-            if (index !== -1) {
-              newArray[index] = entry.isIntersecting;
-            }
-          });
-
-          setObservablesInView(newArray);
-        }
-      },
-    );
+    observer = new IntersectionObserver(intersectionCallback);
+    //IntersectionObserverCallback function()
 
     console.log('NEW OBSERVE');
-
     if (observables) {
       observables.forEach(observable => {
         observer.observe(observable);
