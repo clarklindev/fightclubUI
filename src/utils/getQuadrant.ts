@@ -18,8 +18,6 @@ export const getHorizontalQuadrant = (element: HTMLElement, layoutContainer: HTM
   const triggerCenter = rect.left + rect.width / 2;
   const roundedTriggerCenter = Math.round(triggerCenter);
 
-  console.log('getHorizontalQuadrant layoutContainer: ', layoutContainer);
-
   if (layoutContainer === undefined) {
     if (roundedTriggerCenter === Math.round(viewportWidth)) {
       return Position.CENTER;

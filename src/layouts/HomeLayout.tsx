@@ -1,16 +1,16 @@
-import React, { useRef, useLayoutEffect, useEffect, useState, RefObject } from 'react';
+import { useRef, useEffect } from 'react';
 import { Outlet, useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Navbar, NavSide, Heading, Button, Icon, Dropdown, OnThisPage, Divider } from '../components';
+import { Navbar, NavSide, Button, Icon, Dropdown, OnThisPage } from '../components';
 import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon } from '../icons';
 import { useMenu } from '../context/MenuContext';
 import { useTheme } from '../context/ThemeContext';
-import { useOnThisPage } from '@swagfinger/context/OnThisPageContext';
+import { useScroll } from '@swagfinger/context/ScrollContext';
+import { OnThisPageContextProvider } from '@swagfinger/context/OnThisPageContext';
 
 import logo from '../assets/logo.svg';
 import githubIcon from '../assets/github.svg';
-import getDocumentScrollPercentage from '@swagfinger/utils/getDocumentScrollPercentage';
 
 const HomeLayoutContainer = styled.div`
   position: relative;
@@ -48,8 +48,8 @@ const Content = styled.div`
   }
 
   @media (min-width: 1200px) {
-    grid-template-areas: 'navside container onthispage';
-    grid-template-columns: 400px minmax(0, 1fr) 400px;
+    grid-template-areas: 'navside container';
+    grid-template-columns: 400px minmax(0, 1fr);
   }
 
   [data-id='navside'] {
@@ -58,15 +58,12 @@ const Content = styled.div`
     }
     height: calc(100dvh - 50px);
   }
-
-  [data-id='onthispage'] {
-    grid-area: onthispage;
-    height: calc(100dvh - 50px);
-  }
 `;
 
 const Container = styled.div<{ isOpen: boolean; className?: string }>`
   ${({ isOpen }) => isOpen && `display: none`};
+
+  position: relative;
   grid-area: container;
 
   @media (min-width: 640px) {
@@ -77,7 +74,15 @@ const Container = styled.div<{ isOpen: boolean; className?: string }>`
     display: block;
   }
 
+  @media (min-width: 1200px) {
+    display: grid;
+    grid-template-areas: 'main onthispage';
+    grid-template-columns: minmax(0, 1fr) 400px;
+  }
+
   main {
+    grid-area: main;
+
     white-space: normal;
     padding: 2rem;
     overflow-wrap: break-word;
@@ -88,6 +93,18 @@ const Container = styled.div<{ isOpen: boolean; className?: string }>`
 
     @media (min-width: 1024px) {
       padding: 2rem 4rem;
+    }
+  }
+
+  [data-id='onthispage'] {
+    grid-area: onthispage;
+    height: calc(100dvh - 50px);
+
+    @media (min-width: 1200px) {
+      display: block;
+      position: fixed;
+      padding: 2rem;
+      width: 400px;
     }
   }
 `;
@@ -124,8 +141,8 @@ const setModeIcon = (mode: string | null) => {
 export const HomeLayout = () => {
   const { isOpen, toggleMenu, closeMenu } = useMenu();
   const { colorMode, setLightDarkSystemMode } = useTheme();
-  const { setScrollPercentage } = useOnThisPage();
   const navigate = useNavigate();
+  const { setScrollPercentage, getDocumentScrollPercentage } = useScroll();
 
   const contentRef = useRef<HTMLDivElement | null>(null);
   const containerRef = useRef<HTMLDivElement | null>(null);
@@ -134,7 +151,7 @@ export const HomeLayout = () => {
   useEffect(() => {
     const scrollHandler = () => {
       const percentage = getDocumentScrollPercentage();
-      console.log(`Scroll position: ${percentage.toFixed(2)}%`);
+      // console.log(`Scroll position: ${percentage.toFixed(2)}%`);
       setScrollPercentage(percentage);
     };
 
@@ -271,9 +288,10 @@ export const HomeLayout = () => {
           <main id="main" ref={mainRef}>
             <Outlet />
           </main>
+          <OnThisPageContextProvider>
+            <OnThisPage data-id="onthispage" />
+          </OnThisPageContextProvider>
         </Container>
-
-        <OnThisPage data-id="onthispage" />
       </Content>
     </HomeLayoutContainer>
   );

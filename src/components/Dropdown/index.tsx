@@ -151,8 +151,6 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
     let triggerBounds: DOMRect;
 
     if (menuRef?.current && triggerRef?.current) {
-      console.log('layoutContainer: ', layoutContainer);
-
       menuBounds = (menuRef.current as HTMLElement).getBoundingClientRect();
       triggerBounds = (triggerRef.current as HTMLElement).getBoundingClientRect();
 
@@ -161,7 +159,6 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
 
       if (menuAlign === 'auto' || menuAlign === Position.AUTO) {
         setMenuOrientationX(Position.CENTER);
-        console.log('menuAlign: ', menuAlign);
 
         //check where is the trigger on the page , place setMenuOrientationX in relation to that position
 
@@ -169,8 +166,6 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
           triggerRef.current as HTMLElement,
           layoutContainer ? (layoutContainer as HTMLElement) : undefined,
         );
-
-        console.log('horizontalQuad: ', horizontalQuad);
 
         if (horizontalQuad === Position.LEFT) {
           setMenuOrientationX(Position.LEFT);
@@ -182,7 +177,6 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
       }
 
       if (autoAdjust) {
-        console.log('autoAdjust');
         if (triggerBounds.x + menuBounds.width + scrollbarThickness > viewWidth) {
           console.log('auto adjust Position.RIGHT');
           setMenuOrientationX(Position.RIGHT);

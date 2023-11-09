@@ -1,4 +1,4 @@
-const getDocumentScrollPercentage = (): number => {
+export const getDocumentScrollPercentage = (): number => {
   const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
   const currentScrollTop = window.scrollY;
 
@@ -11,5 +11,3 @@ const getDocumentScrollPercentage = (): number => {
 
   return 0; // Default to 0% if the element is not found
 };
-
-export default getDocumentScrollPercentage;

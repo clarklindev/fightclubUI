@@ -1,6 +1,6 @@
 // This code defines a function scrollToPercentage that takes a percentage value and smoothly scrolls to that percentage of the scrollable element. You can customize the duration and interval to control the smoothness of the scroll animation.
 
-const scrollToPercentage = async (
+export const scrollToPercentage = async (
   scrollableElement: React.RefObject<HTMLElement>,
   percentage: number,
 ): Promise<void> => {
@@ -23,5 +23,3 @@ const scrollToPercentage = async (
     });
   }
 };
-
-export default scrollToPercentage;

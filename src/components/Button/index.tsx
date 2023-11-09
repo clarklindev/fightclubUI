@@ -36,6 +36,8 @@ const buttonVariants: any = cva(
         none: ['px-0', 'py-0'],
         small: ['px-2', 'py-1'],
         medium: ['px-4', 'py-2'],
+        'px-1': ['px-1'],
+        'py-1': ['py-1'],
       },
       size: {
         small: ['text-sm'],

@@ -5,14 +5,15 @@ import App from './App';
 import './index.css';
 import { ThemeContextProvider } from './context/ThemeContext';
 import { MenuContextProvider } from './context/MenuContext';
-import { OnThisPageContextProvider } from './context/OnThisPageContext';
+import { ScrollContextProvider } from './context/ScrollContext';
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   // <React.StrictMode>
   <ThemeContextProvider>
     <MenuContextProvider>
-      <OnThisPageContextProvider>
+      <ScrollContextProvider>
         <App />
-      </OnThisPageContextProvider>
+      </ScrollContextProvider>
     </MenuContextProvider>
   </ThemeContextProvider>,
   // </React.StrictMode>,

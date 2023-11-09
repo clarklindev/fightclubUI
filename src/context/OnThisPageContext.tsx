@@ -1,11 +1,19 @@
 import React, { createContext, useContext, useState } from 'react';
+
+interface OnThisPageContextType {
+  observablesInView: boolean[] | null;
+  setObservablesInView: (_: boolean[]) => void;
+  observables: Array<HTMLElement> | null;
+  setObservables: (_: Array<HTMLElement>) => void;
+}
+
 // Create a Context
-const OnThisPageContext = createContext<{
-  scrollPercentage: number | null;
-  setScrollPercentage: (scrollPercentage: number) => void;
-}>({
-  scrollPercentage: 0,
-  setScrollPercentage: _ => {},
+
+const OnThisPageContext = createContext<OnThisPageContextType>({
+  observablesInView: [], // Initialize with an empty array
+  setObservablesInView: _ => {},
+  observables: [],
+  setObservables: _ => {},
 });
 
 type OnThisPageProps = {
@@ -14,15 +22,17 @@ type OnThisPageProps = {
 
 // Create a Context Provider
 export const OnThisPageContextProvider = ({ children }: OnThisPageProps) => {
-  const [scrollPercentage, setInternalScrollPercentage] = useState<null | number>(null);
-
-  const setScrollPercentage = (val: number) => {
-    console.log('internal scroll percentage: ', val);
-    setInternalScrollPercentage(val);
-  };
+  const [observablesInView, setObservablesInView] = useState<boolean[] | null>(null);
+  const [observables, setObservables] = useState<HTMLElement[]>([]);
 
   return (
-    <OnThisPageContext.Provider value={{ scrollPercentage, setScrollPercentage }}>
+    <OnThisPageContext.Provider
+      value={{
+        observablesInView,
+        setObservablesInView,
+        observables,
+        setObservables,
+      }}>
       {children}
     </OnThisPageContext.Provider>
   );

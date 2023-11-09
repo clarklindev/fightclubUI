@@ -1,70 +1,96 @@
-import React, { useState, useEffect, useMemo, useRef, forwardRef } from 'react';
+import React, { useEffect, useRef, forwardRef } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Heading, Button } from '..';
-
-import { useOnThisPage } from '@swagfinger/context/OnThisPageContext';
-import scrollToPercentage from '@swagfinger/utils/scrollToPercentage';
 import styled from 'styled-components';
-import { smoothScroll } from '@swagfinger/utils/smoothScroll';
 
-const StyledOnThisPage = styled.aside`
-  display: none;
-  overflow-y: hidden;
-
-  @media (min-width: 1200px) {
-    display: block;
-    position: fixed;
-    padding: 2rem;
-    width: 400px;
-  }
-`;
-
-const StyledContainer = styled.div`
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  border: 1px solid var(--border-color);
-  padding: 1rem;
-  border-radius: 5px;
-  height: calc(100dvh - 100px - 5rem);
-  width: 80%;
-  overflow: hidden;
-
-  &:hover {
-    overflow-y: auto;
-  }
-`;
+import { Heading, Button } from '..';
+import { useOnThisPage } from '@swagfinger/context/OnThisPageContext';
+import { useScroll } from '@swagfinger/context/ScrollContext';
 
 export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
-  const location = useLocation();
-  const currentPath = location.pathname;
-  const { scrollPercentage } = useOnThisPage();
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [observables, setObservables] = useState<Element[] | null>(null);
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  const location = useLocation();
+  const currentPage = location.pathname;
 
-  const startObserve = () => {
-    let observableDom: Array<Element>;
+  const { observablesInView, setObservablesInView, observables, setObservables } = useOnThisPage();
+  const { scrollPercentage, scrollToPercentage } = useScroll();
+
+  useEffect(() => {
+    console.log('\n\n\n\n\n');
+    console.log('CURRENT PAGE CHANGE');
+    let observableDom: Array<HTMLElement>;
     const main = document.querySelector('main');
+
     if (main) {
+      console.log('BEGIN----------------------------');
       observableDom = Array.from(main.querySelectorAll('.observable'));
+
+      console.log('SET OBSERVABLES');
       setObservables(observableDom);
+      console.log('END----------------------------');
     }
-  };
+  }, [currentPage]);
 
   useEffect(() => {
-    startObserve();
-  }, [currentPath]);
+    let observer: IntersectionObserver;
+
+    console.log('CREATE OBSERVER');
+
+    observer = new IntersectionObserver(
+      //IntersectionObserverCallback function()
+      async (entries: IntersectionObserverEntry[]): Promise<void> => {
+        console.log('CALLBACK-------------------------------');
+        if (observables) {
+          const newArray = new Array(observables.length).fill(false);
+
+          entries.map(entry => {
+            //try find entry in observables
+            const index = observables.indexOf(entry.target as HTMLElement);
+
+            if (index !== -1) {
+              newArray[index] = entry.isIntersecting;
+            }
+          });
+
+          setObservablesInView(newArray);
+        }
+      },
+    );
+
+    console.log('NEW OBSERVE');
+
+    if (observables) {
+      observables.forEach(observable => {
+        observer.observe(observable);
+      });
+
+      console.log('ASSIGN OBSERVER REF');
+      observerRef.current = observer;
+
+      return () => {
+        console.log('CLEANUP START-------------------------');
+        if (observerRef.current) {
+          console.log('UNOBSERVE');
+          observables.forEach(observable => {
+            if (observerRef.current) {
+              observerRef.current.unobserve(observable); // Use the observer from the ref
+            }
+          });
+          console.log('DISCONNECT');
+          observerRef.current.disconnect();
+        }
+        console.log('CLEANUP END-------------------------');
+      };
+    }
+  }, [observables]);
 
   useEffect(() => {
-    console.log('scrollPercentage: ', scrollPercentage);
     scrollToPercentage(containerRef, scrollPercentage as number);
   }, [scrollPercentage]);
 
   return (
     <StyledOnThisPage className={className} {...rest}>
-      <Heading variation="h2" className="pb-3 px-6">
+      <Heading variation="h2" className="pb-3 px-8">
         On this page
       </Heading>
       <Container ref={containerRef}>
@@ -73,20 +99,16 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
             {observables.map((observable, index) => (
               <Button
                 intent="plain"
-                padding="small"
+                padding="py-1"
                 key={index}
+                className={observablesInView && observablesInView[index] ? 'bg-red-500' : ''}
                 onClick={e => {
                   e.preventDefault();
-                  const offset = -50; //height of navbar
+                  const offset = -50;
 
-                  //method 1 - scrollTo internal function cant control duration of animation
                   const targetPosition =
                     index === 0 ? 0 : observable.getBoundingClientRect().top + window.scrollY + offset;
                   window.scrollTo({ top: targetPosition, behavior: 'instant' });
-
-                  //method 2 - util function smoothScroll
-                  // const duration = 0; // 1 second (in milliseconds)
-                  // smoothScroll(observable as HTMLElement, duration, offset);
                 }}>
                 {observable.innerHTML}
               </Button>
@@ -107,3 +129,28 @@ const Container = forwardRef<HTMLDivElement, { children?: React.ReactNode }>(({ 
     </StyledContainer>
   );
 });
+
+const StyledOnThisPage = styled.aside`
+  display: none;
+  overflow-y: hidden;
+  border-left: 1px solid var(--border-color);
+`;
+
+const StyledContainer = styled.div`
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  border: 1px solid var(--border-color);
+  padding: 1rem;
+  border-radius: 5px;
+  height: calc(100dvh - 100px - 5rem);
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+
+  &:hover {
+    overflow-y: auto;
+  }
+`;
