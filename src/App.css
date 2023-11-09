@@ -33,6 +33,7 @@ body {
   color: var(--clr-foreground);
   font-family: 'Inter', sans-serif;
   overflow-y: scroll;
+  font-size: 14px;
 }
 
 ::-webkit-scrollbar-track {

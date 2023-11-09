@@ -39,6 +39,7 @@ const buttonVariants: any = cva(
         'p-1': ['px-1', 'py-1'],
       },
       size: {
+        default: ['inherit'],
         small: ['text-sm'],
         medium: ['text-base'],
       },
@@ -69,7 +70,7 @@ const buttonVariants: any = cva(
     defaultVariants: {
       intent: 'primary',
       padding: 'medium',
-      size: 'medium',
+      size: 'default',
       focus: 'border',
     },
   },

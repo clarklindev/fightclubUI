@@ -84,7 +84,7 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
     let observer: IntersectionObserver;
     console.log('CREATE OBSERVER');
     observer = new IntersectionObserver(intersectionCallback, {
-      rootMargin: '50px 0px 0px 0px', //50px from top
+      rootMargin: '0px 0px 0px 0px',
     });
     //IntersectionObserverCallback function()
 

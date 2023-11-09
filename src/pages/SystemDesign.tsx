@@ -98,7 +98,7 @@ const SystemDesign = () => {
       },
       `}</CodeBlock>
       <Text>Which simplifies importing dependency modules from relative pathing: </Text>
-      <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '@swagfinger/components';`}</CodeBlock>
+      <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '../components';`}</CodeBlock>
       <Text>to this (Absolute pathing)</Text>
       <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '@swagfinger/components';`}</CodeBlock>
       <Heading variation="h2" className="observable">
