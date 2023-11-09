@@ -9,6 +9,7 @@ import { useScroll } from '@swagfinger/context/ScrollContext';
 export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
+
   const location = useLocation();
   const currentPage = location.pathname;
 
@@ -108,13 +109,12 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
             {observables.map((observable, index) => (
               <Button
                 intent="plain"
-                padding="py-1"
+                padding="p-1"
                 key={index}
                 className={observablesInView && observablesInView[index] ? 'bg-red-500' : ''}
                 onClick={e => {
                   e.preventDefault();
                   const offset = -50;
-
                   const targetPosition =
                     index === 0 ? 0 : observable.getBoundingClientRect().top + window.scrollY + offset;
                   window.scrollTo({ top: targetPosition, behavior: 'instant' });

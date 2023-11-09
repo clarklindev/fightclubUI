@@ -53,7 +53,7 @@ type TabProps = {
   selected: boolean;
 };
 const Tab = ({ label, handleClick, selected }: TabProps) => {
-  const className = selected ? 'tab data-selected border-b border-red-500' : 'tab border-b border-transparent';
+  const className = selected ? 'tab data-selected border-b-2 border-red-500' : 'tab border-b border-transparent';
 
   return (
     <button onClick={handleClick} className={`${className}`}>
