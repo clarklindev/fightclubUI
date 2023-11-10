@@ -138,7 +138,7 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
                 key={index}
                 className={
                   observablesInView && observablesInView[index]
-                    ? "before:absolute before:w-1 before:h-8 before:bg-red-500 before:ml-[-20px] before:content-''"
+                    ? "before:absolute before:w-1 before:h-6 before:bg-red-500 before:ml-[-16px] before:content-''"
                     : ''
                 }
                 onClick={e => {
