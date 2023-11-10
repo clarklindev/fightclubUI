@@ -86,6 +86,8 @@ export const global = {
   inputHeight: '40px',
   inputPadding: '0 10px',
 
+  textMarginBottom: '1.5rem',
+
   dividerColor: colors.neutral[200],
   componentIcons: colors.neutral[400],
 };
@@ -155,7 +157,7 @@ export const lightTheme = {
 
   Text: {
     color: global.color,
-    marginBottom: global.padding,
+    marginBottom: global.textMarginBottom,
   },
 
   Accordion: {

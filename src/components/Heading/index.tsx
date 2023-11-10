@@ -94,6 +94,9 @@ const HeadingBase = styled.div<{ theme: ThemeType }>`
   font-family: ${({ theme }) => theme.Heading?.fontFamily};
   white-space: break-word;
   overflow-wrap: break-word;
+
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 `;
 
 export const H1 = styled(HeadingBase)<{ theme: ThemeType; size: string | undefined }>`

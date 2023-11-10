@@ -67,7 +67,7 @@ const TabContent = () => {
   const tabContent = data[selectedTabIndex]?.content;
 
   return (
-    <div className="content">
+    <div className="tabcontent">
       <div>{tabContent}</div>
     </div>
   );
