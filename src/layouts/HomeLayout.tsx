@@ -232,14 +232,18 @@ export const HomeLayout = () => {
       <Content ref={contentRef}>
         <NavSide data-id="navside">
           <NavSide.Group>
-            <NavSide.Heading variation="h2">Guide</NavSide.Heading>
+            <NavSide.Heading variation="h2" size="M">
+              Guide
+            </NavSide.Heading>
             <NavSide.Link to="introduction">Introduction</NavSide.Link>
             <NavSide.Link to="gettingstarted">Getting started</NavSide.Link>
             <NavSide.Link to="systemdesign">System design</NavSide.Link>
           </NavSide.Group>
 
           <NavSide.Group>
-            <NavSide.Heading variation="h2">Interface</NavSide.Heading>
+            <NavSide.Heading variation="h2" size="M">
+              Interface
+            </NavSide.Heading>
             <NavSide.Link to="navbar">Navbar</NavSide.Link>
             <NavSide.Link to="navside">NavSide</NavSide.Link>
             <NavSide.Link to="outlet">Outlet</NavSide.Link>
@@ -247,7 +251,9 @@ export const HomeLayout = () => {
           </NavSide.Group>
 
           <NavSide.Group>
-            <NavSide.Heading variation="h2">Components</NavSide.Heading>
+            <NavSide.Heading variation="h2" size="M">
+              Components
+            </NavSide.Heading>
             <NavSide.Link to="heading">Heading</NavSide.Link>
             <NavSide.Link to="text">Text</NavSide.Link>
             <NavSide.Link to="icon">Icon</NavSide.Link>
@@ -277,7 +283,9 @@ export const HomeLayout = () => {
           </NavSide.Group>
 
           <NavSide.Group>
-            <NavSide.Heading variation="h2">Utility</NavSide.Heading>
+            <NavSide.Heading variation="h2" size="M">
+              Utility
+            </NavSide.Heading>
             <NavSide.Link to="resizepanel">Resize panel</NavSide.Link>
             <NavSide.Link to="dimensions">Dimensions</NavSide.Link>
             <NavSide.Link to="codeblock">CodeBlock</NavSide.Link>

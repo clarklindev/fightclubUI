@@ -81,10 +81,12 @@ const NavGroup = ({ children, className }: { className?: string; children: React
   return <StyledNavGroup className={className}>{children}</StyledNavGroup>;
 };
 
-const NavHeading = ({ variation, children }: HeadingProps) => {
+const NavHeading = ({ variation, children, ...rest }: HeadingProps) => {
   return (
     <StyledNavHeading>
-      <Heading variation={variation}>{children}</Heading>
+      <Heading variation={variation} {...rest}>
+        {children}
+      </Heading>
     </StyledNavHeading>
   );
 };

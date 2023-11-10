@@ -20,7 +20,7 @@ const Introduction = () => {
       <Text>Pre-defined modular components - with default styling, support of theming and darkmode.</Text>
       <Text>Built with accessibility in mind.</Text>
       <Text>Leverage already well-built battle-tested libraries. We dont re-invent the wheel.</Text>
-      <Text>Motivation:</Text>
+      <Heading variation="h2">Motivation</Heading>
       https://tailwindui.com/components/preview
       <Text>https://ui.shadcn.com/</Text>
       https://vercel.com/design/introduction
