@@ -70,7 +70,7 @@ export const transparency = {
 // components dont point to globals directly - only from theme
 export const global = {
   fontFamily: "Roboto, 'sans-serif'",
-  color: colors.neutral[400],
+  color: 'rgba(0,0,0,0.8)',
   backgroundColor: 'white',
   padding: '10px',
   margin: '1rem',

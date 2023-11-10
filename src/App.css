@@ -1,6 +1,6 @@
 :root {
   --clr-background: white;
-  --clr-foreground: black;
+  --clr-foreground: #151515;
   --input-background-color: #ffffff;
   --input-text-color: #333333;
   --border: 1px solid rgba(0, 0, 0, 0.1);
@@ -10,7 +10,7 @@
 }
 
 html[color-scheme='dark'] {
-  --clr-background: black;
+  --clr-background: #050505;
   --clr-foreground: rgba(255, 255, 255, 0.9);
   --input-background-color: #333333;
   --input-text-color: #ffffff;

@@ -1,26 +1,47 @@
-import { CodeBlock, Heading, Text } from '@swagfinger/components';
+import { CodeBlock, Heading, Section, Text } from '@swagfinger/components';
 
 const GettingStarted = () => {
   return (
     <article>
-      <section>
-        <Heading variation="h2" className="observable">
-          Getting Started
+      <Heading variation="h1">Getting Started</Heading>
+      <Section>
+        <Heading variation="h2" size="level2" data-observable="true">
+          Installation
         </Heading>
-      </section>
+        <Text>Status: work in progress</Text>
+        <CodeBlock>{`npm i @swagfinger/swagfinger-ui`}</CodeBlock>
+      </Section>
 
-      <section>
-        <Heading variation="h2" size="L" className="observable">
-          Build project
+      <Section>
+        <Heading variation="h2" size="level2" data-observable="true">
+          Run in development
         </Heading>
-        <Text>you can build the project as a library, or as development build.</Text>
-        <Text>Use this mode: </Text>
-        <CodeBlock>{`npm run build-preview`}</CodeBlock>
-        <Text>
-          for when you are ready to deploy on production, and use this npm build command while in development:
-        </Text>
+        <Text>Use this npm build command while in development:</Text>
         <CodeBlock>{`npm run dev`}</CodeBlock>
-      </section>
+      </Section>
+
+      <Section>
+        <Heading variation="h2" size="level2" data-observable="true">
+          Build project for production
+        </Heading>
+        <Text>You can build the project as a library.</Text>
+        <Text>Use this mode for when you are ready to deploy on production: </Text>
+        <CodeBlock>{`npm run build`}</CodeBlock>
+      </Section>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </article>
   );
 };

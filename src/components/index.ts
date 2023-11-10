@@ -36,3 +36,4 @@ export { NavSide } from './NavSide';
 export { OnThisPage } from './OnThisPage';
 export { Dropdown } from './Dropdown';
 export { Tabs } from './Tabs';
+export { Section } from './Section';

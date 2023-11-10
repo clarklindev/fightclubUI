@@ -1,11 +1,11 @@
-import { Text, Heading } from '@swagfinger/components';
+import { Text, Section, Heading } from '@swagfinger/components';
 import { Link } from 'react-router-dom';
 
 const Introduction = () => {
   return (
     <article>
-      <section>
-        <Heading variation="h1" className="observable">
+      <Section>
+        <Heading variation="h1" data-observable="true">
           Introduction
         </Heading>
         <Text>Swagfinger-UI is a design system meant for an easier developer experience.</Text>
@@ -24,10 +24,10 @@ const Introduction = () => {
         <Text>Pre-defined modular components - with default styling, support of theming and darkmode.</Text>
         <Text>Built with accessibility in mind.</Text>
         <Text>Leverage already well-built battle-tested libraries. We dont re-invent the wheel.</Text>
-      </section>
+      </Section>
 
-      <section>
-        <Heading variation="h2" size="L" className="observable">
+      <Section>
+        <Heading variation="h2" size="level2" data-observable="true">
           Motivation
         </Heading>
         <Link to="https://tailwindui.com/components/preview">https://tailwindui.com/components/preview</Link>
@@ -49,10 +49,10 @@ const Introduction = () => {
         <Link to="https://mui.com/">https://mui.com/</Link>
         <br />
         <Link to="https://headlessui.com/">https://headlessui.com/</Link>
-      </section>
+      </Section>
 
-      <section>
-        <Heading variation="h2" size="L" className="observable">
+      <Section>
+        <Heading variation="h2" size="level2" data-observable="true">
           Release Features
         </Heading>
         <div>
@@ -65,7 +65,7 @@ const Introduction = () => {
             <li>Tested</li>
           </ul>
         </div>
-      </section>
+      </Section>
     </article>
   );
 };

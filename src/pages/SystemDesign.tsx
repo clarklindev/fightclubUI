@@ -1,35 +1,43 @@
-import React from 'react';
-import { Heading, Text, CodeBlock } from '@swagfinger/components';
+import { Heading, Text, CodeBlock, Section } from '@swagfinger/components';
+import { Link } from 'react-router-dom';
 
 const SystemDesign = () => {
   return (
     <article>
-      <section>
+      <Section>
         <Heading variation="h1">System Design</Heading>
-        <Heading variation="h2" className="observable">
+        <Heading variation="h2" data-observable="true">
           Routing
         </Heading>
-        <Text>React Router 6 - https://github.com/swagfinger/template-react-router-6</Text>
-        <Text>NextJS Routing - https://nextjs.org/docs/routing/introduction</Text>
-      </section>
-      <section>
-        <Heading variation="h2" className="observable">
+        <Link to="https://github.com/swagfinger/template-react-router-6">react-router-dom</Link>
+        <br />
+        <Link to="https://nextjs.org/docs/routing/introduction">NextJS</Link>
+      </Section>
+
+      <Section>
+        <Heading variation="h2" data-observable="true">
           Validation
         </Heading>
-        <Text>
-          For Validation: leaning towards ZOD
-          <br />
-          https://zod.dev/ <br />
-          https://validatejs.org/
-        </Text>
-      </section>
-      <section>
-        <Heading variation="h2" className="observable">
+        <Link to="https://zod.dev/">https://zod.dev/</Link>
+        <br />
+        <Link to="https://validatejs.org/">https://validatejs.org/</Link>
+      </Section>
+
+      <Section>
+        <Heading variation="h2" data-observable="true">
           Layout
         </Heading>
-        <Text>TailwindCSS (https://tailwindui.com/documentation) and CSS Grid or CSS Flexbox</Text>
+
+        <Link to="https://tailwindui.com/documentation">TailwindCSS</Link>
+        <br />
+        <Link to="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Grids">CSS Grid</Link>
+        <br />
+        <Link to="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox">CSS Flexbox</Link>
+        <br />
+        <br />
+
         <Text>
-          with layout using css grid, sometimes its better not to specify any css. eg. if you have 1 column, 1 row (that
+          With layout using css grid, sometimes its better not to specify any css. eg. if you have 1 column, 1 row (that
           later at a high media query breakpoint becomes complex grid layout), it is better to not have any styles and
           only specify at that higher breakpoint where you specify the grid layouts 'grid-template-columns'.
         </Text>
@@ -37,10 +45,10 @@ const SystemDesign = () => {
           Components should take into consideration when it has 'overflow: hidden', this may possibly hide child
           components which overflow its dimensions.
         </Text>
-      </section>
+      </Section>
 
-      <section>
-        <Heading variation="h2" className="observable">
+      <Section>
+        <Heading variation="h2" data-observable="true">
           Styling
         </Heading>
         <Text>
@@ -53,24 +61,24 @@ const SystemDesign = () => {
         </Text>
         <Text>
           The dark-mode toggle adjusts the CSS 'color-scheme' property, and components and svg icons adapt based on
-          'currentColor'
+          'currentColor'.
         </Text>
         <Text>
           Theming takes precedence over default styling; however, tailwind classes applied to component override theming
           and variant props.
         </Text>
         <Text>
-          by exposing component's subcomponents we are allowing styling to be set directly on the sub components
+          By exposing component's subcomponents we are allowing styling to be set directly on the sub components
           eliminating the need to pass styles as props.
         </Text>
-      </section>
+      </Section>
 
-      <section>
-        <Heading variation="h2" className="observable">
+      <Section>
+        <Heading variation="h2" data-observable="true">
           Themes
         </Heading>
         <Text>Supports theming</Text>
-        <Heading variation="h2" className="observable">
+        <Heading variation="h2" data-observable="true">
           Icons
         </Heading>
         <Text>
@@ -83,14 +91,14 @@ const SystemDesign = () => {
           technically optional third-party dependency but icons required for your components are non-negotiably
           required.
         </Text>
-      </section>
+      </Section>
 
-      <section>
-        <Heading variation="h2" className="observable">
+      <Section>
+        <Heading variation="h2" data-observable="true">
           Bundler
         </Heading>
         <Text>Using Vite to compile and bundle code - it uses es modules and its fast.</Text>
-        <Heading variation="h2" className="observable">
+        <Heading variation="h2" data-observable="true">
           Module alias
         </Heading>
         <Text>created aliases for links so that instead of using relative pathing, you can use absolute path</Text>
@@ -118,10 +126,10 @@ const SystemDesign = () => {
         <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '../components';`}</CodeBlock>
         <Text>to this (Absolute pathing)</Text>
         <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '@swagfinger/components';`}</CodeBlock>
-      </section>
+      </Section>
 
-      <section>
-        <Heading variation="h2" className="observable">
+      <Section>
+        <Heading variation="h2" data-observable="true">
           Static assets
         </Heading>
         <Text>
@@ -158,10 +166,10 @@ const SystemDesign = () => {
           If you are struggling to deploy your build (eg. seeing blank white page on vercel), you need to ensure that
           you can run the command: 'npm run build-preview' without errors as this is the production build files.
         </Text>
-      </section>
+      </Section>
 
-      <section>
-        <Heading variation="h2" className="observable">
+      <Section>
+        <Heading variation="h2" data-observable="true">
           Darkmode
         </Heading>
         <Text>
@@ -173,10 +181,10 @@ const SystemDesign = () => {
           Really like this transitioning button for the darkmode button, might implement but will think about it as I
           would prefer something cleaner: https://codepen.io/chriscoyier/pen/gOQPqBj
         </Text>
-      </section>
+      </Section>
 
-      <section>
-        <Heading variation="h2" className="observable">
+      <Section>
+        <Heading variation="h2" data-observable="true">
           Component Design
         </Heading>
         <Heading variation="h3">An evolution of component design</Heading>
@@ -192,10 +200,10 @@ const SystemDesign = () => {
           Components should be accessible, following accessibility best practices using guidelines:
           https://www.w3.org/WAI/ARIA/apg/patterns/
         </Text>
-      </section>
+      </Section>
 
-      <section>
-        <Heading variation="h2" className="observable">
+      <Section>
+        <Heading variation="h2" data-observable="true">
           Referencing
         </Heading>
         <Text>
@@ -206,10 +214,10 @@ const SystemDesign = () => {
           references to props that are not normal html element attributes should use the data- props formatted like
           [data-*]
         </Text>
-      </section>
+      </Section>
 
-      <section>
-        <Heading variation="h2" className="observable">
+      <Section>
+        <Heading variation="h2" data-observable="true">
           Positioning
         </Heading>
         <Text>components are placed in relation to their parents orientation (eg. column / row)</Text>
@@ -225,20 +233,20 @@ const SystemDesign = () => {
           lists the contents of the page, when the heading reaches the page, the title should highlight on the aside
           menu.
         </Text>
-      </section>
+      </Section>
 
-      <section>
-        <Heading variation="h2" className="observable">
+      <Section>
+        <Heading variation="h2" data-observable="true">
           Modals
         </Heading>
         <Text>
           Modals should make use of React's portals: <br />
           https://react.dev/reference/react-dom/createPortal
         </Text>
-      </section>
+      </Section>
 
-      <section>
-        <Heading variation="h2" className="observable">
+      <Section>
+        <Heading variation="h2" data-observable="true">
           Focus
         </Heading>
         <Text>when components receive focus, it uses Tailwind focus ring instead of styling :focus.</Text>
@@ -257,9 +265,9 @@ const SystemDesign = () => {
   outline-offset: 10px;
         }`}
         </CodeBlock>
-      </section>
+      </Section>
 
-      <section>
+      <Section>
         <Heading variation="h6">Modular component structure</Heading>
         <Text>
           Components should be designed in such a way that it promotes modularity. If you've every seen that syntax
@@ -333,10 +341,10 @@ function AnotherComponent() {
 }
 
 export default AnotherComponent;`}</CodeBlock>
-      </section>
+      </Section>
 
-      <section>
-        <Heading variation="h2" className="observable">
+      <Section>
+        <Heading variation="h2" data-observable="true">
           Composition
         </Heading>
         <Text>using Tailwind-merge, clsx (https://github.com/lukeed/clsx), cn utility helper, CVA</Text>
@@ -393,7 +401,7 @@ export const Card: React.FC<CardProps> = ({
           with CVA you have predefined styles which are called 'variants', each variant is a prop for the component with
           a set of values mapped to a variant
         </Text>
-      </section>
+      </Section>
     </article>
   );
 };

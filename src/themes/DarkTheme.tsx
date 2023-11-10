@@ -70,8 +70,8 @@ export const transparency = {
 // components dont point to globals directly - only from theme
 export const global = {
   fontFamily: "Roboto, 'sans-serif'",
-  color: 'white', //colors.neutral[400],
-  backgroundColor: 'black',
+  color: 'rgba(255, 255, 255, 0.8)',
+  backgroundColor: '#000000',
   padding: '10px',
   margin: '1rem',
   gap: '5px',
@@ -215,5 +215,9 @@ export const darkTheme = {
     border: global.border,
     borderRadius: global.borderRadius,
     backgroundColor: global.backgroundColor,
+  },
+
+  Codeblock: {
+    borderRadius: global.borderRadius,
   },
 };

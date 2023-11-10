@@ -47,14 +47,14 @@ const StyledNavSide = styled.aside<{ isOpen: boolean; className?: string }>`
 const StyledNavGroup = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   &:last-child {
     margin-bottom: 0;
   }
 `;
 
 const StyledNavHeading = styled.div`
-  padding: 0 1rem 0.5rem;
+  padding: 0 1rem;
 `;
 
 const Nav = styled.nav`

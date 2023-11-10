@@ -25,7 +25,7 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
 
     if (main) {
       console.log('BEGIN----------------------------');
-      observableDom = Array.from(main.querySelectorAll('.observable'));
+      observableDom = Array.from(main.querySelectorAll('[data-observable="true"]'));
       console.log('SET OBSERVABLES');
       setObservables(observableDom);
       setObservablesInView(new Array(observableDom.length).fill(false));
