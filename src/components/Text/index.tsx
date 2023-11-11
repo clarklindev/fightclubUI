@@ -22,5 +22,5 @@ const TextContainer = styled.p`
     const hasMarginBottomClass = className && className.includes('mb-');
     return hasMarginBottomClass ? undefined : theme?.Text?.marginBottom;
   }};
-  line-height: 2rem;
+  line-height: 1.7rem;
 `;
