@@ -28,6 +28,22 @@ const Introduction = () => {
 
       <Section>
         <Heading variation="h2" size="level2" data-observable="true">
+          Release Features
+        </Heading>
+        <div>
+          <ul>
+            <li>Written in Typescript</li>
+            <li>Styled Components, TailwindCSS, CVA, (tw-merge, CLSX, cn)</li>
+            <li>Dark-mode compatible</li>
+            <li>Theming</li>
+            <li>Accessibility</li>
+            <li>Tested</li>
+          </ul>
+        </div>
+      </Section>
+
+      <Section>
+        <Heading variation="h2" size="level2" data-observable="true">
           Motivation
         </Heading>
         <Link to="https://tailwindui.com/components/preview">https://tailwindui.com/components/preview</Link>
@@ -49,22 +65,6 @@ const Introduction = () => {
         <Link to="https://mui.com/">https://mui.com/</Link>
         <br />
         <Link to="https://headlessui.com/">https://headlessui.com/</Link>
-      </Section>
-
-      <Section>
-        <Heading variation="h2" size="level2" data-observable="true">
-          Release Features
-        </Heading>
-        <div>
-          <ul>
-            <li>Written in Typescript</li>
-            <li>Styled Components, TailwindCSS, CVA, (tw-merge, CLSX, cn)</li>
-            <li>Dark-mode compatible</li>
-            <li>Theming</li>
-            <li>Accessibility</li>
-            <li>Tested</li>
-          </ul>
-        </div>
       </Section>
     </article>
   );
