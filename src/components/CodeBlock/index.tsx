@@ -13,9 +13,8 @@ type CodeBlockProps = {
 
 const CodeBlockWrapper = styled.div`
   width: 100%;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
   border: 1px solid var(--border-color);
+  margin-bottom: 2rem;
   border-radius: ${({ theme }) => theme?.Codeblock?.borderRadius};
   overflow: hidden;
 `;

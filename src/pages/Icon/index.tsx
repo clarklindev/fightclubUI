@@ -24,16 +24,18 @@ const IconExample = () => {
           <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
         </Tabs.TriggerGroup>
 
-        <Tabs.Content data-tab="0">{preview}</Tabs.Content>
-        <Tabs.Content data-tab="1">
-          <CodeBlock>
-            {`
+        <Tabs.ContentGroup>
+          <Tabs.Content data-tab="0">{preview}</Tabs.Content>
+          <Tabs.Content data-tab="1">
+            <CodeBlock>
+              {`
 import {Icon} from '@swagfinger/components';
 
 ${previewString}
 `}
-          </CodeBlock>
-        </Tabs.Content>
+            </CodeBlock>
+          </Tabs.Content>
+        </Tabs.ContentGroup>
       </Tabs>
     </>
   );

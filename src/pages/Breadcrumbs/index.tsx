@@ -1,14 +1,14 @@
 import React from 'react';
 import { Heading } from '@swagfinger/components';
 
-const Outlet = () => {
+const Breadcrumbs = () => {
   return (
     <>
       <Heading variation="h1" data-observable="true">
-        Outlet
+        Breadcrumbs
       </Heading>
     </>
   );
 };
 
-export default Outlet;
+export default Breadcrumbs;

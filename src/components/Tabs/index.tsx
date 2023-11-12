@@ -40,7 +40,11 @@ const Trigger = ({ children, ...rest }: TriggerProps) => {
       intent="plain"
       padding="none"
       focus="none"
-      className={selectedTabId === dataTrigger.current ? 'border-b-2 border-red-500' : 'border-b-2 border-transparent'}
+      className={
+        selectedTabId && selectedTabId === dataTrigger.current
+          ? 'border-b-2 border-red-500'
+          : 'border-b-2 border-transparent'
+      }
       ref={triggerRef}
       onClick={e => {
         const clickedDataTrigger = e.currentTarget.dataset.tab;
@@ -52,6 +56,10 @@ const Trigger = ({ children, ...rest }: TriggerProps) => {
       {children}
     </Button>
   );
+};
+
+const ContentGroup = ({ children, className }: { children: React.ReactNode; className?: string }) => {
+  return <div className={['mt-5', `${className}`].join(' ')}>{children}</div>;
 };
 
 const Content = ({ children, ...rest }: { children?: React.ReactNode }) => {
@@ -69,7 +77,7 @@ const Content = ({ children, ...rest }: { children?: React.ReactNode }) => {
 
   return (
     <div
-      className={selectedTabId && selectedTabId === dataContent.current ? 'block' : 'hidden'}
+      className={[`${selectedTabId && selectedTabId === dataContent.current ? 'block' : 'hidden'}`].join(' ')}
       ref={contentRef}
       {...rest}>
       {children}
@@ -79,6 +87,7 @@ const Content = ({ children, ...rest }: { children?: React.ReactNode }) => {
 
 Tabs.TriggerGroup = TriggerGroup;
 Tabs.Trigger = Trigger;
+Tabs.ContentGroup = ContentGroup;
 Tabs.Content = Content;
 
 export { Tabs };

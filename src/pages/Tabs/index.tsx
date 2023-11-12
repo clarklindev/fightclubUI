@@ -9,8 +9,10 @@ const TabsExample = () => {
         <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
       </Tabs.TriggerGroup>
 
-      <Tabs.Content data-tab="0"></Tabs.Content>
-      <Tabs.Content data-tab="1"></Tabs.Content>
+      <Tabs.ContentGroup>
+        <Tabs.Content data-tab="0"></Tabs.Content>
+        <Tabs.Content data-tab="1"></Tabs.Content>
+      </Tabs.ContentGroup>
     </Tabs>
   );
 
@@ -18,16 +20,21 @@ const TabsExample = () => {
 
   return (
     <>
-      <Heading variation="h4">Tabs</Heading>
-
+      <Heading variation="h1" data-observable="true">
+        Tabs
+      </Heading>
       <Tabs>
         <Tabs.TriggerGroup>
-          <Tabs.Trigger data-tab="0">CODE</Tabs.Trigger>
+          <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
+          <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
         </Tabs.TriggerGroup>
 
-        <Tabs.Content data-tab="0">
-          <CodeBlock>{previewString}</CodeBlock>
-        </Tabs.Content>
+        <Tabs.ContentGroup>
+          <Tabs.Content data-tab="0">{preview}</Tabs.Content>
+          <Tabs.Content data-tab="1">
+            <CodeBlock>{previewString}</CodeBlock>
+          </Tabs.Content>
+        </Tabs.ContentGroup>
       </Tabs>
     </>
   );

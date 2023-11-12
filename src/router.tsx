@@ -12,7 +12,6 @@ import NotFound from '@swagfinger/pages/NotFound';
 // interface
 import NavbarExample from '@swagfinger/pages/Navbar';
 import NavSideExample from '@swagfinger/pages/NavSide';
-import OutletExample from '@swagfinger/pages/Outlet';
 import OnThisPageExample from '@swagfinger/pages/OnThisPage';
 
 //components
@@ -44,7 +43,7 @@ import DropdownExample from '@swagfinger/pages/Dropdown';
 import TabsExample from '@swagfinger/pages/Tabs';
 import PaginationExample from '@swagfinger/pages/Pagination';
 import ModalExample from '@swagfinger/pages/Modal';
-
+import BreadcrumbsExample from '@swagfinger/pages/Breadcrumbs';
 // Utility
 import ResizePanelExample from '@swagfinger/pages/ResizePanel';
 import DimensionsExample from '@swagfinger/pages/Dimensions';
@@ -63,8 +62,8 @@ export const router = createBrowserRouter(
       {/* Interface */}
       <Route path="/navbar" element={<NavbarExample />} />
       <Route path="/navside" element={<NavSideExample />} />
-      <Route path="/outlet" element={<OutletExample />} />
       <Route path="/onthispage" element={<OnThisPageExample />} />
+      <Route path="/breadcrumbs" element={<BreadcrumbsExample />} />
 
       {/* components */}
       <Route path="/heading" element={<HeadingExample />} />
@@ -93,15 +92,13 @@ export const router = createBrowserRouter(
       <Route path="/dropdown" element={<DropdownExample />} />
       <Route path="/tree" element={<TreeExample />} />
       <Route path="/tabs" element={<TabsExample />} />
+      <Route path="/pagination" element={<PaginationExample />} />
+      <Route path="/modal" element={<ModalExample />} />
 
       {/* utility */}
       <Route path="/resizepanel" element={<ResizePanelExample />} />
       <Route path="/dimensions" element={<DimensionsExample />} />
       <Route path="/codeblock" element={<CodeBlockExample />} />
-
-      {/* TODO */}
-      <Route path="/pagination" element={<PaginationExample />} />
-      <Route path="/modal" element={<ModalExample />} />
 
       {/* router */}
       <Route path="/404" element={<NotFound />} />

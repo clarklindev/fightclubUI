@@ -26,10 +26,12 @@ const HeadingExample = () => {
           <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
         </Tabs.TriggerGroup>
 
-        <Tabs.Content data-tab="0">{preview}</Tabs.Content>
-        <Tabs.Content data-tab="1">
-          <CodeBlock>{previewString}</CodeBlock>
-        </Tabs.Content>
+        <Tabs.ContentGroup>
+          <Tabs.Content data-tab="0">{preview}</Tabs.Content>
+          <Tabs.Content data-tab="1">
+            <CodeBlock>{previewString}</CodeBlock>
+          </Tabs.Content>
+        </Tabs.ContentGroup>
       </Tabs>
     </>
   );

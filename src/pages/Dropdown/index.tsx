@@ -20,17 +20,22 @@ const DropdownExample = () => {
 
   return (
     <>
-      <Heading variation="h4">Dropdown</Heading>
+      <Heading variation="h1" data-observable="true">
+        Dropdown
+      </Heading>
 
       <Tabs>
         <Tabs.TriggerGroup>
           <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
           <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
         </Tabs.TriggerGroup>
-        <Tabs.Content data-tab="0">{preview}</Tabs.Content>
-        <Tabs.Content data-tab="1">
-          <CodeBlock>{`${previewString}`}</CodeBlock>
-        </Tabs.Content>
+
+        <Tabs.ContentGroup>
+          <Tabs.Content data-tab="0">{preview}</Tabs.Content>
+          <Tabs.Content data-tab="1">
+            <CodeBlock>{previewString}</CodeBlock>
+          </Tabs.Content>
+        </Tabs.ContentGroup>
       </Tabs>
     </>
   );

@@ -9,7 +9,7 @@ const TextExample = () => {
     </Text>
   );
 
-  const previewString = renderToStaticMarkup(preview);
+  const previewString = reactElementToJSXString(preview);
 
   return (
     <>
@@ -23,16 +23,17 @@ const TextExample = () => {
           <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
         </Tabs.TriggerGroup>
 
-        <Tabs.Content data-tab="0">{preview}</Tabs.Content>
-        <Tabs.Content data-tab="1">
-          <CodeBlock>
-            {`
-import { Text } from "@swagfinger/components";
+        <Tabs.ContentGroup>
+          <Tabs.Content data-tab="0">{preview}</Tabs.Content>
+          <Tabs.Content data-tab="1">
+            <CodeBlock>
+              {`import {Text} from "@swagfinger/components";
 
 ${previewString}
 `}
-          </CodeBlock>
-        </Tabs.Content>
+            </CodeBlock>
+          </Tabs.Content>
+        </Tabs.ContentGroup>
       </Tabs>
     </>
   );
