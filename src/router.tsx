@@ -13,6 +13,7 @@ import NotFound from '@swagfinger/pages/NotFound';
 import NavbarExample from '@swagfinger/pages/Navbar';
 import NavSideExample from '@swagfinger/pages/NavSide';
 import OnThisPageExample from '@swagfinger/pages/OnThisPage';
+import PageExample from '@swagfinger/pages/Page';
 
 //components
 import HeadingExample from '@swagfinger/pages/Heading';
@@ -64,6 +65,7 @@ export const router = createBrowserRouter(
       <Route path="/navside" element={<NavSideExample />} />
       <Route path="/onthispage" element={<OnThisPageExample />} />
       <Route path="/breadcrumbs" element={<BreadcrumbsExample />} />
+      <Route path="/page" element={<PageExample />} />
 
       {/* components */}
       <Route path="/heading" element={<HeadingExample />} />

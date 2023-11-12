@@ -135,11 +135,14 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
                 padding="p-1"
                 focus="none"
                 key={index}
-                className={
-                  observablesInView && observablesInView[index]
-                    ? "before:absolute before:w-1 before:h-6 before:bg-red-500 before:ml-[-16px] before:content-''"
-                    : ''
-                }
+                className={[
+                  'truncate',
+                  `${
+                    observablesInView && observablesInView[index]
+                      ? "before:absolute before:w-1 before:h-6 before:bg-red-500 before:ml-[-16px] before:content-''"
+                      : ''
+                  }`,
+                ].join(' ')}
                 onClick={e => {
                   e.preventDefault();
                   selectedItemIndex.current = index;

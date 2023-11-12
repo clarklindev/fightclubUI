@@ -248,6 +248,7 @@ export const HomeLayout = () => {
             <NavSide.Link to="navside">NavSide</NavSide.Link>
             <NavSide.Link to="onthispage">On this page</NavSide.Link>
             <NavSide.Link to="breadcrumbs">Breadcrumbs</NavSide.Link>
+            <NavSide.Link to="page">Adding pages</NavSide.Link>
           </NavSide.Group>
 
           <NavSide.Group>
