@@ -244,11 +244,13 @@ export const HomeLayout = () => {
             <NavSide.Heading variation="h2" size="M">
               Interface
             </NavSide.Heading>
+
+            <NavSide.Link to="layouts">Layouts</NavSide.Link>
+            <NavSide.Link to="page">Adding pages</NavSide.Link>
             <NavSide.Link to="navbar">Navbar</NavSide.Link>
             <NavSide.Link to="navside">NavSide</NavSide.Link>
             <NavSide.Link to="onthispage">On this page</NavSide.Link>
             <NavSide.Link to="breadcrumbs">Breadcrumbs</NavSide.Link>
-            <NavSide.Link to="page">Adding pages</NavSide.Link>
           </NavSide.Group>
 
           <NavSide.Group>

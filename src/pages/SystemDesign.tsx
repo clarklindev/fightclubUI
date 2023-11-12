@@ -5,7 +5,9 @@ const SystemDesign = () => {
   return (
     <article>
       <Section>
-        <Heading variation="h1">System Design</Heading>
+        <Heading variation="h1" data-observable="true">
+          System Design
+        </Heading>
         <Heading variation="h2" data-observable="true">
           Routing
         </Heading>
@@ -268,7 +270,9 @@ const SystemDesign = () => {
       </Section>
 
       <Section>
-        <Heading variation="h6">Modular component structure</Heading>
+        <Heading variation="h2" data-observable="true">
+          Modular component structure
+        </Heading>
         <Text>
           Components should be designed in such a way that it promotes modularity. If you've every seen that syntax
           {`<Button.Icon>`}, whats happening is logical grouping (helpful with Readability) of Button and its

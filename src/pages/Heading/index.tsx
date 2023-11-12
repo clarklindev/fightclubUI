@@ -17,7 +17,7 @@ const HeadingExample = () => {
   return (
     <>
       <Heading variation="h1" data-observable="true">
-        Headings
+        Heading
       </Heading>
 
       <Tabs>

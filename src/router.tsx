@@ -10,10 +10,11 @@ import SystemDesign from '@swagfinger/pages/SystemDesign';
 import NotFound from '@swagfinger/pages/NotFound';
 
 // interface
+import LayoutsExample from '@swagfinger/pages/Layouts';
+import PageExample from '@swagfinger/pages/Page';
 import NavbarExample from '@swagfinger/pages/Navbar';
 import NavSideExample from '@swagfinger/pages/NavSide';
 import OnThisPageExample from '@swagfinger/pages/OnThisPage';
-import PageExample from '@swagfinger/pages/Page';
 
 //components
 import HeadingExample from '@swagfinger/pages/Heading';
@@ -61,11 +62,12 @@ export const router = createBrowserRouter(
       <Route path="/systemdesign" element={<SystemDesign />} />
 
       {/* Interface */}
+      <Route path="/layouts" element={<LayoutsExample />} />
+      <Route path="/page" element={<PageExample />} />
       <Route path="/navbar" element={<NavbarExample />} />
       <Route path="/navside" element={<NavSideExample />} />
       <Route path="/onthispage" element={<OnThisPageExample />} />
       <Route path="/breadcrumbs" element={<BreadcrumbsExample />} />
-      <Route path="/page" element={<PageExample />} />
 
       {/* components */}
       <Route path="/heading" element={<HeadingExample />} />

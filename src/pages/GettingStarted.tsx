@@ -3,7 +3,9 @@ import { CodeBlock, Heading, Section, Text } from '@swagfinger/components';
 const GettingStarted = () => {
   return (
     <article>
-      <Heading variation="h1">Getting Started</Heading>
+      <Heading variation="h1" data-observable="true">
+        Getting Started
+      </Heading>
       <Section>
         <Heading variation="h2" size="level2" data-observable="true">
           Installation
