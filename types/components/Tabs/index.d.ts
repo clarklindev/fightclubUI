@@ -3,17 +3,21 @@ declare const Tabs: {
     ({ children }: {
         children: React.ReactNode;
     }): import("react/jsx-runtime").JSX.Element;
-    TabWrapper: React.FC<TabWrapperProps>;
-    TabHeaders: () => import("react/jsx-runtime").JSX.Element;
-    TabContent: () => import("react/jsx-runtime").JSX.Element;
+    TriggerGroup: ({ children, className }: {
+        className?: string | undefined;
+        children?: React.ReactNode;
+    }) => import("react/jsx-runtime").JSX.Element;
+    Trigger: ({ children, ...rest }: TriggerProps) => import("react/jsx-runtime").JSX.Element;
+    ContentGroup: ({ children, className }: {
+        children: React.ReactNode;
+        className?: string | undefined;
+    }) => import("react/jsx-runtime").JSX.Element;
+    Content: ({ children, ...rest }: {
+        children?: React.ReactNode;
+    }) => import("react/jsx-runtime").JSX.Element;
 };
-export type TabData = {
-    label: string;
-    content: React.ReactNode;
-};
-type TabWrapperProps = {
-    data: TabData[];
-    children: ReactNode;
+type TriggerProps = {
+    children?: string;
 };
 export { Tabs };
 //# sourceMappingURL=index.d.ts.map

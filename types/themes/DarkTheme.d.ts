@@ -182,5 +182,8 @@ export declare const darkTheme: {
         borderRadius: string;
         backgroundColor: string;
     };
+    Codeblock: {
+        borderRadius: string;
+    };
 };
 //# sourceMappingURL=DarkTheme.d.ts.map

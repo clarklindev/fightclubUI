@@ -1,13 +1,11 @@
 import React from 'react';
-import { TabData } from '@swagfinger/components/Tabs';
+interface TabContextProps {
+    selectedTabId: string | undefined;
+    setSelectedTabId: (id: string) => void;
+}
+export declare const useTabs: () => TabContextProps;
 type TabsContextProviderProps = {
     children: React.ReactNode;
-};
-export declare const useTabs: () => {
-    selectedTabIndex: number;
-    selectTab: (index: number) => void;
-    data: Array<TabData>;
-    setData: (data: Array<TabData>) => void;
 };
 export declare const TabsContextProvider: ({ children }: TabsContextProviderProps) => import("react/jsx-runtime").JSX.Element;
 export {};

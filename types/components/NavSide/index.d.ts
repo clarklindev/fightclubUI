@@ -6,7 +6,7 @@ type NavSideProps = {
 };
 declare const NavSide: {
     ({ children, className }: NavSideProps): import("react/jsx-runtime").JSX.Element;
-    Heading: ({ variation, children }: HeadingProps) => import("react/jsx-runtime").JSX.Element;
+    Heading: ({ variation, children, ...rest }: HeadingProps) => import("react/jsx-runtime").JSX.Element;
     Link: ({ children, to }: {
         children: React.ReactNode;
         to: string;
