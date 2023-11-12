@@ -30,6 +30,8 @@ const StyledNavSide = styled.aside<{ isOpen: boolean; className?: string }>`
 
     top: 50px;
     overflow: hidden;
+    overscroll-behavior: contain;
+
     &:hover {
       overflow-y: auto;
     }
