@@ -11,7 +11,7 @@
 
 html[color-scheme='dark'] {
   --clr-background: #050505;
-  --clr-foreground: rgba(255, 255, 255, 0.9);
+  --clr-foreground: rgba(255, 255, 255, 0.5);
   --input-background-color: #333333;
   --input-text-color: #ffffff;
   --border: 1px solid rgba(255, 255, 255, 0.1);

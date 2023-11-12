@@ -1,80 +1,81 @@
-import React, { ReactNode, useEffect } from 'react';
-import { useTabs, TabsContextProvider } from '@swagfinger/context/TabContext';
+import React, { ReactNode, useRef, useEffect } from 'react';
+
+import { Button } from '@swagfinger/components/Button';
+import { TabsContextProvider, useTabs } from '@swagfinger/context/TabContext';
 
 const Tabs = ({ children }: { children: React.ReactNode }) => {
-  return <TabsContextProvider>{children}</TabsContextProvider>;
+  return <TabsContextProvider data-component="Tabs">{children}</TabsContextProvider>;
 };
 
-export type TabData = {
-  label: string;
-  content: React.ReactNode;
-};
-
-type TabWrapperProps = {
-  data: TabData[];
-  children: ReactNode;
-};
-
-const TabWrapper: React.FC<TabWrapperProps> = ({ data, children }) => {
-  const { setData } = useTabs();
+const TriggerGroup = ({ children, className }: { className?: string; children?: React.ReactNode }) => {
+  const { setSelectedTabId } = useTabs();
 
   useEffect(() => {
-    setData(data);
-  }, [data]);
+    setSelectedTabId('0');
+  }, []);
 
-  return <>{children}</>;
+  return <div className={`flex flex-row gap-2 py-1 ${className}`}>{children}</div>;
 };
 
-const TabHeaders = () => {
-  const { selectedTabIndex, selectTab, data } = useTabs();
-
-  let tabHeaders = null;
-
-  if (data?.length) {
-    tabHeaders = data.map(({ label }, index) => (
-      <Tab
-        key={index}
-        label={label}
-        selected={selectedTabIndex === index}
-        handleClick={() => {
-          console.log('clicked');
-          selectTab(index);
-        }}
-      />
-    ));
-  }
-
-  return <div className="tabheader flex flex-row gap-2 py-1">{tabHeaders}</div>;
+type TriggerProps = {
+  children?: string;
 };
 
-type TabProps = {
-  label: string;
-  handleClick: () => void;
-  selected: boolean;
-};
-const Tab = ({ label, handleClick, selected }: TabProps) => {
-  const className = selected ? 'tab data-selected border-b-2 border-red-500' : 'tab border-b border-transparent';
+const Trigger = ({ children, ...rest }: TriggerProps) => {
+  const { selectedTabId, setSelectedTabId } = useTabs();
+
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const dataTrigger = useRef<string>();
+
+  useEffect(() => {
+    // Accessing the data-trigger attribute using ref
+    const id = triggerRef.current?.getAttribute('data-tab');
+    if (id) {
+      dataTrigger.current = id;
+    }
+  }, [triggerRef]);
 
   return (
-    <button onClick={handleClick} className={`${className}`}>
-      {label}
-    </button>
+    <Button
+      intent="plain"
+      padding="none"
+      focus="none"
+      className={selectedTabId === dataTrigger.current ? 'border-b-2 border-red-500' : 'border-b-2 border-transparent'}
+      ref={triggerRef}
+      onClick={e => {
+        const clickedDataTrigger = e.currentTarget.dataset.tab;
+        if (clickedDataTrigger) {
+          setSelectedTabId(clickedDataTrigger);
+        }
+      }}
+      {...rest}>
+      {children}
+    </Button>
   );
 };
 
-const TabContent = () => {
-  const { data, selectedTabIndex } = useTabs();
-  const tabContent = data[selectedTabIndex]?.content;
+const Content = ({ children, ...rest }: { children?: React.ReactNode }) => {
+  const { selectedTabId } = useTabs();
+
+  const contentRef = useRef<HTMLDivElement | null>(null);
+  const dataContent = useRef<string>();
+
+  useEffect(() => {
+    const id = contentRef.current?.getAttribute('data-tab');
+    if (id) {
+      dataContent.current = id;
+    }
+  }, [contentRef]);
 
   return (
-    <div className="tabcontent">
-      <div>{tabContent}</div>
+    <div className={selectedTabId === dataContent.current ? 'block' : 'hidden'} ref={contentRef} {...rest}>
+      {children}
     </div>
   );
 };
 
-Tabs.TabWrapper = TabWrapper;
-Tabs.TabHeaders = TabHeaders;
-Tabs.TabContent = TabContent;
+Tabs.TriggerGroup = TriggerGroup;
+Tabs.Trigger = Trigger;
+Tabs.Content = Content;
 
 export { Tabs };

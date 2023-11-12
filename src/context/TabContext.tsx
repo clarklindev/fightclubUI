@@ -1,46 +1,30 @@
 import React, { createContext, useContext, useState } from 'react';
 
-import { TabData } from '@swagfinger/components/Tabs';
+interface TabContextProps {
+  selectedTabId: string | undefined;
+  setSelectedTabId: (id: string) => void;
+}
 
-type TabsContextProviderProps = {
-  children: React.ReactNode;
-};
-
-const TabsContext = createContext<{
-  selectedTabIndex: number;
-  selectTab: (index: number) => void;
-  data: Array<TabData>;
-  setData: (data: Array<TabData>) => void;
-}>({
-  selectedTabIndex: 0,
-  selectTab: (_updatedIndex: number) => {
-    // console.log(newSelected);
-  },
-  data: [],
-  setData: _ => {},
+const TabsContext = createContext<TabContextProps>({
+  selectedTabId: undefined,
+  setSelectedTabId: _ => {},
 });
 
-// Custom Hook to Access the Context
 export const useTabs = () => {
   return useContext(TabsContext);
 };
 
-// Create a Context Provider
+type TabsContextProviderProps = {
+  children: React.ReactNode;
+};
 export const TabsContextProvider = ({ children }: TabsContextProviderProps) => {
-  const [selectedTabIndex, setSelectedTabIndex] = useState(0);
-  const [data, setData] = useState<Array<TabData>>([]);
-
-  const selectTab = (updatedIndex: number) => {
-    setSelectedTabIndex(updatedIndex);
-  };
+  const [selectedTabId, setSelectedTabId] = useState<string | undefined>(undefined);
 
   return (
     <TabsContext.Provider
       value={{
-        selectedTabIndex,
-        selectTab,
-        data,
-        setData,
+        selectedTabId,
+        setSelectedTabId,
       }}>
       {children}
     </TabsContext.Provider>

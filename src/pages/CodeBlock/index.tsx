@@ -5,14 +5,12 @@ const CodeBlockExample = () => {
     <>
       <Heading variation="h4">CodeBlock</Heading>
       <ResizePanel>
-        <CodeBlock>
-          {`button:focus {
+        <CodeBlock>{`button:focus {
   outline-width: 3px;
   outline-style: dashed;
   outline-color: orange;
   outline-offset: 10px;
-}`}
-        </CodeBlock>
+}`}</CodeBlock>
       </ResizePanel>
     </>
   );

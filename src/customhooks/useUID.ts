@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 let idCounter = 0;
 
-export function useUID(identifier = 'uid') {
+export function useUID(identifier = '') {
   const [id, setId] = useState(idCounter.toString());
 
   useEffect(() => {

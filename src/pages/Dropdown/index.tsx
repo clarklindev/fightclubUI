@@ -18,23 +18,19 @@ const DropdownExample = () => {
 
   const previewString = reactElementToJSXString(preview);
 
-  const tabsData = [
-    { label: 'preview', content: preview },
-    {
-      label: 'code',
-      content: <CodeBlock>{`${previewString}`}</CodeBlock>,
-    },
-  ];
-
   return (
     <>
       <Heading variation="h4">Dropdown</Heading>
 
       <Tabs>
-        <Tabs.TabWrapper data={tabsData}>
-          <Tabs.TabHeaders />
-          <Tabs.TabContent />
-        </Tabs.TabWrapper>
+        <Tabs.TriggerGroup>
+          <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
+          <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
+        </Tabs.TriggerGroup>
+        <Tabs.Content data-tab="0">{preview}</Tabs.Content>
+        <Tabs.Content data-tab="1">
+          <CodeBlock>{`${previewString}`}</CodeBlock>
+        </Tabs.Content>
       </Tabs>
     </>
   );

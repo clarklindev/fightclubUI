@@ -7,17 +7,7 @@ import { ThemeType } from '@swagfinger/themes/LightTheme';
 
 const buttonVariants: any = cva(
   //default styles
-  [
-    'block',
-    'border-2',
-    'border-red-600',
-    'rounded',
-    'box-border',
-    'inline-flex',
-    'items-center',
-    'h-auto',
-    'cursor-pointer',
-  ],
+  ['block', 'box-border', 'inline-flex', 'items-center', 'h-auto', 'cursor-pointer'],
   {
     variants: {
       //apply styles based on prop passed though

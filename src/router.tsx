@@ -42,6 +42,8 @@ import SpinnerExample from '@swagfinger/pages/Spinner';
 import TreeExample from '@swagfinger/pages/Tree';
 import DropdownExample from '@swagfinger/pages/Dropdown';
 import TabsExample from '@swagfinger/pages/Tabs';
+import PaginationExample from '@swagfinger/pages/Pagination';
+import ModalExample from '@swagfinger/pages/Modal';
 
 // Utility
 import ResizePanelExample from '@swagfinger/pages/ResizePanel';
@@ -96,6 +98,10 @@ export const router = createBrowserRouter(
       <Route path="/resizepanel" element={<ResizePanelExample />} />
       <Route path="/dimensions" element={<DimensionsExample />} />
       <Route path="/codeblock" element={<CodeBlockExample />} />
+
+      {/* TODO */}
+      <Route path="/pagination" element={<PaginationExample />} />
+      <Route path="/modal" element={<ModalExample />} />
 
       {/* router */}
       <Route path="/404" element={<NotFound />} />
