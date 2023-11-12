@@ -68,7 +68,10 @@ const Content = ({ children, ...rest }: { children?: React.ReactNode }) => {
   }, [contentRef]);
 
   return (
-    <div className={selectedTabId === dataContent.current ? 'block' : 'hidden'} ref={contentRef} {...rest}>
+    <div
+      className={selectedTabId && selectedTabId === dataContent.current ? 'block' : 'hidden'}
+      ref={contentRef}
+      {...rest}>
       {children}
     </div>
   );
