@@ -61,7 +61,7 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
         );
 
         if (firstIntersectingEntry) {
-          console.log('firstIntersectingEntry: ', (firstIntersectingEntry?.target as HTMLElement).innerHTML);
+          console.log('firstIntersectingEntry: ', (firstIntersectingEntry?.target as HTMLElement).textContent);
           // Try to find the entry's index in observables
           const index = observables.indexOf(firstIntersectingEntry.target as HTMLElement);
 
@@ -148,7 +148,7 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
                     index === 0 ? 0 : observable.getBoundingClientRect().top + window.scrollY + offset;
                   window.scrollTo({ top: targetPosition, behavior: 'instant' });
                 }}>
-                {observable.innerHTML}
+                {observable.textContent}
               </Button>
             ))}
           </div>

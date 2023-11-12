@@ -1,10 +1,15 @@
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import { Heading, CodeBlock, Text, Tabs } from '@swagfinger/components';
+import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 
 const TextExample = () => {
-  const preview = <Text>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>;
+  const preview = (
+    <Text>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </Text>
+  );
 
-  const previewString = reactElementToJSXString(preview);
+  const previewString = renderToStaticMarkup(preview);
 
   return (
     <>
@@ -22,10 +27,10 @@ const TextExample = () => {
         <Tabs.Content data-tab="1">
           <CodeBlock>
             {`
-  import { Text } from "@swagfinger/components";
+import { Text } from "@swagfinger/components";
 
-  ${previewString}
-  `}
+${previewString}
+`}
           </CodeBlock>
         </Tabs.Content>
       </Tabs>
