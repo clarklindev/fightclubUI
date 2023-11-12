@@ -123,7 +123,7 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
 
   return (
     <StyledOnThisPage className={className} {...rest}>
-      <Heading variation="h2" size="XS" className="pb-3 px-10">
+      <Heading variation="h2" size="XS" className="pb-3 px-9">
         On this page
       </Heading>
       <Container ref={containerRef}>
@@ -190,6 +190,7 @@ const StyledContainer = styled.div`
   width: 90%;
   margin: 0 auto;
   overflow: hidden;
+  overscroll-behavior: contain;
 
   &:hover {
     overflow-y: auto;
