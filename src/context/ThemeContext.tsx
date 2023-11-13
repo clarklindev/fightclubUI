@@ -3,20 +3,20 @@ import React, { useEffect } from 'react';
 import { useState, createContext, useContext } from 'react';
 
 const ThemeContext = createContext<{
-  colorMode: string | null;
-  isDarkMode: boolean | null;
-  setLightDarkSystemMode: (mode: string) => void;
+  colorMode: string | null; //system/dark/light
+  checkIsDark: (mode: string) => boolean;
+  setColorMode: (mode: string) => void;
 }>({
   colorMode: null,
-  isDarkMode: null,
-  setLightDarkSystemMode: _ => {},
+  checkIsDark: _ => false,
+  setColorMode: _ => {},
 });
 
 export const useTheme = () => {
   return useContext(ThemeContext);
 };
 
-const checkIsDark = (colorMode: string | null): boolean => {
+const checkIsDark = (colorMode: string): boolean => {
   let isDark; //stores a boolean - true is darkmode - false is lightmode
   switch (colorMode) {
     case 'system':
@@ -39,17 +39,19 @@ const checkIsDark = (colorMode: string | null): boolean => {
 export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const defaultMode = 'system';
 
-  const [colorMode, setColorMode] = useState(window.localStorage.getItem('colorMode') || defaultMode); //system, dark, light
-  const [isDarkMode, setIsDarkMode] = useState(checkIsDark(defaultMode));
+  const [colorMode, setInternalColorMode] = useState(window.localStorage.getItem('colorMode') || defaultMode); //system, dark, light
+
+  const setColorMode = (mode: string) => {
+    setInternalColorMode(mode);
+    //also store in localstorage
+    storeMode(mode);
+  };
 
   useEffect(() => {
-    isDarkMode ? toggleColorScheme('dark') : toggleColorScheme('light');
-  }, [isDarkMode]);
-
-  useEffect(() => {
-    setIsDarkMode(checkIsDark(colorMode));
+    checkIsDark(colorMode) ? toggleColorScheme('dark') : toggleColorScheme('light');
   }, [colorMode]);
 
+  //stores in localstorage
   const toggleColorScheme = (colorScheme: string) => {
     const html = document.querySelector('html');
     if (html) {
@@ -58,13 +60,9 @@ export const ThemeContextProvider: React.FC<{ children: React.ReactNode }> = ({ 
     }
   };
 
-  const setLightDarkSystemMode = (mode: string) => {
+  const storeMode = (mode: string) => {
     window.localStorage.setItem('colorMode', mode); //stores 'system', 'dark', 'light'
-    setColorMode(mode);
-    setIsDarkMode(checkIsDark(mode));
   };
 
-  return (
-    <ThemeContext.Provider value={{ colorMode, isDarkMode, setLightDarkSystemMode }}>{children}</ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={{ colorMode, setColorMode, checkIsDark }}>{children}</ThemeContext.Provider>;
 };

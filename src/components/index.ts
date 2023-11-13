@@ -24,7 +24,6 @@ export { Spinner } from './Spinner';
 export { Table } from './Table';
 export { Text } from './Text';
 export { ToggleButton } from './ToggleButton';
-export { ToggleDarkMode } from './ToggleDarkMode';
 export { ToggleSwitch } from './ToggleSwitch';
 export { Tree } from './Tree';
 export { ResizePanel } from './ResizePanel';

@@ -140,7 +140,7 @@ const setModeIcon = (mode: string | null) => {
 
 export const HomeLayout = () => {
   const { isOpen, toggleMenu, closeMenu } = useMenu();
-  const { colorMode, setLightDarkSystemMode } = useTheme();
+  const { colorMode, setColorMode } = useTheme();
   const navigate = useNavigate();
   const { setScrollPercentage, getDocumentScrollPercentage } = useScroll();
 
@@ -207,19 +207,19 @@ export const HomeLayout = () => {
               <Dropdown.DropdownMenu className="w-40">
                 <Dropdown.DropdownMenuItem
                   onClick={() => {
-                    setLightDarkSystemMode('dark');
+                    setColorMode('dark');
                   }}>
                   Dark mode
                 </Dropdown.DropdownMenuItem>
                 <Dropdown.DropdownMenuItem
                   onClick={() => {
-                    setLightDarkSystemMode('light');
+                    setColorMode('light');
                   }}>
                   Light mode
                 </Dropdown.DropdownMenuItem>
                 <Dropdown.DropdownMenuItem
                   onClick={() => {
-                    setLightDarkSystemMode('system');
+                    setColorMode('system');
                   }}>
                   System mode
                 </Dropdown.DropdownMenuItem>

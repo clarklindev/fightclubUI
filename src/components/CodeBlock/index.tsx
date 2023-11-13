@@ -20,7 +20,7 @@ const CodeBlockWrapper = styled.div`
 `;
 
 export const CodeBlock = ({ children, type = 'tsx', inline = false }: CodeBlockProps) => {
-  const { isDarkMode } = useTheme();
+  const { colorMode, checkIsDark } = useTheme();
 
   if (children) {
     if (inline) {
@@ -37,7 +37,7 @@ export const CodeBlock = ({ children, type = 'tsx', inline = false }: CodeBlockP
           style={sunburst}
           customStyle={{
             padding: '2rem',
-            background: isDarkMode ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 1)',
+            background: colorMode && checkIsDark(colorMode) ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 1)',
           }}>
           {[children.toString()]}
         </SyntaxHighlighter>

@@ -9,11 +9,11 @@ import { router } from '@swagfinger/router';
 import '@swagfinger/App.css';
 
 const App = () => {
-  const { isDarkMode } = useTheme();
+  const { checkIsDark, colorMode } = useTheme();
 
   return (
     // NOTE: ThemeProvider here is from styled-components
-    <ThemeProvider theme={isDarkMode ? darkTheme : lightTheme}>
+    <ThemeProvider theme={colorMode && checkIsDark(colorMode) ? darkTheme : lightTheme}>
       <RouterProvider router={router} />
     </ThemeProvider>
   );
