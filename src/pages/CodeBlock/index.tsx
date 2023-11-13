@@ -3,7 +3,10 @@ import { Heading, ResizePanel, CodeBlock } from '@swagfinger/components';
 const CodeBlockExample = () => {
   return (
     <>
-      <Heading variation="h4">CodeBlock</Heading>
+      <Heading variation="h1" data-observable="true">
+        CodeBlock
+      </Heading>
+
       <ResizePanel>
         <CodeBlock>{`button:focus {
   outline-width: 3px;

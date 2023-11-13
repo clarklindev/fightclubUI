@@ -18,7 +18,9 @@ const InputExample = () => {
 
   return (
     <>
-      <Heading variation="h4">Input</Heading>
+      <Heading variation="h1" data-observable="true">
+        Input
+      </Heading>
 
       <Layout variation="block">
         <Heading variation="h5">Basic input</Heading>

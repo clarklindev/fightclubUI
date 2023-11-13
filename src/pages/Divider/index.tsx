@@ -3,7 +3,9 @@ import { Heading, Layout, ResizePanel, Divider } from '@swagfinger/components';
 const DividerExample = () => {
   return (
     <>
-      <Heading variation="h4">Divider</Heading>
+      <Heading variation="h1" data-observable="true">
+        Divider
+      </Heading>
       <Layout variation="block">
         <Heading variation="h5">Divider (horizontal)</Heading>
         <ResizePanel>

@@ -61,7 +61,9 @@ const TableExample = () => {
 
   return (
     <>
-      <Heading variation="h4">Table</Heading>
+      <Heading variation="h1" data-observable="true">
+        Table
+      </Heading>
       <ResizePanel>
         <Table headers={HEADERS} data={DATA} configure={configure} />
       </ResizePanel>

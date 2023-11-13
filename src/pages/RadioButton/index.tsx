@@ -7,7 +7,9 @@ const RadioButtonExample = () => {
 
   return (
     <>
-      <Heading variation="h4">RadioButton</Heading>
+      <Heading variation="h1" data-observable="true">
+        RadioButton
+      </Heading>
       <ResizePanel>
         <RadioButton
           checked={savedData}

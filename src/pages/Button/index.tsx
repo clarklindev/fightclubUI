@@ -8,6 +8,9 @@ import ButtonWithLabelSomethingExample from './ButtonWithLabelSomethingExample';
 const ButtonExample = () => {
   return (
     <>
+      <Heading variation="h1" data-observable="true">
+        Button
+      </Heading>
       <Layout variation="block">
         <Heading variation="h5">Contained button</Heading>
         <ResizePanel>

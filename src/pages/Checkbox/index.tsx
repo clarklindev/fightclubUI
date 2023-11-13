@@ -7,7 +7,10 @@ const CheckboxExample = () => {
 
   return (
     <>
-      <Heading variation="h4">Checkbox</Heading>
+      <Heading variation="h1" data-observable="true">
+        Checkbox
+      </Heading>
+
       <ResizePanel>
         <LabelSomething
           label="label"

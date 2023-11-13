@@ -14,7 +14,9 @@ const SelectExample = () => {
 
   return (
     <>
-      <Heading variation="h4">Select</Heading>
+      <Heading variation="h1" data-observable="true">
+        Select
+      </Heading>
       <ResizePanel>
         <Select savedData={savedData} onChange={event => setSavedData(event.target.value)}>
           {data.map((each, index) => (

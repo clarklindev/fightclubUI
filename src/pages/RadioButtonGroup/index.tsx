@@ -7,7 +7,9 @@ import RadioButtonGroupHorizontalExample from './RadioButtonGroupHorizontalExamp
 const RadioButtonGroupExample = () => {
   return (
     <>
-      <Heading variation="h4">RadioButton Group</Heading>
+      <Heading variation="h1" data-observable="true">
+        RadioButton Group
+      </Heading>
       <Layout variation="block">
         <Heading variation="h5">RadioButton Group (horizontal)</Heading>
         <ResizePanel>

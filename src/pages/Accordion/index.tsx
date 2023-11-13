@@ -5,7 +5,9 @@ import AccordionMinimalExample from './AccordionMinimalExample';
 const AccordionExample = () => {
   return (
     <>
-      <Heading variation="h4">Accordion</Heading>
+      <Heading variation="h1" data-observable="true">
+        Accordion
+      </Heading>
 
       <Layout variation="block">
         <Heading variation="h5">Accordion (chevron)</Heading>

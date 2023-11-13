@@ -4,7 +4,9 @@ import { ResizePanel } from '@swagfinger/components';
 const ProgressLoaderExample = () => {
   return (
     <>
-      <Heading variation="h4">Progress Loader</Heading>
+      <Heading variation="h1" data-observable="true">
+        Progress Loader
+      </Heading>
       <div className="flex flex-col gap-10">
         <ResizePanel>
           <ProgressLoader progress={25} size={15} />

@@ -8,7 +8,9 @@ const ToggleButtonExample = () => {
 
   return (
     <>
-      <Heading variation="h4">Toggle Button</Heading>
+      <Heading variation="h1" data-observable="true">
+        Toggle Button
+      </Heading>
       <ResizePanel>
         <ToggleButton
           checked={savedData}

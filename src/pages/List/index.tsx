@@ -38,7 +38,9 @@ const ListExample = () => {
 
   return (
     <>
-      <Heading variation="h4">List</Heading>
+      <Heading variation="h1" data-observable="true">
+        List
+      </Heading>
       <ResizePanel>
         {data && (
           <List>

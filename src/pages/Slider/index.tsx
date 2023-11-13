@@ -7,7 +7,9 @@ const SliderExample = () => {
 
   return (
     <>
-      <Heading variation="h4">Slider</Heading>
+      <Heading variation="h1" data-observable="true">
+        Slider
+      </Heading>
       <ResizePanel>
         <Slider value={savedData} orientation="horizontal" length="100px" onChange={setSavedData} />
       </ResizePanel>

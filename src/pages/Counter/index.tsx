@@ -7,7 +7,9 @@ const CounterExample = () => {
 
   return (
     <>
-      <Heading variation="h4">Counter</Heading>
+      <Heading variation="h1" data-observable="true">
+        Counter
+      </Heading>
       <ResizePanel>
         <Counter savedData={savedData} onChange={newValue => setSavedData(newValue)} />
       </ResizePanel>

@@ -7,7 +7,9 @@ const SliderMultiRangeExample = () => {
 
   return (
     <>
-      <Heading variation="h4">Slider (Multirange)</Heading>
+      <Heading variation="h1" data-observable="true">
+        Slider (Multirange)
+      </Heading>
       <ResizePanel>
         <SliderMultiRange sliderValues={sliderValues} colors={['red', 'yellow', 'green']} onChange={setSliderValues} />
       </ResizePanel>

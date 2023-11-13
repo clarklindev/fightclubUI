@@ -13,7 +13,9 @@ const SnackbarExample = () => {
 
   return (
     <>
-      <Heading variation="h4">Snackbar</Heading>
+      <Heading variation="h1" data-observable="true">
+        Snackbar
+      </Heading>
       <ResizePanel>
         {showSnackbar && <Snackbar setShowSnackbar={setShowSnackbar}>copied to clipboard</Snackbar>}
         <Button onClick={onClickHandler} intent="icon">

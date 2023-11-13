@@ -6,7 +6,9 @@ import CheckboxGroupIndeterminateExample from './CheckboxGroupIndeterminateExamp
 const CheckboxExample = () => {
   return (
     <>
-      <Heading variation="h4">Checkbox Group</Heading>
+      <Heading variation="h1" data-observable="true">
+        Checkbox Group
+      </Heading>
       <Layout variation="block">
         <Heading variation="h5">Checkbox Group (horizontal)</Heading>
         <ResizePanel>
