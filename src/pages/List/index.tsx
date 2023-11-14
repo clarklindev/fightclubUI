@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
+import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { List, ListItem, Heading, ResizePanel } from '@swagfinger/components';
+import { List, ListItem, Heading, ResizePanel, Tabs, CodeBlock } from '@swagfinger/components';
 
 type ExampleData = {
   id: number;
@@ -36,30 +37,48 @@ const ListExample = () => {
     setData(DATA);
   }, []);
 
+  const preview = (
+    <ResizePanel>
+      {data && (
+        <List>
+          {data.map(({ id, first_name, last_name, email }, index) => {
+            return (
+              <ListItem
+                key={id}
+                data={{
+                  index,
+                  firstname: first_name,
+                  lastname: last_name,
+                  email,
+                }}
+              />
+            );
+          })}
+        </List>
+      )}
+    </ResizePanel>
+  );
+
+  const previewString = reactElementToJSXString(preview);
+
   return (
     <>
       <Heading variation="h1" data-observable="true">
         List
       </Heading>
-      <ResizePanel>
-        {data && (
-          <List>
-            {data.map(({ id, first_name, last_name, email }, index) => {
-              return (
-                <ListItem
-                  key={id}
-                  data={{
-                    index,
-                    firstname: first_name,
-                    lastname: last_name,
-                    email,
-                  }}
-                />
-              );
-            })}
-          </List>
-        )}
-      </ResizePanel>
+
+      <Tabs>
+        <Tabs.TriggerGroup>
+          <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
+          <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
+        </Tabs.TriggerGroup>
+        <Tabs.ContentGroup>
+          <Tabs.Content data-tab="0">{preview}</Tabs.Content>
+          <Tabs.Content data-tab="1">
+            <CodeBlock>{previewString}</CodeBlock>
+          </Tabs.Content>
+        </Tabs.ContentGroup>
+      </Tabs>
     </>
   );
 };

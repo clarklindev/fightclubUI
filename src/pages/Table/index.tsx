@@ -1,4 +1,6 @@
-import { Table, Heading, ResizePanel } from '@swagfinger/components';
+import { Table, Heading, ResizePanel, Tabs, CodeBlock } from '@swagfinger/components';
+import reactElementToJSXString from 'react-element-to-jsx-string';
+
 import type { Header } from '@swagfinger/components/Table';
 
 const TableExample = () => {
@@ -59,14 +61,27 @@ const TableExample = () => {
     },
   ];
 
+  const preview = <Table headers={HEADERS} data={DATA} configure={configure} />;
+  const previewString = reactElementToJSXString(preview);
+
   return (
     <>
       <Heading variation="h1" data-observable="true">
         Table
       </Heading>
-      <ResizePanel>
-        <Table headers={HEADERS} data={DATA} configure={configure} />
-      </ResizePanel>
+
+      <Tabs>
+        <Tabs.TriggerGroup>
+          <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
+          <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
+        </Tabs.TriggerGroup>
+        <Tabs.ContentGroup>
+          <Tabs.Content data-tab="0">{preview}</Tabs.Content>
+          <Tabs.Content data-tab="1">
+            <CodeBlock>{previewString}</CodeBlock>
+          </Tabs.Content>
+        </Tabs.ContentGroup>
+      </Tabs>
     </>
   );
 };

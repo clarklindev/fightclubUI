@@ -1,11 +1,9 @@
-import { Heading, Layout, ResizePanel, Divider } from '@swagfinger/components';
+import { Heading, Layout, ResizePanel, Divider, Tabs, CodeBlock } from '@swagfinger/components';
+import reactElementToJSXString from 'react-element-to-jsx-string';
 
 const DividerExample = () => {
-  return (
+  const preview = (
     <>
-      <Heading variation="h1" data-observable="true">
-        Divider
-      </Heading>
       <Layout variation="block">
         <Heading variation="h5">Divider (horizontal)</Heading>
         <ResizePanel>
@@ -32,6 +30,29 @@ const DividerExample = () => {
           </Divider>
         </ResizePanel>
       </Layout>
+    </>
+  );
+
+  const previewString = reactElementToJSXString(preview);
+
+  return (
+    <>
+      <Heading variation="h1" data-observable="true">
+        Divider
+      </Heading>
+
+      <Tabs>
+        <Tabs.TriggerGroup>
+          <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
+          <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
+        </Tabs.TriggerGroup>
+        <Tabs.ContentGroup>
+          <Tabs.Content data-tab="0">{preview}</Tabs.Content>
+          <Tabs.Content data-tab="1">
+            <CodeBlock>{previewString}</CodeBlock>
+          </Tabs.Content>
+        </Tabs.ContentGroup>
+      </Tabs>
     </>
   );
 };

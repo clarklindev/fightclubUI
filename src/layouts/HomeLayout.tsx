@@ -250,7 +250,6 @@ export const HomeLayout = () => {
             <NavSide.Link to="navbar">Navbar</NavSide.Link>
             <NavSide.Link to="navside">NavSide</NavSide.Link>
             <NavSide.Link to="onthispage">On this page</NavSide.Link>
-            <NavSide.Link to="breadcrumbs">Breadcrumbs</NavSide.Link>
           </NavSide.Group>
 
           <NavSide.Group>
@@ -285,6 +284,7 @@ export const HomeLayout = () => {
             <NavSide.Link to="tabs">Tabs</NavSide.Link>
             <NavSide.Link to="pagination">Pagination</NavSide.Link>
             <NavSide.Link to="modal">Modal</NavSide.Link>
+            <NavSide.Link to="breadcrumbs">Breadcrumbs</NavSide.Link>
           </NavSide.Group>
 
           <NavSide.Group>
