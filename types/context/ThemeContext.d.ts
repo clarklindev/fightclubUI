@@ -1,8 +1,8 @@
 import React from 'react';
 export declare const useTheme: () => {
     colorMode: string | null;
-    isDarkMode: boolean | null;
-    setLightDarkSystemMode: (mode: string) => void;
+    checkIsDark: (mode: string) => boolean;
+    setColorMode: (mode: string) => void;
 };
 export declare const ThemeContextProvider: React.FC<{
     children: React.ReactNode;
