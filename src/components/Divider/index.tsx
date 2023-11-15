@@ -6,6 +6,7 @@ type DividerVariation = 'horizontal' | 'vertical';
 type DividerProps = {
   variation?: DividerVariation;
   width?: string;
+  gap?: string;
   height?: string;
   padding?: string;
   children?: React.ReactNode;
@@ -16,6 +17,7 @@ export const Divider: React.FC<DividerProps> = ({
   height,
   width,
   padding,
+  gap,
   children = undefined,
 }: DividerProps) => {
   const dividerRef = useRef<HTMLDivElement | null>(null);
@@ -40,14 +42,14 @@ export const Divider: React.FC<DividerProps> = ({
   switch (variation) {
     case 'horizontal':
       return (
-        <DividerHorizontal className="Divider" height={height} width={width} padding={padding}>
+        <DividerHorizontal className="Divider" height={height} width={width} padding={padding} gap={gap}>
           {children && <span>{children}</span>}
         </DividerHorizontal>
       );
 
     case 'vertical':
       return (
-        <DividerVertical className="Divider" ref={dividerRef} height={height} width={width} padding={padding}>
+        <DividerVertical className="Divider" ref={dividerRef} height={height} width={width} padding={padding} gap={gap}>
           {children && <span>{children}</span>}
         </DividerVertical>
       );
@@ -92,10 +94,10 @@ const DividerHorizontal = styled.div<{
       border-bottom: 1px solid var(--border-color);
     }
     &::before {
-      margin-right: ${({ gap }) => gap};
+      margin-right: ${({ gap = '1rem' }) => gap};
     }
     &::after {
-      margin-left: ${({ gap }) => gap};
+      margin-left: ${({ gap = '1rem' }) => gap};
     }
   }
 `;
@@ -104,13 +106,14 @@ const DividerVertical = styled.div<{
   className?: string;
   height?: string;
   width?: string;
+  gap?: string;
   padding?: string;
   children?: React.ReactNode;
 }>`
   height: ${({ height = 'auto' }) => height};
   min-height: 1rem;
 
-  ${({ children, height, padding = '0 1rem' }) =>
+  ${({ children, height, padding = '0 1rem', gap = '0.2rem' }) =>
     children
       ? `
       padding: ${padding};
@@ -132,6 +135,13 @@ const DividerVertical = styled.div<{
           min-height: 5px;
           content: '';
           border-right: 1px solid var(--border-color);
+        }
+
+        &::before {
+          margin-bottom: ${gap};
+        }
+        &::after {
+          margin-top: ${gap};
         }
       }
       `
