@@ -7,15 +7,15 @@ type DividerProps = {
   variation?: DividerVariation;
   width?: string;
   height?: string;
-  gap?: string;
+  padding?: string;
   children?: React.ReactNode;
 };
 
 export const Divider: React.FC<DividerProps> = ({
   variation = 'horizontal',
-  gap = variation === 'horizontal' ? '1rem' : '0px',
   height,
   width,
+  padding,
   children = undefined,
 }: DividerProps) => {
   const dividerRef = useRef<HTMLDivElement | null>(null);
@@ -40,14 +40,14 @@ export const Divider: React.FC<DividerProps> = ({
   switch (variation) {
     case 'horizontal':
       return (
-        <DividerHorizontal className="Divider" height={height} width={width} gap={gap}>
+        <DividerHorizontal className="Divider" height={height} width={width} padding={padding}>
           {children && <span>{children}</span>}
         </DividerHorizontal>
       );
 
     case 'vertical':
       return (
-        <DividerVertical className="Divider" ref={dividerRef} height={height} width={width} gap={gap}>
+        <DividerVertical className="Divider" ref={dividerRef} height={height} width={width} padding={padding}>
           {children && <span>{children}</span>}
         </DividerVertical>
       );
@@ -63,6 +63,7 @@ const DividerHorizontal = styled.div<{
   className?: string;
   height?: string;
   width?: string;
+  padding?: string;
   gap?: string;
   children?: React.ReactNode;
 }>`
@@ -80,6 +81,7 @@ const DividerHorizontal = styled.div<{
     flex-direction: row;
     align-items: center;
     width: ${({ width }) => width || '100%'}; //full width
+    padding: ${({ padding }) => padding};
     height: auto;
     position: relative;
     &::before,
@@ -102,49 +104,46 @@ const DividerVertical = styled.div<{
   className?: string;
   height?: string;
   width?: string;
-  gap?: string;
+  padding?: string;
   children?: React.ReactNode;
 }>`
-  border-right: ${({ children }) => (children ? 'none' : `1px solid var(--border-color)`)};
-  height: 100%;
+  height: ${({ height = 'auto' }) => height};
+  min-height: 1rem;
+
+  ${({ children, height, padding = '0 1rem' }) =>
+    children
+      ? `
+      padding: ${padding};
+
+      border-right: none;
+      span {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+        position: relative;
+        width: 20px;
+        overflow-wrap: normal;
+    
+        &::before,
+        &::after {
+          align-self: center;
+          height: ${height};
+          min-height: 5px;
+          content: '';
+          border-right: 1px solid var(--border-color);
+        }
+      }
+      `
+      : `
+  
+  border-right: 1px solid var(--border-color);
+  height: ${height};
   width: 0px;
   box-sizing: border-box;
   position: relative;
   display: flex;
   flex-direction: column;
-
-  ${({ children }) =>
-    children
-      ? `
-      min-height: 1rem;
-      `
-      : `
-      min-height: 2rem;
-      `};
-
-  span {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    width: 20px;
-    background: rgba(255, 0, 0, 0.1);
-    overflow-wrap: normal;
-
-    &::before,
-    &::after {
-      align-self: center;
-      height: 100%;
-      content: '';
-      border-right: 1px solid var(--border-color);
-    }
-
-    &::before {
-      min-height: 5px;
-      margin-bottom: ${({ gap }) => gap};
-    }
-    &::after {
-      min-height: 5px;
-      margin-top: ${({ gap }) => gap};
-    }
-  }
+  margin: 10px;
+  `};
 `;

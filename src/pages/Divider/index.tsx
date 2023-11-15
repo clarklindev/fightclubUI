@@ -6,29 +6,21 @@ const DividerExample = () => {
     <>
       <Layout variation="block">
         <Heading variation="h5">Divider (horizontal)</Heading>
-        <ResizePanel>
-          <Divider variation="horizontal" />
-        </ResizePanel>
+        <Divider variation="horizontal" />
       </Layout>
       <Layout variation="block">
         <Heading variation="h5">Divider labelled (horizontal)</Heading>
-        <ResizePanel>
-          <Divider variation="horizontal">OR</Divider>
-        </ResizePanel>
+        <Divider variation="horizontal">OR</Divider>
       </Layout>
       <Layout variation="block">
         <Heading variation="h5">Divider (vertical)</Heading>
-        <ResizePanel>
-          <Divider variation="vertical" />
-        </ResizePanel>
+        <Divider variation="vertical" />
       </Layout>
       <Layout variation="block">
         <Heading variation="h5">Divider labelled (vertical)</Heading>
-        <ResizePanel style={{ height: '300px' }}>
-          <Divider variation="vertical" gap="5px">
-            OR
-          </Divider>
-        </ResizePanel>
+        <Divider variation="vertical" gap="5px">
+          OR
+        </Divider>
       </Layout>
     </>
   );
