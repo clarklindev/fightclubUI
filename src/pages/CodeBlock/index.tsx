@@ -1,4 +1,4 @@
-import { Heading, CodeBlock, Tabs, Divider } from '@swagfinger/components';
+import { Heading, CodeBlock, Tabs, Divider, Text } from '@swagfinger/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import { Link } from 'react-router-dom';
 
@@ -35,16 +35,16 @@ const CodeBlockExample = () => {
       </Tabs>
       <Heading variation="h2">3rd party candidates</Heading>
 
-      <div className="flex items-center my-1">
-        <Link to="https://www.npmjs.com/package/react-code-blocks">react-code-blocks</Link>
-        <Divider variation="vertical" />
+      <Text>
+        <Link to="https://codemirror.net/">code mirror</Link>
+        <Divider variation="inline-vertical" />
         <Link to="https://codesandbox.io/s/react-code-blocks-xgjrr">playground</Link>
-      </div>
-      <div className="flex items-center my-1">
+      </Text>
+      <Text>
         <Link to="https://www.npmjs.com/package/react-code-blocks">react-code-blocks</Link>
-        <Divider variation="vertical">hi</Divider>
+        <Divider variation="inline-vertical" />
         <Link to="https://codesandbox.io/s/react-code-blocks-xgjrr">playground</Link>
-      </div>
+      </Text>
     </>
   );
 };
