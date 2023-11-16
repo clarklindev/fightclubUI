@@ -56,7 +56,7 @@ export const Divider: React.FC<DividerProps> = ({
       );
 
     case 'inline-vertical':
-      return <span className="px-2">|</span>;
+      return <span className="bg-white mx-3 border-r-2" />;
 
     case 'vertical':
       return (

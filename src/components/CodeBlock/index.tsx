@@ -1,48 +1,28 @@
-import React from 'react';
-import styled from 'styled-components';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import InlineCode from 'react-syntax-highlighter';
-import { sunburst } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/material.css';
+import 'codemirror/mode/javascript/javascript';
+
+import { Controlled as CodeMirror } from 'react-codemirror2';
+
 import { useTheme } from '@swagfinger/context/ThemeContext';
 
-type CodeBlockProps = {
-  children?: React.ReactNode | null;
-  type?: string;
-  inline?: boolean;
-};
+export const CodeBlock = ({ language = 'tsx', value, onChange }) => {
+  const handleChange = (editor, data, value): void => {
+    onChange(value);
+  };
 
-const CodeBlockWrapper = styled.div`
-  width: 100%;
-  border: 1px solid var(--border-color);
-  margin-bottom: 2rem;
-  border-radius: ${({ theme }) => theme?.Codeblock?.borderRadius};
-  overflow: hidden;
-`;
-
-export const CodeBlock = ({ children, type = 'tsx', inline = false }: CodeBlockProps) => {
-  const { colorMode, checkIsDark } = useTheme();
-
-  if (children) {
-    if (inline) {
-      return (
-        <InlineCode language={type} style={sunburst} customStyle={{ padding: '2rem', borderRadius: '10px' }}>
-          {[children.toString()]}
-        </InlineCode>
-      );
-    }
-    return (
-      <CodeBlockWrapper>
-        <SyntaxHighlighter
-          language={type}
-          style={sunburst}
-          customStyle={{
-            padding: '2rem',
-            background: colorMode && checkIsDark(colorMode) ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 1)',
-          }}>
-          {[children.toString()]}
-        </SyntaxHighlighter>
-      </CodeBlockWrapper>
-    );
-  }
-  return;
+  return (
+    <CodeMirror
+      onBeforeChange={handleChange}
+      value={value}
+      className="code-mirror-wrapper"
+      options={{
+        lineWrapping: true,
+        lint: true,
+        mode: language,
+        lineNumbers: true,
+        theme: 'material',
+      }}
+    />
+  );
 };

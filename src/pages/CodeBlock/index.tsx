@@ -38,7 +38,6 @@ const CodeBlockExample = () => {
       <Text>
         <Link to="https://codemirror.net/">code mirror</Link>
         <Divider variation="inline-vertical" />
-        <Link to="https://codesandbox.io/s/react-code-blocks-xgjrr">playground</Link>
       </Text>
       <Text>
         <Link to="https://www.npmjs.com/package/react-code-blocks">react-code-blocks</Link>
