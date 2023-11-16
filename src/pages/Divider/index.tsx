@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Heading, Layout, Divider, Text, Tabs, CodeBlock } from '@swagfinger/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import JsxParser from 'react-jsx-parser';
@@ -20,7 +20,7 @@ const DividerExample = () => {
       </Layout>
       <Layout variation="block">
         <Heading variation="h5">Divider (vertical)</Heading>
-        <div style={{ height: '300px', background: `rgba(255, 0, 0, 0.1)` }} className="flex">
+        <div style={{ height: '300px', background: `rgba(255, 0, 0, 0.5)` }} className="flex">
           hello
           <Divider variation="vertical" />
           world
@@ -46,7 +46,7 @@ const DividerExample = () => {
     </>
   );
 
-  const [val, setVal] = useState<string>(reactElementToJSXString(preview)); // Initialize as a string
+  const [val, setVal] = useState(reactElementToJSXString(preview)); // Initialize as a string
 
   return (
     <>
@@ -61,7 +61,16 @@ const DividerExample = () => {
         </Tabs.TriggerGroup>
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">
-            <JsxParser bindings={{}} components={{ Heading, Layout, Divider, Text }} jsx={val} />
+            <JsxParser
+              bindings={{}}
+              components={{
+                Heading: Heading as React.ComponentType,
+                Layout: Layout as React.ComponentType,
+                Divider: Divider as React.ComponentType,
+                Text: Text as React.ComponentType,
+              }}
+              jsx={val}
+            />
           </Tabs.Content>
           <Tabs.Content data-tab="1">
             <CodeBlock value={val} setValue={setVal} />

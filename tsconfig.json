@@ -22,7 +22,10 @@
     "allowJs": true,
     "baseUrl": "./",
     "paths": {
-      "@swagfinger/*": ["./src/*"]
+      "@swagfinger/*": ["./src/*"],
+      //https://stackoverflow.com/questions/62702485/component-cannot-be-used-as-a-jsx-component-its-return-type-element-is-not
+      // It is telling the typescript compiler that when it encounters a reference to the "react" module, it should look for the actual implementation in the "./node_modules/@types/react" directory.
+      "react": ["./node_modules/@types/react"]
     },
     /* Linting */
     "strict": true,
