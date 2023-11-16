@@ -1,28 +1,27 @@
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/material.css';
-import 'codemirror/mode/javascript/javascript';
+import React from 'react';
+import CodeMirror, { ViewUpdate } from '@uiw/react-codemirror';
+import { javascript } from '@codemirror/lang-javascript';
+import { githubDark } from '@uiw/codemirror-theme-github';
+import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Controlled as CodeMirror } from 'react-codemirror2';
+interface CodeBlockProps {
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+}
 
-import { useTheme } from '@swagfinger/context/ThemeContext';
-
-export const CodeBlock = ({ language = 'tsx', value, onChange }) => {
-  const handleChange = (editor, data, value): void => {
-    onChange(value);
+export const CodeBlock = ({ value, setValue }: CodeBlockProps) => {
+  const onChangeHandler = (val: string, viewUpdate: any) => {
+    setValue(val);
   };
 
   return (
-    <CodeMirror
-      onBeforeChange={handleChange}
-      value={value}
-      className="code-mirror-wrapper"
-      options={{
-        lineWrapping: true,
-        lint: true,
-        mode: language,
-        lineNumbers: true,
-        theme: 'material',
-      }}
-    />
+    <div className="rounded-lg overflow-hidden">
+      <CodeMirror
+        value={value}
+        theme={githubDark}
+        extensions={[javascript({ jsx: true })]}
+        onChange={onChangeHandler}
+      />
+    </div>
   );
 };
