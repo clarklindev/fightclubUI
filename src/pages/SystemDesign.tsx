@@ -105,7 +105,7 @@ const SystemDesign = () => {
         </Heading>
         <Text>created aliases for links so that instead of using relative pathing, you can use absolute path</Text>
         <Text>This is made possible via creating aliases for path in vite.config.ts:</Text>
-        <CodeBlock type="tsx">{`
+        <CodeBlock>{`
       //vite.config.ts (snippet)
 
       resolve: {
@@ -116,7 +116,7 @@ const SystemDesign = () => {
       },
       `}</CodeBlock>
         <Text>And tsconfig.ts</Text>
-        <CodeBlock type="tsx">{`
+        <CodeBlock>{`
       //tsconfig.ts (snippet)
 
       "baseUrl": "./",

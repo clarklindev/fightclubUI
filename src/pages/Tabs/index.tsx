@@ -1,5 +1,5 @@
-import { Tabs, Heading, CodeBlock, Text } from '@swagfinger/components';
-import reactElementToJSXString from 'react-element-to-jsx-string';
+import { Heading, Tabs, CodeBlock, Text, CodeBlockPreview } from '@swagfinger/components';
+import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
 
 const TabsExample = () => {
   const preview = (
@@ -16,26 +16,30 @@ const TabsExample = () => {
     </Tabs>
   );
 
-  const previewString = reactElementToJSXString(preview);
-
   return (
     <>
       <Heading variation="h1" data-observable="true">
         Tabs
       </Heading>
-      <Tabs>
-        <Tabs.TriggerGroup>
-          <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
-          <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
-        </Tabs.TriggerGroup>
 
-        <Tabs.ContentGroup>
-          <Tabs.Content data-tab="0">{preview}</Tabs.Content>
-          <Tabs.Content data-tab="1">
-            <CodeBlock value={previewString} />
-          </Tabs.Content>
-        </Tabs.ContentGroup>
-      </Tabs>
+      <CodeBlockProvider>
+        <Tabs>
+          <Tabs.TriggerGroup>
+            <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
+            <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
+          </Tabs.TriggerGroup>
+          <Tabs.ContentGroup>
+            <Tabs.Content data-tab="0">
+              <CodeBlockPreview />
+            </Tabs.Content>
+            <Tabs.Content data-tab="1">
+              <CodeBlock editable={true} readOnly={false}>
+                {preview}
+              </CodeBlock>
+            </Tabs.Content>
+          </Tabs.ContentGroup>
+        </Tabs>
+      </CodeBlockProvider>
     </>
   );
 };

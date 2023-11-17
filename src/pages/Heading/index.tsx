@@ -1,4 +1,3 @@
-import reactElementToJSXString from 'react-element-to-jsx-string';
 import { Heading, Tabs, CodeBlock, CodeBlockPreview } from '@swagfinger/components';
 import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
 
