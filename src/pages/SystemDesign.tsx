@@ -106,23 +106,23 @@ const SystemDesign = () => {
         <Text>created aliases for links so that instead of using relative pathing, you can use absolute path</Text>
         <Text>This is made possible via creating aliases for path in vite.config.ts:</Text>
         <CodeBlock>{`
-      //vite.config.ts (snippet)
+//vite.config.ts (snippet)
 
-      resolve: {
-        alias: {
-          '@swagfinger': path.resolve(__dirname, './src'),
-          '@swagfinger/components': path.resolve(__dirname, './src/components'),
-        },
-      },
+resolve: {
+  alias: {
+    '@swagfinger': path.resolve(__dirname, './src'),
+    '@swagfinger/components': path.resolve(__dirname, './src/components'),
+  },
+},
       `}</CodeBlock>
         <Text>And tsconfig.ts</Text>
         <CodeBlock>{`
-      //tsconfig.ts (snippet)
+//tsconfig.ts (snippet)
 
-      "baseUrl": "./",
-      "paths": {
-        "@swagfinger/*": ["./src/*"]
-      },
+"baseUrl": "./",
+"paths": {
+  "@swagfinger/*": ["./src/*"]
+},
       `}</CodeBlock>
         <Text>Which simplifies importing dependency modules from relative pathing: </Text>
         <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '../components';`}</CodeBlock>
@@ -265,7 +265,7 @@ const SystemDesign = () => {
   outline-style: dashed;
   outline-color: orange;
   outline-offset: 10px;
-        }`}
+}`}
         </CodeBlock>
       </Section>
 
@@ -286,40 +286,40 @@ const SystemDesign = () => {
         </Text>
         <CodeBlock>{`// Button.js
 
-      import React from 'react';
-      
-      const Button = () => {
-        // Button component logic
-        return (
-          <button>
-            {/* Button content */}
-          </button>
-        );
-      };
-      
-      Button.Icon = () => {
-        // Icon component logic
-        return (
-          <div>
-            {/* Icon content */}
-          </div>
-        );
-      };
-      
-      export { Button }; `}</CodeBlock>
+import React from 'react';
+
+const Button = () => {
+  // Button component logic
+  return (
+    <button>
+      {/* Button content */}
+    </button>
+  );
+};
+
+Button.Icon = () => {
+  // Icon component logic
+  return (
+    <div>
+      {/* Icon content */}
+    </div>
+  );
+};
+
+export { Button }; `}</CodeBlock>
         <br />
         <CodeBlock>{`// Usage in another component
-      import React from 'react';
-      import Button from './Button';
-      
-      function MyComponent() {
-        return (
-          <Button>
-            <Button.Icon /> {/* Use the Button.Icon component */}
-            Button Text
-          </Button>
-        );
-      }`}</CodeBlock>
+import React from 'react';
+import Button from './Button';
+
+function MyComponent() {
+  return (
+    <Button>
+      <Button.Icon /> {/* Use the Button.Icon component */}
+      Button Text
+    </Button>
+  );
+}`}</CodeBlock>
         <Text>
           note how you can use Button.Icon after importing Button, but you cant use it independently. To use the
           subcomponent independent of whether the Component is imported, export it too. If you define Button.Icon as a
@@ -378,13 +378,13 @@ export default AnotherComponent;`}</CodeBlock>
           as the developer sleep better. as a developer you want to be in control to a certain extent of how your
           component is allowed to be used. back to the drawing board:
         </Text>
-        <CodeBlock>{`uses twMerge(clsx())  which allows clsx to pass an object like syntax as an argument for twMerge
-        import {twMerge} from 'tailwind-merge';
-        import {clsx, ClassValue} from 'clsx'; //classValue is the type
+        <CodeBlock>{`//uses twMerge(clsx())  which allows clsx to pass an object like syntax as an argument for twMerge
+import {twMerge} from 'tailwind-merge';
+import {clsx, ClassValue} from 'clsx'; //classValue is the type
 
-        export function cn(...inputs:ClassValue[] ){
-          return twMerge(clsx(inputs)) //object sytax with clsx and result passed into twMerge
-        }`}</CodeBlock>
+export function cn(...inputs:ClassValue[] ){
+  return twMerge(clsx(inputs)) //object sytax with clsx and result passed into twMerge
+}`}</CodeBlock>
         <CodeBlock>
           {`import React from 'react';
 

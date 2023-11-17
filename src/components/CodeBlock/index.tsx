@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
 import CodeMirror from '@uiw/react-codemirror';
-
+import { githubDark } from '@uiw/codemirror-theme-github';
 import { javascript } from '@codemirror/lang-javascript';
 import { sass } from '@codemirror/lang-sass';
 import { less } from '@codemirror/lang-less';
 
-import { githubDark } from '@uiw/codemirror-theme-github';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import { useCode } from '@swagfinger/context/CodeBlockContext';
+
+import './styles.css';
 
 interface CodeBlockProps {
   children?: React.ReactNode | string;
@@ -47,6 +48,7 @@ export const CodeBlock = ({ children, readOnly = true, editable = false, ...prop
   return (
     <div className="rounded-lg overflow-hidden">
       <CodeMirror
+        className="code-mirror"
         value={val}
         theme={githubDark}
         extensions={extensions}
