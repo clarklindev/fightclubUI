@@ -16,6 +16,7 @@ const TriggerGroup = ({ children, className }: { className?: string; children?: 
 
   return <div className={`flex flex-row gap-2 py-1 ${className}`}>{children}</div>;
 };
+TriggerGroup.displayName = 'Tabs.TriggerGroup';
 
 type TriggerProps = {
   children?: string;
@@ -57,10 +58,12 @@ const Trigger = ({ children, ...rest }: TriggerProps) => {
     </Button>
   );
 };
+Trigger.displayName = 'Tabs.Trigger';
 
 const ContentGroup = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   return <div className={['mt-5', `${className}`].join(' ')}>{children}</div>;
 };
+ContentGroup.displayName = 'Tabs.ContentGroup';
 
 const Content = ({ children, ...rest }: { children?: React.ReactNode }) => {
   const { selectedTabId } = useTabs();
@@ -84,6 +87,7 @@ const Content = ({ children, ...rest }: { children?: React.ReactNode }) => {
     </div>
   );
 };
+Content.displayName = 'Tabs.Content';
 
 Tabs.TriggerGroup = TriggerGroup;
 Tabs.Trigger = Trigger;

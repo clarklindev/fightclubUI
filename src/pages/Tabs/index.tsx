@@ -32,7 +32,7 @@ const TabsExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock value={previewString} />
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

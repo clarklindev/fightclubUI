@@ -66,6 +66,8 @@ const DropdownWrapper = ({
     <div className={`relative flex ${className}`}>{children}</div>
   );
 };
+DropdownWrapper.displayName = 'Dropdown.Wrapper';
+
 const DropdownTrigger = ({
   asChild,
   children,
@@ -119,6 +121,7 @@ const DropdownTrigger = ({
     <Button {...additionalProps}>{children}</Button>
   );
 };
+DropdownTrigger.displayName = 'Dropdown.Trigger';
 
 const DropdownMenu = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   const {
@@ -221,6 +224,7 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
     </div>
   );
 };
+DropdownMenu.displayName = 'Dropdown.Menu';
 
 const DropdownMenuItem = ({
   children,
@@ -253,10 +257,11 @@ const DropdownMenuItem = ({
     </button>
   );
 };
+DropdownMenuItem.displayName = 'Dropdown.MenuItem';
 
-Dropdown.DropdownWrapper = DropdownWrapper;
-Dropdown.DropdownTrigger = DropdownTrigger;
-Dropdown.DropdownMenu = DropdownMenu;
-Dropdown.DropdownMenuItem = DropdownMenuItem;
+Dropdown.Wrapper = DropdownWrapper;
+Dropdown.Trigger = DropdownTrigger;
+Dropdown.Menu = DropdownMenu;
+Dropdown.MenuItem = DropdownMenuItem;
 
 export { Dropdown, DropdownWrapper, DropdownTrigger, DropdownMenu, DropdownMenuItem };

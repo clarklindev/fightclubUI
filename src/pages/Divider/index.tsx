@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import * as ReactComponents from '@swagfinger/components';
 import { Heading, Layout, Divider, Text, Tabs, CodeBlock } from '@swagfinger/components';
+
 import reactElementToJSXString from 'react-element-to-jsx-string';
 import JsxParser from 'react-jsx-parser';
 
@@ -48,6 +50,15 @@ const DividerExample = () => {
 
   const [val, setVal] = useState(reactElementToJSXString(preview)); // Initialize as a string
 
+  type ComponentsType = {
+    [key: string]: React.ComponentType<any>;
+  };
+  const dynamicComponents: ComponentsType = {};
+  const components = ReactComponents as ComponentsType;
+  for (const componentName in components) {
+    dynamicComponents[componentName] = components[componentName];
+  }
+
   return (
     <>
       <Heading variation="h1" data-observable="true">
@@ -61,16 +72,7 @@ const DividerExample = () => {
         </Tabs.TriggerGroup>
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">
-            <JsxParser
-              bindings={{}}
-              components={{
-                Heading: Heading as React.ComponentType,
-                Layout: Layout as React.ComponentType,
-                Divider: Divider as React.ComponentType,
-                Text: Text as React.ComponentType,
-              }}
-              jsx={val}
-            />
+            <JsxParser bindings={{}} components={dynamicComponents} jsx={val} />
           </Tabs.Content>
           <Tabs.Content data-tab="1">
             <CodeBlock value={val} setValue={setVal} />

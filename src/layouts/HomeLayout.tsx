@@ -199,32 +199,32 @@ export const HomeLayout = () => {
           </Link>
 
           <Dropdown>
-            <Dropdown.DropdownWrapper id="1">
-              <Dropdown.DropdownTrigger asChild>
+            <Dropdown.Wrapper id="1">
+              <Dropdown.Trigger asChild>
                 <Button intent="icon">{setModeIcon(colorMode)}</Button>
-              </Dropdown.DropdownTrigger>
-              {/* <Dropdown.DropdownTrigger>{setModeIcon(colorMode)}</Dropdown.DropdownTrigger> */}
-              <Dropdown.DropdownMenu className="w-40">
-                <Dropdown.DropdownMenuItem
+              </Dropdown.Trigger>
+              {/* <Dropdown.Trigger>{setModeIcon(colorMode)}</Dropdown.Trigger> */}
+              <Dropdown.Menu className="w-40">
+                <Dropdown.MenuItem
                   onClick={() => {
                     setColorMode('dark');
                   }}>
                   Dark mode
-                </Dropdown.DropdownMenuItem>
-                <Dropdown.DropdownMenuItem
+                </Dropdown.MenuItem>
+                <Dropdown.MenuItem
                   onClick={() => {
                     setColorMode('light');
                   }}>
                   Light mode
-                </Dropdown.DropdownMenuItem>
-                <Dropdown.DropdownMenuItem
+                </Dropdown.MenuItem>
+                <Dropdown.MenuItem
                   onClick={() => {
                     setColorMode('system');
                   }}>
                   System mode
-                </Dropdown.DropdownMenuItem>
-              </Dropdown.DropdownMenu>
-            </Dropdown.DropdownWrapper>
+                </Dropdown.MenuItem>
+              </Dropdown.Menu>
+            </Dropdown.Wrapper>
           </Dropdown>
         </Navbar.Group>
       </Navbar>

@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 
 const CodeBlockExample = () => {
   const preview = (
-    <CodeBlock>
-      {`button:focus {
-  outline-width: 3px;
-  outline-style: dashed;
-  outline-color: orange;
-  outline-offset: 10px;
-}`}
-    </CodeBlock>
+    <CodeBlock
+      value={`button:focus {
+      outline-width: 3px;
+      outline-style: dashed;
+      outline-color: orange;
+      outline-offset: 10px;
+    }`}
+    />
   );
 
   const previewString = reactElementToJSXString(preview);
@@ -29,7 +29,7 @@ const CodeBlockExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock value={previewString} />
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
@@ -37,12 +37,8 @@ const CodeBlockExample = () => {
 
       <Text>
         <Link to="https://codemirror.net/">code mirror</Link>
-        <Divider variation="inline-vertical" />
-      </Text>
-      <Text>
+        <br />
         <Link to="https://www.npmjs.com/package/react-code-blocks">react-code-blocks</Link>
-        <Divider variation="inline-vertical" />
-        <Link to="https://codesandbox.io/s/react-code-blocks-xgjrr">playground</Link>
       </Text>
     </>
   );
