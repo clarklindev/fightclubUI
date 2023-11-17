@@ -30,6 +30,7 @@ export { ResizePanel } from './ResizePanel';
 export { Dimensions } from './Dimensions';
 export { CustomNavLink } from './CustomNavLink';
 export { CodeBlock } from './CodeBlock';
+export { CodeBlockPreview } from './CodeBlockPreview';
 export { Navbar } from './Navbar';
 export { NavSide } from './NavSide';
 export { OnThisPage } from './OnThisPage';

@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@codemirror/lang-javascript": "^6.2.1",
+    "@uiw/codemirror-extensions-langs": "^4.21.20",
     "@uiw/codemirror-theme-github": "^4.21.20",
     "@uiw/react-codemirror": "^4.21.20",
     "@vitejs/plugin-react": "^4.1.1",

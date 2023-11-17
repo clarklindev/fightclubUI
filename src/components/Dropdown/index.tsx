@@ -9,7 +9,7 @@ const Dropdown = ({ children }: { children: React.ReactNode }) => {
   return <DropdownContextProvider>{children}</DropdownContextProvider>;
 };
 
-const DropdownWrapper = ({
+const Wrapper = ({
   children,
   className = 'justify-start', //button
   id = 'default',
@@ -66,13 +66,8 @@ const DropdownWrapper = ({
     <div className={`relative flex ${className}`}>{children}</div>
   );
 };
-DropdownWrapper.displayName = 'Dropdown.Wrapper';
 
-const DropdownTrigger = ({
-  asChild,
-  children,
-  ...rest
-}: ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean }) => {
+const Trigger = ({ asChild, children, ...rest }: ButtonHTMLAttributes<HTMLButtonElement> & { asChild?: boolean }) => {
   const { isFocused, setIsMenuOpen, onFocus, onBlur, handleMouseOver, handleMouseLeave, setTriggerRef, hoverMode } =
     useDropdown();
   const triggerRef = useRef<HTMLButtonElement | null>(null);
@@ -121,9 +116,8 @@ const DropdownTrigger = ({
     <Button {...additionalProps}>{children}</Button>
   );
 };
-DropdownTrigger.displayName = 'Dropdown.Trigger';
 
-const DropdownMenu = ({ children, className }: { children: React.ReactNode; className?: string }) => {
+const Menu = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   const {
     isMenuOpen,
     handleMouseOver,
@@ -224,9 +218,8 @@ const DropdownMenu = ({ children, className }: { children: React.ReactNode; clas
     </div>
   );
 };
-DropdownMenu.displayName = 'Dropdown.Menu';
 
-const DropdownMenuItem = ({
+const MenuItem = ({
   children,
   asChild,
   onClick,
@@ -257,11 +250,17 @@ const DropdownMenuItem = ({
     </button>
   );
 };
-DropdownMenuItem.displayName = 'Dropdown.MenuItem';
 
-Dropdown.Wrapper = DropdownWrapper;
-Dropdown.Trigger = DropdownTrigger;
-Dropdown.Menu = DropdownMenu;
-Dropdown.MenuItem = DropdownMenuItem;
+Wrapper.displayName = 'Dropdown.Wrapper';
+Dropdown.Wrapper = Wrapper;
 
-export { Dropdown, DropdownWrapper, DropdownTrigger, DropdownMenu, DropdownMenuItem };
+Trigger.displayName = 'Dropdown.Trigger';
+Dropdown.Trigger = Trigger;
+
+Menu.displayName = 'Dropdown.Menu';
+Dropdown.Menu = Menu;
+
+MenuItem.displayName = 'Dropdown.MenuItem';
+Dropdown.MenuItem = MenuItem;
+
+export { Dropdown };

@@ -1,25 +1,64 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
 import CodeMirror from '@uiw/react-codemirror';
+
 import { javascript } from '@codemirror/lang-javascript';
+import { sass } from '@codemirror/lang-sass';
+import { less } from '@codemirror/lang-less';
+
 import { githubDark } from '@uiw/codemirror-theme-github';
+import reactElementToJSXString from 'react-element-to-jsx-string';
+import { useCode } from '@swagfinger/context/CodeBlockContext';
 
 interface CodeBlockProps {
-  value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
+  children?: React.ReactNode | string;
+  readOnly?: boolean;
+  editable?: boolean;
 }
 
-export const CodeBlock = ({ value, setValue }: CodeBlockProps) => {
-  const onChangeHandler = (val: string) => {
-    setValue(val);
+const extensions = [javascript({ jsx: true }), less(), sass()];
+
+export const CodeBlock = ({ children, readOnly = true, editable = false, ...props }: CodeBlockProps) => {
+  const [val, setVal] = useState<undefined | string>();
+  const { setCode } = useCode();
+
+  useEffect(() => {
+    if (children) {
+      let codeStr = '';
+      if (typeof children === 'string') {
+        codeStr = children;
+        setVal(codeStr);
+        setCode(codeStr);
+      } else {
+        codeStr = reactElementToJSXString(children);
+        setVal(codeStr);
+        setCode(codeStr);
+      }
+    }
+  }, [children]);
+
+  const onChangeHandler = (value: string) => {
+    setVal(value);
+
+    //BROADCAST - decouple
+    setCode(value);
   };
 
   return (
     <div className="rounded-lg overflow-hidden">
       <CodeMirror
-        value={value}
+        value={val}
         theme={githubDark}
-        extensions={[javascript({ jsx: true })]}
+        extensions={extensions}
         onChange={onChangeHandler}
+        editable={editable}
+        readOnly={readOnly}
+        basicSetup={{
+          lineNumbers: false,
+          foldGutter: false,
+          highlightActiveLine: false,
+        }}
+        {...props}
       />
     </div>
   );

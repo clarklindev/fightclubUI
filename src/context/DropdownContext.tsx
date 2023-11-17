@@ -76,7 +76,6 @@ export const useDropdown = () => {
 type DropdownContextProviderProps = {
   children: React.ReactNode;
 };
-
 // Create a Context Provider
 export const DropdownContextProvider = ({ children }: DropdownContextProviderProps) => {
   const { isFocused, onBlur, onFocus } = useFocus();
