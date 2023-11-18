@@ -20,12 +20,7 @@ type AccordionProps = {
   showDivider?: boolean;
 };
 
-export const Accordion: React.FC<AccordionProps> = ({
-  data,
-  multiOpen = true,
-  iconType = 'plusminus',
-  showDivider = true,
-}) => {
+export const Accordion = ({ data, multiOpen = true, iconType = 'plusminus', showDivider = true }: AccordionProps) => {
   const [indexes, setIndexes] = useState<number[]>([]);
 
   //@index - filter-out/add or toggle

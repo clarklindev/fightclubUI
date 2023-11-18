@@ -8,12 +8,12 @@ type ProgressLoaderProps = {
   color?: string;
 };
 
-export const ProgressLoader: React.FC<ProgressLoaderProps> = ({
+export const ProgressLoader = ({
   progress,
   size = 15,
   strokeWidth = 1,
   color = 'currentColor',
-}) => {
+}: ProgressLoaderProps) => {
   const radius = (size - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const dashoffset = circumference - (progress / 100) * circumference;

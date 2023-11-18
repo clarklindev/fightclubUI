@@ -27,7 +27,7 @@ type SliderProps = {
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
-export const Slider: React.FC<SliderProps> = ({
+export const Slider = ({
   onChange,
   orientation = Orientation.HORIZONTAL,
   length = '100%',
@@ -44,9 +44,9 @@ export const Slider: React.FC<SliderProps> = ({
   valueGradient = undefined,
   activeColor = 'red',
   trackColor = '#FF000055',
-  className = index,
+  className = '',
   style = {},
-}) => {
+}: SliderProps) => {
   const myRef: React.Ref<HTMLDivElement> = useRef(null);
 
   const [computedHeight, setComputedHeight] = useState('0px');

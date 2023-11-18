@@ -5,7 +5,7 @@ type SpinnerProps = {
   size?: string;
 };
 
-export const Spinner: React.FC<SpinnerProps> = ({ size = '15px' }) => {
+export const Spinner = ({ size = '15px' }: SpinnerProps) => {
   return <SpinnerContainer size={size} />;
 };
 

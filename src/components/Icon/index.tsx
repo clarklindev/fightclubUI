@@ -10,14 +10,14 @@ export type IconProps = {
   className?: string;
 };
 
-export const Icon: React.FC<IconProps> = ({
+export const Icon = ({
   stroke = 'currentColor',
   children,
   size = '20px',
   fill = undefined,
   fillOpacity,
   ...rest
-}) => {
+}: IconProps) => {
   return (
     <IconContainer className="Icon" size={size} stroke={stroke} fill={fill} fillOpacity={fillOpacity} {...rest}>
       {children}

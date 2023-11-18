@@ -6,7 +6,7 @@ type TextProps = {
   className?: string;
 };
 
-export const Text: React.FC<TextProps> = ({ children, className, ...rest }) => {
+export const Text = ({ children, className, ...rest }: TextProps) => {
   return (
     <TextContainer className={className} {...rest}>
       {children}

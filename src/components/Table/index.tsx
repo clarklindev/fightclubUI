@@ -46,7 +46,7 @@ const TableContainer = styled.table<{ gridTemplateColumns: string }>`
   }
 `;
 
-export const Table: React.FC<TableProps> = ({ headers, data, configure }) => {
+export const Table = ({ headers, data, configure }: TableProps) => {
   const columns = headers.map(each => each.width).join(' ');
   console.log('columns: ', columns);
   return (

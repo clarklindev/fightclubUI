@@ -10,7 +10,7 @@ type SelectProps = {
   children: React.ReactNode[];
 };
 
-export const Select: React.FC<SelectProps> = ({ savedData, onChange, children }) => {
+export const Select = ({ savedData, onChange, children }: SelectProps) => {
   return (
     <SelectWrapper>
       <SelectContainer value={savedData} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => onChange(event)}>

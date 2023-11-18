@@ -22,7 +22,7 @@ type TreeProps = {
   depth?: number;
 };
 
-export const Tree: React.FC<TreeProps> = ({ data, depth = 0 }: TreeProps) => {
+export const Tree = ({ data, depth = 0 }: TreeProps) => {
   const [childrenVisible, setNodeVisible] = useState<string[]>([]);
 
   const openNodeHandler = (depth: number, index: number) => {

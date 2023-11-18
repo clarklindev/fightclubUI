@@ -10,7 +10,7 @@ type ToggleButtonProps = {
   children?: React.ReactNode;
 };
 
-export const ToggleButton: React.FC<ToggleButtonProps> = ({ checked, onChange, icon, children }) => {
+export const ToggleButton = ({ checked, onChange, icon, children }: ToggleButtonProps) => {
   return (
     <ToggleButtonContainer className="ToggleButton">
       <label>

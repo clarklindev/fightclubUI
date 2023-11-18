@@ -4,6 +4,6 @@ type ListProps = {
   children: ReactNode;
 };
 
-export const List: React.FC<ListProps> = ({ children }) => {
+export const List = ({ children }: ListProps) => {
   return <ul>{children}</ul>;
 };

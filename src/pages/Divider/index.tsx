@@ -10,12 +10,14 @@ const DividerExample = () => {
         <Divider variation="horizontal" />
         world
       </Layout>
+
       <Layout variation="block">
         <Heading variation="h5">Divider labelled (horizontal)</Heading>
         hello
         <Divider variation="horizontal">OR</Divider>
         world
       </Layout>
+
       <Layout variation="block">
         <Heading variation="h5">Divider (vertical)</Heading>
         <div style={{ height: '300px', background: `rgba(255, 0, 0, 0.5)` }} className="flex">
@@ -24,6 +26,7 @@ const DividerExample = () => {
           world
         </div>
       </Layout>
+
       <Layout variation="block">
         <Heading variation="h5">Divider labelled (vertical)</Heading>
         <div style={{ height: '300px', background: `rgba(255, 0, 0, 0.1)` }} className="flex">
@@ -31,6 +34,7 @@ const DividerExample = () => {
           world
         </div>
       </Layout>
+
       <Layout variation="block">
         <Heading variation="h5">Divider inline (inline-vertical)</Heading>
         <div style={{ height: '300px', background: `rgba(255, 0, 0, 0.1)` }} className="flex">

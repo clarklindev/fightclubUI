@@ -12,13 +12,13 @@ type LabelSomethingProps = {
   labelClickable?: boolean;
 };
 
-export const LabelSomething: React.FC<LabelSomethingProps> = ({
+export const LabelSomething = ({
   label,
   something,
   gap = '2px',
   labelDirection = 'right',
   labelClickable = false,
-}) => {
+}: LabelSomethingProps) => {
   const positionMap: Record<LabelSomethingDirection, FlexDirection> = {
     left: 'row-reverse',
     right: 'row',

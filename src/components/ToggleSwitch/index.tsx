@@ -9,8 +9,8 @@ type ToggleSwitchProps = {
   savedData: boolean;
 };
 
-const ToggleSwitch: React.FC<ToggleSwitchProps> = React.memo(
-  ({ color, onChange, savedData }) => {
+const ToggleSwitch = React.memo(
+  ({ color, onChange, savedData }: ToggleSwitchProps) => {
     const uniqueClassName = useUID('ToggleSwitch');
 
     return (

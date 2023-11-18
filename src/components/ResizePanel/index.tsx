@@ -15,7 +15,7 @@ export const ResizePanel = (props: ResizePanelProps) => {
   return <div>{children}</div>;
 };
 
-// export const ResizePanel: React.FC<ResizePanelProps> = ({ style, children, className }) => {
+// export const ResizePanel = ({ style, children, className }:ResizePanelProps) => {
 //   const componentRef = useRef<HTMLDivElement | null>(null);
 //   const containerRef = useRef<HTMLDivElement>(null);
 //   const handleRef = useRef<HTMLDivElement>(null);

@@ -7,7 +7,7 @@ type CheckboxGroupProps = {
   children: React.ReactNode;
 };
 
-export const CheckboxGroup: React.FC<CheckboxGroupProps> = ({ direction = 'column', spacing = '0px', children }) => {
+export const CheckboxGroup = ({ direction = 'column', spacing = '0px', children }: CheckboxGroupProps) => {
   return (
     <CheckboxGroupContainer className={`CheckboxGroup`} direction={direction} spacing={spacing}>
       {children}

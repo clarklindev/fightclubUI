@@ -5,7 +5,7 @@ type CardProps = React.HTMLProps<HTMLDivElement> & {
   children?: React.ReactNode;
 };
 
-export const Card: React.FC<CardProps> = ({ className, ...props }) => {
+export const Card = ({ className, ...props }: CardProps) => {
   const [loading] = useState(false);
   return (
     <div

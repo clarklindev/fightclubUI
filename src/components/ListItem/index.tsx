@@ -9,7 +9,7 @@ type ListDataProp = {
   };
 };
 
-export const ListItem: React.FC<ListDataProp> = props => {
+export const ListItem = (props: ListDataProp) => {
   const { data } = props;
   console.log(data);
   const { firstname, lastname, email, index } = data;

@@ -32,7 +32,7 @@ type SliderMultiRangeProps = {
   slideMode?: SlideMode | string;
 };
 
-export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
+export const SliderMultiRange = ({
   sliderValues = [0, 0, 0],
   // colors = ['red', 'yellow', 'blue'],
   onChange,
@@ -43,7 +43,7 @@ export const SliderMultiRange: React.FC<SliderMultiRangeProps> = ({
   length = '100%',
   slideMode = SlideMode.MAGNETIC,
   orientation = Orientation.HORIZONTAL,
-}) => {
+}: SliderMultiRangeProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // To track the active element
 
   const restrictBoundaries = (index: number, value: number) => {
