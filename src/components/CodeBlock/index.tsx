@@ -19,17 +19,18 @@ const extensions = [javascript({ jsx: true }), less(), sass()];
 interface CodeBlockProps {
   readOnly?: boolean;
   editable?: boolean;
-  children?: string | React.ReactNode;
+  children?: string | React.ReactNode | undefined;
 }
 
 const CodeBlock = ({ children, editable = false, readOnly = true }: CodeBlockProps) => {
-  const [code, setCode] = useState<undefined | string>();
+  const [code, setCode] = useState<string>('');
+
   useEffect(() => {
     let codeStr = '';
     if (typeof children === 'string') {
       codeStr = children;
       setCode(codeStr);
-    } else {
+    } else if (children !== undefined && children !== null) {
       codeStr = reactElementToJSXString(children);
       setCode(codeStr);
     }
@@ -83,7 +84,7 @@ const Playground = ({ children, editable = false, readOnly = true }: CodeBlockPr
       if (typeof children === 'string') {
         codeStr = children;
         setPreview(codeStr);
-      } else {
+      } else if (children !== undefined && children !== null) {
         codeStr = reactElementToJSXString(children);
         setPreview(codeStr);
       }

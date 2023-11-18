@@ -4,7 +4,7 @@ import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
 import { Link } from 'react-router-dom';
 
 const CodeBlockExample = () => {
-  const preview = `<CodeBlock editable={false} readOnly={true}></CodeBlock>`;
+  const preview = `<CodeBlock>{"hi"}</CodeBlock>`;
 
   return (
     <>
@@ -24,7 +24,7 @@ const CodeBlockExample = () => {
             </Tabs.Content>
             <Tabs.Content data-tab="1">
               <CodeBlock>{`import {CodeBlock} from '@swagfinger/components';`}</CodeBlock>
-              <CodeBlock.Playground readOnly={false} editable={true}>
+              <CodeBlock.Playground readOnly={true} editable={false}>
                 {preview}
               </CodeBlock.Playground>
               <CodeBlock>{`//this is a comment`}</CodeBlock>

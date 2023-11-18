@@ -6,7 +6,7 @@ type TextProps = {
   className?: string;
 };
 
-export const Text = ({ children, className, ...rest }: TextProps) => {
+const Text = ({ children, className, ...rest }: TextProps) => {
   return (
     <TextContainer className={className} {...rest}>
       {children}
@@ -24,3 +24,6 @@ const TextContainer = styled.p`
   }};
   line-height: 1.7rem;
 `;
+
+Text.displayName = 'Text';
+export { Text };

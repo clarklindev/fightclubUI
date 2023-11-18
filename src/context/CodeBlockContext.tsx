@@ -13,11 +13,11 @@ export const useCode = () => {
 };
 
 type CodeBlockProviderProps = {
-  children: React.ReactNode;
+  children: React.ReactNode | string;
 };
 
 export const CodeBlockProvider = ({ children }: CodeBlockProviderProps) => {
-  const [preview, setPreview] = useState('');
+  const [preview, setPreview] = useState<string>('');
 
   return <CodeBlockContext.Provider value={{ preview, setPreview }}>{children}</CodeBlockContext.Provider>;
 };
