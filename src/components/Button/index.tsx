@@ -83,7 +83,7 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
   onBlur?: (event: React.FocusEvent<HTMLButtonElement>) => void;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref) => {
+const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref) => {
   const { intent, padding, size, focus, className, onClick, onFocus, onBlur, ariaLabel, children, ...rest } = props;
 
   //<Button className={`cn(buttonVariants(...`{ intent: 'primary'}), className)}/>;
@@ -113,3 +113,6 @@ export const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref)
     </button>
   );
 });
+
+Button.displayName = 'Button';
+export { Button };

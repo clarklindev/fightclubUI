@@ -1,10 +1,10 @@
-import { Heading, Tabs, CodeBlock, CodeBlockPreview, Text } from '@swagfinger/components';
+import { Heading, Tabs, CodeBlock, Text } from '@swagfinger/components';
 import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
 
 import { Link } from 'react-router-dom';
 
 const CodeBlockExample = () => {
-  const preview = `<CodeBlock minHeight="200px" editable={false} readOnly={true}></CodeBlock>`;
+  const preview = `<CodeBlock editable={false} readOnly={true}></CodeBlock>`;
 
   return (
     <>
@@ -20,12 +20,14 @@ const CodeBlockExample = () => {
           </Tabs.TriggerGroup>
           <Tabs.ContentGroup>
             <Tabs.Content data-tab="0">
-              <CodeBlockPreview />
+              <CodeBlock.Preview />
             </Tabs.Content>
             <Tabs.Content data-tab="1">
-              <CodeBlock editable={true} readOnly={false}>
+              <CodeBlock>{`import {CodeBlock} from '@swagfinger/components';`}</CodeBlock>
+              <CodeBlock.Playground readOnly={false} editable={true}>
                 {preview}
-              </CodeBlock>
+              </CodeBlock.Playground>
+              <CodeBlock>{`//this is a comment`}</CodeBlock>
             </Tabs.Content>
           </Tabs.ContentGroup>
         </Tabs>

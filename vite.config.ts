@@ -8,7 +8,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@swagfinger': path.resolve(__dirname, './src'),
-      '@swagfinger/components': path.resolve(__dirname, './src/components'),
     },
   },
   build: {

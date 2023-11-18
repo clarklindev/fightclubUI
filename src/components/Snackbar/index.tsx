@@ -6,7 +6,7 @@ type SnackbarProps = {
   children: React.ReactNode;
 };
 
-export const Snackbar: React.FC<SnackbarProps> = ({ setShowSnackbar, children }) => {
+const Snackbar = ({ setShowSnackbar, children }: SnackbarProps) => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
 
   useEffect(() => {
@@ -92,3 +92,6 @@ const SnackbarContainer = styled.div`
     }
   }
 `;
+
+Snackbar.displayName = 'Snackbar';
+export { Snackbar };

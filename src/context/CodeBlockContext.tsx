@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useState } from 'react';
 
 const CodeBlockContext = createContext<{
-  code: string;
-  setCode: (code: string) => void;
+  preview: string;
+  setPreview: (code: string) => void;
 }>({
-  code: '',
-  setCode: _ => {},
+  preview: '',
+  setPreview: _ => {},
 });
 
 export const useCode = () => {
@@ -17,7 +17,7 @@ type CodeBlockProviderProps = {
 };
 
 export const CodeBlockProvider = ({ children }: CodeBlockProviderProps) => {
-  const [code, setCode] = useState('');
+  const [preview, setPreview] = useState('');
 
-  return <CodeBlockContext.Provider value={{ code, setCode }}>{children}</CodeBlockContext.Provider>;
+  return <CodeBlockContext.Provider value={{ preview, setPreview }}>{children}</CodeBlockContext.Provider>;
 };

@@ -9,7 +9,7 @@ type ToggleSwitchProps = {
   savedData: boolean;
 };
 
-export const ToggleSwitch: React.FC<ToggleSwitchProps> = React.memo(
+const ToggleSwitch: React.FC<ToggleSwitchProps> = React.memo(
   ({ color, onChange, savedData }) => {
     const uniqueClassName = useUID('ToggleSwitch');
 
@@ -75,3 +75,6 @@ const Slider = styled.span`
     transform: translateX(25px);
   }
 `;
+
+ToggleSwitch.displayName = 'ToggleSwitch';
+export { ToggleSwitch };

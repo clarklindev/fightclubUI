@@ -1,4 +1,4 @@
-import { Heading, Layout, Divider, Text, Tabs, CodeBlock, CodeBlockPreview } from '@swagfinger/components';
+import { Heading, Layout, Divider, Text, Tabs, CodeBlock } from '@swagfinger/components';
 import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
 
 const DividerExample = () => {
@@ -58,12 +58,12 @@ const DividerExample = () => {
           </Tabs.TriggerGroup>
           <Tabs.ContentGroup>
             <Tabs.Content data-tab="0">
-              <CodeBlockPreview />
+              <CodeBlock.Preview />
             </Tabs.Content>
             <Tabs.Content data-tab="1">
-              <CodeBlock editable={true} readOnly={false}>
+              <CodeBlock.Playground editable={true} readOnly={false}>
                 {preview}
-              </CodeBlock>
+              </CodeBlock.Playground>
             </Tabs.Content>
           </Tabs.ContentGroup>
         </Tabs>

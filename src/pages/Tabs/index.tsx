@@ -1,4 +1,4 @@
-import { Heading, Tabs, CodeBlock, Text, CodeBlockPreview } from '@swagfinger/components';
+import { Heading, Tabs, CodeBlock, Text } from '@swagfinger/components';
 import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
 
 const TabsExample = () => {
@@ -30,12 +30,12 @@ const TabsExample = () => {
           </Tabs.TriggerGroup>
           <Tabs.ContentGroup>
             <Tabs.Content data-tab="0">
-              <CodeBlockPreview />
+              <CodeBlock.Preview />
             </Tabs.Content>
             <Tabs.Content data-tab="1">
-              <CodeBlock editable={true} readOnly={false}>
+              <CodeBlock.Playground editable={true} readOnly={false}>
                 {preview}
-              </CodeBlock>
+              </CodeBlock.Playground>
             </Tabs.Content>
           </Tabs.ContentGroup>
         </Tabs>
