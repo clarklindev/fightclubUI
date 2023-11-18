@@ -34,17 +34,6 @@ const DividerExample = () => {
           world
         </div>
       </Layout>
-
-      <Layout variation="block">
-        <Heading variation="h5">Divider inline (inline-vertical)</Heading>
-        <div style={{ height: '300px', background: `rgba(255, 0, 0, 0.1)` }} className="flex">
-          <Text>
-            hello
-            <Divider variation="inline-vertical" />
-            world
-          </Text>
-        </div>
-      </Layout>
     </>
   );
 

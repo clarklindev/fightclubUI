@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import styled from 'styled-components';
 
-type DividerVariation = 'horizontal' | 'vertical' | 'inline-vertical';
+type DividerVariation = 'horizontal' | 'vertical';
 
 type DividerProps = {
   variation?: DividerVariation;
@@ -27,23 +27,14 @@ const Divider = ({
   switch (variation) {
     case 'horizontal':
       return (
-        <DividerHorizontal
-          className="Divider"
-          height={height}
-          width={width}
-          padding={padding}
-          margin={margin}
-          gap={gap}>
+        <DividerHorizontal height={height} width={width} padding={padding} margin={margin} gap={gap}>
           {children && <span>{children}</span>}
         </DividerHorizontal>
       );
 
-    case 'inline-vertical':
-      return <span className="bg-white mx-3 border-r-2" />;
-
     case 'vertical':
       return (
-        <DividerVertical className="Divider" ref={dividerRef} height={height} width={width} margin={margin} gap={gap}>
+        <DividerVertical ref={dividerRef} height={height} width={width} margin={margin} gap={gap}>
           {children && <span>{children}</span>}
         </DividerVertical>
       );
@@ -97,7 +88,6 @@ const DividerHorizontal = styled.div<{
     }
   }
 `;
-DividerHorizontal.displayName = 'DividerHorizontal';
 
 const DividerVertical = styled.div<{
   className?: string;
@@ -115,43 +105,45 @@ const DividerVertical = styled.div<{
   ${({ children, height = '100%', margin = '0 10px', gap = '0.2rem' }) =>
     children
       ? `
-      border-right: none;
-      
-      span {
-        display: inline-flex;
-        flex-direction: column;
+  border-right: none;
+  
+  span {
+    display: inline-flex;
+    flex-direction: column;
         
-        margin: ${margin};
+    margin: ${margin};
     
-        position: relative;
-        width: 20px;
-        overflow-wrap: normal;
+    position: relative;
+    width: 20px;
+    overflow-wrap: normal;
     
-        &::before,
-        &::after {
-          align-self: center;
-          height: ${height};
-          min-height: 5px;
-          content: '';
-          border-right: 1px solid var(--border-color);
-        }
-
-        &::before {
-          margin-bottom: ${gap};
-        }
-        &::after {
-          margin-top: ${gap};
+    &::before,
+    &::after {
+      align-self: center;
+      height: ${height};
+      min-height: 5px;
+      content: '';
+      border-right: 1px solid var(--border-color);
+    }
+    
+    &::before {
+      margin-bottom: ${gap};
+    }
+    &::after {
+      margin-top: ${gap};
         }
       }
       `
       : `
-  
-  border-right: 1px solid var(--border-color);
-  width: 0px;
-  margin: 0 10px;
-  `};
+      
+      border-right: 1px solid var(--border-color);
+      width: 0px;
+      margin: 0 10px;
+      `};
 `;
+
 DividerVertical.displayName = 'DividerVertical';
+DividerHorizontal.displayName = 'DividerHorizontal';
 
 Divider.displayName = 'Divider';
 export { Divider };

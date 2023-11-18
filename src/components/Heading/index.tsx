@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 import { ThemeType } from '@swagfinger/themes/LightTheme';
