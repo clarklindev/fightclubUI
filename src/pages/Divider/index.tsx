@@ -61,9 +61,9 @@ const DividerExample = () => {
               <CodeBlock.Preview />
             </Tabs.Content>
             <Tabs.Content data-tab="1">
-              <CodeBlock.Playground editable={true} readOnly={false}>
+              <CodeBlock editable={true} readOnly={false}>
                 {preview}
-              </CodeBlock.Playground>
+              </CodeBlock>
             </Tabs.Content>
           </Tabs.ContentGroup>
         </Tabs>
