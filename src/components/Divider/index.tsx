@@ -13,7 +13,7 @@ type DividerProps = {
   children?: React.ReactNode;
 };
 
-export const Divider: React.FC<DividerProps> = ({
+const Divider: React.FC<DividerProps> = ({
   variation = 'horizontal',
   height,
   width,
@@ -167,3 +167,6 @@ const DividerVertical = styled.div<{
   margin: 0 10px;
   `};
 `;
+
+Divider.displayName = 'Divider';
+export { Divider };
