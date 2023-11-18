@@ -29,6 +29,9 @@ const CodeBlock = ({ children, editable = false, readOnly = true }: CodeBlockPro
     if (typeof children === 'string') {
       codeStr = children;
       setCode(codeStr);
+    } else {
+      codeStr = reactElementToJSXString(children);
+      setCode(codeStr);
     }
   }, [children]);
 
