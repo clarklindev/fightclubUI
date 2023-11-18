@@ -14,7 +14,7 @@ type LayoutProps = {
   children?: React.ReactNode;
 };
 
-export const Layout: React.FC<LayoutProps> = ({ label, children, variation }: LayoutProps) => {
+const Layout = ({ label, children, variation }: LayoutProps) => {
   const layoutMap: Record<LayoutVariationType, LayoutStyledComponentType> = {
     section: LayoutSection,
     block: LayoutBlock,
@@ -44,3 +44,6 @@ enum LayoutVariation {
   section = 'section',
   block = 'block',
 }
+
+Layout.displayName = 'Layout';
+export { Layout };

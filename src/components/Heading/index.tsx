@@ -66,7 +66,7 @@ export type HeadingProps = {
 type HeadingVariationType = keyof typeof HeadingVariation; //h1,h2,h3,h4,h5,h6
 type HeadingVariationComponentType = typeof H1 | typeof H2 | typeof H3 | typeof H4 | typeof H5 | typeof H6; //reference to component H1,H2,H3,H4,H5,H6
 
-export const Heading: React.FC<HeadingProps> = ({ variation, size, className, children, ...rest }) => {
+const Heading: React.FC<HeadingProps> = ({ variation, size, className, children, ...rest }) => {
   const headingMap: Record<HeadingVariationType, HeadingVariationComponentType> = {
     h1: H1,
     h2: H2,
@@ -123,3 +123,6 @@ export const H6 = styled(HeadingBase)<{ theme: ThemeType; size: string | undefin
   font-size: ${({ theme }) => theme.Heading?.fontSize?.level6};
   font-size: ${({ size }) => size !== undefined && size};
 `;
+
+Heading.displayName = 'Heading';
+export { Heading };

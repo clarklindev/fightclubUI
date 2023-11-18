@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 
 type DividerVariation = 'horizontal' | 'vertical' | 'inline-vertical';
@@ -10,10 +10,10 @@ type DividerProps = {
   height?: string;
   padding?: string;
   margin?: string;
-  children?: React.ReactNode;
+  children?: React.ReactNode | undefined;
 };
 
-const Divider: React.FC<DividerProps> = ({
+const Divider = ({
   variation = 'horizontal',
   height,
   width,
@@ -23,23 +23,6 @@ const Divider: React.FC<DividerProps> = ({
   children = undefined,
 }: DividerProps) => {
   const dividerRef = useRef<HTMLDivElement | null>(null);
-  let parentRef;
-
-  useEffect(() => {
-    if (dividerRef?.current?.parentNode) {
-      parentRef = dividerRef?.current?.parentNode.parentNode;
-      console.log('parentRef: ', parentRef);
-
-      //we are trying to ensure the <span> element is the size of container without the padding..
-
-      //      const passedInHeight = parseInt(`${height || 0}px`); //if height not passedin, use 0
-
-      //      check which is bigger use that..., passedin prop height(if not available use 0 as value)
-      //      check the passedInHeight value against parent height, whichever is bigger, use that.
-      //      const useHeight = Math.max(firstCheck, parseInt(`${parent?.clientHeight}px`));
-      //      setUseHeight(`${useHeight}px`);
-    }
-  }, [dividerRef.current]);
 
   switch (variation) {
     case 'horizontal':
@@ -114,6 +97,7 @@ const DividerHorizontal = styled.div<{
     }
   }
 `;
+DividerHorizontal.displayName = 'DividerHorizontal';
 
 const DividerVertical = styled.div<{
   className?: string;
@@ -167,6 +151,7 @@ const DividerVertical = styled.div<{
   margin: 0 10px;
   `};
 `;
+DividerVertical.displayName = 'DividerVertical';
 
 Divider.displayName = 'Divider';
 export { Divider };
