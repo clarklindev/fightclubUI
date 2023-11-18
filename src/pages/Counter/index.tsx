@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { CodeBlock, Counter, Heading, ResizePanel, Tabs } from '@swagfinger/components';
+import { CodeBlock, Counter, Heading, Tabs } from '@swagfinger/components';
 
 const CounterExample = () => {
   const [savedData, setSavedData] = useState(0);
