@@ -27,7 +27,7 @@ type SliderProps = {
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
-export const Slider = ({
+const Slider = ({
   onChange,
   orientation = Orientation.HORIZONTAL,
   length = '100%',
@@ -198,3 +198,6 @@ const SliderInput = styled.input.attrs({
       ${({ thumbSize, thickness }) =>
         `${thickness > thumbSize ? -0.5 * (thumbSize - thickness) : 0.5 * (thickness - thumbSize)}px`});
 `;
+
+Slider.displayName = 'Slider';
+export { Slider };
