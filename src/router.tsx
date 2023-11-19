@@ -10,13 +10,15 @@ import SystemDesign from '@swagfinger/pages/SystemDesign';
 import NotFound from '@swagfinger/pages/NotFound';
 
 // interface
-import LayoutsExample from '@swagfinger/pages/Layouts';
+import PageLayoutsExample from '@swagfinger/pages/PageLayouts';
 import PageExample from '@swagfinger/pages/Page';
+import FormsExample from '@swagfinger/pages/Forms';
+
+//components
 import NavbarExample from '@swagfinger/pages/Navbar';
 import NavSideExample from '@swagfinger/pages/NavSide';
 import OnThisPageExample from '@swagfinger/pages/OnThisPage';
-
-//components
+import LayoutExample from '@swagfinger/pages/Layout';
 import HeadingExample from '@swagfinger/pages/Heading';
 import TextExample from '@swagfinger/pages/Text';
 import IconExample from '@swagfinger/pages/Icon';
@@ -62,15 +64,16 @@ export const router = createBrowserRouter(
       <Route path="/systemdesign" element={<SystemDesign />} />
 
       {/* Interface */}
-      <Route path="/layouts" element={<LayoutsExample />} />
+      <Route path="/pagelayouts" element={<PageLayoutsExample />} />
       <Route path="/page" element={<PageExample />} />
+      <Route path="/forms" element={<FormsExample />} />
+
+      {/* components */}
       <Route path="/navbar" element={<NavbarExample />} />
       <Route path="/navside" element={<NavSideExample />} />
       <Route path="/onthispage" element={<OnThisPageExample />} />
-      <Route path="/breadcrumbs" element={<BreadcrumbsExample />} />
-
-      {/* components */}
       <Route path="/heading" element={<HeadingExample />} />
+      <Route path="/layout" element={<LayoutExample />} />
       <Route path="/text" element={<TextExample />} />
       <Route path="/icon" element={<IconExample />} />
       <Route path="/button" element={<ButtonExample />} />
@@ -98,6 +101,7 @@ export const router = createBrowserRouter(
       <Route path="/tabs" element={<TabsExample />} />
       <Route path="/pagination" element={<PaginationExample />} />
       <Route path="/modal" element={<ModalExample />} />
+      <Route path="/breadcrumbs" element={<BreadcrumbsExample />} />
 
       {/* utility */}
       <Route path="/resizepanel" element={<ResizePanelExample />} />

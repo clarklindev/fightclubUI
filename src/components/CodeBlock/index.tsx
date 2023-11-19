@@ -72,22 +72,24 @@ const Preview = () => {
     dynamicComponents[componentName] = components[componentName];
   }
 
-  return <JsxParser bindings={{}} components={dynamicComponents} jsx={internalCode} />;
+  return (
+    <div className="h-20">
+      <JsxParser bindings={{}} components={dynamicComponents} jsx={internalCode} />
+    </div>
+  );
 };
 
 const Playground = ({ children, editable = false, readOnly = true }: CodeBlockProps) => {
   const { preview, setPreview } = useCode();
 
   useEffect(() => {
-    if (children) {
-      let codeStr = '';
-      if (typeof children === 'string') {
-        codeStr = children;
-        setPreview(codeStr);
-      } else if (children !== undefined && children !== null) {
-        codeStr = reactElementToJSXString(children);
-        setPreview(codeStr);
-      }
+    let codeStr = '';
+    if (children && typeof children === 'string') {
+      codeStr = children;
+      setPreview(codeStr);
+    } else if (children !== undefined && children !== null) {
+      codeStr = reactElementToJSXString(children);
+      setPreview(codeStr);
     }
   }, [children]);
 

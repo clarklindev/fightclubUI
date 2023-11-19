@@ -245,8 +245,9 @@ export const HomeLayout = () => {
               Interface
             </NavSide.Heading>
 
-            <NavSide.Link to="layouts">Layouts</NavSide.Link>
+            <NavSide.Link to="pagelayouts">Page Layouts</NavSide.Link>
             <NavSide.Link to="page">Adding pages</NavSide.Link>
+            <NavSide.Link to="forms">Handling forms</NavSide.Link>
           </NavSide.Group>
 
           <NavSide.Group>
@@ -256,6 +257,7 @@ export const HomeLayout = () => {
             <NavSide.Link to="navbar">Navbar</NavSide.Link>
             <NavSide.Link to="navside">NavSide</NavSide.Link>
             <NavSide.Link to="onthispage">On this page</NavSide.Link>
+            <NavSide.Link to="layout">Layout</NavSide.Link>
             <NavSide.Link to="heading">Heading</NavSide.Link>
             <NavSide.Link to="text">Text</NavSide.Link>
             <NavSide.Link to="icon">Icon</NavSide.Link>
