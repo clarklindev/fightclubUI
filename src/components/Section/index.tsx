@@ -8,8 +8,13 @@ const StyledSection = styled.section`
   > :last-child {
     margin-bottom: 0;
   }
+
+  // Check if this section is the last among its siblings
+  &:last-of-type {
+    margin-bottom: 0;
+  }
 `;
 
-export const Section = ({ children }: { children: React.ReactNode }) => {
-  return <StyledSection>{children}</StyledSection>;
+export const Section = ({ children, className = '' }: { className?: string; children: React.ReactNode }) => {
+  return <StyledSection className={className}>{children}</StyledSection>;
 };

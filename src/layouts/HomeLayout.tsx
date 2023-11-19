@@ -92,7 +92,7 @@ const Container = styled.div<{ isOpen: boolean; className?: string }>`
     }
 
     @media (min-width: 1024px) {
-      padding: 2rem 4rem;
+      padding: 4rem;
     }
   }
 

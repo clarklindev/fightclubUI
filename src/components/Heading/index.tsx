@@ -96,6 +96,11 @@ const HeadingBase = styled.div<{ theme: ThemeType }>`
 
   padding-top: 1rem;
   padding-bottom: 1rem;
+
+  &:first-of-type {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
 `;
 
 export const H1 = styled(HeadingBase)<{ theme: ThemeType; size: string | undefined }>`
