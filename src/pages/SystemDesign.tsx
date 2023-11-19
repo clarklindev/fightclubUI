@@ -51,6 +51,13 @@ const SystemDesign = () => {
 
       <Section>
         <Heading variation="h2" data-observable="true">
+          Accessability
+        </Heading>
+        <Text>Components are designed with accessibility in mind.</Text>
+      </Section>
+
+      <Section>
+        <Heading variation="h2" data-observable="true">
           Styling
         </Heading>
         <Text>
