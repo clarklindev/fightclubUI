@@ -22,7 +22,7 @@ type TreeProps = {
   depth?: number;
 };
 
-export const Tree = ({ data, depth = 0 }: TreeProps) => {
+const Tree = ({ data, depth = 0 }: TreeProps) => {
   const [childrenVisible, setNodeVisible] = useState<string[]>([]);
 
   const openNodeHandler = (depth: number, index: number) => {
@@ -80,6 +80,9 @@ export const Tree = ({ data, depth = 0 }: TreeProps) => {
     }
   });
 };
+
+Tree.displayName = 'Tree';
+export { Tree };
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 const TreeContainer = styled.div`
