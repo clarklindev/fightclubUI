@@ -38,11 +38,10 @@ const StyledNavSide = styled.aside<{ isOpen: boolean; className?: string }>`
   }
   @media (min-width: 1024px) {
     width: 300px;
-    // padding: 2rem 2rem 2rem 4rem;
   }
   @media (min-width: 1200px) {
     width: 400px;
-    padding: 2rem 2rem 2rem 5rem;
+    padding: 4rem;
   }
 `;
 

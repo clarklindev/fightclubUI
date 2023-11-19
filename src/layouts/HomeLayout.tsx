@@ -98,12 +98,11 @@ const Container = styled.div<{ isOpen: boolean; className?: string }>`
 
   [data-id='onthispage'] {
     grid-area: onthispage;
-    height: calc(100dvh - 50px);
 
     @media (min-width: 1200px) {
       display: block;
       position: fixed;
-      padding: 2rem;
+      padding: 4rem;
       width: 400px;
     }
   }

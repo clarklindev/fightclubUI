@@ -123,9 +123,6 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
 
   return (
     <StyledOnThisPage className={className} {...rest}>
-      <Heading variation="h2" size="XS" className="pb-3 px-9">
-        On this page
-      </Heading>
       <Container ref={containerRef}>
         {observables && observables.length > 0 ? (
           <div className="flex flex-col relative">
@@ -139,7 +136,7 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
                   'truncate',
                   `${
                     observablesInView && observablesInView[index]
-                      ? "before:absolute before:w-1 before:h-6 before:bg-red-500 before:ml-[-16px] before:content-''"
+                      ? "before:absolute before:w-[2px] before:h-6 before:bg-red-500 before:ml-[-20px] before:content-''"
                       : ''
                   }`,
                 ].join(' ')}
@@ -186,9 +183,7 @@ const StyledContainer = styled.div`
   border: 1px solid var(--border-color);
   padding: 1rem;
   border-radius: 5px;
-  height: calc(100dvh - 100px - 5rem);
-  width: 90%;
-  margin: 0 auto;
+  height: calc(100dvh - 50px - 8rem); //minus navbar height, //minus padding * 2
   overflow: hidden;
   overscroll-behavior: contain;
 
