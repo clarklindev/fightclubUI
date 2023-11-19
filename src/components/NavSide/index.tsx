@@ -24,7 +24,7 @@ const StyledNavSide = styled.aside<{ isOpen: boolean; className?: string }>`
     width: 250px;
     display: block;
     position: fixed;
-    padding: 2rem 2rem 2rem 2rem;
+    padding: 3rem;
     height: calc(100dvh - 50px);
     border-right: 1px solid var(--border-color);
 
@@ -38,7 +38,9 @@ const StyledNavSide = styled.aside<{ isOpen: boolean; className?: string }>`
   }
   @media (min-width: 1024px) {
     width: 300px;
+    padding: 3rem;
   }
+
   @media (min-width: 1200px) {
     width: 400px;
     padding: 4rem;
@@ -54,16 +56,12 @@ const StyledNavGroup = styled.div`
   }
 `;
 
-const StyledNavHeading = styled.div`
-  padding: 0 1rem;
-`;
-
 const Nav = styled.nav`
   display: flex;
   flex-direction: column;
 
   a {
-    margin: -0.25rem 0.5rem;
+    margin: -0.25rem 0 -0.25rem -0.5rem;
     padding: 0.5rem;
     border-radius: 5px;
     color: var(--clr-foreground);
@@ -84,11 +82,9 @@ const NavGroup = ({ children, className }: { className?: string; children: React
 
 const NavHeading = ({ variation, children, ...rest }: HeadingProps) => {
   return (
-    <StyledNavHeading>
-      <Heading variation={variation} {...rest}>
-        {children}
-      </Heading>
-    </StyledNavHeading>
+    <Heading variation={variation} {...rest}>
+      {children}
+    </Heading>
   );
 };
 
