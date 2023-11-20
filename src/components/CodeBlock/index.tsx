@@ -73,7 +73,7 @@ const Preview = () => {
   }
 
   return (
-    <div className="h-20">
+    <div className="min-h-20">
       <JsxParser bindings={{}} components={dynamicComponents} jsx={internalCode} />
     </div>
   );

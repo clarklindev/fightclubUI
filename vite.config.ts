@@ -23,7 +23,7 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'src/main.tsx'), // Specify your main entry point file
       },
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', 'tailwindcss', 'styled-components', 'react-router-dom'],
       output: {
         globals: {
           react: 'React', // Adjust this to match your global variable name
