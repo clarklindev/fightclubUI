@@ -59,7 +59,6 @@ const buttonVariants: any = cva(
     //if no intent is passed in, use below..
     defaultVariants: {
       intent: 'primary',
-      padding: 'medium',
       size: 'default',
       focus: 'border',
     },

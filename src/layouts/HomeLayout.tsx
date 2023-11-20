@@ -168,9 +168,9 @@ export const HomeLayout = () => {
   return (
     <HomeLayoutContainer>
       <Navbar className="navbar">
-        <Navbar.Group className="header-left flex flex-col-reverse sm:flex-row justify-center w-full min-w-min gap-2 items-center md:justify-start">
+        <Navbar.Group className="header-left flex sm:flex-row justify-center w-full min-w-min gap-2 items-center md:justify-start">
           {/* this is the open/close menuSide button */}
-          <div className="min-[320px]:absolute left-8 md:hidden min-[320px]:ml-[-1rem]">
+          <div className="absolute left-[2rem] md:hidden flex content-center">
             {!isOpen ? (
               <Button className="menu-btn" intent="icon" onClick={toggleMenu}>
                 <Icon size="20px">
@@ -186,17 +186,22 @@ export const HomeLayout = () => {
             )}
           </div>
 
-          <div className="logo relative flex items-center">
-            <Icon className="icon min-[320px]:absolute min-[320px]:ml-[-2rem]" size="25px">
+          <div className="relative flex items-center">
+            <Icon data-component="icon" className="min-[320px]:absolute min-[320px]:ml-[-2rem]" size="25px">
               <img src={logo} alt="logo" />
             </Icon>
-            <Button intent="plain" padding="none" className="gap-2" onClick={() => navigate('/')}>
-              <span className="whitespace-nowrap max-[320px]:hidden">SWAGFINGER-UI</span>
+            <Button
+              data-component="button"
+              intent="plain"
+              padding="none"
+              className="gap-2 hidden min-[320px]:block"
+              onClick={() => navigate('/')}>
+              <span className="whitespace-nowrap">SWAGFINGER-UI</span>
             </Button>
           </div>
         </Navbar.Group>
 
-        <Navbar.Group className="header-right flex-row items-center gap-4 hidden md:flex mr-[-1rem]">
+        <Navbar.Group className="header-right flex-row items-center gap-4 hidden md:flex">
           <Link to="https://github.com/swagfinger/swagfinger-ui" target="_blank" aria-label="github repo">
             <Icon size="20px" fillOpacity="1" fill="#FFF" stroke="#FFF">
               <img src={githubIcon} alt="github" />

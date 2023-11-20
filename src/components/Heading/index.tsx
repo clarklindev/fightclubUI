@@ -96,16 +96,16 @@ const HeadingBase = styled.div<{ theme: ThemeType }>`
 
   padding-top: 1rem;
   padding-bottom: 1rem;
-`;
-
-export const H1 = styled(HeadingBase)<{ theme: ThemeType; size: string | undefined }>`
-  font-size: ${({ theme }) => theme.Heading?.fontSize?.level1};
-  font-size: ${({ size }) => size !== undefined && size};
 
   &:first-of-type {
     margin-top: 0px;
     padding-top: 0px;
   }
+`;
+
+export const H1 = styled(HeadingBase)<{ theme: ThemeType; size: string | undefined }>`
+  font-size: ${({ theme }) => theme.Heading?.fontSize?.level1};
+  font-size: ${({ size }) => size !== undefined && size};
 `;
 export const H2 = styled(HeadingBase)<{ theme: ThemeType; size: string | undefined }>`
   font-size: ${({ theme }) => theme.Heading?.fontSize?.level2};

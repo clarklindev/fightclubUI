@@ -16,10 +16,18 @@ export const Icon = ({
   size = '20px',
   fill = undefined,
   fillOpacity,
+  className = '',
   ...rest
 }: IconProps) => {
   return (
-    <IconContainer className="Icon" size={size} stroke={stroke} fill={fill} fillOpacity={fillOpacity} {...rest}>
+    <IconContainer
+      data-component="Icon"
+      className={className}
+      size={size}
+      stroke={stroke}
+      fill={fill}
+      fillOpacity={fillOpacity}
+      {...rest}>
       {children}
     </IconContainer>
   );
