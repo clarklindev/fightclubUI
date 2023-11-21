@@ -5,13 +5,14 @@ import { useMenu } from '@swagfinger/context/MenuContext';
 type CustomNavLink = {
   to: string;
   children: React.ReactNode;
+  className?: string;
 };
 
-export const CustomNavLink = ({ to, children }: CustomNavLink) => {
+export const CustomNavLink = ({ to, children, className }: CustomNavLink) => {
   const { closeMenu } = useMenu();
 
   return (
-    <NavLink to={to} onClick={closeMenu}>
+    <NavLink className={className} to={to} onClick={closeMenu}>
       {children}
     </NavLink>
   );

@@ -1,4 +1,4 @@
-import { Text, Section, Heading } from '@swagfinger/components';
+import { Text, Section, Heading, List } from '@swagfinger/components';
 import { Link } from 'react-router-dom';
 
 const Introduction = () => {
@@ -23,7 +23,6 @@ const Introduction = () => {
         </Text>
         <Text>Pre-defined modular components - with default styling, support of theming and darkmode.</Text>
         <Text>Built with accessibility in mind.</Text>
-        <Text>Leverage already well-built battle-tested libraries. We dont re-invent the wheel.</Text>
       </Section>
 
       <Section>
@@ -36,13 +35,13 @@ const Introduction = () => {
             <li>Styled Components, TailwindCSS, CVA, (tw-merge, CLSX, cn)</li>
             <li>Dark-mode compatible</li>
             <li>Theming</li>
-            <li>Accessibility</li>
+            <li>Accessible</li>
             <li>Tested</li>
           </ul>
         </div>
       </Section>
 
-      <Section>
+      {/* <Section>
         <Heading variation="h2" size="level2" data-observable="true">
           Motivation
         </Heading>
@@ -65,7 +64,7 @@ const Introduction = () => {
         <Link to="https://mui.com/">https://mui.com/</Link>
         <br />
         <Link to="https://headlessui.com/">https://headlessui.com/</Link>
-      </Section>
+      </Section> */}
     </article>
   );
 };

@@ -36,6 +36,13 @@ body {
   font-size: 14px;
 }
 
+main {
+  h1:first-of-type {
+    margin-top: 0px;
+    padding-top: 0px;
+  }
+}
+
 br {
   line-height: 2rem;
 }

@@ -1,17 +1,16 @@
+export { Heading } from './Heading';
+
 export { Accordion } from './Accordion';
 export { Button } from './Button';
 export { Card } from './Card';
 export { Checkbox } from './Checkbox';
 export { CheckboxGroup } from './CheckboxGroup';
 export { Counter } from './Counter';
-export { Heading, H1, H2, H3, H4, H5, H6, type HeadingProps } from './Heading';
-
 export { Icon } from './Icon';
 export { Input, InputWrapper } from './Input';
 export { LabelSomething } from './LabelSomething';
 export { Layout } from './Layout';
 export { List } from './List';
-export { ListItem } from './ListItem';
 export { ProgressLoader } from './ProgressLoader';
 export { RadioButton } from './RadioButton';
 export { RadioButtonGroup } from './RadioButtonGroup';

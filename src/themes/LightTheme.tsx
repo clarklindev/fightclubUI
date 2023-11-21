@@ -116,11 +116,23 @@ export const lightTheme = {
 
     fontSize: {
       level1: '1.383rem',
+      XXXL: '1.383rem',
       level2: '1.296rem',
+      XXL: '1.296rem',
       level3: '1.215rem',
+      XL: '1.215rem',
       level4: '1.138rem',
+      L: '1.138rem',
       level5: '1.067rem',
+      M: '1.067rem',
       level6: '1rem',
+      S: '1rem',
+      level7: '0.937rem',
+      XS: '0.937rem',
+      level8: '0.878rem',
+      XXS: '0.878rem',
+      level9: '0.823rem',
+      XXXS: '0.823rem',
     },
   },
 

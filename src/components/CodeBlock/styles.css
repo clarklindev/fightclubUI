@@ -1,4 +1,4 @@
-.code-mirror {
+[data-component='CodeMirror'] {
   .cm-content {
     padding: 20px;
   }

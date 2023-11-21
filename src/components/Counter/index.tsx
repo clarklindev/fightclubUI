@@ -9,6 +9,10 @@ type CounterProps = {
   onChange: (prop: number) => void;
 };
 
+const CounterWrapper = () => {};
+
+const CounterButton = () => {};
+
 export const Counter = ({ savedData, onChange }: CounterProps) => {
   const decrement = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();

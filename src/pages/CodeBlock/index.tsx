@@ -1,4 +1,4 @@
-import { Heading, Tabs, CodeBlock, Text } from '@swagfinger/components';
+import { Heading, Tabs, CodeBlock, Text, Layout } from '@swagfinger/components';
 import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
 
 import { Link } from 'react-router-dom';
@@ -35,14 +35,16 @@ const CodeBlockExample = () => {
 
       <Heading variation="h2">3rd party candidates</Heading>
 
-      <Text>
-        <Link to="https://www.npmjs.com/package/@uiw/react-codemirror">@uiw/react-codemirror</Link>
-        <br />
-        <Link to="https://codemirror.net/">code mirror</Link>
-        <br />
-        <Link to="https://www.npmjs.com/package/react-code-blocks">react-code-blocks</Link>
-        <br />
-      </Text>
+      <Layout variation="block">
+        <Text>
+          <Link to="https://www.npmjs.com/package/@uiw/react-codemirror">@uiw/react-codemirror</Link>
+          <br />
+          <Link to="https://codemirror.net/">code mirror</Link>
+          <br />
+          <Link to="https://www.npmjs.com/package/react-code-blocks">react-code-blocks</Link>
+          <br />
+        </Text>
+      </Layout>
     </>
   );
 };

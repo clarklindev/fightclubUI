@@ -2,7 +2,7 @@ import reactElementToJSXString from 'react-element-to-jsx-string';
 import { Card, CodeBlock, Heading, ResizePanel, Tabs } from '@swagfinger/components';
 
 const CardExample = () => {
-  const preview = <Card>this is dummy text</Card>;
+  const preview = <Card className="p-2">this is dummy text</Card>;
 
   const previewString = reactElementToJSXString(preview);
 

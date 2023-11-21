@@ -51,6 +51,7 @@ const StyledNavGroup = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 1rem;
+
   &:last-child {
     margin-bottom: 0;
   }
@@ -80,16 +81,20 @@ const NavGroup = ({ children, className }: { className?: string; children: React
   return <StyledNavGroup className={className}>{children}</StyledNavGroup>;
 };
 
-const NavHeading = ({ variation, children, ...rest }: HeadingProps) => {
+const NavHeading = ({ className, variation, children, ...rest }: HeadingProps) => {
   return (
-    <Heading variation={variation} {...rest}>
+    <Heading variation={variation} className={className} {...rest}>
       {children}
     </Heading>
   );
 };
 
-const NavLink = ({ children, to }: { children: React.ReactNode; to: string }) => {
-  return <CustomNavLink to={to}>{children}</CustomNavLink>;
+const NavLink = ({ children, to, className }: { className?: string; children: React.ReactNode; to: string }) => {
+  return (
+    <CustomNavLink to={to} className={className}>
+      {children}
+    </CustomNavLink>
+  );
 };
 
 type NavSideProps = {

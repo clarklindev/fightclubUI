@@ -38,7 +38,7 @@ const CodeBlock = ({ children, editable = false, readOnly = true }: CodeBlockPro
 
   return (
     <CodeMirror
-      className="code-mirror"
+      data-component="CodeMirror"
       theme={githubDark}
       extensions={extensions}
       value={code}

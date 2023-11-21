@@ -2,7 +2,14 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Icon } from '@swagfinger/components';
-import { ChevronDownIcon } from '@swagfinger/icons';
+
+const SelectIcon = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <div className="pointer-events-none absolute right-2">
+      <Icon size="20px">{children}</Icon>
+    </div>
+  );
+};
 
 type SelectProps = {
   savedData: any;
@@ -10,38 +17,32 @@ type SelectProps = {
   children: React.ReactNode[];
 };
 
-export const Select = ({ savedData, onChange, children }: SelectProps) => {
+const Select = (props: SelectProps) => {
+  const { savedData, onChange, children } = props;
+
   return (
-    <SelectWrapper>
-      <SelectContainer value={savedData} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => onChange(event)}>
-        {children
-          ? children.map(each => {
-              return each;
-            })
-          : null}
-      </SelectContainer>
-      <Icon size="20px">
-        <ChevronDownIcon />
-      </Icon>
-    </SelectWrapper>
+    <SelectContainer value={savedData} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => onChange(event)}>
+      {children
+        ? children.map(each => {
+            return each;
+          })
+        : null}
+    </SelectContainer>
   );
 };
 
-// ------------------------------------------------------------------------------------------------------------------------------------------------
+const SelectWrapper = ({ children }: { children: React.ReactNode }) => {
+  return <div className="relative flex flex-grow w-full items-center min-w-180">{children}</div>;
+};
 
-const SelectWrapper = styled.div`
-  position: relative;
-  display: flex;
-  flex-grow: 1;
-  width: 100%;
-  align-items: center;
-  min-width: 180px;
-  .Icon {
-    right: ${({ theme }) => theme?.Select?.padding};
-    position: absolute;
-    pointer-events: none;
-  }
-`;
+Select.SelectWrapper = SelectWrapper;
+SelectWrapper.displayName = 'Select.SelectWrapper';
+
+Select.SelectIcon = SelectIcon;
+SelectIcon.displayName = 'Select.SelectIcon';
+export { Select };
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
 
 const SelectContainer = styled.select`
   -webkit-appearance: none;
@@ -51,7 +52,7 @@ const SelectContainer = styled.select`
   margin: 0;
   width: 100%;
   outline: none;
-  cursor: pointer;  
+  cursor: pointer;
   max-height: ${({ theme }) => theme?.Select?.inputHeight};
   height: ${({ theme }) => theme?.Select?.inputHeight};
   color: var(--input-text-color);
@@ -59,5 +60,4 @@ const SelectContainer = styled.select`
   border: 1px solid var(--border-color);
   border-radius: ${({ theme }) => theme?.Select?.borderRadius};
   padding: ${({ theme }) => theme?.Select?.inputPadding};
-  
-}`;
+`;

@@ -1,15 +1,19 @@
 import React, { useEffect } from 'react';
 
 import { useState, createContext, useContext } from 'react';
+import { lightTheme } from '@swagfinger/themes/LightTheme';
+import { darkTheme } from '@swagfinger/themes/DarkTheme';
 
 const ThemeContext = createContext<{
   colorMode: string | null; //system/dark/light
   checkIsDark: (mode: string) => boolean;
   setColorMode: (mode: string) => void;
+  theme: typeof darkTheme | typeof lightTheme | undefined;
 }>({
   colorMode: null,
   checkIsDark: _ => false,
   setColorMode: _ => {},
+  theme: undefined,
 });
 
 export const useTheme = () => {
@@ -39,6 +43,7 @@ const checkIsDark = (colorMode: string): boolean => {
 export const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
   const defaultMode = 'system';
 
+  const [theme, setTheme] = useState<typeof lightTheme | typeof darkTheme>();
   const [colorMode, setInternalColorMode] = useState(window.localStorage.getItem('colorMode') || defaultMode); //system, dark, light
 
   const setColorMode = (mode: string) => {
@@ -49,6 +54,7 @@ export const ThemeContextProvider = ({ children }: { children: React.ReactNode }
 
   useEffect(() => {
     checkIsDark(colorMode) ? toggleColorScheme('dark') : toggleColorScheme('light');
+    setTheme(checkIsDark(colorMode) ? darkTheme : lightTheme);
   }, [colorMode]);
 
   //stores in localstorage
@@ -64,5 +70,7 @@ export const ThemeContextProvider = ({ children }: { children: React.ReactNode }
     window.localStorage.setItem('colorMode', mode); //stores 'system', 'dark', 'light'
   };
 
-  return <ThemeContext.Provider value={{ colorMode, setColorMode, checkIsDark }}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={{ theme, colorMode, setColorMode, checkIsDark }}>{children}</ThemeContext.Provider>
+  );
 };

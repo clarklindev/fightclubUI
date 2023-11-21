@@ -1,9 +1,18 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 
-type ListProps = {
-  children: ReactNode;
-};
-
-export const List = ({ children }: ListProps) => {
+const List = ({ children }: { children: React.ReactNode }) => {
   return <ul>{children}</ul>;
 };
+
+const ListItem = ({ children, className, ...rest }: { className: string; children: React.ReactNode }) => {
+  return (
+    <li className={className} {...rest}>
+      {children}
+    </li>
+  );
+};
+
+List.ListItem = ListItem;
+ListItem.displayName = 'List.ListItem';
+
+export { List };

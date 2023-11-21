@@ -7,60 +7,49 @@ import { ThemeType } from '@swagfinger/themes/LightTheme';
 
 const buttonVariants: any = cva(
   //default styles
-  ['block', 'box-border', 'inline-flex', 'items-center', 'h-auto', 'cursor-pointer'],
+  ['box-border', 'inline-flex', 'items-center', 'cursor-pointer'],
   {
     variants: {
       //apply styles based on prop passed though
       intent: {
-        primary: ['bg-blue-500', 'text-white', 'border-transparent', 'hover:bg-blue-600'],
-        secondary: ['bg-white', 'text-gray-800', 'border-gray-400', 'hover:bg-gray-100'],
-        contained: ['bg-gray-300', 'text-gray-700', 'border-gray-300', 'hover:bg-gray-400'],
-        outlined: ['text-black', 'border-black', 'bg-transparent', 'hover:bg-gray-700', 'hover:text-white'],
-        plain: ['border-transparent', 'outline-none', 'ring-transparent'],
-        text: ['border-transparent', 'underline'],
-        icon: ['border-transparent'],
+        default: '',
+        primary: 'bg-blue-500 text-white border-transparent hover:bg-blue-600',
+        secondary: 'bg-white text-gray-800 border-gray-400 hover:bg-gray-100',
+        contained: 'bg-gray-300 text-gray-700 border-gray-300 hover:bg-gray-400',
+        outlined: 'text-black border-black bg-transparent hover:bg-gray-700 hover:text-white',
+        plain: 'border-transparent outline-none ring-transparent',
+        text: 'border-transparent underline',
+        icon: 'border-transparent',
       },
+
       padding: {
-        none: ['px-0', 'py-0'],
-        small: ['px-2', 'py-1'],
-        medium: ['px-4', 'py-2'],
-        'px-1': ['px-1'],
-        'py-1': ['py-1'],
-        'p-1': ['px-1', 'py-1'],
+        default: '',
+        S: 'py-1 px-1',
+        M: 'py-1 px-2',
+        L: 'py-1 px-3',
+        XL: 'py-1 px-4',
       },
-      size: {
-        default: ['inherit'],
-        small: ['text-sm'],
-        medium: ['text-base'],
+
+      fontsize: {
+        default: '',
+        small: 'text-sm',
+        medium: 'text-base',
       },
+
       focus: {
-        border: ['focus:outline-none', 'focus:border-black'],
-        none: [''],
+        default: '',
+        border: 'focus:outline-none focus:border-black',
       },
     },
-    compoundVariants: [
-      {
-        intent: 'primary',
-        size: 'medium',
-        className: 'uppercase',
-      },
-      {
-        intent: 'text',
-        size: ['medium', 'small'],
-        className: ['px-1', 'py-1'],
-      },
-      {
-        intent: 'icon',
-        size: ['medium', 'small'],
-        className: ['px-0', 'py-0'],
-      },
-    ],
+
+    compoundVariants: [],
 
     //if no intent is passed in, use below..
     defaultVariants: {
       intent: 'primary',
-      size: 'default',
-      focus: 'border',
+      fontsize: 'default',
+      focus: 'default',
+      padding: 'XL',
     },
   },
 );
@@ -68,7 +57,7 @@ const buttonVariants: any = cva(
 export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
   intent?: string;
   padding?: string;
-  size?: string;
+  fontsize?: string;
   focus?: string;
   className?: string;
   ariaLabel?: string;
@@ -83,14 +72,26 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
 }
 
 const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref) => {
-  const { intent, padding, size, focus, className, onClick, onFocus, onBlur, ariaLabel, children, ...rest } = props;
+  const {
+    intent,
+    padding,
+    fontsize,
+    focus,
+    className,
+    onClick,
+    onFocus,
+    onBlur,
+    ariaLabel = 'Button',
+    children,
+    ...rest
+  } = props;
 
   //<Button className={`cn(buttonVariants(...`{ intent: 'primary'}), className)}/>;
 
   const theme = useTheme() as ThemeType;
 
   const classes = twMerge(
-    buttonVariants({ intent, size, padding, focus }),
+    buttonVariants({ intent, fontsize, padding, focus }),
     className,
 
     intent === 'primary' && theme.Button?.primary,
@@ -100,7 +101,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref) => {
   return (
     <button
       className={classes}
-      aria-label={ariaLabel || 'Button'}
+      aria-label={ariaLabel}
       role="button"
       tabIndex={0}
       onClick={onClick}

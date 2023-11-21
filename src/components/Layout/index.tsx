@@ -10,11 +10,12 @@ type LayoutStyledComponentType = typeof LayoutSection | typeof LayoutBlock;
 
 type LayoutProps = {
   variation: LayoutVariationType;
+  className?: string;
   label?: string;
   children?: React.ReactNode;
 };
 
-const Layout = ({ label, children, variation }: LayoutProps) => {
+const Layout = ({ label, children, variation, className }: LayoutProps) => {
   const layoutMap: Record<LayoutVariationType, LayoutStyledComponentType> = {
     section: LayoutSection,
     block: LayoutBlock,
@@ -22,22 +23,29 @@ const Layout = ({ label, children, variation }: LayoutProps) => {
 
   const Component = layoutMap[variation];
 
-  return <Component>{label ? label : children}</Component>;
+  return (
+    <Component data-component="Layout" className={className}>
+      {label ? label : children}
+    </Component>
+  );
 };
 
 // ---------------------------------------------------------------------------------------------------------------------
 
 const LayoutSection = styled.section<LayoutStyledComponentProps>`
-  box-sizing: border-box;
   padding: ${({ theme }) => theme.Layout?.section?.padding};
   border-bottom: ${({ theme }) => theme.Layout?.section?.borderBottom};
 `;
 
 const LayoutBlock = styled.div<LayoutStyledComponentProps>`
   position: relative;
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
   padding: ${({ theme }) => theme.Layout?.block?.padding};
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
 `;
 
 enum LayoutVariation {

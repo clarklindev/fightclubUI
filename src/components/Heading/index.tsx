@@ -1,132 +1,87 @@
-import styled from 'styled-components';
+import React from 'react';
 
-import { ThemeType } from '@swagfinger/themes/LightTheme';
+import { useTheme } from '@swagfinger/context/ThemeContext';
 
-enum HeadingVariation {
-  h1 = 'h1',
-  h2 = 'h2',
-  h3 = 'h3',
-  h4 = 'h4',
-  h5 = 'h5',
-  h6 = 'h6',
-}
-
-// https://typescale.com/
-//Inter
-//Minor scale
-enum FontSizes {
-  level1 = '1.383rem',
-  level2 = '1.296rem',
-  level3 = '1.215rem',
-  level4 = '1.138rem',
-  level5 = '1.067rem',
-  level6 = '1rem',
-  level7 = '0.937rem',
-  level8 = '0.878rem',
-  level9 = '0.823rem',
-}
+type HeadingVariationType = keyof typeof HeadingVariation; //h1,h2,h3,h4,h5,h6
 
 enum HeadingSize {
-  XXXL = FontSizes.level1,
-  level1 = FontSizes.level1,
+  level1 = '1.383rem',
+  XXXL = '1.383rem',
 
-  XXL = FontSizes.level2,
-  level2 = FontSizes.level2,
+  level2 = '1.296rem',
+  XXL = '1.296rem',
 
-  XL = FontSizes.level3,
-  level3 = FontSizes.level3,
+  level3 = '1.215rem',
+  XL = '1.215rem',
 
-  L = FontSizes.level4,
-  level4 = FontSizes.level4,
+  level4 = '1.138rem',
+  L = '1.138rem',
 
-  M = FontSizes.level5,
-  level5 = FontSizes.level5,
+  level5 = '1.067rem',
+  M = '1.067rem',
 
-  S = FontSizes.level6,
-  level6 = FontSizes.level6,
+  level6 = '1rem',
+  S = '1rem',
 
-  XS = FontSizes.level7,
-  level7 = FontSizes.level7,
+  level7 = '0.937rem',
+  XS = '0.937rem',
 
-  XXS = FontSizes.level8,
-  level8 = FontSizes.level8,
+  level8 = '0.878rem',
+  XXS = '0.878rem',
 
-  XXXS = FontSizes.level9,
-  level9 = FontSizes.level9,
+  level9 = '0.823rem',
+  XXXS = '0.823rem',
 }
 
+//defaults if size not specified
+enum HeadingVariation {
+  h1 = 'level1',
+  h2 = 'level2',
+  h3 = 'level3',
+  h4 = 'level4',
+  h5 = 'level5',
+  h6 = 'level6',
+}
+
+const baseClasses = 'pt-1rem pb-1rem whitespace-break break-word';
+// text-${theme?.Heading?.color}
+// leading-${theme?.Heading?.lineHeight}
+// font-${theme?.Heading?.fontWeight}
+// font-${theme?.Heading?.fontFamily}
+
 export type HeadingProps = {
-  variation: HeadingVariationType;
-  size?: keyof typeof HeadingSize | undefined; //XXXS,XXS,XS,S,M,L,XL,XXL,XXXL | level1,level2,level3,level4,level5,level6
+  variation: HeadingVariationType; //h1,h2,h3,h4,h5,h6
+  size?: keyof typeof HeadingSize; //XXXS,XXS,XS,S,M,L,XL,XXL,XXXL | level1,level2,level3,level4,level5,level6,level7,level8,level9
   className?: string;
   children: string;
 };
 
-type HeadingVariationType = keyof typeof HeadingVariation; //h1,h2,h3,h4,h5,h6
-type HeadingVariationComponentType = typeof H1 | typeof H2 | typeof H3 | typeof H4 | typeof H5 | typeof H6; //reference to component H1,H2,H3,H4,H5,H6
-
 const Heading = ({ variation, size, className, children, ...rest }: HeadingProps) => {
-  const headingMap: Record<HeadingVariationType, HeadingVariationComponentType> = {
-    h1: H1,
-    h2: H2,
-    h3: H3,
-    h4: H4,
-    h5: H5,
-    h6: H6,
-  };
+  //prop > theme > defaults
 
-  const Component = headingMap[variation];
+  //defaults
+  let headerSize: string = HeadingSize[HeadingVariation[variation]];
 
+  //theme
+  let { theme } = useTheme();
+  if (theme) {
+    headerSize = theme.Heading.fontSize[HeadingVariation[variation]];
+  }
+
+  //prop
+  if (size) {
+    headerSize = HeadingSize[size];
+  }
+
+  const Variation = `${variation}` as keyof JSX.IntrinsicElements;
   return (
-    <Component as={variation} size={size ? HeadingSize[size] : undefined} className={className} {...rest}>
+    <Variation className={[baseClasses, className].join(' ')} style={{ fontSize: headerSize }} {...rest}>
       {children}
-    </Component>
+    </Variation>
   );
 };
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
-
-const HeadingBase = styled.div<{ theme: ThemeType }>`
-  color: var(--clr-foreground);
-  line-height: ${({ theme }) => theme.Heading?.lineHeight};
-  font-weight: ${({ theme }) => theme.Heading?.fontWeight};
-  font-family: ${({ theme }) => theme.Heading?.fontFamily};
-  white-space: break-word;
-  overflow-wrap: break-word;
-
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-
-  &:first-of-type {
-    margin-top: 0px;
-    padding-top: 0px;
-  }
-`;
-
-export const H1 = styled(HeadingBase)<{ theme: ThemeType; size: string | undefined }>`
-  font-size: ${({ theme }) => theme.Heading?.fontSize?.level1};
-  font-size: ${({ size }) => size !== undefined && size};
-`;
-export const H2 = styled(HeadingBase)<{ theme: ThemeType; size: string | undefined }>`
-  font-size: ${({ theme }) => theme.Heading?.fontSize?.level2};
-  font-size: ${({ size }) => size !== undefined && size};
-`;
-export const H3 = styled(HeadingBase)<{ theme: ThemeType; size: string | undefined }>`
-  font-size: ${({ theme }) => theme.Heading?.fontSize?.level3};
-  font-size: ${({ size }) => size !== undefined && size};
-`;
-export const H4 = styled(HeadingBase)<{ theme: ThemeType; size: string | undefined }>`
-  font-size: ${({ theme }) => theme.Heading?.fontSize?.level4};
-  font-size: ${({ size }) => size !== undefined && size};
-`;
-export const H5 = styled(HeadingBase)<{ theme: ThemeType; size: string | undefined }>`
-  font-size: ${({ theme }) => theme.Heading?.fontSize?.level5};
-  font-size: ${({ size }) => size !== undefined && size};
-`;
-export const H6 = styled(HeadingBase)<{ theme: ThemeType; size: string | undefined }>`
-  font-size: ${({ theme }) => theme.Heading?.fontSize?.level6};
-  font-size: ${({ size }) => size !== undefined && size};
-`;
 
 Heading.displayName = 'Heading';
 export { Heading };

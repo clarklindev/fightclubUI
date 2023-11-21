@@ -20,7 +20,7 @@ export const ProgressLoader = ({
   const viewBoxSize = size; // Adjust viewBox size to accommodate strokeWidth
 
   return (
-    <ProgressLoaderWrapper width={size} height={size} viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}>
+    <svg width={size} height={size} viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}>
       <circle
         className="circle"
         fill="none"
@@ -33,9 +33,7 @@ export const ProgressLoader = ({
         cy={viewBoxSize / 2}
         transform={`rotate(-90 ${viewBoxSize / 2} ${viewBoxSize / 2})`}
       />
-    </ProgressLoaderWrapper>
+    </svg>
   );
 };
 // ------------------------------------------------------------------------------------------------------------------------------------------------
-
-const ProgressLoaderWrapper = styled.svg``;

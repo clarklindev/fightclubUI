@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { Outlet, useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Navbar, NavSide, Button, Icon, Dropdown, OnThisPage } from '@swagfinger/components';
+import { Navbar, NavSide, Button, Icon, Dropdown, OnThisPage, Pill } from '@swagfinger/components';
 import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon } from '@swagfinger/icons';
 import { useMenu } from '@swagfinger/context/MenuContext';
 import { useTheme } from '@swagfinger/context/ThemeContext';
@@ -242,7 +242,7 @@ export const HomeLayout = () => {
       <Content ref={contentRef}>
         <NavSide data-id="navside">
           <NavSide.Group>
-            <NavSide.Heading variation="h2" size="M">
+            <NavSide.Heading variation="h2" size="M" className="mt-0 pt-0">
               Guide
             </NavSide.Heading>
             <NavSide.Link to="introduction">Introduction</NavSide.Link>
@@ -285,28 +285,57 @@ export const HomeLayout = () => {
             <NavSide.Link to="snackbar">Snackbar</NavSide.Link>
             <NavSide.Link to="slider">Slider</NavSide.Link>
             <NavSide.Link to="slidermultirange">Slider (Multirange)</NavSide.Link>
-            <NavSide.Link to="divider">Divider</NavSide.Link>
-            <NavSide.Link to="list">List</NavSide.Link>
+            <NavSide.Link to="divider">
+              Divider <Pill>compound</Pill>&nbsp;
+              <Pill>styled</Pill>
+            </NavSide.Link>
+            <NavSide.Link to="list">
+              List <Pill>compound</Pill>
+            </NavSide.Link>
             <NavSide.Link to="table">Table</NavSide.Link>
-            <NavSide.Link to="card">Card</NavSide.Link>
+            <NavSide.Link to="card">
+              Card <Pill>tailwind</Pill>
+            </NavSide.Link>
             <NavSide.Link to="tree">Tree</NavSide.Link>
-            <NavSide.Link to="progressloader">Progress Loader</NavSide.Link>
-            <NavSide.Link to="spinner">Spinner</NavSide.Link>
-            <NavSide.Link to="dropdown">Dropdown</NavSide.Link>
-            <NavSide.Link to="tabs">Tabs</NavSide.Link>
-            <NavSide.Link to="pagination">Pagination</NavSide.Link>
-            <NavSide.Link to="modal">Modal</NavSide.Link>
-            <NavSide.Link to="breadcrumbs">Breadcrumbs</NavSide.Link>
-            <NavSide.Link to="pill">Pill</NavSide.Link>
+            <NavSide.Link to="progressloader">
+              Progress Loader <Pill>Tailwind</Pill>
+            </NavSide.Link>
+            <NavSide.Link to="spinner">
+              Spinner <Pill>Styled</Pill>
+            </NavSide.Link>
+            <NavSide.Link to="dropdown">
+              Dropdown <Pill>compound</Pill>
+            </NavSide.Link>
+            <NavSide.Link to="tabs">
+              Tabs <Pill>compound</Pill>
+            </NavSide.Link>
+            <NavSide.Link to="pagination">
+              Pagination <Pill className="bg-orange-500">WIP</Pill>
+            </NavSide.Link>
+            <NavSide.Link to="modal">
+              Modal <Pill className="bg-orange-500">WIP</Pill>
+            </NavSide.Link>
+            <NavSide.Link to="breadcrumbs">
+              Breadcrumbs <Pill className="bg-orange-500">WIP</Pill>
+            </NavSide.Link>
+            <NavSide.Link to="pill">
+              Pill <Pill>TAILWIND</Pill>
+            </NavSide.Link>
           </NavSide.Group>
 
           <NavSide.Group>
             <NavSide.Heading variation="h2" size="M">
               Utility
             </NavSide.Heading>
-            <NavSide.Link to="resizepanel">Resize panel</NavSide.Link>
-            <NavSide.Link to="dimensions">Dimensions</NavSide.Link>
-            <NavSide.Link to="codeblock">CodeBlock</NavSide.Link>
+            <NavSide.Link to="resizepanel">
+              Resize panel <Pill className="bg-orange-500">WIP</Pill>
+            </NavSide.Link>
+            <NavSide.Link to="dimensions">
+              Dimensions <Pill className="bg-orange-500">WIP</Pill>
+            </NavSide.Link>
+            <NavSide.Link to="codeblock">
+              CodeBlock <Pill>compound</Pill>
+            </NavSide.Link>
           </NavSide.Group>
         </NavSide>
 

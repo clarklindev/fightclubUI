@@ -12,6 +12,10 @@ export default {
       },
     },
   },
-  variants: {},
+  variants: {
+    extend: {
+      spacing: ['responsive', 'rem'],
+    },
+  },
   plugins: [],
 };

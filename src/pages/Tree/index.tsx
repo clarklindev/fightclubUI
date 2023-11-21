@@ -49,7 +49,7 @@ const TreeExample = () => {
     },
   ];
 
-  const preview = <Tree data={data} />;
+  const preview = <Tree data={data}></Tree>;
   const previewString = reactElementToJSXString(preview);
 
   // requires data to be structured with "label" and "children" properties
