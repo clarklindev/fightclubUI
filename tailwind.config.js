@@ -1,20 +1,16 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  safelist: [
+    {
+      pattern: /^(gap-|space-|p-|m-|w-|h-|border-|b-|before:border-|after:border-)/,
+    },
+  ],
   theme: {
     extend: {
-      colors: {
-        background: 'var(--clr-background)',
-        color: 'var(--clr-foreground)',
-        inputBackground: 'var(--input-background-color)',
-        inputColor: 'var(--input-text-color)',
-        borderColor: 'var(--border-color)',
+      animation: {
+        'spin-fast': 'spin 0.3s linear infinite',
       },
-    },
-  },
-  variants: {
-    extend: {
-      spacing: ['responsive', 'rem'],
     },
   },
   plugins: [],

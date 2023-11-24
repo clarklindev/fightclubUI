@@ -1,26 +1,21 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Checkbox, LabelSomething, Heading, ResizePanel, Tabs, CodeBlock } from '@swagfinger/components';
+import { Checkbox, Label, Heading, ResizePanel, Tabs, CodeBlock } from '@swagfinger/components';
 
 const CheckboxExample = () => {
   const [savedData, setSavedData] = useState(false);
 
   const preview = (
-    <LabelSomething
-      label="label"
-      labelDirection="right"
-      gap="10px"
-      something={
-        <Checkbox
-          checked={savedData}
-          name="checkbox"
-          onChange={event => {
-            setSavedData(event.target.checked);
-          }}
-        />
-      }
-    />
+    <Label label="label" labelDirection="right" gap="10px">
+      <Checkbox
+        checked={savedData}
+        name="checkbox"
+        onChange={event => {
+          setSavedData(event.target.checked);
+        }}
+      />
+    </Label>
   );
 
   const previewString = reactElementToJSXString(preview);

@@ -14,7 +14,7 @@ export const Icon = ({
   stroke = 'currentColor',
   children,
   size = '20px',
-  fill = undefined,
+  fill = 'undefined',
   fillOpacity,
   className = '',
   ...rest

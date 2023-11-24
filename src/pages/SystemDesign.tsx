@@ -1,10 +1,10 @@
-import { Heading, Text, CodeBlock, Section } from '@swagfinger/components';
+import { Heading, Text, CodeBlock, Layout } from '@swagfinger/components';
 import { Link } from 'react-router-dom';
 
 const SystemDesign = () => {
   return (
     <article>
-      <Section>
+      <Layout>
         <Heading variation="h1" data-observable="true">
           System Design
         </Heading>
@@ -14,18 +14,18 @@ const SystemDesign = () => {
         <Link to="https://github.com/swagfinger/template-react-router-6">react-router-dom</Link>
         <br />
         <Link to="https://nextjs.org/docs/routing/introduction">NextJS</Link>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Validation
         </Heading>
         <Link to="https://zod.dev/">https://zod.dev/</Link>
         <br />
         <Link to="https://validatejs.org/">https://validatejs.org/</Link>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Layout
         </Heading>
@@ -47,16 +47,16 @@ const SystemDesign = () => {
           Components should take into consideration when it has 'overflow: hidden', this may possibly hide child
           components which overflow its dimensions.
         </Text>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Accessability
         </Heading>
         <Text>Components are designed with accessibility in mind.</Text>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Styling
         </Heading>
@@ -80,9 +80,9 @@ const SystemDesign = () => {
           By exposing component's subcomponents we are allowing styling to be set directly on the sub components
           eliminating the need to pass styles as props.
         </Text>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Themes
         </Heading>
@@ -100,9 +100,9 @@ const SystemDesign = () => {
           technically optional third-party dependency but icons required for your components are non-negotiably
           required.
         </Text>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Bundler
         </Heading>
@@ -135,9 +135,9 @@ resolve: {
         <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '../components';`}</CodeBlock>
         <Text>to this (Absolute pathing)</Text>
         <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '@swagfinger/components';`}</CodeBlock>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Static assets
         </Heading>
@@ -175,9 +175,9 @@ resolve: {
           If you are struggling to deploy your build (eg. seeing blank white page on vercel), you need to ensure that
           you can run the command: 'npm run build-preview' without errors as this is the production build files.
         </Text>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Darkmode
         </Heading>
@@ -190,9 +190,9 @@ resolve: {
           Really like this transitioning button for the darkmode button, might implement but will think about it as I
           would prefer something cleaner: https://codepen.io/chriscoyier/pen/gOQPqBj
         </Text>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Component Design
         </Heading>
@@ -209,9 +209,9 @@ resolve: {
           Components should be accessible, following accessibility best practices using guidelines:
           https://www.w3.org/WAI/ARIA/apg/patterns/
         </Text>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Referencing
         </Heading>
@@ -223,28 +223,27 @@ resolve: {
           references to props that are not normal html element attributes should use the data- props formatted like
           [data-*]
         </Text>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Positioning
         </Heading>
         <Text>components are placed in relation to their parents orientation (eg. column / row)</Text>
         <Text>
-          Intersection observer: for drop-down components - use IntersectionObserver to check if component is on top
-          half or bottom half of screen realestate and then depending on that, you show the pop-up menu / content on the
+          InterLayout observer: for drop-down components - use InterLayoutObserver to check if component is on top half
+          or bottom half of screen realestate and then depending on that, you show the pop-up menu / content on the
           opposite hemisphere or depending if there is space (check the current position of focus element) and the
           height of the popup and if that added together is less than available space to the bottom of the screen, then
           you can show it in the same hemisphere.
         </Text>
         <Text>
-          Intersection observer: another use of intersection observer is the aside menu section 'on this page' that
-          lists the contents of the page, when the heading reaches the page, the title should highlight on the aside
-          menu.
+          InterLayout observer: another use of interLayout observer is the aside menu Layout 'on this page' that lists
+          the contents of the page, when the heading reaches the page, the title should highlight on the aside menu.
         </Text>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Modals
         </Heading>
@@ -252,9 +251,9 @@ resolve: {
           Modals should make use of React's portals: <br />
           https://react.dev/reference/react-dom/createPortal
         </Text>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Focus
         </Heading>
@@ -274,9 +273,9 @@ resolve: {
   outline-offset: 10px;
 }`}
         </CodeBlock>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Modular component structure
         </Heading>
@@ -352,9 +351,9 @@ function AnotherComponent() {
 }
 
 export default AnotherComponent;`}</CodeBlock>
-      </Section>
+      </Layout>
 
-      <Section>
+      <Layout>
         <Heading variation="h2" data-observable="true">
           Composition
         </Heading>
@@ -412,7 +411,7 @@ export const Card = ({
           with CVA you have predefined styles which are called 'variants', each variant is a prop for the component with
           a set of values mapped to a variant
         </Text>
-      </Section>
+      </Layout>
     </article>
   );
 };

@@ -1,42 +1,101 @@
 import React, { useRef } from 'react';
-import styled from 'styled-components';
 
 type DividerVariation = 'horizontal' | 'vertical';
 
 type DividerProps = {
   variation?: DividerVariation;
-  gap?: string;
-  width?: string;
-  height?: string;
-  padding?: string;
-  margin?: string;
   children?: React.ReactNode | undefined;
 };
 
-const Divider = ({
-  variation = 'horizontal',
-  height,
-  width,
-  padding,
-  margin,
-  gap,
-  children = undefined,
-}: DividerProps) => {
+const Divider = ({ variation = 'horizontal', children, ...rest }: DividerProps) => {
   const dividerRef = useRef<HTMLDivElement | null>(null);
 
   switch (variation) {
     case 'horizontal':
       return (
-        <DividerHorizontal height={height} width={width} padding={padding} margin={margin} gap={gap}>
-          {children && <span>{children}</span>}
-        </DividerHorizontal>
+        <div
+          data-component="Divider-Horizontal"
+          className={[
+            children ? `border-none` : `border-b border-solid border-red-400`,
+            children ? `m-0` : `my-2.5 mx-0`,
+            `inline-flex flex-row`,
+            `relative`,
+            `w-full`,
+          ].join(' ')}
+          {...rest}>
+          {children && (
+            <span
+              className={[
+                'flex',
+                'flex-row',
+                'items-center',
+                'w-full',
+                'relative',
+
+                'before:w-full',
+                "before:content-[' ']",
+                'before:border-b',
+                'before:border-solid',
+                'before:border-red-400',
+                'before:mr-4',
+
+                'after:w-full',
+                "after:content-[' ']",
+                'after:border-b',
+                'after:border-solid',
+                'after:border-red-400',
+                'after:ml-4',
+              ].join(' ')}>
+              {children}
+            </span>
+          )}
+        </div>
       );
 
     case 'vertical':
       return (
-        <DividerVertical ref={dividerRef} height={height} width={width} margin={margin} gap={gap}>
-          {children && <span>{children}</span>}
-        </DividerVertical>
+        <div
+          ref={dividerRef}
+          data-component="Divider-Vertical"
+          className={[
+            'h-full relative inline-flex items-stretch',
+            children ? 'border-r-0' : `border-r border-solid border-white `,
+            children ? 'm-0' : 'my-0 mx-2.5',
+          ].join(' ')}
+          {...rest}>
+          {children && (
+            <span
+              className={[
+                'flex',
+                'flex-col',
+                'items-center',
+                'h-full',
+                'relative',
+                'w-5',
+                'overflow-wrap-normal',
+
+                'before:flex',
+                'before:h-full',
+                'before:min-h-5',
+                "before:content-[' ']",
+                'before:border-r',
+                'before:border-solid',
+                'before:border-red-400',
+                'before:mb-4',
+
+                'after:flex',
+                'after:h-full',
+                'after:min-h-5',
+                "after:content-[' ']",
+                'after:border-r',
+                'after:border-solid',
+                'after:border-red-400',
+                'after:mt-4',
+              ].join(' ')}>
+              {children}
+            </span>
+          )}
+        </div>
       );
 
     default:
@@ -44,106 +103,7 @@ const Divider = ({
   }
 };
 
-// ------------------------------------------------------------------------------------------------------------------------------------------------
-
-const DividerHorizontal = styled.div<{
-  className?: string;
-  height?: string;
-  width?: string;
-  margin?: string;
-  padding?: string;
-  gap?: string;
-  children?: React.ReactNode;
-}>`
-  border-bottom: ${({ children }) => (children ? 'none' : `1px solid var(--border-color)`)};
-  width: 100%;
-  margin: ${({ children, margin = '10px 0' }) => (children ? '0' : margin)};
-
-  box-sizing: border-box;
-  position: relative;
-  display: inline-flex;
-  flex-direction: row;
-
-  span {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-    margin: ${({ margin = '10px 0' }) => margin};
-    height: auto;
-    position: relative;
-
-    &::before,
-    &::after {
-      content: '';
-      width: 100%;
-      height: 0px;
-      border-bottom: 1px solid var(--border-color);
-    }
-    &::before {
-      margin-right: ${({ gap = '1rem' }) => gap};
-    }
-    &::after {
-      margin-left: ${({ gap = '1rem' }) => gap};
-    }
-  }
-`;
-
-const DividerVertical = styled.div<{
-  className?: string;
-  height?: string;
-  width?: string;
-  gap?: string;
-  margin?: string;
-  children?: React.ReactNode;
-}>`
-  height: ${({ height = '100%' }) => height};
-  min-height: 1rem;
-  position: relative;
-  display: inline-flex;
-
-  ${({ children, height = '100%', margin = '0 10px', gap = '0.2rem' }) =>
-    children
-      ? `
-  border-right: none;
-  
-  span {
-    display: inline-flex;
-    flex-direction: column;
-        
-    margin: ${margin};
-    
-    position: relative;
-    width: 20px;
-    overflow-wrap: normal;
-    
-    &::before,
-    &::after {
-      align-self: center;
-      height: ${height};
-      min-height: 5px;
-      content: '';
-      border-right: 1px solid var(--border-color);
-    }
-    
-    &::before {
-      margin-bottom: ${gap};
-    }
-    &::after {
-      margin-top: ${gap};
-        }
-      }
-      `
-      : `
-      
-      border-right: 1px solid var(--border-color);
-      width: 0px;
-      margin: 0 10px;
-      `};
-`;
-
-DividerVertical.displayName = 'DividerVertical';
-DividerHorizontal.displayName = 'DividerHorizontal';
+// ---------------------------------------------------------------------------------------------------------------------------------------
 
 Divider.displayName = 'Divider';
 export { Divider };

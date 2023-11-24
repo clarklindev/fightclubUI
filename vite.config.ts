@@ -23,7 +23,8 @@ export default defineConfig({
       input: {
         main: path.resolve(__dirname, 'src/main.tsx'), // Specify your main entry point file
       },
-      external: ['react', 'react-dom'],
+      treeshake: false,
+      external: ['react', 'react-dom', 'tailwind'],
       output: {
         globals: {
           react: 'React', // Adjust this to match your global variable name
@@ -31,5 +32,6 @@ export default defineConfig({
         },
       },
     },
+    minify: false,
   },
 });

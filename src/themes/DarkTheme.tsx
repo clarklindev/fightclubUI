@@ -98,14 +98,12 @@ export type ThemeType = typeof darkTheme;
 export const darkTheme = {
   name: 'darkTheme',
 
+  Section: {
+    padding: '2rem',
+    borderBottom: `1px solid ${global.dividerColor}`,
+  },
   Layout: {
-    section: {
-      padding: '2rem',
-      borderBottom: `1px solid ${global.dividerColor}`,
-    },
-    block: {
-      padding: '0 0 2rem',
-    },
+    padding: '0 0 2rem',
   },
 
   Heading: {
@@ -169,6 +167,7 @@ export const darkTheme = {
   Text: {
     color: global.color,
     marginBottom: global.textMarginBottom,
+    lineHeight: 'leading-normal	',
   },
 
   Accordion: {
@@ -184,7 +183,7 @@ export const darkTheme = {
     },
   },
 
-  LabelSomething: {
+  Label: {
     gap: global.gap,
   },
 

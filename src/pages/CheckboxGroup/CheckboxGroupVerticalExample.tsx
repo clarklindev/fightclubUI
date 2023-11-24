@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { CheckboxGroup, Checkbox, LabelSomething } from '@swagfinger/components';
+import { CheckboxGroup, Checkbox, Label } from '@swagfinger/components';
 
 const CheckboxGroupVerticalExample = () => {
   const options = [
@@ -21,19 +21,13 @@ const CheckboxGroupVerticalExample = () => {
     <CheckboxGroup direction="column" spacing="20px">
       {options.map((each, index) => {
         return (
-          <LabelSomething
-            key={'CheckboxGroup_Checkbox' + index}
-            label={each.label}
-            labelDirection="right"
-            gap="10px"
-            something={
-              <Checkbox
-                checked={savedData[index]}
-                name="Checkbox_ABC"
-                onChange={() => onChange(index, !savedData[index])}
-              />
-            }
-          />
+          <Label key={'CheckboxGroup_Checkbox' + index} label={each.label} labelDirection="right" gap="10px">
+            <Checkbox
+              checked={savedData[index]}
+              name="Checkbox_ABC"
+              onChange={() => onChange(index, !savedData[index])}
+            />
+          </Label>
         );
       })}
     </CheckboxGroup>

@@ -6,7 +6,7 @@ const HooksExample = () => {
   return (
     <>
       <Heading variation="h4">Hooks</Heading>
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">useFocus</Heading>
         <UseFocusExample />
       </Layout>

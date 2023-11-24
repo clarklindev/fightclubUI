@@ -10,30 +10,31 @@ import ButtonWithLabelSomethingExample from './ButtonWithLabelSomethingExample';
 const ButtonExample = () => {
   const preview = (
     <>
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Contained button</Heading>
         <ButtonContainedExample />
       </Layout>
-
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Outlined button</Heading>
         <ButtonOutlinedExample />
       </Layout>
 
-      <Layout variation="block">
+      {/* 
+     
+      <Layout>
         <Heading variation="h5">Text button</Heading>
         <ButtonTextExample />
       </Layout>
 
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Icon button</Heading>
         <ButtonIconExample />
       </Layout>
 
-      <Layout variation="block">
-        <Heading variation="h5">Button+LabelSomething button</Heading>
+      <Layout>
+        <Heading variation="h5">Button+Label button</Heading>
         <ButtonWithLabelSomethingExample />
-      </Layout>
+      </Layout> */}
     </>
   );
 

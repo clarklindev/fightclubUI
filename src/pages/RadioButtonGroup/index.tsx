@@ -8,11 +8,11 @@ import RadioButtonGroupHorizontalExample from './RadioButtonGroupHorizontalExamp
 const RadioButtonGroupExample = () => {
   const preview = (
     <>
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">RadioButton Group (horizontal)</Heading>
         <RadioButtonGroupHorizontalExample />
       </Layout>
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">RadioButton Group (vertical)</Heading>
         <RadioButtonGroupVerticalExample />
       </Layout>

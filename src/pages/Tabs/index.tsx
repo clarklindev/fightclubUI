@@ -29,13 +29,9 @@ const TabsExample = () => {
             <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
           </Tabs.TriggerGroup>
           <Tabs.ContentGroup>
-            <Tabs.Content data-tab="0">
-              <CodeBlock.Preview />
-            </Tabs.Content>
+            <Tabs.Content data-tab="0">{preview}</Tabs.Content>
             <Tabs.Content data-tab="1">
-              <CodeBlock.Playground editable={true} readOnly={false}>
-                {preview}
-              </CodeBlock.Playground>
+              <CodeBlock>{preview}</CodeBlock>
             </Tabs.Content>
           </Tabs.ContentGroup>
         </Tabs>

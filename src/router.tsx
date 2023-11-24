@@ -19,8 +19,11 @@ import NavbarExample from '@swagfinger/pages/Navbar';
 import NavSideExample from '@swagfinger/pages/NavSide';
 import OnThisPageExample from '@swagfinger/pages/OnThisPage';
 import LayoutExample from '@swagfinger/pages/Layout';
+import SectionExample from '@swagfinger/pages/Section';
+
 import HeadingExample from '@swagfinger/pages/Heading';
 import TextExample from '@swagfinger/pages/Text';
+import LabelExample from '@swagfinger/pages/Label';
 import IconExample from '@swagfinger/pages/Icon';
 import ButtonExample from '@swagfinger/pages/Button';
 import InputExample from '@swagfinger/pages/Input';
@@ -69,14 +72,16 @@ export const router = createBrowserRouter(
       <Route path="/pagelayouts" element={<PageLayoutsExample />} />
       <Route path="/page" element={<PageExample />} />
       <Route path="/forms" element={<FormsExample />} />
+      <Route path="/layout" element={<LayoutExample />} />
+      <Route path="/section" element={<SectionExample />} />
 
       {/* components */}
       <Route path="/navbar" element={<NavbarExample />} />
       <Route path="/navside" element={<NavSideExample />} />
       <Route path="/onthispage" element={<OnThisPageExample />} />
       <Route path="/heading" element={<HeadingExample />} />
-      <Route path="/layout" element={<LayoutExample />} />
       <Route path="/text" element={<TextExample />} />
+      <Route path="/label" element={<LabelExample />} />
       <Route path="/icon" element={<IconExample />} />
       <Route path="/button" element={<ButtonExample />} />
       <Route path="/input" element={<InputExample />} />

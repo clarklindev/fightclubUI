@@ -1,4 +1,6 @@
-export const SmileyIcon = () => {
+import React from 'react';
+
+const SmileyIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -15,3 +17,6 @@ export const SmileyIcon = () => {
     </svg>
   );
 };
+
+SmileyIcon.displayName = 'SmileyIcon';
+export { SmileyIcon };

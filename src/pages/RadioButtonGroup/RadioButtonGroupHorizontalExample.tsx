@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { RadioButtonGroup, RadioButton, LabelSomething } from '@swagfinger/components';
+import { RadioButtonGroup, RadioButton, Label } from '@swagfinger/components';
 
 const RadioButtonGroupHorizontalExample = () => {
   const options = [
@@ -22,20 +22,14 @@ const RadioButtonGroupHorizontalExample = () => {
     <RadioButtonGroup direction="row" spacing="20px">
       {options.map((each, index) => {
         return (
-          <LabelSomething
-            key={'RadioButtonGroup' + index}
-            label={each.label}
-            labelDirection="bottom"
-            gap="10px"
-            something={
-              <RadioButton
-                checked={savedData[index]}
-                name="Radio"
-                iconSize="20px"
-                onChange={() => onChange(index, !savedData[index])}
-              />
-            }
-          />
+          <Label key={'RadioButtonGroup' + index} label={each.label} labelDirection="bottom" gap="10px">
+            <RadioButton
+              checked={savedData[index]}
+              name="Radio"
+              iconSize="20px"
+              onChange={() => onChange(index, !savedData[index])}
+            />
+          </Label>
         );
       })}
     </RadioButtonGroup>

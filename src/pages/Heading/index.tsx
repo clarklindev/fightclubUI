@@ -1,4 +1,4 @@
-import { Heading, Tabs, CodeBlock } from '@swagfinger/components';
+import { Heading, Tabs, CodeBlock, Section } from '@swagfinger/components';
 import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
 
 const HeadingExample = () => {
@@ -14,7 +14,7 @@ const HeadingExample = () => {
   );
 
   return (
-    <>
+    <Section>
       <Heading variation="h1" data-observable="true">
         Heading
       </Heading>
@@ -26,18 +26,14 @@ const HeadingExample = () => {
             <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
           </Tabs.TriggerGroup>
           <Tabs.ContentGroup>
-            <Tabs.Content data-tab="0">
-              <CodeBlock.Preview />
-            </Tabs.Content>
+            <Tabs.Content data-tab="0">{preview}</Tabs.Content>
             <Tabs.Content data-tab="1">
-              <CodeBlock.Playground editable={true} readOnly={false}>
-                {preview}
-              </CodeBlock.Playground>
+              <CodeBlock>{preview}</CodeBlock>
             </Tabs.Content>
           </Tabs.ContentGroup>
         </Tabs>
       </CodeBlockProvider>
-    </>
+    </Section>
   );
 };
 export default HeadingExample;

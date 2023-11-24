@@ -14,7 +14,11 @@ const TriggerGroup = ({ children, className }: { className?: string; children?: 
     setSelectedTabId('0');
   }, []);
 
-  return <div className={`flex flex-row gap-2 py-1 ${className}`}>{children}</div>;
+  return (
+    <div data-component={TriggerGroup.displayName} className={`flex flex-row gap-2 py-1 ${className}`}>
+      {children}
+    </div>
+  );
 };
 
 type TriggerProps = {

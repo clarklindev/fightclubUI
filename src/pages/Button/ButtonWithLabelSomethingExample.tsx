@@ -1,4 +1,4 @@
-import { Button, LabelSomething, Icon } from '@swagfinger/components';
+import { Button, Label, Icon } from '@swagfinger/components';
 import { ThumbsUpIcon } from '@swagfinger/icons';
 
 const ButtonWithLabelSomethingExample = () => {
@@ -9,16 +9,11 @@ const ButtonWithLabelSomethingExample = () => {
       onClick={() => {
         console.log('hello world');
       }}>
-      <LabelSomething
-        gap="10px"
-        label="right"
-        labelDirection="right"
-        something={
-          <Icon size="20px" stroke="white">
-            <ThumbsUpIcon />
-          </Icon>
-        }
-      />
+      <Label gap="10px" label="right" labelDirection="right">
+        <Icon size="20px" stroke="white">
+          <ThumbsUpIcon />
+        </Icon>
+      </Label>
     </Button>
   );
 };

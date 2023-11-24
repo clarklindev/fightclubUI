@@ -8,17 +8,17 @@ import CheckboxGroupIndeterminateExample from './CheckboxGroupIndeterminateExamp
 const CheckboxExample = () => {
   const preview = (
     <>
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Checkbox Group (horizontal)</Heading>
         <CheckboxGroupHorizontalExample />
       </Layout>
 
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Checkbox Group (vertical)</Heading>
         <CheckboxGroupVerticalExample />
       </Layout>
 
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Checkbox Group (indeterminate)</Heading>
         <CheckboxGroupIndeterminateExample />
       </Layout>

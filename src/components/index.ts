@@ -1,4 +1,6 @@
-export { Heading } from './Heading';
+export { Heading, type HeadingProps } from './Heading';
+export { Section } from './Section';
+export { Layout } from './Layout';
 
 export { Accordion } from './Accordion';
 export { Button } from './Button';
@@ -8,8 +10,7 @@ export { CheckboxGroup } from './CheckboxGroup';
 export { Counter } from './Counter';
 export { Icon } from './Icon';
 export { Input, InputWrapper } from './Input';
-export { LabelSomething } from './LabelSomething';
-export { Layout } from './Layout';
+export { Label } from './Label';
 export { List } from './List';
 export { ProgressLoader } from './ProgressLoader';
 export { RadioButton } from './RadioButton';
@@ -34,6 +35,5 @@ export { NavSide } from './NavSide';
 export { OnThisPage } from './OnThisPage';
 export { Dropdown } from './Dropdown';
 export { Tabs } from './Tabs';
-export { Section } from './Section';
 export { Breadcrumbs } from './Breadcrumbs';
 export { Pill } from './Pill';

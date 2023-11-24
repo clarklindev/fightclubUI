@@ -3,7 +3,7 @@ import reactElementToJSXString from 'react-element-to-jsx-string';
 import { Spinner, Heading, ResizePanel, Tabs, CodeBlock } from '@swagfinger/components';
 
 const SpinnerExample = () => {
-  const preview = <Spinner size="15px" />;
+  const preview = <Spinner size="4" color="white" />;
   const previewString = reactElementToJSXString(preview);
 
   return (

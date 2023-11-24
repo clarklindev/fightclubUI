@@ -5,14 +5,13 @@
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "useDefineForClassFields": true,
     "skipLibCheck": true,
-    "declaration": true, //declaration files
+    "declaration": true,
     "declarationMap": true,
     "outDir": "./dist",
     "typeRoots": ["./node_modules/@types"],
     "types": ["node", "react", "react-dom"],
     "declarationDir": "./types",
     "esModuleInterop": true,
-    /* Bundler mode */
     "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "resolveJsonModule": true,
@@ -22,12 +21,8 @@
     "allowJs": true,
     "baseUrl": "./",
     "paths": {
-      "@swagfinger/*": ["./src/*"],
-      //https://stackoverflow.com/questions/62702485/component-cannot-be-used-as-a-jsx-component-its-return-type-element-is-not
-      // It is telling the typescript compiler that when it encounters a reference to the "react" module, it should look for the actual implementation in the "./node_modules/@types/react" directory.
-      "react": ["./node_modules/@types/react"]
+      "@swagfinger/*": ["./src/*"]
     },
-    /* Linting */
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": true,

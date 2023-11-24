@@ -98,14 +98,12 @@ export type ThemeType = typeof lightTheme;
 export const lightTheme = {
   name: 'lightTheme',
 
+  Section: {
+    padding: '2rem',
+    borderBottom: `1px solid ${global.dividerColor}`,
+  },
   Layout: {
-    section: {
-      padding: '2rem',
-      borderBottom: `1px solid ${global.dividerColor}`,
-    },
-    block: {
-      padding: '0 0 2rem',
-    },
+    padding: '0 0 2rem',
   },
 
   Heading: {
@@ -170,6 +168,7 @@ export const lightTheme = {
   Text: {
     color: global.color,
     marginBottom: global.textMarginBottom,
+    lineHeight: 'leading-normal	',
   },
 
   Accordion: {
@@ -185,7 +184,7 @@ export const lightTheme = {
     },
   },
 
-  LabelSomething: {
+  Label: {
     gap: global.gap,
   },
 

@@ -242,7 +242,7 @@ export const HomeLayout = () => {
       <Content ref={contentRef}>
         <NavSide data-id="navside">
           <NavSide.Group>
-            <NavSide.Heading variation="h2" size="M" className="mt-0 pt-0">
+            <NavSide.Heading variation="h2" size="M" className="mt-0 mb-3 pt-0">
               Guide
             </NavSide.Heading>
             <NavSide.Link to="introduction">Introduction</NavSide.Link>
@@ -251,7 +251,7 @@ export const HomeLayout = () => {
           </NavSide.Group>
 
           <NavSide.Group>
-            <NavSide.Heading variation="h2" size="M">
+            <NavSide.Heading variation="h2" size="M" className="mb-3">
               Interface
             </NavSide.Heading>
 
@@ -261,15 +261,28 @@ export const HomeLayout = () => {
           </NavSide.Group>
 
           <NavSide.Group>
-            <NavSide.Heading variation="h2" size="M">
+            <NavSide.Heading variation="h2" size="M" className="mb-3">
               Components
             </NavSide.Heading>
             <NavSide.Link to="navbar">Navbar</NavSide.Link>
             <NavSide.Link to="navside">NavSide</NavSide.Link>
             <NavSide.Link to="onthispage">On this page</NavSide.Link>
-            <NavSide.Link to="layout">Layout</NavSide.Link>
-            <NavSide.Link to="heading">Heading</NavSide.Link>
-            <NavSide.Link to="text">Text</NavSide.Link>
+            <NavSide.Link to="layout">
+              Layout <Pill>TW</Pill>
+            </NavSide.Link>
+            <NavSide.Link to="section">
+              Section <Pill>TW</Pill>
+            </NavSide.Link>
+
+            <NavSide.Link to="heading">
+              Heading <Pill>Themed</Pill>
+            </NavSide.Link>
+            <NavSide.Link to="text">
+              Text <Pill>TW</Pill>
+            </NavSide.Link>
+            <NavSide.Link to="label">
+              Label <Pill>TW</Pill>
+            </NavSide.Link>
             <NavSide.Link to="icon">Icon</NavSide.Link>
             <NavSide.Link to="button">Button</NavSide.Link>
             <NavSide.Link to="input">Input</NavSide.Link>
@@ -287,27 +300,27 @@ export const HomeLayout = () => {
             <NavSide.Link to="slidermultirange">Slider (Multirange)</NavSide.Link>
             <NavSide.Link to="divider">
               Divider <Pill>compound</Pill>&nbsp;
-              <Pill>styled</Pill>
+              <Pill>tw</Pill>
             </NavSide.Link>
             <NavSide.Link to="list">
-              List <Pill>compound</Pill>
+              List <Pill>compound</Pill> <Pill>TW</Pill>
             </NavSide.Link>
             <NavSide.Link to="table">Table</NavSide.Link>
             <NavSide.Link to="card">
-              Card <Pill>tailwind</Pill>
+              Card <Pill>TW</Pill>
             </NavSide.Link>
             <NavSide.Link to="tree">Tree</NavSide.Link>
             <NavSide.Link to="progressloader">
-              Progress Loader <Pill>Tailwind</Pill>
+              Progress Loader <Pill>TW</Pill>
             </NavSide.Link>
             <NavSide.Link to="spinner">
-              Spinner <Pill>Styled</Pill>
+              Spinner <Pill>TW</Pill>
             </NavSide.Link>
             <NavSide.Link to="dropdown">
-              Dropdown <Pill>compound</Pill>
+              Dropdown <Pill>compound</Pill> <Pill>TW</Pill>
             </NavSide.Link>
             <NavSide.Link to="tabs">
-              Tabs <Pill>compound</Pill>
+              Tabs <Pill>compound</Pill> <Pill>TW</Pill>
             </NavSide.Link>
             <NavSide.Link to="pagination">
               Pagination <Pill className="bg-orange-500">WIP</Pill>
@@ -319,12 +332,12 @@ export const HomeLayout = () => {
               Breadcrumbs <Pill className="bg-orange-500">WIP</Pill>
             </NavSide.Link>
             <NavSide.Link to="pill">
-              Pill <Pill>TAILWIND</Pill>
+              Pill <Pill>TW</Pill>
             </NavSide.Link>
           </NavSide.Group>
 
           <NavSide.Group>
-            <NavSide.Heading variation="h2" size="M">
+            <NavSide.Heading variation="h2" size="M" className="mb-3">
               Utility
             </NavSide.Heading>
             <NavSide.Link to="resizepanel">
@@ -334,7 +347,7 @@ export const HomeLayout = () => {
               Dimensions <Pill className="bg-orange-500">WIP</Pill>
             </NavSide.Link>
             <NavSide.Link to="codeblock">
-              CodeBlock <Pill>compound</Pill>
+              CodeBlock <Pill>TW</Pill>
             </NavSide.Link>
           </NavSide.Group>
         </NavSide>

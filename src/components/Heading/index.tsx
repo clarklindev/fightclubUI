@@ -49,7 +49,7 @@ const baseClasses = 'pt-1rem pb-1rem whitespace-break break-word';
 // font-${theme?.Heading?.fontWeight}
 // font-${theme?.Heading?.fontFamily}
 
-export type HeadingProps = {
+type HeadingProps = {
   variation: HeadingVariationType; //h1,h2,h3,h4,h5,h6
   size?: keyof typeof HeadingSize; //XXXS,XXS,XS,S,M,L,XL,XXL,XXXL | level1,level2,level3,level4,level5,level6,level7,level8,level9
   className?: string;
@@ -84,4 +84,5 @@ const Heading = ({ variation, size, className, children, ...rest }: HeadingProps
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 Heading.displayName = 'Heading';
-export { Heading };
+
+export { Heading, type HeadingProps };

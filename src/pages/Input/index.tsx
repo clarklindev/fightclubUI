@@ -12,37 +12,37 @@ import InputSearchExample from './InputSearchExample';
 const InputExample = () => {
   const preview = (
     <>
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Input (no-border)</Heading>
         <InputNoBorderExample />
       </Layout>
 
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Basic input</Heading>
         <InputBasicExample />
       </Layout>
 
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Input (readonly)</Heading>
         <InputReadOnlyExample />
       </Layout>
 
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Input + Icon</Heading>
         <InputWithIconExample />
       </Layout>
 
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Input Password</Heading>
         <InputPasswordExample />
       </Layout>
 
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Input Filter</Heading>
         <InputFilterExample />
       </Layout>
 
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Input Search</Heading>
         <InputSearchExample />
       </Layout>

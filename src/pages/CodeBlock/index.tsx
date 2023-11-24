@@ -1,11 +1,13 @@
 import { Heading, Tabs, CodeBlock, Text, Layout } from '@swagfinger/components';
 import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
+import reactElementToJSXString from 'react-element-to-jsx-string';
 
 import { Link } from 'react-router-dom';
 
 const CodeBlockExample = () => {
-  const preview = `<CodeBlock readOnly={true} editable={false}>{"hi"}</CodeBlock>`;
+  const preview = <CodeBlock>{'hi'}</CodeBlock>;
 
+  const previewString = reactElementToJSXString(preview);
   return (
     <>
       <Heading variation="h1" data-observable="true">
@@ -19,15 +21,14 @@ const CodeBlockExample = () => {
             <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
           </Tabs.TriggerGroup>
           <Tabs.ContentGroup>
-            <Tabs.Content data-tab="0">
-              <CodeBlock.Preview />
-            </Tabs.Content>
+            <Tabs.Content data-tab="0">{preview}</Tabs.Content>
             <Tabs.Content data-tab="1">
-              <CodeBlock>{`import {CodeBlock} from '@swagfinger/components';`}</CodeBlock>
-              <CodeBlock.Playground editable={true} readOnly={false}>
-                {preview}
-              </CodeBlock.Playground>
-              <CodeBlock>{`//this is a comment`}</CodeBlock>
+              <CodeBlock>{`import {CodeBlock} from '@swagfinger/components';
+
+${previewString}
+
+//this is a comment
+`}</CodeBlock>
             </Tabs.Content>
           </Tabs.ContentGroup>
         </Tabs>
@@ -35,7 +36,7 @@ const CodeBlockExample = () => {
 
       <Heading variation="h2">3rd party candidates</Heading>
 
-      <Layout variation="block">
+      <Layout>
         <Text>
           <Link to="https://www.npmjs.com/package/@uiw/react-codemirror">@uiw/react-codemirror</Link>
           <br />

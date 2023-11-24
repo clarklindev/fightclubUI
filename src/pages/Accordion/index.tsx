@@ -1,4 +1,4 @@
-import { Heading, H1, H2, H3, H4, H5, H6, Layout, Tabs, CodeBlock } from '@swagfinger/components';
+import { Heading, Layout, Tabs, CodeBlock, Section } from '@swagfinger/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
 import AccordionChevronExample from './AccordionChevronExample';
@@ -8,17 +8,17 @@ import AccordionMinimalExample from './AccordionMinimalExample';
 const AccordionExample = () => {
   const preview = (
     <>
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Accordion (chevron)</Heading>
         <AccordionChevronExample />
       </Layout>
 
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Accordion (plus/minus)</Heading>
         <AccordionPlusMinusExample />
       </Layout>
 
-      <Layout variation="block">
+      <Layout>
         <Heading variation="h5">Accordion (minimal)</Heading>
         <AccordionMinimalExample />
       </Layout>
@@ -28,7 +28,7 @@ const AccordionExample = () => {
   const previewString = reactElementToJSXString(preview);
 
   return (
-    <>
+    <Section>
       <Heading variation="h1" data-observable="true">
         Accordion
       </Heading>
@@ -45,7 +45,7 @@ const AccordionExample = () => {
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
-    </>
+    </Section>
   );
 };
 export default AccordionExample;

@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { CheckboxGroup, Checkbox, LabelSomething } from '@swagfinger/components';
+import { CheckboxGroup, Checkbox, Label } from '@swagfinger/components';
 
 const CheckboxGroupIndeterminateExample = () => {
   const options = [
@@ -19,39 +19,28 @@ const CheckboxGroupIndeterminateExample = () => {
 
   return (
     <div className="flex flex-col justify-items-start items-start space-y-10">
-      <LabelSomething
-        label="hi"
-        labelDirection="right"
-        gap="10px"
-        something={
-          <Checkbox
-            checked={savedData.every(item => item === true)}
-            indeterminate={!savedData.every(item => item === true) && savedData.some(item => item === true)}
-            name="checkbox"
-            onChange={event => {
-              //update group
-              updateSavedData(savedData.slice().fill(event.target.checked));
-            }}
-          />
-        }
-      />
+      <Label label="hi" labelDirection="right" gap="10px">
+        <Checkbox
+          checked={savedData.every(item => item === true)}
+          indeterminate={!savedData.every(item => item === true) && savedData.some(item => item === true)}
+          name="checkbox"
+          onChange={event => {
+            //update group
+            updateSavedData(savedData.slice().fill(event.target.checked));
+          }}
+        />
+      </Label>
 
       <CheckboxGroup direction="column" spacing="20px">
         {options.map((each, index) => {
           return (
-            <LabelSomething
-              key={'CheckboxGroup_Checkbox' + index}
-              label={each.label}
-              labelDirection="right"
-              gap="10px"
-              something={
-                <Checkbox
-                  checked={savedData[index]}
-                  name="Checkbox_ABC"
-                  onChange={() => onChange(index, !savedData[index])}
-                />
-              }
-            />
+            <Label key={'CheckboxGroup_Checkbox' + index} label={each.label} labelDirection="right" gap="10px">
+              <Checkbox
+                checked={savedData[index]}
+                name="Checkbox_ABC"
+                onChange={() => onChange(index, !savedData[index])}
+              />
+            </Label>
           );
         })}
       </CheckboxGroup>

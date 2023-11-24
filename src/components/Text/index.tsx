@@ -1,29 +1,56 @@
-import React from 'react';
-import styled from 'styled-components';
+import { useTheme } from '@swagfinger/context/ThemeContext';
 
 type TextProps = {
+  lineHeight?: string;
+  color?: string;
+  marginBottom?: string;
+
   children?: any;
   className?: string;
 };
+const rootStyles = getComputedStyle(document.documentElement);
 
-const Text = ({ children, className, ...rest }: TextProps) => {
+const Text = ({
+  lineHeight: propsLineHeight, //rename as propsLineHeight
+  color: propsColor, //rename as propsColor
+  marginBottom: propsMarginBottom, //rename as propsMarginBottom
+
+  children,
+  className,
+  ...rest
+}: TextProps) => {
+  //defaults
+  let lineHeight = 'leading-7';
+  let color = rootStyles.getPropertyValue('--input-text-color').trim();
+  let marginBottom = 'mb-0';
+
+  //theme
+  let { theme } = useTheme();
+  if (theme) {
+    lineHeight = theme.Text.lineHeight;
+    color = theme.Text.color;
+    marginBottom = theme.Text.marginBottom;
+  }
+
+  //props
+  if (propsLineHeight) {
+    lineHeight = propsLineHeight;
+  }
+  if (propsColor) {
+    color = propsColor;
+  }
+  if (propsLineHeight) {
+    marginBottom = propsLineHeight;
+  }
+
   return (
-    <TextContainer className={className} {...rest}>
+    <p className={[lineHeight, color, marginBottom, className].join(' ')} {...rest}>
       {children}
-    </TextContainer>
+    </p>
   );
 };
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
-//if there is no prop that starts with mb- ...
-const TextContainer = styled.p`
-  color: ${({ theme }) => theme?.Text?.color};
-  margin-bottom: ${({ theme, className }) => {
-    const hasMarginBottomClass = className && (className.includes('mb-') || className.includes('my-'));
-    return hasMarginBottomClass ? undefined : theme?.Text?.marginBottom;
-  }};
-  line-height: 1.7rem;
-`;
 
 Text.displayName = 'Text';
 export { Text };

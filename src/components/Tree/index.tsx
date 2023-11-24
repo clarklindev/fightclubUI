@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Icon, LabelSomething } from '@swagfinger/components';
+import { Icon, Label } from '@swagfinger/components';
 import { ChevronRightIcon, ChevronDownIcon } from '@swagfinger/icons';
 
 interface TreeNodeCommonProps {
@@ -49,14 +49,11 @@ const Tree = ({ data, depth = 0 }: TreeProps) => {
       return (
         <TreeContainer key={`depth_${depth}_index_${index}`}>
           <button onClick={() => openNodeHandler(depth, index)}>
-            <LabelSomething
-              label={label}
-              something={
-                <Icon size="15px">
-                  {childrenVisible.includes(depthAndIndexStr) ? <ChevronDownIcon /> : <ChevronRightIcon />}
-                </Icon>
-              }
-            />
+            <Label label={label}>
+              <Icon size="15px">
+                {childrenVisible.includes(depthAndIndexStr) ? <ChevronDownIcon /> : <ChevronRightIcon />}
+              </Icon>
+            </Label>
           </button>
           <Node
             ref={childRef}

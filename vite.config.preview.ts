@@ -10,7 +10,4 @@ export default defineConfig({
       '@swagfinger': path.resolve(__dirname, './src'),
     },
   },
-  build: {
-    minify: false,
-  },
 });
