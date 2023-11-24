@@ -12,9 +12,9 @@ type RadioButtonProps = {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export const RadioButton = ({ checked, name, label, onChange, iconSize }: RadioButtonProps) => {
+const RadioButton = ({ checked, name, label, onChange, iconSize }: RadioButtonProps) => {
   return (
-    <RadioButtonContainer className="RadioButton">
+    <RadioButtonContainer data-component={RadioButton.displayName} className="RadioButton">
       <HiddenRadioButton checked={checked} onChange={onChange} name={name} />
       <StyledRadioButton>
         <Icon size={iconSize}>{checked && <RadioButtonIcon />}</Icon>
@@ -23,6 +23,9 @@ export const RadioButton = ({ checked, name, label, onChange, iconSize }: RadioB
     </RadioButtonContainer>
   );
 };
+
+RadioButton.displayName = 'RadioButton';
+export { RadioButton };
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 const RadioButtonContainer = styled.label`
