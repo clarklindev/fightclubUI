@@ -4,7 +4,8 @@ import type { VariantProps } from 'class-variance-authority';
 
 import { twMerge } from 'tailwind-merge';
 
-const icon = cva(['base', 'classes'], {
+//make children full width/height tailwind 3.1
+const icon = cva(['[&>*]:w-full [&>*]:h-full'], {
   variants: {
     size: {
       XXXS: ['w-[3px]', 'h-[3px]'],
