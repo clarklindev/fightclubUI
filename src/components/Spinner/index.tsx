@@ -3,9 +3,9 @@ type SpinnerProps = {
   color?: string;
 };
 
-export const Spinner = ({ size = `5`, color = 'white' }: SpinnerProps) => {
+const Spinner = ({ size = `5`, color = 'white' }: SpinnerProps) => {
   return (
-    <div data-component="Spinner" className={`w-${size} h-${size}`}>
+    <div data-component={Spinner.displayName} className={`w-${size} h-${size}`}>
       <div
         className={[
           `w-full h-full border-2 b-solid`,
@@ -17,4 +17,6 @@ export const Spinner = ({ size = `5`, color = 'white' }: SpinnerProps) => {
   );
 };
 
+Spinner.displayName = 'Spinner';
+export { Spinner };
 // ------------------------------------------------------------------------------------------------------------------------------------------------
