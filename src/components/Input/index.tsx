@@ -72,6 +72,7 @@ type InputProps = {
 export const InputWrapper = ({ children }: InputProps) => {
   return (
     <div
+      data-component="Input"
       className={twMerge(
         cva([
           'box-border',

@@ -6,6 +6,16 @@ import { ShoppingCartIcon } from '@swagfinger/icons';
 const IconExample = () => {
   const preview = (
     <>
+      {/* extra-small */}
+      <Layout>
+        <Heading variation="h2" size="S">
+          XS
+        </Heading>
+        <Icon size="XS">
+          <ShoppingCartIcon />
+        </Icon>
+      </Layout>
+
       {/* small */}
       <Layout>
         <Heading variation="h2" size="S">
@@ -112,6 +122,26 @@ const IconExample = () => {
           XXXXXXXXL / 8XL
         </Heading>
         <Icon size="8XL">
+          <ShoppingCartIcon />
+        </Icon>
+      </Layout>
+
+      {/* XXXXXXXXX-large /9xl*/}
+      <Layout>
+        <Heading variation="h2" size="S">
+          XXXXXXXXXL / 9XL
+        </Heading>
+        <Icon size="9XL">
+          <ShoppingCartIcon />
+        </Icon>
+      </Layout>
+
+      {/* XXXXXXXXXX-large /10xl*/}
+      <Layout>
+        <Heading variation="h2" size="S">
+          XXXXXXXXXXL / 10XL
+        </Heading>
+        <Icon size="10XL">
           <ShoppingCartIcon />
         </Icon>
       </Layout>

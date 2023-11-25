@@ -100,6 +100,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref) => {
 
   return (
     <button
+      data-component="Button"
       className={classes}
       aria-label={ariaLabel}
       role="button"
