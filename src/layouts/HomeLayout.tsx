@@ -120,19 +120,19 @@ const setModeIcon = (mode: string | null) => {
   switch (mode) {
     case 'dark':
       return (
-        <Icon size="20px">
+        <Icon size="L">
           <ModeDarkIcon />
         </Icon>
       );
     case 'light':
       return (
-        <Icon size="20px">
+        <Icon size="L">
           <ModeLightIcon />
         </Icon>
       );
     case 'system':
       return (
-        <Icon size="20px">
+        <Icon size="L">
           <ModeSystemIcon />
         </Icon>
       );
@@ -173,13 +173,13 @@ export const HomeLayout = () => {
           <div className="absolute left-[2rem] md:hidden flex content-center">
             {!isOpen ? (
               <Button className="menu-btn" intent="icon" onClick={toggleMenu}>
-                <Icon size="20px">
+                <Icon size="L">
                   <MenuIcon />
                 </Icon>
               </Button>
             ) : (
               <Button className="close-btn" intent="icon" onClick={toggleMenu}>
-                <Icon size="20px">
+                <Icon size="L">
                   <CloseIcon />
                 </Icon>
               </Button>
@@ -187,7 +187,7 @@ export const HomeLayout = () => {
           </div>
 
           <div className="relative flex items-center">
-            <Icon data-component="icon" className="min-[320px]:absolute min-[320px]:ml-[-2rem]" size="25px">
+            <Icon data-component="icon" className="min-[320px]:absolute min-[320px]:ml-[-2rem]" size="L">
               <img src={logo} alt="logo" />
             </Icon>
             <Button
@@ -203,7 +203,8 @@ export const HomeLayout = () => {
 
         <Navbar.Group className="header-right flex-row items-center gap-4 hidden md:flex">
           <Link to="https://github.com/swagfinger/swagfinger-ui" target="_blank" aria-label="github repo">
-            <Icon size="20px" fillOpacity="1" fill="#FFF" stroke="#FFF">
+            {/* <Icon size="L" fillOpacity="1" fill="#FFF" stroke="#FFF"> */}
+            <Icon size="L">
               <img src={githubIcon} alt="github" />
             </Icon>
           </Link>
@@ -275,7 +276,7 @@ export const HomeLayout = () => {
             </NavSide.Link>
 
             <NavSide.Link to="heading">
-              Heading <Pill>Themed</Pill>
+              Heading <Pill>TW</Pill>
             </NavSide.Link>
             <NavSide.Link to="text">
               Text <Pill>TW</Pill>
@@ -283,7 +284,9 @@ export const HomeLayout = () => {
             <NavSide.Link to="label">
               Label <Pill>TW</Pill>
             </NavSide.Link>
-            <NavSide.Link to="icon">Icon</NavSide.Link>
+            <NavSide.Link to="icon">
+              Icon <Pill>CVA</Pill>
+            </NavSide.Link>
             <NavSide.Link to="button">Button</NavSide.Link>
             <NavSide.Link to="input">Input</NavSide.Link>
             <NavSide.Link to="select">Select</NavSide.Link>

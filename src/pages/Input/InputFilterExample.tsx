@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { Input, InputWrapper, Button, Icon } from '@swagfinger/components';
-import { SearchIcon, ClearIcon } from '@swagfinger/icons';
+import { SearchIcon, CloseIcon } from '@swagfinger/icons';
 
 const InputFilterExample = () => {
   const [savedData, setSavedData] = useState('');
@@ -12,7 +12,7 @@ const InputFilterExample = () => {
 
   return (
     <InputWrapper>
-      <Icon size="20px">
+      <Icon size="M">
         <SearchIcon />
       </Icon>
       <Input
@@ -26,8 +26,8 @@ const InputFilterExample = () => {
 
       {savedData.length > 0 && (
         <Button intent="icon" onClick={clearHandler}>
-          <Icon size="20px">
-            <ClearIcon />
+          <Icon size="M">
+            <CloseIcon />
           </Icon>
         </Button>
       )}

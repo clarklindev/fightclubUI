@@ -50,7 +50,7 @@ const Tree = ({ data, depth = 0 }: TreeProps) => {
         <TreeContainer key={`depth_${depth}_index_${index}`}>
           <button onClick={() => openNodeHandler(depth, index)}>
             <Label label={label}>
-              <Icon size="15px">
+              <Icon size="M">
                 {childrenVisible.includes(depthAndIndexStr) ? <ChevronDownIcon /> : <ChevronRightIcon />}
               </Icon>
             </Label>

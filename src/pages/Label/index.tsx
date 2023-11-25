@@ -8,7 +8,7 @@ const LabelExample = () => {
       {/* left */}
       <Layout>
         <Label label="hi" labelDirection="left">
-          <Icon size="20px">
+          <Icon size="L">
             <ShoppingCartIcon />
           </Icon>
         </Label>
@@ -17,7 +17,7 @@ const LabelExample = () => {
       {/* right */}
       <Layout>
         <Label label="hi" labelDirection="right">
-          <Icon size="20px">
+          <Icon size="L">
             <ShoppingCartIcon />
           </Icon>
         </Label>
@@ -26,7 +26,7 @@ const LabelExample = () => {
       {/* top */}
       <Layout>
         <Label label="hi" labelDirection="top">
-          <Icon size="20px">
+          <Icon size="L">
             <ShoppingCartIcon />
           </Icon>
         </Label>
@@ -35,7 +35,7 @@ const LabelExample = () => {
       {/* bottom */}
       <Layout>
         <Label label="hi" labelDirection="bottom">
-          <Icon size="20px">
+          <Icon size="L">
             <ShoppingCartIcon />
           </Icon>
         </Label>

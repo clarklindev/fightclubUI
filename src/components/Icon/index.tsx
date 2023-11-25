@@ -1,61 +1,39 @@
 import React from 'react';
-import styled from 'styled-components';
+import { cva } from 'class-variance-authority';
+import type { VariantProps } from 'class-variance-authority';
 
-export type IconProps = {
-  size?: string;
-  fill?: string;
-  stroke?: string;
-  fillOpacity?: string;
-  children?: React.ReactNode;
-  className?: string;
-};
+import { twMerge } from 'tailwind-merge';
 
-export const Icon = ({
-  stroke = 'currentColor',
-  children,
-  size = '20px',
-  fill = 'undefined',
-  fillOpacity,
-  className = '',
-  ...rest
-}: IconProps) => {
+const icon = cva(['base', 'classes'], {
+  variants: {
+    size: {
+      XXXS: ['w-[3px]', 'h-[3px]'],
+      XXS: ['w-[5px]', 'h-[5px]'],
+      XS: ['w-[10px]', 'h-[10px]'],
+      S: ['w-[15px]', 'h-[15px]'],
+      M: ['w-[20px]', 'h-[20px]'],
+      L: ['w-[25px]', 'h-[25px]'],
+      XL: ['w-[30px]', 'h-[30px]'],
+      XXL: ['w-[35px]', 'h-[35px]'],
+      XXXL: ['w-[40px]', 'h-[40px]'],
+    },
+  },
+  defaultVariants: {
+    size: 'M',
+  },
+});
+
+export interface IconProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof icon> {}
+
+const Icon = ({ children, size, className, ...props }: IconProps) => {
   return (
-    <IconContainer
-      data-component="Icon"
-      className={className}
-      size={size}
-      stroke={stroke}
-      fill={fill}
-      fillOpacity={fillOpacity}
-      {...rest}>
+    <div data-component="Icon" className={icon({ size, className })} {...props}>
       {children}
-    </IconContainer>
+    </div>
   );
 };
 
+Icon.displayName = 'Icon';
+export { Icon };
+
 // ------------------------------------------------------------------------------------------------------------------------------------------------
-
-const IconContainer = styled.div<
-  Omit<IconProps, 'children'> & {
-    size: string;
-    stroke?: string;
-    fill?: string;
-    fillOpacity?: string;
-  }
->`
-  width: ${({ size }) => size};
-  height: ${({ size }) => size};
-  min-width: ${({ size }) => size};
-  min-height: ${({ size }) => size};
-  display: flex;
-  > * {
-    width: 100%;
-    height: 100%;
-  }
-
-  > svg {
-    stroke: ${({ stroke }) => stroke};
-    fill: ${({ fill }) => fill};
-    fill-opacity: ${({ fillOpacity }) => fillOpacity};
-  }
-`;

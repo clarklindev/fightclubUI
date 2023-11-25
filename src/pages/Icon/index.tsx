@@ -1,12 +1,14 @@
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Icon, Heading, Tabs, CodeBlock } from '@swagfinger/components';
+import { Icon, Heading, Tabs, CodeBlock, Svg } from '@swagfinger/components';
 import { ShoppingCartIcon } from '@swagfinger/icons';
 
 const IconExample = () => {
   const preview = (
-    <Icon size="20px">
-      <ShoppingCartIcon />
+    <Icon size="XXXL">
+      <Svg className="w-full h-full">
+        <ShoppingCartIcon />
+      </Svg>
     </Icon>
   );
 

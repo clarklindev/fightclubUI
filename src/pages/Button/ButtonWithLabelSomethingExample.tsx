@@ -10,7 +10,7 @@ const ButtonWithLabelSomethingExample = () => {
         console.log('hello world');
       }}>
       <Label gap="10px" label="right" labelDirection="right">
-        <Icon size="20px" stroke="white">
+        <Icon size="L" stroke="white">
           <ThumbsUpIcon />
         </Icon>
       </Label>

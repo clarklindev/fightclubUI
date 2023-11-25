@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { Input, InputWrapper, Button, Icon } from '@swagfinger/components';
-import { ShowIcon, HideIcon } from '@swagfinger/icons';
+import { ShowPasswordIcon, HidePasswordIcon } from '@swagfinger/icons';
 
 const InputPasswordExample = () => {
   const [savedData, setSavedData] = useState('');
@@ -19,7 +19,7 @@ const InputPasswordExample = () => {
         }}
       />
       <Button intent="icon" onClick={() => setPasswordVisible(!passwordVisible)}>
-        <Icon size="20px">{passwordVisible ? <HideIcon /> : <ShowIcon />}</Icon>
+        <Icon size="L">{passwordVisible ? <HidePasswordIcon /> : <ShowPasswordIcon />}</Icon>
       </Button>
     </InputWrapper>
   );

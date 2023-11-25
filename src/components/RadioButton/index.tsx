@@ -1,23 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { RadioButtonIcon } from '@swagfinger/icons';
 import { Icon } from '@swagfinger/components';
 
 type RadioButtonProps = {
   checked: boolean;
   name: string;
   label?: string;
-  iconSize: string;
+  size: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const RadioButton = ({ checked, name, label, onChange, iconSize }: RadioButtonProps) => {
+const RadioButton = ({ checked, name, label, onChange }: RadioButtonProps) => {
   return (
     <RadioButtonContainer data-component={RadioButton.displayName} className="RadioButton">
       <HiddenRadioButton checked={checked} onChange={onChange} name={name} />
       <StyledRadioButton>
-        <Icon size={iconSize}>{checked && <RadioButtonIcon />}</Icon>
+        <Icon>
+          {checked && (
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="12" fill="currentColor"></circle>
+            </svg>
+          )}
+        </Icon>
       </StyledRadioButton>
       {label}
     </RadioButtonContainer>

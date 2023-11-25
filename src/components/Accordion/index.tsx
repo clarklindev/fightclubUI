@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 
 import { Icon, Divider } from '@swagfinger/components';
-import { ChevronUpIcon, ChevronDownIcon, PlusSmallIcon, MinusSmallIcon } from '@swagfinger/icons';
+import { ChevronUpIcon, ChevronDownIcon, PlusIcon, MinusIcon } from '@swagfinger/icons';
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -55,7 +55,7 @@ export const Accordion = ({ data, multiOpen = true, iconType = 'plusminus', show
 
   const iconMap = {
     chevron: { open: <ChevronUpIcon />, closed: <ChevronDownIcon /> },
-    plusminus: { open: <MinusSmallIcon />, closed: <PlusSmallIcon /> },
+    plusminus: { open: <MinusIcon />, closed: <PlusIcon /> },
     hidden: {},
   };
 
@@ -92,7 +92,7 @@ export const Accordion = ({ data, multiOpen = true, iconType = 'plusminus', show
                   }}>
                   {each.title}
                   {iconType !== 'hidden' && (
-                    <Icon size="20px">
+                    <Icon size="XXL">
                       {indexes.includes(index) ? iconMap[iconType].open : iconMap[iconType].closed}
                     </Icon>
                   )}

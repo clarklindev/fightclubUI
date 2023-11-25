@@ -2,7 +2,7 @@ import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
 import { Snackbar, Button, Icon, Heading, Tabs, CodeBlock } from '@swagfinger/components';
-import { CopyIcon } from '@swagfinger/icons';
+import { ClipboardIcon } from '@swagfinger/icons';
 
 const SnackbarExample = () => {
   const [showSnackbar, setShowSnackbar] = useState(false);
@@ -16,8 +16,8 @@ const SnackbarExample = () => {
     <>
       {showSnackbar && <Snackbar setShowSnackbar={setShowSnackbar}>copied to clipboard</Snackbar>}
       <Button onClick={onClickHandler} intent="icon">
-        <Icon size="20px">
-          <CopyIcon />
+        <Icon size="L">
+          <ClipboardIcon />
         </Icon>
       </Button>
     </>

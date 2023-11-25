@@ -37,3 +37,4 @@ export { Dropdown } from './Dropdown';
 export { Tabs } from './Tabs';
 export { Breadcrumbs } from './Breadcrumbs';
 export { Pill } from './Pill';
+export { Svg } from './Svg';

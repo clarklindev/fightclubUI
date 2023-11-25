@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Input, Button, Icon } from '@swagfinger/components';
-import { MinusSmallIcon, PlusSmallIcon } from '@swagfinger/icons';
+import { MinusIcon, PlusIcon } from '@swagfinger/icons';
 
 type CounterProps = {
   savedData: number;
@@ -31,8 +31,8 @@ export const Counter = ({ savedData, onChange }: CounterProps) => {
   return (
     <CounterContainer>
       <Button className={['Button', 'left'].join(' ')} onClick={decrement} intent="icon">
-        <Icon size="20px">
-          <MinusSmallIcon />
+        <Icon size="L">
+          <MinusIcon />
         </Icon>
       </Button>
 
@@ -44,8 +44,8 @@ export const Counter = ({ savedData, onChange }: CounterProps) => {
       />
 
       <Button className={['Button', 'right'].join(' ')} onClick={increment} intent="icon">
-        <Icon size="20px">
-          <PlusSmallIcon />
+        <Icon size="L">
+          <PlusIcon />
         </Icon>
       </Button>
     </CounterContainer>

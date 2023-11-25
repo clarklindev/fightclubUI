@@ -21,7 +21,7 @@ const InputSearchExample = () => {
     <InputWrapper>
       <Input ref={ref} value={savedData} onChange={onChange} border={false} placeholder="placeholder" />
       <Button intent="icon" onClick={clickHandler}>
-        <Icon size="20px">
+        <Icon size="M">
           <SearchIcon />
         </Icon>
       </Button>

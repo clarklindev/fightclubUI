@@ -91,7 +91,18 @@ const SystemDesign = () => {
           Icons
         </Heading>
         <Text>
-          SVG vector icons are the way to go, there are many icon libraries, i prefer Hero Icons: https://heroicons.com/
+          SVG vector icons are the way to go, there are many icon libraries, Using{' '}
+          <Link to="https://react-icons.github.io/react-icons/">react-icons</Link> allows you to switch and pick icons
+          from various libraries as you wish without having to build your own icon library as these libraries are
+          usually well-maintained by their creators and this is the preferable option.
+          <br />
+          With icon libraries, even though we are using external libraries and importing these icons, it is better to
+          have an icon folder / file to export from and reference. This allows us to have a centralized point in which
+          we can swop out icons from 3rd party libraries even though the code always points to the same reference.
+          <br />
+        </Text>
+        <Text>
+          using <Link to="https://react-icons.github.io/react-icons/">react-icons</Link>
         </Text>
         <Text>
           Icons vs Icons library, Icons used in interface components are actually a necessity they are part of the

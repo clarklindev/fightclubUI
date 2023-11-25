@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Icon, ToggleButton, Heading, ResizePanel, Tabs, CodeBlock } from '@swagfinger/components';
+import { Icon, ToggleButton, Heading, Tabs, CodeBlock } from '@swagfinger/components';
 import { HeartIcon } from '@swagfinger/icons';
 
 const ToggleButtonExample = () => {
@@ -14,7 +14,7 @@ const ToggleButtonExample = () => {
         setSavedData(event.target.checked);
       }}>
       <Icon
-        size="25px"
+        size="L"
         fill={savedData ? 'red' : 'black'}
         fillOpacity={savedData ? '1' : '0'}
         stroke={savedData ? 'transparent' : 'currentColor'}>
