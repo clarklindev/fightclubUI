@@ -92,9 +92,7 @@ export const Accordion = ({ data, multiOpen = true, iconType = 'plusminus', show
                   }}>
                   {each.title}
                   {iconType !== 'hidden' && (
-                    <Icon size="XXL">
-                      {indexes.includes(index) ? iconMap[iconType].open : iconMap[iconType].closed}
-                    </Icon>
+                    <Icon>{indexes.includes(index) ? iconMap[iconType].open : iconMap[iconType].closed}</Icon>
                   )}
                 </AccordionSectionTitle>
               </AccordionSectionHeader>

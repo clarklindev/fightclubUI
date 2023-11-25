@@ -1,13 +1,71 @@
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Icon, Heading, Tabs, CodeBlock } from '@swagfinger/components';
+import { Icon, Heading, Tabs, CodeBlock, Layout } from '@swagfinger/components';
 import { ShoppingCartIcon } from '@swagfinger/icons';
 
 const IconExample = () => {
   const preview = (
-    <Icon size="S">
-      <ShoppingCartIcon />
-    </Icon>
+    <>
+      {/* small */}
+      <Layout>
+        <Heading variation="h2" size="S">
+          S
+        </Heading>
+        <Icon size="S">
+          <ShoppingCartIcon />
+        </Icon>
+      </Layout>
+
+      {/* medium */}
+      <Layout>
+        <Heading variation="h2" size="S">
+          M
+        </Heading>
+        <Icon size="M">
+          <ShoppingCartIcon />
+        </Icon>
+      </Layout>
+
+      {/* large */}
+      <Layout>
+        <Heading variation="h2" size="S">
+          L
+        </Heading>
+        <Icon size="L">
+          <ShoppingCartIcon />
+        </Icon>
+      </Layout>
+
+      {/* x-large */}
+      <Layout>
+        <Heading variation="h2" size="S">
+          XL
+        </Heading>
+        <Icon size="XL">
+          <ShoppingCartIcon />
+        </Icon>
+      </Layout>
+
+      {/* xx-large */}
+      <Layout>
+        <Heading variation="h2" size="S">
+          XXL
+        </Heading>
+        <Icon size="XXL">
+          <ShoppingCartIcon />
+        </Icon>
+      </Layout>
+
+      {/* xx-large */}
+      <Layout>
+        <Heading variation="h2" size="S">
+          XXXL
+        </Heading>
+        <Icon size="XXXL">
+          <ShoppingCartIcon />
+        </Icon>
+      </Layout>
+    </>
   );
 
   const previewString = reactElementToJSXString(preview);

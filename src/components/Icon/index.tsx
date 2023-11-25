@@ -8,9 +8,6 @@ import { twMerge } from 'tailwind-merge';
 const icon = cva(['[&>*]:w-full [&>*]:h-full'], {
   variants: {
     size: {
-      XXXS: ['w-[3px]', 'h-[3px]'],
-      XXS: ['w-[5px]', 'h-[5px]'],
-      XS: ['w-[10px]', 'h-[10px]'],
       S: ['w-[15px]', 'h-[15px]'],
       M: ['w-[20px]', 'h-[20px]'],
       L: ['w-[25px]', 'h-[25px]'],
