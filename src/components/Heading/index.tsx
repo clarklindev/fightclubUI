@@ -51,7 +51,7 @@ const baseClasses = 'pt-1rem pb-1rem whitespace-break break-word';
 
 type HeadingProps = {
   variation: HeadingVariationType; //h1,h2,h3,h4,h5,h6
-  size?: keyof typeof HeadingSize; //XXXS,XXS,XS,S,M,L,XL,XXL,XXXL | level1,level2,level3,level4,level5,level6,level7,level8,level9
+  size: keyof typeof HeadingSize; //XXXS,XXS,XS,S,M,L,XL,XXL,XXXL | level1,level2,level3,level4,level5,level6,level7,level8,level9
   className?: string;
   children: string;
 };
