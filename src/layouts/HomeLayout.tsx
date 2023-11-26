@@ -61,7 +61,7 @@ const Content = styled.div`
 `;
 
 const Container = styled.div<{ isOpen: boolean; className?: string }>`
-${({ isOpen }) => isOpen && `display: none`};
+  display: ${({ isOpen }) => isOpen && `none`};
 
   position: relative;
   grid-area: container;
@@ -150,7 +150,7 @@ const setModeIcon = (mode: string | null) => {
 
 export const HomeLayout = () => {
   const { isOpen, toggleMenu, closeMenu } = useMenu();
-  const { colorMode, setColorMode } = useTheme();
+  const { colorScheme, setColorScheme } = useTheme();
   const navigate = useNavigate();
   const { setScrollPercentage, getDocumentScrollPercentage } = useScroll();
 
@@ -219,25 +219,24 @@ export const HomeLayout = () => {
           <Dropdown>
             <Dropdown.Wrapper id="1">
               <Dropdown.Trigger asChild>
-                <Button intent="icon">{setModeIcon(colorMode)}</Button>
+                <Button intent="icon">{setModeIcon(colorScheme)}</Button>
               </Dropdown.Trigger>
-              {/* <Dropdown.Trigger>{setModeIcon(colorMode)}</Dropdown.Trigger> */}
               <Dropdown.Menu className="w-40">
                 <Dropdown.MenuItem
                   onClick={() => {
-                    setColorMode('dark');
+                    setColorScheme('dark');
                   }}>
                   Dark mode
                 </Dropdown.MenuItem>
                 <Dropdown.MenuItem
                   onClick={() => {
-                    setColorMode('light');
+                    setColorScheme('light');
                   }}>
                   Light mode
                 </Dropdown.MenuItem>
                 <Dropdown.MenuItem
                   onClick={() => {
-                    setColorMode('system');
+                    setColorScheme('system');
                   }}>
                   System mode
                 </Dropdown.MenuItem>
@@ -266,7 +265,6 @@ export const HomeLayout = () => {
             <NavSide.Link to="pagelayouts">Page Layouts</NavSide.Link>
             <NavSide.Link to="page">Adding pages</NavSide.Link>
             <NavSide.Link to="forms">Handling forms</NavSide.Link>
-            <NavSide.Link to="darkmode">Darkmode</NavSide.Link>
           </NavSide.Group>
 
           <NavSide.Group>

@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: ['class', '[data-color-scheme="dark"]'],
   safelist: [
     {
       pattern: /^(gap-|space-|p-|m-|w-|h-|border-)/,

@@ -198,6 +198,10 @@ resolve: {
         </Text>
         <Text>System preference setting just takes the mode that is set on the system.</Text>
         <Text>
+          because using custom attributes on html element like [data-color-scheme='dark'] read documentation
+          https://tailwindcss.com/docs/dark-mode#customizing-the-class-name
+        </Text>
+        <Text>
           Really like this transitioning button for the darkmode button, might implement but will think about it as I
           would prefer something cleaner: https://codepen.io/chriscoyier/pen/gOQPqBj
         </Text>

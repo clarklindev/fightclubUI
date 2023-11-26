@@ -13,12 +13,12 @@ const buttonVariants: any = cva(['box-border', 'inline-flex', 'items-center', 'c
       contained: 'bg-gray-300 text-gray-700 border-gray-300 hover:bg-gray-400',
 
       outlined: `
-        text-red
-        dark:text-white
+        text-red-400
+        dark:text-blue-500
         
         
-        border-1
-        border-black 
+        border
+        border-red-400 
         dark:border-white
 
         bg-transparent
