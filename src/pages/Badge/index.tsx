@@ -1,14 +1,14 @@
-import { Pill, Heading, Tabs, CodeBlock } from '@swagfinger/components';
+import { Badge, Heading, Tabs, CodeBlock } from '@swagfinger/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-const PillExample = () => {
-  const preview = <Pill>pill</Pill>;
+const BadgeExample = () => {
+  const preview = <Badge>Hello</Badge>;
   const previewString = reactElementToJSXString(preview);
 
   return (
     <>
-      <Heading variation="h1" data-observable="true">
-        Pill
+      <Heading variation="h1" size="level1" data-observable="true">
+        Badge
       </Heading>
 
       <Tabs>
@@ -22,7 +22,7 @@ const PillExample = () => {
           <Tabs.Content data-tab="1">
             <CodeBlock>
               {`
-import {Pill} from '@swagfinger/components';
+import {Badge} from '@swagfinger/components';
 
 ${previewString}
 `}
@@ -34,4 +34,4 @@ ${previewString}
   );
 };
 
-export default PillExample;
+export default BadgeExample;

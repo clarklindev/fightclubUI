@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { Outlet, useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Navbar, NavSide, Button, Icon, Dropdown, OnThisPage, Pill } from '@swagfinger/components';
+import { Navbar, NavSide, Button, Icon, Dropdown, OnThisPage, Badge } from '@swagfinger/components';
 import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon } from '@swagfinger/icons';
 import { useMenu } from '@swagfinger/context/MenuContext';
 import { useTheme } from '@swagfinger/context/ThemeContext';
@@ -120,19 +120,19 @@ const setModeIcon = (mode: string | null) => {
   switch (mode) {
     case 'dark':
       return (
-        <Icon size="L">
+        <Icon size="M">
           <ModeDarkIcon />
         </Icon>
       );
     case 'light':
       return (
-        <Icon size="L">
+        <Icon size="M">
           <ModeLightIcon />
         </Icon>
       );
     case 'system':
       return (
-        <Icon size="L">
+        <Icon size="M">
           <ModeSystemIcon />
         </Icon>
       );
@@ -173,13 +173,13 @@ export const HomeLayout = () => {
           <div className="absolute left-[2rem] md:hidden flex content-center">
             {!isOpen ? (
               <Button className="menu-btn" intent="icon" onClick={toggleMenu}>
-                <Icon size="L">
+                <Icon size="M">
                   <MenuIcon />
                 </Icon>
               </Button>
             ) : (
               <Button className="close-btn" intent="icon" onClick={toggleMenu}>
-                <Icon size="L">
+                <Icon size="M">
                   <CloseIcon />
                 </Icon>
               </Button>
@@ -187,7 +187,7 @@ export const HomeLayout = () => {
           </div>
 
           <div className="relative flex items-center">
-            <Icon data-component="icon" className="min-[320px]:absolute min-[320px]:ml-[-2rem]" size="L">
+            <Icon data-component="icon" className="min-[320px]:absolute min-[320px]:ml-[-2rem]" size="M">
               <img src={logo} alt="logo" />
             </Icon>
             <Button
@@ -204,7 +204,7 @@ export const HomeLayout = () => {
         <Navbar.Group className="header-right flex-row items-center gap-4 hidden md:flex">
           <Link to="https://github.com/swagfinger/swagfinger-ui" target="_blank" aria-label="github repo">
             {/* <Icon size="L" fillOpacity="1" fill="#FFF" stroke="#FFF"> */}
-            <Icon size="L">
+            <Icon size="M">
               <img src={githubIcon} alt="github" />
             </Icon>
           </Link>
@@ -269,23 +269,23 @@ export const HomeLayout = () => {
             <NavSide.Link to="navside">NavSide</NavSide.Link>
             <NavSide.Link to="onthispage">On this page</NavSide.Link>
             <NavSide.Link to="layout">
-              Layout <Pill>TW</Pill>
+              Layout <Badge>TW</Badge>
             </NavSide.Link>
             <NavSide.Link to="section">
-              Section <Pill>TW</Pill>
+              Section <Badge>TW</Badge>
             </NavSide.Link>
 
             <NavSide.Link to="heading">
-              Heading <Pill>TW</Pill>
+              Heading <Badge>TW</Badge>
             </NavSide.Link>
             <NavSide.Link to="text">
-              Text <Pill>TW</Pill>
+              Text <Badge>TW</Badge>
             </NavSide.Link>
             <NavSide.Link to="label">
-              Label <Pill>TW</Pill>
+              Label <Badge>TW</Badge>
             </NavSide.Link>
             <NavSide.Link to="icon">
-              Icon <Pill>CVA</Pill>
+              Icon <Badge>CVA</Badge>
             </NavSide.Link>
             <NavSide.Link to="button">Button</NavSide.Link>
             <NavSide.Link to="input">Input</NavSide.Link>
@@ -302,40 +302,40 @@ export const HomeLayout = () => {
             <NavSide.Link to="slider">Slider</NavSide.Link>
             <NavSide.Link to="slidermultirange">Slider (Multirange)</NavSide.Link>
             <NavSide.Link to="divider">
-              Divider <Pill>compound</Pill>&nbsp;
-              <Pill>tw</Pill>
+              Divider <Badge>compound</Badge>&nbsp;
+              <Badge>tw</Badge>
             </NavSide.Link>
             <NavSide.Link to="list">
-              List <Pill>compound</Pill> <Pill>TW</Pill>
+              List <Badge>compound</Badge> <Badge>TW</Badge>
             </NavSide.Link>
             <NavSide.Link to="table">Table</NavSide.Link>
             <NavSide.Link to="card">
-              Card <Pill>TW</Pill>
+              Card <Badge>TW</Badge>
             </NavSide.Link>
             <NavSide.Link to="tree">Tree</NavSide.Link>
             <NavSide.Link to="progressloader">
-              Progress Loader <Pill>TW</Pill>
+              Progress Loader <Badge>TW</Badge>
             </NavSide.Link>
             <NavSide.Link to="spinner">
-              Spinner <Pill>TW</Pill>
+              Spinner <Badge>TW</Badge>
             </NavSide.Link>
             <NavSide.Link to="dropdown">
-              Dropdown <Pill>compound</Pill> <Pill>TW</Pill>
+              Dropdown <Badge>compound</Badge> <Badge>TW</Badge>
             </NavSide.Link>
             <NavSide.Link to="tabs">
-              Tabs <Pill>compound</Pill> <Pill>TW</Pill>
+              Tabs <Badge>compound</Badge> <Badge>TW</Badge>
             </NavSide.Link>
             <NavSide.Link to="pagination">
-              Pagination <Pill className="bg-orange-500">WIP</Pill>
+              Pagination <Badge className="bg-orange-500">WIP</Badge>
             </NavSide.Link>
             <NavSide.Link to="modal">
-              Modal <Pill className="bg-orange-500">WIP</Pill>
+              Modal <Badge className="bg-orange-500">WIP</Badge>
             </NavSide.Link>
             <NavSide.Link to="breadcrumbs">
-              Breadcrumbs <Pill className="bg-orange-500">WIP</Pill>
+              Breadcrumbs <Badge className="bg-orange-500">WIP</Badge>
             </NavSide.Link>
-            <NavSide.Link to="pill">
-              Pill <Pill>TW</Pill>
+            <NavSide.Link to="badge">
+              Badge <Badge>TW</Badge>
             </NavSide.Link>
           </NavSide.Group>
 
@@ -344,13 +344,13 @@ export const HomeLayout = () => {
               Utility
             </NavSide.Heading>
             <NavSide.Link to="resizepanel">
-              Resize panel <Pill className="bg-orange-500">WIP</Pill>
+              Resize panel <Badge className="bg-orange-500">WIP</Badge>
             </NavSide.Link>
             <NavSide.Link to="dimensions">
-              Dimensions <Pill className="bg-orange-500">WIP</Pill>
+              Dimensions <Badge className="bg-orange-500">WIP</Badge>
             </NavSide.Link>
             <NavSide.Link to="codeblock">
-              CodeBlock <Pill>TW</Pill>
+              CodeBlock <Badge>TW</Badge>
             </NavSide.Link>
           </NavSide.Group>
         </NavSide>

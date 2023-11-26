@@ -51,7 +51,7 @@ import TabsExample from '@swagfinger/pages/Tabs';
 import PaginationExample from '@swagfinger/pages/Pagination';
 import ModalExample from '@swagfinger/pages/Modal';
 import BreadcrumbsExample from '@swagfinger/pages/Breadcrumbs';
-import PillExample from '@swagfinger/pages/Pill';
+import BadgeExample from '@swagfinger/pages/Badge';
 
 // Utility
 import ResizePanelExample from '@swagfinger/pages/ResizePanel';
@@ -109,7 +109,7 @@ export const router = createBrowserRouter(
       <Route path="/pagination" element={<PaginationExample />} />
       <Route path="/modal" element={<ModalExample />} />
       <Route path="/breadcrumbs" element={<BreadcrumbsExample />} />
-      <Route path="/pill" element={<PillExample />} />
+      <Route path="/badge" element={<BadgeExample />} />
 
       {/* utility */}
       <Route path="/resizepanel" element={<ResizePanelExample />} />
