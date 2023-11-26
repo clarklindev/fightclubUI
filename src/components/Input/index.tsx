@@ -3,7 +3,16 @@ import { VariantProps, cva } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
 
 const inputVariants: any = cva(
-  ['box-border', 'cursor-text', 'outline-none', 'w-full', 'p-2', 'rounded-md', 'h-10', 'bg-inputBackground'],
+  [
+    'box-border',
+    'cursor-text',
+    'outline-none',
+    'w-full',
+    'p-2',
+    'rounded-md',
+    'h-10',
+    'bg-[var(--input-background-color)]',
+  ],
   {
     variants: {
       border: {
@@ -88,7 +97,7 @@ export const InputWrapper = ({ children }: InputProps) => {
           'max-h-10',
           'px-2',
           'gap-2',
-          'bg-inputBackground',
+          'bg-[var(--input-background-color)]',
           'border-borderColor',
           'overflow-hidden',
         ])(),
