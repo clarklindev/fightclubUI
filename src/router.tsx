@@ -13,6 +13,7 @@ import NotFound from '@swagfinger/pages/NotFound';
 import PageLayoutsExample from '@swagfinger/pages/PageLayouts';
 import PageExample from '@swagfinger/pages/Page';
 import FormsExample from '@swagfinger/pages/Forms';
+import DarkmodeExample from '@swagfinger/pages/Darkmode';
 
 //components
 import NavbarExample from '@swagfinger/pages/Navbar';
@@ -72,13 +73,14 @@ export const router = createBrowserRouter(
       <Route path="/pagelayouts" element={<PageLayoutsExample />} />
       <Route path="/page" element={<PageExample />} />
       <Route path="/forms" element={<FormsExample />} />
-      <Route path="/layout" element={<LayoutExample />} />
-      <Route path="/section" element={<SectionExample />} />
+      <Route path="/darkmode" element={<DarkmodeExample />} />
 
       {/* components */}
       <Route path="/navbar" element={<NavbarExample />} />
       <Route path="/navside" element={<NavSideExample />} />
       <Route path="/onthispage" element={<OnThisPageExample />} />
+      <Route path="/layout" element={<LayoutExample />} />
+      <Route path="/section" element={<SectionExample />} />
       <Route path="/heading" element={<HeadingExample />} />
       <Route path="/text" element={<TextExample />} />
       <Route path="/label" element={<LabelExample />} />

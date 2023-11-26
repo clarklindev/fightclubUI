@@ -4,6 +4,12 @@ import { useState, createContext, useContext } from 'react';
 import { lightTheme } from '@swagfinger/themes/LightTheme';
 import { darkTheme } from '@swagfinger/themes/DarkTheme';
 
+enum THEMEMODE {
+  dark = 'dark',
+  light = 'light',
+  system = 'system',
+}
+
 const ThemeContext = createContext<{
   colorMode: string | null; //system/dark/light
   checkIsDark: (mode: string) => boolean;
@@ -23,13 +29,13 @@ export const useTheme = () => {
 const checkIsDark = (colorMode: string): boolean => {
   let isDark; //stores a boolean - true is darkmode - false is lightmode
   switch (colorMode) {
-    case 'system':
-      isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    case THEMEMODE.system:
+      isDark = window.matchMedia(`(prefers-color-scheme: dark`).matches; //prefers-color-scheme relies on color-scheme being set parent
       break;
-    case 'dark':
+    case THEMEMODE.dark:
       isDark = true;
       break;
-    case 'light':
+    case THEMEMODE.light:
       isDark = false;
       break;
     default:
@@ -39,12 +45,25 @@ const checkIsDark = (colorMode: string): boolean => {
   return isDark;
 };
 
+//stores in localstorage
+const toggleColorScheme = (colorScheme: string) => {
+  const html = document.querySelector('html');
+  if (html) {
+    html.setAttribute('color-scheme', colorScheme);
+    document.documentElement.style.setProperty('color-scheme', colorScheme);
+  }
+};
+
 //NOTE: Todo: if no theme is in localstorage, default should be system. the icon on colorMode should default to system.
 export const ThemeContextProvider = ({ children }: { children: React.ReactNode }) => {
-  const defaultMode = 'system';
-
+  const defaultColorMode = THEMEMODE.system;
+  const [colorMode, setInternalColorMode] = useState(window.localStorage.getItem('colorMode') || defaultColorMode); //system, dark, light
   const [theme, setTheme] = useState<typeof lightTheme | typeof darkTheme>();
-  const [colorMode, setInternalColorMode] = useState(window.localStorage.getItem('colorMode') || defaultMode); //system, dark, light
+
+  //used internally
+  const storeMode = (mode: string) => {
+    window.localStorage.setItem('colorMode', mode); //stores 'system', 'dark', 'light'
+  };
 
   const setColorMode = (mode: string) => {
     setInternalColorMode(mode);
@@ -53,22 +72,12 @@ export const ThemeContextProvider = ({ children }: { children: React.ReactNode }
   };
 
   useEffect(() => {
-    checkIsDark(colorMode) ? toggleColorScheme('dark') : toggleColorScheme('light');
+    //sets <html color-scheme=""></html> as 'dark' or 'light'
+    checkIsDark(colorMode) ? toggleColorScheme(THEMEMODE.dark) : toggleColorScheme(THEMEMODE.light);
+
+    //theme - sets theme as darkTheme or lightTheme
     setTheme(checkIsDark(colorMode) ? darkTheme : lightTheme);
   }, [colorMode]);
-
-  //stores in localstorage
-  const toggleColorScheme = (colorScheme: string) => {
-    const html = document.querySelector('html');
-    if (html) {
-      html.setAttribute('color-scheme', colorScheme);
-      document.documentElement.style.setProperty('color-scheme', colorScheme);
-    }
-  };
-
-  const storeMode = (mode: string) => {
-    window.localStorage.setItem('colorMode', mode); //stores 'system', 'dark', 'light'
-  };
 
   return (
     <ThemeContext.Provider value={{ theme, colorMode, setColorMode, checkIsDark }}>{children}</ThemeContext.Provider>

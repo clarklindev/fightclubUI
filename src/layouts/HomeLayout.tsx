@@ -52,7 +52,7 @@ const Content = styled.div`
     grid-template-columns: 400px minmax(0, 1fr);
   }
 
-  [data-id='navside'] {
+  [data-component='navside'] {
     @media (min-width: 768px) {
       grid-area: navside;
     }
@@ -61,7 +61,7 @@ const Content = styled.div`
 `;
 
 const Container = styled.div<{ isOpen: boolean; className?: string }>`
-  ${({ isOpen }) => isOpen && `display: none`};
+${({ isOpen }) => isOpen && `display: none`};
 
   position: relative;
   grid-area: container;
@@ -100,14 +100,21 @@ const Container = styled.div<{ isOpen: boolean; className?: string }>`
     }
   }
 
-  [data-id='onthispage'] {
+  [data-component='onthispage'] {
     grid-area: onthispage;
 
     @media (min-width: 1200px) {
       display: block;
       position: fixed;
+      right: 0;
+      top: 3rem;
       padding: 4rem;
       width: 400px;
+    }
+
+    @media (min-width: 2400px) {
+      right: unset;
+      left-margin: calc(1fr - 2400px));
     }
   }
 `;
@@ -241,7 +248,7 @@ export const HomeLayout = () => {
       </Navbar>
 
       <Content ref={contentRef}>
-        <NavSide data-id="navside">
+        <NavSide data-component="navside">
           <NavSide.Group>
             <NavSide.Heading variation="h2" size="M" className="mt-0 mb-3 pt-0">
               Guide
@@ -259,6 +266,7 @@ export const HomeLayout = () => {
             <NavSide.Link to="pagelayouts">Page Layouts</NavSide.Link>
             <NavSide.Link to="page">Adding pages</NavSide.Link>
             <NavSide.Link to="forms">Handling forms</NavSide.Link>
+            <NavSide.Link to="darkmode">Darkmode</NavSide.Link>
           </NavSide.Group>
 
           <NavSide.Group>
@@ -360,7 +368,7 @@ export const HomeLayout = () => {
             <Outlet />
           </main>
           <OnThisPageContextProvider>
-            <OnThisPage data-id="onthispage" />
+            <OnThisPage data-component="onthispage" />
           </OnThisPageContextProvider>
         </Container>
       </Content>

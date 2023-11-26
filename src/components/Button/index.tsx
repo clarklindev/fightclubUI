@@ -6,13 +6,27 @@ import { twMerge } from 'tailwind-merge';
 
 const buttonVariants: any = cva(['box-border', 'inline-flex', 'items-center', 'cursor-pointer'], {
   variants: {
-    //apply styles based on prop passed though
     intent: {
       default: '',
       primary: 'bg-blue-500 text-white border-transparent hover:bg-blue-600',
       secondary: 'bg-white text-gray-800 border-gray-400 hover:bg-gray-100',
       contained: 'bg-gray-300 text-gray-700 border-gray-300 hover:bg-gray-400',
-      outlined: 'text-black border-black bg-transparent hover:bg-gray-700 hover:text-white',
+
+      outlined: `
+        text-red
+        dark:text-white
+        
+        
+        border-1
+        border-black 
+        dark:border-white
+
+        bg-transparent
+        
+        hover:bg-gray-700 
+        hover:text-white
+      `,
+
       plain: 'border-transparent outline-none ring-transparent',
       text: 'border-transparent underline',
       icon: 'border-transparent',
@@ -80,8 +94,6 @@ const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref) => {
     children,
     ...rest
   } = props;
-
-  const theme = useTheme();
 
   const classes = twMerge(buttonVariants({ intent, fontsize, padding, focus }), className);
 
