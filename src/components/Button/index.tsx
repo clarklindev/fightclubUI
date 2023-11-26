@@ -1,6 +1,7 @@
 import React, { forwardRef } from 'react';
 
 import { useTheme } from '@swagfinger/context/ThemeContext';
+
 import { cva, type VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
 
@@ -82,7 +83,7 @@ export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
 
 const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref) => {
   const {
-    intent,
+    intent = 'primary',
     padding,
     fontsize,
     focus,
@@ -95,7 +96,14 @@ const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref) => {
     ...rest
   } = props;
 
-  const classes = twMerge(buttonVariants({ intent, fontsize, padding, focus }), className);
+  const { theme } = useTheme();
+  ``;
+  const classes = twMerge(
+    theme
+      ? [theme.Button.intent[intent as keyof typeof theme.Button.intent]].join(' ')
+      : buttonVariants({ intent, fontsize, padding, focus }),
+    className,
+  );
 
   return (
     <button

@@ -9,7 +9,7 @@ const ButtonExample = () => {
         <Heading variation="h5" size="level2">
           Contained button
         </Heading>
-        <Button intent="contained">Contained</Button>
+        <Button intent="primary">Contained</Button>
       </Layout>
 
       <Layout>
@@ -75,7 +75,7 @@ const ButtonExample = () => {
 
   return (
     <>
-      <Heading variation="h1" size="XL" data-observable="true">
+      <Heading variation="h1" size="level1" data-observable="true">
         Button
       </Heading>
 

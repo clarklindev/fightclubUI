@@ -135,18 +135,20 @@ export const darkTheme = {
   },
 
   Button: {
-    primary: 'bg-green-500 hover:bg-green-600',
+    intent: {
+      primary: 'text-pink-400 bg-green-500 hover:bg-green-600',
 
-    contained: {
-      color: colors.neutral[100],
-      background: colors.neutral[400],
-      hover: colors.neutral[500],
-      border: `1px solid ${colors.neutral[100]}`,
-    },
+      contained: {
+        color: colors.neutral[100],
+        background: colors.neutral[400],
+        hover: colors.neutral[500],
+        border: `1px solid ${colors.neutral[100]}`,
+      },
 
-    outlined: 'bg-transparent text-white border-white',
-    text: {
-      color: colors.neutral[500],
+      outlined: 'bg-transparent text-white border-white',
+      text: {
+        color: colors.neutral[500],
+      },
     },
   },
 

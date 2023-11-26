@@ -293,7 +293,9 @@ export const HomeLayout = () => {
             <NavSide.Link to="icon">
               Icon <Badge>CVA</Badge>
             </NavSide.Link>
-            <NavSide.Link to="button">Button</NavSide.Link>
+            <NavSide.Link to="button">
+              Button <Badge>CVA</Badge>
+            </NavSide.Link>
             <NavSide.Link to="input">Input</NavSide.Link>
             <NavSide.Link to="select">Select</NavSide.Link>
             <NavSide.Link to="accordion">Accordion</NavSide.Link>
