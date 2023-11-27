@@ -134,9 +134,18 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
                 key={index}
                 className={[
                   'truncate',
+                  'flex',
+                  'content-start',
                   `${
                     observablesInView && observablesInView[index]
-                      ? "before:absolute before:w-[2px] before:h-6 before:bg-red-500 before:ml-[-20px] before:content-''"
+                      ? [
+                          'before:absolute',
+                          'before:w-[2px]',
+                          'before:h-6',
+                          'before:bg-red-500',
+                          'before:ml-[-16px]',
+                          "before:content-''",
+                        ].join(' ')
                       : ''
                   }`,
                 ].join(' ')}
