@@ -75,7 +75,11 @@ const Heading = ({ variation, size, className, children, ...rest }: HeadingProps
 
   const Variation = `${variation}` as keyof JSX.IntrinsicElements;
   return (
-    <Variation className={[baseClasses, className].join(' ')} style={{ fontSize: headerSize }} {...rest}>
+    <Variation
+      data-component={Heading.displayName}
+      className={[baseClasses, className].join(' ')}
+      style={{ fontSize: headerSize }}
+      {...rest}>
       {children}
     </Variation>
   );

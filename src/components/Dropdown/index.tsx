@@ -6,7 +6,11 @@ import { Position } from '@swagfinger/utils/position';
 import { getHorizontalQuadrant } from '@swagfinger/utils/getQuadrant';
 
 const Dropdown = ({ children }: { children: React.ReactNode }) => {
-  return <DropdownContextProvider>{children}</DropdownContextProvider>;
+  return (
+    <DropdownContextProvider>
+      <div data-component={Dropdown.displayName}>{children}</div>
+    </DropdownContextProvider>
+  );
 };
 
 const Wrapper = ({
@@ -263,4 +267,5 @@ Dropdown.Menu = Menu;
 MenuItem.displayName = 'Dropdown.MenuItem';
 Dropdown.MenuItem = MenuItem;
 
+Dropdown.displayName = 'Dropdown';
 export { Dropdown };

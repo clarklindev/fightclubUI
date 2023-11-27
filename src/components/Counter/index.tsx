@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { Input, Button, Icon } from '@swagfinger/components';
 import { MinusIcon, PlusIcon } from '@swagfinger/icons';
@@ -13,7 +12,7 @@ const CounterWrapper = () => {};
 
 const CounterButton = () => {};
 
-export const Counter = ({ savedData, onChange }: CounterProps) => {
+const Counter = ({ savedData, onChange }: CounterProps) => {
   const decrement = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
     event.stopPropagation();
@@ -29,7 +28,7 @@ export const Counter = ({ savedData, onChange }: CounterProps) => {
   };
 
   return (
-    <CounterContainer>
+    <div className="flex w-[120px] gap-2.5 h-[30px]" data-component={Counter.displayName}>
       <Button className={['Button', 'left'].join(' ')} onClick={decrement} intent="icon">
         <Icon size="L">
           <MinusIcon />
@@ -38,34 +37,19 @@ export const Counter = ({ savedData, onChange }: CounterProps) => {
 
       <Input
         placeholder=""
-        className="pointer-events-none text-center p-0 w-12"
+        className="pointer-events-none text-center p-0 w-12 h-auto"
         onChange={event => event.target.value}
         value={savedData.toString()}
       />
 
-      <Button className={['Button', 'right'].join(' ')} onClick={increment} intent="icon">
+      <Button className={['Button', 'right', 'flex', 'items-center'].join(' ')} onClick={increment} intent="icon">
         <Icon size="L">
           <PlusIcon />
         </Icon>
       </Button>
-    </CounterContainer>
+    </div>
   );
 };
 
-// ------------------------------------------------------------------------------------------------------------------------------------------------
-
-const CounterContainer = styled.div`
-  display: flex;
-  width: 120px;
-
-  height: ${({ theme }) => theme?.Counter?.height};
-  gap: 10px;
-
-  Button {
-    display: flex;
-    align-items: center;
-  }
-  Input {
-    height: auto;
-  }
-`;
+Counter.displayName = 'Counter';
+export { Counter };

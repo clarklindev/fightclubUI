@@ -14,7 +14,7 @@ const Divider = ({ variation = 'horizontal', children, ...rest }: DividerProps) 
     case 'horizontal':
       return (
         <div
-          data-component="Divider-Horizontal"
+          data-component={`${Divider.displayName}-Horizontal`}
           className={[
             children ? `border-none` : `border-b border-solid border-red-400`,
             children ? `m-0` : `my-2.5 mx-0`,
@@ -56,7 +56,7 @@ const Divider = ({ variation = 'horizontal', children, ...rest }: DividerProps) 
       return (
         <div
           ref={dividerRef}
-          data-component="Divider-Vertical"
+          data-component={`${Divider.displayName}-Vertical`}
           className={[
             'h-full relative inline-flex items-stretch',
             children ? 'border-r-0' : `border-r border-solid border-white `,

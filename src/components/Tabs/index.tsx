@@ -4,7 +4,11 @@ import { Button } from '@swagfinger/components/Button';
 import { TabsContextProvider, useTabs } from '@swagfinger/context/TabContext';
 
 const Tabs = ({ children }: { children: React.ReactNode }) => {
-  return <TabsContextProvider data-component="Tabs">{children}</TabsContextProvider>;
+  return (
+    <TabsContextProvider>
+      <div data-component="Tabs">{children}</div>
+    </TabsContextProvider>
+  );
 };
 
 const TriggerGroup = ({ children, className }: { className?: string; children?: React.ReactNode }) => {

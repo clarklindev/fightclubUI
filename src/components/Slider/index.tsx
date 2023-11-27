@@ -63,7 +63,13 @@ const Slider = ({
   };
 
   return (
-    <SliderContainer orientation={orientation} length={length} offset={offset} ref={myRef} style={style}>
+    <SliderContainer
+      data-component={Slider.displayName}
+      orientation={orientation}
+      length={length}
+      offset={offset}
+      ref={myRef}
+      style={style}>
       <SliderInput
         onChange={event => onChangeHandler(event.target.value, index)}
         orientation={orientation}

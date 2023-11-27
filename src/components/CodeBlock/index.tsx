@@ -31,19 +31,21 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
   }, [children]);
 
   return (
-    <CodeMirror
-      className="[&_.cm-content]:p-4"
-      theme={githubDark}
-      extensions={extensions}
-      value={code}
-      readOnly={true}
-      editable={false}
-      basicSetup={{
-        lineNumbers: false,
-        foldGutter: false,
-        highlightActiveLine: false,
-      }}
-    />
+    <div data-component={CodeBlock.displayName}>
+      <CodeMirror
+        className="[&_.cm-content]:p-4"
+        theme={githubDark}
+        extensions={extensions}
+        value={code}
+        readOnly={true}
+        editable={false}
+        basicSetup={{
+          lineNumbers: false,
+          foldGutter: false,
+          highlightActiveLine: false,
+        }}
+      />
+    </div>
   );
 };
 

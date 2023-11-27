@@ -10,9 +10,9 @@ type ToggleButtonProps = {
   children?: React.ReactNode;
 };
 
-export const ToggleButton = ({ checked, onChange, icon, children }: ToggleButtonProps) => {
+const ToggleButton = ({ checked, onChange, icon, children }: ToggleButtonProps) => {
   return (
-    <ToggleButtonContainer className="ToggleButton">
+    <ToggleButtonContainer data-component={ToggleButton.displayName} className="ToggleButton">
       <label>
         <HiddenInput checked={checked} onChange={onChange} />
         {icon ? (
@@ -28,6 +28,8 @@ export const ToggleButton = ({ checked, onChange, icon, children }: ToggleButton
   );
 };
 
+ToggleButton.displayName = 'ToggleButton';
+export { ToggleButton };
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
 const ToggleButtonContainer = styled.div`

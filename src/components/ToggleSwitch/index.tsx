@@ -14,7 +14,7 @@ const ToggleSwitch = React.memo(
     const uniqueClassName = useUID('ToggleSwitch');
 
     return (
-      <ToggleSwitchWrapper>
+      <ToggleSwitchWrapper data-component={ToggleSwitch.displayName}>
         <ToggleSwitchInput type="checkbox" defaultChecked={savedData} onChange={onChange} />
         <Slider className={uniqueClassName} color={color} />
       </ToggleSwitchWrapper>

@@ -47,7 +47,7 @@ const Tree = ({ data, depth = 0 }: TreeProps) => {
       const depthAndIndexStr = `${depth}-${index}` as string;
 
       return (
-        <TreeContainer key={`depth_${depth}_index_${index}`}>
+        <TreeContainer data-component={Tree.displayName} key={`depth_${depth}_index_${index}`}>
           <button onClick={() => openNodeHandler(depth, index)}>
             <Label label={label}>
               <Icon size="M">

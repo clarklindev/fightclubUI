@@ -46,7 +46,7 @@ const TableContainer = styled.table<{ gridTemplateColumns: string }>`
   }
 `;
 
-export const Table = ({ headers, data, configure }: TableProps) => {
+const Table = ({ headers, data, configure }: TableProps) => {
   const columns = headers.map(each => each.width).join(' ');
   console.log('columns: ', columns);
   return (
@@ -89,3 +89,6 @@ export const Table = ({ headers, data, configure }: TableProps) => {
     </TableContainer>
   );
 };
+
+Table.displayName = 'Table';
+export { Table };

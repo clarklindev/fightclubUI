@@ -8,12 +8,17 @@ type CustomNavLink = {
   className?: string;
 };
 
-export const CustomNavLink = ({ to, children, className }: CustomNavLink) => {
+const CustomNavLink = ({ to, children, className }: CustomNavLink) => {
   const { closeMenu } = useMenu();
 
   return (
-    <NavLink className={className} to={to} onClick={closeMenu}>
-      {children}
-    </NavLink>
+    <div data-component={CustomNavLink.displayName}>
+      <NavLink className={className} to={to} onClick={closeMenu}>
+        {children}
+      </NavLink>
+    </div>
   );
 };
+
+CustomNavLink.displayName = 'CustomNavLink';
+export { CustomNavLink };

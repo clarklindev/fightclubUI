@@ -22,7 +22,11 @@ const Snackbar = ({ setShowSnackbar, children }: SnackbarProps) => {
     };
   }, [setShowSnackbar]);
 
-  return <SnackbarContainer className={snackbarOpen ? 'show' : ''}>{children}</SnackbarContainer>;
+  return (
+    <SnackbarContainer display-component={Snackbar.displayName} className={snackbarOpen ? 'show' : ''}>
+      {children}
+    </SnackbarContainer>
+  );
 };
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------

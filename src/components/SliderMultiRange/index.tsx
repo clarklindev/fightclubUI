@@ -112,7 +112,11 @@ export const SliderMultiRange = ({
   };
 
   return (
-    <SliderMultiRangeContainer className="SliderMultiRange" orientation={orientation} length={length}>
+    <SliderMultiRangeContainer
+      data-component={SliderMultiRange.displayName}
+      className="SliderMultiRange"
+      orientation={orientation}
+      length={length}>
       <SliderWrapper>
         <SliderTrack className="SliderTrack" thickness={thickness} thumbSize={thumbSize} />
         <Sliders
@@ -155,6 +159,7 @@ const SliderMultiRangeContainer = styled.div<{
 }>`
   width: 100%;
 `;
+SliderMultiRange.displayName = 'SliderMultiRange';
 
 const SliderWrapper = styled.div`
   // DO NOT USE THIS FOR STYLING - its used for positioning ONLY

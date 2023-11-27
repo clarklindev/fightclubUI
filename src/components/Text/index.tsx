@@ -44,7 +44,7 @@ const Text = ({
   }
 
   return (
-    <p className={[lineHeight, color, marginBottom, className].join(' ')} {...rest}>
+    <p data-component={Text.displayName} className={[lineHeight, color, marginBottom, className].join(' ')} {...rest}>
       {children}
     </p>
   );

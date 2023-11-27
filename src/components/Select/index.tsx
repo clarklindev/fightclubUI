@@ -21,7 +21,10 @@ const Select = (props: SelectProps) => {
   const { savedData, onChange, children } = props;
 
   return (
-    <SelectContainer value={savedData} onChange={(event: React.ChangeEvent<HTMLSelectElement>) => onChange(event)}>
+    <SelectContainer
+      data-component={Select.displayName}
+      value={savedData}
+      onChange={(event: React.ChangeEvent<HTMLSelectElement>) => onChange(event)}>
       {children
         ? children.map(each => {
             return each;
@@ -40,6 +43,8 @@ SelectWrapper.displayName = 'Select.SelectWrapper';
 
 Select.SelectIcon = SelectIcon;
 SelectIcon.displayName = 'Select.SelectIcon';
+
+Select.displayName = 'Select';
 export { Select };
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
