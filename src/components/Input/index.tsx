@@ -1,6 +1,8 @@
 import React, { ForwardedRef, ReactNode, forwardRef } from 'react';
 import { VariantProps, cva } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
+import { useTheme } from '@swagfinger/context/ThemeContext';
+import { getTailwindClassesFromThemeComponent } from '@swagfinger/utils/getTailwindClassesFromThemeComponent';
 
 const inputVariants: any = cva(
   [
@@ -17,7 +19,7 @@ const inputVariants: any = cva(
     variants: {
       border: {
         false: ['border-transparent', 'px-0', 'rounded-none'],
-        true: ['border', 'border-solid', 'border-borderColor'],
+        true: ['border', 'border-solid', 'border-[var(--border-color)]'],
       },
       readonly: {
         true: ['text-neutral-300'],
@@ -52,7 +54,12 @@ const Input = forwardRef<HTMLInputElement, InputVariants>(function Input(
   }: InputVariants,
   ref,
 ) {
-  const classes = twMerge(inputVariants({ border, readonly }), className);
+  const { theme } = useTheme();
+
+  const classes = twMerge(
+    theme ? getTailwindClassesFromThemeComponent(theme.Input) : inputVariants({ border, readonly }),
+    className,
+  );
 
   return (
     <input
@@ -93,7 +100,7 @@ const InputWrapper = ({ children }: InputProps) => {
           'px-2',
           'gap-2',
           'bg-[var(--input-background-color)]',
-          'border-borderColor',
+          'border-[var(--border-color)]',
           'overflow-hidden',
         ])(),
       )}>
