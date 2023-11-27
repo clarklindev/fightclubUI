@@ -71,7 +71,7 @@ export const transparency = {
 export const global = {
   fontFamily: "Roboto, 'sans-serif'",
   color: 'rgba(255, 255, 255, 0.8)',
-  backgroundColor: '#000000',
+  backgroundColor: '#333333',
   padding: '10px',
   margin: '1rem',
   gap: '5px',
@@ -158,12 +158,22 @@ export const darkTheme = {
     fillOpacity: 0,
   },
 
+  //it actually doesnt do anything with the keys, its for developer guide, technically Input can return a string of tailwind classes.
   Input: {
-    color: global.color,
-    inputHeight: global.inputHeight,
-    backgroundColor: colors.neutral[100],
-    border: global.border,
-    borderRadius: global.borderRadius,
+    default: [
+      'box-border',
+      'cursor-text',
+      'outline-none',
+      'w-full',
+      'p-2',
+      'rounded-md',
+      'h-10',
+      `bg-[${global.backgroundColor}]`,
+    ].join(' '),
+    color: `text-red-500`,
+    inputHeight: `h-[${global.inputHeight}]`,
+    border: `border-[${global.border}]`,
+    borderRadius: `rounded-[${global.borderRadius}]`,
   },
 
   Text: {

@@ -13,7 +13,7 @@ const inputVariants: any = cva(
     'p-2',
     'rounded-md',
     'h-10',
-    'bg-[var(--input-background-color)]',
+    'bg-[var(--input-background-color)]', //DONT REMOVE from variant defaults - need default values if there is no theme so dont remove
   ],
   {
     variants: {
