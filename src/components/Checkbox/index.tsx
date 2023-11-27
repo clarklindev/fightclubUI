@@ -12,7 +12,7 @@ type CheckboxProps = {
   indeterminate?: boolean;
 };
 
-export const Checkbox = ({ checked, name, label, onChange, size = '20px', indeterminate = false }: CheckboxProps) => {
+const Checkbox = ({ checked, name, label, onChange, size = '20px', indeterminate = false }: CheckboxProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
@@ -31,6 +31,9 @@ export const Checkbox = ({ checked, name, label, onChange, size = '20px', indete
     </CheckboxContainer>
   );
 };
+
+Checkbox.displayName = 'Checkbox';
+export { Checkbox };
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 

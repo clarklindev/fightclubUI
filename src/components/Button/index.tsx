@@ -17,7 +17,6 @@ const buttonVariants: any = cva(['box-border', 'inline-flex', 'items-center', 'c
         text-red-400
         dark:text-blue-500
         
-        
         border
         border-red-400 
         dark:border-white

@@ -20,7 +20,7 @@ type AccordionProps = {
   showDivider?: boolean;
 };
 
-export const Accordion = ({ data, multiOpen = true, iconType = 'plusminus', showDivider = true }: AccordionProps) => {
+const Accordion = ({ data, multiOpen = true, iconType = 'plusminus', showDivider = true }: AccordionProps) => {
   const [indexes, setIndexes] = useState<number[]>([]);
 
   //@index - filter-out/add or toggle
@@ -60,7 +60,7 @@ export const Accordion = ({ data, multiOpen = true, iconType = 'plusminus', show
   };
 
   return (
-    <AccordionWrapper role="tablist">
+    <AccordionWrapper role="tablist" data-component={Accordion.displayName}>
       {data.map((each: AccordionDataType, index: number) => {
         const panelRef = useRef<HTMLDivElement>(null);
 
@@ -117,6 +117,9 @@ export const Accordion = ({ data, multiOpen = true, iconType = 'plusminus', show
     </AccordionWrapper>
   );
 };
+
+Accordion.displayName = 'Accordion';
+export { Accordion };
 
 //------------------------------------------------------------------------------------------------------------------------------------------------
 

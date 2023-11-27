@@ -9,7 +9,7 @@ const Card = ({ className, ...props }: CardProps) => {
   const [loading] = useState(false);
   return (
     <div
-      data-component="Card"
+      data-component={Card.displayName}
       className={cn('text-white border-gray-300 border rounded-lg h-200 min-h-12 p-10', className, {
         'bg-gray-400': loading,
       })}

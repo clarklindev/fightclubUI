@@ -60,7 +60,7 @@ export interface IconProps extends React.HTMLAttributes<HTMLDivElement>, Variant
 
 const Icon = ({ children, size, className, ...props }: IconProps) => {
   return (
-    <div data-component="Icon" className={icon({ size, className })} {...props}>
+    <div data-component={Icon.displayName} className={icon({ size, className })} {...props}>
       {children}
     </div>
   );

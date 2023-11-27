@@ -7,7 +7,6 @@ import { sass } from '@codemirror/lang-sass';
 import { less } from '@codemirror/lang-less';
 
 import reactElementToJSXString from 'react-element-to-jsx-string';
-import './styles.css';
 
 const extensions = [javascript({ jsx: true }), less(), sass()];
 
@@ -33,7 +32,7 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
 
   return (
     <CodeMirror
-      data-component="CodeMirror"
+      className="[&_.cm-content]:p-4"
       theme={githubDark}
       extensions={extensions}
       value={code}
@@ -48,4 +47,5 @@ const CodeBlock = ({ children }: CodeBlockProps) => {
   );
 };
 
+CodeBlock.displayName = 'CodeBlock';
 export { CodeBlock };

@@ -136,7 +136,7 @@ export const lightTheme = {
 
   Button: {
     intent: {
-      primary: 'bg-green-500 hover:bg-green-600',
+      primary: 'bg-blue-500 hover:bg-green-600',
 
       contained: {
         color: colors.neutral[100],
