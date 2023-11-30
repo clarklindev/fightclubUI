@@ -136,7 +136,7 @@ export const lightTheme = {
 
   Button: {
     intent: {
-      primary: 'bg-blue-500 hover:bg-green-600',
+      primary: 'text-pink-400 bg-green-500 hover:bg-green-600',
 
       contained: {
         color: colors.neutral[100],
@@ -145,8 +145,7 @@ export const lightTheme = {
         border: `1px solid ${colors.neutral[100]}`,
       },
 
-      outlined: 'bg-transparent text-black border-black',
-
+      outlined: 'bg-transparent text-white border-white',
       text: {
         color: colors.neutral[500],
       },
@@ -159,12 +158,22 @@ export const lightTheme = {
     fillOpacity: 0,
   },
 
+  //it actually doesnt do anything with the keys, its for developer guide, technically Input can return a string of tailwind classes.
   Input: {
-    color: global.color,
-    inputHeight: global.inputHeight,
-    backgroundColor: colors.neutral[100],
-    border: global.border,
-    borderRadius: global.borderRadius,
+    default: [
+      'box-border',
+      'cursor-text',
+      'outline-none',
+      'w-full',
+      'p-2',
+      'rounded-md',
+      'h-10',
+      `bg-[${global.backgroundColor}]`,
+    ].join(' '),
+    color: `text-red-500`,
+    inputHeight: `h-[${global.inputHeight}]`,
+    border: `border-[${global.border}]`,
+    borderRadius: `rounded-[${global.borderRadius}]`,
   },
 
   Text: {
@@ -215,7 +224,7 @@ export const lightTheme = {
   Checkbox: {
     borderRadius: global.borderRadius,
     border: global.border,
-    backgroundColor: 'red',
+    backgroundColor: global.backgroundColor,
   },
 
   RadioButton: {
@@ -229,5 +238,9 @@ export const lightTheme = {
     border: global.border,
     borderRadius: global.borderRadius,
     backgroundColor: global.backgroundColor,
+  },
+
+  Codeblock: {
+    borderRadius: global.borderRadius,
   },
 };

@@ -1,50 +1,142 @@
-import { Layout, Heading, Tabs, CodeBlock } from '@swagfinger/components';
+import { useRef, useState } from 'react';
+
+import { Layout, Heading, Tabs, CodeBlock, Icon, Input, Button } from '@swagfinger/components';
+
+import { SpeechIcon } from '@swagfinger/icons'; //input + icon example
+import { SearchIcon, CloseIcon } from '@swagfinger/icons'; //search example
+import { ShowPasswordIcon, HidePasswordIcon } from '@swagfinger/icons'; //password example icons
+
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import InputBasicExample from './InputBasicExample';
-import InputReadOnlyExample from './InputReadOnlyExample';
-import InputWithIconExample from './InputWithIconExample';
-import InputNoBorderExample from './InputNoBorderExample';
-import InputPasswordExample from './InputPasswordExample';
-import InputFilterExample from './InputFilterExample';
-import InputSearchExample from './InputSearchExample';
-
 const InputExample = () => {
+  const [savedData, setSavedData] = useState('');
+  const [passwordVisible, setPasswordVisible] = useState(false); //password input
+  const ref = useRef<HTMLInputElement | null>(null); //input search
+
   const preview = (
     <>
       <Layout>
-        <Heading variation="h5">Input (no-border)</Heading>
-        <InputNoBorderExample />
-      </Layout>
-
-      <Layout>
         <Heading variation="h5">Basic input</Heading>
-        <InputBasicExample />
+        <Input>
+          <Input.InputElement
+            value={savedData}
+            onChange={event => {
+              setSavedData(event.target.value);
+            }}
+          />
+        </Input>
       </Layout>
 
       <Layout>
         <Heading variation="h5">Input (readonly)</Heading>
-        <InputReadOnlyExample />
+        <Input>
+          <Input.InputElement
+            value={savedData}
+            readOnly
+            onChange={event => {
+              setSavedData(event.target.value);
+            }}
+          />
+        </Input>
       </Layout>
 
       <Layout>
         <Heading variation="h5">Input + Icon</Heading>
-        <InputWithIconExample />
+        <Input variants={{ variant: 'default' }}>
+          <Icon size="L">
+            <SpeechIcon />
+          </Icon>
+          <Input.InputElement
+            value={savedData}
+            placeholder="placeholder"
+            onChange={event => {
+              setSavedData(event.target.value);
+            }}
+          />
+        </Input>
       </Layout>
 
       <Layout>
         <Heading variation="h5">Input Password</Heading>
-        <InputPasswordExample />
+        <Input>
+          <Input.InputElement
+            value={savedData}
+            placeholder={'placeholder'}
+            type={passwordVisible ? 'text' : 'password'}
+            onChange={event => {
+              setSavedData(event.target.value);
+            }}
+          />
+          <Button intent="icon" onClick={() => setPasswordVisible(!passwordVisible)}>
+            <Icon size="L">{passwordVisible ? <HidePasswordIcon /> : <ShowPasswordIcon />}</Icon>
+          </Button>
+        </Input>
       </Layout>
 
       <Layout>
         <Heading variation="h5">Input Filter</Heading>
-        <InputFilterExample />
+        <Input>
+          <Icon size="M">
+            <SearchIcon />
+          </Icon>
+          <Input.InputElement
+            value={savedData}
+            placeholder="placeholder"
+            onChange={event => {
+              setSavedData(event.target.value);
+            }}
+          />
+          {savedData.length > 0 && (
+            <Button
+              intent="icon"
+              onClick={() => {
+                setSavedData('');
+              }}>
+              <Icon size="M">
+                <CloseIcon />
+              </Icon>
+            </Button>
+          )}
+        </Input>
       </Layout>
 
       <Layout>
         <Heading variation="h5">Input Search</Heading>
-        <InputSearchExample />
+        <Input>
+          <Input.InputElement
+            ref={ref}
+            value={savedData}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              const val = event.target.value;
+              setSavedData(val);
+            }}
+            placeholder="placeholder"
+          />
+          <Button
+            intent="icon"
+            onClick={() => {
+              if (ref.current) {
+                console.log('value: ', ref.current.value);
+              }
+            }}>
+            <Icon size="M">
+              <SearchIcon />
+            </Icon>
+          </Button>
+        </Input>
+      </Layout>
+
+      <Layout>
+        <Heading variation="h5">Input (no-border / no-bg)</Heading>
+        <Input variants={{ variant: 'unstyled' }}>
+          <Input.InputElement
+            value={savedData}
+            placeholder="placeholder"
+            onChange={event => {
+              setSavedData(event.target.value);
+            }}
+          />
+        </Input>
       </Layout>
     </>
   );

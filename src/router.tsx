@@ -9,11 +9,6 @@ import Introduction from '@swagfinger/pages/Introduction';
 import SystemDesign from '@swagfinger/pages/SystemDesign';
 import NotFound from '@swagfinger/pages/NotFound';
 
-// interface
-import PageLayoutsExample from '@swagfinger/pages/PageLayouts';
-import PageExample from '@swagfinger/pages/Page';
-import FormsExample from '@swagfinger/pages/Forms';
-
 //components
 import NavbarExample from '@swagfinger/pages/Navbar';
 import NavSideExample from '@swagfinger/pages/NavSide';
@@ -67,11 +62,6 @@ export const router = createBrowserRouter(
       <Route path="/introduction" element={<Introduction />} />
       <Route path="/gettingstarted" element={<GettingStarted />} />
       <Route path="/systemdesign" element={<SystemDesign />} />
-
-      {/* Interface */}
-      <Route path="/pagelayouts" element={<PageLayoutsExample />} />
-      <Route path="/page" element={<PageExample />} />
-      <Route path="/forms" element={<FormsExample />} />
 
       {/* components */}
       <Route path="/navbar" element={<NavbarExample />} />

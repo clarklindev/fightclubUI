@@ -1,113 +1,103 @@
-import React, { ForwardedRef, ReactNode, forwardRef } from 'react';
+import React, { ForwardedRef, ReactNode, forwardRef, InputHTMLAttributes, HTMLAttributes } from 'react';
 import { VariantProps, cva } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
+
 import { useTheme } from '@swagfinger/context/ThemeContext';
 import { getTailwindClassesFromThemeComponent } from '@swagfinger/utils/getTailwindClassesFromThemeComponent';
 
-const inputVariants: any = cva(
-  [
-    'box-border',
-    'cursor-text',
-    'outline-none',
-    'w-full',
-    'p-2',
-    'rounded-md',
-    'h-10',
-    'bg-[var(--input-background-color)]', //DONT REMOVE from variant defaults - need default values if there is no theme so dont remove
-  ],
+const InputVariants = cva(
+  `items-center 
+  box-border
+  cursor-text
+  focus:outline-none
+  border-none
+  w-full
+  rounded-md
+  h-10
+  max-h-10
+  px-2
+  gap-2
+  bg-[var(--input-background-color)]
+  overflow-hidden`,
   {
     variants: {
-      border: {
-        false: ['border-transparent', 'px-0', 'rounded-none'],
-        true: ['border', 'border-solid', 'border-[var(--border-color)]'],
-      },
-      readonly: {
-        true: ['text-neutral-300'],
+      variant: {
+        default: `border 
+          border-solid 
+          flex
+          items-center
+          border-[var(--border-color)]`,
+        unstyled: `bg-transparent
+          border-0 
+          border-transparent 
+          px-0 
+          rounded-none`,
       },
     },
     defaultVariants: {
-      border: true,
+      variant: 'default',
     },
   },
 );
 
-export interface InputVariants extends VariantProps<typeof inputVariants> {
-  className?: string;
-  type?: string;
-  border?: boolean;
-  value: string;
-  placeholder?: string;
-  readonly?: boolean;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+interface InputProps extends HTMLAttributes<HTMLDivElement> {
+  variants?: VariantProps<typeof InputVariants>;
 }
 
-const Input = forwardRef<HTMLInputElement, InputVariants>(function Input(
-  {
-    onChange,
-    border = true,
-    value,
-    placeholder = '',
-    className,
-    readonly = false,
-    type = 'text',
-    ...rest
-  }: InputVariants,
-  ref,
-) {
-  const { theme } = useTheme();
+const Input = ({ className, variants, children, ...props }: InputProps) => {
+  // const { theme } = useTheme();
 
   const classes = twMerge(
-    theme ? getTailwindClassesFromThemeComponent(theme.Input) : inputVariants({ border, readonly }),
+    // theme ? getTailwindClassesFromThemeComponent(theme.Input) :
+    InputVariants({ ...variants }),
     className,
   );
 
   return (
-    <input
-      data-component="Input"
-      type={type}
-      onChange={onChange}
-      value={value}
-      placeholder={placeholder}
-      className={classes}
-      readOnly={readonly}
-      ref={ref}
-      {...rest}
-    />
-  );
-});
-
-type InputProps = {
-  children: ReactNode;
-};
-
-const InputWrapper = ({ children }: InputProps) => {
-  return (
-    <div
-      data-component={InputWrapper.displayName}
-      className={twMerge(
-        cva([
-          'box-border',
-          'h-auto',
-          'w-full',
-          'flex',
-          'items-center',
-          'flex-grow-1',
-          'outline-none',
-          'border',
-          'border-solid',
-          'rounded-md',
-          'max-h-10',
-          'px-2',
-          'gap-2',
-          'bg-[var(--input-background-color)]',
-          'border-[var(--border-color)]',
-          'overflow-hidden',
-        ])(),
-      )}>
+    <div data-component={Input.displayName} className={classes} {...props}>
       {children}
     </div>
   );
 };
 
-InputWrapper.displayName = 'InputWrapper';
-export { InputWrapper, Input };
+interface InputElementProps extends InputHTMLAttributes<HTMLInputElement> {}
+
+const InputElement = ({
+  onChange,
+  value,
+  placeholder = '',
+  className,
+  readOnly = false,
+  type = 'text',
+  ...props
+}: InputElementProps) => {
+  return (
+    <input
+      type={type}
+      onChange={onChange}
+      value={value}
+      placeholder={placeholder}
+      readOnly={readOnly}
+      className={twMerge(
+        `border-none
+      focus:outline-none
+      flex
+      h-full
+      w-full
+      bg-transparent`,
+        readOnly &&
+          `text-neutral-300
+      cursor-default
+      select-none
+      `,
+      )}
+      {...props}
+    />
+  );
+};
+
+InputElement.displayName = 'Input.InputElement';
+Input.InputElement = InputElement;
+
+Input.displayName = 'Input';
+export { Input };

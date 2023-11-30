@@ -9,7 +9,7 @@ export { Checkbox } from './Checkbox';
 export { CheckboxGroup } from './CheckboxGroup';
 export { Counter } from './Counter';
 export { Icon } from './Icon';
-export { Input, InputWrapper } from './Input';
+export { Input } from './Input';
 export { Label } from './Label';
 export { List } from './List';
 export { ProgressLoader } from './ProgressLoader';

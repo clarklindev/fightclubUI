@@ -259,16 +259,6 @@ export const HomeLayout = () => {
 
           <NavSide.Group>
             <NavSide.Heading variation="h2" size="M" className="mb-3">
-              Interface
-            </NavSide.Heading>
-
-            <NavSide.Link to="pagelayouts">Page Layouts</NavSide.Link>
-            <NavSide.Link to="page">Adding pages</NavSide.Link>
-            <NavSide.Link to="forms">Handling forms</NavSide.Link>
-          </NavSide.Group>
-
-          <NavSide.Group>
-            <NavSide.Heading variation="h2" size="M" className="mb-3">
               Components
             </NavSide.Heading>
             <NavSide.Link to="navbar">Navbar</NavSide.Link>
@@ -297,7 +287,7 @@ export const HomeLayout = () => {
               Button <Badge>CVA</Badge>
             </NavSide.Link>
             <NavSide.Link to="input">
-              Input <Badge>CVA</Badge>
+              Input <Badge>Compound</Badge> <Badge>CVA</Badge> <Badge>TW</Badge>
             </NavSide.Link>
             <NavSide.Link to="select">Select</NavSide.Link>
             <NavSide.Link to="accordion">Accordion</NavSide.Link>

@@ -5,7 +5,7 @@ import { useTheme } from '@swagfinger/context/ThemeContext';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
 
-const buttonVariants: any = cva(['box-border', 'inline-flex', 'items-center', 'cursor-pointer'], {
+const buttonVariants = cva(['box-border', 'inline-flex', 'items-center', 'cursor-pointer'], {
   variants: {
     intent: {
       default: '',
@@ -63,22 +63,7 @@ const buttonVariants: any = cva(['box-border', 'inline-flex', 'items-center', 'c
   },
 });
 
-export interface ButtonVariants extends VariantProps<typeof buttonVariants> {
-  intent?: string;
-  padding?: string;
-  fontsize?: string;
-  focus?: string;
-  className?: string;
-  ariaLabel?: string;
-  children: React.ReactNode;
-  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseEnter?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseLeave?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseOver?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onMouseOut?: (event: React.MouseEvent<HTMLButtonElement>) => void;
-  onFocus?: (event: React.FocusEvent<HTMLButtonElement>) => void;
-  onBlur?: (event: React.FocusEvent<HTMLButtonElement>) => void;
-}
+export interface ButtonVariants extends VariantProps<typeof buttonVariants> {}
 
 const Button = forwardRef<HTMLButtonElement, ButtonVariants>((props, ref) => {
   const {
