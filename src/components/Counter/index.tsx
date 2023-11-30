@@ -35,12 +35,14 @@ const Counter = ({ savedData, onChange }: CounterProps) => {
         </Icon>
       </Button>
 
-      <Input
-        placeholder=""
-        className="pointer-events-none text-center p-0 w-12 h-auto"
-        onChange={event => event.target.value}
-        value={savedData.toString()}
-      />
+      <Input>
+        <Input.InputElement
+          className="flex justify-items-center items-center content-center self-center text-center"
+          placeholder=""
+          onChange={event => event.target.value}
+          value={savedData.toString()}
+        />
+      </Input>
 
       <Button className={['Button', 'right', 'flex', 'items-center'].join(' ')} onClick={increment} intent="icon">
         <Icon size="L">

@@ -90,6 +90,7 @@ const InputElement = ({
       cursor-default
       select-none
       `,
+        className,
       )}
       {...props}
     />
