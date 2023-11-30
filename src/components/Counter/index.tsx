@@ -28,22 +28,20 @@ const Counter = ({ savedData, onChange }: CounterProps) => {
   };
 
   return (
-    <div className="flex w-[120px] gap-2.5 h-[30px]" data-component={Counter.displayName}>
+    <div data-component={Counter.displayName} className="flex items-center w-[120px] gap-2.5 h-[30px]">
       <Button className={['Button', 'left'].join(' ')} onClick={decrement} intent="icon">
         <Icon size="L">
           <MinusIcon />
         </Icon>
       </Button>
-
       <Input>
         <Input.InputElement
-          className="flex justify-items-center items-center content-center self-center text-center"
+          className="text-center"
           placeholder=""
           onChange={event => event.target.value}
           value={savedData.toString()}
         />
       </Input>
-
       <Button className={['Button', 'right', 'flex', 'items-center'].join(' ')} onClick={increment} intent="icon">
         <Icon size="L">
           <PlusIcon />
