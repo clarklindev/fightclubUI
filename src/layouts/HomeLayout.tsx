@@ -292,7 +292,9 @@ export const HomeLayout = () => {
             <NavSide.Link to="select">
               Select <Badge>Compound</Badge> <Badge>TW</Badge>
             </NavSide.Link>
-            <NavSide.Link to="accordion">Accordion</NavSide.Link>
+            <NavSide.Link to="accordion">
+              Accordion <Badge>Compound</Badge> <Badge>TW</Badge>
+            </NavSide.Link>
             <NavSide.Link to="radiobutton">RadioButton</NavSide.Link>
             <NavSide.Link to="radiobuttongroup">RadioButton Group</NavSide.Link>
             <NavSide.Link to="checkbox">Checkbox</NavSide.Link>

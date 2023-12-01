@@ -51,20 +51,22 @@ const AccordionExample = () => {
       <Accordion multiOpen={true}>
         {data.map(({ title, body }: AccordionDataType, index) => {
           return (
-            <Accordion.Section key={index}>
-              <Accordion.SectionHeader
-                render={indexes => (
-                  <Accordion.SectionHeaderTitle index={index}>
-                    {title}
-                    <Icon>{indexes.includes(index) ? iconMap['chevron'].open : iconMap['chevron'].closed}</Icon>
-                  </Accordion.SectionHeaderTitle>
-                )}
-              />
-              <Accordion.SectionPanel index={index}>
-                <Accordion.SectionPanelContent>{body}</Accordion.SectionPanelContent>
-              </Accordion.SectionPanel>
-            </Accordion.Section>
-            //<Divider /> add divider if needed
+            <>
+              <Accordion.Section key={index}>
+                <Accordion.SectionHeader
+                  render={indexes => (
+                    <Accordion.SectionHeaderTitle index={index}>
+                      {title}
+                      <Icon>{indexes.includes(index) ? iconMap['chevron'].open : iconMap['chevron'].closed}</Icon>
+                    </Accordion.SectionHeaderTitle>
+                  )}
+                />
+                <Accordion.SectionPanel index={index}>
+                  <Accordion.SectionPanelContent>{body}</Accordion.SectionPanelContent>
+                </Accordion.SectionPanel>
+              </Accordion.Section>
+              {/* <Divider /> add divider if needed */}
+            </>
           );
         })}
       </Accordion>

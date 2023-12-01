@@ -136,9 +136,10 @@ const AccordionSectionPanel = ({ children, index }: { index: number; children: R
       style={{ maxHeight: indexes.includes(index) ? `${panelRef.current && panelRef.current.scrollHeight}px` : '0' }}
       className={`overflow-hidden 
         text-[var(--clr-foreground)]
-        transition-max-height
+        transition-all
         duration-300
         ease-out
+        ${indexes.includes(index) ? 'opacity-100' : 'opacity-0'}
       `}>
       {children}
     </div>
