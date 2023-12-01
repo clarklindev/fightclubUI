@@ -41,7 +41,6 @@ const RadioButton = ({ checked, name, label, onChange, size = 'XL' }: RadioButto
         `}
       />
       <div
-        data-component="StyledRadioButton"
         className={`
       flex 
       items-center

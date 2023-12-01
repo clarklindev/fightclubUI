@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Checkbox, Label, Heading, ResizePanel, Tabs, CodeBlock } from '@swagfinger/components';
+import { Checkbox, Label, Heading, Tabs, CodeBlock } from '@swagfinger/components';
 
 const CheckboxExample = () => {
   const [savedData, setSavedData] = useState(false);
@@ -9,6 +9,7 @@ const CheckboxExample = () => {
   const preview = (
     <Label label="label" labelDirection="right" gap="10px">
       <Checkbox
+        size="XL"
         checked={savedData}
         name="checkbox"
         onChange={event => {
