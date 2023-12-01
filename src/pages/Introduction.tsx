@@ -8,18 +8,20 @@ const Introduction = () => {
         <Heading variation="h1" data-observable="true">
           Introduction
         </Heading>
-        <Text>Swagfinger-UI is a design system meant for an easier developer experience.</Text>
-        <Text>It uses Styled-Components / Class Variance Authority (CVA) and TailwindCSS under the hood.</Text>
+        <Text>SwagfingerUI is a design system meant for an easier developer experience.</Text>
+
         <Text>
-          The goal of this library is to combine the user-friendly approach of TailwindCSS, which is known for its
-          comprehensive documentation, with the structure of Styled Components / CVA (Class Variance Authority). The aim
-          is to create a solution that strikes a balance between being opinionated and providing the flexibility to meet
-          different needs. By incorporating the best of both worlds, this library makes it easy for developers to
-          quickly create a visually appealing interface without sacrificing design control. Whether you're working on a
-          small project or a large one, this library can help you achieve your goals in a streamlined manner. Overall,
-          the library is designed to offer the right amount of opinionatedness, ensuring that users have access to a
-          range of pre-defined styles and components, while also providing the ability to customize and tailor the
-          output to meet their specific requirements.
+          It uses React (Function-based library of compound components), TailwindCSS and Class Variance Authority (CVA)
+          under the hood.
+        </Text>
+        <Text>
+          The goal of this library is to combine the user-friendly modular approach of customizing with compound
+          components while leveraging TailwindCSS (known for its well-documented utility-first library of reusable
+          classes) with the variant abilities of CVA (Class Variance Authority). The aim is to create a solution that
+          strikes a balance between being opinionated and providing flexibility by incorporating the best of both
+          worlds. Designed to offer the right amount of opinionatedness, ensuring that users have access to a range of
+          pre-defined styles and components, while also providing the ability to tailor the output to meet their
+          specific requirements.
         </Text>
         <Text>Pre-defined modular components - with default styling, support of theming and darkmode.</Text>
         <Text>Built with accessibility in mind.</Text>
@@ -32,7 +34,7 @@ const Introduction = () => {
         <div>
           <ul>
             <li>Written in Typescript</li>
-            <li>Styled Components, TailwindCSS, CVA, (tw-merge, CLSX, cn)</li>
+            <li>React, TailwindCSS, CVA, (tw-merge, CLSX, cn)</li>
             <li>Dark-mode compatible</li>
             <li>Theming</li>
             <li>Accessible</li>
