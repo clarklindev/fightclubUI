@@ -3,7 +3,7 @@
   --clr-foreground: #151515;
   --input-background-color: #ffffff;
   --input-text-color: 'text-grey-400';
-  --border: 1px solid rgba(0, 0, 0, 0.1);
+  --border: 1px solid rgba(0, 0, 0, 0.3);
   --border-color: hsla(0, 0%, 0%, 0.1);
   --thumb-default: #999;
   --thumb-hover: hsla(255, 0%, 0%, 0.3);

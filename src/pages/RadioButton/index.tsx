@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { RadioButton, Heading, ResizePanel, Tabs, CodeBlock } from '@swagfinger/components';
+import { RadioButton, Heading, Tabs, CodeBlock } from '@swagfinger/components';
 
 const RadioButtonExample = () => {
   const [savedData, setSavedData] = useState(false);
@@ -11,7 +11,6 @@ const RadioButtonExample = () => {
       checked={savedData}
       name="radio"
       label="label"
-      iconSize="20px"
       onChange={event => {
         setSavedData(event.target.checked);
       }}

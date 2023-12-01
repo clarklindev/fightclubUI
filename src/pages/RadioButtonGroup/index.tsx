@@ -1,20 +1,60 @@
 // //RadioButtonGroup
+import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Layout, Heading, Tabs, CodeBlock } from '@swagfinger/components';
-import RadioButtonGroupVerticalExample from './RadioButtonGroupVerticalExample';
-import RadioButtonGroupHorizontalExample from './RadioButtonGroupHorizontalExample';
+import { Layout, Heading, Tabs, CodeBlock, RadioButtonGroup, RadioButton, Label } from '@swagfinger/components';
 
 const RadioButtonGroupExample = () => {
+  const options = [
+    { label: 'A', value: 'a' },
+    { label: 'B', value: 'b' },
+    { label: 'C', value: 'c' },
+    { label: 'D', value: 'd' },
+  ];
+
+  const [savedData, updateSavedData] = useState(Array(options.length).fill(false));
+
+  const onChange = (index: number, newValue: boolean) => {
+    let newValues = [...savedData].fill(false);
+    newValues[index] = newValue;
+    updateSavedData(newValues);
+  };
+
   const preview = (
     <>
       <Layout>
         <Heading variation="h5">RadioButton Group (horizontal)</Heading>
-        <RadioButtonGroupHorizontalExample />
+        <RadioButtonGroup direction="row" spacing="20px">
+          {options.map((each, index) => {
+            return (
+              <Label key={'RadioButtonGroup' + index} label={each.label} labelDirection="bottom" gap="10px">
+                <RadioButton
+                  checked={savedData[index]}
+                  name="Radio"
+                  size="XL"
+                  onChange={() => onChange(index, !savedData[index])}
+                />
+              </Label>
+            );
+          })}
+        </RadioButtonGroup>
       </Layout>
       <Layout>
         <Heading variation="h5">RadioButton Group (vertical)</Heading>
-        <RadioButtonGroupVerticalExample />
+        <RadioButtonGroup direction="column" spacing="20px">
+          {options.map((each, index) => {
+            return (
+              <Label key={'RadioButtonGroup' + index} label={each.label} labelDirection="right" gap="10px">
+                <RadioButton
+                  checked={savedData[index]}
+                  name="Radio"
+                  size="XL"
+                  onChange={() => onChange(index, !savedData[index])}
+                />
+              </Label>
+            );
+          })}
+        </RadioButtonGroup>
       </Layout>
     </>
   );
