@@ -34,9 +34,9 @@ const Label = ({
   const flexClasses = `${getFlexGap(labelDirection, gap)}`;
 
   return (
-    <Component data-component="Label" className={[flexClasses, className].join(' ')}>
+    <Component data-component={Label.name} className={[flexClasses, className].join(' ')}>
       <div>{children}</div>
-      {label}
+      <span>{label}</span>
     </Component>
   );
 };

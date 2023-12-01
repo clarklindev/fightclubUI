@@ -1,28 +1,54 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { Icon } from '@swagfinger/components';
+import { ChevronDownIcon } from '@swagfinger/icons';
 
-const SelectIcon = ({ children }: { children: React.ReactNode }) => {
+const Select = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="pointer-events-none absolute right-2">
-      <Icon size="20px">{children}</Icon>
+    <div
+      data-component={Select.displayName}
+      className={`
+      relative 
+      flex 
+      flex-grow 
+      rounded-md
+      w-full 
+      items-center 
+      min-w-180  
+      h-[var(--input-height)] 
+      border 
+      border-[var(--border-color)]
+      bg-[var(--input-background-color)] 
+      `}>
+      {children}
     </div>
   );
 };
 
-type SelectProps = {
+type SelectElementProps = {
   savedData: any;
   onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
   children: React.ReactNode[];
 };
 
-const Select = (props: SelectProps) => {
+const SelectElement = (props: SelectElementProps) => {
   const { savedData, onChange, children } = props;
 
   return (
-    <SelectContainer
-      data-component={Select.displayName}
+    <select
+      className={`
+      box-border 
+      appearance-none 
+      m-0 
+      w-full 
+      h-full
+      outline-none 
+      cursor-pointer 
+      bg-transparent
+      px-2
+      text-[var(--input-text-color)] 
+      
+      `}
       value={savedData}
       onChange={(event: React.ChangeEvent<HTMLSelectElement>) => onChange(event)}>
       {children
@@ -30,39 +56,42 @@ const Select = (props: SelectProps) => {
             return each;
           })
         : null}
-    </SelectContainer>
+    </select>
   );
 };
 
-const SelectWrapper = ({ children }: { children: React.ReactNode }) => {
-  return <div className="relative flex flex-grow w-full items-center min-w-180">{children}</div>;
+const SelectOption = ({ children, value }: { children: React.ReactNode; value: string }) => {
+  return (
+    <option className="bg-[var(--input-background-color)]" value={value}>
+      {children}
+    </option>
+  );
 };
 
-Select.SelectWrapper = SelectWrapper;
-SelectWrapper.displayName = 'Select.SelectWrapper';
+const SelectIcon = ({ children }: { children?: React.ReactNode }) => {
+  return (
+    <div className="pointer-events-none absolute right-2">
+      {children ? (
+        children
+      ) : (
+        <Icon size="M">
+          <ChevronDownIcon />
+        </Icon>
+      )}
+    </div>
+  );
+};
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
+Select.SelectElement = SelectElement;
+SelectElement.displayName = 'Select.SelectElement';
 
 Select.SelectIcon = SelectIcon;
 SelectIcon.displayName = 'Select.SelectIcon';
 
+Select.SelectOption = SelectOption;
+SelectOption.displayName = 'Select.SelectOption';
+
 Select.displayName = 'Select';
 export { Select };
-
-// ------------------------------------------------------------------------------------------------------------------------------------------------
-
-const SelectContainer = styled.select`
-  -webkit-appearance: none;
-
-  box-sizing: border-box;
-  appearance: none;
-  margin: 0;
-  width: 100%;
-  outline: none;
-  cursor: pointer;
-  max-height: ${({ theme }) => theme?.Select?.inputHeight};
-  height: ${({ theme }) => theme?.Select?.inputHeight};
-  color: var(--input-text-color);
-  background: var(--input-background-color);
-  border: 1px solid var(--border-color);
-  border-radius: ${({ theme }) => theme?.Select?.borderRadius};
-  padding: ${({ theme }) => theme?.Select?.inputPadding};
-`;

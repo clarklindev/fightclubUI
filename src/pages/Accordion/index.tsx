@@ -1,28 +1,74 @@
-import { Heading, Layout, Tabs, CodeBlock, Section } from '@swagfinger/components';
+import React from 'react';
+import { Heading, Layout, Tabs, CodeBlock, Section, Accordion, Divider, Icon, Label } from '@swagfinger/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
-
-import AccordionChevronExample from './AccordionChevronExample';
-import AccordionPlusMinusExample from './AccordionPlusMinusExample';
-import AccordionMinimalExample from './AccordionMinimalExample';
+import { AccordionContextProvider, useAccordion } from '@swagfinger/context/AccordionContext';
+import { ChevronUpIcon, ChevronDownIcon, PlusIcon, MinusIcon } from '@swagfinger/icons';
 
 const AccordionExample = () => {
+  const data = [
+    {
+      title: 'helloworld',
+      body: (
+        <>
+          {`this is my first answer`}
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          {`hi`}
+        </>
+      ),
+    },
+    {
+      title: 'rainbow',
+      body: 'rainbows are amazing',
+    },
+    {
+      title: 'sun',
+      body: 'the sun is amazing',
+    },
+  ];
+
+  type AccordionDataType = {
+    title: string;
+    body: React.ReactElement | string;
+  };
+
+  const iconMap = {
+    chevron: { open: <ChevronUpIcon />, closed: <ChevronDownIcon /> },
+    plusminus: { open: <MinusIcon />, closed: <PlusIcon /> },
+    hidden: {},
+  };
+
   const preview = (
-    <>
-      <Layout>
-        <Heading variation="h5">Accordion (chevron)</Heading>
-        <AccordionChevronExample />
-      </Layout>
-
-      <Layout>
-        <Heading variation="h5">Accordion (plus/minus)</Heading>
-        <AccordionPlusMinusExample />
-      </Layout>
-
-      <Layout>
-        <Heading variation="h5">Accordion (minimal)</Heading>
-        <AccordionMinimalExample />
-      </Layout>
-    </>
+    <AccordionContextProvider>
+      <Accordion multiOpen={true}>
+        {data.map(({ title, body }: AccordionDataType, index) => {
+          return (
+            <Accordion.Section key={index}>
+              <Accordion.SectionHeader
+                render={indexes => (
+                  <Accordion.SectionHeaderTitle index={index}>
+                    {title}
+                    <Icon>{indexes.includes(index) ? iconMap['chevron'].open : iconMap['chevron'].closed}</Icon>
+                  </Accordion.SectionHeaderTitle>
+                )}
+              />
+              <Accordion.SectionPanel index={index}>
+                <Accordion.SectionPanelContent>{body}</Accordion.SectionPanelContent>
+              </Accordion.SectionPanel>
+            </Accordion.Section>
+            //<Divider /> add divider if needed
+          );
+        })}
+      </Accordion>
+    </AccordionContextProvider>
   );
 
   const previewString = reactElementToJSXString(preview);
@@ -39,7 +85,9 @@ const AccordionExample = () => {
           <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
         </Tabs.TriggerGroup>
         <Tabs.ContentGroup>
-          <Tabs.Content data-tab="0">{preview}</Tabs.Content>
+          <Tabs.Content data-tab="0">
+            <Layout>{preview}</Layout>
+          </Tabs.Content>
           <Tabs.Content data-tab="1">
             <CodeBlock>{previewString}</CodeBlock>
           </Tabs.Content>

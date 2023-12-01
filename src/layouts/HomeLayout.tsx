@@ -289,7 +289,9 @@ export const HomeLayout = () => {
             <NavSide.Link to="input">
               Input <Badge>Compound</Badge> <Badge>CVA</Badge> <Badge>TW</Badge>
             </NavSide.Link>
-            <NavSide.Link to="select">Select</NavSide.Link>
+            <NavSide.Link to="select">
+              Select <Badge>Compound</Badge> <Badge>TW</Badge>
+            </NavSide.Link>
             <NavSide.Link to="accordion">Accordion</NavSide.Link>
             <NavSide.Link to="radiobutton">RadioButton</NavSide.Link>
             <NavSide.Link to="radiobuttongroup">RadioButton Group</NavSide.Link>

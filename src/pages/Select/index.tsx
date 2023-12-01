@@ -2,7 +2,6 @@ import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
 import { Select, Heading, Tabs, CodeBlock } from '@swagfinger/components';
-import { ChevronDownIcon } from '@swagfinger/icons';
 
 const SelectExample = () => {
   const [savedData, setSavedData] = useState<string | null>();
@@ -16,18 +15,16 @@ const SelectExample = () => {
 
   const preview = (
     <>
-      <Select.SelectWrapper>
-        <Select savedData={savedData} onChange={event => setSavedData(event.target.value)}>
+      <Select>
+        <Select.SelectElement savedData={savedData} onChange={event => setSavedData(event.target.value)}>
           {data.map((each, index) => (
-            <option key={index} value={each.value}>
+            <Select.SelectOption value={each.value} key={index}>
               {each.text}
-            </option>
+            </Select.SelectOption>
           ))}
-        </Select>
-        <Select.SelectIcon>
-          <ChevronDownIcon />
-        </Select.SelectIcon>
-      </Select.SelectWrapper>
+        </Select.SelectElement>
+        <Select.SelectIcon></Select.SelectIcon>
+      </Select>
     </>
   );
 
