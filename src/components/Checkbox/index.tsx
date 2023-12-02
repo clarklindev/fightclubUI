@@ -24,23 +24,24 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
     <label
       data-component={Checkbox.name}
       className={`
-      w-[${size}] 
-      h-[${size}]
-    bg-transparent
-    flex
-    relative
-    box-border
+w-[${size}] 
+h-[${size}]
+bg-transparent
+flex
+relative
+box-border
     `}>
       <input
         type="checkbox"
         className={`
-        border-0
-    h-0
-    w-0
-    overflow-hidden
-    absolute
-    top-0
-    left-0`}
+border-0
+h-0
+w-0
+overflow-hidden
+absolute
+top-0
+left-0
+    `}
         checked={checked}
         ref={inputRef}
         onChange={onChange}
@@ -49,16 +50,16 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
 
       <div
         className={`
-        cursor-pointer
-    flex
-    items-center
-    justify-center
-    relative
-    overflow-hidden 
-    w-full
-    h-full
-    border-[var(--border)]
-      bg-[var(input-background-color)]
+cursor-pointer
+flex
+items-center
+justify-center
+relative
+overflow-hidden 
+w-full
+h-full
+border-[var(--border)]
+bg-[var(input-background-color)]
     `}>
         {indeterminate ? (
           <Icon size={size}>
@@ -66,8 +67,8 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="black"
-              strokeWidth="3"
+              stroke="red"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
               className="w-10 h-10">
@@ -82,7 +83,7 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
               viewBox="0 0 24 24"
               fill="none"
               stroke="red"
-              strokeWidth="3"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round"
               className="w-10 h-10">
@@ -98,7 +99,7 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
               viewBox="0 0 24 24"
               fill="none"
               stroke="red"
-              strokeWidth="3"
+              strokeWidth="2"
               strokeLinecap="round"
               strokeLinejoin="round">
               <rect width="100%" height="100%" />

@@ -301,8 +301,12 @@ export const HomeLayout = () => {
             <NavSide.Link to="radiobuttongroup">
               RadioButton Group <Badge>TW</Badge>
             </NavSide.Link>
-            <NavSide.Link to="checkbox">Checkbox</NavSide.Link>
-            <NavSide.Link to="checkboxgroup">Checkbox Group</NavSide.Link>
+            <NavSide.Link to="checkbox">
+              Checkbox <Badge>TW</Badge>
+            </NavSide.Link>
+            <NavSide.Link to="checkboxgroup">
+              Checkbox Group <Badge>TW</Badge>
+            </NavSide.Link>
             <NavSide.Link to="counter">
               Counter <Badge>TW</Badge>
             </NavSide.Link>
