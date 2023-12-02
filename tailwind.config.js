@@ -4,7 +4,7 @@ export default {
   darkMode: ['class', '[data-color-scheme="dark"]'],
   safelist: [
     {
-      pattern: /^(gap-|space-|p-|m-|w-|h-|border-)/,
+      pattern: /^(gap-|space-|p-|m-|w-|h-|border-|before:h-|before:w-)/,
     },
   ],
   theme: {

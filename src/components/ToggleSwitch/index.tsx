@@ -1,80 +1,45 @@
 import React from 'react';
-import styled from 'styled-components';
-
-import { useUID } from '@swagfinger/customhooks/useUID';
 
 type ToggleSwitchProps = {
-  color: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   savedData: boolean;
 };
 
-const ToggleSwitch = React.memo(
-  ({ color, onChange, savedData }: ToggleSwitchProps) => {
-    const uniqueClassName = useUID('ToggleSwitch');
-
-    return (
-      <ToggleSwitchWrapper data-component={ToggleSwitch.displayName}>
-        <ToggleSwitchInput type="checkbox" defaultChecked={savedData} onChange={onChange} />
-        <Slider className={uniqueClassName} color={color} />
-      </ToggleSwitchWrapper>
-    );
-  },
-  // what will cause this component to re-render - excludes onChange function
-  (prev, next) => {
-    return prev.savedData === next.savedData && prev.color === next.color;
-  },
-);
-
-// ------------------------------------------------------------------------------------------------------------------------------------------------
-
-const ToggleSwitchWrapper = styled.label`
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 25px;
-`;
-
-const ToggleSwitchInput = styled.input`
-  opacity: 0;
-  width: 0;
-  height: 0;
-`;
-
-const Slider = styled.span`
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  border-radius: 30px;
-
-  &:before {
-    border-radius: 50%;
-    position: absolute;
-    content: '';
-    height: 20px;
-    width: 20px;
-    left: 2px;
-    top: 2px;
-    background-color: white;
-    -webkit-transition: 0.2s;
-    transition: 0.2s;
-  }
-  &.${({ className }) => className} {
-    input[type='checkbox']:checked + & {
-    background-color: ${({ color }) => color};
-  }
-
-  &.${({ className }) => className} {
-    input[type='checkbox']:checked + &:before {
-    transform: translateX(25px);
-  }
-`;
+const ToggleSwitch = React.memo(({ onChange, savedData }: ToggleSwitchProps) => {
+  return (
+    <label
+      data-component={ToggleSwitch.displayName}
+      className={`
+        relative 
+        inline-block 
+        w-[50px]
+        h-[25px]
+        bg-red-300
+        rounded-full
+        group
+        flex
+        items-center
+        cursor-pointer
+      `}>
+      <div
+        className={[
+          `
+          absolute 
+          block 
+          w-[20px]
+          h-[20px]
+          bg-white 
+          rounded-full 
+          transition-transform 
+          duration-200 
+          transform 
+          `,
+          savedData ? `translate-x-[25px]` : `translate-x-[5px]`,
+        ].join(' ')}></div>
+      <input className="hidden" type="checkbox" checked={savedData} onChange={onChange} />
+    </label>
+  );
+});
 
 ToggleSwitch.displayName = 'ToggleSwitch';
 export { ToggleSwitch };

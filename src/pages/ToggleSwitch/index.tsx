@@ -10,8 +10,8 @@ const ToggleSwitchExample = () => {
   const preview = (
     <ToggleSwitch
       savedData={savedData}
-      color="grey"
       onChange={event => {
+        console.log('event.target.checked: ', event.target.checked);
         setSavedData(event.target.checked);
       }}
     />

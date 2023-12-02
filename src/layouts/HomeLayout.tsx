@@ -313,7 +313,9 @@ export const HomeLayout = () => {
             <NavSide.Link to="togglebutton">
               Toggle Button <Badge>TW</Badge>
             </NavSide.Link>
-            <NavSide.Link to="toggleswitch">Toggle Switch</NavSide.Link>
+            <NavSide.Link to="toggleswitch">
+              Toggle Switch <Badge>TW</Badge>
+            </NavSide.Link>
             <NavSide.Link to="snackbar">Snackbar</NavSide.Link>
             <NavSide.Link to="slider">Slider</NavSide.Link>
             <NavSide.Link to="slidermultirange">Slider (Multirange)</NavSide.Link>
