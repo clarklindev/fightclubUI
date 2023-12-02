@@ -70,7 +70,7 @@ const Trigger = ({ children, ...rest }: TriggerProps) => {
 
 const ContentGroup = ({ children, className }: { children: React.ReactNode; className?: string }) => {
   return (
-    <div data-component={ContentGroup.displayName} className={['mt-5', `${className}`].join(' ')}>
+    <div data-component={ContentGroup.displayName} className={['my-5', `${className}`].join(' ')}>
       {children}
     </div>
   );

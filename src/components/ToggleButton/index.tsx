@@ -1,55 +1,57 @@
-import React from 'react';
-import styled from 'styled-components';
+import { ToggleContextProvider, useToggle } from '@swagfinger/context/ToggleContext';
+import React, { useEffect } from 'react';
 
-import { Icon } from '@swagfinger/components';
+enum ToggleEnum {
+  ON = 'true',
+  OFF = 'false',
+}
 
-type ToggleButtonProps = {
-  checked: boolean;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  icon?: typeof Icon;
-  children?: React.ReactNode;
+type EnumType = Record<string, string | number>;
+
+const ToggleButton = ({ render, enumObj }: { render: (current: string) => React.ReactNode; enumObj?: EnumType }) => {
+  return (
+    <ToggleContextProvider>
+      <Component render={render} enumObj={enumObj} />
+    </ToggleContextProvider>
+  );
 };
 
-const ToggleButton = ({ checked, onChange, icon, children }: ToggleButtonProps) => {
+const Component = ({ render, enumObj }: { render: (current: string) => React.ReactNode; enumObj?: EnumType }) => {
+  const { iterateEnum, setEnum, current } = useToggle();
+
+  useEffect(() => {
+    setEnum(enumObj ? enumObj : ToggleEnum);
+  }, []);
+
   return (
-    <ToggleButtonContainer data-component={ToggleButton.displayName} className="ToggleButton">
-      <label>
-        <HiddenInput checked={checked} onChange={onChange} />
-        {icon ? (
-          <>
-            {icon}
-            {children}
-          </>
-        ) : (
-          children
-        )}
+    <div data-component={ToggleButton.name} className={ToggleButton.name}>
+      <label
+        className={`
+        inline-flex 
+        cursor-pointer
+      `}>
+        <input
+          type="checkbox"
+          checked={current === ToggleEnum.ON}
+          onChange={iterateEnum}
+          className={`
+            border-0 
+            clip-rect-0 
+            clip-path-inset-1/2
+            h-0 
+            m-(-1)
+            overflow-hidden 
+            p-0 
+            absolute 
+            whitespace-nowrap 
+            w-1`}
+        />
+        {current && render(current)}
       </label>
-    </ToggleButtonContainer>
+    </div>
   );
 };
 
 ToggleButton.displayName = 'ToggleButton';
 export { ToggleButton };
 // ------------------------------------------------------------------------------------------------------------------------------------------------
-
-const ToggleButtonContainer = styled.div`
-  label {
-    display: inline-flex;
-    cursor: pointer;
-  }
-`;
-
-// Hide checkbox visually but remain accessible to screen readers.
-// Source: https://polished.js.org/docs/#hidevisually
-const HiddenInput = styled.input.attrs({ type: 'checkbox' })`
-  border: 0;
-  clip: rect(0 0 0 0);
-  clippath: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-`;

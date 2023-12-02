@@ -512,6 +512,18 @@ export const Card = ({
           with CVA you have predefined styles which are called 'variants', each variant is a prop for the component with
           a set of values mapped to a variant
         </Text>
+
+        <Heading variation="h3">Uncategorized</Heading>
+        <Text>
+          Component context - can reside within the component itself, you pass the actual children through to the
+          Component so the context acts as a wrapper within the component. Depending on usage case, this encapsulates
+          the internals and tucks away the wiring of passing props and managing state.
+        </Text>
+        <Text>
+          if you import a context, and the way its implemented inside the component, if you return the rendered
+          component wrapped in context, the js part has no access to the context. have a look at the Toggle component
+          and its use of context.
+        </Text>
       </Layout>
     </article>
   );

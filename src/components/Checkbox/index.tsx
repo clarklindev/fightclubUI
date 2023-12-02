@@ -24,24 +24,24 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
     <label
       data-component={Checkbox.name}
       className={`
-w-[${size}] 
-h-[${size}]
-bg-transparent
-flex
-relative
-box-border
+      w-[${size}] 
+      h-[${size}]
+      bg-transparent
+      flex
+      relative
+      box-border
     `}>
       <input
         type="checkbox"
         className={`
-border-0
-h-0
-w-0
-overflow-hidden
-absolute
-top-0
-left-0
-    `}
+        border-0
+        h-0
+        w-0
+        overflow-hidden
+        absolute
+        top-0
+        left-0
+        `}
         checked={checked}
         ref={inputRef}
         onChange={onChange}
@@ -50,17 +50,17 @@ left-0
 
       <div
         className={`
-cursor-pointer
-flex
-items-center
-justify-center
-relative
-overflow-hidden 
-w-full
-h-full
-border-[var(--border)]
-bg-[var(input-background-color)]
-    `}>
+        cursor-pointer
+        flex
+        items-center
+        justify-center
+        relative
+        overflow-hidden 
+        w-full
+        h-full
+        border-[var(--border)]
+        bg-[var(input-background-color)]
+      `}>
         {indeterminate ? (
           <Icon size={size}>
             <svg
