@@ -15,42 +15,43 @@ const RadioButton = ({ checked, name, label, onChange, size = 'XL' }: RadioButto
     <label
       data-component={RadioButton.name}
       className={`
-    flex 
-    flex-row 
-    items-center 
-    w-full 
-    h-full 
-    gap-1
+flex 
+flex-row 
+items-center 
+w-full 
+h-full 
+gap-1
     `}>
       <input
         type="radio"
         checked={checked}
         onChange={onChange}
         name={name}
-        className={`border-0 
-        border-box
-        clip-[rect(0 0 0 0)] 
-        clip-path-[inset(50%)] 
-        h-0 
-        w-0 
-        m-n1 
-        overflow-hidden 
-        p-0 
-        absolute 
-        whitespace-nowrap
+        className={`
+border-0 
+border-box
+clip-[rect(0 0 0 0)] 
+clip-path-[inset(50%)] 
+h-0 
+w-0 
+m-n1 
+overflow-hidden 
+p-0 
+absolute 
+whitespace-nowrap
         `}
       />
       <div
         className={`
-      flex 
-      items-center
-      justify-items-center 
-      relative 
-      box-border 
-      cursor-pointer 
-      rounded-full
-      border-[var(--border)]
-      bg-[var(input-background-color)]
+flex 
+items-center
+justify-items-center 
+relative 
+box-border 
+cursor-pointer 
+rounded-full
+border-[var(--border)]
+bg-[var(input-background-color)]
       `}>
         <Icon size={size}>
           {checked ? (
