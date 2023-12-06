@@ -5,7 +5,12 @@ type SpinnerProps = {
 
 const Spinner = ({ size = `5`, color = 'white' }: SpinnerProps) => {
   return (
-    <div data-component={Spinner.displayName} className={`w-${size} h-${size}`}>
+    <div
+      data-component={Spinner.displayName}
+      style={{
+        width: `${size}px`,
+        height: `${size}px`,
+      }}>
       <div
         className={[
           `w-full h-full border-2 b-solid`,
