@@ -1,12 +1,25 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Heading, Slider, ResizePanel, Tabs, CodeBlock } from '@swagfinger/components';
+import { Heading, Slider, Tabs, CodeBlock } from '@swagfinger/components';
+
+//firstly a slider is meant for a range of values.
+//shouldnt be a full width or full height component,
+//height should be inherited.
 
 const SliderExample = () => {
   const [savedData, setSavedData] = useState(0);
 
-  const preview = <Slider value={savedData} orientation="horizontal" length="100px" onChange={setSavedData} />;
+  const preview = (
+    <div
+      style={{
+        height: '300px',
+        border: '1px solid orange',
+        position: 'relative',
+      }}>
+      <Slider value={savedData} orientation="vertical" thickness="15px" onChange={setSavedData} />
+    </div>
+  );
 
   const previewString = reactElementToJSXString(preview);
 
