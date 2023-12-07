@@ -5,7 +5,7 @@ import { Heading, Slider, Tabs, CodeBlock } from '@swagfinger/components';
 
 //firstly a slider is meant for a range of values.
 //shouldnt be a full width or full height component,
-//height should be inherited.
+//it does and should inherit its dimensions.
 
 const SliderExample = () => {
   const [savedData, setSavedData] = useState(0);
@@ -25,7 +25,7 @@ const SliderExample = () => {
 
   return (
     <>
-      <Heading variation="h1" data-observable="true">
+      <Heading variation="h1" size="level1" data-observable="true">
         Slider
       </Heading>
 
