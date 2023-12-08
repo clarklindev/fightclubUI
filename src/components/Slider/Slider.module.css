@@ -6,11 +6,13 @@ input[type="range"].slider {
   &::-moz-range-track {
     -moz-appearance: none;
     border-radius: 5px;
+
     background: rgba(255,0,0,.5);
   }
 
   &::-webkit-slider-runnable-track {
     -webkit-appearance: none;
+
     border-radius: 5px;
     background: rgba(255,0,0,.5);
   }
@@ -23,8 +25,8 @@ input[type="range"].slider {
     border-radius:50%;
     border: 2px solid yellow;
     background: #666;
-    width: 1rem;
-    height: 1rem;
+    width: 15px;
+    height: 15px;
   }
 
   /* For Firefox */
@@ -35,8 +37,8 @@ input[type="range"].slider {
     border-radius: 50%;
     border: 2px solid yellow;
     background: #666;
-    width: 1rem;
-    height: 1rem;
+    width: 15px;
+    height: 15px;
   }
 }
 
