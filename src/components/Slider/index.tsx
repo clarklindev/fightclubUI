@@ -1,23 +1,14 @@
 import React, { useRef, useEffect, useState } from 'react';
 
 import { Orientation } from '@swagfinger/types/Orientation';
-import { SliderProvider } from '@swagfinger/context/SliderContext';
 
 import styles from './Slider.module.css';
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
-const Slider = (props: SliderProps) => {
-  return (
-    <SliderProvider>
-      <SliderContainer {...props} />
-    </SliderProvider>
-  );
-};
-
 type SliderProps = {
   onChange?: (value: number, index: number) => void;
   value: number;
-
+  offset?: string;
   min?: number;
   max?: number;
   step?: number;
@@ -30,13 +21,14 @@ type SliderProps = {
   valueGradient?: string | undefined;
   activeColor?: string;
   trackColor?: string;
-  thickness?: string;
+  thickness?: number;
   parentRef?: React.RefObject<HTMLDivElement>;
 };
 
-const SliderContainer = (props: SliderProps) => {
+const Slider = (props: SliderProps) => {
   //note: if you use rest operator in params eg. { orientation, thickness, ...props}, it does not include orientation or thickness/ rather destruct from props object
-  const { orientation, thickness } = props;
+
+  const { orientation = Orientation.HORIZONTAL, thickness = 15, offset = '0px', ...restProps } = props;
 
   const [intiatedRef, setInitiatedRef] = useState<React.RefObject<HTMLDivElement>>();
   const myRef = useRef<HTMLDivElement | null>(null);
@@ -47,40 +39,47 @@ const SliderContainer = (props: SliderProps) => {
     }
   }, [myRef]);
 
-  const w = orientation === Orientation.HORIZONTAL ? '100%' : thickness;
-  const h = orientation === Orientation.HORIZONTAL ? thickness : '100%';
+  const w = orientation === Orientation.HORIZONTAL ? '100%' : `${thickness}px`;
+  const h = orientation === Orientation.HORIZONTAL ? `${thickness}px` : '100%';
 
   return (
     <div
-      data-component={SliderContainer.name}
+      data-component={Slider.name}
       ref={myRef}
       style={{
         width: w,
         height: h,
+        marginLeft: orientation === 'horizontal' ? `${offset}` : undefined,
+        marginTop: orientation === 'vertical' ? `${offset}` : undefined,
       }}
-      className={['relative'].join(' ')}>
-      <SliderInput {...props} parentRef={intiatedRef} />
+      className={['absolute'].join(' ')}>
+      <SliderInput orientation={orientation} thickness={thickness} {...restProps} parentRef={intiatedRef} />
     </div>
   );
 };
 
 const SliderInput = ({
-  orientation,
-  onChange = () => {},
-  value = 0,
-  min = 0,
-  max = 100,
-  step = 1,
-  index = 0,
-  className = '',
-  thumbSize = 30,
-  trackClickable = true,
-  hideTrack = false,
-  valueGradient = undefined,
-  activeColor = 'red',
-  trackColor = '#FF000055',
   parentRef,
-}: SliderProps) => {
+  ...props
+}: SliderProps & { parentRef: React.RefObject<HTMLDivElement> | undefined }) => {
+  const {
+    onChange = _ => {},
+    value = 0,
+    min = 0,
+    max = 100,
+    step = 1,
+    index = 0,
+    className = '',
+    thumbSize = 15,
+    trackClickable = true,
+    hideTrack = false,
+    valueGradient = undefined,
+    activeColor = 'red',
+    trackColor = '#FF000055',
+    thickness,
+    orientation,
+  } = props;
+
   const [localParentRef, setLocalParentRef] = useState<React.RefObject<HTMLDivElement> | null>(null);
   useEffect(() => {
     if (parentRef?.current) {
@@ -105,7 +104,11 @@ const SliderInput = ({
       //   `linear-gradient(90deg, ${activeColor} 0%, ${activeColor} ${value}%, ${trackColor} ${value}%, ${trackColor} 100% )`
       // }
 
-      className={[styles.slider, hideTrack && 'bg-transparent'].join(' ')}
+      className={[
+        styles.slider,
+        hideTrack ? 'bg-transparent' : '',
+        `pointer-events-${trackClickable ? 'auto' : 'none'}`,
+      ].join(' ')}
       style={
         orientation === Orientation.HORIZONTAL
           ? {
@@ -124,9 +127,6 @@ const SliderInput = ({
 };
 
 Slider.displayName = 'Slider';
-
-Slider.SliderContainer = SliderContainer;
-SliderContainer.displayName = 'Slider.SliderContainer';
 
 Slider.SliderInput = SliderInput;
 SliderInput.displayName = 'Slider.SliderInput';

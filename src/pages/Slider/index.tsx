@@ -17,7 +17,7 @@ const SliderExample = () => {
         border: '1px solid orange',
         position: 'relative',
       }}>
-      <Slider value={savedData} orientation="vertical" thickness="15px" onChange={setSavedData} />
+      <Slider value={savedData} orientation="horizontal" onChange={setSavedData} />
     </div>
   );
 

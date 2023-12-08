@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import { useEffect, useRef, useState } from 'react';
 import { Slider } from '@swagfinger/components';
 import { Orientation } from '@swagfinger/types/Orientation';
 
@@ -25,22 +24,45 @@ type SliderMultiRangeProps = {
   onChange: (updated: Array<number>) => void; //function to update the values
   min?: number;
   max?: number;
-  thickness?: number;
-  thumbSize?: number;
-  length?: string;
-  orientation?: Orientation | string;
-  slideMode?: SlideMode | string;
+  thickness?: number; //needs to be number to do comparison with 'thumbSize'
+  thumbSize?: number; //needs to be number to do comparison with 'thickness'
+  orientation?: Orientation[keyof Orientation];
+  slideMode?: SlideMode[keyof SlideMode];
 };
 
-export const SliderMultiRange = ({
+export const SliderMultiRange = (props: SliderMultiRangeProps) => {
+  return (
+    <div className="w-full relative">
+      <SliderTrack {...props} />
+      <Sliders {...props} />
+    </div>
+  );
+};
+
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
+//this is the background track for all the scrollbars - you want to show this instead of sliders' own track
+const SliderTrack = ({ thickness = 15, thumbSize = 15 }: SliderMultiRangeProps) => {
+  return (
+    <div
+      data-component="SliderTrack"
+      className={[
+        `absolute border-0 rounded-0 w-full bg-yellow-300 bg-opacity-30`,
+        `h-[${thickness}px]`,
+        thickness && thumbSize && thickness > thumbSize ? `top-0` : `top-full`,
+      ].join(' ')}
+    />
+  );
+};
+
+const Sliders = ({
   sliderValues = [0, 0, 0],
   // colors = ['red', 'yellow', 'blue'],
-  onChange,
+  onChange = () => {},
   min = 0,
   max = 100,
   thickness = 15,
-  thumbSize = 30,
-  length = '100%',
+  thumbSize = 15,
   slideMode = SlideMode.MAGNETIC,
   orientation = Orientation.HORIZONTAL,
 }: SliderMultiRangeProps) => {
@@ -111,82 +133,47 @@ export const SliderMultiRange = ({
     }
   };
 
+  const slidersRef = useRef<HTMLDivElement>(null);
+  const [adjustedWidth, setAdjustedWidth] = useState<number>();
+
+  useEffect(() => {
+    if (slidersRef?.current) {
+      const w = `calc(100% - ${
+        slideMode === SlideMode.SLIDETHROUGH ? '0px' : thumbSize * (sliderValues?.length - 1) + 'px'
+      })`;
+
+      setAdjustedWidth(w);
+    }
+  }, [slidersRef]);
+
   return (
-    <SliderMultiRangeContainer
-      data-component={SliderMultiRange.displayName}
-      className="SliderMultiRange"
-      orientation={orientation}
-      length={length}>
-      <SliderWrapper>
-        <SliderTrack className="SliderTrack" thickness={thickness} thumbSize={thumbSize} />
-        <Sliders
-          className="Sliders"
-          widthAdjust={slideMode === SlideMode.SLIDETHROUGH ? '0px' : thumbSize * (sliderValues.length - 1) + 'px'} //cater for the width of scrollbar thumbSize
-          thumbSize={thumbSize}
-          thickness={thickness}>
-          {(sliderValues || []).map((sliderValue, index) => {
-            return (
-              <Slider
-                orientation={orientation}
-                className=""
-                key={index}
-                value={sliderValue}
-                index={index}
-                onChange={onChangeHandler}
-                min={min}
-                max={max}
-                style={{ zIndex: index === activeIndex ? 1 : 0 }} //z-index
-                offset={slideMode === SlideMode.SLIDETHROUGH ? '0px' : thumbSize * index + 'px'}
-                //x position to place the <Slider/> you cant see this of each individual slider if position="absolute". only when className = "" and hideTrack="false"
-                trackClickable={false} //you want to leave this FALSE for multirange input
-                hideTrack={true} //you want to leave this as TRUE for multirange input - <SliderTrack /> replaces this
-                thumbSize={thumbSize}
-                thickness={thickness}
-              />
-            );
-          })}
-        </Sliders>
-      </SliderWrapper>
-    </SliderMultiRangeContainer>
+    <div
+      data-component="Sliders"
+      ref={slidersRef}
+      style={{
+        width: adjustedWidth && adjustedWidth,
+      }}>
+      {(sliderValues || []).map((sliderValue, index) => {
+        return (
+          <Slider
+            orientation={orientation}
+            className=""
+            key={index}
+            value={sliderValue}
+            index={index}
+            onChange={onChangeHandler}
+            min={min}
+            max={max}
+            style={{ zIndex: index === activeIndex ? 1 : 0 }} //z-index
+            offset={slideMode === SlideMode.SLIDETHROUGH ? '0px' : thumbSize * index + 'px'}
+            //x position to place the <Slider/> you cant see this of each individual slider if position="absolute". only when className = "" and hideTrack="false"
+            trackClickable={false} //you want to leave this FALSE for multirange input
+            hideTrack={true} //you want to leave this as TRUE for multirange input - <SliderTrack /> replaces this
+            thumbSize={thumbSize}
+            thickness={thickness}
+          />
+        );
+      })}
+    </div>
   );
 };
-
-// ------------------------------------------------------------------------------------------------------------------------------------------------
-
-const SliderMultiRangeContainer = styled.div<{
-  orientation: Orientation | string;
-  length: string;
-}>`
-  width: 100%;
-`;
-SliderMultiRange.displayName = 'SliderMultiRange';
-
-const SliderWrapper = styled.div`
-  // DO NOT USE THIS FOR STYLING - its used for positioning ONLY
-  position: relative;
-`;
-
-const Sliders = styled.div<{
-  widthAdjust: string;
-  thumbSize: number;
-  thickness: number;
-}>`
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  width: ${({ widthAdjust }) => `calc(100% - ${widthAdjust})`};
-`;
-
-//this is the background track for all the scrollbars - you want to show this instead of sliders' own track
-const SliderTrack = styled.div<{
-  thickness: number;
-  thumbSize: number;
-}>`
-  height: ${({ thickness }) => `${thickness}px`};
-  top: ${({ thickness, thumbSize }) => (thickness > thumbSize ? `0` : `100%`)};
-  position: absolute;
-  border: 0px;
-  border-radius: 0px;
-  width: 100%;
-  background: rgba(255, 255, 0, 0.3);
-`;
