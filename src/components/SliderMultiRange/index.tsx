@@ -39,7 +39,6 @@ export const SliderMultiRange = ({
   max = 100,
   thickness = 15,
   thumbSize = 30,
-  length = '100%',
   slideMode = SlideMode.MAGNETIC,
   orientation = Orientation.HORIZONTAL,
 }: SliderMultiRangeProps) => {
@@ -119,8 +118,6 @@ export const SliderMultiRange = ({
         orientation === Orientation.HORIZONTAL && 'w-full',
         orientation === Orientation.VERTICAL && 'h-full',
         'relative',
-        'border',
-        'border-purple-600',
       ].join(' ')}>
       <div
         data-component="SliderTrack"

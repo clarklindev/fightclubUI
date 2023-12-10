@@ -7,19 +7,35 @@ const SliderMultiRangeExample = () => {
   const [sliderValues, setSliderValues] = useState([0, 20, 40, 50, 60, 80, 100]); //holds positions of sliders
 
   const preview = (
-    <div
-      style={{
-        width: '100%',
-        height: '350px',
-        border: '1px solid red',
-      }}>
-      <SliderMultiRange
-        sliderValues={sliderValues}
-        colors={['red', 'yellow', 'green']}
-        orientation="horizontal"
-        onChange={setSliderValues}
-      />
-    </div>
+    <>
+      <div
+        style={{
+          width: '100%',
+          height: '350px',
+          border: '1px solid red',
+        }}>
+        <SliderMultiRange
+          sliderValues={sliderValues}
+          colors={['red', 'yellow', 'green']}
+          orientation="horizontal"
+          onChange={setSliderValues}
+        />
+      </div>
+      <br />
+      <div
+        style={{
+          width: '100%',
+          height: '350px',
+          border: '1px solid red',
+        }}>
+        <SliderMultiRange
+          sliderValues={sliderValues}
+          colors={['red', 'yellow', 'green']}
+          orientation="vertical"
+          onChange={setSliderValues}
+        />
+      </div>
+    </>
   );
 
   const previewString = reactElementToJSXString(preview);

@@ -7,14 +7,25 @@ const SliderExample = () => {
   const [savedData, setSavedData] = useState(0);
 
   const preview = (
-    <div
-      style={{
-        width: '100%',
-        height: '350px',
-        border: '1px solid red',
-      }}>
-      <Slider value={savedData} orientation="horizontal" onChange={setSavedData} />
-    </div>
+    <>
+      <div
+        style={{
+          width: '100%',
+          height: '350px',
+          border: '1px solid red',
+        }}>
+        <Slider value={savedData} orientation="horizontal" onChange={setSavedData} />
+      </div>
+      <br />
+      <div
+        style={{
+          width: '100%',
+          height: '350px',
+          border: '1px solid red',
+        }}>
+        <Slider value={savedData} orientation="vertical" onChange={setSavedData} />
+      </div>
+    </>
   );
 
   const previewString = reactElementToJSXString(preview);
