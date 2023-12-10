@@ -16,7 +16,7 @@ const SliderMultiRangeExample = () => {
       <SliderMultiRange
         sliderValues={sliderValues}
         colors={['red', 'yellow', 'green']}
-        orientation="vertical"
+        orientation="horizontal"
         onChange={setSliderValues}
       />
     </div>
@@ -26,7 +26,7 @@ const SliderMultiRangeExample = () => {
 
   return (
     <>
-      <Heading variation="h1" data-observable="true">
+      <Heading variation="h1" size="level1" data-observable="true">
         Slider (Multirange)
       </Heading>
 
