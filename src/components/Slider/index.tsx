@@ -65,6 +65,7 @@ const Slider = ({
   return (
     <SliderContainer orientation={orientation} length={length} offset={offset} ref={myRef} style={style}>
       <SliderInput
+        className={className}
         onChange={event => onChangeHandler(event.target.value, index)}
         orientation={orientation}
         thickness={thickness}
@@ -80,7 +81,6 @@ const Slider = ({
           valueGradient ||
           `linear-gradient(90deg, ${activeColor} 0%, ${activeColor} ${value}%, ${trackColor} ${value}%, ${trackColor} 100% )`
         }
-        className={['Slider_', className].join(' ')}
       />
     </SliderContainer>
   );
@@ -124,7 +124,6 @@ const SliderInput = styled.input.attrs({
   thumbSize: number;
   hideTrack: boolean;
 }>`
-  position: absolute;
   
 
   ${({ orientation, thickness }) =>

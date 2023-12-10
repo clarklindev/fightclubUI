@@ -113,23 +113,8 @@ export const SliderMultiRange = ({
 
   const sliderMultiRangeRef = useRef<HTMLDivElement>(null);
 
-  const [adjustedWidth, setAdjustedWidth] = useState<number>();
-
-  const adjustAmount = slideMode === SlideMode.SLIDETHROUGH ? 0 : thumbSize * (sliderValues?.length - 1);
-  const sliderMultiRangeWidth = sliderMultiRangeRef?.current?.getBoundingClientRect().width;
-
-  useEffect(() => {
-    if (sliderMultiRangeRef?.current) {
-      console.log('sliderMultiRangeWidth: ', sliderMultiRangeWidth);
-      if (sliderMultiRangeWidth) {
-        const newAmount = sliderMultiRangeWidth - adjustAmount;
-        setAdjustedWidth(newAmount);
-      }
-    }
-  }, [sliderMultiRangeWidth]);
-
   return (
-    <div data-component="SliderMultiRange" ref={sliderMultiRangeRef} className="w-full relative">
+    <div data-component="SliderMultiRange" ref={sliderMultiRangeRef} className="w-full relative ">
       <div
         data-component="SliderTrack"
         className="absolute w-full border-0 border-radius-0 bg-red-600"
@@ -137,35 +122,31 @@ export const SliderMultiRange = ({
           height: `${thickness}px`,
         }}
       />
-      <div
-        data-component="Sliders"
-        className="absolute w-full border border-green-400"
-        style={{
-          height: `${thickness}px`,
-        }}>
-        {(sliderValues || []).map((sliderValue, index) => {
-          return (
-            <Slider
-              orientation={orientation}
-              className=""
-              key={index}
-              value={sliderValue}
-              length={`${adjustedWidth}px`}
-              index={index}
-              onChange={onChangeHandler}
-              min={min}
-              max={max}
-              style={{ zIndex: index === activeIndex ? 1 : 0 }} //z-index
-              offset={slideMode === SlideMode.SLIDETHROUGH ? '0px' : thumbSize * index + 'px'}
-              //x position to place the <Slider/> you cant see this of each individual slider if position="absolute". only when className = "" and hideTrack="false"
-              trackClickable={false} //you want to leave this FALSE for multirange input
-              hideTrack={true} //you want to leave this as TRUE for multirange input - <SliderTrack /> replaces this
-              thumbSize={thumbSize}
-              thickness={thickness}
-            />
-          );
-        })}
-      </div>
+
+      {(sliderValues || []).map((sliderValue, index) => {
+        return (
+          <Slider
+            orientation={orientation}
+            className="absolute"
+            key={index}
+            value={sliderValue}
+            index={index}
+            length={`calc(100% - ${
+              slideMode === SlideMode.SLIDETHROUGH ? 0 : thumbSize * (sliderValues?.length - 1)
+            }px)`}
+            onChange={onChangeHandler}
+            min={min}
+            max={max}
+            style={{ zIndex: index === activeIndex ? 1 : 0 }} //z-index
+            offset={slideMode === SlideMode.SLIDETHROUGH ? '0px' : thumbSize * index + 'px'}
+            //x position to place the <Slider/> you cant see this of each individual slider if position="absolute". only when className = "" and hideTrack="false"
+            trackClickable={false} //you want to leave this FALSE for multirange input
+            hideTrack={true} //you want to leave this as TRUE for multirange input - <SliderTrack /> replaces this
+            thumbSize={thumbSize}
+            thickness={thickness}
+          />
+        );
+      })}
     </div>
   );
 };
