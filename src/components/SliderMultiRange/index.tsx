@@ -39,7 +39,7 @@ export const SliderMultiRange = ({
   max = 100,
   thickness = 15,
   thumbSize = 30,
-  slideMode = SlideMode.MAGNETIC,
+  slideMode = SlideMode.SLIDETHROUGH,
   orientation = Orientation.HORIZONTAL,
 }: SliderMultiRangeProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // To track the active element
@@ -148,7 +148,9 @@ export const SliderMultiRange = ({
             index={index}
             className={'absolute'} /* this stacks the scrollbars in horizontal mode*/
             onChange={onChangeHandler}
-            length={`calc(100% - ${(sliderValues.length - 1) * thumbSize}px)`}
+            length={
+              slideMode === SlideMode.SLIDETHROUGH ? '100%' : `calc(100% - ${(sliderValues.length - 1) * thumbSize}px)`
+            }
             min={min}
             max={max}
             style={{ zIndex: index === activeIndex ? 1 : 0 }} //z-index
