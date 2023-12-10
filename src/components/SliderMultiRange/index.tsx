@@ -1,5 +1,4 @@
 import React, { useState, useRef, forwardRef, useEffect, useLayoutEffect } from 'react';
-import styled from 'styled-components';
 import { Slider } from '@swagfinger/components';
 import { Orientation } from '@swagfinger/types/Orientation';
 
@@ -28,7 +27,7 @@ type SliderMultiRangeProps = {
   thickness?: number;
   thumbSize?: number;
   length?: string;
-  orientation?: Orientation | string;
+  orientation?: Orientation[keyof Orientation];
   slideMode?: SlideMode | string;
 };
 
@@ -64,7 +63,6 @@ export const SliderMultiRange = ({
   const onChangeHandler = (value: number, index = 0) => {
     let updatedValues;
 
-    console.log('slideMode: ', slideMode);
     setActiveIndex(index);
 
     if (slideMode === SlideMode.RESTRICT) {
@@ -114,12 +112,28 @@ export const SliderMultiRange = ({
   const sliderMultiRangeRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div data-component="SliderMultiRange" ref={sliderMultiRangeRef} className="w-full relative ">
+    <div
+      data-component="SliderMultiRange"
+      ref={sliderMultiRangeRef}
+      className={[
+        orientation === Orientation.HORIZONTAL && 'w-full',
+        orientation === Orientation.VERTICAL && 'h-full',
+        `relative`,
+        'border',
+        'border-purple-600',
+      ].join(' ')}>
       <div
         data-component="SliderTrack"
-        className="absolute w-full border-0 border-radius-0 bg-red-600"
+        className={[`absolute border rounded-full bg-orange-500`].join(' ')}
         style={{
-          height: `${thickness}px`,
+          ...(orientation === Orientation.HORIZONTAL && {
+            width: `100%`,
+            height: `${thickness}px`,
+          }),
+          ...(orientation === Orientation.VERTICAL && {
+            width: `${thickness}px`,
+            height: '100%',
+          }),
         }}
       />
 
@@ -127,14 +141,12 @@ export const SliderMultiRange = ({
         return (
           <Slider
             orientation={orientation}
-            className="absolute"
             key={index}
             value={sliderValue}
             index={index}
-            length={`calc(100% - ${
-              slideMode === SlideMode.SLIDETHROUGH ? 0 : thumbSize * (sliderValues?.length - 1)
-            }px)`}
+            className={'absolute'}
             onChange={onChangeHandler}
+            length={`calc(100% - ${(sliderValues.length - 1) * thumbSize}px)`}
             min={min}
             max={max}
             style={{ zIndex: index === activeIndex ? 1 : 0 }} //z-index

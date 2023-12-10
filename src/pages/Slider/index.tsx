@@ -1,12 +1,21 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Heading, Slider, ResizePanel, Tabs, CodeBlock } from '@swagfinger/components';
+import { Heading, Slider, Tabs, CodeBlock } from '@swagfinger/components';
 
 const SliderExample = () => {
   const [savedData, setSavedData] = useState(0);
 
-  const preview = <Slider value={savedData} orientation="horizontal" onChange={setSavedData} />;
+  const preview = (
+    <div
+      style={{
+        width: '100%',
+        height: '350px',
+        border: '1px solid red',
+      }}>
+      <Slider value={savedData} orientation="horizontal" onChange={setSavedData} />
+    </div>
+  );
 
   const previewString = reactElementToJSXString(preview);
 

@@ -1,10 +1,10 @@
-import React, { useRef, useEffect, useState, forwardRef } from 'react';
-import styled from 'styled-components';
+import React, { useRef, useEffect, useState, forwardRef, useLayoutEffect } from 'react';
 import { Orientation } from '@swagfinger/types/Orientation';
+import styles from './Slider.module.css';
 
 type SliderProps = {
   onChange: (value: number, index: number) => void;
-  orientation?: Orientation | string;
+  orientation?: Orientation[keyof Orientation];
   length?: string;
   offset?: string;
   thickness?: number;
@@ -30,7 +30,7 @@ type SliderProps = {
 const Slider = ({
   onChange,
   orientation = Orientation.HORIZONTAL,
-  length = '100%',
+  length,
   offset = '0px',
   thickness = 15,
   value = 0,
@@ -49,171 +49,70 @@ const Slider = ({
 }: SliderProps) => {
   const myRef: React.Ref<HTMLDivElement> = useRef(null);
 
-  const [computedHeight, setComputedHeight] = useState('0px');
+  const [calcHeight, setCalcHeight] = useState<number>();
 
   useEffect(() => {
-    // Access and use the ref
-    if (myRef.current !== null) {
-      setComputedHeight(myRef.current?.clientHeight + 'px');
+    if (myRef?.current) {
+      setCalcHeight(myRef.current?.offsetHeight);
     }
-  }, []);
+  }, [myRef.current, orientation]);
 
   const onChangeHandler = (value: string, index: number) => {
     onChange(parseInt(value), index); //reads string from target, but passes number
   };
 
   return (
-    <SliderContainer orientation={orientation} length={length} offset={offset} ref={myRef} style={style}>
-      <SliderInput
-        className={className}
+    <div
+      ref={myRef}
+      className={[`relative`].join(' ')}
+      style={{
+        ...(orientation === Orientation.HORIZONTAL && {
+          width: length ? length : '100%',
+          marginLeft: offset,
+          ...style,
+        }),
+        ...(orientation === Orientation.VERTICAL && {
+          height: length ? length : '100%',
+          marginTop: offset, //check if it should maybe be marginBottom
+          ...style,
+        }),
+      }}>
+      <input
+        type="range"
+        className={[styles.Slider, className].join(' ')}
         onChange={event => onChangeHandler(event.target.value, index)}
-        orientation={orientation}
-        thickness={thickness}
         value={value}
         min={min}
         max={max}
         step={step}
-        thumbSize={thumbSize}
-        trackClickable={trackClickable}
-        hideTrack={hideTrack}
-        computedHeight={computedHeight}
-        background={
-          valueGradient ||
-          `linear-gradient(90deg, ${activeColor} 0%, ${activeColor} ${value}%, ${trackColor} ${value}%, ${trackColor} 100% )`
-        }
-      />
-    </SliderContainer>
-  );
-};
-
-// ------------------------------------------------------------------------------------------------------------------------------------------------
-
-const SliderContainer = forwardRef(
-  (
-    {
-      orientation,
-      length,
-      offset,
-      children,
-      style,
-    }: {
-      orientation: Orientation[keyof Orientation];
-      length: string;
-      offset: string;
-      children: React.ReactNode;
-      style: React.CSSProperties;
-    },
-    ref: React.Ref<HTMLDivElement>,
-  ) => {
-    return (
-      <div
-        ref={ref}
-        className={[`relative`].join(' ')}
         style={{
           ...(orientation === Orientation.HORIZONTAL && {
-            width: length ? length : '100%',
-            marginLeft: offset,
-            ...style,
+            width: '100%',
           }),
           ...(orientation === Orientation.VERTICAL && {
-            height: length ? length : '100%',
-            marginTop: offset,
-            ...style,
+            width: `${calcHeight}px`, //width should now be height of parent container when vertical - use js to get height of container or use prop's length value
+            transform: `rotate(-90deg) translateX(-100%)` /* Rotate the scrollbar counterclockwise by 90 degrees */,
+            transformOrigin: `top left` /* Set the rotation origin to the top-left corner */,
           }),
-        }}>
-        {children}
-      </div>
-    );
-  },
-);
+          height: `${thickness}px`,
+          borderRadius: '10px',
+          outline: 'none',
+          pointerEvents: trackClickable ? 'auto' : 'none',
 
-const SliderInput = styled.input.attrs({
-  type: 'range',
-})<{
-  index?: number;
-  orientation: Orientation | string;
-  trackClickable: boolean;
-  computedHeight: string;
-  thickness: number;
-  background: string;
-  thumbSize: number;
-  hideTrack: boolean;
-}>`
-  ${({ orientation, thickness }) =>
-    orientation === Orientation.HORIZONTAL &&
-    `
-    width: 100%;
-    height: ${thickness}px;
-  `};
+          //removes the default input range styling - DO NOT REMOVE
+          appearance: 'none',
+          WebkitAppearance: 'none', //-webkit-appearance: none;
+          MozAppearance: 'none', //   -moz-appearance: none;
 
-  ${({ orientation, thickness, computedHeight }) =>
-    orientation === Orientation.VERTICAL &&
-    `
-  height: ${thickness}px;
-  width: ${computedHeight};  //width should now be height of container when vertical - use js to get height of container or use prop's length value 
-  transform: rotate(-90deg) translateX(-100%); /* Rotate the scrollbar counterclockwise by 90 degrees */
-  transform-origin: top left; /* Set the rotation origin to the top-left corner */
-`};
-
-  pointer-events: ${({ trackClickable }) => (trackClickable ? 'auto' : 'none')};
-  border-radius: 10px;
-  outline: none;
-
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-
-  //slider track
-  ${({ hideTrack, background, thickness }) =>
-    `
-    background: ${hideTrack ? 'transparent' : background};
-    height: ${thickness}px;
-    border-radius: 10px;
-    
-    &::-moz-range-track{
-      background: ${hideTrack ? 'transparent' : background};
-      height: ${thickness}px;
-      border-radius: 10px;
-    }
-
-    &::-webkit-slider-runnable-track {
-      background: ${hideTrack ? 'transparent' : background};
-      height: ${thickness}px;
-      border-radius: 10px;
-    }
-  `};
-
-  // slider thumb
-  &::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: ${({ thumbSize }) => thumbSize}px;
-    height: ${({ thumbSize }) => thumbSize}px;
-    background: #666;
-    border: 1px solid red;
-    border-radius: 50%;
-    cursor: pointer;
-    pointer-events: auto;
-    transform: translateY(
-      ${({ thumbSize, thickness }) =>
-        `${thickness > thumbSize ? -0.5 * (thumbSize - thickness) : 0.5 * (thickness - thumbSize)}px`}
-    );
-  }
-
-  &::-moz-range-thumb {
-    width: ${({ thumbSize }) => thumbSize}px;
-    height: ${({ thumbSize }) => thumbSize}px;
-    background: #666;
-    border: 1px solid red;
-    border-radius: 50%;
-    cursor: pointer;
-    pointer-events: auto;
-    transform: translateY(
-      ${({ thumbSize, thickness }) =>
-        `${thickness > thumbSize ? -0.5 * (thumbSize - thickness) : 0.5 * (thickness - thumbSize)}px`}
-    );
-  }
-`;
+          background: hideTrack
+            ? 'transparent'
+            : valueGradient ||
+              `linear-gradient(90deg, ${activeColor} 0%, ${activeColor} ${value}%, ${trackColor} ${value}%, ${trackColor} 100% )`, //   //slider track - value highlight color AND background color - DO NOT REMOVE
+        }}
+      />
+    </div>
+  );
+};
 
 Slider.displayName = 'Slider';
 export { Slider };

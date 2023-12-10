@@ -1,13 +1,25 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { SliderMultiRange, Heading, ResizePanel, Tabs, CodeBlock } from '@swagfinger/components';
+import { SliderMultiRange, Heading, Tabs, CodeBlock } from '@swagfinger/components';
 
 const SliderMultiRangeExample = () => {
   const [sliderValues, setSliderValues] = useState([0, 20, 20, 20]); //holds positions of sliders
 
   const preview = (
-    <SliderMultiRange sliderValues={sliderValues} colors={['red', 'yellow', 'green']} onChange={setSliderValues} />
+    <div
+      style={{
+        width: '100%',
+        height: '350px',
+        border: '1px solid red',
+      }}>
+      <SliderMultiRange
+        sliderValues={sliderValues}
+        colors={['red', 'yellow', 'green']}
+        orientation="horizontal"
+        onChange={setSliderValues}
+      />
+    </div>
   );
 
   const previewString = reactElementToJSXString(preview);
