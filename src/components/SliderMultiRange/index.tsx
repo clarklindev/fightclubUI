@@ -118,7 +118,7 @@ export const SliderMultiRange = ({
       className={[
         orientation === Orientation.HORIZONTAL && 'w-full',
         orientation === Orientation.VERTICAL && 'h-full',
-        `relative`,
+        'relative',
         'border',
         'border-purple-600',
       ].join(' ')}>
@@ -138,19 +138,24 @@ export const SliderMultiRange = ({
       />
 
       {(sliderValues || []).map((sliderValue, index) => {
+        //this controls how the items are placed
+        const calculatedOffset =
+          orientation === Orientation.HORIZONTAL
+            ? thumbSize * index + 'px'
+            : `${(sliderValues.length - 1 - index) * thumbSize}px`;
         return (
           <Slider
             orientation={orientation}
             key={index}
             value={sliderValue}
             index={index}
-            className={'absolute'}
+            className={'absolute'} /* this stacks the scrollbars in horizontal mode*/
             onChange={onChangeHandler}
             length={`calc(100% - ${(sliderValues.length - 1) * thumbSize}px)`}
             min={min}
             max={max}
             style={{ zIndex: index === activeIndex ? 1 : 0 }} //z-index
-            offset={slideMode === SlideMode.SLIDETHROUGH ? '0px' : thumbSize * index + 'px'}
+            offset={slideMode === SlideMode.SLIDETHROUGH ? '0px' : calculatedOffset}
             //x position to place the <Slider/> you cant see this of each individual slider if position="absolute". only when className = "" and hideTrack="false"
             trackClickable={false} //you want to leave this FALSE for multirange input
             hideTrack={true} //you want to leave this as TRUE for multirange input - <SliderTrack /> replaces this

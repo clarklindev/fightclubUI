@@ -64,7 +64,7 @@ const Slider = ({
   return (
     <div
       ref={myRef}
-      className={[`relative`].join(' ')}
+      className={[className].join(' ')}
       style={{
         ...(orientation === Orientation.HORIZONTAL && {
           width: length ? length : '100%',
@@ -91,8 +91,8 @@ const Slider = ({
           }),
           ...(orientation === Orientation.VERTICAL && {
             width: `${calcHeight}px`, //width should now be height of parent container when vertical - use js to get height of container or use prop's length value
-            transform: `rotate(-90deg) translateX(-100%)` /* Rotate the scrollbar counterclockwise by 90 degrees */,
             transformOrigin: `top left` /* Set the rotation origin to the top-left corner */,
+            transform: ` rotate(-90deg) translateX(-100%)` /* Rotate the scrollbar counterclockwise by 90 degrees */,
           }),
           height: `${thickness}px`,
           borderRadius: '10px',

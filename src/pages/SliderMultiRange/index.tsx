@@ -4,7 +4,7 @@ import reactElementToJSXString from 'react-element-to-jsx-string';
 import { SliderMultiRange, Heading, Tabs, CodeBlock } from '@swagfinger/components';
 
 const SliderMultiRangeExample = () => {
-  const [sliderValues, setSliderValues] = useState([0, 20, 20, 20]); //holds positions of sliders
+  const [sliderValues, setSliderValues] = useState([0, 20, 40, 50, 60, 80, 100]); //holds positions of sliders
 
   const preview = (
     <div
@@ -16,7 +16,7 @@ const SliderMultiRangeExample = () => {
       <SliderMultiRange
         sliderValues={sliderValues}
         colors={['red', 'yellow', 'green']}
-        orientation="horizontal"
+        orientation="vertical"
         onChange={setSliderValues}
       />
     </div>
