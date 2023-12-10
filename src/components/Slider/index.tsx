@@ -139,8 +139,6 @@ const SliderInput = styled.input.attrs({
   thumbSize: number;
   hideTrack: boolean;
 }>`
-  
-
   ${({ orientation, thickness }) =>
     orientation === Orientation.HORIZONTAL &&
     `
@@ -163,7 +161,7 @@ const SliderInput = styled.input.attrs({
 
   appearance: none;
   -webkit-appearance: none;
-  -moz-appearance: none; 
+  -moz-appearance: none;
 
   //slider track
   ${({ hideTrack, background, thickness }) =>
@@ -183,8 +181,8 @@ const SliderInput = styled.input.attrs({
       height: ${thickness}px;
       border-radius: 10px;
     }
-    `};
- 
+  `};
+
   // slider thumb
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
@@ -198,7 +196,9 @@ const SliderInput = styled.input.attrs({
     pointer-events: auto;
     transform: translateY(
       ${({ thumbSize, thickness }) =>
-        `${thickness > thumbSize ? -0.5 * (thumbSize - thickness) : 0.5 * (thickness - thumbSize)}px`});
+        `${thickness > thumbSize ? -0.5 * (thumbSize - thickness) : 0.5 * (thickness - thumbSize)}px`}
+    );
+  }
 
   &::-moz-range-thumb {
     width: ${({ thumbSize }) => thumbSize}px;
@@ -210,7 +210,9 @@ const SliderInput = styled.input.attrs({
     pointer-events: auto;
     transform: translateY(
       ${({ thumbSize, thickness }) =>
-        `${thickness > thumbSize ? -0.5 * (thumbSize - thickness) : 0.5 * (thickness - thumbSize)}px`});
+        `${thickness > thumbSize ? -0.5 * (thumbSize - thickness) : 0.5 * (thickness - thumbSize)}px`}
+    );
+  }
 `;
 
 Slider.displayName = 'Slider';
