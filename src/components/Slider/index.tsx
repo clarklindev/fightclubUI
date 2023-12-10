@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, forwardRef } from 'react';
 import styled from 'styled-components';
 import { Orientation } from '@swagfinger/types/Orientation';
 
@@ -88,29 +88,44 @@ const Slider = ({
 
 // ------------------------------------------------------------------------------------------------------------------------------------------------
 
-const SliderContainer = styled.div<{
-  orientation: Orientation | string;
-  offset: string;
-  ref: React.Ref<any>;
-  length: string;
-}>`
-  box-sizing: border-box;
-  position: relative;
-
-  ${({ orientation, offset, length }) =>
-    orientation === Orientation.HORIZONTAL &&
-    `
-    width: ${length ? length : '100%'};
-    margin-left: ${offset};
-  `};
-
-  ${({ orientation, offset, length }) =>
-    orientation === Orientation.VERTICAL &&
-    `
-    height: ${length ? length : '100%'};
-    margin-top: ${offset};
-  `};
-`;
+const SliderContainer = forwardRef(
+  (
+    {
+      orientation,
+      length,
+      offset,
+      children,
+      style,
+    }: {
+      orientation: Orientation[keyof Orientation];
+      length: string;
+      offset: string;
+      children: React.ReactNode;
+      style: React.CSSProperties;
+    },
+    ref: React.Ref<HTMLDivElement>,
+  ) => {
+    return (
+      <div
+        ref={ref}
+        className={[`relative`].join(' ')}
+        style={{
+          ...(orientation === Orientation.HORIZONTAL && {
+            width: length ? length : '100%',
+            marginLeft: offset,
+            ...style,
+          }),
+          ...(orientation === Orientation.VERTICAL && {
+            height: length ? length : '100%',
+            marginTop: offset,
+            ...style,
+          }),
+        }}>
+        {children}
+      </div>
+    );
+  },
+);
 
 const SliderInput = styled.input.attrs({
   type: 'range',
