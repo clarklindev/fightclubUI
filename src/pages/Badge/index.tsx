@@ -3,7 +3,10 @@ import reactElementToJSXString from 'react-element-to-jsx-string';
 
 const BadgeExample = () => {
   const preview = <Badge>Hello</Badge>;
-  const previewString = reactElementToJSXString(preview);
+  const previewString = `
+  import {Badge} from '@swagfinger/components';
+  ${reactElementToJSXString(preview)}
+  `;
 
   return (
     <>
@@ -20,13 +23,7 @@ const BadgeExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>
-              {`
-import {Badge} from '@swagfinger/components';
-
-${previewString}
-`}
-            </CodeBlock>
+            <CodeBlock>{previewString}</CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
