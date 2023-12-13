@@ -7,7 +7,11 @@ import { Link } from 'react-router-dom';
 const CodeBlockExample = () => {
   const preview = <CodeBlock>{'hi'}</CodeBlock>;
 
-  const previewString = reactElementToJSXString(preview);
+  const previewString = `import {CodeBlock} from '@swagfinger/components';
+  ${reactElementToJSXString(preview)};
+  //this is a comment
+  `;
+
   return (
     <>
       <Heading variation="h1" data-observable="true">
@@ -23,12 +27,7 @@ const CodeBlockExample = () => {
           <Tabs.ContentGroup>
             <Tabs.Content data-tab="0">{preview}</Tabs.Content>
             <Tabs.Content data-tab="1">
-              <CodeBlock>{`import {CodeBlock} from '@swagfinger/components';
-
-${previewString}
-
-//this is a comment
-`}</CodeBlock>
+              <CodeBlock>{previewString}</CodeBlock>
             </Tabs.Content>
           </Tabs.ContentGroup>
         </Tabs>

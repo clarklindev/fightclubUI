@@ -148,7 +148,10 @@ const IconExample = () => {
     </>
   );
 
-  const previewString = reactElementToJSXString(preview);
+  const previewString = `
+  import {Icon} from '@swagfinger/components';
+  ${reactElementToJSXString(preview)};
+  `;
 
   return (
     <>
@@ -165,13 +168,7 @@ const IconExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>
-              {`
-import {Icon} from '@swagfinger/components';
-
-${previewString}
-`}
-            </CodeBlock>
+            <CodeBlock>{previewString}</CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

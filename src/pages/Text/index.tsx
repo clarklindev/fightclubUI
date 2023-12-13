@@ -9,7 +9,9 @@ const TextExample = () => {
     </Text>
   );
 
-  const previewString = reactElementToJSXString(preview);
+  const previewString = `import {Text} from "@swagfinger/components";
+  ${reactElementToJSXString(preview)}
+  `;
 
   return (
     <>
@@ -26,12 +28,7 @@ const TextExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>
-              {`import {Text} from "@swagfinger/components";
-
-${previewString}
-`}
-            </CodeBlock>
+            <CodeBlock>{previewString}</CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
