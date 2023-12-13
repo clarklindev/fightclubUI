@@ -7,7 +7,6 @@ import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon } from
 import { useMenu } from '@swagfinger/context/MenuContext';
 import { useTheme } from '@swagfinger/context/ThemeContext';
 import { useScroll } from '@swagfinger/context/ScrollContext';
-import { OnThisPageContextProvider } from '@swagfinger/context/OnThisPageContext';
 
 import logo from '@swagfinger/assets/logo.svg';
 import githubIcon from '@swagfinger/assets/github.svg';
@@ -381,9 +380,7 @@ export const HomeLayout = () => {
           <main id="main" ref={mainRef}>
             <Outlet />
           </main>
-          <OnThisPageContextProvider>
-            <OnThisPage data-component="onthispage" />
-          </OnThisPageContextProvider>
+          <OnThisPage data-component="onthispage" />
         </Container>
       </Content>
     </HomeLayoutContainer>

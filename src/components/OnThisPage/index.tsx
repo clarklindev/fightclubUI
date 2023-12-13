@@ -1,12 +1,26 @@
-import React, { useEffect, useRef, forwardRef } from 'react';
+import React, { useEffect, useRef, forwardRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import styled from 'styled-components';
 
 import { Button } from '@swagfinger/components';
 import { useOnThisPage } from '@swagfinger/context/OnThisPageContext';
 import { useScroll } from '@swagfinger/context/ScrollContext';
+import { OnThisPageContextProvider } from '@swagfinger/context/OnThisPageContext';
 
-export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
+import styles from './OnThisPage.module.css';
+
+export const OnThisPage = ({ children, ...props }) => {
+  return (
+    <OnThisPageContextProvider>
+      <Container {...props}>{children}</Container>
+    </OnThisPageContextProvider>
+  );
+};
+
+type ContainerProps = {
+  children: React.ReactNode;
+};
+
+const Container = ({ children, ...props }: ContainerProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
@@ -121,9 +135,23 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
     scrollToPercentage(containerRef, scrollPercentage as number);
   }, [scrollPercentage]);
 
+  const [calculatedHeight, setCalculatedHeight] = useState<undefined | string>();
+
+  useEffect(() => {
+    setCalculatedHeight(`calc(100vh - 50px - 8rem)`); //minus navbar height, //minus padding * 2
+  }, []);
+
   return (
-    <StyledOnThisPage className={className} {...rest}>
-      <Container ref={containerRef}>
+    <div
+      className={[styles.OnThisPage, `hidden`, `overflow-y-hidden`, ` border-l border-[var(--border-color)]`].join(' ')}
+      {...props}>
+      <div
+        data-component="Container"
+        ref={containerRef}
+        className={[
+          `p-4 radius-full overflow-hidden border border-[var(--border-color)] overscroll-contain hover:overflow-y-hidden`,
+        ].join(' ')}
+        style={{ height: calculatedHeight }}>
         {observables && observables.length > 0 ? (
           <div className="flex flex-col relative">
             {observables.map((observable, index) => (
@@ -164,39 +192,7 @@ export const OnThisPage = ({ className, ...rest }: { className?: string }) => {
         ) : (
           <p>No observables found.</p>
         )}
-      </Container>
-    </StyledOnThisPage>
+      </div>
+    </div>
   );
 };
-
-const Container = forwardRef<HTMLDivElement, { children?: React.ReactNode }>(({ children, ...props }, ref) => {
-  return (
-    <StyledContainer {...props} ref={ref}>
-      {children}
-    </StyledContainer>
-  );
-});
-
-const StyledOnThisPage = styled.aside`
-  display: none;
-  overflow-y: hidden;
-  border-left: 1px solid var(--border-color);
-`;
-
-const StyledContainer = styled.div`
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  border: 1px solid var(--border-color);
-  padding: 1rem;
-  border-radius: 5px;
-  height: calc(100dvh - 50px - 8rem); //minus navbar height, //minus padding * 2
-  overflow: hidden;
-  overscroll-behavior: contain;
-
-  &:hover {
-    overflow-y: auto;
-  }
-`;
