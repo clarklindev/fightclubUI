@@ -1,12 +1,22 @@
-import { useAccordion } from '@swagfinger/context/AccordionContext';
+import { AccordionContextProvider, useAccordion } from '@swagfinger/context/AccordionContext';
 import React, { useRef, useEffect } from 'react';
+
+// whatever props are passed in, just pass through
+const Accordion = ({ children, ...props }: AccordionProps) => {
+  return (
+    <AccordionContextProvider>
+      {/* if you dont pass in multi-open, default will be applied */}
+      <AccordionContainer {...props}>{children}</AccordionContainer>
+    </AccordionContextProvider>
+  );
+};
 
 type AccordionProps = {
   multiOpen?: boolean;
   children: React.ReactNode;
 };
 
-const Accordion = ({ multiOpen = true, children }: AccordionProps) => {
+const AccordionContainer = ({ multiOpen = true, children }: AccordionProps) => {
   const { setMultiOpen } = useAccordion();
 
   useEffect(() => {
@@ -18,11 +28,11 @@ const Accordion = ({ multiOpen = true, children }: AccordionProps) => {
       data-component={Accordion.name}
       role="tablist"
       className={`
-      flex 
-      flex-col 
-      self-stretch 
-      min-w-max-content
-    `}>
+  flex 
+  flex-col 
+  self-stretch 
+  min-w-max-content
+`}>
       {children}
     </div>
   );

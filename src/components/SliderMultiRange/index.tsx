@@ -29,6 +29,8 @@ type SliderMultiRangeProps = {
   length?: string;
   orientation?: Orientation[keyof Orientation];
   slideMode?: SlideMode | string;
+  trackClickable?: boolean;
+  hideTrack?: boolean;
 };
 
 export const SliderMultiRange = ({
@@ -41,6 +43,8 @@ export const SliderMultiRange = ({
   thumbSize = 30,
   slideMode = SlideMode.MAGNETIC,
   orientation = Orientation.HORIZONTAL,
+  trackClickable = false,
+  hideTrack = true,
 }: SliderMultiRangeProps) => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null); // To track the active element
 
@@ -156,8 +160,8 @@ export const SliderMultiRange = ({
             style={{ zIndex: index === activeIndex ? 1 : 0 }} //z-index
             offset={slideMode === SlideMode.SLIDETHROUGH ? '0px' : calculatedOffset}
             //x position to place the <Slider/> you cant see this of each individual slider if position="absolute". only when className = "" and hideTrack="false"
-            trackClickable={false} //you want to leave this FALSE for multirange input
-            hideTrack={true} //you want to leave this as TRUE for multirange input - <SliderTrack /> replaces this
+            trackClickable={trackClickable} //you want to leave this FALSE for multirange input
+            hideTrack={hideTrack} //you want to leave this as TRUE for multirange input - <SliderTrack /> replaces this
             thumbSize={thumbSize}
             thickness={thickness}
           />

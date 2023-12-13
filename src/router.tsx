@@ -55,6 +55,7 @@ import CodeBlockExample from '@swagfinger/pages/CodeBlock';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
+    // USE LAYOUT - HomeLayout
     <Route path="/" element={<HomeLayout />}>
       <Route index element={<Introduction />} />
 
