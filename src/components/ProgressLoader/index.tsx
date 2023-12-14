@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 type ProgressLoaderProps = {
   progress: number; // Progress as a percentage
@@ -10,8 +9,8 @@ type ProgressLoaderProps = {
 
 export const ProgressLoader = ({
   progress,
-  size = 15,
-  strokeWidth = 1,
+  size = 35,
+  strokeWidth = 3,
   color = 'currentColor',
 }: ProgressLoaderProps) => {
   const radius = (size - strokeWidth) / 2;
@@ -20,7 +19,8 @@ export const ProgressLoader = ({
   const viewBoxSize = size; // Adjust viewBox size to accommodate strokeWidth
 
   return (
-    <svg width={size} height={size} viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}>
+    //the stroke sits halfway between the edge (inside and outside) by default
+    <svg width={size} height={size} viewBox={`0 0 ${viewBoxSize + strokeWidth / 2} ${viewBoxSize + strokeWidth / 2}`}>
       <circle
         className="circle"
         fill="none"
@@ -28,6 +28,7 @@ export const ProgressLoader = ({
         strokeWidth={strokeWidth}
         strokeDasharray={circumference}
         strokeDashoffset={dashoffset}
+        strokeLinecap="round"
         r={radius}
         cx={viewBoxSize / 2}
         cy={viewBoxSize / 2}

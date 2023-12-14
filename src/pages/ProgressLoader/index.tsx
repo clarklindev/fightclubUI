@@ -1,25 +1,25 @@
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { CodeBlock, Heading, ProgressLoader, Tabs } from '@swagfinger/components';
+import { CodeBlock, Heading, Layout, ProgressLoader, Tabs, Text } from '@swagfinger/components';
 import { ResizePanel } from '@swagfinger/components';
 
 const ProgressLoaderExample = () => {
   const preview = (
     <div className="flex flex-col gap-10">
       <ResizePanel>
-        <ProgressLoader progress={25} size={15} />
+        <ProgressLoader progress={25} size={35} />
       </ResizePanel>
 
       <ResizePanel>
-        <ProgressLoader progress={50} size={15} />
+        <ProgressLoader progress={50} size={35} />
       </ResizePanel>
 
       <ResizePanel>
-        <ProgressLoader progress={75} size={15} />
+        <ProgressLoader progress={75} size={35} />
       </ResizePanel>
 
       <ResizePanel>
-        <ProgressLoader progress={100} size={15} />
+        <ProgressLoader progress={100} size={35} />
       </ResizePanel>
     </div>
   );
@@ -44,6 +44,10 @@ const ProgressLoaderExample = () => {
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
+
+      <Layout>
+        <Text>fact - strokeLinecap="round" looks better than without</Text>
+      </Layout>
     </>
   );
 };
