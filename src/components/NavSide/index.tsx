@@ -3,16 +3,12 @@ import styled from 'styled-components';
 import { useMenu } from '@swagfinger/context/MenuContext';
 import { CustomNavLink, Heading, HeadingProps } from '@swagfinger/components';
 
+//isOpen refers to when media queries is on small screens and the menu button is shown instead of the nav always being there.
 const StyledNavSide = styled.aside<{ isOpen: boolean; className?: string }>`
   ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};
   overflow-wrap: break-word;
   padding: 2rem;
   border-right: none;
-
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
 
   @media only screen and (max-width: 576px) {
     body {
@@ -62,6 +58,7 @@ const Nav = styled.nav`
   flex-direction: column;
 
   a {
+    display: block;
     margin: -0.25rem 0 -0.25rem -0.5rem;
     padding: 0.5rem;
     border-radius: 5px;
