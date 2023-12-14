@@ -34,6 +34,7 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
       <input
         type="checkbox"
         className={`
+        hidden
         border-0
         h-0
         w-0

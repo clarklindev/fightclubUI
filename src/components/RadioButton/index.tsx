@@ -35,6 +35,7 @@ clip-path-[inset(50%)]
 h-0 
 w-0 
 m-n1 
+hidden
 overflow-hidden 
 p-0 
 absolute 

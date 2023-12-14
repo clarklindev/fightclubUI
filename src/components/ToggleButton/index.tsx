@@ -41,6 +41,7 @@ const Component = ({ render, enumObj }: { render: (current: string) => React.Rea
             h-0 
             m-(-1)
             overflow-hidden 
+            hidden
             p-0 
             absolute 
             whitespace-nowrap 
