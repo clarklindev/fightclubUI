@@ -211,7 +211,7 @@ const Menu = ({ children, className }: { children: React.ReactNode; className?: 
         right: menuOrientationX === Position.RIGHT ? '0' : 'auto',
       }}
       className={`
-      tabindex:-1 border-2 flex flex-col gap-1 rounded absolute bg-blue-500 cursor-pointer p-2 z-10 
+      tabindex:-1 border border-[var(--border-color)] flex flex-col gap-1 rounded absolute text-[--clr-forefround] bg-[var(--clr-background)] cursor-pointer p-2 z-10 
 
       ${isMenuOpen ? 'block' : 'hidden'}
       ${className}
@@ -238,7 +238,7 @@ const MenuItem = ({
     <>{children}</>
   ) : (
     <button
-      className="p-1 tabindex:-1 bg-green-300 hover:bg-opacity-30 rounded min-w-120"
+      className="p-1 tabindex:-1 bg-[var(--background-color)] hover:bg-red-400 rounded min-w-120"
       onFocus={() => {
         setIsMenuOpen(true);
         onFocus();
