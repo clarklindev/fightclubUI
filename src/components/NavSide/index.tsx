@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { useMenu } from '@swagfinger/context/MenuContext';
-import { CustomNavLink, Heading, HeadingProps } from '@swagfinger/components';
+import { CustomNavLink, Heading, HeadingProps, Scrollable } from '@swagfinger/components';
 
 //isOpen refers to when media queries is on small screens and the menu button is shown instead of the nav always being there.
 const StyledNavSide = styled.aside<{ isOpen: boolean; className?: string }>`
@@ -102,9 +102,11 @@ const NavSide = ({ children, className }: NavSideProps) => {
   const { isOpen } = useMenu();
 
   return (
-    <StyledNavSide isOpen={isOpen} className={className}>
-      <Nav>{children}</Nav>
-    </StyledNavSide>
+    <Scrollable>
+      <StyledNavSide isOpen={isOpen} className={className}>
+        <Nav>{children}</Nav>
+      </StyledNavSide>
+    </Scrollable>
   );
 };
 
