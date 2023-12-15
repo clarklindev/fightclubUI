@@ -10,6 +10,13 @@ const StyledNavSide = styled.aside<{ isOpen: boolean; className?: string }>`
   padding: 2rem;
   border-right: none;
 
+  // for custom scrollbar
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+    background-color: var(--clr-background);
+  }
+
   @media only screen and (max-width: 576px) {
     body {
       font-size: 1.2rem;
