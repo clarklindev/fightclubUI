@@ -1,6 +1,6 @@
 input[type="range"].Slider {
   &::-moz-range-thumb{
-    -webkit-appearance: none;
+    -moz-appearance: none;
     pointer-events: auto;
     cursor: pointer;
     width: 30px; /* thumbSize */
