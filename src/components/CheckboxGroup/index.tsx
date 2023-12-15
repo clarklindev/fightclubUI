@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 type CheckboxGroupProps = {
   direction: string;
@@ -7,28 +6,25 @@ type CheckboxGroupProps = {
   children: React.ReactNode;
 };
 
-const CheckboxGroup = ({ direction = 'column', spacing = '0px', children }: CheckboxGroupProps) => {
+const CheckboxGroup = ({ spacing = '5px', direction, children }: CheckboxGroupProps) => {
   return (
-    <CheckboxGroupContainer className={`CheckboxGroup`} direction={direction} spacing={spacing}>
+    <div
+      data-component="CheckboxGroup"
+      className={[
+        'relative',
+        'inline-flex',
+        direction === 'column' && `flex-col space-y-${spacing}`,
+
+        direction === 'column-reverse' && `flex-col-reverse space-y-${spacing} space-y-reverse`,
+
+        direction === 'row' && `flex-row space-x-${spacing} `,
+
+        direction === 'row-reverse' && `flex-row-reverse space-x-${spacing} space-x-reverse`,
+      ].join(' ')}>
       {children}
-    </CheckboxGroupContainer>
+    </div>
   );
 };
 
 CheckboxGroup.displayName = 'CheckboxGroup';
 export { CheckboxGroup };
-
-// ------------------------------------------------------------------------------------------------------------------------------------------------
-
-const CheckboxGroupContainer = styled.div<{
-  direction: string;
-  spacing: string;
-}>`
-  display: inline-flex;
-  flex-direction: ${({ direction }) => direction};
-
-  > *:not(:last-child) {
-    margin-bottom: ${({ direction, spacing }) => (direction === 'column' || direction === 'column-reverse') && spacing};
-    margin-right: ${({ direction, spacing }) => (direction === 'row' || direction === 'row-reverse') && spacing};
-  }
-`;

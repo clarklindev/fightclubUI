@@ -21,16 +21,7 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
   }, [indeterminate]);
 
   return (
-    <label
-      data-component={Checkbox.name}
-      className={`
-      w-[${size}] 
-      h-[${size}]
-      bg-transparent
-      flex
-      relative
-      box-border
-    `}>
+    <label data-component={Checkbox.name}>
       <input
         type="checkbox"
         className={`
@@ -52,13 +43,7 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
       <div
         className={`
         cursor-pointer
-        flex
-        items-center
-        justify-center
-        relative
         overflow-hidden 
-        w-full
-        h-full
         border-[var(--border)]
         bg-[var(input-background-color)]
       `}>
@@ -71,8 +56,7 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
               stroke="red"
               strokeWidth="2"
               strokeLinecap="round"
-              strokeLinejoin="round"
-              className="w-10 h-10">
+              strokeLinejoin="round">
               <rect width="100%" height="100%" />
               <line x1="8" y1="12" x2="16" y2="12" />
             </svg>
