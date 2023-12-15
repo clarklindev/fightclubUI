@@ -7,19 +7,19 @@ const ProgressLoaderExample = () => {
   const preview = (
     <div className="flex flex-col gap-10">
       <ResizePanel>
-        <ProgressLoader progress={25} size={35} />
+        <ProgressLoader progress={25} size={35} color="red" />
       </ResizePanel>
 
       <ResizePanel>
-        <ProgressLoader progress={50} size={35} />
+        <ProgressLoader progress={50} size={35} color="red" />
       </ResizePanel>
 
       <ResizePanel>
-        <ProgressLoader progress={75} size={35} />
+        <ProgressLoader progress={75} size={35} color="red" />
       </ResizePanel>
 
       <ResizePanel>
-        <ProgressLoader progress={100} size={35} />
+        <ProgressLoader progress={100} size={35} color="red" />
       </ResizePanel>
     </div>
   );
@@ -28,7 +28,7 @@ const ProgressLoaderExample = () => {
 
   return (
     <>
-      <Heading variation="h1" data-observable="true">
+      <Heading variation="h1" size="level1" data-observable="true">
         Progress Loader
       </Heading>
 
