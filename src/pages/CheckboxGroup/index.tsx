@@ -29,7 +29,6 @@ const CheckboxExample = () => {
             return (
               <Label key={'CheckboxGroup_Checkbox' + index} label={each.label} labelDirection="bottom" gap="10px">
                 <Checkbox
-                  size="XS"
                   checked={savedData[index]}
                   name="Checkbox_ABC"
                   onChange={() => onChange(index, !savedData[index])}
