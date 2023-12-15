@@ -5,21 +5,30 @@ const Introduction = () => {
   return (
     <article>
       <Layout>
-        <Heading variation="h1" data-observable="true">
+        <Heading variation="h1" size="level1" data-observable="true">
           Introduction
         </Heading>
-        <Text>SwagfingerUI is a design system meant for an easier developer experience.</Text>
-
         <Text>
-          It uses React (Function-based library of compound components), TailwindCSS and Class Variance Authority (CVA)
-          under the hood.
-        </Text>
-        <Text>
+          SwagfingerUI is a design system meant for an easier developer experience.
+          <br />
+          <br />
+          Have you ever worked in a company where you cried everyday because development was an awful experience? There
+          is a clear difference between a component library that works, and one that developers appreciate because of
+          ease of use.
+          <br />
+          <br />
+          SwagfingerUI uses React (Function-based library of compound components), TailwindCSS and Class Variance
+          Authority (CVA) under the hood.
+          <br />
+          <br />
           The goal of this library is to combine the user-friendly modular approach of customizing with compound
           components while leveraging TailwindCSS (known for its well-documented utility-first library of reusable
           classes) with the variant abilities of CVA (Class Variance Authority). The aim is to create a solution that
           strikes a balance between being opinionated and providing flexibility by incorporating the best of both
-          worlds. Designed to offer the right amount of opinionatedness, ensuring that users have access to a range of
+          worlds.
+          <br />
+          <br />
+          Designed to offer the right amount of opinionatedness, ensuring that users have access to a range of
           pre-defined styles and components, while also providing the ability to tailor the output to meet their
           specific requirements.
         </Text>

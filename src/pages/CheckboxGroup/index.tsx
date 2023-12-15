@@ -20,13 +20,16 @@ const CheckboxExample = () => {
   const preview = (
     <>
       <Layout>
-        <Heading variation="h5">Checkbox Group (horizontal)</Heading>
+        <Heading variation="h5" size="level2">
+          Checkbox Group (horizontal)
+        </Heading>
 
-        <CheckboxGroup direction="row" spacing="20px">
+        <CheckboxGroup direction="row" spacing="4">
           {options.map((each, index) => {
             return (
               <Label key={'CheckboxGroup_Checkbox' + index} label={each.label} labelDirection="bottom" gap="10px">
                 <Checkbox
+                  size="XS"
                   checked={savedData[index]}
                   name="Checkbox_ABC"
                   onChange={() => onChange(index, !savedData[index])}
@@ -38,8 +41,10 @@ const CheckboxExample = () => {
       </Layout>
 
       <Layout>
-        <Heading variation="h5">Checkbox Group (vertical)</Heading>
-        <CheckboxGroup direction="column" spacing="20px">
+        <Heading variation="h5" size="level2">
+          Checkbox Group (vertical)
+        </Heading>
+        <CheckboxGroup direction="column" spacing="4">
           {options.map((each, index) => {
             return (
               <Label key={'CheckboxGroup_Checkbox' + index} label={each.label} labelDirection="right" gap="10px">
@@ -55,8 +60,10 @@ const CheckboxExample = () => {
       </Layout>
 
       <Layout>
-        <Heading variation="h5">Checkbox Group (indeterminate)</Heading>
-        <div className="flex flex-col justify-items-start items-start space-y-10">
+        <Heading variation="h5" size="level2">
+          Checkbox Group (indeterminate)
+        </Heading>
+        <div className="flex flex-col items-start space-y-10">
           <Label label="hi" labelDirection="right" gap="10px">
             <Checkbox
               checked={savedData.every(item => item === true)}
@@ -69,7 +76,7 @@ const CheckboxExample = () => {
             />
           </Label>
 
-          <CheckboxGroup direction="column" spacing="20px">
+          <CheckboxGroup direction="column" spacing="4">
             {options.map((each, index) => {
               return (
                 <Label key={'CheckboxGroup_Checkbox' + index} label={each.label} labelDirection="right" gap="10px">
@@ -91,7 +98,7 @@ const CheckboxExample = () => {
 
   return (
     <>
-      <Heading variation="h1" data-observable="true">
+      <Heading variation="h1" size="level1" data-observable="true">
         Checkbox Group
       </Heading>
 

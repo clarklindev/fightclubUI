@@ -3,7 +3,7 @@ import { CodeBlock, Heading, Layout, Text } from '@swagfinger/components';
 const GettingStarted = () => {
   return (
     <article>
-      <Heading variation="h1" data-observable="true">
+      <Heading variation="h1" size="level1" data-observable="true">
         Getting Started
       </Heading>
       <Layout>

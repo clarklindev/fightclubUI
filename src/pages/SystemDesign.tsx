@@ -5,10 +5,10 @@ const SystemDesign = () => {
   return (
     <article>
       <Layout>
-        <Heading variation="h1" data-observable="true">
+        <Heading variation="h1" size="level1" data-observable="true">
           System Design
         </Heading>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Routing
         </Heading>
         <Link to="https://github.com/swagfinger/template-react-router-6">react-router-dom</Link>
@@ -17,7 +17,7 @@ const SystemDesign = () => {
       </Layout>
 
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Validation
         </Heading>
         <Link to="https://zod.dev/">https://zod.dev/</Link>
@@ -26,7 +26,7 @@ const SystemDesign = () => {
       </Layout>
 
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Layout
         </Heading>
 
@@ -52,13 +52,15 @@ const SystemDesign = () => {
       </Layout>
 
       <Layout>
-        <Heading variation="h1" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Adding Pages
         </Heading>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h3" size="level3" data-observable="true">
           1. Adding nav link
         </Heading>
-        <Heading variation="h3">Using react-router-dom 6</Heading>
+        <Heading variation="h4" size="level4">
+          Using react-router-dom 6
+        </Heading>
         <Text>
           The first step to adding a page on the interface so that it appears as a navigation link is to look inside:
           <br />
@@ -67,7 +69,7 @@ const SystemDesign = () => {
         </Text>
         <CodeBlock>{`<NavSide.Link to="page">Adding pages</NavSide.Link>`}</CodeBlock>
 
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h3" size="level3" data-observable="true">
           2. Register a route
         </Heading>
         <Text>
@@ -82,7 +84,7 @@ import PageExample from '@swagfinger/pages/Page';
 <Route path="/page" element={<PageExample />} />
       `}
         </CodeBlock>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h3" size="level3" data-observable="true">
           3. Add the actual page
         </Heading>
         <Text>
@@ -112,7 +114,7 @@ export default Page;
         `}
         </CodeBlock>
 
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h3" size="level3" data-observable="true">
           4. Link with "On this page"
         </Heading>
         <Text>
@@ -130,20 +132,20 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading variation="h1" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Handling Forms
         </Heading>
         <Text>How to handle forms</Text>
       </Layout>
 
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Accessability
         </Heading>
         <Text>Components are designed with accessibility in mind.</Text>
       </Layout>
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Styling
         </Heading>
         <Text>
@@ -169,11 +171,11 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Themes
         </Heading>
         <Text>Supports theming</Text>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Icons
         </Heading>
         <Text>
@@ -200,11 +202,11 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Bundler
         </Heading>
         <Text>Using Vite to compile and bundle code - it uses es modules and its fast.</Text>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Module alias
         </Heading>
         <Text>created aliases for links so that instead of using relative pathing, you can use absolute path</Text>
@@ -235,7 +237,7 @@ resolve: {
       </Layout>
 
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Static assets
         </Heading>
         <Text>
@@ -275,7 +277,7 @@ resolve: {
       </Layout>
 
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Darkmode
         </Heading>
         <Text>
@@ -294,10 +296,12 @@ resolve: {
       </Layout>
 
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Component Design
         </Heading>
-        <Heading variation="h3">An evolution of component design</Heading>
+        <Heading variation="h3" size="level2">
+          An evolution of component design
+        </Heading>
         <Text>
           Current perceived best practice is to use compound components, especially when building component libraries
           that need to have design flexibility. React has a concept of context that allows passing of state though the
@@ -313,7 +317,7 @@ resolve: {
       </Layout>
 
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Referencing
         </Heading>
         <Text>
@@ -327,7 +331,7 @@ resolve: {
       </Layout>
 
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Positioning
         </Heading>
         <Text>components are placed in relation to their parents orientation (eg. column / row)</Text>
@@ -345,7 +349,7 @@ resolve: {
       </Layout>
 
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Modals
         </Heading>
         <Text>
@@ -355,7 +359,7 @@ resolve: {
       </Layout>
 
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Focus
         </Heading>
         <Text>when components receive focus, it uses Tailwind focus ring instead of styling :focus.</Text>
@@ -365,7 +369,9 @@ resolve: {
           screens
         </Text>
 
-        <Heading variation="h3">using :focus</Heading>
+        <Heading variation="h3" size="level2">
+          using :focus
+        </Heading>
         <CodeBlock>
           {`button:focus {
   outline-width: 3px;
@@ -377,7 +383,7 @@ resolve: {
       </Layout>
 
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Modular component structure
         </Heading>
         <Text>
@@ -455,7 +461,7 @@ export default AnotherComponent;`}</CodeBlock>
       </Layout>
 
       <Layout>
-        <Heading variation="h2" data-observable="true">
+        <Heading variation="h2" size="level2" data-observable="true">
           Composition
         </Heading>
         <Text>using Tailwind-merge, clsx (https://github.com/lukeed/clsx), cn utility helper, CVA</Text>
@@ -466,7 +472,9 @@ export default AnotherComponent;`}</CodeBlock>
           decision is either to have a controlled predefined props or opengates tailwind classes for each part of the
           component.
         </Text>
-        <Heading variation="h3">Method 1: cn / tw-merge / clsx</Heading>
+        <Heading variation="h3" size="level3">
+          Method 1: cn / tw-merge / clsx
+        </Heading>
         <Text>Instead of passing individual props to components...</Text>
         <CodeBlock>{`<Card color='white' borderColor='#DDD' borderRadius='10px' height='200px'/>`}</CodeBlock>
         <Text>Use classes (tailwind) instead</Text>
@@ -507,13 +515,17 @@ export const Card = ({
   return <div className={className}>{children}</div>;
 };`}
         </CodeBlock>
-        <Heading variation="h3">Method 2: (cn / tw-merge / clsx) + CVA</Heading>
+        <Heading variation="h3" size="level3">
+          Method 2: (cn / tw-merge / clsx) + CVA
+        </Heading>
         <Text>
           with CVA you have predefined styles which are called 'variants', each variant is a prop for the component with
           a set of values mapped to a variant
         </Text>
 
-        <Heading variation="h3">Uncategorized</Heading>
+        <Heading variation="h3" size="level3">
+          Uncategorized
+        </Heading>
         <Text>
           Component context - can reside within the component itself, you pass the actual children through to the
           Component so the context acts as a wrapper within the component. Depending on usage case, this encapsulates
