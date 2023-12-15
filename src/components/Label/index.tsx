@@ -1,10 +1,10 @@
 import React from 'react';
 
 enum FlexAssociation {
-  left = 'relative inline-flex flex-row-reverse items-center content-center self-center',
-  right = 'relative inline-flex flex-row items-center content-center self-center',
-  top = 'relative inline-flex flex-col-reverse items-center content-center self-center',
-  bottom = 'relative inline-flex flex-col items-center content-center self-center',
+  left = 'relative inline-flex flex-row-reverse items-center content-center',
+  right = 'relative inline-flex flex-row items-center content-center',
+  top = 'relative inline-flex flex-col-reverse items-center content-center',
+  bottom = 'relative inline-flex flex-col items-center content-center',
 }
 
 const getFlexGap = (direction: keyof typeof FlexAssociation, num: string) => {
