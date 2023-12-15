@@ -6,8 +6,6 @@ import { useOnThisPage } from '@swagfinger/context/OnThisPageContext';
 import { useScroll } from '@swagfinger/context/ScrollContext';
 import { OnThisPageContextProvider } from '@swagfinger/context/OnThisPageContext';
 
-import styles from './OnThisPage.module.css';
-
 export const OnThisPage = ({ children, ...props }) => {
   return (
     <OnThisPageContextProvider>
@@ -142,9 +140,7 @@ const Container = ({ children, ...props }: ContainerProps) => {
   }, []);
 
   return (
-    <div
-      className={[styles.OnThisPage, `hidden`, `overflow-y-hidden`, ` border-l border-[var(--border-color)]`].join(' ')}
-      {...props}>
+    <div className={[`hidden`, `overflow-y-hidden`, ` border-l border-[var(--border-color)]`].join(' ')} {...props}>
       <div
         data-component="Container"
         ref={containerRef}
