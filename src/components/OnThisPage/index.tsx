@@ -6,19 +6,15 @@ import { useOnThisPage } from '@swagfinger/context/OnThisPageContext';
 import { useScroll } from '@swagfinger/context/ScrollContext';
 import { OnThisPageContextProvider } from '@swagfinger/context/OnThisPageContext';
 
-export const OnThisPage = ({ children, ...props }) => {
+export const OnThisPage = ({ ...props }) => {
   return (
     <OnThisPageContextProvider>
-      <Container {...props}>{children}</Container>
+      <Container {...props} />
     </OnThisPageContextProvider>
   );
 };
 
-type ContainerProps = {
-  children: React.ReactNode;
-};
-
-const Container = ({ children, ...props }: ContainerProps) => {
+const Container = ({ ...props }) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const observerRef = useRef<IntersectionObserver | null>(null);
 
