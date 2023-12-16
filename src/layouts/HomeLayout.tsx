@@ -173,7 +173,7 @@ export const HomeLayout = () => {
 
   return (
     <HomeLayoutContainer>
-      <Navbar className="navbar">
+      <Navbar>
         <Navbar.Group className="header-left flex sm:flex-row justify-center w-full min-w-min gap-2 items-center md:justify-start">
           {/* this is the open/close menuSide button */}
           <div className="absolute left-[2rem] md:hidden flex content-center">
@@ -260,7 +260,9 @@ export const HomeLayout = () => {
             <NavSide.Heading variation="h2" size="M" className="mb-3">
               Components
             </NavSide.Heading>
-            <NavSide.Link to="navbar">Navbar</NavSide.Link>
+            <NavSide.Link to="navbar">
+              Navbar <Badge>TW</Badge>
+            </NavSide.Link>
             <NavSide.Link to="navside">
               NavSide <Badge>TW</Badge>
             </NavSide.Link>
