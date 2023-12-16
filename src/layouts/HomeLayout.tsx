@@ -261,8 +261,12 @@ export const HomeLayout = () => {
               Components
             </NavSide.Heading>
             <NavSide.Link to="navbar">Navbar</NavSide.Link>
-            <NavSide.Link to="navside">NavSide</NavSide.Link>
-            <NavSide.Link to="onthispage">On this page</NavSide.Link>
+            <NavSide.Link to="navside">
+              NavSide <Badge>TW</Badge>
+            </NavSide.Link>
+            <NavSide.Link to="onthispage">
+              On this page <Badge>TW</Badge>
+            </NavSide.Link>
             <NavSide.Link to="layout">
               Layout <Badge>TW</Badge>
             </NavSide.Link>

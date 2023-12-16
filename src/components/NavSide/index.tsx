@@ -1,87 +1,27 @@
-import styled from 'styled-components';
-
 import { useMenu } from '@swagfinger/context/MenuContext';
 import { CustomNavLink, Heading, HeadingProps } from '@swagfinger/components';
 
-//isOpen refers to when media queries is on small screens and the menu button is shown instead of the nav always being there.
-const StyledNavSide = styled.aside<{ isOpen: boolean; className?: string }>`
-  ${({ isOpen }) => (isOpen ? `display: block;` : `display: none;`)};
-  overflow-wrap: break-word;
-  padding: 2rem;
-  border-right: none;
+import styles from './NavSide.module.css';
 
-  /* for custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-
-  @media only screen and (max-width: 576px) {
-    body {
-      font-size: 1.2rem;
-    }
-  }
-
-  @media (min-width: 768px) {
-    width: 250px;
-    display: block;
-    position: fixed;
-    padding: 3rem;
-    height: calc(100dvh - 50px);
-    border-right: 1px solid var(--border-color);
-
-    top: 50px;
-    overflow: hidden;
-    overscroll-behavior: contain;
-
-    &:hover {
-      overflow-y: auto;
-    }
-  }
-  @media (min-width: 1024px) {
-    width: 300px;
-    padding: 3rem;
-  }
-
-  @media (min-width: 1200px) {
-    width: 400px;
-    padding: 4rem;
-  }
-`;
-
-const StyledNavGroup = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 1rem;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-`;
-
-const Nav = styled.nav`
-  display: flex;
-  flex-direction: column;
-
-  a {
-    display: block;
-    margin: -0.25rem 0 -0.25rem -0.5rem;
-    padding: 0.5rem;
-    border-radius: 5px;
-    color: var(--clr-foreground);
-
-    &:hover {
-      color: var(--clr-foreground);
-      background: rgba(255, 255, 255, 0.1);
-    }
-    &.active {
-      color: var(--clr-foreground);
-    }
-  }
-`;
+type NavSideProps = {
+  children?: React.ReactNode;
+  className?: string;
+};
+const NavSide = ({ children, className }: NavSideProps) => {
+  const { isOpen } = useMenu();
+  return (
+    // isOpen refers to when media queries is on small screens and the menu button is shown instead of the nav always being there.
+    <aside
+      className={[styles.NavSide, 'overflow-wrap-break-word p-8 border-r-0', isOpen ? 'block' : 'none', className].join(
+        ' ',
+      )}>
+      <nav className="flex flex-col">{children}</nav>
+    </aside>
+  );
+};
 
 const NavGroup = ({ children, className }: { className?: string; children: React.ReactNode }) => {
-  return <StyledNavGroup className={className}>{children}</StyledNavGroup>;
+  return <div className={['flex flex-col mb-4', className].join(' ')}>{children}</div>;
 };
 
 const NavHeading = ({ className, variation, children, ...rest }: HeadingProps) => {
@@ -94,23 +34,18 @@ const NavHeading = ({ className, variation, children, ...rest }: HeadingProps) =
 
 const NavLink = ({ children, to, className }: { className?: string; children: React.ReactNode; to: string }) => {
   return (
-    <CustomNavLink to={to} className={className}>
+    <CustomNavLink
+      to={to}
+      className={[
+        'block',
+        'rounded-md',
+        `text-[var(--text)]`,
+        `hover:text-[var(--text-hover)]`,
+        'hover:bg-[var(--button-background)]',
+        className,
+      ].join(' ')}>
       {children}
     </CustomNavLink>
-  );
-};
-
-type NavSideProps = {
-  children?: React.ReactNode;
-  className?: string;
-};
-const NavSide = ({ children, className }: NavSideProps) => {
-  const { isOpen } = useMenu();
-
-  return (
-    <StyledNavSide isOpen={isOpen} className={className}>
-      <Nav>{children}</Nav>
-    </StyledNavSide>
   );
 };
 

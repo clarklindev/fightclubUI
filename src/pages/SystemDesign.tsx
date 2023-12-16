@@ -509,7 +509,7 @@ type CardProps = {
 };
 
 export const Card = ({
-  className = 'flex flex-col items-stretch px-3 text-grey border-gray-300 border rounded-lg h-[300px] w-auto',
+  className = 'flex flex-col items-stretch px-3 text-gray border-gray-300 border rounded-lg h-[300px] w-auto',
   children,
 }:CardProps) => {
   return <div className={className}>{children}</div>;
