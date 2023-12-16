@@ -16,7 +16,9 @@ const InputExample = () => {
   const preview = (
     <>
       <Layout>
-        <Heading variation="h5">Basic input</Heading>
+        <Heading variation="h5" size="level2">
+          Basic input
+        </Heading>
         <Input>
           <Input.InputElement
             value={savedData}
@@ -28,7 +30,9 @@ const InputExample = () => {
       </Layout>
 
       <Layout>
-        <Heading variation="h5">Input (readonly)</Heading>
+        <Heading variation="h5" size="level2">
+          Input (readonly)
+        </Heading>
         <Input>
           <Input.InputElement
             value={savedData}
@@ -41,7 +45,9 @@ const InputExample = () => {
       </Layout>
 
       <Layout>
-        <Heading variation="h5">Input + Icon</Heading>
+        <Heading variation="h5" size="level2">
+          Input + Icon
+        </Heading>
         <Input variants={{ variant: 'default' }}>
           <Icon size="L">
             <SpeechIcon />
@@ -57,7 +63,9 @@ const InputExample = () => {
       </Layout>
 
       <Layout>
-        <Heading variation="h5">Input Password</Heading>
+        <Heading variation="h5" size="level2">
+          Input Password
+        </Heading>
         <Input>
           <Input.InputElement
             value={savedData}
@@ -74,7 +82,9 @@ const InputExample = () => {
       </Layout>
 
       <Layout>
-        <Heading variation="h5">Input Filter</Heading>
+        <Heading variation="h5" size="level2">
+          Input Filter
+        </Heading>
         <Input>
           <Icon size="M">
             <SearchIcon />
@@ -101,7 +111,9 @@ const InputExample = () => {
       </Layout>
 
       <Layout>
-        <Heading variation="h5">Input Search</Heading>
+        <Heading variation="h5" size="level2">
+          Input Search
+        </Heading>
         <Input>
           <Input.InputElement
             ref={ref}
@@ -127,7 +139,9 @@ const InputExample = () => {
       </Layout>
 
       <Layout>
-        <Heading variation="h5">Input (no-border / no-bg)</Heading>
+        <Heading variation="h5" size="level2">
+          Input (no-border / no-bg)
+        </Heading>
         <Input variants={{ variant: 'unstyled' }}>
           <Input.InputElement
             value={savedData}

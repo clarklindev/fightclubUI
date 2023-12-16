@@ -4,7 +4,7 @@ import { Heading, Card, Layout } from '@swagfinger/components';
 const OnThisPage = () => {
   return (
     <>
-      <Heading variation="h1" data-observable="true">
+      <Heading variation="h1" size="level1" data-observable="true">
         OnThisPage
       </Heading>
 

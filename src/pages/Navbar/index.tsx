@@ -4,7 +4,7 @@ import { Card, Heading, Layout } from '@swagfinger/components';
 const Navbar = () => {
   return (
     <>
-      <Heading variation="h1" data-observable="true">
+      <Heading variation="h1" size="level1" data-observable="true">
         Navbar
       </Heading>
 

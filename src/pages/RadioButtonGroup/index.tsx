@@ -23,7 +23,9 @@ const RadioButtonGroupExample = () => {
   const preview = (
     <>
       <Layout>
-        <Heading variation="h5">RadioButton Group (horizontal)</Heading>
+        <Heading variation="h5" size="level2">
+          RadioButton Group (horizontal)
+        </Heading>
         <RadioButtonGroup direction="row" spacing="20px">
           {options.map((each, index) => {
             return (
@@ -40,7 +42,9 @@ const RadioButtonGroupExample = () => {
         </RadioButtonGroup>
       </Layout>
       <Layout>
-        <Heading variation="h5">RadioButton Group (vertical)</Heading>
+        <Heading variation="h5" size="level2">
+          RadioButton Group (vertical)
+        </Heading>
         <RadioButtonGroup direction="column" spacing="20px">
           {options.map((each, index) => {
             return (
@@ -63,7 +67,7 @@ const RadioButtonGroupExample = () => {
 
   return (
     <>
-      <Heading variation="h1" data-observable="true">
+      <Heading variation="h1" size="level1" data-observable="true">
         RadioButton Group
       </Heading>
 

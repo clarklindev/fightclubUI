@@ -4,21 +4,27 @@ import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
 const DividerExample = () => {
   let preview = (
     <>
-      <Heading variation="h5">Divider (horizontal)</Heading>
+      <Heading variation="h5" size="level2">
+        Divider (horizontal)
+      </Heading>
       <Layout>
         hello
         <Divider variation="horizontal" />
         world
       </Layout>
 
-      <Heading variation="h5">Divider labelled (horizontal)</Heading>
+      <Heading variation="h5" size="level2">
+        Divider labelled (horizontal)
+      </Heading>
       <Layout>
         hello
         <Divider variation="horizontal">OR</Divider>
         world
       </Layout>
 
-      <Heading variation="h5">Divider (vertical)</Heading>
+      <Heading variation="h5" size="level2">
+        Divider (vertical)
+      </Heading>
       <Layout>
         <div style={{ height: '300px', background: `rgba(255, 0, 0, 0.5)` }} className="flex flex-start items-start">
           hello
@@ -27,7 +33,9 @@ const DividerExample = () => {
         </div>
       </Layout>
 
-      <Heading variation="h5">Divider labelled (vertical)</Heading>
+      <Heading variation="h5" size="level2">
+        Divider labelled (vertical)
+      </Heading>
       <Layout>
         <div style={{ height: '300px', background: `rgba(255, 0, 0, 0.1)` }} className="flex flex-start items-start">
           hello<Divider variation="vertical">OR</Divider>
@@ -39,7 +47,7 @@ const DividerExample = () => {
 
   return (
     <>
-      <Heading variation="h1" data-observable="true">
+      <Heading variation="h1" size="level1" data-observable="true">
         Divider
       </Heading>
 

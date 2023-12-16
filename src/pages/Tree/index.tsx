@@ -25,7 +25,7 @@ const TreeExample = () => {
   // requires data to be structured with "label" and "children" properties
   return (
     <>
-      <Heading variation="h1" data-observable="true">
+      <Heading variation="h1" size="level1" data-observable="true">
         Tree
       </Heading>
 

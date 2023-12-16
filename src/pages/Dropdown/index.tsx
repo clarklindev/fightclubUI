@@ -18,7 +18,7 @@ const DropdownExample = () => {
 
   return (
     <>
-      <Heading variation="h1" data-observable="true">
+      <Heading variation="h1" size="level1" data-observable="true">
         Dropdown
       </Heading>
 
