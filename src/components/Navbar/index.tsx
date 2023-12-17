@@ -23,7 +23,7 @@ const Navbar = ({
         'z-10',
         'border-b',
         'border-[var(--border-color)]',
-        'bg-background',
+        'bg-[var(--clr-background)]',
         'min-h-[50px]',
         'flex',
         'items-center',
