@@ -80,6 +80,7 @@ const toggleColorScheme = (colorScheme: keyof typeof COLORSCHEME) => {
   const html = document.querySelector('html');
   if (html) {
     html.dataset.colorScheme = colorScheme; //sets an attribute data-color-scheme on the html element
+    html.style.colorScheme = colorScheme;
   }
 };
 
