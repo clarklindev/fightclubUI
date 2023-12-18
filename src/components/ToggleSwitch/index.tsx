@@ -34,7 +34,7 @@ const ToggleSwitch = React.memo(({ onChange, savedData }: ToggleSwitchProps) => 
           duration-200 
           transform 
           `,
-          savedData ? `translate-x-[25px]` : `translate-x-[5px]`,
+          savedData ? `translate-x-[28px]` : `translate-x-[2px]`,
         ].join(' ')}></div>
       <input className="hidden" type="checkbox" checked={savedData} onChange={onChange} />
     </label>
