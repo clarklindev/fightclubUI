@@ -1,9 +1,24 @@
 .NavSide{
-  /* for custom scrollbar */
-  ::-webkit-scrollbar {
+  
+  &::-webkit-scrollbar {
     width: 10px;
     height: 10px;
-  } 
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent; /* Fully transparent */
+    background-color: var(--clr-background);
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: var(--thumb-default);
+    border-radius: 4px;
+  }
+  
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--thumb-hover);
+  }
+  
 
   nav{
     a{

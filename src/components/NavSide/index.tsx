@@ -9,12 +9,16 @@ type NavSideProps = {
 };
 const NavSide = ({ children, className }: NavSideProps) => {
   const { isOpen } = useMenu();
+
   return (
     // isOpen refers to when media queries is on small screens and the menu button is shown instead of the nav always being there.
     <aside
-      className={[styles.NavSide, 'overflow-wrap-break-word p-8 border-r-0', isOpen ? 'block' : 'none', className].join(
-        ' ',
-      )}>
+      className={[
+        styles.NavSide,
+        'overflow-wrap break-words p-8 border-r-0',
+        isOpen ? 'block' : 'none',
+        className,
+      ].join(' ')}>
       <nav className="flex flex-col">{children}</nav>
     </aside>
   );

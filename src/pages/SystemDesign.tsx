@@ -296,6 +296,40 @@ resolve: {
       </Layout>
 
       <Layout>
+        <Heading variation="h3" size="level2" data-observable="true">
+          Scrollbars
+        </Heading>
+        <Text>
+          If you want to customize scrollbars at component level using css modules:
+          <br />
+          (note the ampersand before the double colon)
+        </Text>
+        <CodeBlock>
+          {`
+&::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+&::-webkit-scrollbar-track {
+  background-color: transparent; /* Fully transparent */
+  background-color: var(--clr-background);
+}
+
+&::-webkit-scrollbar-thumb {
+  background: var(--thumb-default);
+  border-radius: 4px;
+}
+
+&::-webkit-scrollbar-thumb:hover {
+  background: var(--thumb-hover);
+}
+
+          `}
+        </CodeBlock>
+      </Layout>
+
+      <Layout>
         <Heading variation="h2" size="level2" data-observable="true">
           Component Design
         </Heading>
