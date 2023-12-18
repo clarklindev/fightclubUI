@@ -26,7 +26,6 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
         type="checkbox"
         className={`
         hidden
-        border-0
         h-0
         w-0
         overflow-hidden
@@ -44,7 +43,8 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
         className={`
         cursor-pointer
         overflow-hidden 
-        border-[var(--border)]
+        rounded-md
+        bg-[var(--clr-background)]
         bg-[var(input-background-color)]
       `}>
         {indeterminate ? (
@@ -54,11 +54,11 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
               viewBox="0 0 24 24"
               fill="none"
               stroke="red"
-              strokeWidth="2"
+              strokeWidth="1"
               strokeLinecap="round"
               strokeLinejoin="round">
-              <rect width="100%" height="100%" />
-              <line x1="8" y1="12" x2="16" y2="12" />
+              <rect x="1" y="1" width="22" height="22" rx="3" ry="3" />
+              <line x1="8" y1="12" x2="16" y2="12" strokeWidth="2" />
             </svg>
           </Icon>
         ) : checked ? (
@@ -68,13 +68,14 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
               viewBox="0 0 24 24"
               fill="none"
               stroke="red"
-              strokeWidth="2"
+              strokeWidth="1"
               strokeLinecap="round"
               strokeLinejoin="round"
               className="w-10 h-10">
-              <rect width="100%" height="100%" />
-              <line x1="6" y1="12" x2="10" y2="16" />
-              <line x1="10" y1="16" x2="18" y2="8" />
+              <rect x="1" y="1" width="22" height="22" rx="3" ry="3" />
+
+              <line x1="6" y1="12" x2="10" y2="16" strokeWidth="2" />
+              <line x1="10" y1="16" x2="18" y2="8" strokeWidth="2" />
             </svg>
           </Icon>
         ) : (
@@ -84,10 +85,10 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
               viewBox="0 0 24 24"
               fill="none"
               stroke="red"
-              strokeWidth="2"
+              strokeWidth="1"
               strokeLinecap="round"
               strokeLinejoin="round">
-              <rect width="100%" height="100%" />
+              <rect x="1" y="1" width="22" height="22" rx="3" ry="3" />
             </svg>
           </Icon>
         )}

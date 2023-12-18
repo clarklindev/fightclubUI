@@ -8,7 +8,7 @@ export { Card } from './Card';
 export { Checkbox } from './Checkbox';
 export { CheckboxGroup } from './CheckboxGroup';
 export { Counter } from './Counter';
-export { Icon } from './Icon';
+export { Icon} from './Icon';
 export { Input } from './Input';
 export { Label } from './Label';
 export { List } from './List';

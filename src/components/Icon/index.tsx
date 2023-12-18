@@ -8,8 +8,8 @@ import { twMerge } from 'tailwind-merge';
 const icon = cva(
   [
     `
-  [&>*]:w-full 
-  [&>*]:h-full
+    [&>*]:w-full 
+    [&>*]:h-full
   `,
   ],
   {
