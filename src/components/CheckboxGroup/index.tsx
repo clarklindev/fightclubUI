@@ -15,11 +15,11 @@ const CheckboxGroup = ({ spacing = '5', direction, children }: CheckboxGroupProp
         'inline-flex',
         direction === 'column' ? `flex-col space-y-${spacing}` : '',
 
-        direction === 'column-reverse' ? `flex-col-reverse space-y-4 space-y-reverse` : '',
+        direction === 'column-reverse' ? `flex-col-reverse space-y-${spacing} space-y-reverse` : '',
 
         direction === 'row' ? `flex-row space-x-${spacing}` : '',
 
-        direction === 'row-reverse' ? `flex-row-reverse space-x-4 space-x-reverse` : '',
+        direction === 'row-reverse' ? `flex-row-reverse space-x-${spacing} space-x-reverse` : '',
       ].join(' ')}>
       {children}
     </div>
