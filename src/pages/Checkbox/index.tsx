@@ -7,7 +7,7 @@ const CheckboxExample = () => {
   const [savedData, setSavedData] = useState(false);
 
   const preview = (
-    <Label label="label" labelDirection="right" gap="10px">
+    <Label label="label" labelDirection="right" gap="2">
       <Checkbox
         size="XL"
         checked={savedData}

@@ -7,7 +7,7 @@ type RadioButtonGroupProps = {
   children: React.ReactNode;
 };
 
-export const RadioButtonGroup = ({ direction = 'column', spacing = '0px', children }: RadioButtonGroupProps) => {
+export const RadioButtonGroup = ({ direction = 'column', spacing = '5px', children }: RadioButtonGroupProps) => {
   return (
     <RadioButtonGroupContainer className={`RadioButtonGroup`} direction={direction} spacing={spacing}>
       {children}

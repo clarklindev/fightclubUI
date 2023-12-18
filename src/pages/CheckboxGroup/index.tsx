@@ -27,7 +27,7 @@ const CheckboxExample = () => {
         <CheckboxGroup direction="row" spacing="4">
           {options.map((each, index) => {
             return (
-              <Label key={'CheckboxGroup_Checkbox' + index} label={each.label} labelDirection="bottom" gap="10px">
+              <Label key={'CheckboxGroup_Checkbox' + index} label={each.label} labelDirection="bottom" gap="2">
                 <Checkbox
                   checked={savedData[index]}
                   name="Checkbox_ABC"
@@ -46,7 +46,7 @@ const CheckboxExample = () => {
         <CheckboxGroup direction="column" spacing="4">
           {options.map((each, index) => {
             return (
-              <Label key={'CheckboxGroup_Checkbox' + index} label={each.label} labelDirection="right" gap="10px">
+              <Label key={'CheckboxGroup_Checkbox' + index} label={each.label} labelDirection="right" gap="2">
                 <Checkbox
                   checked={savedData[index]}
                   name="Checkbox_ABC"
@@ -63,7 +63,7 @@ const CheckboxExample = () => {
           Checkbox Group (indeterminate)
         </Heading>
         <div className="flex flex-col items-start space-y-10">
-          <Label label="hi" labelDirection="right" gap="10px">
+          <Label label="hi" labelDirection="right" gap="2">
             <Checkbox
               checked={savedData.every(item => item === true)}
               indeterminate={!savedData.every(item => item === true) && savedData.some(item => item === true)}
@@ -78,7 +78,7 @@ const CheckboxExample = () => {
           <CheckboxGroup direction="column" spacing="4">
             {options.map((each, index) => {
               return (
-                <Label key={'CheckboxGroup_Checkbox' + index} label={each.label} labelDirection="right" gap="10px">
+                <Label key={'CheckboxGroup_Checkbox' + index} label={each.label} labelDirection="right" gap="2">
                   <Checkbox
                     checked={savedData[index]}
                     name="Checkbox_ABC"

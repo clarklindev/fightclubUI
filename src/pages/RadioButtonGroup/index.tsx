@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Layout, Heading, Tabs, CodeBlock, RadioButtonGroup, RadioButton, Label } from '@swagfinger/components';
+import { Layout, Heading, Tabs, CodeBlock, RadioButtonGroup, RadioButton, Label, Text } from '@swagfinger/components';
 
 const RadioButtonGroupExample = () => {
   const options = [
@@ -29,7 +29,7 @@ const RadioButtonGroupExample = () => {
         <RadioButtonGroup direction="row" spacing="20px">
           {options.map((each, index) => {
             return (
-              <Label key={'RadioButtonGroup' + index} label={each.label} labelDirection="bottom" gap="10px">
+              <Label key={'RadioButtonGroup' + index} label={each.label} labelDirection="bottom">
                 <RadioButton
                   checked={savedData[index]}
                   name="Radio"
@@ -41,6 +41,7 @@ const RadioButtonGroupExample = () => {
           })}
         </RadioButtonGroup>
       </Layout>
+      <br />
       <Layout>
         <Heading variation="h5" size="level2">
           RadioButton Group (vertical)
@@ -48,7 +49,7 @@ const RadioButtonGroupExample = () => {
         <RadioButtonGroup direction="column" spacing="20px">
           {options.map((each, index) => {
             return (
-              <Label key={'RadioButtonGroup' + index} label={each.label} labelDirection="right" gap="10px">
+              <Label key={'RadioButtonGroup' + index} label={each.label} labelDirection="right">
                 <RadioButton
                   checked={savedData[index]}
                   name="Radio"
@@ -83,6 +84,11 @@ const RadioButtonGroupExample = () => {
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
+
+      <Text>
+        The default position of Radio is to the right of a radio button, if you want to customize the position, wrap the
+        radio button with a Label component and set prop 'labelDirection'
+      </Text>
     </>
   );
 };

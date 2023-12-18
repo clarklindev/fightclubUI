@@ -7,10 +7,11 @@ type RadioButtonProps = {
   name: string;
   label?: string;
   size?: string;
+  spacing?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-const RadioButton = ({ checked, name, label, onChange, size = 'XL' }: RadioButtonProps) => {
+const RadioButton = ({ checked, name, label, onChange, size = 'XL', spacing = '2' }: RadioButtonProps) => {
   return (
     <label
       data-component={RadioButton.name}
@@ -20,7 +21,7 @@ flex-row
 items-center 
 w-full 
 h-full 
-gap-1
+gap-${spacing}
     `}>
       <input
         type="radio"

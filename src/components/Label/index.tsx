@@ -23,7 +23,7 @@ type LabelProps = {
 const Label = ({
   labelDirection = 'right',
   labelClickable = true,
-  gap = '3',
+  gap = '2',
 
   label = '',
   className = '',
