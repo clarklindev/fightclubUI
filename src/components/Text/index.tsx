@@ -1,4 +1,4 @@
-import { useTheme } from '@swagfinger/context/ThemeContext';
+import { useTheme } from '@fightclub/context/ThemeContext';
 
 type TextProps = {
   lineHeight?: string;

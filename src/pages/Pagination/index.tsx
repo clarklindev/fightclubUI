@@ -1,7 +1,7 @@
 import React from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { CodeBlock, Heading, Tabs } from '@swagfinger/components';
+import { CodeBlock, Heading, Tabs } from '@fightclub/components';
 
 const Pagination = () => {
   const preview = <></>;

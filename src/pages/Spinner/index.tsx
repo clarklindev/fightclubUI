@@ -1,6 +1,6 @@
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Spinner, Heading, ResizePanel, Tabs, CodeBlock } from '@swagfinger/components';
+import { Spinner, Heading, ResizePanel, Tabs, CodeBlock } from '@fightclub/components';
 
 const SpinnerExample = () => {
   const preview = <Spinner size="35" color="red" />;

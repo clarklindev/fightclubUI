@@ -1,5 +1,5 @@
-import { Heading, Tabs, CodeBlock, Text, Layout } from '@swagfinger/components';
-import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
+import { Heading, Tabs, CodeBlock, Text, Layout } from '@fightclub/components';
+import { CodeBlockProvider } from '@fightclub/context/CodeBlockContext';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
 import { Link } from 'react-router-dom';
@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const CodeBlockExample = () => {
   const preview = <CodeBlock>{'hi'}</CodeBlock>;
 
-  const previewString = `import {CodeBlock} from '@swagfinger/components';
+  const previewString = `import {CodeBlock} from '@fightclub/components';
   ${reactElementToJSXString(preview)};
   //this is a comment
   `;

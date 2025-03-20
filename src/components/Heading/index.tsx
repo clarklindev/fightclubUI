@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useTheme } from '@swagfinger/context/ThemeContext';
+import { useTheme } from '@fightclub/context/ThemeContext';
 
 type HeadingVariationType = keyof typeof HeadingVariation; //h1,h2,h3,h4,h5,h6
 

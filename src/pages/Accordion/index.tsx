@@ -1,7 +1,7 @@
 import React from 'react';
-import { Heading, Layout, Tabs, CodeBlock, Section, Accordion, Divider, Icon, Label } from '@swagfinger/components';
+import { Heading, Layout, Tabs, CodeBlock, Section, Accordion, Divider, Icon, Label } from '@fightclub/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
-import { ChevronUpIcon, ChevronDownIcon, PlusIcon, MinusIcon } from '@swagfinger/icons';
+import { ChevronUpIcon, ChevronDownIcon, PlusIcon, MinusIcon } from '@fightclub/icons';
 
 const AccordionExample = () => {
   const data = [

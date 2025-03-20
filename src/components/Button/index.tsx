@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 
-import { useTheme } from '@swagfinger/context/ThemeContext';
+import { useTheme } from '@fightclub/context/ThemeContext';
 
 import { cva, type VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';

@@ -1,7 +1,7 @@
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Icon, ToggleButton, Heading, Tabs, CodeBlock, Text } from '@swagfinger/components';
-import { HeartIcon } from '@swagfinger/icons';
+import { Icon, ToggleButton, Heading, Tabs, CodeBlock, Text } from '@fightclub/components';
+import { HeartIcon } from '@fightclub/icons';
 
 const ToggleButtonExample = () => {
   //the context provider (can technically wrap inside the component itself)

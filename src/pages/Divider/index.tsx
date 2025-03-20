@@ -1,5 +1,5 @@
-import { Heading, Layout, Divider, Text, Tabs, CodeBlock } from '@swagfinger/components';
-import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
+import { Heading, Layout, Divider, Text, Tabs, CodeBlock } from '@fightclub/components';
+import { CodeBlockProvider } from '@fightclub/context/CodeBlockContext';
 
 const DividerExample = () => {
   let preview = (

@@ -1,5 +1,5 @@
-import { CodeBlock, Heading, Layout, Tabs, Button, Icon, Label } from '@swagfinger/components';
-import { ShoppingCartIcon, ThumbsUpIcon } from '@swagfinger/icons';
+import { CodeBlock, Heading, Layout, Tabs, Button, Icon, Label } from '@fightclub/components';
+import { ShoppingCartIcon, ThumbsUpIcon } from '@fightclub/icons';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
 const ButtonExample = () => {

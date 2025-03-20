@@ -1,4 +1,4 @@
-import { Heading, Text, CodeBlock, Layout } from '@swagfinger/components';
+import { Heading, Text, CodeBlock, Layout } from '@fightclub/components';
 import { Link } from 'react-router-dom';
 
 const SystemDesign = () => {
@@ -11,7 +11,7 @@ const SystemDesign = () => {
         <Heading variation="h2" size="level2" data-observable="true">
           Routing
         </Heading>
-        <Link to="https://github.com/swagfinger/template-react-router-6">react-router-dom</Link>
+        <Link to="https://github.com/fightclub/template-react-router-6">react-router-dom</Link>
         <br />
         <Link to="https://nextjs.org/docs/routing/introduction">NextJS</Link>
       </Layout>
@@ -79,7 +79,7 @@ const SystemDesign = () => {
         </Text>
         <CodeBlock>
           {`
-import PageExample from '@swagfinger/pages/Page';
+import PageExample from '@fightclub/pages/Page';
 
 <Route path="/page" element={<PageExample />} />
       `}
@@ -91,7 +91,7 @@ import PageExample from '@swagfinger/pages/Page';
           add the page to 'src/pages/', in the previous step, we imported Page from '/pages/Page'
           <br />
           <br />
-          <CodeBlock>{`import PageExample from '@swagfinger/pages/Page';`}</CodeBlock>
+          <CodeBlock>{`import PageExample from '@fightclub/pages/Page';`}</CodeBlock>
           so create a folder named 'Page', inside 'src/pages/'.
           <br />
           Here is index.tsx template code to start you off:
@@ -100,7 +100,7 @@ import PageExample from '@swagfinger/pages/Page';
         <CodeBlock>
           {`
 import React from 'react';
-import { CodeBlock, Heading, Text } from '@swagfinger/components';
+import { CodeBlock, Heading, Text } from '@fightclub/components';
 
 const Page = () => {
   return (
@@ -216,8 +216,8 @@ export default Page;
 
 resolve: {
   alias: {
-    '@swagfinger': path.resolve(__dirname, './src'),
-    '@swagfinger/components': path.resolve(__dirname, './src/components'),
+    '@fightclub': path.resolve(__dirname, './src'),
+    '@fightclub/components': path.resolve(__dirname, './src/components'),
   },
 },
       `}</CodeBlock>
@@ -227,13 +227,13 @@ resolve: {
 
 "baseUrl": "./",
 "paths": {
-  "@swagfinger/*": ["./src/*"]
+  "@fightclub/*": ["./src/*"]
 },
       `}</CodeBlock>
         <Text>Which simplifies importing dependency modules from relative pathing: </Text>
         <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '../components';`}</CodeBlock>
         <Text>to this (Absolute pathing)</Text>
-        <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '@swagfinger/components';`}</CodeBlock>
+        <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '@fightclub/components';`}</CodeBlock>
       </Layout>
 
       <Layout>

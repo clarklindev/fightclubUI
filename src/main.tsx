@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import './main.css';
-import App from '@swagfinger/App';
-import { ThemeContextProvider } from '@swagfinger/context/ThemeContext';
-import { MenuContextProvider } from '@swagfinger/context/MenuContext';
-import { ScrollContextProvider } from '@swagfinger/context/ScrollContext';
+import App from '@fightclub/App';
+import { ThemeContextProvider } from '@fightclub/context/ThemeContext';
+import { MenuContextProvider } from '@fightclub/context/MenuContext';
+import { ScrollContextProvider } from '@fightclub/context/ScrollContext';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>

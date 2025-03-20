@@ -1,4 +1,4 @@
-import { CodeBlock, Heading, Layout, Text } from '@swagfinger/components';
+import { CodeBlock, Heading, Layout, Text } from '@fightclub/components';
 
 const GettingStarted = () => {
   return (
@@ -11,7 +11,7 @@ const GettingStarted = () => {
           Installation
         </Heading>
         <Text>Status: work in progress</Text>
-        <CodeBlock>{`npm i @swagfinger/swagfinger-ui`}</CodeBlock>
+        <CodeBlock>{`npm i @${import.meta.env.VITE_UI_ALIAS_NAME}/ui`}</CodeBlock>
       </Layout>
 
       <Layout>

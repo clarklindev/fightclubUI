@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Card, Layout } from '@swagfinger/components';
+import { Heading, Card, Layout } from '@fightclub/components';
 
 const NavSide = () => {
   return (

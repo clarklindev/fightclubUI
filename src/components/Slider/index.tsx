@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState, forwardRef, useLayoutEffect } from 'react';
-import { Orientation } from '@swagfinger/types/Orientation';
+import { Orientation } from '@fightclub/types/Orientation';
 import styles from './Slider.module.css';
 
 type SliderProps = {

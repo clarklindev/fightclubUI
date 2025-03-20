@@ -1,4 +1,4 @@
-import { Heading } from '@swagfinger/components';
+import { Heading } from '@fightclub/components';
 
 const Section = () => {
   return (

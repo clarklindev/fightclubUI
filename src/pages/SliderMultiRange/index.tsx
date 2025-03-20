@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { SliderMultiRange, Heading, Tabs, CodeBlock } from '@swagfinger/components';
+import { SliderMultiRange, Heading, Tabs, CodeBlock } from '@fightclub/components';
 
 const SliderMultiRangeExample = () => {
   const [sliderValues, setSliderValues] = useState([0, 20, 40, 50, 60, 80, 100]); //holds positions of sliders

@@ -1,7 +1,7 @@
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { CodeBlock, Heading, Layout, ProgressLoader, Tabs, Text } from '@swagfinger/components';
-import { ResizePanel } from '@swagfinger/components';
+import { CodeBlock, Heading, Layout, ProgressLoader, Tabs, Text } from '@fightclub/components';
+import { ResizePanel } from '@fightclub/components';
 
 const ProgressLoaderExample = () => {
   const preview = (

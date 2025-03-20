@@ -7,7 +7,7 @@ export default defineConfig({
   publicDir: 'static-assets',
   resolve: {
     alias: {
-      '@swagfinger': path.resolve(__dirname, './src'),
+      '@fightclub': path.resolve(__dirname, './src'),
     },
   },
 });

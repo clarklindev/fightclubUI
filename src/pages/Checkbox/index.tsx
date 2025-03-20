@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Checkbox, Label, Heading, Tabs, CodeBlock } from '@swagfinger/components';
+import { Checkbox, Label, Heading, Tabs, CodeBlock } from '@fightclub/components';
 
 const CheckboxExample = () => {
   const [savedData, setSavedData] = useState(false);

@@ -1,5 +1,5 @@
 //new
-import { Tree, Heading, Tabs, CodeBlock } from '@swagfinger/components';
+import { Tree, Heading, Tabs, CodeBlock } from '@fightclub/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
 // only endnodes can be links

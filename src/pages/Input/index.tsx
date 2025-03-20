@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react';
 
-import { Layout, Heading, Tabs, CodeBlock, Icon, Input, Button } from '@swagfinger/components';
+import { Layout, Heading, Tabs, CodeBlock, Icon, Input, Button } from '@fightclub/components';
 
-import { SpeechIcon } from '@swagfinger/icons'; //input + icon example
-import { SearchIcon, CloseIcon } from '@swagfinger/icons'; //search example
-import { ShowPasswordIcon, HidePasswordIcon } from '@swagfinger/icons'; //password example icons
+import { SpeechIcon } from '@fightclub/icons'; //input + icon example
+import { SearchIcon, CloseIcon } from '@fightclub/icons'; //search example
+import { ShowPasswordIcon, HidePasswordIcon } from '@fightclub/icons'; //password example icons
 
 import reactElementToJSXString from 'react-element-to-jsx-string';
 

@@ -1,5 +1,5 @@
 import reactElementToJSXString from 'react-element-to-jsx-string';
-import { Heading, CodeBlock, Text, Tabs } from '@swagfinger/components';
+import { Heading, CodeBlock, Text, Tabs } from '@fightclub/components';
 import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 
 const TextExample = () => {
@@ -9,7 +9,7 @@ const TextExample = () => {
     </Text>
   );
 
-  const previewString = `import {Text} from "@swagfinger/components";
+  const previewString = `import {Text} from "@fightclub/components";
   ${reactElementToJSXString(preview)}
   `;
 

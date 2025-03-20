@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Snackbar, Button, Icon, Heading, Tabs, CodeBlock } from '@swagfinger/components';
-import { ClipboardIcon } from '@swagfinger/icons';
+import { Snackbar, Button, Icon, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import { ClipboardIcon } from '@fightclub/icons';
 
 const SnackbarExample = () => {
   const [showSnackbar, setShowSnackbar] = useState(false);

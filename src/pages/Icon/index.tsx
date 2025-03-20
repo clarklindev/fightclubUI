@@ -1,7 +1,7 @@
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Icon, Heading, Tabs, CodeBlock, Layout } from '@swagfinger/components';
-import { ShoppingCartIcon } from '@swagfinger/icons';
+import { Icon, Heading, Tabs, CodeBlock, Layout } from '@fightclub/components';
+import { ShoppingCartIcon } from '@fightclub/icons';
 
 const IconExample = () => {
   const preview = (
@@ -149,7 +149,7 @@ const IconExample = () => {
   );
 
   const previewString = `
-  import {Icon} from '@swagfinger/components';
+  import {Icon} from '@fightclub/components';
   ${reactElementToJSXString(preview)};
   `;
 

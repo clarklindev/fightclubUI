@@ -2,14 +2,14 @@ import { useRef, useEffect } from 'react';
 import { Outlet, useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Navbar, NavSide, Button, Icon, Dropdown, OnThisPage, Badge } from '@swagfinger/components';
-import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon } from '@swagfinger/icons';
-import { useMenu } from '@swagfinger/context/MenuContext';
-import { useTheme } from '@swagfinger/context/ThemeContext';
-import { useScroll } from '@swagfinger/context/ScrollContext';
+import { Navbar, NavSide, Button, Icon, Dropdown, OnThisPage, Badge } from '@fightclub/components';
+import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon } from '@fightclub/icons';
+import { useMenu } from '@fightclub/context/MenuContext';
+import { useTheme } from '@fightclub/context/ThemeContext';
+import { useScroll } from '@fightclub/context/ScrollContext';
 
-import logo from '@swagfinger/assets/logo.svg';
-import githubIcon from '@swagfinger/assets/github.svg';
+import logo from '@fightclub/assets/logo.svg';
+import githubIcon from '@fightclub/assets/github.svg';
 
 const HomeLayoutContainer = styled.div`
   position: relative;
@@ -202,7 +202,7 @@ export const HomeLayout = () => {
               padding="none"
               className="gap-2 hidden min-[320px]:block"
               onClick={() => navigate('/')}>
-              <span className="whitespace-nowrap">SWAGFINGER-UI</span>
+              <span className="whitespace-nowrap">{import.meta.env.VITE_UI_ALIAS_NAME}UI</span>
             </Button>
           </div>
         </Navbar.Group>
@@ -261,108 +261,107 @@ export const HomeLayout = () => {
               Components
             </NavSide.Heading>
             <NavSide.Link to="navbar">
-              Navbar <Badge>TW</Badge>
+              Navbar
             </NavSide.Link>
             <NavSide.Link to="navside">
-              NavSide <Badge>TW</Badge>
+              NavSide
             </NavSide.Link>
             <NavSide.Link to="onthispage">
-              On this page <Badge>TW</Badge>
+              On this page
             </NavSide.Link>
             <NavSide.Link to="layout">
-              Layout <Badge>TW</Badge>
+              Layout
             </NavSide.Link>
             <NavSide.Link to="section">
-              Section <Badge>TW</Badge>
+              Section
             </NavSide.Link>
 
             <NavSide.Link to="heading">
-              Heading <Badge>TW</Badge>
+              Heading
             </NavSide.Link>
             <NavSide.Link to="text">
-              Text <Badge>TW</Badge>
+              Text
             </NavSide.Link>
             <NavSide.Link to="label">
-              Label <Badge>TW</Badge>
+              Label
             </NavSide.Link>
             <NavSide.Link to="icon">
-              Icon <Badge>CVA</Badge>
+              Icon
             </NavSide.Link>
             <NavSide.Link to="button">
-              Button <Badge>CVA</Badge>
+              Button
             </NavSide.Link>
             <NavSide.Link to="input">
-              Input <Badge>Compound</Badge> <Badge>CVA</Badge> <Badge>TW</Badge>
+              Input
             </NavSide.Link>
             <NavSide.Link to="select">
-              Select <Badge>Compound</Badge> <Badge>TW</Badge>
+              Select
             </NavSide.Link>
             <NavSide.Link to="accordion">
-              Accordion <Badge>Compound</Badge> <Badge>TW</Badge>
+              Accordion
             </NavSide.Link>
             <NavSide.Link to="radiobutton">
-              RadioButton <Badge>TW</Badge>
+              RadioButton
             </NavSide.Link>
             <NavSide.Link to="radiobuttongroup">
-              RadioButton Group <Badge>TW</Badge>
+              RadioButton Group
             </NavSide.Link>
             <NavSide.Link to="checkbox">
-              Checkbox <Badge>TW</Badge>
+              Checkbox
             </NavSide.Link>
             <NavSide.Link to="checkboxgroup">
-              Checkbox Group <Badge>TW</Badge>
+              Checkbox Group
             </NavSide.Link>
             <NavSide.Link to="counter">
-              Counter <Badge>TW</Badge>
+              Counter
             </NavSide.Link>
             <NavSide.Link to="togglebutton">
-              Toggle Button <Badge>TW</Badge>
+              Toggle Button
             </NavSide.Link>
             <NavSide.Link to="toggleswitch">
-              Toggle Switch <Badge>TW</Badge>
+              Toggle Switch
             </NavSide.Link>
             <NavSide.Link to="snackbar">Snackbar</NavSide.Link>
             <NavSide.Link to="slider">
-              Slider <Badge>TW</Badge>
+              Slider
             </NavSide.Link>
             <NavSide.Link to="slidermultirange">
-              Slider (Multirange) <Badge>TW</Badge>
+              Slider (Multirange)
             </NavSide.Link>
             <NavSide.Link to="divider">
-              Divider <Badge>compound</Badge>&nbsp;
-              <Badge>tw</Badge>
+              Divider
             </NavSide.Link>
             <NavSide.Link to="list">
-              List <Badge>compound</Badge> <Badge>TW</Badge>
+              List
             </NavSide.Link>
             <NavSide.Link to="table">Table</NavSide.Link>
             <NavSide.Link to="card">
-              Card <Badge>TW</Badge>
+              Card
             </NavSide.Link>
             <NavSide.Link to="tree">Tree</NavSide.Link>
             <NavSide.Link to="progressloader">
-              Progress Loader <Badge>TW</Badge>
+              Progress Loader
             </NavSide.Link>
             <NavSide.Link to="spinner">
-              Spinner <Badge>TW</Badge>
+              Spinner
             </NavSide.Link>
             <NavSide.Link to="dropdown">
-              Dropdown <Badge>compound</Badge> <Badge>TW</Badge>
+              Dropdown
             </NavSide.Link>
             <NavSide.Link to="tabs">
-              Tabs <Badge>compound</Badge> <Badge>TW</Badge>
+              Tabs
             </NavSide.Link>
             <NavSide.Link to="pagination">
-              Pagination <Badge className="bg-orange-500">WIP</Badge>
+              Pagination
             </NavSide.Link>
             <NavSide.Link to="modal">
-              Modal <Badge className="bg-orange-500">WIP</Badge>
+              Modal
             </NavSide.Link>
             <NavSide.Link to="breadcrumbs">
-              Breadcrumbs <Badge className="bg-orange-500">WIP</Badge>
+              Breadcrumbs
             </NavSide.Link>
             <NavSide.Link to="badge">
-              Badge <Badge>TW</Badge>
+              Badge
             </NavSide.Link>
           </NavSide.Group>
 
@@ -371,13 +370,13 @@ export const HomeLayout = () => {
               Utility
             </NavSide.Heading>
             <NavSide.Link to="resizepanel">
-              Resize panel <Badge className="bg-orange-500">WIP</Badge>
+              Resize panel
             </NavSide.Link>
             <NavSide.Link to="dimensions">
-              Dimensions <Badge className="bg-orange-500">WIP</Badge>
+              Dimensions
             </NavSide.Link>
             <NavSide.Link to="codeblock">
-              CodeBlock <Badge>TW</Badge>
+              CodeBlock
             </NavSide.Link>
           </NavSide.Group>
         </NavSide>

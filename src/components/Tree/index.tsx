@@ -2,8 +2,8 @@ import React, { useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
-import { Icon, Label } from '@swagfinger/components';
-import { ChevronRightIcon, ChevronDownIcon } from '@swagfinger/icons';
+import { Icon, Label } from '@fightclub/components';
+import { ChevronRightIcon, ChevronDownIcon } from '@fightclub/icons';
 
 interface TreeNodeCommonProps {
   label: string;

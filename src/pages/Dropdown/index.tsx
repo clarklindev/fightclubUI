@@ -1,5 +1,5 @@
-import { Dropdown, Heading, Tabs, CodeBlock } from '@swagfinger/components';
-import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
+import { Dropdown, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import { CodeBlockProvider } from '@fightclub/context/CodeBlockContext';
 
 const DropdownExample = () => {
   const preview = (

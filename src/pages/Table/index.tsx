@@ -1,7 +1,7 @@
-import { Table, Heading, ResizePanel, Tabs, CodeBlock } from '@swagfinger/components';
+import { Table, Heading, ResizePanel, Tabs, CodeBlock } from '@fightclub/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import type { Header } from '@swagfinger/components/Table';
+import type { Header } from '@fightclub/components/Table';
 
 const TableExample = () => {
   const configure = {

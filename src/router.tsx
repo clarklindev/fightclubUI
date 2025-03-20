@@ -1,57 +1,57 @@
 import { createBrowserRouter, createRoutesFromElements, Route, Navigate } from 'react-router-dom';
 
 // layouts
-import { HomeLayout } from '@swagfinger/layouts/HomeLayout';
+import { HomeLayout } from '@fightclub/layouts/HomeLayout';
 
 // pages
-import GettingStarted from '@swagfinger/pages/GettingStarted';
-import Introduction from '@swagfinger/pages/Introduction';
-import SystemDesign from '@swagfinger/pages/SystemDesign';
-import NotFound from '@swagfinger/pages/NotFound';
+import GettingStarted from '@fightclub/pages/GettingStarted';
+import Introduction from '@fightclub/pages/Introduction';
+import NotFound from '@fightclub/pages/NotFound';
+import SystemDesign from '@fightclub/pages/SystemDesign';
 
 //components
-import NavbarExample from '@swagfinger/pages/Navbar';
-import NavSideExample from '@swagfinger/pages/NavSide';
-import OnThisPageExample from '@swagfinger/pages/OnThisPage';
-import LayoutExample from '@swagfinger/pages/Layout';
-import SectionExample from '@swagfinger/pages/Section';
+import NavbarExample from '@fightclub/pages/Navbar';
+import NavSideExample from '@fightclub/pages/NavSide';
+import OnThisPageExample from '@fightclub/pages/OnThisPage';
+import LayoutExample from '@fightclub/pages/Layout';
+import SectionExample from '@fightclub/pages/Section';
 
-import HeadingExample from '@swagfinger/pages/Heading';
-import TextExample from '@swagfinger/pages/Text';
-import LabelExample from '@swagfinger/pages/Label';
-import IconExample from '@swagfinger/pages/Icon';
-import ButtonExample from '@swagfinger/pages/Button';
-import InputExample from '@swagfinger/pages/Input';
-import AccordionExample from '@swagfinger/pages/Accordion';
-import RadioButtonExample from '@swagfinger/pages/RadioButton';
-import RadioButtonGroupExample from '@swagfinger/pages/RadioButtonGroup';
-import CheckboxExample from '@swagfinger/pages/Checkbox';
-import CheckboxGroupExample from '@swagfinger/pages/CheckboxGroup';
-import SelectExample from '@swagfinger/pages/Select';
-import CounterExample from '@swagfinger/pages/Counter';
-import ToggleButtonExample from '@swagfinger/pages/ToggleButton';
-import ToggleSwitchExample from '@swagfinger/pages/ToggleSwitch';
-import SnackbarExample from '@swagfinger/pages/Snackbar';
-import SliderExample from '@swagfinger/pages/Slider';
-import SliderMultiRangeExample from '@swagfinger/pages/SliderMultiRange';
-import DividerExample from '@swagfinger/pages/Divider';
-import ListExample from '@swagfinger/pages/List';
-import TableExample from '@swagfinger/pages/Table';
-import CardExample from '@swagfinger/pages/Card';
-import ProgressLoaderExample from '@swagfinger/pages/ProgressLoader';
-import SpinnerExample from '@swagfinger/pages/Spinner';
-import TreeExample from '@swagfinger/pages/Tree';
-import DropdownExample from '@swagfinger/pages/Dropdown';
-import TabsExample from '@swagfinger/pages/Tabs';
-import PaginationExample from '@swagfinger/pages/Pagination';
-import ModalExample from '@swagfinger/pages/Modal';
-import BreadcrumbsExample from '@swagfinger/pages/Breadcrumbs';
-import BadgeExample from '@swagfinger/pages/Badge';
+import HeadingExample from '@fightclub/pages/Heading';
+import TextExample from '@fightclub/pages/Text';
+import LabelExample from '@fightclub/pages/Label';
+import IconExample from '@fightclub/pages/Icon';
+import ButtonExample from '@fightclub/pages/Button';
+import InputExample from '@fightclub/pages/Input';
+import AccordionExample from '@fightclub/pages/Accordion';
+import RadioButtonExample from '@fightclub/pages/RadioButton';
+import RadioButtonGroupExample from '@fightclub/pages/RadioButtonGroup';
+import CheckboxExample from '@fightclub/pages/Checkbox';
+import CheckboxGroupExample from '@fightclub/pages/CheckboxGroup';
+import SelectExample from '@fightclub/pages/Select';
+import CounterExample from '@fightclub/pages/Counter';
+import ToggleButtonExample from '@fightclub/pages/ToggleButton';
+import ToggleSwitchExample from '@fightclub/pages/ToggleSwitch';
+import SnackbarExample from '@fightclub/pages/Snackbar';
+import SliderExample from '@fightclub/pages/Slider';
+import SliderMultiRangeExample from '@fightclub/pages/SliderMultiRange';
+import DividerExample from '@fightclub/pages/Divider';
+import ListExample from '@fightclub/pages/List';
+import TableExample from '@fightclub/pages/Table';
+import CardExample from '@fightclub/pages/Card';
+import ProgressLoaderExample from '@fightclub/pages/ProgressLoader';
+import SpinnerExample from '@fightclub/pages/Spinner';
+import TreeExample from '@fightclub/pages/Tree';
+import DropdownExample from '@fightclub/pages/Dropdown';
+import TabsExample from '@fightclub/pages/Tabs';
+import PaginationExample from '@fightclub/pages/Pagination';
+import ModalExample from '@fightclub/pages/Modal';
+import BreadcrumbsExample from '@fightclub/pages/Breadcrumbs';
+import BadgeExample from '@fightclub/pages/Badge';
 
 // Utility
-import ResizePanelExample from '@swagfinger/pages/ResizePanel';
-import DimensionsExample from '@swagfinger/pages/Dimensions';
-import CodeBlockExample from '@swagfinger/pages/CodeBlock';
+import ResizePanelExample from '@fightclub/pages/ResizePanel';
+import DimensionsExample from '@fightclub/pages/Dimensions';
+import CodeBlockExample from '@fightclub/pages/CodeBlock';
 
 export const router = createBrowserRouter(
   createRoutesFromElements(

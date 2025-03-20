@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { RadioButton, Heading, Tabs, CodeBlock } from '@swagfinger/components';
+import { RadioButton, Heading, Tabs, CodeBlock } from '@fightclub/components';
 
 const RadioButtonExample = () => {
   const [savedData, setSavedData] = useState(false);

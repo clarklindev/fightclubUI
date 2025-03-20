@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { ToggleSwitch, Heading, Tabs, CodeBlock } from '@swagfinger/components';
+import { ToggleSwitch, Heading, Tabs, CodeBlock } from '@fightclub/components';
 
 const ToggleSwitchExample = () => {
   const [savedData, setSavedData] = useState(false);

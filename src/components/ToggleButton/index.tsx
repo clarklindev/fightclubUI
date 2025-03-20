@@ -1,4 +1,4 @@
-import { ToggleContextProvider, useToggle } from '@swagfinger/context/ToggleContext';
+import { ToggleContextProvider, useToggle } from '@fightclub/context/ToggleContext';
 import React, { useEffect } from 'react';
 
 enum ToggleEnum {

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Select, Heading, Tabs, CodeBlock } from '@swagfinger/components';
+import { Select, Heading, Tabs, CodeBlock } from '@fightclub/components';
 
 const SelectExample = () => {
   const [savedData, setSavedData] = useState<string | null>();

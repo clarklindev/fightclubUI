@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Layout, Heading, Tabs, CodeBlock, RadioButtonGroup, RadioButton, Label, Text } from '@swagfinger/components';
+import { Layout, Heading, Tabs, CodeBlock, RadioButtonGroup, RadioButton, Label, Text } from '@fightclub/components';
 
 const RadioButtonGroupExample = () => {
   const options = [

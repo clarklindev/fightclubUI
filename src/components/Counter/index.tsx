@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Input, Button, Icon } from '@swagfinger/components';
-import { MinusIcon, PlusIcon } from '@swagfinger/icons';
+import { Input, Button, Icon } from '@fightclub/components';
+import { MinusIcon, PlusIcon } from '@fightclub/icons';
 
 type CounterProps = {
   savedData: number;

@@ -1,5 +1,5 @@
-import { Heading, Tabs, CodeBlock, Text } from '@swagfinger/components';
-import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
+import { Heading, Tabs, CodeBlock, Text } from '@fightclub/components';
+import { CodeBlockProvider } from '@fightclub/context/CodeBlockContext';
 
 const TabsExample = () => {
   const preview = (

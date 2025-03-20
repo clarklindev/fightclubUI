@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Icon } from '@swagfinger/components';
-import { ChevronDownIcon } from '@swagfinger/icons';
+import { Icon } from '@fightclub/components';
+import { ChevronDownIcon } from '@fightclub/icons';
 
 const Select = ({ children }: { children: React.ReactNode }) => {
   return (

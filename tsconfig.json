@@ -21,7 +21,7 @@
     "allowJs": true,
     "baseUrl": "./",
     "paths": {
-      "@swagfinger/*": ["./src/*"]
+      "@fightclub/*": ["./src/*"]
     },
     "strict": true,
     "noUnusedLocals": false,

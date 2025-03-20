@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, forwardRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 
-import { Button } from '@swagfinger/components';
-import { useOnThisPage } from '@swagfinger/context/OnThisPageContext';
-import { useScroll } from '@swagfinger/context/ScrollContext';
-import { OnThisPageContextProvider } from '@swagfinger/context/OnThisPageContext';
+import { Button } from '@fightclub/components';
+import { useOnThisPage } from '@fightclub/context/OnThisPageContext';
+import { useScroll } from '@fightclub/context/ScrollContext';
+import { OnThisPageContextProvider } from '@fightclub/context/OnThisPageContext';
 
 export const OnThisPage = ({ ...props }) => {
   return (

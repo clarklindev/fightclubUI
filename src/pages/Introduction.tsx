@@ -1,4 +1,4 @@
-import { Text, Layout, Heading, List } from '@swagfinger/components';
+import { Text, Layout, Heading, List } from '@fightclub/components';
 import { Link } from 'react-router-dom';
 
 const Introduction = () => {
@@ -9,7 +9,7 @@ const Introduction = () => {
           Introduction
         </Heading>
         <Text>
-          SwagfingerUI is a design system meant for an easier developer experience.
+          {import.meta.env.VITE_UI_ALIAS_NAME}UI is a design system meant for an easier developer experience.
           <br />
           <br />
           Have you ever worked in a company where you cried everyday because development was an awful experience? There
@@ -17,7 +17,7 @@ const Introduction = () => {
           ease of use.
           <br />
           <br />
-          SwagfingerUI uses React (Function-based library of compound components), TailwindCSS and Class Variance
+          {import.meta.env.VITE_UI_ALIAS_NAME}UI uses React (Function-based library of compound components), TailwindCSS and Class Variance
           Authority (CVA) under the hood.
           <br />
           <br />
@@ -32,11 +32,11 @@ const Introduction = () => {
           pre-defined styles and components, while also providing the ability to tailor the output to meet their
           specific requirements.
         </Text>
-        <Text>Pre-defined modular components - with default styling, support of theming and darkmode.</Text>
-        <Text>Built with accessibility in mind.</Text>
+        <Text>Pre-defined modular components, built with accessibility in mind. <br/>
+        With default styling, support of theming and darkmode.</Text>
       </Layout>
 
-      <Layout>
+      {/* <Layout>
         <Heading variation="h2" size="level2" data-observable="true">
           Release Features
         </Heading>
@@ -50,7 +50,7 @@ const Introduction = () => {
             <li>Tested</li>
           </ul>
         </div>
-      </Layout>
+      </Layout> */}
 
       {/* <Layout>
         <Heading variation="h2" size="level2" data-observable="true">

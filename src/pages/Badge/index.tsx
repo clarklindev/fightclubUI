@@ -1,10 +1,10 @@
-import { Badge, Heading, Tabs, CodeBlock } from '@swagfinger/components';
+import { Badge, Heading, Tabs, CodeBlock } from '@fightclub/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
 const BadgeExample = () => {
   const preview = <Badge>Hello</Badge>;
   const previewString = `
-  import {Badge} from '@swagfinger/components';
+  import {Badge} from '@fightclub/components';
   ${reactElementToJSXString(preview)}
   `;
 

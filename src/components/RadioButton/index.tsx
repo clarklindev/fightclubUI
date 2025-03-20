@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Icon } from '@swagfinger/components';
+import { Icon } from '@fightclub/components';
 
 type RadioButtonProps = {
   checked: boolean;

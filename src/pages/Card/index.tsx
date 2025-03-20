@@ -1,5 +1,5 @@
 import reactElementToJSXString from 'react-element-to-jsx-string';
-import { Card, CodeBlock, Heading, ResizePanel, Tabs } from '@swagfinger/components';
+import { Card, CodeBlock, Heading, ResizePanel, Tabs } from '@fightclub/components';
 
 const CardExample = () => {
   const preview = <Card className="p-2">this is dummy text</Card>;

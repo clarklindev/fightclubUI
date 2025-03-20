@@ -1,4 +1,4 @@
-import { Heading, Layout, Text } from '@swagfinger/components';
+import { Heading, Layout, Text } from '@fightclub/components';
 
 const Layouts = () => {
   return (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Heading, Layout } from '@swagfinger/components';
+import { Card, Heading, Layout } from '@fightclub/components';
 
 const Navbar = () => {
   return (

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Heading, Slider, Tabs, CodeBlock } from '@swagfinger/components';
+import { Heading, Slider, Tabs, CodeBlock } from '@fightclub/components';
 
 const SliderExample = () => {
   const [savedData, setSavedData] = useState(0);

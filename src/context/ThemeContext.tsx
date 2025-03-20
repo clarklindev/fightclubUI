@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 
 import { useState, createContext, useContext } from 'react';
-import { lightTheme } from '@swagfinger/themes/LightTheme';
-import { darkTheme } from '@swagfinger/themes/DarkTheme';
+import { lightTheme } from '@fightclub/themes/LightTheme';
+import { darkTheme } from '@fightclub/themes/DarkTheme';
 
 //colorScheme - dark, light, system
 //start off with whats the saved colorScheme in localstorage

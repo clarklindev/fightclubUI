@@ -1,8 +1,9 @@
 .NavSide{
-  
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+
   &::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    display: none; /* Chrome, Safari, Edge */
   }
 
   &::-webkit-scrollbar-track {

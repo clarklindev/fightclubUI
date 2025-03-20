@@ -1,6 +1,6 @@
-import { Heading, Label, Icon, Layout, Tabs, CodeBlock } from '@swagfinger/components';
-import { CodeBlockProvider } from '@swagfinger/context/CodeBlockContext';
-import { ShoppingCartIcon } from '@swagfinger/icons';
+import { Heading, Label, Icon, Layout, Tabs, CodeBlock } from '@fightclub/components';
+import { CodeBlockProvider } from '@fightclub/context/CodeBlockContext';
+import { ShoppingCartIcon } from '@fightclub/icons';
 
 const LabelExample = () => {
   const preview = (

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
-import { CodeBlock, Heading, Layout, Tabs } from '@swagfinger/components';
-import { CheckboxGroup, Checkbox, Label } from '@swagfinger/components';
+import { CodeBlock, Heading, Layout, Tabs } from '@fightclub/components';
+import { CheckboxGroup, Checkbox, Label } from '@fightclub/components';
 
 const CheckboxExample = () => {
   const options = [

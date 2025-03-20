@@ -1,4 +1,4 @@
-import { CodeBlock, Heading, ResizePanel, Tabs } from '@swagfinger/components';
+import { CodeBlock, Heading, ResizePanel, Tabs } from '@fightclub/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
 const ResizePanelExample = () => {

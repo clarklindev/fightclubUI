@@ -1,6 +1,6 @@
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { List, Heading, Text, Tabs, CodeBlock } from '@swagfinger/components';
+import { List, Heading, Text, Tabs, CodeBlock } from '@fightclub/components';
 
 const ListExample = () => {
   const DATA = [

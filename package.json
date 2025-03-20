@@ -7,7 +7,7 @@
   "types": "types/index.d.ts",
   "scripts": {
     "tailwind": "npx tailwindcss -i ./src/main.css -o ./dist/output.css",
-    "dev": "vite",
+    "start": "vite",
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "build": "tsc && vite build --config vite.config.ts",
     "build-preview": "tsc && vite build --config vite.config.preview.ts",
