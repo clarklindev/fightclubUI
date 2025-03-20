@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import './main.css';
+import './mdx.css';
+
 import App from '@fightclub/App';
 import { ThemeContextProvider } from '@fightclub/context/ThemeContext';
 import { MenuContextProvider } from '@fightclub/context/MenuContext';

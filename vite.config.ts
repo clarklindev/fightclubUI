@@ -1,12 +1,31 @@
-import { defineConfig, loadEnv } from 'vite';
+import { defineConfig, type UserConfig } from 'vite';
+import mdx from "@mdx-js/rollup"
 
+import { createHighlighter, bundledLanguages, bundledThemes } from 'shiki';
+import rehypeShiki from 'rehype-shiki';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 
-export default defineConfig(({mode})=>{
-  const env = loadEnv(mode, process.cwd());
+export default defineConfig(async (): Promise<UserConfig> =>{
+
+  const highlighter = await createHighlighter({
+    themes: [bundledThemes['github-dark']],
+    langs: [
+      bundledLanguages.js, 
+      bundledLanguages.ts, 
+      bundledLanguages.html,
+      bundledLanguages.bash
+    ],
+    theme: 'github-dark', // still needed as default
+  });
+
   return {
-    plugins: [react()],
+    optimizeDeps: {
+      include: ["react/jsx-runtime"],
+    },
+    plugins: [react(), mdx({
+      rehypePlugins: [[rehypeShiki, { highlighter }]],
+    })],
     resolve: {
       alias: {
         ['@fightclub']: path.resolve(__dirname, './src'),
