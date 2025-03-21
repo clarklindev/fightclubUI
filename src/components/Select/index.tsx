@@ -37,15 +37,15 @@ const SelectElement = (props: SelectElementProps) => {
   return (
     <select
       className={`
-      box-border 
-      appearance-none 
-      m-0 
-      w-full 
-      h-full
-      outline-none 
-      cursor-pointer 
-      bg-transparent
-      px-2
+      box-border   
+      appearance-none  
+      m-0  
+      w-full  
+      h-full  
+      outline-none  
+      cursor-pointer  
+      bg-transparent  
+      px-2  
       text-[var(--input-text-color)] 
       
       `}
@@ -62,7 +62,7 @@ const SelectElement = (props: SelectElementProps) => {
 
 const SelectOption = ({ children, value }: { children: React.ReactNode; value: string }) => {
   return (
-    <option className="bg-[var(--input-background-color)]" value={value}>
+    <option className="bg-[var(--input-background-color)] text-[var(--text)]" value={value}>
       {children}
     </option>
   );

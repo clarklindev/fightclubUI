@@ -5,7 +5,7 @@
   --text-hover: rgba(0,0,0,1);
   --button-background: rgba(0,0,0,0.1);
   --input-background-color: #ffffff;
-  --input-text-color: rgba(255,255,255,.5);
+  --input-text-color: rgba(0,0,0, 0.5);
   --border: 1px solid rgba(0, 0, 0, 0.3);
   --border-color: hsla(0, 0%, 0%, 0.1);
   --thumb-default:hsla(255, 0%, 0%, 0.5);
@@ -16,7 +16,7 @@
 [data-color-scheme='dark'] {
   --clr-background: #050505;
   --clr-foreground: rgba(255, 255, 255, 0.7);
-  --text: rgba(255,255,255,.5);
+  --text: rgba(255,255,255,0.5);
   --text-hover:white;
   --button-background: rgba(255,255,255,0.1);
   --input-background-color: #333333;
