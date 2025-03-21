@@ -1,6 +1,7 @@
 import { Heading, Label, Icon, Layout, Tabs, CodeBlock } from '@fightclub/components';
-import { CodeBlockProvider } from '@fightclub/context/CodeBlockContext';
 import { ShoppingCartIcon } from '@fightclub/icons';
+
+import Code from './code.mdx';
 
 const LabelExample = () => {
   const preview = (
@@ -49,7 +50,6 @@ const LabelExample = () => {
         Label
       </Heading>
 
-      <CodeBlockProvider>
         <Tabs>
           <Tabs.TriggerGroup>
             <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
@@ -58,11 +58,10 @@ const LabelExample = () => {
           <Tabs.ContentGroup>
             <Tabs.Content data-tab="0">{preview}</Tabs.Content>
             <Tabs.Content data-tab="1">
-              <CodeBlock>{preview}</CodeBlock>
+              <CodeBlock><Code/></CodeBlock>
             </Tabs.Content>
           </Tabs.ContentGroup>
         </Tabs>
-      </CodeBlockProvider>
     </>
   );
 };

@@ -1,0 +1,13 @@
+```jsx
+import { RadioButton } from '@fightclub/components';
+const [savedData, setSavedData] = useState(false);
+
+<RadioButton
+    checked={savedData}
+    name="radio"
+    label="label"
+    onChange={event => {
+        setSavedData(event.target.checked);
+    }}
+/>
+```

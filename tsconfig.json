@@ -28,7 +28,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["src/**/*.ts", "src/**/*.tsx", "mdx.d.ts"],
   "exclude": ["node_modules", "dist", "types"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

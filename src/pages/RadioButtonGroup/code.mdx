@@ -1,0 +1,55 @@
+```jsx
+import { RadioButtonGroup, RadioButton, Label, Text } from '@fightclub/components';
+
+/*
+The default position of Radio is to the right of a radio button, if you want to customize the position, wrap the
+radio button with a Label component and set prop 'labelDirection'
+*/
+
+const options = [
+    { label: 'A', value: 'a' },
+    { label: 'B', value: 'b' },
+    { label: 'C', value: 'c' },
+    { label: 'D', value: 'd' },
+];
+
+const [savedData, updateSavedData] = useState(Array(options.length).fill(false));
+
+const onChange = (index: number, newValue: boolean) => {
+    let newValues = [...savedData].fill(false);
+    newValues[index] = newValue;
+    updateSavedData(newValues);
+};
+
+//horizontal
+<RadioButtonGroup direction="row" spacing="20px">
+    {options.map((each, index) => {
+    return (
+        <Label key={'RadioButtonGroup' + index} label={each.label} labelDirection="bottom">
+        <RadioButton
+            checked={savedData[index]}
+            name="Radio"
+            size="XL"
+            onChange={() => onChange(index, !savedData[index])}
+        />
+        </Label>
+    );
+    })}
+</RadioButtonGroup>
+
+//vertical
+<RadioButtonGroup direction="column" spacing="20px">
+    {options.map((each, index) => {
+    return (
+        <Label key={'RadioButtonGroup' + index} label={each.label} labelDirection="right">
+        <RadioButton
+            checked={savedData[index]}
+            name="Radio"
+            size="XL"
+            onChange={() => onChange(index, !savedData[index])}
+        />
+        </Label>
+    );
+    })}
+</RadioButtonGroup>
+```

@@ -1,0 +1,42 @@
+```jsx
+import { ToggleButton } from '@fightclub/components';
+
+enum ToggleEnumWithMaybe {
+    ON = 'true',
+    OFF = 'false',
+    MAYBE = 'maybe',
+}
+
+/*
+Technically, a toggle is a behavior not a component, you are describing an action, the visual result is because
+of the state change and the driver behind a toggle is a useToggleHook. This way, the implementation is loosely
+tied to the visual representation of the state.
+
+A toggle usually has 2 states (depending on usage case), on/off; active/inactive etc and thats okay and for most
+situations, but lets open up to the idea where there is a possibility for more than 2 states (an arbitary amount
+of states) a toggle function should then have the ability to toggle all the states. This is possible with the
+use of an enum and combined with 'smart' coding, you can loop the different values of an enum. By isolating the
+amount of values in the enum, we can implement the basic toggle (and toggle more than 2 states if needed)
+*/
+
+<ToggleButton
+    enumObj={ToggleEnumWithMaybe}
+    render={current => {
+        switch (current) {
+            case 'ON':
+                return (
+                <Icon size="L">
+                    <HeartIcon />
+                </Icon>
+                );
+                
+            case 'OFF':
+                return <Icon size="L">OFF</Icon>;
+
+            case 'MAYBE':
+            default:
+                return <Icon size="L">'maybe'</Icon>;
+        }
+    }}
+/>
+```

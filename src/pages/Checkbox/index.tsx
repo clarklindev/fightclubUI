@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import reactElementToJSXString from 'react-element-to-jsx-string';
 
 import { Checkbox, Label, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import Code from './code.mdx';
 
 const CheckboxExample = () => {
   const [savedData, setSavedData] = useState(false);
@@ -19,8 +19,6 @@ const CheckboxExample = () => {
     </Label>
   );
 
-  const previewString = reactElementToJSXString(preview);
-
   return (
     <>
       <Heading variation="h1" size="level1" data-observable="true">
@@ -35,7 +33,7 @@ const CheckboxExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

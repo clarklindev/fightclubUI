@@ -1,6 +1,6 @@
-import reactElementToJSXString from 'react-element-to-jsx-string';
 import { Heading, CodeBlock, Text, Tabs } from '@fightclub/components';
-import { renderToString, renderToStaticMarkup } from 'react-dom/server';
+
+import Code from './code.mdx';
 
 const TextExample = () => {
   const preview = (
@@ -8,10 +8,6 @@ const TextExample = () => {
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </Text>
   );
-
-  const previewString = `import {Text} from "@fightclub/components";
-  ${reactElementToJSXString(preview)}
-  `;
 
   return (
     <>
@@ -28,7 +24,7 @@ const TextExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

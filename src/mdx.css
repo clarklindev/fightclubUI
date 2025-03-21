@@ -1,7 +1,6 @@
 
 pre {
     border-radius: 0.75rem; /* rounded-xl */
-    border: 1px solid #e5e7eb; /* gray-200 from Tailwind */
     padding: 1rem; /* Tailwind's p-4 */
     background-color: #f9fafb; /* Tailwind's gray-50 */
     overflow-x: auto;

@@ -1,5 +1,5 @@
-import { Heading, Tabs, CodeBlock, Section } from '@fightclub/components';
-import { CodeBlockProvider } from '@fightclub/context/CodeBlockContext';
+import { Heading, Tabs, Section } from '@fightclub/components';
+import Code from "./code.mdx";
 
 const HeadingExample = () => {
   const preview = (
@@ -31,7 +31,6 @@ const HeadingExample = () => {
         Heading
       </Heading>
 
-      <CodeBlockProvider>
         <Tabs>
           <Tabs.TriggerGroup>
             <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
@@ -40,11 +39,10 @@ const HeadingExample = () => {
           <Tabs.ContentGroup>
             <Tabs.Content data-tab="0">{preview}</Tabs.Content>
             <Tabs.Content data-tab="1">
-              <CodeBlock>{preview}</CodeBlock>
+              <Code/>
             </Tabs.Content>
           </Tabs.ContentGroup>
         </Tabs>
-      </CodeBlockProvider>
     </Section>
   );
 };

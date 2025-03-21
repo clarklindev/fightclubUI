@@ -1,8 +1,9 @@
 // //RadioButtonGroup
 import { useState } from 'react';
-import reactElementToJSXString from 'react-element-to-jsx-string';
 
 import { Layout, Heading, Tabs, CodeBlock, RadioButtonGroup, RadioButton, Label, Text } from '@fightclub/components';
+
+import Code from './code.mdx';
 
 const RadioButtonGroupExample = () => {
   const options = [
@@ -64,8 +65,6 @@ const RadioButtonGroupExample = () => {
     </>
   );
 
-  const previewString = reactElementToJSXString(preview);
-
   return (
     <>
       <Heading variation="h1" size="level1" data-observable="true">
@@ -80,15 +79,10 @@ const RadioButtonGroupExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
-
-      <Text>
-        The default position of Radio is to the right of a radio button, if you want to customize the position, wrap the
-        radio button with a Label component and set prop 'labelDirection'
-      </Text>
     </>
   );
 };

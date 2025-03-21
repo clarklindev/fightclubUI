@@ -1,6 +1,5 @@
-import reactElementToJSXString from 'react-element-to-jsx-string';
-
 import { List, Heading, Text, Tabs, CodeBlock } from '@fightclub/components';
+import Code from './code.mdx';
 
 const ListExample = () => {
   const DATA = [
@@ -55,8 +54,6 @@ const ListExample = () => {
     </List>
   );
 
-  const previewString = reactElementToJSXString(preview);
-
   return (
     <>
       <Heading variation="h1" size="level1" data-observable="true">
@@ -71,16 +68,10 @@ const ListExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
-
-      <Text>
-        Notice how the list item CustomItem is external to the list and is passed into "List.ListItem" as a child. This
-        allows a more dynamic approach where the list item can be anything. You can ofcourse make CustomItem into a
-        specific usecase component but remember that it is not directly associated with List.
-      </Text>
     </>
   );
 };

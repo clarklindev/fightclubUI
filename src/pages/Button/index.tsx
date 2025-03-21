@@ -1,6 +1,6 @@
 import { CodeBlock, Heading, Layout, Tabs, Button, Icon, Label } from '@fightclub/components';
 import { ShoppingCartIcon, ThumbsUpIcon } from '@fightclub/icons';
-import reactElementToJSXString from 'react-element-to-jsx-string';
+import Code from './code.mdx';
 
 const ButtonExample = () => {
   const preview = (
@@ -52,27 +52,7 @@ const ButtonExample = () => {
       </Layout>
     </>
   );
-  {
-    /* 
-     
-      <Layout>
-        <Heading variation="h5">Text button</Heading>
-        <ButtonTextExample />
-      </Layout>
-
-      <Layout>
-        <Heading variation="h5">Icon button</Heading>
-        <ButtonIconExample />
-      </Layout>
-
-      <Layout>
-        <Heading variation="h5">Button+Label button</Heading>
-        <ButtonWithLabelSomethingExample />
-      </Layout> */
-  }
-
-  const previewString = reactElementToJSXString(preview);
-
+ 
   return (
     <>
       <Heading variation="h1" size="level1" data-observable="true">
@@ -87,7 +67,7 @@ const ButtonExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

@@ -1,7 +1,8 @@
-import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import { Icon, Heading, Tabs, CodeBlock, Layout } from '@fightclub/components';
+import { Icon, Heading, Tabs, Layout } from '@fightclub/components';
 import { ShoppingCartIcon } from '@fightclub/icons';
+
+import Code from './code.mdx';
 
 const IconExample = () => {
   const preview = (
@@ -59,7 +60,7 @@ const IconExample = () => {
       {/* xx-large / 2xl*/}
       <Layout>
         <Heading variation="h2" size="S">
-          XXL / 2XL
+          2XL
         </Heading>
         <Icon size="XXL">
           <ShoppingCartIcon />
@@ -69,7 +70,7 @@ const IconExample = () => {
       {/* xxx-large / 3xl*/}
       <Layout>
         <Heading variation="h2" size="S">
-          XXXL / 3XL
+          3XL
         </Heading>
         <Icon size="XXXL">
           <ShoppingCartIcon />
@@ -79,7 +80,7 @@ const IconExample = () => {
       {/* xxxx-large / 4xl*/}
       <Layout>
         <Heading variation="h2" size="S">
-          XXXXL / 4XL
+          4XL
         </Heading>
         <Icon size="4XL">
           <ShoppingCartIcon />
@@ -89,7 +90,7 @@ const IconExample = () => {
       {/* xxxxx-large / 5xl*/}
       <Layout>
         <Heading variation="h2" size="S">
-          XXXXXL / 5XL
+          5XL
         </Heading>
         <Icon size="5XL">
           <ShoppingCartIcon />
@@ -99,7 +100,7 @@ const IconExample = () => {
       {/* xxxxxx-large / 6xl*/}
       <Layout>
         <Heading variation="h2" size="S">
-          XXXXXXL / 6XL
+          6XL
         </Heading>
         <Icon size="6XL">
           <ShoppingCartIcon />
@@ -109,7 +110,7 @@ const IconExample = () => {
       {/* xxxxxxx-large /7xl*/}
       <Layout>
         <Heading variation="h2" size="S">
-          XXXXXXXL / 7XL
+          7XL
         </Heading>
         <Icon size="7XL">
           <ShoppingCartIcon />
@@ -119,7 +120,7 @@ const IconExample = () => {
       {/* xxxxxxxx-large /8xl*/}
       <Layout>
         <Heading variation="h2" size="S">
-          XXXXXXXXL / 8XL
+          8XL
         </Heading>
         <Icon size="8XL">
           <ShoppingCartIcon />
@@ -129,7 +130,7 @@ const IconExample = () => {
       {/* XXXXXXXXX-large /9xl*/}
       <Layout>
         <Heading variation="h2" size="S">
-          XXXXXXXXXL / 9XL
+          9XL
         </Heading>
         <Icon size="9XL">
           <ShoppingCartIcon />
@@ -139,7 +140,7 @@ const IconExample = () => {
       {/* XXXXXXXXXX-large /10xl*/}
       <Layout>
         <Heading variation="h2" size="S">
-          XXXXXXXXXXL / 10XL
+          10XL
         </Heading>
         <Icon size="10XL">
           <ShoppingCartIcon />
@@ -147,11 +148,6 @@ const IconExample = () => {
       </Layout>
     </>
   );
-
-  const previewString = `
-  import {Icon} from '@fightclub/components';
-  ${reactElementToJSXString(preview)};
-  `;
 
   return (
     <>
@@ -168,7 +164,7 @@ const IconExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <Code/>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

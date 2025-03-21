@@ -1,15 +1,15 @@
-import reactElementToJSXString from 'react-element-to-jsx-string';
-
 import { Icon, ToggleButton, Heading, Tabs, CodeBlock, Text } from '@fightclub/components';
 import { HeartIcon } from '@fightclub/icons';
 
+import Code from './code.mdx';
+
 const ToggleButtonExample = () => {
   //the context provider (can technically wrap inside the component itself)
-  enum ToggleEnumWithMaybe {
-    ON = 'true',
-    OFF = 'false',
-    MAYBE = 'maybe',
-  }
+    enum ToggleEnumWithMaybe {
+        ON = 'true',
+        OFF = 'false',
+        MAYBE = 'maybe',
+    }
 
   const preview = (
     <ToggleButton
@@ -22,6 +22,7 @@ const ToggleButtonExample = () => {
                 <HeartIcon />
               </Icon>
             );
+            
           case 'OFF':
             return <Icon size="L">OFF</Icon>;
 
@@ -32,8 +33,6 @@ const ToggleButtonExample = () => {
       }}
     />
   );
-
-  const previewString = reactElementToJSXString(preview);
 
   return (
     <>
@@ -49,24 +48,10 @@ const ToggleButtonExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
-
-      <Text>
-        Technically, a toggle is a behavior not a component, you are describing an action, the visual result is because
-        of the state change and the driver behind a toggle is a useToggleHook. This way, the implementation is loosely
-        tied to the visual representation of the state.
-      </Text>
-
-      <Text>
-        A toggle usually has 2 states (depending on usage case), on/off; active/inactive etc and thats okay and for most
-        situations, but lets open up to the idea where there is a possibility for more than 2 states (an arbitary amount
-        of states) a toggle function should then have the ability to toggle all the states. This is possible with the
-        use of an enum and combined with 'smart' coding, you can loop the different values of an enum. By isolating the
-        amount of values in the enum, we can implement the basic toggle (and toggle more than 2 states if needed)
-      </Text>
     </>
   );
 };

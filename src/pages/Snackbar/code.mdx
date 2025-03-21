@@ -1,0 +1,22 @@
+```jsx
+import { Snackbar } from '@fightclub/components';
+import { ClipboardIcon } from '@fightclub/icons';
+
+//...
+
+const [showSnackbar, setShowSnackbar] = useState(false);
+
+const onClickHandler = () => {
+    console.log('onClickHandler');
+    setShowSnackbar(true);
+};
+
+<>
+    {showSnackbar && <Snackbar setShowSnackbar={setShowSnackbar}>copied to clipboard</Snackbar>}
+    <Button onClick={onClickHandler} intent="icon">
+    <Icon size="L">
+        <ClipboardIcon />
+    </Icon>
+    </Button>
+</>
+```

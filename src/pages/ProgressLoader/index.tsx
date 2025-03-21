@@ -1,7 +1,6 @@
-import reactElementToJSXString from 'react-element-to-jsx-string';
-
-import { CodeBlock, Heading, Layout, ProgressLoader, Tabs, Text } from '@fightclub/components';
+import { Heading, Layout, ProgressLoader, Tabs, Text } from '@fightclub/components';
 import { ResizePanel } from '@fightclub/components';
+import Code from './code.mdx';
 
 const ProgressLoaderExample = () => {
   const preview = (
@@ -24,8 +23,6 @@ const ProgressLoaderExample = () => {
     </div>
   );
 
-  const previewString = reactElementToJSXString(preview);
-
   return (
     <>
       <Heading variation="h1" size="level1" data-observable="true">
@@ -40,14 +37,10 @@ const ProgressLoaderExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <Code/>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
-
-      <Layout>
-        <Text>fact - strokeLinecap="round" looks better than without</Text>
-      </Layout>
     </>
   );
 };

@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import reactElementToJSXString from 'react-element-to-jsx-string';
 
 import { Heading, Slider, Tabs, CodeBlock } from '@fightclub/components';
+import Code from './code.mdx';
 
 const SliderExample = () => {
   const [savedData, setSavedData] = useState(0);
@@ -28,8 +28,6 @@ const SliderExample = () => {
     </>
   );
 
-  const previewString = reactElementToJSXString(preview);
-
   return (
     <>
       <Heading variation="h1" size="level1" data-observable="true">
@@ -44,7 +42,7 @@ const SliderExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

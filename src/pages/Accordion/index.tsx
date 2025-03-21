@@ -1,7 +1,7 @@
 import React from 'react';
-import { Heading, Layout, Tabs, CodeBlock, Section, Accordion, Divider, Icon, Label } from '@fightclub/components';
-import reactElementToJSXString from 'react-element-to-jsx-string';
+import { Heading, Tabs, CodeBlock, Section, Accordion, Icon  } from '@fightclub/components';
 import { ChevronUpIcon, ChevronDownIcon, PlusIcon, MinusIcon } from '@fightclub/icons';
+import Code from './code.mdx';
 
 const AccordionExample = () => {
   const data = [
@@ -70,8 +70,6 @@ const AccordionExample = () => {
     </Accordion>
   );
 
-  const previewString = reactElementToJSXString(preview);
-
   return (
     <Section>
       <Heading variation="h1" size="level1" data-observable="true">
@@ -86,7 +84,7 @@ const AccordionExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

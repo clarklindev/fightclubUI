@@ -1,6 +1,8 @@
 //new
-import { Tree, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import { Tree, Heading, Tabs } from '@fightclub/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
+
+import Code from './Code.mdx';
 
 // only endnodes can be links
 const TreeExample = () => {
@@ -20,7 +22,6 @@ const TreeExample = () => {
   ];
 
   const preview = <Tree data={data}></Tree>;
-  const previewString = reactElementToJSXString(preview);
 
   // requires data to be structured with "label" and "children" properties
   return (
@@ -37,7 +38,7 @@ const TreeExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <Code/>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

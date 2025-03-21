@@ -1,12 +1,10 @@
-import { Badge, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import { Badge, Heading, Tabs } from '@fightclub/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
+
+import Code from './Code.mdx';
 
 const BadgeExample = () => {
   const preview = <Badge>Hello</Badge>;
-  const previewString = `
-  import {Badge} from '@fightclub/components';
-  ${reactElementToJSXString(preview)}
-  `;
 
   return (
     <>
@@ -23,7 +21,7 @@ const BadgeExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <Code/>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

@@ -1,5 +1,5 @@
-import { Heading, Layout, Divider, Text, Tabs, CodeBlock } from '@fightclub/components';
-import { CodeBlockProvider } from '@fightclub/context/CodeBlockContext';
+import { Heading, Layout, Divider, Tabs, CodeBlock } from '@fightclub/components';
+import Code from './code.mdx';
 
 const DividerExample = () => {
   let preview = (
@@ -51,20 +51,18 @@ const DividerExample = () => {
         Divider
       </Heading>
 
-      <CodeBlockProvider>
-        <Tabs>
-          <Tabs.TriggerGroup>
-            <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
-            <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
-          </Tabs.TriggerGroup>
-          <Tabs.ContentGroup>
-            <Tabs.Content data-tab="0">{preview}</Tabs.Content>
-            <Tabs.Content data-tab="1">
-              <CodeBlock>{preview}</CodeBlock>
-            </Tabs.Content>
-          </Tabs.ContentGroup>
-        </Tabs>
-      </CodeBlockProvider>
+      <Tabs>
+        <Tabs.TriggerGroup>
+          <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
+          <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
+        </Tabs.TriggerGroup>
+        <Tabs.ContentGroup>
+          <Tabs.Content data-tab="0">{preview}</Tabs.Content>
+          <Tabs.Content data-tab="1">
+            <CodeBlock><Code/></CodeBlock>
+          </Tabs.Content>
+        </Tabs.ContentGroup>
+      </Tabs>
     </>
   );
 };

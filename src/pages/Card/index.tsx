@@ -1,10 +1,9 @@
-import reactElementToJSXString from 'react-element-to-jsx-string';
-import { Card, CodeBlock, Heading, ResizePanel, Tabs } from '@fightclub/components';
+import { Card, CodeBlock, Heading, Tabs } from '@fightclub/components';
+
+import Code from './Code.mdx';
 
 const CardExample = () => {
   const preview = <Card className="p-2">this is dummy text</Card>;
-
-  const previewString = reactElementToJSXString(preview);
 
   return (
     <>
@@ -20,7 +19,7 @@ const CardExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

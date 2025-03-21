@@ -1,16 +1,8 @@
-import { Heading, Tabs, CodeBlock, Text, Layout } from '@fightclub/components';
-import { CodeBlockProvider } from '@fightclub/context/CodeBlockContext';
-import reactElementToJSXString from 'react-element-to-jsx-string';
-
-import { Link } from 'react-router-dom';
+import { Heading, Tabs, CodeBlock } from '@fightclub/components';
+import Code from './code.mdx';
 
 const CodeBlockExample = () => {
   const preview = <CodeBlock>{'hi'}</CodeBlock>;
-
-  const previewString = `import {CodeBlock} from '@fightclub/components';
-  ${reactElementToJSXString(preview)};
-  //this is a comment
-  `;
 
   return (
     <>
@@ -18,33 +10,18 @@ const CodeBlockExample = () => {
         CodeBlock
       </Heading>
 
-      <CodeBlockProvider>
-        <Tabs>
-          <Tabs.TriggerGroup>
-            <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
-            <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
-          </Tabs.TriggerGroup>
-          <Tabs.ContentGroup>
-            <Tabs.Content data-tab="0">{preview}</Tabs.Content>
-            <Tabs.Content data-tab="1">
-              <CodeBlock>{previewString}</CodeBlock>
-            </Tabs.Content>
-          </Tabs.ContentGroup>
-        </Tabs>
-      </CodeBlockProvider>
-
-      <Heading variation="h2">3rd party candidates</Heading>
-
-      <Layout>
-        <Text>
-          <Link to="https://www.npmjs.com/package/@uiw/react-codemirror">@uiw/react-codemirror</Link>
-          <br />
-          <Link to="https://codemirror.net/">code mirror</Link>
-          <br />
-          <Link to="https://www.npmjs.com/package/react-code-blocks">react-code-blocks</Link>
-          <br />
-        </Text>
-      </Layout>
+      <Tabs>
+        <Tabs.TriggerGroup>
+          <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
+          <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
+        </Tabs.TriggerGroup>
+        <Tabs.ContentGroup>
+          <Tabs.Content data-tab="0">{preview}</Tabs.Content>
+          <Tabs.Content data-tab="1">
+            <CodeBlock><Code/></CodeBlock>
+          </Tabs.Content>
+        </Tabs.ContentGroup>
+      </Tabs>
     </>
   );
 };

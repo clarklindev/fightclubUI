@@ -1,12 +1,13 @@
-import { Heading, Tabs, CodeBlock, Text } from '@fightclub/components';
-import { CodeBlockProvider } from '@fightclub/context/CodeBlockContext';
+import { Heading, Tabs } from '@fightclub/components';
+
+import Code from './Code.mdx';
 
 const TabsExample = () => {
   const preview = (
     <Tabs>
       <Tabs.TriggerGroup>
-        <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
-        <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
+        <Tabs.Trigger data-tab="0">Tab1</Tabs.Trigger>
+        <Tabs.Trigger data-tab="1">Tab2</Tabs.Trigger>
       </Tabs.TriggerGroup>
 
       <Tabs.ContentGroup>
@@ -22,7 +23,6 @@ const TabsExample = () => {
         Tabs
       </Heading>
 
-      <CodeBlockProvider>
         <Tabs>
           <Tabs.TriggerGroup>
             <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
@@ -31,11 +31,10 @@ const TabsExample = () => {
           <Tabs.ContentGroup>
             <Tabs.Content data-tab="0">{preview}</Tabs.Content>
             <Tabs.Content data-tab="1">
-              <CodeBlock>{preview}</CodeBlock>
+              <Code/>
             </Tabs.Content>
           </Tabs.ContentGroup>
         </Tabs>
-      </CodeBlockProvider>
     </>
   );
 };

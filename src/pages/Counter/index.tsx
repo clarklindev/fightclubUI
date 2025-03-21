@@ -1,14 +1,11 @@
 import { useState } from 'react';
-import reactElementToJSXString from 'react-element-to-jsx-string';
 
 import { CodeBlock, Counter, Heading, Tabs } from '@fightclub/components';
+import Code from './code.mdx';
 
 const CounterExample = () => {
   const [savedData, setSavedData] = useState(0);
-
   const preview = <Counter savedData={savedData} onChange={newValue => setSavedData(newValue)} />;
-
-  const previewString = reactElementToJSXString(preview);
 
   return (
     <>
@@ -24,7 +21,7 @@ const CounterExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

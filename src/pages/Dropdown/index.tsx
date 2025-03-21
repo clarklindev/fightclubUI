@@ -1,11 +1,13 @@
-import { Dropdown, Heading, Tabs, CodeBlock } from '@fightclub/components';
-import { CodeBlockProvider } from '@fightclub/context/CodeBlockContext';
+import { Dropdown, Button, Heading, Tabs } from '@fightclub/components';
+import Code from './Code.mdx';
 
 const DropdownExample = () => {
   const preview = (
     <Dropdown>
-      <Dropdown.Wrapper id="2">
-        <Dropdown.Trigger>hi</Dropdown.Trigger>
+      <Dropdown.Wrapper>
+        <Dropdown.Trigger>
+          Button
+        </Dropdown.Trigger>
         <Dropdown.Menu className="w-40">
           <Dropdown.MenuItem>A</Dropdown.MenuItem>
           <Dropdown.MenuItem>B</Dropdown.MenuItem>
@@ -22,20 +24,18 @@ const DropdownExample = () => {
         Dropdown
       </Heading>
 
-      <CodeBlockProvider>
-        <Tabs>
-          <Tabs.TriggerGroup>
-            <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
-            <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
-          </Tabs.TriggerGroup>
-          <Tabs.ContentGroup>
-            <Tabs.Content data-tab="0">{preview}</Tabs.Content>
-            <Tabs.Content data-tab="1">
-              <CodeBlock>{preview}</CodeBlock>
-            </Tabs.Content>
-          </Tabs.ContentGroup>
-        </Tabs>
-      </CodeBlockProvider>
+      <Tabs>
+        <Tabs.TriggerGroup>
+          <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
+          <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>
+        </Tabs.TriggerGroup>
+        <Tabs.ContentGroup>
+          <Tabs.Content data-tab="0">{preview}</Tabs.Content>
+          <Tabs.Content data-tab="1">
+              <Code/>
+          </Tabs.Content>
+        </Tabs.ContentGroup>
+      </Tabs>
     </>
   );
 };

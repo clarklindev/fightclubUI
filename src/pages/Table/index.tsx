@@ -1,7 +1,7 @@
-import { Table, Heading, ResizePanel, Tabs, CodeBlock } from '@fightclub/components';
-import reactElementToJSXString from 'react-element-to-jsx-string';
+import { Table, Heading, Tabs, CodeBlock } from '@fightclub/components';
 
 import type { Header } from '@fightclub/components/Table';
+import Code from './code.mdx';
 
 const TableExample = () => {
   const configure = {
@@ -62,7 +62,6 @@ const TableExample = () => {
   ];
 
   const preview = <Table headers={HEADERS} data={DATA} configure={configure} />;
-  const previewString = reactElementToJSXString(preview);
 
   return (
     <>
@@ -78,7 +77,7 @@ const TableExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

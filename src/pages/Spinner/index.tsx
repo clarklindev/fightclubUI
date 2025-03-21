@@ -1,10 +1,8 @@
-import reactElementToJSXString from 'react-element-to-jsx-string';
-
-import { Spinner, Heading, ResizePanel, Tabs, CodeBlock } from '@fightclub/components';
+import { Spinner, Heading, Tabs } from '@fightclub/components';
+import Code from './code.mdx';
 
 const SpinnerExample = () => {
   const preview = <Spinner size="35" color="red" />;
-  const previewString = reactElementToJSXString(preview);
 
   return (
     <>
@@ -20,7 +18,7 @@ const SpinnerExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <Code/>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

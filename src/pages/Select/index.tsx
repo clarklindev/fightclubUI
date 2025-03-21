@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import reactElementToJSXString from 'react-element-to-jsx-string';
 
 import { Select, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import Code from './code.mdx';
 
 const SelectExample = () => {
   const [savedData, setSavedData] = useState<string | null>();
@@ -28,8 +28,6 @@ const SelectExample = () => {
     </>
   );
 
-  const previewString = reactElementToJSXString(preview);
-
   return (
     <>
       <Heading variation="h1" size="level1" data-observable="true">
@@ -44,7 +42,7 @@ const SelectExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import reactElementToJSXString from 'react-element-to-jsx-string';
 
 import { Snackbar, Button, Icon, Heading, Tabs, CodeBlock } from '@fightclub/components';
 import { ClipboardIcon } from '@fightclub/icons';
+import Code from './code.mdx';
 
 const SnackbarExample = () => {
   const [showSnackbar, setShowSnackbar] = useState(false);
@@ -23,8 +23,6 @@ const SnackbarExample = () => {
     </>
   );
 
-  const previewString = reactElementToJSXString(preview);
-
   return (
     <>
       <Heading variation="h1" data-observable="true">
@@ -39,7 +37,7 @@ const SnackbarExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
