@@ -31,7 +31,7 @@ const Label = ({
 }: LabelProps) => {
   const Component = labelClickable ? 'label' : 'div';
 
-  const flexClasses = `${getFlexGap(labelDirection, gap)}`;
+  const flexClasses = `${getFlexGap(labelDirection, gap)} ${labelClickable ? 'cursor-pointer' : 'cursor-default'}`;
 
   return (
     <Component data-component={Label.name} className={[flexClasses, className].join(' ')}>

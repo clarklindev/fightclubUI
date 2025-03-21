@@ -42,10 +42,10 @@ const ButtonExample = () => {
         <Heading variation="h5" size="level2">
           Button + Label
         </Heading>
-        <Button intent="contained" className="bg-red-500 hover:bg-red-600 text-white">
-          <Label gap="10px" label="right" labelDirection="right">
+        <Button intent="primary">
+          <Label gap="2" label="right" labelDirection="right" labelClickable={true}>
             <Icon size="L">
-              <ThumbsUpIcon stroke="blue" />
+              <ThumbsUpIcon />
             </Icon>
           </Label>
         </Button>
