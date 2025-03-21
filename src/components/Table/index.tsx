@@ -26,14 +26,12 @@ const TableContainer = styled.table<{ gridTemplateColumns: string }>`
   display: grid;
 
   tr {
-    background: orange;
     display: grid;
     grid-template-columns: ${({ gridTemplateColumns }) => gridTemplateColumns.replace(/fr/gi, 'px')};
   }
 
   th,
   td {
-    border: 1px solid red;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap; /* Prevent text from wrapping by default */
