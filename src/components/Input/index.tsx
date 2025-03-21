@@ -11,10 +11,9 @@ const InputVariants = cva(
   cursor-text
   focus:outline-none
   border-none
-  w-full
   rounded-md
-  h-10
-  max-h-10
+  h-12
+  max-h-12
   px-2
   gap-2
   bg-[var(--input-background-color)]

@@ -8,10 +8,6 @@ type CounterProps = {
   onChange: (prop: number) => void;
 };
 
-const CounterWrapper = () => {};
-
-const CounterButton = () => {};
-
 const Counter = ({ savedData, onChange }: CounterProps) => {
   const decrement = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
@@ -28,7 +24,7 @@ const Counter = ({ savedData, onChange }: CounterProps) => {
   };
 
   return (
-    <div data-component={Counter.displayName} className="flex items-center w-[120px] gap-2.5 h-[30px]">
+    <div data-component={Counter.displayName} className="flex items-center gap-2.5">
       <Button className={['Button', 'left'].join(' ')} onClick={decrement} intent="icon">
         <Icon size="L">
           <MinusIcon />
@@ -36,7 +32,7 @@ const Counter = ({ savedData, onChange }: CounterProps) => {
       </Button>
       <Input>
         <Input.InputElement
-          className="text-center"
+          className="text-center w-10"
           placeholder=""
           onChange={event => event.target.value}
           value={savedData.toString()}
