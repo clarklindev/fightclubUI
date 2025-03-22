@@ -2,9 +2,6 @@ import React, { ForwardedRef, ReactNode, forwardRef, InputHTMLAttributes, HTMLAt
 import { VariantProps, cva } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
 
-import { useTheme } from '@fightclub/context/ThemeContext';
-import { getTailwindClassesFromThemeComponent } from '@fightclub/utils/getTailwindClassesFromThemeComponent';
-
 const InputVariants = cva(
   `items-center 
   box-border
@@ -44,10 +41,8 @@ interface InputProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 const Input = ({ className, variants, children, ...props }: InputProps) => {
-  // const { theme } = useTheme();
 
   const classes = twMerge(
-    // theme ? getTailwindClassesFromThemeComponent(theme.Input) :
     InputVariants({ ...variants }),
     className,
   );

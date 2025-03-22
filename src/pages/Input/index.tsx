@@ -75,7 +75,7 @@ const InputExample = () => {
                 setSavedData(event.target.value);
                 }}
             />
-            <Button intent="icon" onClick={() => setPasswordVisible(!passwordVisible)}>
+            <Button intent="icon" padding='none' onClick={() => setPasswordVisible(!passwordVisible)}>
                 <Icon size="L">{passwordVisible ? <HidePasswordIcon /> : <ShowPasswordIcon />}</Icon>
             </Button>
             </Input>
@@ -115,26 +115,27 @@ const InputExample = () => {
             Input Search
             </Heading>
             <Input>
-            <Input.InputElement
-                ref={ref}
-                value={savedData}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                const val = event.target.value;
-                setSavedData(val);
-                }}
-                placeholder="placeholder"
-            />
-            <Button
-                intent="icon"
-                onClick={() => {
-                if (ref.current) {
-                    console.log('value: ', ref.current.value);
-                }
-                }}>
-                <Icon size="M">
-                <SearchIcon />
-                </Icon>
-            </Button>
+                <Input.InputElement
+                    ref={ref}
+                    value={savedData}
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                    const val = event.target.value;
+                    setSavedData(val);
+                    }}
+                    placeholder="placeholder"
+                />
+                <Button
+                    intent="icon"
+                    padding='none'
+                    onClick={() => {
+                    if (ref.current) {
+                        console.log('value: ', ref.current.value);
+                    }
+                    }}>
+                    <Icon size="M">
+                    <SearchIcon />
+                    </Icon>
+                </Button>
             </Input>
         </Layout>
 

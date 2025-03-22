@@ -21,6 +21,7 @@ const buttonVariants = cva(['box-border', 'inline-flex', 'items-center', 'cursor
 
     padding: {
       default: '',
+      none: 'py-0 px-0',
       S: 'py-3 px-1',
       M: 'py-3 px-2',
       L: 'py-3 px-3',
