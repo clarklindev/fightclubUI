@@ -14,7 +14,7 @@ const Introduction = () => {
           <br />
           Have you ever worked in a company where you cried everyday because development was an awful experience? There
           is a clear difference between a component library that works, and one that developers appreciate because of
-          ease of use.
+          ease of use. 
           <br />
           <br />
           {import.meta.env.VITE_UI_ALIAS_NAME}UI uses React (Function-based library of compound components), TailwindCSS and Class Variance
@@ -34,6 +34,9 @@ const Introduction = () => {
         </Text>
         <Text>Pre-defined modular components, built with accessibility in mind. <br/>
         With default styling, support of theming and darkmode.</Text>
+        <br/>
+        <Text>The first rule of fightclubUI is...you do not talk about fightclubUI!</Text>
+        <Text>Did you break the rules?</Text>
       </Layout>
 
       {/* <Layout>

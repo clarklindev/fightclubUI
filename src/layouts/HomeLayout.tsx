@@ -8,7 +8,7 @@ import { useMenu } from '@fightclub/context/MenuContext';
 import { useTheme } from '@fightclub/context/ThemeContext';
 import { useScroll } from '@fightclub/context/ScrollContext';
 
-import logo from '@fightclub/assets/logo.svg';
+import logo from '@fightclub/assets/logo.png';
 import githubIcon from '@fightclub/assets/github.svg';
 
 const HomeLayoutContainer = styled.div`
@@ -192,8 +192,8 @@ export const HomeLayout = () => {
             )}
           </div>
 
-          <div className="relative flex items-center">
-            <Icon data-component="icon" className="min-[320px]:absolute min-[320px]:ml-[-2rem]" size="M">
+          <div className="relative flex items-center gap-4">
+            <Icon data-component="icon" size="4XL">
               <img src={logo} alt="logo" />
             </Icon>
             <Button
