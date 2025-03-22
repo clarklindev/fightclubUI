@@ -71,6 +71,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     fontsize,
     focus,
     className,
+    borderRadius,
     onClick,
     onFocus,
     onBlur,
@@ -82,7 +83,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   ``;
   const classes = twMerge(
     theme?.Button ? [theme.Button.intent[intent as keyof typeof theme.Button.intent]].join(' ')
-      : buttonVariants({ intent, fontsize, padding, focus }),
+      : buttonVariants({ intent, fontsize, padding, focus, borderRadius }),
     className,
   );
 

@@ -18,6 +18,7 @@ import SectionExample from '@fightclub/pages/Section';
 
 import HeadingExample from '@fightclub/pages/Heading';
 import TextExample from '@fightclub/pages/Text';
+import TextareaExample from '@fightclub/pages/Textarea';
 import LabelExample from '@fightclub/pages/Label';
 import IconExample from '@fightclub/pages/Icon';
 import ButtonExample from '@fightclub/pages/Button';
@@ -72,6 +73,7 @@ export const router = createBrowserRouter(
       <Route path="/section" element={<SectionExample />} />
       <Route path="/heading" element={<HeadingExample />} />
       <Route path="/text" element={<TextExample />} />
+      <Route path="/textarea" element={<TextareaExample />} />
       <Route path="/label" element={<LabelExample />} />
       <Route path="/icon" element={<IconExample />} />
       <Route path="/button" element={<ButtonExample />} />

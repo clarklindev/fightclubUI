@@ -23,6 +23,7 @@ export { Snackbar } from './Snackbar';
 export { Spinner } from './Spinner';
 export { Table } from './Table';
 export { Text } from './Text';
+export { Textarea } from './Textarea';
 export { ToggleButton } from './ToggleButton';
 export { ToggleSwitch } from './ToggleSwitch';
 export { Tree } from './Tree';

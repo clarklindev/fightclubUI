@@ -282,6 +282,9 @@ export const HomeLayout = () => {
             <NavSide.Link to="text">
               Text
             </NavSide.Link>
+            <NavSide.Link to="textarea">
+              Textarea
+            </NavSide.Link>
             <NavSide.Link to="label">
               Label
             </NavSide.Link>
