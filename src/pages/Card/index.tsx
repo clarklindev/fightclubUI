@@ -1,6 +1,6 @@
 import { Card, CodeBlock, Heading, Tabs } from '@fightclub/components';
 
-import Code from './Code.mdx';
+import Code from './code.mdx';
 
 const CardExample = () => {
   const preview = <Card className="p-2">this is dummy text</Card>;

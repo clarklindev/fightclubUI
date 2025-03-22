@@ -2,7 +2,7 @@
 import { Tree, Heading, Tabs } from '@fightclub/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
-import Code from './Code.mdx';
+import Code from './code.mdx';
 
 // only endnodes can be links
 const TreeExample = () => {

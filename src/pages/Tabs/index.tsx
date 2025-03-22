@@ -1,6 +1,6 @@
 import { Heading, Tabs } from '@fightclub/components';
 
-import Code from './Code.mdx';
+import Code from './code.mdx';
 
 const TabsExample = () => {
   const preview = (
