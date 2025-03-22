@@ -30,6 +30,7 @@ const buttonVariants = cva(['box-border', 'inline-flex', 'items-center', 'cursor
 
     borderRadius:{
       default: "rounded-md",
+      none: 'rounded-none',
       sm: "rounded-sm",
       md: "rounded-md",
       lg: "rounded-lg",

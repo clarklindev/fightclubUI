@@ -49,9 +49,10 @@ const Trigger = ({ children, ...rest }: TriggerProps) => {
         intent="plain"
         padding="none"
         focus="none"
+        borderRadius="none"
         className={
           selectedTabId && selectedTabId === dataTrigger.current
-            ? 'border-b-2 border-red-500'
+            ? 'border-b-2 border-red-500 rounded-b-none'
             : 'border-b-2 border-transparent'
         }
         ref={triggerRef}
