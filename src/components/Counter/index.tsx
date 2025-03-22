@@ -25,7 +25,7 @@ const Counter = ({ savedData, onChange }: CounterProps) => {
 
   return (
     <div data-component={Counter.displayName} className="flex items-center gap-2.5">
-      <Button className={['Button', 'left'].join(' ')} onClick={decrement} intent="icon">
+      <Button className={['Button', 'left'].join(' ')} padding={"none"} onClick={decrement} intent="icon">
         <Icon size="L">
           <MinusIcon />
         </Icon>
@@ -38,7 +38,7 @@ const Counter = ({ savedData, onChange }: CounterProps) => {
           value={savedData.toString()}
         />
       </Input>
-      <Button className={['Button', 'right', 'flex', 'items-center'].join(' ')} onClick={increment} intent="icon">
+      <Button className={['Button', 'right', 'flex', 'items-center'].join(' ')} padding={"none"} onClick={increment} intent="icon">
         <Icon size="L">
           <PlusIcon />
         </Icon>
