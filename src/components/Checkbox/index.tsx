@@ -9,9 +9,10 @@ type CheckboxProps = {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   size?: string;
   indeterminate?: boolean;
+  border?: boolean
 };
 
-const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate = false }: CheckboxProps) => {
+const Checkbox = ({ checked, name, label="", onChange, size = 'XL', indeterminate = false, border=true}: CheckboxProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
@@ -53,7 +54,7 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="red"
+              stroke={border ? "red" : 'none'}
               strokeWidth="1"
               strokeLinecap="round"
               strokeLinejoin="round">
@@ -72,8 +73,9 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
               strokeLinecap="round"
               strokeLinejoin="round"
               className="w-10 h-10">
+              {border && 
               <rect x="1" y="1" width="22" height="22" rx="3" ry="3" />
-
+              }
               <line x1="6" y1="12" x2="10" y2="16" strokeWidth="2" />
               <line x1="10" y1="16" x2="18" y2="8" strokeWidth="2" />
             </svg>
@@ -84,7 +86,7 @@ const Checkbox = ({ checked, name, label, onChange, size = 'XL', indeterminate =
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="red"
+              stroke={border ? "red" : 'none'}
               strokeWidth="1"
               strokeLinecap="round"
               strokeLinejoin="round">
