@@ -62,7 +62,7 @@ const IconExample = () => {
         <Heading variation="h2" size="S">
           2XL
         </Heading>
-        <Icon size="XXL">
+        <Icon size="2XL">
           <ShoppingCartIcon />
         </Icon>
       </Layout>
@@ -72,7 +72,7 @@ const IconExample = () => {
         <Heading variation="h2" size="S">
           3XL
         </Heading>
-        <Icon size="XXXL">
+        <Icon size="3XL">
           <ShoppingCartIcon />
         </Icon>
       </Layout>

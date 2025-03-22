@@ -54,7 +54,8 @@ import ResizePanelExample from '@fightclub/pages/ResizePanel';
 import DimensionsExample from '@fightclub/pages/Dimensions';
 import CodeBlockExample from '@fightclub/pages/CodeBlock';
 
-export const router = createBrowserRouter(
+import type { Router } from '@remix-run/router';
+export const router:Router = createBrowserRouter(
   createRoutesFromElements(
     // USE LAYOUT - HomeLayout
     <Route path="/" element={<HomeLayout />}>
@@ -115,3 +116,4 @@ export const router = createBrowserRouter(
     </Route>,
   ),
 );
+

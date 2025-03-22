@@ -56,17 +56,12 @@ const Input = ({ className, variants, children, ...props }: InputProps) => {
 
 interface InputElementProps extends InputHTMLAttributes<HTMLInputElement> {}
 
-const InputElement = ({
-  onChange,
-  value,
-  placeholder = '',
-  className,
-  readOnly = false,
-  type = 'text',
-  ...props
-}: InputElementProps) => {
+const InputElement = forwardRef<HTMLInputElement, InputElementProps>(
+
+({ onChange, value, placeholder = '', className, readOnly = false, type = 'text', ...props}, ref ) => {
   return (
     <input
+      ref={ref}
       type={type}
       onChange={onChange}
       value={value}
@@ -89,7 +84,8 @@ const InputElement = ({
       {...props}
     />
   );
-};
+}
+);
 
 InputElement.displayName = 'Input.InputElement';
 Input.InputElement = InputElement;

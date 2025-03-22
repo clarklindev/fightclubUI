@@ -6,7 +6,6 @@ const Navbar = ({
   children,
   className,
 }: {
-  style: React.CSSProperties;
   className?: string;
   children?: React.ReactNode;
 }) => {

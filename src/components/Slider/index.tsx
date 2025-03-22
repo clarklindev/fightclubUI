@@ -38,7 +38,6 @@ const Slider = ({
   max = 100,
   step = 1,
   index = 0,
-  thumbSize = 30,
   trackClickable = true,
   hideTrack = false,
   valueGradient = undefined,

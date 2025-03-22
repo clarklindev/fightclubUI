@@ -2,11 +2,13 @@ import React from 'react';
 
 import { Icon } from '@fightclub/components';
 
+type Size = "XS" | "S" | "M" | "L" | "XL" | "2XL" | "3XL" | "4XL" | "5XL" | "6XL" | "7XL" | "8XL" | "9XL" | "10XL";
+  
 type RadioButtonProps = {
   checked: boolean;
   name: string;
   label?: string;
-  size?: string;
+  size?: Size | null;
   spacing?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };

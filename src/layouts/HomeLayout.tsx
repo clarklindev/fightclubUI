@@ -119,7 +119,7 @@ const Container = styled.div<{ isOpen: boolean; className?: string }>`
 `;
 
 const setModeIcon = (mode: string | null) => {
-  if (null) {
+  if (!mode) {
     return;
   }
 

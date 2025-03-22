@@ -4,7 +4,7 @@ import Code from './code.mdx';
 
 const TextExample = () => {
   const preview = (
-    <Textarea>
+    <Textarea >
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     </Textarea>
   );

@@ -2,15 +2,19 @@ import React, { useEffect, useRef } from 'react';
 
 import { Icon } from '..';
 
+type Size = "XS" | "S" | "M" | "L" | "XL" | "2XL" | "3XL" | "4XL" | "5XL" | "6XL" | "7XL" | "8XL" | "9XL" | "10XL";
+
 type CheckboxProps = {
   checked: boolean;
   name: string;
   label?: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  size?: string;
+  size?: Size | null;
   indeterminate?: boolean;
   border?: boolean
 };
+
+
 
 const Checkbox = ({ checked, name, label="", onChange, size = 'XL', indeterminate = false, border=true}: CheckboxProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null);

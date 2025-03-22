@@ -149,8 +149,7 @@ const Container = ({ ...props }) => {
             {observables.map((observable, index) => (
               <Button
                 intent="plain"
-                padding="p-1"
-                focus="none"
+                padding="L"
                 key={index}
                 className={[
                   'truncate',

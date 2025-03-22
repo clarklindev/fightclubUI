@@ -18,6 +18,7 @@
     "@codemirror/lang-less": "^6.0.2",
     "@codemirror/lang-sass": "^6.0.2",
     "@mdx-js/rollup": "^3.1.0",
+    "@remix-run/router": "^1.23.0",
     "@uiw/codemirror-extensions-langs": "^4.21.20",
     "@uiw/codemirror-theme-github": "^4.21.20",
     "@uiw/react-codemirror": "^4.21.20",

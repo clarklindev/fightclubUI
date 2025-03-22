@@ -44,7 +44,7 @@ const buttonVariants = cva(['box-border', 'inline-flex', 'items-center', 'cursor
     },
 
     focus: {
-      default: '',
+      default: 'none',
       border: 'focus:outline-none focus:border-black',
     },
   },
@@ -80,10 +80,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   } = props;
 
   const { theme } = useTheme();
-  ``;
-  const classes = twMerge(
-    theme?.Button ? [theme.Button.intent[intent as keyof typeof theme.Button.intent]].join(' ')
-      : buttonVariants({ intent, fontsize, padding, focus, borderRadius }),
+
+  const classes = twMerge(buttonVariants({ intent, fontsize, padding, focus, borderRadius }),
     className,
   );
 

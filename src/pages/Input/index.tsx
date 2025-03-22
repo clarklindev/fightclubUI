@@ -158,7 +158,7 @@ const InputExample = () => {
 
     return (
         <>
-            <Heading variation="h1" data-observable="true">
+            <Heading variation="h1" size="level2" data-observable="true">
                 Input
             </Heading>
 

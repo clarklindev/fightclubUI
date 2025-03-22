@@ -48,7 +48,6 @@ const Trigger = ({ children, ...rest }: TriggerProps) => {
       <Button
         intent="plain"
         padding="none"
-        focus="none"
         borderRadius="none"
         className={
           selectedTabId && selectedTabId === dataTrigger.current
