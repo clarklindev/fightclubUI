@@ -15,7 +15,7 @@ const SnackbarExample = () => {
   const preview = (
     <>
       {showSnackbar && <Snackbar setShowSnackbar={setShowSnackbar}>copied to clipboard</Snackbar>}
-      <Button onClick={onClickHandler} intent="icon">
+      <Button onClick={onClickHandler} intent="icon" padding={"none"}>
         <Icon size="L">
           <ClipboardIcon />
         </Icon>
