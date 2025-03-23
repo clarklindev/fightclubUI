@@ -48,9 +48,8 @@
             <Text>
             Components should take into consideration when it has 'overflow: hidden', this may possibly hide child
             components which overflow its dimensions.
-            </Text>
-
-            <Text><CodeInline value="src/layouts/HomeLayout.tsx"/> is an example of a page layout and more can be created</Text>
+            <br/>
+            <CodeInline value="src/layouts/HomeLayout.tsx"/> is an example of a page layout and more can be created</Text>
         </Layout>
 
         <Layout>
@@ -58,81 +57,71 @@
             Adding Pages
             </Heading>
             <Heading variation="h3" size="level3" data-observable="true">
-            1. Adding nav link
-            </Heading>
-            <Heading variation="h4" size="level4">
-            Using react-router-dom 6
+            1. Adding nav link Using react-router-dom 6
             </Heading>
             <Text>
             The first step to adding a page on the interface so that it appears as a navigation link is to look inside:
-            <br />
-            <br />
-            </Text>
+            <br/>
             <CodeInline value={
 `// src/layouts/HomeLayout.tsx            
 <NavSide.Link to="page">Adding pages</NavSide.Link>`}/>
+          
+            </Text>
 
             <Heading variation="h3" size="level3" data-observable="true">
+
             2. Register a route
             </Heading>
             <Text>
-            The "to" prop is the route path. To add the route, look inside: <br />
+            The "to" prop is the route path. To add the route, look inside: 
             <br />
-            </Text>
-
             <CodeInline value={
 `//src/router.ts  
 import PageExample from '@fightclub/pages/Page';  
 <Route path="/page" element={<PageExample />} /></Layout>
 `}/>
+            </Text>
             
             <Heading variation="h3" size="level3" data-observable="true">
             3. Add the actual page
             </Heading>
             <Text>
             add the page to 'src/pages/', in the previous step, we imported Page from '/pages/Page'
-            <br />
-            <br />
+            <br/>
             <CodeInline value={`import PageExample from '@fightclub/pages/Page';`}/>
             so create a folder named 'Page', inside 'src/pages/'.
-            <br />
+            <br/>
             Here is index.tsx template code to start you off:
-            <br />
-            </Text>
-            <CodeBlock>
-            {`
-    import React from 'react';
-    import { CodeBlock, Heading, Text } from '@fightclub/components';
+            <br/>
+            <CodeInline value={
+`
+import React from 'react';
+import { CodeBlock, Heading, Text } from '@fightclub/components';
 
-    const Page = () => {
+const Page = () => {
     return (
         <div>
-        <Heading variation="h1" data-observable="true">Adding Pages</Heading>
+            <Heading variation="h1" data-observable="true">Adding Pages</Heading>
         </div>
     );
-    };
+};
 
-    export default Page;
-            `}
-            </CodeBlock>
+export default Page;              
+`
+}/>
+ </Text>
 
             <Heading variation="h3" size="level3" data-observable="true">
             4. Link with "On this page"
             </Heading>
             <Text>
-            To link up and add items to "On this page" side component, you add <br />
+            To link up and add items to "On this page" side component, you add 
             <br />
-            'data-observable="true"'
-            <br />
-            <br /> to Heading component and it will use the Heading text value as the header text:
+            <CodeInline value={`data-observable="true"`}/> to Heading component and it will use the Heading text value as the header text:
+            <br/>
+            <CodeInline value={`<Heading variation="h1" data-observable="true">Adding Pages</Heading>`}/>
             </Text>
-            <CodeBlock>
-            {`<Heading variation="h1" data-observable="true">
-    Adding Pages
-    </Heading>`}
-            </CodeBlock>
         </Layout>
-
         <Layout>
             <Heading variation="h2" size="level2" data-observable="true">
             Handling Forms
@@ -177,6 +166,8 @@ import PageExample from '@fightclub/pages/Page';
             Themes
             </Heading>
             <Text>Supports theming</Text>
+        </Layout>
+        <Layout>
             <Heading variation="h2" size="level2" data-observable="true">
             Icons
             </Heading>
@@ -208,12 +199,14 @@ import PageExample from '@fightclub/pages/Page';
             Bundler
             </Heading>
             <Text>Using Vite to compile and bundle code - it uses es modules and its fast.</Text>
+        </Layout>
+        <Layout>
             <Heading variation="h2" size="level2" data-observable="true">
             Module alias
             </Heading>
             <Text>created aliases for links so that instead of using relative pathing, you can use absolute path</Text>
             <Text>This is made possible via creating aliases for path in vite.config.ts:</Text>
-            <CodeBlock>{`
+            <CodeInline value={`
     //vite.config.ts (snippet)
 
     resolve: {
@@ -222,20 +215,20 @@ import PageExample from '@fightclub/pages/Page';
         '@fightclub/components': path.resolve(__dirname, './src/components'),
     },
     },
-        `}</CodeBlock>
+        `}/>
             <Text>And tsconfig.ts</Text>
-            <CodeBlock>{`
+            <CodeInline value={`
     //tsconfig.ts (snippet)
 
     "baseUrl": "./",
     "paths": {
     "@fightclub/*": ["./src/*"]
     },
-        `}</CodeBlock>
+        `}/>
             <Text>Which simplifies importing dependency modules from relative pathing: </Text>
-            <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '../components';`}</CodeBlock>
+            <CodeInline value={`import { Heading, CodeBlock, Tabs } from '../components';`}/>
             <Text>to this (Absolute pathing)</Text>
-            <CodeBlock>{`import { Heading, CodeBlock, Tabs } from '@fightclub/components';`}</CodeBlock>
+            <CodeInline value={`import { Heading, CodeBlock, Tabs } from '@fightclub/components';`}/>
         </Layout>
 
         <Layout>
@@ -249,13 +242,15 @@ import PageExample from '@fightclub/pages/Page';
             cache-busting) thus a duplication of files. depending on the href path, the index template uses the /public/
             folder to reference optimized files, or '/' absolute path for unoptimized.
             </Text>
-            <CodeBlock>{`<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /> //this is not optimised
-    <link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png" /> //this is optimised`}</CodeBlock>
+            <CodeInline value={
+`<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" /> //this is not optimised
+<link rel="icon" type="image/png" sizes="16x16" href="/public/favicon-16x16.png" /> //this is optimised`}/>
             <Text>
             To not have duplication of files (ie. only use optimized cache busting filenaming), dont use the public
             folder, name asset folder as something else eg. 'static-assets' and reference that from index.html eg.
             </Text>
-            <CodeBlock>{`<link rel="icon" type="image/png" sizes="16x16" href="/static-assets/favicon-16x16.png" /> //this is optimised`}</CodeBlock>
+            <CodeInline value={`<link rel="icon" type="image/png" sizes="16x16" href="/static-assets/favicon-16x16.png" /> //this is optimised`}/>
+
             <Text>
             vite.config.ts - The "assetsDir" configuration option in a Vite project specifies the directory where your
             static assets, such as images, fonts, and other non-JavaScript or non-CSS files, are located (default is
@@ -306,8 +301,8 @@ import PageExample from '@fightclub/pages/Page';
             <br />
             (note the ampersand before the double colon)
             </Text>
-            <CodeBlock>
-            {`
+            <CodeInline value={
+`
     &::-webkit-scrollbar {
     width: 10px;
     height: 10px;
@@ -327,8 +322,7 @@ import PageExample from '@fightclub/pages/Page';
     background: var(--thumb-hover);
     }
 
-            `}
-            </CodeBlock>
+`}/>
         </Layout>
 
         <Layout>
@@ -404,18 +398,17 @@ import PageExample from '@fightclub/pages/Page';
             where possible use the useHoverFocus hook, it has support for both mobile clicking and hovering on larger
             screens
             </Text>
-
+            <br/>
             <Heading variation="h3" size="level2">
             using :focus
             </Heading>
-            <CodeBlock>
-            {`button:focus {
+            <CodeInline value={
+`button:focus {
     outline-width: 3px;
     outline-style: dashed;
     outline-color: orange;
     outline-offset: 10px;
-    }`}
-            </CodeBlock>
+}`}/>
         </Layout>
 
         <Layout>
@@ -433,7 +426,7 @@ import PageExample from '@fightclub/pages/Page';
             your application, you can access the Button.Icon component as a nested component of Button. This can be shown
             via example:
             </Text>
-            <CodeBlock>{`// Button.js
+            <CodeInline value={`// Button.js
 
     import React from 'react';
 
@@ -455,9 +448,9 @@ import PageExample from '@fightclub/pages/Page';
     );
     };
 
-    export { Button }; `}</CodeBlock>
-            <br />
-            <CodeBlock>{`// Usage in another component
+    export { Button }; `}/>
+
+            <CodeInline value={`// Usage in another component
     import React from 'react';
     import Button from './Button';
 
@@ -468,7 +461,8 @@ import PageExample from '@fightclub/pages/Page';
         Button Text
         </Button>
     );
-    }`}</CodeBlock>
+    }`}/>
+
             <Text>
             note how you can use Button.Icon after importing Button, but you cant use it independently. To use the
             subcomponent independent of whether the Component is imported, export it too. If you define Button.Icon as a
@@ -480,7 +474,7 @@ import PageExample from '@fightclub/pages/Page';
             Note: here even though we dont redeclare a new const for Button.Icon, we can export it, and use it directly
             after import without the need to import Button.
             </Text>
-            <CodeBlock>{`// Some other component
+            <CodeInline value={`// Some other component
     import React from 'react';
     import { Button, Button.Icon } from './Button'; // Import only Button.Icon
 
@@ -493,7 +487,7 @@ import PageExample from '@fightclub/pages/Page';
     );
     }
 
-    export default AnotherComponent;`}</CodeBlock>
+    export default AnotherComponent;`}/>
         </Layout>
 
         <Layout>
@@ -508,13 +502,14 @@ import PageExample from '@fightclub/pages/Page';
             decision is either to have a controlled predefined props or opengates tailwind classes for each part of the
             component.
             </Text>
+            <br/>
             <Heading variation="h3" size="level3">
             Method 1: cn / tw-merge / clsx
             </Heading>
             <Text>Instead of passing individual props to components...</Text>
-            <CodeBlock>{`<Card color='white' borderColor='#DDD' borderRadius='10px' height='200px'/>`}</CodeBlock>
+            <CodeInline value={`<Card color='white' borderColor='#DDD' borderRadius='10px' height='200px'/>`}/>
             <Text>Use classes (tailwind) instead</Text>
-            <CodeBlock>{`<Card className='text-white border-gray-300 border rounded-lg h-200'/>`}</CodeBlock>
+            <CodeInline value={`<Card className='text-white border-gray-300 border rounded-lg h-200'/>`}/>
             <Text>
             by definining type as {`HTMLProps<HTMLDivElement>`} you say that all props afforded to html div element will
             also get inherited it includes all the props that are valid for a standard HTML div element, but it does not
@@ -529,28 +524,28 @@ import PageExample from '@fightclub/pages/Page';
             as the developer sleep better. as a developer you want to be in control to a certain extent of how your
             component is allowed to be used. back to the drawing board:
             </Text>
-            <CodeBlock>{`//uses twMerge(clsx())  which allows clsx to pass an object like syntax as an argument for twMerge
-    import {twMerge} from 'tailwind-merge';
-    import {clsx, ClassValue} from 'clsx'; //classValue is the type
+            <CodeInline value={
+`//uses twMerge(clsx())  which allows clsx to pass an object like syntax as an argument for twMerge
+import {twMerge} from 'tailwind-merge';
+import {clsx, ClassValue} from 'clsx'; //classValue is the type
 
-    export function cn(...inputs:ClassValue[] ){
-    return twMerge(clsx(inputs)) //object sytax with clsx and result passed into twMerge
-    }`}</CodeBlock>
-            <CodeBlock>
-            {`import React from 'react';
+export function cn(...inputs:ClassValue[] ){
+return twMerge(clsx(inputs)) //object sytax with clsx and result passed into twMerge
+}`}/>
+            <CodeInline value={
+`import React from 'react';
 
-    type CardProps = {
-    className?: string;
-    children?: React.ReactNode | undefined;
-    };
+type CardProps = {
+className?: string;
+children?: React.ReactNode | undefined;
+};
 
-    export const Card = ({
-    className = 'flex flex-col items-stretch px-3 text-gray border-gray-300 border rounded-lg h-[300px] w-auto',
-    children,
-    }:CardProps) => {
-    return <div className={className}>{children}</div>;
-    };`}
-            </CodeBlock>
+export const Card = ({
+className = 'flex flex-col items-stretch px-3 text-gray border-gray-300 border rounded-lg h-[300px] w-auto',
+children,
+}:CardProps) => {
+return <div className={className}>{children}</div>;
+};`}/>
             <Heading variation="h3" size="level3">
             Method 2: (cn / tw-merge / clsx) + CVA
             </Heading>
@@ -558,7 +553,7 @@ import PageExample from '@fightclub/pages/Page';
             with CVA you have predefined styles which are called 'variants', each variant is a prop for the component with
             a set of values mapped to a variant
             </Text>
-
+            <br/>
             <Heading variation="h3" size="level3">
             Uncategorized
             </Heading>

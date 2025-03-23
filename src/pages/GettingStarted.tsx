@@ -1,4 +1,5 @@
 import { CodeBlock, Heading, Layout, Text } from '@fightclub/components';
+import { CodeInline } from '@fightclub/components/CodeInline';
 
 const GettingStarted = () => {
   return (
@@ -11,7 +12,7 @@ const GettingStarted = () => {
           Installation
         </Heading>
         <Text>Status: work in progress</Text>
-        <CodeBlock>{`npm i @${import.meta.env.VITE_UI_ALIAS_NAME}/ui`}</CodeBlock>
+        <CodeInline value={`npm i @${import.meta.env.VITE_UI_ALIAS_NAME}/ui`}/>
       </Layout>
 
       <Layout>
@@ -19,7 +20,7 @@ const GettingStarted = () => {
           Run in development
         </Heading>
         <Text>Use this npm build command while in development:</Text>
-        <CodeBlock>{`npm run dev`}</CodeBlock>
+        <CodeInline value={`npm run dev`}/>
       </Layout>
 
       <Layout>
@@ -28,7 +29,7 @@ const GettingStarted = () => {
         </Heading>
         <Text>You can build the project as a library.</Text>
         <Text>Use this mode for when you are ready to deploy on production: </Text>
-        <CodeBlock>{`npm run build`}</CodeBlock>
+        <CodeInline value={`npm run build`}/>
       </Layout>
       <br />
       <br />
