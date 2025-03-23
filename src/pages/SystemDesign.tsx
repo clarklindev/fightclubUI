@@ -1,4 +1,5 @@
     import { Heading, Text, CodeBlock, Layout } from '@fightclub/components';
+    import { CodeInline } from '@fightclub/components/CodeInline';
     import { Link } from 'react-router-dom';
 
     const SystemDesign = () => {
@@ -20,6 +21,7 @@
             <Heading variation="h2" size="level2" data-observable="true">
             Validation
             </Heading>
+            <p>you can consider using:</p>
             <Link to="https://zod.dev/">https://zod.dev/</Link>
             <br />
             <Link to="https://validatejs.org/">https://validatejs.org/</Link>
@@ -48,7 +50,7 @@
             components which overflow its dimensions.
             </Text>
 
-            <Text>src/layouts/HomeLayout.tsx is an example of a page layout and more can be created</Text>
+            <Text><CodeInline value="src/layouts/HomeLayout.tsx"/> is an example of a page layout and more can be created</Text>
         </Layout>
 
         <Layout>
@@ -65,9 +67,10 @@
             The first step to adding a page on the interface so that it appears as a navigation link is to look inside:
             <br />
             <br />
-            'src/layouts/HomeLayout.tsx'
             </Text>
-            <CodeBlock>{`<NavSide.Link to="page">Adding pages</NavSide.Link>`}</CodeBlock>
+            <CodeInline value={
+`// src/layouts/HomeLayout.tsx            
+<NavSide.Link to="page">Adding pages</NavSide.Link>`}/>
 
             <Heading variation="h3" size="level3" data-observable="true">
             2. Register a route
@@ -75,15 +78,14 @@
             <Text>
             The "to" prop is the route path. To add the route, look inside: <br />
             <br />
-            'src/router.tsx'
             </Text>
-            <CodeBlock>
-            {`
-    import PageExample from '@fightclub/pages/Page';
 
-    <Route path="/page" element={<PageExample />} />
-        `}
-            </CodeBlock>
+            <CodeInline value={
+`//src/router.ts  
+import PageExample from '@fightclub/pages/Page';  
+<Route path="/page" element={<PageExample />} /></Layout>
+`}/>
+            
             <Heading variation="h3" size="level3" data-observable="true">
             3. Add the actual page
             </Heading>
@@ -91,7 +93,7 @@
             add the page to 'src/pages/', in the previous step, we imported Page from '/pages/Page'
             <br />
             <br />
-            <CodeBlock>{`import PageExample from '@fightclub/pages/Page';`}</CodeBlock>
+            <CodeInline value={`import PageExample from '@fightclub/pages/Page';`}/>
             so create a folder named 'Page', inside 'src/pages/'.
             <br />
             Here is index.tsx template code to start you off:
