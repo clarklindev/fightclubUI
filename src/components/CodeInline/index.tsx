@@ -16,7 +16,7 @@ const CodeInline = ({ value, lineNumbers=false }: CodeBlockProps) => {
   return (
     <>
       <br/>
-      <CodeMirror extensions={[javascript({ jsx: true })]} basicSetup={{lineNumbers:lineNumbers, foldGutter:false, highlightActiveLine:false}} theme={checkIsDark(colorScheme!)? vscodeDark : vscodeDark} value={value}/>
+      <CodeMirror className="inline-code" extensions={[javascript({ jsx: true })]} basicSetup={{lineNumbers:lineNumbers, foldGutter:false, highlightActiveLine:false}} theme={checkIsDark(colorScheme!)? vscodeDark : vscodeDark} value={value}/>
       <br/>
     </>
   );
