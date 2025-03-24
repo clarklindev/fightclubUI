@@ -1,4 +1,4 @@
-    import { Heading, Text, CodeBlock, Layout } from '@fightclub/components';
+    import { Heading, Text, CodeBlock, Layout, List } from '@fightclub/components';
     import { CodeInline } from '@fightclub/components/CodeInline';
     import { Link } from 'react-router-dom';
 
@@ -184,7 +184,22 @@ export default Page;
             <Heading variation="h2" size="level2" data-observable="true">
             Handling Forms
             </Heading>
-            <Text>How to handle forms</Text>
+            <Text>Components that can be incorporated into a form include:<br/>
+                <ul>
+                    <li>TextArea</li>  
+                    <li>Input</li>  
+                    <li>Select</li>  
+                    <li>RadioButton</li>  
+                    <li>RadioButtonGroup</li>  
+                    <li>Checkbox</li>  
+                    <li>CheckboxGroup</li>  
+                    <li>Counter</li>  
+                    <li>ToggleButton</li>  
+                    <li>ToggleSwitch</li>  
+                    <li>Slider</li>  
+                    <li>SliderMultiRange</li> 
+                </ul>
+            </Text>
         </Layout>
 
         <Layout>
