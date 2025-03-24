@@ -35,7 +35,7 @@ export default defineConfig(async (): Promise<UserConfig> =>{
       target: 'modules',
       lib: {
         entry: path.resolve(__dirname, 'src/index.ts'),
-        name: `fightclubui`,
+        name: `fightclub`,
         fileName: 'index',
         formats: ['es'],
       },

@@ -9,6 +9,64 @@
             <Heading variation="h1" size="level1" data-observable="true">
             System Design
             </Heading>
+        </Layout>
+
+        <Layout>
+            <Heading variation="h2" size="level2" data-observable="true">
+            A separate repository for component code
+            </Heading>
+            <Text>
+            In theory, the workflow should have source code seperation from documentation to keep a small size footprint.
+            Although the steps below will outline a similar workflow, only one repository is maintained and 
+            from there all actions are executed. So this means we still push npm updates to the npm module,
+            and in the same repository are we using the npm library in our documentation code; we import code from npm alias paths (vite.config.ts) into files (not relative folder paths). 
+            
+            Idealy, one reason PRO separating the repository into source vs documentation repository would be that developers can maintain their code separately from the documentation maintainers.
+            Another reason PRO separation is to keep intellectual property separate from documentation maintainers so the library that is used only has compiled down code with the typscript doc types (.d.ts) included.
+            
+            The CON is it is more tedious and harder to maintain 2 repositories as everytime you make a change to the component source repository, you 
+            need to follow these steps:
+            <br/>
+            1. make a commit<br/>
+            2. push to npm as a package<br/>  
+            3. the repo using the npm package needs to update the module package versioning to reflect latest update<br/>
+            4. the library using the updated npm package doesnt access components via relative folder path; but it rather uses esmodule import syntax that uses the npm library
+            </Text>
+
+        </Layout>
+
+        <Layout>
+        <Heading variation="h2" size="level2" data-observable="true">
+        publishing a npm library
+        </Heading>
+        <CodeInline value={
+`
+//Login
+npm login
+
+//create package
+//For an organization-scoped package, replace my-org with the name of your organization
+npm init --scope=@my-org
+
+//npm organization packages are scoped and private by default to publish as public
+npm publish --access=public
+
+//git add step, git commit step, git push step
+
+//the correct order
+//1. auto version incrementing
+npm version patch
+
+//2. Git push changes (including tags):
+git push --follow-tags
+
+//3. publish the package
+npm publish
+
+
+`}/>
+        </Layout>
+        <Layout>
             <Heading variation="h2" size="level2" data-observable="true">
             Routing
             </Heading>
@@ -210,10 +268,9 @@ export default Page;
     //vite.config.ts (snippet)
 
     resolve: {
-    alias: {
-        '@fightclub': path.resolve(__dirname, './src'),
-        '@fightclub/components': path.resolve(__dirname, './src/components'),
-    },
+        alias: {
+            '@fightclub': path.resolve(__dirname, './src'),
+        },
     },
         `}/>
             <Text>And tsconfig.ts</Text>
@@ -419,7 +476,7 @@ export default Page;
             Components should be designed in such a way that it promotes modularity. If you've every seen that syntax
             {`<Button.Icon>`}, whats happening is logical grouping (helpful with Readability) of Button and its
             sub-components. if you export 'Button', when used in code, you can reference subcomponents via Button eg.
-            {`<Button.Icon>`}. when you define {`Button.Icon = () => { ... }`}, you are not including the const keyword
+            {`<Button.Icon>`}. when you define <CodeInline value={`Button.Icon = () => { ... }`}/> you are not including the const keyword
             because you are not declaring a new variable. Instead, you are adding a property named Icon to the existing
             Button object. This is a way to extend the Button component by adding functionality (in this case, the Icon
             sub-component) without re-declaring a new variable or component. When you use this module in other parts of
