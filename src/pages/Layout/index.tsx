@@ -9,7 +9,7 @@ const Layouts = () => {
       </Heading>
 
       <Layout>
-        <Text>The Layout component is specifically used to apply layout styles, this is different from a page's Layouts.</Text>
+        <Text>The Layout component is specifically used to apply layout styles (src/components/Layout.tsx),  this is different from a page's Layouts (src/layouts/HomeLayout.tsx).</Text>
         <Text>
           Here is an example of how to use the Layout Component; You usually wrap other components with Layout. By default there is a tailwind class applied of `pb-8` (padding bottom)
           <br/>
