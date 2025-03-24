@@ -267,7 +267,7 @@ export const HomeLayout = () => {
               NavSide
             </NavSide.Link>
             <NavSide.Link to="onthispage">
-              On this page
+              OnThisPage
             </NavSide.Link>
             <NavSide.Link to="layout">
               Layout
