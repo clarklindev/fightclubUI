@@ -1,4 +1,4 @@
-import { Heading, Tabs } from '@fightclub/components';
+import { CodeBlock, Heading, Tabs } from '@fightclub/components';
 
 import Code from './code.mdx';
 
@@ -31,7 +31,7 @@ const TabsExample = () => {
           <Tabs.ContentGroup>
             <Tabs.Content data-tab="0">{preview}</Tabs.Content>
             <Tabs.Content data-tab="1">
-              <Code/>
+              <CodeBlock><Code/></CodeBlock>
             </Tabs.Content>
           </Tabs.ContentGroup>
         </Tabs>

@@ -1,5 +1,5 @@
 
-import { Icon, Heading, Tabs, Layout } from '@fightclub/components';
+import { Icon, Heading, Tabs, Layout, CodeBlock } from '@fightclub/components';
 import { ShoppingCartIcon } from '@fightclub/icons';
 
 import Code from './code.mdx';
@@ -164,7 +164,7 @@ const IconExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <Code/>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

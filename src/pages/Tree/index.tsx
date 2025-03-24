@@ -1,5 +1,5 @@
 //new
-import { Tree, Heading, Tabs } from '@fightclub/components';
+import { Tree, Heading, Tabs, CodeBlock } from '@fightclub/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
 import Code from './code.mdx';
@@ -38,7 +38,7 @@ const TreeExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <Code/>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

@@ -1,4 +1,4 @@
-import { Heading, Layout, ProgressLoader, Tabs, Text } from '@fightclub/components';
+import { CodeBlock, Heading, Layout, ProgressLoader, Tabs, Text } from '@fightclub/components';
 import { ResizePanel } from '@fightclub/components';
 import Code from './code.mdx';
 
@@ -37,7 +37,7 @@ const ProgressLoaderExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <Code/>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

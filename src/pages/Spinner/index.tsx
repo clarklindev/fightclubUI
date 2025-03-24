@@ -1,4 +1,4 @@
-import { Spinner, Heading, Tabs } from '@fightclub/components';
+import { Spinner, Heading, Tabs, CodeBlock } from '@fightclub/components';
 import Code from './code.mdx';
 
 const SpinnerExample = () => {
@@ -18,7 +18,7 @@ const SpinnerExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <Code/>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
