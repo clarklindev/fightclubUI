@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 const Badge = ({ className, children }: { className?: string; children: React.ReactNode }) => {
   return (
