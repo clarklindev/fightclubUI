@@ -1,3 +1,4 @@
+import {Link} from 'react-router-dom';
 import { CodeBlock, Heading, Layout, Text } from '@fightclub/components';
 import { CodeInline } from '@fightclub/components/CodeInline';
 
@@ -11,6 +12,7 @@ const GettingStarted = () => {
         <Heading variation="h2" size="level2" data-observable="true">
           Installation
         </Heading>
+        <Link target='_blank' to="https://www.npmjs.com/package/@fightclub/ui">https://www.npmjs.com/package/@fightclub/ui</Link>
         <Text>Status: work in progress</Text>
         <CodeInline value={`npm i @${import.meta.env.VITE_UI_ALIAS_NAME}/ui`}/>
       </Layout>
