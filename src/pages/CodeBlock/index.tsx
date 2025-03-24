@@ -2,7 +2,7 @@ import { Heading, Tabs, CodeBlock } from '@fightclub/components';
 import Code from './code.mdx';
 
 const CodeBlockExample = () => {
-  const preview = <CodeBlock>{'hi'}</CodeBlock>;
+  const preview = <CodeBlock showClipboardIcon={false}>{'hi'}</CodeBlock>;
 
   return (
     <>
