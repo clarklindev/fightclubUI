@@ -13,7 +13,7 @@ const Introduction = () => {
           <br />
           <br />
           Have you ever worked in a company where you cried everyday because development was an awful experience? There
-          is a clear difference between a component library that just works, compared to one that developers appreciate because of ease of use. The process of building a design system usually requires significantly more attention to detail, expertise, and time than building a project based on an existing system. This design system aims to bridge the gap between starting from scratch and allowing developer creative freedom.
+          is a clear difference between a component library that only works, compared to one that developers appreciate because of ease of use. The process of building a design system usually requires significantly more attention to detail, expertise, and time than building a project based on an existing system. This design system aims to bridge the gap between starting from scratch and allowing developer creative freedom.
           <br />
           <br />
           {import.meta.env.VITE_UI_ALIAS_NAME}UI uses React (Function-based library of compound components), TailwindCSS and Class Variance
