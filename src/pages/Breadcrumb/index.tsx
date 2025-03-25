@@ -1,12 +1,19 @@
-import React from 'react';
 import reactElementToJSXString from 'react-element-to-jsx-string';
-
+import { Breadcrumb } from '@fightclub/components/Breadcrumb';
 import { CodeBlock, Heading, Tabs } from '@fightclub/components';
 
-const Breadcrumbs = () => {
-  const preview = <></>;
+import Code from './code.mdx';
 
-  const previewString = reactElementToJSXString(preview);
+//example: https://example.com/products/shoes/nike
+
+//import { useLocation, Link } from 'react-router-dom';
+//const location = useLocation();
+//console.log(location.pathname); ->  Output: "/products/shoes/nike"
+const pathname = "/products/shoes/nike";
+
+const BreadcrumbExample = () => {
+
+  const preview = <><Breadcrumb path={pathname}/></>;
 
   return (
     <>
@@ -22,7 +29,7 @@ const Breadcrumbs = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
@@ -30,4 +37,4 @@ const Breadcrumbs = () => {
   );
 };
 
-export default Breadcrumbs;
+export default BreadcrumbExample;

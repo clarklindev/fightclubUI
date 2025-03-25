@@ -46,7 +46,7 @@ import DropdownExample from '@fightclub/pages/Dropdown';
 import TabsExample from '@fightclub/pages/Tabs';
 import PaginationExample from '@fightclub/pages/Pagination';
 import ModalExample from '@fightclub/pages/Modal';
-import BreadcrumbsExample from '@fightclub/pages/Breadcrumbs';
+import BreadcrumbsExample from '@fightclub/pages/Breadcrumb';
 import BadgeExample from '@fightclub/pages/Badge';
 import AvatarExample from '@fightclub/pages/Avatar';
 
