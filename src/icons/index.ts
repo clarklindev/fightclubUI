@@ -9,6 +9,7 @@ export { HiCheck as CheckIcon } from 'react-icons/hi2';
 export { HiOutlineMinus as MinusIcon } from 'react-icons/hi2';
 export { HiOutlinePlus as PlusIcon } from 'react-icons/hi2';
 export { HiOutlineClipboardDocument as ClipboardIcon } from 'react-icons/hi2';
+export { HiOutlineClipboardDocumentCheck as ClipboardCheckIcon} from "react-icons/hi2";
 export { HiHeart as HeartIcon } from 'react-icons/hi2';
 export { HiEye as ShowPasswordIcon } from 'react-icons/hi2';
 export { HiEyeSlash as HidePasswordIcon } from 'react-icons/hi2';
