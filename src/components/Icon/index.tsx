@@ -13,7 +13,7 @@ const icon = cva(
     justify-center
     [&>*]:w-full 
     [&>*]:h-auto
-  `,
+  `
   ],
   {
     variants: {

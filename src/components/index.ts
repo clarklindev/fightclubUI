@@ -38,3 +38,4 @@ export { Dropdown } from './Dropdown';
 export { Tabs } from './Tabs';
 export { Breadcrumbs } from './Breadcrumbs';
 export { Badge } from './Badge';
+export { Avatar } from './Avatar';

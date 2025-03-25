@@ -48,6 +48,7 @@ import PaginationExample from '@fightclub/pages/Pagination';
 import ModalExample from '@fightclub/pages/Modal';
 import BreadcrumbsExample from '@fightclub/pages/Breadcrumbs';
 import BadgeExample from '@fightclub/pages/Badge';
+import AvatarExample from '@fightclub/pages/Avatar';
 
 // Utility
 import ResizePanelExample from '@fightclub/pages/ResizePanel';
@@ -104,6 +105,7 @@ export const router:Router = createBrowserRouter(
       <Route path="/modal" element={<ModalExample />} />
       <Route path="/breadcrumbs" element={<BreadcrumbsExample />} />
       <Route path="/badge" element={<BadgeExample />} />
+      <Route path="/avatar" element={<AvatarExample />} />
 
       {/* utility */}
       <Route path="/resizepanel" element={<ResizePanelExample />} />

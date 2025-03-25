@@ -366,6 +366,9 @@ export const HomeLayout = () => {
             <NavSide.Link to="badge">
               Badge
             </NavSide.Link>
+            <NavSide.Link to="avatar">
+              Avatar
+            </NavSide.Link>
           </NavSide.Group>
 
           <NavSide.Group>
