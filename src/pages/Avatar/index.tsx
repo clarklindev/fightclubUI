@@ -46,7 +46,7 @@
         </Tabs>
         
         <Text>
-            This is only the display portion of Avatar, on the backend, you have to be able to store the uploaded image somewhere (unique folder associated with user) then display it if user is loggedin        </Text>
+            This is only the display portion of Avatar, on the backend, you have to be able to store the uploaded image somewhere (unique folder or reference associated with a user) then display it if user is logged-in</Text>
         </>
     );
     };

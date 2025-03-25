@@ -1,9 +1,18 @@
-    import { Badge, CodeBlock, Heading, Tabs } from '@fightclub/components';
+    import { Badge, CodeBlock, Heading, Layout, Tabs } from '@fightclub/components';
 
     import Code from './code.mdx';
 
     const BadgeExample = () => {
-    const preview = <Badge>Hello</Badge>;
+    const preview = 
+        <>
+            <Layout>
+                <Badge intent="outline">Hello</Badge>
+            </Layout>
+            <Layout>
+                <Badge intent="contained">Hello</Badge>
+            </Layout>
+        </>
+    ;
 
     return (
         <>

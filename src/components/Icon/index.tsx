@@ -43,6 +43,10 @@ const icon = cva(
 
         '10XL': ['w-[100px]', 'h-[100px]'],
       },
+      color:{
+        "dark": "white",
+        "light": "black" 
+      }
     },
     defaultVariants: {
       size: 'M',
@@ -52,9 +56,9 @@ const icon = cva(
 
 export interface IconProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof icon> {}
 
-const Icon = ({ children, size, className, ...props }: IconProps) => {
+const Icon = ({ children, size, color, className, ...props }: IconProps) => {
   return (
-    <div data-component={Icon.displayName} className={icon({ size, className })} {...props}>
+    <div data-component={Icon.displayName} className={icon({ size, color, className })} {...props}>
       {children}
     </div>
   );
