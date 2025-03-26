@@ -19,7 +19,7 @@ const InputOtpExample = () => {
     return (
         <>
             <Heading variation="h1" size="level2" data-observable="true">
-                Input
+                Input OTP
             </Heading>
 
             <Tabs>
