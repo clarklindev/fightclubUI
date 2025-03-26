@@ -49,7 +49,7 @@ import TreeExample from '@fightclub/pages/Tree';
 import DropdownExample from '@fightclub/pages/Dropdown';
 import TabsExample from '@fightclub/pages/Tabs';
 import PaginationExample from '@fightclub/pages/Pagination';
-import ModalExample from '@fightclub/pages/Modal';
+import DialogExample from '@fightclub/pages/Dialog';
 import BreadcrumbsExample from '@fightclub/pages/Breadcrumb';
 import BadgeExample from '@fightclub/pages/Badge';
 import AvatarExample from '@fightclub/pages/Avatar';
@@ -110,7 +110,7 @@ export const router:Router = createBrowserRouter(
       <Route path="/tree" element={<TreeExample />} />
       <Route path="/tabs" element={<TabsExample />} />
       <Route path="/pagination" element={<PaginationExample />} />
-      <Route path="/modal" element={<ModalExample />} />
+      <Route path="/dialog" element={<DialogExample />} />
       <Route path="/breadcrumbs" element={<BreadcrumbsExample />} />
       <Route path="/badge" element={<BadgeExample />} />
       <Route path="/avatar" element={<AvatarExample />} />

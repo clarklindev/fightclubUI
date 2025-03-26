@@ -296,7 +296,7 @@ export const HomeLayout = () => {
             <NavSide.Link to="dropdown">Dropdown</NavSide.Link>
             <NavSide.Link to="tabs">Tabs</NavSide.Link>
             <NavSide.Link to="pagination">Pagination</NavSide.Link>
-            <NavSide.Link to="modal">Modal</NavSide.Link>
+            <NavSide.Link to="dialog">Dialog</NavSide.Link>
             <NavSide.Link to="breadcrumbs">Breadcrumbs</NavSide.Link>
             <NavSide.Link to="badge">Badge</NavSide.Link>
             <NavSide.Link to="avatar">Avatar</NavSide.Link>
