@@ -11,6 +11,7 @@ export { CheckboxGroup } from './CheckboxGroup';
 export { Counter } from './Counter';
 export { Icon} from './Icon';
 export { Input } from './Input';
+export { InputOtp } from './InputOtp';
 export { Label } from './Label';
 export { List } from './List';
 export { ProgressLoader } from './ProgressLoader';

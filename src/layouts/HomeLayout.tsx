@@ -297,6 +297,9 @@ export const HomeLayout = () => {
             <NavSide.Link to="input">
               Input
             </NavSide.Link>
+            <NavSide.Link to="inputotp">
+              Input OTP
+            </NavSide.Link>
             <NavSide.Link to="select">
               Select
             </NavSide.Link>
