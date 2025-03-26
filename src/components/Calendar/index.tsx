@@ -5,6 +5,7 @@ import { Layout, Button, Icon, Label } from "@fightclub/components";
 // Type for Calendar Props
 interface CalendarProps {
   startDayOfWeek?: 0 | 1; // 0 for Sunday start, 1 for Monday start
+  onSelect?: (date: Date) => void; // Add this prop
 }
 
 // Get total days in a given month
@@ -17,7 +18,7 @@ const getFirstDayOfMonth = (year: number, month: number, startDayOfWeek: 0 | 1):
   return (firstDay - startDayOfWeek + 7) % 7; // Adjusts for Monday-start if needed
 };
 
-const Calendar = ({ startDayOfWeek = 0 }: CalendarProps) => {
+const Calendar = ({ startDayOfWeek = 0, onSelect}: CalendarProps) => {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const year = currentDate.getFullYear();
@@ -89,11 +90,14 @@ const Calendar = ({ startDayOfWeek = 0 }: CalendarProps) => {
         {allDays.map((day, index) => {
           const isPrevMonth = index < firstDayIndex;
           const isNextMonth = index >= firstDayIndex + daysInMonth;
+          const currentDay = new Date(year, month, day);
+
           return (
             <div
               key={index}
               className={`flex justify-center items-center h-6 w-6 sm:h-8 sm:w-8 rounded-md cursor-pointer transition text-[10px] sm:text-xs hover:bg-blue-200 
                 ${isPrevMonth || isNextMonth ? "text-gray-400" : "text-black dark:text-white"} `}
+              onClick={() => !isPrevMonth && !isNextMonth && onSelect?.(currentDay)} // Trigger onSelect on click
             >
               {day}
             </div>

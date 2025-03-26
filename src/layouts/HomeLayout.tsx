@@ -257,125 +257,49 @@ export const HomeLayout = () => {
           </NavSide.Group>
 
           <NavSide.Group>
-            <NavSide.Heading variation="h2" size="M" className="mb-3">
-              Components
-            </NavSide.Heading>
-            <NavSide.Link to="navbar">
-              Navbar
-            </NavSide.Link>
-            <NavSide.Link to="navside">
-              NavSide
-            </NavSide.Link>
-            <NavSide.Link to="onthispage">
-              OnThisPage
-            </NavSide.Link>
-            <NavSide.Link to="layout">
-              Layout
-            </NavSide.Link>
-            <NavSide.Link to="section">
-              Section
-            </NavSide.Link>
-
-            <NavSide.Link to="heading">
-              Heading
-            </NavSide.Link>
-            <NavSide.Link to="text">
-              Text
-            </NavSide.Link>
-            <NavSide.Link to="textarea">
-              Textarea
-            </NavSide.Link>
-            <NavSide.Link to="label">
-              Label
-            </NavSide.Link>
-            <NavSide.Link to="icon">
-              Icon
-            </NavSide.Link>
-            <NavSide.Link to="button">
-              Button
-            </NavSide.Link>
-            <NavSide.Link to="input">
-              Input
-            </NavSide.Link>
-            <NavSide.Link to="inputotp">
-              Input OTP
-            </NavSide.Link>
-            <NavSide.Link to="popover">
-              Popover
-            </NavSide.Link>
-            <NavSide.Link to="select">
-              Select
-            </NavSide.Link>
-            <NavSide.Link to="accordion">
-              Accordion
-            </NavSide.Link>
-            <NavSide.Link to="radiobutton">
-              RadioButton
-            </NavSide.Link>
-            <NavSide.Link to="radiobuttongroup">
-              RadioButton Group
-            </NavSide.Link>
-            <NavSide.Link to="checkbox">
-              Checkbox
-            </NavSide.Link>
-            <NavSide.Link to="checkboxgroup">
-              Checkbox Group
-            </NavSide.Link>
-            <NavSide.Link to="counter">
-              Counter
-            </NavSide.Link>
-            <NavSide.Link to="togglebutton">
-              Toggle Button
-            </NavSide.Link>
-            <NavSide.Link to="toggleswitch">
-              Toggle Switch
-            </NavSide.Link>
+            <NavSide.Heading variation="h2" size="M" className="mb-3">Components</NavSide.Heading>
+            <NavSide.Link to="navbar">Navbar</NavSide.Link>
+            <NavSide.Link to="navside">NavSide</NavSide.Link>
+            <NavSide.Link to="onthispage">OnThisPage</NavSide.Link>
+            <NavSide.Link to="layout">Layout</NavSide.Link>
+            <NavSide.Link to="section">Section</NavSide.Link>
+            <NavSide.Link to="heading">Heading</NavSide.Link>
+            <NavSide.Link to="text">Text</NavSide.Link>
+            <NavSide.Link to="textarea">Textarea</NavSide.Link>
+            <NavSide.Link to="label">Label</NavSide.Link>
+            <NavSide.Link to="icon">Icon</NavSide.Link>
+            <NavSide.Link to="button">Button</NavSide.Link>
+            <NavSide.Link to="input">Input</NavSide.Link>
+            <NavSide.Link to="inputotp">Input OTP</NavSide.Link>
+            <NavSide.Link to="popover">Popover</NavSide.Link>
+            <NavSide.Link to="select">Select</NavSide.Link>
+            <NavSide.Link to="accordion">Accordion</NavSide.Link>
+            <NavSide.Link to="radiobutton">RadioButton</NavSide.Link>
+            <NavSide.Link to="radiobuttongroup">RadioButton Group</NavSide.Link>
+            <NavSide.Link to="checkbox">Checkbox</NavSide.Link>
+            <NavSide.Link to="checkboxgroup">Checkbox Group</NavSide.Link>
+            <NavSide.Link to="counter">Counter</NavSide.Link>
+            <NavSide.Link to="togglebutton">Toggle Button</NavSide.Link>
+            <NavSide.Link to="toggleswitch">Toggle Switch</NavSide.Link>
             <NavSide.Link to="snackbar">Snackbar</NavSide.Link>
             <NavSide.Link to="calendar">Calendar</NavSide.Link>
-            <NavSide.Link to="slider">
-              Slider
-            </NavSide.Link>
-            <NavSide.Link to="slidermultirange">
-              Slider (Multirange)
-            </NavSide.Link>
-            <NavSide.Link to="divider">
-              Divider
-            </NavSide.Link>
-            <NavSide.Link to="list">
-              List
-            </NavSide.Link>
+            <NavSide.Link to="datepicker">Datepicker</NavSide.Link>
+            <NavSide.Link to="slider">Slider</NavSide.Link>
+            <NavSide.Link to="slidermultirange">Slider (Multirange)</NavSide.Link>
+            <NavSide.Link to="divider">Divider</NavSide.Link>
+            <NavSide.Link to="list">List</NavSide.Link>
             <NavSide.Link to="table">Table</NavSide.Link>
-            <NavSide.Link to="card">
-              Card
-            </NavSide.Link>
+            <NavSide.Link to="card">Card</NavSide.Link>
             <NavSide.Link to="tree">Tree</NavSide.Link>
-            <NavSide.Link to="progressloader">
-              Progress Loader
-            </NavSide.Link>
-            <NavSide.Link to="spinner">
-              Spinner
-            </NavSide.Link>
-            <NavSide.Link to="dropdown">
-              Dropdown
-            </NavSide.Link>
-            <NavSide.Link to="tabs">
-              Tabs
-            </NavSide.Link>
-            <NavSide.Link to="pagination">
-              Pagination
-            </NavSide.Link>
-            <NavSide.Link to="modal">
-              Modal
-            </NavSide.Link>
-            <NavSide.Link to="breadcrumbs">
-              Breadcrumbs
-            </NavSide.Link>
-            <NavSide.Link to="badge">
-              Badge
-            </NavSide.Link>
-            <NavSide.Link to="avatar">
-              Avatar
-            </NavSide.Link>
+            <NavSide.Link to="progressloader">Progress Loader</NavSide.Link>
+            <NavSide.Link to="spinner">Spinner</NavSide.Link>
+            <NavSide.Link to="dropdown">Dropdown</NavSide.Link>
+            <NavSide.Link to="tabs">Tabs</NavSide.Link>
+            <NavSide.Link to="pagination">Pagination</NavSide.Link>
+            <NavSide.Link to="modal">Modal</NavSide.Link>
+            <NavSide.Link to="breadcrumbs">Breadcrumbs</NavSide.Link>
+            <NavSide.Link to="badge">Badge</NavSide.Link>
+            <NavSide.Link to="avatar">Avatar</NavSide.Link>
           </NavSide.Group>
 
           <NavSide.Group>
