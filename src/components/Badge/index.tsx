@@ -3,12 +3,12 @@ import { cva } from 'class-variance-authority';
 import type { VariantProps } from 'class-variance-authority';
 
 const badge = cva([
-  `inline-block px-2 py-1 bg-blue-500 text-white rounded-xl text-xs uppercase`
+  `inline-block px-2 py-1 bg-blue-500 rounded-xl text-xs uppercase`
 ], {
   variants:{
     intent:{
       contained: 'bg-gray-300 text-gray-700 border-gray-300',
-      outline: `text-gray-800 dark:text-gray-300 border border-gray-800 dark:border-white bg-transparent`,
+      outline: `light:text-black dark:text-gray-300 border border-gray-800 dark:border-white bg-transparent`,
     }
     
   },
