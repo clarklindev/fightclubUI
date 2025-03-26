@@ -300,6 +300,9 @@ export const HomeLayout = () => {
             <NavSide.Link to="inputotp">
               Input OTP
             </NavSide.Link>
+            <NavSide.Link to="popover">
+              Popover
+            </NavSide.Link>
             <NavSide.Link to="select">
               Select
             </NavSide.Link>

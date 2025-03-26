@@ -12,6 +12,7 @@ export { Counter } from './Counter';
 export { Icon} from './Icon';
 export { Input } from './Input';
 export { InputOtp } from './InputOtp';
+export { Popover } from './Popover';
 export { Label } from './Label';
 export { List } from './List';
 export { ProgressLoader } from './ProgressLoader';

@@ -25,6 +25,7 @@ import IconExample from '@fightclub/pages/Icon';
 import ButtonExample from '@fightclub/pages/Button';
 import InputExample from '@fightclub/pages/Input';
 import InputOtpExample from '@fightclub/pages/InputOtp';
+import PopoverExample from '@fightclub/pages/Popover';
 import AccordionExample from '@fightclub/pages/Accordion';
 import RadioButtonExample from '@fightclub/pages/RadioButton';
 import RadioButtonGroupExample from '@fightclub/pages/RadioButtonGroup';
@@ -83,6 +84,7 @@ export const router:Router = createBrowserRouter(
       <Route path="/button" element={<ButtonExample />} />
       <Route path="/input" element={<InputExample />} />
       <Route path="/inputotp" element={<InputOtpExample />} />
+      <Route path="/popover" element={<PopoverExample/>}/>
       <Route path="/select" element={<SelectExample />} />
       <Route path="/calendar" element={<CalendarExample />} />
       

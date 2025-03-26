@@ -7,6 +7,7 @@ export { HiChevronLeft as ChevronLeftIcon} from "react-icons/hi2";
 export { HiChevronRight as ChevronRightIcon } from 'react-icons/hi2';
 export { HiMinusSmall as CheckboxIndeterminateIcon } from 'react-icons/hi2';
 export { HiCheck as CheckIcon } from 'react-icons/hi2';
+export { HiCalendarDays as CalendarIcon} from "react-icons/hi2";
 export { HiOutlineMinus as MinusIcon } from 'react-icons/hi2';
 export { HiOutlinePlus as PlusIcon } from 'react-icons/hi2';
 export { HiOutlineClipboardDocument as ClipboardIcon } from 'react-icons/hi2';
