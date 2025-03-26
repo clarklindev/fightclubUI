@@ -3,7 +3,7 @@ import { SliderMultiRange, Heading, Tabs, CodeBlock } from '@fightclub/component
 import Code from './code.mdx';
 
 const SliderMultiRangeExample = () => {
-  const [sliderValues, setSliderValues] = useState([0, 20, 40, 50, 60, 80, 100]); //holds positions of sliders
+  const [sliderValues, setSliderValues] = useState([0, 20, 40]); //holds positions of sliders
 
   const preview = (
     <>
