@@ -198,6 +198,7 @@ export default Page;
                     <li>ToggleSwitch</li>  
                     <li>Slider</li>  
                     <li>SliderMultiRange</li> 
+                    <li>Datepicker</li>
                 </ul>
             </Text>
         </Layout>
