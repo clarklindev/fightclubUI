@@ -3,6 +3,7 @@ export { HiXMark as CloseIcon } from 'react-icons/hi2';
 export { HiShoppingCart as ShoppingCartIcon } from 'react-icons/hi2';
 export { HiChevronDown as ChevronDownIcon } from 'react-icons/hi2';
 export { HiChevronUp as ChevronUpIcon } from 'react-icons/hi2';
+export { HiChevronLeft as ChevronLeftIcon} from "react-icons/hi2";
 export { HiChevronRight as ChevronRightIcon } from 'react-icons/hi2';
 export { HiMinusSmall as CheckboxIndeterminateIcon } from 'react-icons/hi2';
 export { HiCheck as CheckIcon } from 'react-icons/hi2';

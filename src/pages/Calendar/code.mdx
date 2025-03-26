@@ -1,0 +1,47 @@
+```jsx
+/*
+
+  // Get the number of days in the current month
+  const daysInMonth = getDaysInMonth(year, month);
+
+  // Get the index of the first day of the current month
+  const firstDayIndex = getFirstDayOfMonth(year, month);
+
+  // Previous month's days (fill empty slots at the start)
+  const prevMonthDays = getDaysInMonth(year, month - 1);//gets the number of days in the previous month.
+  //Creates an array of length firstDayIndex, which is the number of empty slots before the first day of this month.
+  //Example: If the month starts on a Wednesday (index 3), then firstDayIndex = 3, so we need 3 days from the previous month.
+  const prevMonth = Array.from(
+    { length: firstDayIndex },
+
+  //callback function
+  //prevMonthDays -> Last day of the previous month.
+  //prevMonthDays - firstDayIndex -> Finds the starting day to display.
+  //+ i + 1 → Iterates over the days to ensure correct numbering.
+    (_, i) => prevMonthDays - firstDayIndex + i + 1
+  );
+
+  //EXAMPLE: March 2024
+  //March starts on a Friday -> firstDayIndex = 5
+  //February has 29 days (leap year) -> prevMonthDays = 29
+  //Previous month days calculation:
+  /*
+  prevMonth = Array.from(
+    { length: 5 }, 
+    (_, i) => 29 - 5 + i + 1
+  );
+  */
+  //Evaluates to: [25, 26, 27, 28, 29]
+
+  
+  // Current month's days
+  //const currentMonth = Array.from({ length: daysInMonth }, (_, i) => i + 1);
+
+  // Next month's days (fill remaining slots to complete 6-row grid)
+  //const totalDays = 42; // Ensures a full 6-row grid (7x6 = 42)
+*/
+
+import { Calendar } from '@fightclub/components';
+<Calendar startDayOfWeek={0}/>
+
+```

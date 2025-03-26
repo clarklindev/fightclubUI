@@ -16,6 +16,7 @@ import OnThisPageExample from '@fightclub/pages/OnThisPage';
 import LayoutExample from '@fightclub/pages/Layout';
 import SectionExample from '@fightclub/pages/Section';
 
+import CalendarExample from '@fightclub/pages/Calendar';
 import HeadingExample from '@fightclub/pages/Heading';
 import TextExample from '@fightclub/pages/Text';
 import TextareaExample from '@fightclub/pages/Textarea';
@@ -81,6 +82,8 @@ export const router:Router = createBrowserRouter(
       <Route path="/button" element={<ButtonExample />} />
       <Route path="/input" element={<InputExample />} />
       <Route path="/select" element={<SelectExample />} />
+      <Route path="/calendar" element={<CalendarExample />} />
+      
       <Route path="/accordion" element={<AccordionExample />} />
       <Route path="/radiobutton" element={<RadioButtonExample />} />
       <Route path="/radiobuttongroup" element={<RadioButtonGroupExample />} />

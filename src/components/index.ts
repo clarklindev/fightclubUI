@@ -5,6 +5,7 @@ export { Layout } from './Layout';
 export { Accordion } from './Accordion';
 export { Button } from './Button';
 export { Card } from './Card';
+export { Calendar } from './Calendar';
 export { Checkbox } from './Checkbox';
 export { CheckboxGroup } from './CheckboxGroup';
 export { Counter } from './Counter';
