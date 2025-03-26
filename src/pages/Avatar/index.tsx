@@ -6,21 +6,15 @@
     const BadgeExample = () => {
     const preview = 
     <>
-    <Layout>
-    <Avatar size={"S"}>
-        <img src={avatar1} alt="avatar"/>
-    </Avatar>
-    </Layout>
-    <Layout>
-    <Avatar size={"M"}>
-    <img src={avatar1} alt="avatar"/>
-    </Avatar>
-    </Layout>
-    <Layout>
-    <Avatar size={"L"}>
-        <img src={avatar1} alt="avatar"/>
-    </Avatar>
-    </Layout>
+        <Layout>
+            <Avatar size={"S"} imageUrl={avatar1}/>
+        </Layout>
+        <Layout>
+            <Avatar size={"M"} imageUrl={avatar1}/>
+        </Layout>
+        <Layout>
+            <Avatar size={"L"} imageUrl={avatar1}/>
+        </Layout>
     </>;
 
     return (
@@ -46,7 +40,7 @@
         </Tabs>
         
         <Text>
-            This is only the display portion of Avatar, on the backend, you have to be able to store the uploaded image somewhere (unique folder or reference associated with a user) then display it if user is logged-in</Text>
+            This is only the display portion of Avatar, on the backend, you have to be able to store the uploaded image somewhere (unique folder or reference associated with a user) then display it if user is logged-in, otherwise it should just display the user's initials</Text>
         </>
     );
     };
