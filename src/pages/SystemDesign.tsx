@@ -52,6 +52,8 @@ npm init --scope=@my-org
 npm publish --access=public
 
 //git add step, git commit step, git push step
+npm run build
+npm run build-preview
 
 //the correct order
 //1. auto version incrementing
