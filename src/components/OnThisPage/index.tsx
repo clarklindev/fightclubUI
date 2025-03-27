@@ -127,7 +127,7 @@ const Container = ({ ...props }) => {
       return () => {
         if (observerRef.current) {
           observables.forEach(observable => {
-            observerRef.current.unobserve(observable);
+            observerRef.current!.unobserve(observable);
           });
           observerRef.current.disconnect();
         }
