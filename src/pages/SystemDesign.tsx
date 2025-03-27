@@ -55,6 +55,9 @@ npm publish --access=public
 npm run build
 npm run build-preview
 
+git add .
+git commit -m ""
+
 //the correct order
 //1. auto version incrementing
 npm version patch
@@ -63,7 +66,7 @@ npm version patch
 git push --follow-tags
 
 //3. publish the package
-npm publish
+npm publish --access=public
 
 
 `}/>
