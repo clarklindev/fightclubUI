@@ -100,4 +100,5 @@ const Datepicker = () => {
   );
 };
 
+Datepicker.displayName = 'Datepicker';
 export { Datepicker };
