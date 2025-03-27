@@ -306,12 +306,6 @@ export const HomeLayout = () => {
             <NavSide.Heading variation="h2" size="M" className="mb-3">
               Utility
             </NavSide.Heading>
-            <NavSide.Link to="resizepanel">
-              Resize panel
-            </NavSide.Link>
-            <NavSide.Link to="dimensions">
-              Dimensions
-            </NavSide.Link>
             <NavSide.Link to="codeblock">
               CodeBlock
             </NavSide.Link>
