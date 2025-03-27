@@ -41,8 +41,6 @@
         </Heading>
         <CodeInline value={
 `
-//Login
-npm login
 
 //create package
 //For an organization-scoped package, replace my-org with the name of your organization
@@ -55,21 +53,26 @@ npm publish --access=public
 npm run build
 npm run build-preview
 
-
-//the correct order
-//1. auto version incrementing
-npm version patch
+//Login
+npm login
 
 git add .
 git commit -m ""
 
+//auto version incrementing
+npm version patch
+
 git push origin master
 
-//2. Git push changes (including tags):
+//Git push changes (including tags):
 git push --tags
 
-//3. publish the package
+//publish the package
 npm publish --access=public
+
+//then update the package.json
+and recommit
+re-push
 
 
 `}/>
