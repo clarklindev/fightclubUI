@@ -18,7 +18,7 @@
     "@codemirror/lang-less": "^6.0.2",
     "@codemirror/lang-sass": "^6.0.2",
     "@codemirror/view": "^6.36.4",
-    "@fightclub/ui": "^0.0.9",
+    "@fightclub/ui": "^0.0.13",
     "@mdx-js/rollup": "^3.1.0",
     "@remix-run/router": "^1.23.0",
     "@uiw/codemirror-extensions-langs": "^4.23.10",
