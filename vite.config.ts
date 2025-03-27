@@ -16,7 +16,6 @@ export default defineConfig(async (): Promise<UserConfig> =>{
       bundledLanguages.html,
       bundledLanguages.bash
     ],
-    theme: 'github-dark', // still needed as default
   });
 
   return {
