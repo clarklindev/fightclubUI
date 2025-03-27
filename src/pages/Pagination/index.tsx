@@ -1,12 +1,58 @@
-import React from 'react';
-import reactElementToJSXString from 'react-element-to-jsx-string';
+import React, {useState, useEffect} from 'react';
 
-import { CodeBlock, Heading, Tabs } from '@fightclub/components';
+import { CodeBlock, Heading, Tabs, Pagination } from '@fightclub/components';
 
-const Pagination = () => {
-  const preview = <></>;
+import Code from './code.mdx';
 
-  const previewString = reactElementToJSXString(preview);
+
+interface Post {
+  id: number;
+  title: string;
+  body: string;
+}
+
+const PaginationExample = () => {
+
+  const [currentPage, setCurrentPage] = useState(1);
+  const [posts, setPosts] = useState<Post[]>([]);
+  const [totalPosts, setTotalPosts] = useState(0);
+  const itemsPerPage = 5;
+
+  useEffect(() => {
+    async function fetchPosts() {
+      // Fetch data from JSONPlaceholder with pagination
+      const res = await fetch(
+        `https://jsonplaceholder.typicode.com/posts?_page=${currentPage}&_limit=${itemsPerPage}`
+      );
+      const data = await res.json();
+      const totalCount = res.headers.get("X-Total-Count"); // Total items count for pagination
+      setPosts(data);
+      setTotalPosts(Number(totalCount));
+    }
+
+    fetchPosts();
+  }, [currentPage]);
+
+  const preview = <>
+  <div>
+      <h2>Paginated List from JSONPlaceholder</h2>
+      <ul>
+        {posts.map((post) => (
+          <li key={post.id}>
+            <h3>{post.title}</h3>
+            <p>{post.body}</p>
+          </li>
+        ))}
+      </ul>
+
+      <Pagination
+        totalItems={totalPosts}
+        itemsPerPage={itemsPerPage}
+        currentPage={currentPage}
+        onPageChange={setCurrentPage}
+      />
+    </div>
+    </>;
 
   return (
     <div>
@@ -22,7 +68,7 @@ const Pagination = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock>{previewString}</CodeBlock>
+            <CodeBlock><Code/></CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
@@ -30,4 +76,4 @@ const Pagination = () => {
   );
 };
 
-export default Pagination;
+export default PaginationExample;

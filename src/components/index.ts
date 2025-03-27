@@ -10,6 +10,7 @@ export { Datepicker} from './Datepicker';
 export { Checkbox } from './Checkbox';
 export { CheckboxGroup } from './CheckboxGroup';
 export { Counter } from './Counter';
+export { Pagination } from './Pagination';
 export { Icon} from './Icon';
 export { Input } from './Input';
 export { InputOtp } from './InputOtp';
