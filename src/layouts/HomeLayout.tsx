@@ -3,13 +3,12 @@ import { Outlet, useNavigate, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 import { Navbar, NavSide, Button, Icon, Dropdown, OnThisPage, Badge } from '@fightclub/components';
-import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon } from '@fightclub/icons';
+import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon, GithubIcon } from '@fightclub/icons';
 import { useMenu } from '@fightclub/context/MenuContext';
 import { useTheme } from '@fightclub/context/ThemeContext';
 import { useScroll } from '@fightclub/context/ScrollContext';
 
 import logo from '@fightclub/assets/logo.png';
-import githubIcon from '@fightclub/assets/github.svg';
 
 const HomeLayoutContainer = styled.div`
   position: relative;
@@ -211,7 +210,7 @@ export const HomeLayout = () => {
           <Link to="https://github.com/swagfinger/swagfinger-ui" target="_blank" aria-label="github repo">
             {/* <Icon size="L" fillOpacity="1" fill="#FFF" stroke="#FFF"> */}
             <Icon size="M">
-              <img src={githubIcon} alt="github" />
+              <GithubIcon className="dark:stroke-white dark:fill-white stroke-black fill-black"/>
             </Icon>
           </Link>
 

@@ -21,3 +21,5 @@ export { HiOutlineSun as ModeLightIcon } from 'react-icons/hi2';
 export { HiOutlineComputerDesktop as ModeSystemIcon } from 'react-icons/hi2';
 export { HiOutlineChatBubbleLeft as SpeechIcon } from 'react-icons/hi2';
 export { HiOutlineHandThumbUp as ThumbsUpIcon } from 'react-icons/hi2';
+
+export { FaGithub as GithubIcon} from "react-icons/fa";
