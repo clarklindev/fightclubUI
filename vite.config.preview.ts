@@ -14,7 +14,6 @@ export default defineConfig(async () => {
       bundledLanguages.html,
       bundledLanguages.bash
     ],
-    theme: 'github-dark',
   });
 
   return {
