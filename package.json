@@ -11,6 +11,7 @@
     "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "build": "tsc && vite build --config vite.config.ts",
     "build-preview": "tsc && vite build --config vite.config.preview.ts",
+    "pub": "git add . && git commit -m \"updates\" && pnpm version patch && pnpm run build && pnpm publish && git push origin master",
     "preview": "vite preview"
   },
   "dependencies": {
