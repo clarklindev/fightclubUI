@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { useFocus, useMenu } from '@fightclub/customhooks';
+import { useFocus } from '@fightclub/customhooks';
 
 // Create a Context
 const DropdownContext = createContext<{
@@ -79,7 +79,6 @@ type DropdownContextProviderProps = {
 // Create a Context Provider
 export const DropdownContextProvider = ({ children }: DropdownContextProviderProps) => {
   const { isFocused, onBlur, onFocus } = useFocus();
-  const { isMenuOpen, setIsMenuOpen } = useMenu();
   const [triggerRef, setTriggerRef] = useState<React.RefObject<React.ReactNode | HTMLElement> | null>(null);
   const [menuRef, setMenuRef] = useState<React.RefObject<React.ReactNode | HTMLElement> | null>(null);
   const [dropdownRef, setDropdownRef] = useState<React.RefObject<React.ReactNode | HTMLElement> | null>(null);
@@ -92,6 +91,7 @@ export const DropdownContextProvider = ({ children }: DropdownContextProviderPro
   const [id, setId] = useState<null | string>(null);
   const [layoutContainer, setLayoutContainer] = useState<null | (HTMLElement | React.ReactElement)>(null);
   const [hoverMode, setHoverMode] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMouseOver = () => {
     onFocus();
