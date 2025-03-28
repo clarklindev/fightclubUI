@@ -29,4 +29,4 @@ const EnumIterator = () => {
   );
 };
 
-export default EnumIterator;
+export {EnumIterator};
