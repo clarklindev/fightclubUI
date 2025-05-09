@@ -8,7 +8,6 @@ export { Card } from './Card';
 export { Calendar } from './Calendar';
 export { Datepicker } from './Datepicker';
 export { Checkbox } from './Checkbox';
-export { CheckboxGroup } from './CheckboxGroup';
 export { Counter } from './Counter';
 export { Pagination } from './Pagination';
 export { Icon } from './Icon';

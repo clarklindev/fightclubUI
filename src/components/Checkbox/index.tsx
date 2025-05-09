@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 import { Icon } from '..';
 
-type Size = "XS" | "S" | "M" | "L" | "XL" | "2XL" | "3XL" | "4XL" | "5XL" | "6XL" | "7XL" | "8XL" | "9XL" | "10XL";
+type Size = 'XS' | 'S' | 'M' | 'L' | 'XL' | '2XL' | '3XL' | '4XL' | '5XL' | '6XL' | '7XL' | '8XL' | '9XL' | '10XL';
 
 type CheckboxProps = {
   checked: boolean;
@@ -11,12 +11,18 @@ type CheckboxProps = {
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   size?: Size | null;
   indeterminate?: boolean;
-  border?: boolean
+  border?: boolean;
 };
 
-
-
-const Checkbox = ({ checked, name, label="", onChange, size = 'XL', indeterminate = false, border=true}: CheckboxProps) => {
+const Checkbox = ({
+  checked,
+  name,
+  label = '',
+  onChange,
+  size = 'XL',
+  indeterminate = false,
+  border = true,
+}: CheckboxProps) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
@@ -49,8 +55,6 @@ const Checkbox = ({ checked, name, label="", onChange, size = 'XL', indeterminat
         cursor-pointer
         overflow-hidden 
         rounded-md
-        bg-[var(--clr-background)]
-        bg-[var(input-background-color)]
       `}>
         {indeterminate ? (
           <Icon size={size}>
@@ -58,7 +62,7 @@ const Checkbox = ({ checked, name, label="", onChange, size = 'XL', indeterminat
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
-              stroke={border ? "red" : 'none'}
+              stroke={border ? 'red' : 'none'}
               strokeWidth="1"
               strokeLinecap="round"
               strokeLinejoin="round">
@@ -77,9 +81,7 @@ const Checkbox = ({ checked, name, label="", onChange, size = 'XL', indeterminat
               strokeLinecap="round"
               strokeLinejoin="round"
               className="w-10 h-10">
-              {border && 
-              <rect x="1" y="1" width="22" height="22" rx="3" ry="3" />
-              }
+              {border && <rect x="1" y="1" width="22" height="22" rx="3" ry="3" />}
               <line x1="6" y1="12" x2="10" y2="16" strokeWidth="2" />
               <line x1="10" y1="16" x2="18" y2="8" strokeWidth="2" />
             </svg>
@@ -90,7 +92,7 @@ const Checkbox = ({ checked, name, label="", onChange, size = 'XL', indeterminat
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               fill="none"
-              stroke={border ? "red" : 'none'}
+              stroke={border ? 'red' : 'none'}
               strokeWidth="1"
               strokeLinecap="round"
               strokeLinejoin="round">
