@@ -22,7 +22,6 @@ export { Select } from './Select';
 export { Divider } from './Divider';
 export { Slider } from './Slider';
 export { SliderMultiRange } from './SliderMultiRange';
-export { Snackbar } from './Snackbar';
 export { Spinner } from './Spinner';
 export { Table } from './Table';
 export { Text } from './Text';

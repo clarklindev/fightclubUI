@@ -8,45 +8,58 @@ const CheckboxExample = () => {
 
   const preview = (
     <>
-    <Layout>
-      <Label label="label" labelDirection="right" gap="2">
-        <Checkbox
-          size="XL"
-          checked={savedData}
-          name="checkbox"
-          onChange={event => {
-            setSavedData(event.target.checked);
-          }}
-        />
-      </Label>
-    </Layout>
-    <Layout>
-      <Label label="label" labelDirection="right" gap="2">
-        <Checkbox
-          size="L"
-          checked={savedData}
-          name="checkbox"
-          onChange={event => {
-            setSavedData(event.target.checked);
-          }}
-        />
-      </Label>
-    </Layout>
-    <Layout>
-      <Label label="label" labelDirection="right" gap="2">
-        <Checkbox
-          size="M"
-          checked={savedData}
-          name="checkbox"
-          onChange={event => {
-            setSavedData(event.target.checked);
-          }}
-        />
-      </Label>
-    </Layout>
+      <Layout>
+        <Label label="label" labelDirection="right" gap="2">
+          <Checkbox
+            size="XL"
+            checked={savedData}
+            name="checkbox"
+            onChange={event => {
+              setSavedData(event.target.checked);
+            }}
+          />
+        </Label>
+      </Layout>
+      <Layout>
+        <Label label="label" labelDirection="right" gap="2">
+          <Checkbox
+            size="L"
+            checked={savedData}
+            name="checkbox"
+            onChange={event => {
+              setSavedData(event.target.checked);
+            }}
+          />
+        </Label>
+      </Layout>
+      <Layout>
+        <Label label="label" labelDirection="right" gap="2">
+          <Checkbox
+            size="M"
+            checked={savedData}
+            name="checkbox"
+            onChange={event => {
+              setSavedData(event.target.checked);
+            }}
+          />
+        </Label>
+      </Layout>
 
-    <Layout>
-      <Label label="label" labelDirection="right" gap="2">
+      <Layout>
+        <Label label="label" labelDirection="right" gap="2">
+          <Checkbox
+            size="M"
+            border={false}
+            checked={savedData}
+            name="checkbox"
+            onChange={event => {
+              setSavedData(event.target.checked);
+            }}
+          />
+        </Label>
+      </Layout>
+
+      <Layout>
         <Checkbox
           size="M"
           border={false}
@@ -56,26 +69,13 @@ const CheckboxExample = () => {
             setSavedData(event.target.checked);
           }}
         />
-      </Label>
-    </Layout>
-
-    <Layout>
-      <Checkbox
-        size="M"
-        border={false}
-        checked={savedData}
-        name="checkbox"
-        onChange={event => {
-          setSavedData(event.target.checked);
-        }}
-      />
-    </Layout>
+      </Layout>
     </>
   );
 
   return (
     <>
-      <Heading variation="h1" size="level1" data-observable="true">
+      <Heading as="h1" size="level1" data-observable="true">
         Checkbox
       </Heading>
 
@@ -87,7 +87,9 @@ const CheckboxExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock><Code/></CodeBlock>
+            <CodeBlock>
+              <Code />
+            </CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

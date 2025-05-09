@@ -23,7 +23,7 @@ const CheckboxExample = () => {
   const preview = (
     <>
       <Layout>
-        <Heading variation="h5" size="level2">
+        <Heading as="h5" size="level2">
           Checkbox Group (horizontal)
         </Heading>
 
@@ -43,7 +43,7 @@ const CheckboxExample = () => {
       </Layout>
 
       <Layout>
-        <Heading variation="h5" size="level2">
+        <Heading as="h5" size="level2">
           Checkbox Group (vertical)
         </Heading>
         <div className="flex flex-col space-y-5">
@@ -62,7 +62,7 @@ const CheckboxExample = () => {
       </Layout>
 
       <Layout>
-        <Heading variation="h5" size="level2">
+        <Heading as="h5" size="level2">
           Checkbox Group (indeterminate)
         </Heading>
         <div className="flex flex-col items-start space-y-10">
@@ -98,7 +98,7 @@ const CheckboxExample = () => {
 
   return (
     <>
-      <Heading variation="h1" size="level1" data-observable="true">
+      <Heading as="h1" size="level1" data-observable="true">
         Checkbox Group
       </Heading>
 

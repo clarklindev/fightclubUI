@@ -25,7 +25,7 @@ const RadioButtonGroupExample = () => {
   const preview = (
     <>
       <Layout>
-        <Heading variation="h5" size="level2">
+        <Heading as="h5" size="level2">
           RadioButton Group (horizontal)
         </Heading>
 
@@ -47,7 +47,7 @@ const RadioButtonGroupExample = () => {
       <br />
 
       <Layout>
-        <Heading variation="h5" size="level2">
+        <Heading as="h5" size="level2">
           RadioButton Group (vertical)
         </Heading>
 
@@ -71,7 +71,7 @@ const RadioButtonGroupExample = () => {
 
   return (
     <>
-      <Heading variation="h1" size="level1" data-observable="true">
+      <Heading as="h1" size="level1" data-observable="true">
         RadioButton Group
       </Heading>
 

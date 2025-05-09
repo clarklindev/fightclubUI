@@ -6,7 +6,7 @@ const SpinnerExample = () => {
 
   return (
     <>
-      <Heading variation="h1" size="level1" data-observable="true">
+      <Heading as="h1" size="level1" data-observable="true">
         Spinner
       </Heading>
 
@@ -18,7 +18,9 @@ const SpinnerExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock><Code/></CodeBlock>
+            <CodeBlock>
+              <Code />
+            </CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

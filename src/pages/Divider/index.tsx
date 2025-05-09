@@ -4,7 +4,7 @@ import Code from './code.mdx';
 const DividerExample = () => {
   let preview = (
     <>
-      <Heading variation="h5" size="level2">
+      <Heading as="h5" size="level2">
         Divider (horizontal)
       </Heading>
       <Layout>
@@ -13,7 +13,7 @@ const DividerExample = () => {
         world
       </Layout>
 
-      <Heading variation="h5" size="level2">
+      <Heading as="h5" size="level2">
         Divider labelled (horizontal)
       </Heading>
       <Layout>
@@ -22,7 +22,7 @@ const DividerExample = () => {
         world
       </Layout>
 
-      <Heading variation="h5" size="level2">
+      <Heading as="h5" size="level2">
         Divider (vertical)
       </Heading>
       <Layout>
@@ -33,7 +33,7 @@ const DividerExample = () => {
         </div>
       </Layout>
 
-      <Heading variation="h5" size="level2">
+      <Heading as="h5" size="level2">
         Divider labelled (vertical)
       </Heading>
       <Layout>
@@ -47,7 +47,7 @@ const DividerExample = () => {
 
   return (
     <>
-      <Heading variation="h1" size="level1" data-observable="true">
+      <Heading as="h1" size="level1" data-observable="true">
         Divider
       </Heading>
 
@@ -59,7 +59,9 @@ const DividerExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock><Code/></CodeBlock>
+            <CodeBlock>
+              <Code />
+            </CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

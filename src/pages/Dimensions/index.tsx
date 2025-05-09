@@ -7,7 +7,7 @@ const DimensionsExample = () => {
 
   return (
     <>
-      <Heading variation="h1" size="level1" data-observable="true">
+      <Heading as="h1" size="level1" data-observable="true">
         Dimensions
       </Heading>
 

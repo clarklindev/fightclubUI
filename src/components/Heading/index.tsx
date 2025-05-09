@@ -50,22 +50,22 @@ const baseClasses = 'pt-1rem pb-1rem whitespace-break break-word';
 // font-${theme?.Heading?.fontFamily}
 
 type HeadingProps = {
-  variation: HeadingVariationType; //h1,h2,h3,h4,h5,h6
+  as: HeadingVariationType; //h1,h2,h3,h4,h5,h6
   size: keyof typeof HeadingSize; //XXXS,XXS,XS,S,M,L,XL,XXL,XXXL | level1,level2,level3,level4,level5,level6,level7,level8,level9
   className?: string;
   children: string;
 };
 
-const Heading = ({ variation, size, className, children, ...rest }: HeadingProps) => {
+const Heading = ({ as, size, className, children, ...rest }: HeadingProps) => {
   //prop > theme > defaults
 
   //defaults
-  let headerSize: string = HeadingSize[HeadingVariation[variation]];
+  let headerSize: string = HeadingSize[HeadingVariation[as]];
 
   //theme
   let { theme } = useTheme();
   if (theme) {
-    headerSize = theme.Heading.fontSize[HeadingVariation[variation]];
+    headerSize = theme.Heading.fontSize[HeadingVariation[as]];
   }
 
   //prop
@@ -73,7 +73,7 @@ const Heading = ({ variation, size, className, children, ...rest }: HeadingProps
     headerSize = HeadingSize[size];
   }
 
-  const Variation = `${variation}` as keyof JSX.IntrinsicElements;
+  const Variation = `${as}` as keyof JSX.IntrinsicElements;
   return (
     <Variation
       data-component={Heading.displayName}

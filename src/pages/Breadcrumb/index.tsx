@@ -9,15 +9,18 @@ import Code from './code.mdx';
 //import { useLocation, Link } from 'react-router-dom';
 //const location = useLocation();
 //console.log(location.pathname); ->  Output: "/products/shoes/nike"
-const pathname = "/products/shoes/nike";
+const pathname = '/products/shoes/nike';
 
 const BreadcrumbExample = () => {
-
-  const preview = <><Breadcrumb path={pathname}/></>;
+  const preview = (
+    <>
+      <Breadcrumb path={pathname} />
+    </>
+  );
 
   return (
     <>
-      <Heading variation="h1" size="level1" data-observable="true">
+      <Heading as="h1" size="level1" data-observable="true">
         Breadcrumbs
       </Heading>
 
@@ -29,7 +32,9 @@ const BreadcrumbExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock><Code/></CodeBlock>
+            <CodeBlock>
+              <Code />
+            </CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

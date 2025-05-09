@@ -6,21 +6,21 @@ const ButtonExample = () => {
   const preview = (
     <>
       <Layout>
-        <Heading variation="h5" size="level2">
+        <Heading as="h5" size="level2">
           Contained button
         </Heading>
         <Button intent="primary">Contained</Button>
       </Layout>
 
       <Layout>
-        <Heading variation="h5" size="level2">
+        <Heading as="h5" size="level2">
           Outlined button
         </Heading>
         <Button intent="outlined">Outlined</Button>
       </Layout>
 
       <Layout>
-        <Heading variation="h5" size="level2">
+        <Heading as="h5" size="level2">
           Icon button
         </Heading>
 
@@ -32,14 +32,14 @@ const ButtonExample = () => {
       </Layout>
 
       <Layout>
-        <Heading variation="h5" size="level2">
+        <Heading as="h5" size="level2">
           Text button
         </Heading>
         <Button intent="text">Text</Button>
       </Layout>
 
       <Layout>
-        <Heading variation="h5" size="level2">
+        <Heading as="h5" size="level2">
           Button + Label
         </Heading>
         <Button intent="primary">
@@ -52,10 +52,10 @@ const ButtonExample = () => {
       </Layout>
     </>
   );
- 
+
   return (
     <>
-      <Heading variation="h1" size="level1" data-observable="true">
+      <Heading as="h1" size="level1" data-observable="true">
         Button
       </Heading>
 
@@ -67,7 +67,9 @@ const ButtonExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock><Code/></CodeBlock>
+            <CodeBlock>
+              <Code />
+            </CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

@@ -139,7 +139,7 @@ export const HomeLayout = () => {
       <div id="Content" ref={contentRef}>
         <NavSide data-component="navside">
           <NavSide.Group>
-            <NavSide.Heading variation="h2" size="M" className="mt-0 mb-3 pt-0">
+            <NavSide.Heading as="h2" size="M" className="mt-0 mb-3 pt-0">
               Guide
             </NavSide.Heading>
             <NavSide.Link to="introduction">Introduction</NavSide.Link>
@@ -148,12 +148,12 @@ export const HomeLayout = () => {
           </NavSide.Group>
 
           <NavSide.Group>
-            <NavSide.Heading variation="h2" size="M" className="mb-3">
+            <NavSide.Heading as="h2" size="M" className="mb-3">
               Components
             </NavSide.Heading>
             <NavSide.Link to="navbar">Navbar</NavSide.Link>
-            <NavSide.Link to="navside">NavSide</NavSide.Link>
-            <NavSide.Link to="onthispage">OnThisPage</NavSide.Link>
+            {/* <NavSide.Link to="navside">NavSide</NavSide.Link> */}
+            {/* <NavSide.Link to="onthispage">OnThisPage</NavSide.Link> */}
             <NavSide.Link to="layout">Layout</NavSide.Link>
             <NavSide.Link to="section">Section</NavSide.Link>
             <NavSide.Link to="heading">Heading</NavSide.Link>
@@ -174,7 +174,7 @@ export const HomeLayout = () => {
             <NavSide.Link to="counter">Counter</NavSide.Link>
             <NavSide.Link to="togglebutton">Toggle Button</NavSide.Link>
             <NavSide.Link to="toggleswitch">Toggle Switch</NavSide.Link>
-            <NavSide.Link to="snackbar">Snackbar</NavSide.Link>
+            {/* <NavSide.Link to="snackbar">Snackbar</NavSide.Link> */}
             {/* <NavSide.Link to="calendar">Calendar</NavSide.Link> */}
             {/* <NavSide.Link to="datepicker">Datepicker</NavSide.Link> */}
             <NavSide.Link to="slider">Slider</NavSide.Link>
@@ -196,7 +196,7 @@ export const HomeLayout = () => {
           </NavSide.Group>
 
           <NavSide.Group>
-            <NavSide.Heading variation="h2" size="M" className="mb-3">
+            <NavSide.Heading as="h2" size="M" className="mb-3">
               Utility
             </NavSide.Heading>
             <NavSide.Link to="codeblock">CodeBlock</NavSide.Link>

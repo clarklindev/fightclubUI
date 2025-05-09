@@ -5,11 +5,11 @@ import { Heading, Layout } from '@fightclub/components';
 const HooksExample = () => {
   return (
     <>
-      <Heading variation="h4" size="level1">
+      <Heading as="h4" size="level1">
         Hooks
       </Heading>
       <Layout>
-        <Heading variation="h5" size="level2">
+        <Heading as="h5" size="level2">
           useFocus
         </Heading>
         <UseFocusExample />

@@ -5,7 +5,7 @@ const Introduction = () => {
   return (
     <article>
       <Layout>
-        <Heading variation="h1" size="level1" data-observable="true">
+        <Heading as="h1" size="level1" data-observable="true">
           Introduction
         </Heading>
         <Text>
@@ -13,11 +13,14 @@ const Introduction = () => {
           <br />
           <br />
           Have you ever worked in a company where you cried everyday because development was an awful experience? There
-          is a clear difference between a component library that only works, compared to one that developers appreciate because of ease of use. The process of building a design system usually requires significantly more attention to detail, expertise, and time than building a project based on an existing system. This design system aims to bridge the gap between starting from scratch and allowing developer creative freedom.
+          is a clear difference between a component library that only works, compared to one that developers appreciate
+          because of ease of use. The process of building a design system usually requires significantly more attention
+          to detail, expertise, and time than building a project based on an existing system. This design system aims to
+          bridge the gap between starting from scratch and allowing developer creative freedom.
           <br />
           <br />
-          {import.meta.env.VITE_UI_ALIAS_NAME}UI uses React (Function-based library of compound components), TailwindCSS and Class Variance
-          Authority (CVA) under the hood.
+          {import.meta.env.VITE_UI_ALIAS_NAME}UI uses React (Function-based library of compound components), TailwindCSS
+          and Class Variance Authority (CVA) under the hood.
           <br />
           <br />
           The goal of this library is to combine the user-friendly modular approach of customizing with compound
@@ -31,15 +34,17 @@ const Introduction = () => {
           pre-defined styles and components, while also providing the ability to tailor the output to meet their
           specific requirements.
         </Text>
-        <Text>Pre-defined modular components, built with accessibility in mind. <br/>
-        With default styling, support of theming and darkmode.</Text>
-        <br/>
+        <Text>
+          Pre-defined modular components, built with accessibility in mind. <br />
+          With default styling, support of theming and darkmode.
+        </Text>
+        <br />
         <Text>The first rule of fightclubUI is... you do not talk about fightclubUI!</Text>
         <Text>As a creator, did you break the rules... or make them?</Text>
       </Layout>
 
       {/* <Layout>
-        <Heading variation="h2" size="level2" data-observable="true">
+        <Heading as="h2" size="level2" data-observable="true">
           Release Features
         </Heading>
         <div>
@@ -55,7 +60,7 @@ const Introduction = () => {
       </Layout> */}
 
       {/* <Layout>
-        <Heading variation="h2" size="level2" data-observable="true">
+        <Heading as="h2" size="level2" data-observable="true">
           Motivation
         </Heading>
         <Link to="https://tailwindui.com/components/preview">https://tailwindui.com/components/preview</Link>

@@ -28,9 +28,9 @@ const NavGroup = ({ children, className }: { className?: string; children: React
   return <div className={['flex flex-col mb-4', className].join(' ')}>{children}</div>;
 };
 
-const NavHeading = ({ className, variation, children, ...rest }: HeadingProps) => {
+const NavHeading = ({ className, as, children, ...rest }: HeadingProps) => {
   return (
-    <Heading variation={variation} className={className} {...rest}>
+    <Heading as={as} className={className} {...rest}>
       {children}
     </Heading>
   );

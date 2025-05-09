@@ -8,7 +8,7 @@ const IconExample = () => {
     <>
       {/* extra-small */}
       <Layout>
-        <Heading variation="h2" size="S">
+        <Heading as="h2" size="S">
           XS
         </Heading>
         <Icon size="XS">
@@ -18,7 +18,7 @@ const IconExample = () => {
 
       {/* small */}
       <Layout>
-        <Heading variation="h2" size="S">
+        <Heading as="h2" size="S">
           S
         </Heading>
         <Icon size="S">
@@ -28,7 +28,7 @@ const IconExample = () => {
 
       {/* medium */}
       <Layout>
-        <Heading variation="h2" size="S">
+        <Heading as="h2" size="S">
           M
         </Heading>
         <Icon size="M">
@@ -38,7 +38,7 @@ const IconExample = () => {
 
       {/* large */}
       <Layout>
-        <Heading variation="h2" size="S">
+        <Heading as="h2" size="S">
           L
         </Heading>
         <Icon size="L">
@@ -48,7 +48,7 @@ const IconExample = () => {
 
       {/* x-large / xl*/}
       <Layout>
-        <Heading variation="h2" size="S">
+        <Heading as="h2" size="S">
           XL
         </Heading>
         <Icon size="XL">
@@ -58,7 +58,7 @@ const IconExample = () => {
 
       {/* xx-large / 2xl*/}
       <Layout>
-        <Heading variation="h2" size="S">
+        <Heading as="h2" size="S">
           2XL
         </Heading>
         <Icon size="2XL">
@@ -68,7 +68,7 @@ const IconExample = () => {
 
       {/* xxx-large / 3xl*/}
       <Layout>
-        <Heading variation="h2" size="S">
+        <Heading as="h2" size="S">
           3XL
         </Heading>
         <Icon size="3XL">
@@ -78,7 +78,7 @@ const IconExample = () => {
 
       {/* xxxx-large / 4xl*/}
       <Layout>
-        <Heading variation="h2" size="S">
+        <Heading as="h2" size="S">
           4XL
         </Heading>
         <Icon size="4XL">
@@ -88,7 +88,7 @@ const IconExample = () => {
 
       {/* xxxxx-large / 5xl*/}
       <Layout>
-        <Heading variation="h2" size="S">
+        <Heading as="h2" size="S">
           5XL
         </Heading>
         <Icon size="5XL">
@@ -98,7 +98,7 @@ const IconExample = () => {
 
       {/* xxxxxx-large / 6xl*/}
       <Layout>
-        <Heading variation="h2" size="S">
+        <Heading as="h2" size="S">
           6XL
         </Heading>
         <Icon size="6XL">
@@ -108,7 +108,7 @@ const IconExample = () => {
 
       {/* xxxxxxx-large /7xl*/}
       <Layout>
-        <Heading variation="h2" size="S">
+        <Heading as="h2" size="S">
           7XL
         </Heading>
         <Icon size="7XL">
@@ -118,7 +118,7 @@ const IconExample = () => {
 
       {/* xxxxxxxx-large /8xl*/}
       <Layout>
-        <Heading variation="h2" size="S">
+        <Heading as="h2" size="S">
           8XL
         </Heading>
         <Icon size="8XL">
@@ -128,7 +128,7 @@ const IconExample = () => {
 
       {/* XXXXXXXXX-large /9xl*/}
       <Layout>
-        <Heading variation="h2" size="S">
+        <Heading as="h2" size="S">
           9XL
         </Heading>
         <Icon size="9XL">
@@ -138,7 +138,7 @@ const IconExample = () => {
 
       {/* XXXXXXXXXX-large /10xl*/}
       <Layout>
-        <Heading variation="h2" size="S">
+        <Heading as="h2" size="S">
           10XL
         </Heading>
         <Icon size="10XL">
@@ -150,7 +150,7 @@ const IconExample = () => {
 
   return (
     <>
-      <Heading variation="h1" size="level1" data-observable="true">
+      <Heading as="h1" size="level1" data-observable="true">
         Icon
       </Heading>
 

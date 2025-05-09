@@ -77,9 +77,6 @@ importers:
       shiki:
         specifier: ^3.2.1
         version: 3.2.1
-      styled-components:
-        specifier: ^5.3.11
-        version: 5.3.11(@babel/core@7.26.10)(react-dom@18.3.1(react@18.3.1))(react-is@18.1.0)(react@18.3.1)
       tailwind-merge:
         specifier: ^1.14.0
         version: 1.14.0

@@ -5,9 +5,7 @@ const DropdownExample = () => {
   const preview = (
     <Dropdown>
       <Dropdown.Wrapper>
-        <Dropdown.Trigger>
-          Button
-        </Dropdown.Trigger>
+        <Dropdown.Trigger>Button</Dropdown.Trigger>
         <Dropdown.Menu className="w-40">
           <Dropdown.MenuItem>A</Dropdown.MenuItem>
           <Dropdown.MenuItem>B</Dropdown.MenuItem>
@@ -20,7 +18,7 @@ const DropdownExample = () => {
 
   return (
     <>
-      <Heading variation="h1" size="level1" data-observable="true">
+      <Heading as="h1" size="level1" data-observable="true">
         Dropdown
       </Heading>
 
@@ -32,7 +30,9 @@ const DropdownExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-              <CodeBlock><Code/></CodeBlock>
+            <CodeBlock>
+              <Code />
+            </CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

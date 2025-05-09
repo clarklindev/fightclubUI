@@ -36,7 +36,6 @@ import SelectExample from '@fightclub/pages/Select';
 import CounterExample from '@fightclub/pages/Counter';
 import ToggleButtonExample from '@fightclub/pages/ToggleButton';
 import ToggleSwitchExample from '@fightclub/pages/ToggleSwitch';
-import SnackbarExample from '@fightclub/pages/Snackbar';
 import SliderExample from '@fightclub/pages/Slider';
 import SliderMultiRangeExample from '@fightclub/pages/SliderMultiRange';
 import DividerExample from '@fightclub/pages/Divider';
@@ -60,7 +59,7 @@ import DimensionsExample from '@fightclub/pages/Dimensions';
 import CodeBlockExample from '@fightclub/pages/CodeBlock';
 
 import type { Router } from '@remix-run/router';
-export const router:Router = createBrowserRouter(
+export const router: Router = createBrowserRouter(
   createRoutesFromElements(
     // USE LAYOUT - HomeLayout
     <Route path="/" element={<HomeLayout />}>
@@ -85,7 +84,7 @@ export const router:Router = createBrowserRouter(
       <Route path="/button" element={<ButtonExample />} />
       <Route path="/input" element={<InputExample />} />
       <Route path="/inputotp" element={<InputOtpExample />} />
-      <Route path="/popover" element={<PopoverExample/>}/>
+      <Route path="/popover" element={<PopoverExample />} />
       <Route path="/select" element={<SelectExample />} />
       <Route path="/calendar" element={<CalendarExample />} />
       <Route path="/datepicker" element={<DatepickerExample />} />
@@ -97,7 +96,6 @@ export const router:Router = createBrowserRouter(
       <Route path="/counter" element={<CounterExample />} />
       <Route path="/togglebutton" element={<ToggleButtonExample />} />
       <Route path="/toggleswitch" element={<ToggleSwitchExample />} />
-      <Route path="/snackbar" element={<SnackbarExample />} />
       <Route path="/slider" element={<SliderExample />} />
       <Route path="/slidermultirange" element={<SliderMultiRangeExample />} />
       <Route path="/divider" element={<DividerExample />} />
@@ -126,4 +124,3 @@ export const router:Router = createBrowserRouter(
     </Route>,
   ),
 );
-

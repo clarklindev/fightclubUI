@@ -5,11 +5,11 @@ import Code from './code.mdx';
 
 const ToggleButtonExample = () => {
   //the context provider (can technically wrap inside the component itself)
-    enum ToggleEnumWithMaybe {
-        ON = 'true',
-        OFF = 'false',
-        MAYBE = 'maybe',
-    }
+  enum ToggleEnumWithMaybe {
+    ON = 'true',
+    OFF = 'false',
+    MAYBE = 'maybe',
+  }
 
   const preview = (
     <ToggleButton
@@ -22,7 +22,7 @@ const ToggleButtonExample = () => {
                 <HeartIcon />
               </Icon>
             );
-            
+
           case 'OFF':
             return <Icon size="L">OFF</Icon>;
 
@@ -36,7 +36,7 @@ const ToggleButtonExample = () => {
 
   return (
     <>
-      <Heading variation="h1" size="level1" data-observable="true">
+      <Heading as="h1" size="level1" data-observable="true">
         Toggle Button
       </Heading>
 
@@ -48,7 +48,9 @@ const ToggleButtonExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock><Code/></CodeBlock>
+            <CodeBlock>
+              <Code />
+            </CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>

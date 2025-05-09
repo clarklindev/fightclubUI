@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heading, Tabs, CodeBlock, Section, Accordion, Icon  } from '@fightclub/components';
+import { Heading, Tabs, CodeBlock, Section, Accordion, Icon } from '@fightclub/components';
 import { ChevronUpIcon, ChevronDownIcon, PlusIcon, MinusIcon } from '@fightclub/icons';
 import Code from './code.mdx';
 
@@ -72,7 +72,7 @@ const AccordionExample = () => {
 
   return (
     <Section>
-      <Heading variation="h1" size="level1" data-observable="true">
+      <Heading as="h1" size="level1" data-observable="true">
         Accordion
       </Heading>
 
@@ -84,7 +84,9 @@ const AccordionExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock><Code/></CodeBlock>
+            <CodeBlock>
+              <Code />
+            </CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
