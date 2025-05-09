@@ -1,4 +1,3 @@
-
 import { Icon, Heading, Tabs, Layout, CodeBlock } from '@fightclub/components';
 import { ShoppingCartIcon } from '@fightclub/icons';
 
@@ -164,7 +163,9 @@ const IconExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock><Code/></CodeBlock>
+            <CodeBlock>
+              <Code />
+            </CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
