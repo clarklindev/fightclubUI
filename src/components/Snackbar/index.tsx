@@ -23,7 +23,9 @@ const Snackbar = ({ setShowSnackbar, children }: SnackbarProps) => {
   }, [setShowSnackbar]);
 
   return (
-    <SnackbarContainer display-component={Snackbar.displayName} className={snackbarOpen ? 'show' : ''}>
+    <SnackbarContainer
+      display-component={Snackbar.displayName}
+      className="invisible fixed z-10 left-1/2 bottom-[30px] min-w-[250px] -ml-[125px] bg-[#333] text-white text-center rounded p-4 [&.show]:visible [&.show]:animate-fadeinout">
       {children}
     </SnackbarContainer>
   );

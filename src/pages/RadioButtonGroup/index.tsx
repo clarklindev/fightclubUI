@@ -1,7 +1,7 @@
 // //RadioButtonGroup
 import { useState } from 'react';
 
-import { Layout, Heading, Tabs, CodeBlock, RadioButtonGroup, RadioButton, Label, Text } from '@fightclub/components';
+import { Layout, Heading, Tabs, CodeBlock, RadioButton, Label, Text } from '@fightclub/components';
 
 import Code from './code.mdx';
 
@@ -13,11 +13,12 @@ const RadioButtonGroupExample = () => {
     { label: 'D', value: 'd' },
   ];
 
-  const [savedData, updateSavedData] = useState(Array(options.length).fill(false));
+  const [savedDataA, updateSavedDataA] = useState(Array(options.length).fill(false));
+  const [savedDataB, updateSavedDataB] = useState(Array(options.length).fill(false));
 
-  const onChange = (index: number, newValue: boolean) => {
+  const onChange = (savedData: Array<boolean>, updateSavedData: Function, index: number) => {
     let newValues = [...savedData].fill(false);
-    newValues[index] = newValue;
+    newValues[index] = true;
     updateSavedData(newValues);
   };
 
@@ -27,40 +28,43 @@ const RadioButtonGroupExample = () => {
         <Heading variation="h5" size="level2">
           RadioButton Group (horizontal)
         </Heading>
-        <RadioButtonGroup direction="row" spacing="20px">
+
+        <div className="flex flex-row space-x-5">
           {options.map((each, index) => {
             return (
-              <Label key={'RadioButtonGroup' + index} label={each.label} labelDirection="bottom">
+              <Label key={'RadioButtonGroupA' + index} label={each.label} labelDirection="bottom">
                 <RadioButton
-                  checked={savedData[index]}
-                  name="Radio"
+                  checked={savedDataA[index]}
+                  name="RadioA"
                   size="XL"
-                  onChange={() => onChange(index, !savedData[index])}
+                  onChange={() => onChange(savedDataA, updateSavedDataA, index)}
                 />
               </Label>
             );
           })}
-        </RadioButtonGroup>
+        </div>
       </Layout>
       <br />
+
       <Layout>
         <Heading variation="h5" size="level2">
           RadioButton Group (vertical)
         </Heading>
-        <RadioButtonGroup direction="column" spacing="20px">
+
+        <div className="flex flex-col space-y-5">
           {options.map((each, index) => {
             return (
-              <Label key={'RadioButtonGroup' + index} label={each.label} labelDirection="right">
+              <Label key={'RadioButtonGroupB' + index} label={each.label} labelDirection="right">
                 <RadioButton
-                  checked={savedData[index]}
-                  name="Radio"
+                  checked={savedDataB[index]}
+                  name="RadioB"
                   size="XL"
-                  onChange={() => onChange(index, !savedData[index])}
+                  onChange={() => onChange(savedDataB, updateSavedDataB, index)}
                 />
               </Label>
             );
           })}
-        </RadioButtonGroup>
+        </div>
       </Layout>
     </>
   );
@@ -79,7 +83,9 @@ const RadioButtonGroupExample = () => {
         <Tabs.ContentGroup>
           <Tabs.Content data-tab="0">{preview}</Tabs.Content>
           <Tabs.Content data-tab="1">
-            <CodeBlock><Code/></CodeBlock>
+            <CodeBlock>
+              <Code />
+            </CodeBlock>
           </Tabs.Content>
         </Tabs.ContentGroup>
       </Tabs>
