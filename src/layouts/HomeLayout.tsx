@@ -183,7 +183,7 @@ export const HomeLayout = () => {
             <NavSide.Link to="list">List</NavSide.Link>
             <NavSide.Link to="table">Table</NavSide.Link>
             <NavSide.Link to="card">Card</NavSide.Link>
-            {/* <NavSide.Link to="tree">Tree</NavSide.Link> */}
+            <NavSide.Link to="tree">Tree</NavSide.Link>
             <NavSide.Link to="progressloader">Progress Loader</NavSide.Link>
             <NavSide.Link to="spinner">Spinner</NavSide.Link>
             {/* <NavSide.Link to="dropdown">Dropdown</NavSide.Link> */}

@@ -1,9 +1,10 @@
 import React, { useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
 
 import { Icon, Label } from '@fightclub/components';
 import { ChevronRightIcon, ChevronDownIcon } from '@fightclub/icons';
+
+import styles from './styles.module.css';
 
 interface TreeNodeCommonProps {
   label: string;
@@ -47,7 +48,10 @@ const Tree = ({ data, depth = 0 }: TreeProps) => {
       const depthAndIndexStr = `${depth}-${index}` as string;
 
       return (
-        <TreeContainer data-component={Tree.displayName} key={`depth_${depth}_index_${index}`}>
+        <div
+          className="flex flex-col justify-start items-start"
+          data-component={Tree.displayName}
+          key={`depth_${depth}_index_${index}`}>
           <button onClick={() => openNodeHandler(depth, index)}>
             <Label label={label}>
               <Icon size="M">
@@ -55,14 +59,15 @@ const Tree = ({ data, depth = 0 }: TreeProps) => {
               </Icon>
             </Label>
           </button>
-          <Node
+          <div
+            className={styles.Node}
             ref={childRef}
             // scrollHeight={String(childRef?.current?.scrollHeight)}
             style={{ display: 'flex', flexDirection: 'column' }}
             data-expanded={childrenVisible.includes(`${depth}-${index}`) ? 'true' : 'false'}>
             <Tree data={children} depth={depth + 1} />
-          </Node>
-        </TreeContainer>
+          </div>
+        </div>
       );
     }
 
@@ -81,32 +86,3 @@ const Tree = ({ data, depth = 0 }: TreeProps) => {
 Tree.displayName = 'Tree';
 export { Tree };
 // ------------------------------------------------------------------------------------------------------------------------------------------------
-
-const TreeContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-items: flex-start;
-  align-items: flex-start;
-`;
-
-const Node = styled.div`
-  box-sizing: border-box;
-  margin-left: 6px;
-  padding-left: 15px;
-  border-left: 1px solid currentColor;
-  display: block;
-
-  &[data-expanded='false'] {
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.1s ease-out;
-    max-height: 0px;
-  }
-
-  &[data-expanded='true'] {
-    visibility: visible;
-    opacity: 1;
-    transition: all 0.1s ease-out;
-    max-height: auto;
-  }
-`;
