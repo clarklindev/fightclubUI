@@ -19,11 +19,11 @@ const RadioButtonExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
-        RadioButton
-      </Heading>
-
       <Tabs>
+        <Heading as="h1" size="level1" data-observable="true">
+          RadioButton
+        </Heading>
+
         <Tabs.TriggerGroup>
           <Tabs.Trigger data-tab="0">PREVIEW</Tabs.Trigger>
           <Tabs.Trigger data-tab="1">CODE</Tabs.Trigger>

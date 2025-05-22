@@ -4,22 +4,22 @@ import Code from './code.mdx';
 const HeadingExample = () => {
   const preview = (
     <>
-      <Heading as="h1" size="level1">
+      <Heading as="h1" className="text-6xl">
         H1 heading
       </Heading>
-      <Heading as="h2" size="level2">
+      <Heading as="h2" className="text-4xl">
         H2 heading
       </Heading>
-      <Heading as="h3" size="level3">
+      <Heading as="h3" className="text-3xl">
         H3 heading
       </Heading>
-      <Heading as="h4" size="level4">
+      <Heading as="h4" className="text-2xl">
         H4 heading
       </Heading>
-      <Heading as="h5" size="level5">
+      <Heading as="h5" className="text-xl">
         H5 heading
       </Heading>
-      <Heading as="h6" size="level6">
+      <Heading as="h6" className="text-m">
         H6 heading
       </Heading>
     </>
@@ -27,7 +27,7 @@ const HeadingExample = () => {
 
   return (
     <Section>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-3xl" data-observable="true">
         Heading
       </Heading>
 
