@@ -27,8 +27,7 @@ export default defineConfig(async (): Promise<UserConfig> =>{
     })],
     resolve: {
       alias: {
-        ['@fightclub']: path.resolve(__dirname, './src'),
-        ['@fightclub/ui']: path.resolve(__dirname, './src'),
+        '@': path.resolve(__dirname, 'src'),
       },
     },
     build: {

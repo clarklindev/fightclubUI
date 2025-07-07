@@ -1,10 +1,10 @@
 import { useRef, useState } from 'react';
 
-import { Layout, Heading, Tabs, CodeBlock, Icon, Input, Button } from '@fightclub/components';
+import { Layout, Heading, Tabs, CodeBlock, Icon, Input, Button } from '@/components';
 
-import { SpeechIcon } from '@fightclub/icons'; //input + icon example
-import { SearchIcon, CloseIcon } from '@fightclub/icons'; //search example
-import { ShowPasswordIcon, HidePasswordIcon } from '@fightclub/icons'; //password example icons
+import { SpeechIcon } from '@/icons'; //input + icon example
+import { SearchIcon, CloseIcon } from '@/icons'; //search example
+import { ShowPasswordIcon, HidePasswordIcon } from '@/icons'; //password example icons
 
 import Code from './code.mdx';
 
@@ -16,9 +16,7 @@ const InputExample = () => {
   const preview = (
     <>
       <Layout>
-        <Heading as="h5" size="level2">
-          Basic input
-        </Heading>
+        <Heading as="h5">Basic input</Heading>
         <Input>
           <Input.InputElement
             value={savedData}
@@ -30,9 +28,7 @@ const InputExample = () => {
       </Layout>
 
       <Layout>
-        <Heading as="h5" size="level2">
-          Input (readonly)
-        </Heading>
+        <Heading as="h5">Input (readonly)</Heading>
         <Input>
           <Input.InputElement
             value={savedData}
@@ -45,9 +41,7 @@ const InputExample = () => {
       </Layout>
 
       <Layout>
-        <Heading as="h5" size="level2">
-          Input + Icon
-        </Heading>
+        <Heading as="h5">Input + Icon</Heading>
         <Input variants={{ variant: 'default' }}>
           <Icon size="L">
             <SpeechIcon />
@@ -63,9 +57,7 @@ const InputExample = () => {
       </Layout>
 
       <Layout>
-        <Heading as="h5" size="level2">
-          Input Password
-        </Heading>
+        <Heading as="h5">Input Password</Heading>
         <Input>
           <Input.InputElement
             value={savedData}
@@ -82,9 +74,7 @@ const InputExample = () => {
       </Layout>
 
       <Layout>
-        <Heading as="h5" size="level2">
-          Input Filter
-        </Heading>
+        <Heading as="h5">Input Filter</Heading>
         <Input>
           <Icon size="M">
             <SearchIcon />
@@ -111,9 +101,7 @@ const InputExample = () => {
       </Layout>
 
       <Layout>
-        <Heading as="h5" size="level2">
-          Input Search
-        </Heading>
+        <Heading as="h5">Input Search</Heading>
         <Input>
           <Input.InputElement
             ref={ref}
@@ -140,9 +128,7 @@ const InputExample = () => {
       </Layout>
 
       <Layout>
-        <Heading as="h5" size="level2">
-          Input (no-border / no-bg)
-        </Heading>
+        <Heading as="h5">Input (no-border / no-bg)</Heading>
         <Input variants={{ variant: 'unstyled' }}>
           <Input.InputElement
             value={savedData}
@@ -158,7 +144,7 @@ const InputExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level2" data-observable="true">
+      <Heading as="h1" data-observable="true">
         Input
       </Heading>
 

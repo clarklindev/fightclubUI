@@ -27,13 +27,13 @@
   //Previous month days calculation:
   /*
   prevMonth = Array.from(
-    { length: 5 }, 
+    { length: 5 },
     (_, i) => 29 - 5 + i + 1
   );
   */
   //Evaluates to: [25, 26, 27, 28, 29]
 
-  
+
   // Current month's days
   //const currentMonth = Array.from({ length: daysInMonth }, (_, i) => i + 1);
 
@@ -41,7 +41,7 @@
   //const totalDays = 42; // Ensures a full 6-row grid (7x6 = 42)
 */
 
-import { Calendar } from '@fightclub/components';
+import { Calendar } from '@/components';
 <Calendar startDayOfWeek={0}/>
 
 ```

@@ -1,12 +1,12 @@
 ```jsx
-import { ToggleSwitch } from '@fightclub/components';
+import { ToggleSwitch } from '@/components';
 
 const [savedData, setSavedData] = useState(false);
 <ToggleSwitch
-    savedData={savedData}
-    onChange={event => {
-      console.log('event.target.checked: ', event.target.checked);
-      setSavedData(event.target.checked);
-    }}
-/>
+  savedData={savedData}
+  onChange={event => {
+    console.log('event.target.checked: ', event.target.checked);
+    setSavedData(event.target.checked);
+  }}
+/>;
 ```

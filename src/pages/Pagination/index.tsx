@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { CodeBlock, Heading, Tabs, Pagination } from '@fightclub/components';
+import { CodeBlock, Heading, Tabs, Pagination } from '@/components';
 
 import Code from './code.mdx';
 
@@ -54,7 +54,7 @@ const PaginationExample = () => {
 
   return (
     <div>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Pagination
       </Heading>
 

@@ -1,4 +1,4 @@
-import { Heading, Tabs, Section, CodeBlock } from '@fightclub/components';
+import { Heading, Tabs, Section, CodeBlock } from '@/components';
 import Code from './code.mdx';
 
 const HeadingExample = () => {

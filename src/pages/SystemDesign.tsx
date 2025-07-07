@@ -1,18 +1,18 @@
-import { Heading, Text, CodeBlock, Layout, List } from '@fightclub/components';
-import { CodeInline } from '@fightclub/components/CodeInline';
+import { Heading, Text, CodeBlock, Layout, List } from '@/components';
+import { CodeInline } from '@/components/CodeInline';
 import { Link } from 'react-router-dom';
 
 const SystemDesign = () => {
   return (
     <article>
       <Layout>
-        <Heading as="h1" size="level1" data-observable="true">
+        <Heading as="h1" className="text-xl" data-observable="true">
           System Design
         </Heading>
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           A separate repository for component code
         </Heading>
         <Text>
@@ -39,7 +39,7 @@ const SystemDesign = () => {
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           publishing a npm library
         </Heading>
         <CodeInline
@@ -82,7 +82,7 @@ re-push
         />
       </Layout>
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Routing
         </Heading>
         <Link to="https://github.com/fightclub/template-react-router-6">react-router-dom</Link>
@@ -91,7 +91,7 @@ re-push
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Validation
         </Heading>
         <p>you can consider using:</p>
@@ -101,7 +101,7 @@ re-push
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Layout
         </Heading>
 
@@ -127,10 +127,10 @@ re-push
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Adding Pages
         </Heading>
-        <Heading as="h3" size="level3" data-observable="true">
+        <Heading as="h3" className="text-xl" data-observable="true">
           1. Adding nav link Using react-router-dom 6
         </Heading>
         <Text>
@@ -142,7 +142,7 @@ re-push
           />
         </Text>
 
-        <Heading as="h3" size="level3" data-observable="true">
+        <Heading as="h3" className="text-xl" data-observable="true">
           2. Register a route
         </Heading>
         <Text>
@@ -156,7 +156,7 @@ import PageExample from '@fightclub/pages/Page';
           />
         </Text>
 
-        <Heading as="h3" size="level3" data-observable="true">
+        <Heading as="h3" className="text-xl" data-observable="true">
           3. Add the actual page
         </Heading>
         <Text>
@@ -170,7 +170,7 @@ import PageExample from '@fightclub/pages/Page';
           <CodeInline
             value={`
 import React from 'react';
-import { CodeBlock, Heading, Text } from '@fightclub/components';
+import { CodeBlock, Heading, Text } from '@/components';
 
 const Page = () => {
     return (
@@ -185,7 +185,7 @@ export default Page;
           />
         </Text>
 
-        <Heading as="h3" size="level3" data-observable="true">
+        <Heading as="h3" className="text-xl" data-observable="true">
           4. Link with "On this page"
         </Heading>
         <Text>
@@ -198,7 +198,7 @@ export default Page;
         </Text>
       </Layout>
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Handling Forms
         </Heading>
         <Text>
@@ -223,13 +223,13 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Accessability
         </Heading>
         <Text>Components are designed with accessibility in mind.</Text>
       </Layout>
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Styling
         </Heading>
         <Text>
@@ -255,13 +255,13 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Themes
         </Heading>
         <Text>Supports theming</Text>
       </Layout>
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Icons
         </Heading>
         <Text>
@@ -288,13 +288,13 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Bundler
         </Heading>
         <Text>Using Vite to compile and bundle code - it uses es modules and its fast.</Text>
       </Layout>
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Module alias
         </Heading>
         <Text>created aliases for links so that instead of using relative pathing, you can use absolute path</Text>
@@ -324,11 +324,11 @@ export default Page;
         <Text>Which simplifies importing dependency modules from relative pathing: </Text>
         <CodeInline value={`import { Heading, CodeBlock, Tabs } from '../components';`} />
         <Text>to this (Absolute pathing)</Text>
-        <CodeInline value={`import { Heading, CodeBlock, Tabs } from '@fightclub/components';`} />
+        <CodeInline value={`import { Heading, CodeBlock, Tabs } from '@/components';`} />
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Static assets
         </Heading>
         <Text>
@@ -373,7 +373,7 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Darkmode
         </Heading>
         <Text>
@@ -392,7 +392,7 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading as="h3" size="level2" data-observable="true">
+        <Heading as="h3" className="text-xl" data-observable="true">
           Scrollbars
         </Heading>
         <Text>
@@ -426,10 +426,10 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Component Design
         </Heading>
-        <Heading as="h3" size="level2">
+        <Heading as="h3" className="text-xl">
           An evolution of component design
         </Heading>
         <Text>
@@ -447,7 +447,7 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Referencing
         </Heading>
         <Text>
@@ -461,7 +461,7 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Positioning
         </Heading>
         <Text>components are placed in relation to their parents orientation (eg. column / row)</Text>
@@ -479,7 +479,7 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Modals
         </Heading>
         <Text>
@@ -489,7 +489,7 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Focus
         </Heading>
         <Text>when components receive focus, it uses Tailwind focus ring instead of styling :focus.</Text>
@@ -499,7 +499,7 @@ export default Page;
           screens
         </Text>
         <br />
-        <Heading as="h3" size="level2">
+        <Heading as="h3" className="text-xl">
           using :focus
         </Heading>
         <CodeInline
@@ -513,7 +513,7 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Modular component structure
         </Heading>
         <Text>
@@ -598,7 +598,7 @@ export default Page;
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Composition
         </Heading>
         <Text>using Tailwind-merge, clsx (https://github.com/lukeed/clsx), cn utility helper, CVA</Text>
@@ -610,7 +610,7 @@ export default Page;
           component.
         </Text>
         <br />
-        <Heading as="h3" size="level3">
+        <Heading as="h3" className="text-xl">
           Method 1: cn / tw-merge / clsx
         </Heading>
         <Text>Instead of passing individual props to components...</Text>
@@ -655,7 +655,7 @@ children,
 return <div className={className}>{children}</div>;
 };`}
         />
-        <Heading as="h3" size="level3">
+        <Heading as="h3" className="text-xl">
           Method 2: (cn / tw-merge / clsx) + CVA
         </Heading>
         <Text>
@@ -663,7 +663,7 @@ return <div className={className}>{children}</div>;
           a set of values mapped to a variant
         </Text>
         <br />
-        <Heading as="h3" size="level3">
+        <Heading as="h3" className="text-xl">
           Uncategorized
         </Heading>
         <Text>

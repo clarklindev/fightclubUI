@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useLayoutEffect, useRef, ButtonHTMLAttributes, ReactElement } from 'react';
 
-import { useDropdown, DropdownContextProvider } from '@fightclub/context/DropdownContext';
-import { Button } from '@fightclub/components';
-import { Position } from '@fightclub/utils/position';
-import { getHorizontalQuadrant } from '@fightclub/utils/getQuadrant';
+import { useDropdown, DropdownContextProvider } from '@/context/DropdownContext';
+import { Button } from '@/components';
+import { Position } from '@/utils/position';
+import { getHorizontalQuadrant } from '@/utils/getQuadrant';
 
 const Dropdown = ({ children }: { children: React.ReactNode }) => {
   return (

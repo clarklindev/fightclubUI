@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Checkbox, Label, Layout, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import { Checkbox, Label, Layout, Heading, Tabs, CodeBlock } from '@/components';
 import Code from './code.mdx';
 
 const CheckboxExample = () => {
@@ -75,7 +75,7 @@ const CheckboxExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Checkbox
       </Heading>
 

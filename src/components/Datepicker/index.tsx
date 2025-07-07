@@ -1,19 +1,19 @@
-import { useState, useRef } from "react";
-import { Popover, Calendar } from "@fightclub/components";
-import { CalendarIcon } from "@fightclub/icons";
+import { useState, useRef } from 'react';
+import { Popover, Calendar } from '@/components';
+import { CalendarIcon } from '@/icons';
 
 const Datepicker = () => {
   const [date, setDate] = useState<Date | null>(null);
-  const [year, setYear] = useState("");
-  const [month, setMonth] = useState("");
-  const [day, setDay] = useState("");
+  const [year, setYear] = useState('');
+  const [month, setMonth] = useState('');
+  const [day, setDay] = useState('');
 
   const monthRef = useRef<HTMLInputElement>(null);
   const dayRef = useRef<HTMLInputElement>(null);
   const yearRef = useRef<HTMLInputElement>(null);
 
   const handleYearChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/\D/g, "");
+    const value = e.target.value.replace(/\D/g, '');
     if (value.length <= 4) {
       setYear(value);
       if (value.length === 4) monthRef.current?.focus();
@@ -21,7 +21,7 @@ const Datepicker = () => {
   };
 
   const handleMonthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/\D/g, "");
+    const value = e.target.value.replace(/\D/g, '');
     if (value.length <= 2 && Number(value) <= 12) {
       setMonth(value);
       if (value.length === 2) dayRef.current?.focus();
@@ -29,16 +29,16 @@ const Datepicker = () => {
   };
 
   const handleDayChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value.replace(/\D/g, "");
+    const value = e.target.value.replace(/\D/g, '');
     if (value.length <= 2 && Number(value) <= 31) {
       setDay(value);
     }
   };
 
   const handleBackspace = (e: React.KeyboardEvent<HTMLInputElement>, field: string) => {
-    if (e.key === "Backspace" && e.currentTarget.value === "") {
-      if (field === "day") monthRef.current?.focus();
-      if (field === "month") yearRef.current?.focus();
+    if (e.key === 'Backspace' && e.currentTarget.value === '') {
+      if (field === 'day') monthRef.current?.focus();
+      if (field === 'month') yearRef.current?.focus();
     }
   };
 
@@ -46,8 +46,8 @@ const Datepicker = () => {
     console.log('selectedDate: ', selectedDate);
     setDate(selectedDate);
     setYear(String(selectedDate.getFullYear()));
-    setMonth(String(selectedDate.getMonth() + 1).padStart(2, "0"));
-    setDay(String(selectedDate.getDate()).padStart(2, "0"));
+    setMonth(String(selectedDate.getMonth() + 1).padStart(2, '0'));
+    setDay(String(selectedDate.getDate()).padStart(2, '0'));
   };
 
   return (
@@ -59,7 +59,7 @@ const Datepicker = () => {
             type="text"
             value={year}
             onChange={handleYearChange}
-            onKeyDown={(e) => handleBackspace(e, "year")}
+            onKeyDown={e => handleBackspace(e, 'year')}
             placeholder="YYYY"
             maxLength={4}
             className="w-14 text-center border p-1"
@@ -70,7 +70,7 @@ const Datepicker = () => {
             type="text"
             value={month}
             onChange={handleMonthChange}
-            onKeyDown={(e) => handleBackspace(e, "month")}
+            onKeyDown={e => handleBackspace(e, 'month')}
             placeholder="MM"
             maxLength={2}
             className="w-10 text-center border p-1"
@@ -81,7 +81,7 @@ const Datepicker = () => {
             type="text"
             value={day}
             onChange={handleDayChange}
-            onKeyDown={(e) => handleBackspace(e, "day")}
+            onKeyDown={e => handleBackspace(e, 'day')}
             placeholder="DD"
             maxLength={2}
             className="w-10 text-center border p-1"

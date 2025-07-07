@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Heading, Slider, Tabs, CodeBlock } from '@fightclub/components';
+import { Heading, Slider, Tabs, CodeBlock } from '@/components';
 import Code from './code.mdx';
 
 const SliderExample = () => {
@@ -30,7 +30,7 @@ const SliderExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Slider
       </Heading>
 

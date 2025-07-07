@@ -1,13 +1,13 @@
 import { useRef, useEffect } from 'react';
 import { Outlet, useNavigate, Link } from 'react-router-dom';
 
-import { Navbar, NavSide, Button, Icon, Dropdown, OnThisPage, Badge } from '@fightclub/components';
-import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon, GithubIcon } from '@fightclub/icons';
-import { useMenu } from '@fightclub/context/MenuContext';
-import { useTheme } from '@fightclub/context/ThemeContext';
-import { useScroll } from '@fightclub/context/ScrollContext';
+import { Navbar, NavSide, Button, Icon, Dropdown, OnThisPage, Badge } from '@/components';
+import { MenuIcon, CloseIcon, ModeDarkIcon, ModeLightIcon, ModeSystemIcon, GithubIcon } from '@/icons';
+import { useMenu } from '@/context/MenuContext';
+import { useTheme } from '@/context/ThemeContext';
+import { useScroll } from '@/context/ScrollContext';
 
-import logo from '@fightclub/assets/logo.png';
+import logo from '@/assets/logo.png';
 
 const setModeIcon = (mode: string | null) => {
   if (!mode) {
@@ -139,7 +139,7 @@ export const HomeLayout = () => {
       <div id="Content" ref={contentRef}>
         <NavSide data-component="navside">
           <NavSide.Group>
-            <NavSide.Heading as="h2" size="M" className="mt-0 mb-3 pt-0">
+            <NavSide.Heading as="h2" className="text-xl mt-0 mb-3 pt-0">
               Guide
             </NavSide.Heading>
             <NavSide.Link to="introduction">Introduction</NavSide.Link>
@@ -148,7 +148,7 @@ export const HomeLayout = () => {
           </NavSide.Group>
 
           <NavSide.Group>
-            <NavSide.Heading as="h2" size="M" className="mb-3">
+            <NavSide.Heading as="h2" className="text-xl mb-3">
               Components
             </NavSide.Heading>
             <NavSide.Link to="navbar">Navbar</NavSide.Link>
@@ -196,7 +196,7 @@ export const HomeLayout = () => {
           </NavSide.Group>
 
           <NavSide.Group>
-            <NavSide.Heading as="h2" size="M" className="mb-3">
+            <NavSide.Heading as="h2" className="text-xl mb-3">
               Utility
             </NavSide.Heading>
             <NavSide.Link to="codeblock">CodeBlock</NavSide.Link>

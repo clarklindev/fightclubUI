@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState } from 'react';
-import { scrollToPercentage } from '@fightclub/utils/scrollToPercentage';
-import { getDocumentScrollPercentage } from '@fightclub/utils/getDocumentScrollPercentage';
+import { scrollToPercentage } from '@/utils/scrollToPercentage';
+import { getDocumentScrollPercentage } from '@/utils/getDocumentScrollPercentage';
 
 const ScrollContext = createContext<{
   scrollPercentage: number | null;

@@ -1,5 +1,5 @@
-import { Heading, Label, Icon, Layout, Tabs, CodeBlock } from '@fightclub/components';
-import { ShoppingCartIcon } from '@fightclub/icons';
+import { Heading, Label, Icon, Layout, Tabs, CodeBlock } from '@/components';
+import { ShoppingCartIcon } from '@/icons';
 
 import Code from './code.mdx';
 
@@ -46,7 +46,7 @@ const LabelExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" data-observable="true">
         Label
       </Heading>
 

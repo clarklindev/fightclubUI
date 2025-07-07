@@ -1,7 +1,7 @@
 // //RadioButtonGroup
 import { useState } from 'react';
 
-import { Layout, Heading, Tabs, CodeBlock, RadioButton, Label, Text } from '@fightclub/components';
+import { Layout, Heading, Tabs, CodeBlock, RadioButton, Label, Text } from '@/components';
 
 import Code from './code.mdx';
 
@@ -25,9 +25,7 @@ const RadioButtonGroupExample = () => {
   const preview = (
     <>
       <Layout>
-        <Heading as="h5" size="level2">
-          RadioButton Group (horizontal)
-        </Heading>
+        <Heading as="h5">RadioButton Group (horizontal)</Heading>
 
         <div className="flex flex-row space-x-5">
           {options.map((each, index) => {
@@ -47,9 +45,7 @@ const RadioButtonGroupExample = () => {
       <br />
 
       <Layout>
-        <Heading as="h5" size="level2">
-          RadioButton Group (vertical)
-        </Heading>
+        <Heading as="h5">RadioButton Group (vertical)</Heading>
 
         <div className="flex flex-col space-y-5">
           {options.map((each, index) => {
@@ -71,7 +67,7 @@ const RadioButtonGroupExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" data-observable="true">
         RadioButton Group
       </Heading>
 

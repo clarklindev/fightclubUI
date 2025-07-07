@@ -1,8 +1,8 @@
 import { RouterProvider } from 'react-router-dom';
 
-import { router } from '@fightclub/router';
+import { router } from './router';
 
-import '@fightclub/App.css';
+import './App.css';
 
 const App = () => {
   return <RouterProvider router={router} />;

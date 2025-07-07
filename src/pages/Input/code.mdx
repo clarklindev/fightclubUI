@@ -1,123 +1,117 @@
 ```jsx
-import { Icon, Input, Button } from '@fightclub/components';
+import { Icon, Input, Button } from '@/components';
 
-import { SpeechIcon } from '@fightclub/icons'; //input + icon example
-import { SearchIcon, CloseIcon } from '@fightclub/icons'; //search example
-import { ShowPasswordIcon, HidePasswordIcon } from '@fightclub/icons'; //password example icons
+import { SpeechIcon } from '@/icons'; //input + icon example
+import { SearchIcon, CloseIcon } from '@/icons'; //search example
+import { ShowPasswordIcon, HidePasswordIcon } from '@/icons'; //password example icons
 
 const [savedData, setSavedData] = useState('');
 const [passwordVisible, setPasswordVisible] = useState(false); //password input
-const ref = useRef<HTMLInputElement | null>(null); //input search
+const ref = (useRef < HTMLInputElement) | (null > null); //input search
 
 <>
-    //Basic input
-    <Input>
-        <Input.InputElement
-        value={savedData}
-        onChange={event => {
-            setSavedData(event.target.value);
-        }}
-        />
-    </Input>
-
-    //Input (readonly)
-    <Input>
-        <Input.InputElement
-        value={savedData}
-        readOnly
-        onChange={event => {
-            setSavedData(event.target.value);
-        }}
-        />
-    </Input>
-
-    //Input + Icon
-    <Input variants={{ variant: 'default' }}>
-        <Icon size="L">
-        <SpeechIcon />
-        </Icon>
-        <Input.InputElement
-        value={savedData}
-        placeholder="placeholder"
-        onChange={event => {
-            setSavedData(event.target.value);
-        }}
-        />
-    </Input>
-
-    //Input Password
-    <Input>
-        <Input.InputElement
-        value={savedData}
-        placeholder={'placeholder'}
-        type={passwordVisible ? 'text' : 'password'}
-        onChange={event => {
-            setSavedData(event.target.value);
-        }}
-        />
-        <Button intent="icon" onClick={() => setPasswordVisible(!passwordVisible)}>
-        <Icon size="L">{passwordVisible ? <HidePasswordIcon /> : <ShowPasswordIcon />}</Icon>
-        </Button>
-    </Input>
-
-    //Input Filter
-    <Input>
-        <Icon size="M">
-        <SearchIcon />
-        </Icon>
-        <Input.InputElement
-        value={savedData}
-        placeholder="placeholder"
-        onChange={event => {
-            setSavedData(event.target.value);
-        }}
-        />
-        {savedData.length > 0 && (
-        <Button
-            intent="icon"
-            onClick={() => {
-            setSavedData('');
-            }}>
-            <Icon size="M">
-            <CloseIcon />
-            </Icon>
-        </Button>
-        )}
-    </Input>
-
-    //Input Search
-    <Input>
-        <Input.InputElement
-        ref={ref}
-        value={savedData}
-        onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-            const val = event.target.value;
-            setSavedData(val);
-        }}
-        placeholder="placeholder"
-        />
-        <Button
+  //Basic input
+  <Input>
+    <Input.InputElement
+      value={savedData}
+      onChange={event => {
+        setSavedData(event.target.value);
+      }}
+    />
+  </Input>
+  //Input (readonly)
+  <Input>
+    <Input.InputElement
+      value={savedData}
+      readOnly
+      onChange={event => {
+        setSavedData(event.target.value);
+      }}
+    />
+  </Input>
+  //Input + Icon
+  <Input variants={{ variant: 'default' }}>
+    <Icon size="L">
+      <SpeechIcon />
+    </Icon>
+    <Input.InputElement
+      value={savedData}
+      placeholder="placeholder"
+      onChange={event => {
+        setSavedData(event.target.value);
+      }}
+    />
+  </Input>
+  //Input Password
+  <Input>
+    <Input.InputElement
+      value={savedData}
+      placeholder={'placeholder'}
+      type={passwordVisible ? 'text' : 'password'}
+      onChange={event => {
+        setSavedData(event.target.value);
+      }}
+    />
+    <Button intent="icon" onClick={() => setPasswordVisible(!passwordVisible)}>
+      <Icon size="L">{passwordVisible ? <HidePasswordIcon /> : <ShowPasswordIcon />}</Icon>
+    </Button>
+  </Input>
+  //Input Filter
+  <Input>
+    <Icon size="M">
+      <SearchIcon />
+    </Icon>
+    <Input.InputElement
+      value={savedData}
+      placeholder="placeholder"
+      onChange={event => {
+        setSavedData(event.target.value);
+      }}
+    />
+    {savedData.length > 0 && (
+      <Button
         intent="icon"
         onClick={() => {
-            if (ref.current) {
-            console.log('value: ', ref.current.value);
-            }
+          setSavedData('');
         }}>
         <Icon size="M">
-            <SearchIcon />
+          <CloseIcon />
         </Icon>
-        </Button>
-    </Input>
-  
-    //Input (no-border / no-bg)
-    <Input variants={{ variant: 'unstyled' }}>
-        <Input.InputElement
-        value={savedData}
-        placeholder="placeholder"
-        onChange={event => {
-            setSavedData(event.target.value);
-        }}
-        />
-    </Input>
-</>
+      </Button>
+    )}
+  </Input>
+  //Input Search
+  <Input>
+    <Input.InputElement
+      ref={ref}
+      value={savedData}
+      onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+        const val = event.target.value;
+        setSavedData(val);
+      }}
+      placeholder="placeholder"
+    />
+    <Button
+      intent="icon"
+      onClick={() => {
+        if (ref.current) {
+          console.log('value: ', ref.current.value);
+        }
+      }}>
+      <Icon size="M">
+        <SearchIcon />
+      </Icon>
+    </Button>
+  </Input>
+  //Input (no-border / no-bg)
+  <Input variants={{ variant: 'unstyled' }}>
+    <Input.InputElement
+      value={savedData}
+      placeholder="placeholder"
+      onChange={event => {
+        setSavedData(event.target.value);
+      }}
+    />
+  </Input>
+</>;
 ```

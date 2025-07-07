@@ -1,10 +1,10 @@
-import { Heading, Layout, Text } from '@fightclub/components';
-import { CodeInline } from '@fightclub/components/CodeInline';
+import { Heading, Layout, Text } from '@/components';
+import { CodeInline } from '@/components/CodeInline';
 
 const Layouts = () => {
   return (
     <div>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Layout
       </Heading>
 
@@ -19,7 +19,7 @@ const Layouts = () => {
           <br />
           <CodeInline
             value={`<Layout>
-  <Heading as="h5" size="level2">
+  <Heading as="h5" className="text-xl">
     Icon button
   </Heading>
 </Layout>

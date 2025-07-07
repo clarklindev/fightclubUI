@@ -1,10 +1,10 @@
 import React from 'react';
-import { Card, Heading, Layout } from '@fightclub/components';
+import { Card, Heading, Layout } from '@/components';
 
 const Navbar = () => {
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Navbar
       </Heading>
 

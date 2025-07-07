@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SliderMultiRange, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import { SliderMultiRange, Heading, Tabs, CodeBlock } from '@/components';
 import Code from './code.mdx';
 
 const SliderMultiRangeExample = () => {
@@ -39,7 +39,7 @@ const SliderMultiRangeExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Slider (Multirange)
       </Heading>
 

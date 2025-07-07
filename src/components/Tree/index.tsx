@@ -1,8 +1,8 @@
 import React, { useState, useRef } from 'react';
 import { NavLink } from 'react-router-dom';
 
-import { Icon, Label } from '@fightclub/components';
-import { ChevronRightIcon, ChevronDownIcon } from '@fightclub/icons';
+import { Icon, Label } from '@/components';
+import { ChevronRightIcon, ChevronDownIcon } from '@/icons';
 
 import styles from './styles.module.css';
 

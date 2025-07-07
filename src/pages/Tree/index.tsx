@@ -1,5 +1,5 @@
 //new
-import { Tree, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import { Tree, Heading, Tabs, CodeBlock } from '@/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
 import Code from './code.mdx';
@@ -26,7 +26,7 @@ const TreeExample = () => {
   // requires data to be structured with "label" and "children" properties
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Tree
       </Heading>
 

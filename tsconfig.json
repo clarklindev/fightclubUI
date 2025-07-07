@@ -21,7 +21,7 @@
     "allowJs": true,
     "baseUrl": "./",
     "paths": {
-      "@fightclub/*": ["./src/*"]
+      "@/*": ["src/*"]
     },
     "strict": true,
     "noUnusedLocals": false,

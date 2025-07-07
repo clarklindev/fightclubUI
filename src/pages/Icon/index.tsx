@@ -1,5 +1,5 @@
-import { Icon, Heading, Tabs, Layout, CodeBlock } from '@fightclub/components';
-import { ShoppingCartIcon } from '@fightclub/icons';
+import { Icon, Heading, Tabs, Layout, CodeBlock } from '@/components';
+import { ShoppingCartIcon } from '@/icons';
 
 import Code from './code.mdx';
 
@@ -8,9 +8,7 @@ const IconExample = () => {
     <>
       {/* extra-small */}
       <Layout>
-        <Heading as="h2" size="S">
-          XS
-        </Heading>
+        <Heading as="h2">XS</Heading>
         <Icon size="XS">
           <ShoppingCartIcon />
         </Icon>
@@ -18,9 +16,7 @@ const IconExample = () => {
 
       {/* small */}
       <Layout>
-        <Heading as="h2" size="S">
-          S
-        </Heading>
+        <Heading as="h2">S</Heading>
         <Icon size="S">
           <ShoppingCartIcon />
         </Icon>
@@ -28,9 +24,7 @@ const IconExample = () => {
 
       {/* medium */}
       <Layout>
-        <Heading as="h2" size="S">
-          M
-        </Heading>
+        <Heading as="h2">M</Heading>
         <Icon size="M">
           <ShoppingCartIcon />
         </Icon>
@@ -38,9 +32,7 @@ const IconExample = () => {
 
       {/* large */}
       <Layout>
-        <Heading as="h2" size="S">
-          L
-        </Heading>
+        <Heading as="h2">L</Heading>
         <Icon size="L">
           <ShoppingCartIcon />
         </Icon>
@@ -48,9 +40,7 @@ const IconExample = () => {
 
       {/* x-large / xl*/}
       <Layout>
-        <Heading as="h2" size="S">
-          XL
-        </Heading>
+        <Heading as="h2">XL</Heading>
         <Icon size="XL">
           <ShoppingCartIcon />
         </Icon>
@@ -58,9 +48,7 @@ const IconExample = () => {
 
       {/* xx-large / 2xl*/}
       <Layout>
-        <Heading as="h2" size="S">
-          2XL
-        </Heading>
+        <Heading as="h2">2XL</Heading>
         <Icon size="2XL">
           <ShoppingCartIcon />
         </Icon>
@@ -68,9 +56,7 @@ const IconExample = () => {
 
       {/* xxx-large / 3xl*/}
       <Layout>
-        <Heading as="h2" size="S">
-          3XL
-        </Heading>
+        <Heading as="h2">3XL</Heading>
         <Icon size="3XL">
           <ShoppingCartIcon />
         </Icon>
@@ -78,9 +64,7 @@ const IconExample = () => {
 
       {/* xxxx-large / 4xl*/}
       <Layout>
-        <Heading as="h2" size="S">
-          4XL
-        </Heading>
+        <Heading as="h2">4XL</Heading>
         <Icon size="4XL">
           <ShoppingCartIcon />
         </Icon>
@@ -88,9 +72,7 @@ const IconExample = () => {
 
       {/* xxxxx-large / 5xl*/}
       <Layout>
-        <Heading as="h2" size="S">
-          5XL
-        </Heading>
+        <Heading as="h2">5XL</Heading>
         <Icon size="5XL">
           <ShoppingCartIcon />
         </Icon>
@@ -98,9 +80,7 @@ const IconExample = () => {
 
       {/* xxxxxx-large / 6xl*/}
       <Layout>
-        <Heading as="h2" size="S">
-          6XL
-        </Heading>
+        <Heading as="h2">6XL</Heading>
         <Icon size="6XL">
           <ShoppingCartIcon />
         </Icon>
@@ -108,9 +88,7 @@ const IconExample = () => {
 
       {/* xxxxxxx-large /7xl*/}
       <Layout>
-        <Heading as="h2" size="S">
-          7XL
-        </Heading>
+        <Heading as="h2">7XL</Heading>
         <Icon size="7XL">
           <ShoppingCartIcon />
         </Icon>
@@ -118,9 +96,7 @@ const IconExample = () => {
 
       {/* xxxxxxxx-large /8xl*/}
       <Layout>
-        <Heading as="h2" size="S">
-          8XL
-        </Heading>
+        <Heading as="h2">8XL</Heading>
         <Icon size="8XL">
           <ShoppingCartIcon />
         </Icon>
@@ -128,9 +104,7 @@ const IconExample = () => {
 
       {/* XXXXXXXXX-large /9xl*/}
       <Layout>
-        <Heading as="h2" size="S">
-          9XL
-        </Heading>
+        <Heading as="h2">9XL</Heading>
         <Icon size="9XL">
           <ShoppingCartIcon />
         </Icon>
@@ -138,9 +112,7 @@ const IconExample = () => {
 
       {/* XXXXXXXXXX-large /10xl*/}
       <Layout>
-        <Heading as="h2" size="S">
-          10XL
-        </Heading>
+        <Heading as="h2">10XL</Heading>
         <Icon size="10XL">
           <ShoppingCartIcon />
         </Icon>
@@ -150,7 +122,7 @@ const IconExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" data-observable="true">
         Icon
       </Heading>
 

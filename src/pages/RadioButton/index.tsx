@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { RadioButton, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import { RadioButton, Heading, Tabs, CodeBlock } from '@/components';
 import Code from './code.mdx';
 
 const RadioButtonExample = () => {
@@ -20,7 +20,7 @@ const RadioButtonExample = () => {
   return (
     <>
       <Tabs>
-        <Heading as="h1" size="level1" data-observable="true">
+        <Heading as="h1" className="text-xl" data-observable="true">
           RadioButton
         </Heading>
 

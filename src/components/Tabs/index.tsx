@@ -1,7 +1,7 @@
 import React, { ReactNode, useRef, useEffect } from 'react';
 
-import { Button } from '@fightclub/components/Button';
-import { TabsContextProvider, useTabs } from '@fightclub/context/TabContext';
+import { Button } from '@/components/Button';
+import { TabsContextProvider, useTabs } from '@/context/TabContext';
 
 const Tabs = ({ children }: { children: React.ReactNode }) => {
   return (

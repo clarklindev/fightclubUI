@@ -1,6 +1,6 @@
 import reactElementToJSXString from 'react-element-to-jsx-string';
-import { Breadcrumb } from '@fightclub/components/Breadcrumb';
-import { CodeBlock, Heading, Tabs } from '@fightclub/components';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { CodeBlock, Heading, Tabs } from '@/components';
 
 import Code from './code.mdx';
 
@@ -20,7 +20,7 @@ const BreadcrumbExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Breadcrumbs
       </Heading>
 

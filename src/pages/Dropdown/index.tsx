@@ -1,4 +1,4 @@
-import { Dropdown, Button, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import { Dropdown, Button, Heading, Tabs, CodeBlock } from '@/components';
 import Code from './code.mdx';
 
 const DropdownExample = () => {
@@ -18,7 +18,7 @@ const DropdownExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Dropdown
       </Heading>
 

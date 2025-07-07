@@ -1,4 +1,4 @@
-import { CodeBlock, Heading, ResizePanel, Tabs } from '@fightclub/components';
+import { CodeBlock, Heading, ResizePanel, Tabs } from '@/components';
 import reactElementToJSXString from 'react-element-to-jsx-string';
 
 const ResizePanelExample = () => {
@@ -8,7 +8,7 @@ const ResizePanelExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Resize panel
       </Heading>
 

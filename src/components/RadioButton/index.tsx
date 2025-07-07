@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Icon } from '@fightclub/components';
+import { Icon } from '@/components';
 
-type Size = "XS" | "S" | "M" | "L" | "XL" | "2XL" | "3XL" | "4XL" | "5XL" | "6XL" | "7XL" | "8XL" | "9XL" | "10XL";
-  
+type Size = 'XS' | 'S' | 'M' | 'L' | 'XL' | '2XL' | '3XL' | '4XL' | '5XL' | '6XL' | '7XL' | '8XL' | '9XL' | '10XL';
+
 type RadioButtonProps = {
   checked: boolean;
   name: string;

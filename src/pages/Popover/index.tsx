@@ -1,4 +1,4 @@
-import { Popover, CodeBlock, Heading, Tabs } from '@fightclub/components';
+import { Popover, CodeBlock, Heading, Tabs } from '@/components';
 
 import Code from './code.mdx';
 
@@ -18,7 +18,7 @@ const PopoverExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Popover
       </Heading>
 

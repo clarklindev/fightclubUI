@@ -1,6 +1,6 @@
 import React, { useState, useRef, forwardRef, useEffect, useLayoutEffect } from 'react';
-import { Slider } from '@fightclub/components';
-import { Orientation } from '@fightclub/types/Orientation';
+import { Slider } from '@/components';
+import { Orientation } from '@/types/Orientation';
 
 //valueGradient
 // const startPercentage = sliderValue; // Adjust this value to set the start point

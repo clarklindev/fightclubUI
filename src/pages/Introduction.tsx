@@ -1,11 +1,11 @@
-import { Text, Layout, Heading, List } from '@fightclub/components';
+import { Text, Layout, Heading, List } from '@/components';
 import { Link } from 'react-router-dom';
 
 const Introduction = () => {
   return (
     <article>
       <Layout>
-        <Heading as="h1" size="level1" data-observable="true">
+        <Heading as="h1" data-observable="true">
           Introduction
         </Heading>
         <Text>
@@ -44,7 +44,7 @@ const Introduction = () => {
       </Layout>
 
       {/* <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Release Features
         </Heading>
         <div>
@@ -60,7 +60,7 @@ const Introduction = () => {
       </Layout> */}
 
       {/* <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" className="text-xl" data-observable="true">
           Motivation
         </Heading>
         <Link to="https://tailwindui.com/components/preview">https://tailwindui.com/components/preview</Link>

@@ -1,6 +1,6 @@
-import { Table, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import { Table, Heading, Tabs, CodeBlock } from '@/components';
 
-import type { Header } from '@fightclub/components/Table';
+import type { Header } from '@/components/Table';
 import Code from './code.mdx';
 
 const TableExample = () => {
@@ -65,7 +65,7 @@ const TableExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Table
       </Heading>
 

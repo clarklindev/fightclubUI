@@ -1,10 +1,10 @@
 import React from 'react';
-import { Heading, Card, Layout } from '@fightclub/components';
+import { Heading, Card, Layout } from '@/components';
 
 const OnThisPage = () => {
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         OnThisPage
       </Heading>
 

@@ -1,37 +1,34 @@
 ```jsx
-import { SliderMultiRange } from '@fightclub/components';
+import { SliderMultiRange } from '@/components';
 
 <>
-    //horizontal
-
-    <div
+  //horizontal
+  <div
     style={{
-        width: '100%',
-        height: '350px',
-        border: '1px solid red',
+      width: '100%',
+      height: '350px',
+      border: '1px solid red',
     }}>
     <SliderMultiRange
-        sliderValues={sliderValues}
-        colors={['red', 'yellow', 'green']}
-        orientation="horizontal"
-        onChange={setSliderValues}
+      sliderValues={sliderValues}
+      colors={['red', 'yellow', 'green']}
+      orientation="horizontal"
+      onChange={setSliderValues}
     />
-    </div>
-
-    //vertical
-
-    <div
+  </div>
+  //vertical
+  <div
     style={{
-        width: '100%',
-        height: '350px',
-        border: '1px solid red',
+      width: '100%',
+      height: '350px',
+      border: '1px solid red',
     }}>
     <SliderMultiRange
-        sliderValues={sliderValues}
-        colors={['red', 'yellow', 'green']}
-        orientation="vertical"
-        onChange={setSliderValues}
+      sliderValues={sliderValues}
+      colors={['red', 'yellow', 'green']}
+      orientation="vertical"
+      onChange={setSliderValues}
     />
-    </div>
-</>
+  </div>
+</>;
 ```

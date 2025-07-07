@@ -1,4 +1,4 @@
-import { Datepicker, CodeBlock, Heading, Layout, Tabs } from '@fightclub/components';
+import { Datepicker, CodeBlock, Heading, Layout, Tabs } from '@/components';
 
 import Code from './code.mdx';
 
@@ -10,7 +10,7 @@ const DatepickerExample = () => {
   );
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Datepicker
       </Heading>
 

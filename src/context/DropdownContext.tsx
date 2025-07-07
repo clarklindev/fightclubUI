@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
-import { useFocus } from '@fightclub/customhooks';
+import { useFocus } from '@/customhooks';
 
 // Create a Context
 const DropdownContext = createContext<{

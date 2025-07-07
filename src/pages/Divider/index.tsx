@@ -1,10 +1,10 @@
-import { Heading, Layout, Divider, Tabs, CodeBlock } from '@fightclub/components';
+import { Heading, Layout, Divider, Tabs, CodeBlock } from '@/components';
 import Code from './code.mdx';
 
 const DividerExample = () => {
   let preview = (
     <>
-      <Heading as="h5" size="level2">
+      <Heading as="h5" className="text-xl">
         Divider (horizontal)
       </Heading>
       <Layout>
@@ -13,7 +13,7 @@ const DividerExample = () => {
         world
       </Layout>
 
-      <Heading as="h5" size="level2">
+      <Heading as="h5" className="text-xl">
         Divider labelled (horizontal)
       </Heading>
       <Layout>
@@ -22,7 +22,7 @@ const DividerExample = () => {
         world
       </Layout>
 
-      <Heading as="h5" size="level2">
+      <Heading as="h5" className="text-xl">
         Divider (vertical)
       </Heading>
       <Layout>
@@ -33,7 +33,7 @@ const DividerExample = () => {
         </div>
       </Layout>
 
-      <Heading as="h5" size="level2">
+      <Heading as="h5" className="text-xl">
         Divider labelled (vertical)
       </Heading>
       <Layout>
@@ -47,7 +47,7 @@ const DividerExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Divider
       </Heading>
 

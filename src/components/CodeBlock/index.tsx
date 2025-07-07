@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import { Button } from '../Button';
-import { ClipboardIcon, ClipboardCheckIcon} from '@fightclub/icons';
+import { ClipboardIcon, ClipboardCheckIcon } from '@/icons';
 
 import { Icon } from '../Icon';
 import ReactDOMServer from 'react-dom/server';
@@ -13,21 +13,20 @@ interface CodeBlockProps {
 }
 
 const CodeBlock = ({ children, showClipboardIcon = true }: CodeBlockProps) => {
-
   const [hasCopied, setHasCopied] = useState(false);
   const showCopiedIconThenReset = () => {
     setHasCopied(true);
-  
+
     const delay = setTimeout(() => {
       setHasCopied(false);
     }, 2000);
-  
+
     // No need for clearInterval since we are using setTimeout
     return () => {
       clearTimeout(delay);
     };
   };
-  
+
   const handleClick = async () => {
     let textToCopy = '';
 
@@ -37,7 +36,7 @@ const CodeBlock = ({ children, showClipboardIcon = true }: CodeBlockProps) => {
     } else if (React.isValidElement(children)) {
       // If children is a React element, we can render it to static HTML
       const htmlContent = ReactDOMServer.renderToStaticMarkup(children);
-      
+
       // Parse the HTML and extract text content (removes all HTML tags)
       const parser = new DOMParser();
       const doc = parser.parseFromString(htmlContent, 'text/html');
@@ -60,7 +59,7 @@ const CodeBlock = ({ children, showClipboardIcon = true }: CodeBlockProps) => {
     <div className="w-full min-h-10 relative">
       <Button intent="icon" className="absolute top-0 right-0 p-2" onClick={handleClick}>
         <Icon size="M">
-          {hasCopied? <ClipboardCheckIcon stroke='white'/>: showClipboardIcon && <ClipboardIcon stroke='white'/>}
+          {hasCopied ? <ClipboardCheckIcon stroke="white" /> : showClipboardIcon && <ClipboardIcon stroke="white" />}
         </Icon>
       </Button>
       {children}

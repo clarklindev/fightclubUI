@@ -1,5 +1,5 @@
-import { useMenu } from '@fightclub/context/MenuContext';
-import { CustomNavLink, Heading, HeadingProps } from '@fightclub/components';
+import { useMenu } from '@/context/MenuContext';
+import { CustomNavLink, Heading, HeadingProps } from '@/components';
 
 import styles from './NavSide.module.css';
 

@@ -1,4 +1,4 @@
-import { Calendar, CodeBlock, Heading, Tabs } from '@fightclub/components';
+import { Calendar, CodeBlock, Heading, Tabs } from '@/components';
 
 import Code from './code.mdx';
 
@@ -7,7 +7,7 @@ const CalendarExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Calendar
       </Heading>
 

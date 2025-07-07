@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { ChevronLeftIcon, ChevronRightIcon } from "@fightclub/icons";
-import { Layout, Button, Icon, Label } from "@fightclub/components";
+import { useState } from 'react';
+import { ChevronLeftIcon, ChevronRightIcon } from '@/icons';
+import { Layout, Button, Icon, Label } from '@/components';
 
 // Type for Calendar Props
 interface CalendarProps {
@@ -9,8 +9,7 @@ interface CalendarProps {
 }
 
 // Get total days in a given month
-const getDaysInMonth = (year: number, month: number): number =>
-  new Date(year, month + 1, 0).getDate();
+const getDaysInMonth = (year: number, month: number): number => new Date(year, month + 1, 0).getDate();
 
 // Get the index of the first day of the month (adjusted for week start)
 const getFirstDayOfMonth = (year: number, month: number, startDayOfWeek: 0 | 1): number => {
@@ -18,7 +17,7 @@ const getFirstDayOfMonth = (year: number, month: number, startDayOfWeek: 0 | 1):
   return (firstDay - startDayOfWeek + 7) % 7; // Adjusts for Monday-start if needed
 };
 
-const Calendar = ({ startDayOfWeek = 0, onSelect}: CalendarProps) => {
+const Calendar = ({ startDayOfWeek = 0, onSelect }: CalendarProps) => {
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const year = currentDate.getFullYear();
@@ -50,7 +49,7 @@ const Calendar = ({ startDayOfWeek = 0, onSelect}: CalendarProps) => {
   };
 
   // Dynamically adjust days of the week order
-  const daysOfWeek = ["S", "M", "T", "W", "T", "F", "S"];
+  const daysOfWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
   if (startDayOfWeek === 1) {
     daysOfWeek.push(daysOfWeek.shift()!); // Move Sunday to the end for Monday start
   }
@@ -66,7 +65,7 @@ const Calendar = ({ startDayOfWeek = 0, onSelect}: CalendarProps) => {
         </Button>
 
         <h2 className="text-xs sm:text-sm font-semibold light:text-black dark:text-white">
-          {currentDate.toLocaleString("default", { month: "short" })} {year}
+          {currentDate.toLocaleString('default', { month: 'short' })} {year}
         </h2>
 
         <Button intent="icon" onClick={() => changeMonth(1)}>
@@ -78,7 +77,7 @@ const Calendar = ({ startDayOfWeek = 0, onSelect}: CalendarProps) => {
 
       {/* Days of the Week */}
       <div className="grid grid-cols-7 text-center text-[10px] sm:text-xs font-semibold text-gray-600">
-        {daysOfWeek.map((day) => (
+        {daysOfWeek.map(day => (
           <div key={day} className="py-0.5">
             {day}
           </div>
@@ -96,7 +95,7 @@ const Calendar = ({ startDayOfWeek = 0, onSelect}: CalendarProps) => {
             <div
               key={index}
               className={`flex justify-center items-center h-6 w-6 sm:h-8 sm:w-8 rounded-md cursor-pointer transition text-[10px] sm:text-xs hover:bg-blue-200 
-                ${isPrevMonth || isNextMonth ? "text-gray-400" : "text-black dark:text-white"} `}
+                ${isPrevMonth || isNextMonth ? 'text-gray-400' : 'text-black dark:text-white'} `}
               onClick={() => !isPrevMonth && !isNextMonth && onSelect?.(currentDay)} // Trigger onSelect on click
             >
               {day}

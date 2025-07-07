@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { ToggleSwitch, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import { ToggleSwitch, Heading, Tabs, CodeBlock } from '@/components';
 import Code from './code.mdx';
 
 const ToggleSwitchExample = () => {
@@ -19,7 +19,7 @@ const ToggleSwitchExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Toggle Switch
       </Heading>
 

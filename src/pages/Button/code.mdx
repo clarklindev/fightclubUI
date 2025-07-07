@@ -1,31 +1,27 @@
 ```jsx
-import {Button, Icon, Label } from '@fightclub/components';
-import { ShoppingCartIcon, ThumbsUpIcon } from '@fightclub/icons';
+import { Button, Icon, Label } from '@/components';
+import { ShoppingCartIcon, ThumbsUpIcon } from '@/icons';
 
 <>
-    //Contained button
-    <Button intent="primary">Contained</Button>
-    
-    //Outlined button
-    <Button intent="outlined">Outlined</Button>
-
-    //Icon button
-    <Button intent="icon">
-        <Icon size="L">
-        <ShoppingCartIcon />
-        </Icon>
-    </Button>
-
-    //Text button
-    <Button intent="text">Text</Button>
-
-    //Button + Label
-    <Button intent="contained" className="bg-red-500 hover:bg-red-600 text-white">
-        <Label gap="10px" label="right" labelDirection="right">
-        <Icon size="L">
-            <ThumbsUpIcon stroke="blue" />
-        </Icon>
-        </Label>
-    </Button>
-</>
+  //Contained button
+  <Button intent="primary">Contained</Button>
+  //Outlined button
+  <Button intent="outlined">Outlined</Button>
+  //Icon button
+  <Button intent="icon">
+    <Icon size="L">
+      <ShoppingCartIcon />
+    </Icon>
+  </Button>
+  //Text button
+  <Button intent="text">Text</Button>
+  //Button + Label
+  <Button intent="contained" className="bg-red-500 hover:bg-red-600 text-white">
+    <Label gap="10px" label="right" labelDirection="right">
+      <Icon size="L">
+        <ThumbsUpIcon stroke="blue" />
+      </Icon>
+    </Label>
+  </Button>
+</>;
 ```

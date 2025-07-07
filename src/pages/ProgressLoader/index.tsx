@@ -1,5 +1,5 @@
-import { CodeBlock, Heading, Layout, ProgressLoader, Tabs, Text } from '@fightclub/components';
-import { ResizePanel } from '@fightclub/components';
+import { CodeBlock, Heading, Layout, ProgressLoader, Tabs, Text } from '@/components';
+import { ResizePanel } from '@/components';
 import Code from './code.mdx';
 
 const ProgressLoaderExample = () => {
@@ -25,7 +25,7 @@ const ProgressLoaderExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Progress Loader
       </Heading>
 

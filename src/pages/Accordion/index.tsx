@@ -1,6 +1,6 @@
 import React from 'react';
-import { Heading, Tabs, CodeBlock, Section, Accordion, Icon } from '@fightclub/components';
-import { ChevronUpIcon, ChevronDownIcon, PlusIcon, MinusIcon } from '@fightclub/icons';
+import { Heading, Tabs, CodeBlock, Section, Accordion, Icon } from '@/components';
+import { ChevronUpIcon, ChevronDownIcon, PlusIcon, MinusIcon } from '@/icons';
 import Code from './code.mdx';
 
 const AccordionExample = () => {
@@ -72,7 +72,7 @@ const AccordionExample = () => {
 
   return (
     <Section>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" data-observable="true">
         Accordion
       </Heading>
 

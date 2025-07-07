@@ -1,15 +1,15 @@
 import { Link } from 'react-router-dom';
-import { CodeBlock, Heading, Layout, Text } from '@fightclub/components';
-import { CodeInline } from '@fightclub/components/CodeInline';
+import { CodeBlock, Heading, Layout, Text } from '@/components';
+import { CodeInline } from '@/components/CodeInline';
 
 const GettingStarted = () => {
   return (
     <article>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" data-observable="true">
         Getting Started
       </Heading>
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" data-observable="true">
           Installation
         </Heading>
         <Link target="_blank" to="https://www.npmjs.com/package/@fightclub/ui">
@@ -20,7 +20,7 @@ const GettingStarted = () => {
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" data-observable="true">
           Run in development
         </Heading>
         <Text>Use this npm build command while in development:</Text>
@@ -28,7 +28,7 @@ const GettingStarted = () => {
       </Layout>
 
       <Layout>
-        <Heading as="h2" size="level2" data-observable="true">
+        <Heading as="h2" data-observable="true">
           Build project for production
         </Heading>
         <Text>You can build the project as a library.</Text>

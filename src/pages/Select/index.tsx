@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Select, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import { Select, Heading, Tabs, CodeBlock } from '@/components';
 import Code from './code.mdx';
 
 const SelectExample = () => {
@@ -30,7 +30,7 @@ const SelectExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Select
       </Heading>
 

@@ -1,16 +1,16 @@
 ```jsx
-import { Checkbox } from '@fightclub/components';
+import { Checkbox } from '@/components';
 
 const [savedData, setSavedData] = useState(false);
 
 <Label label="label" labelDirection="right" gap="2">
-    <Checkbox
+  <Checkbox
     size="XL"
     checked={savedData}
     name="checkbox"
     onChange={event => {
-        setSavedData(event.target.checked);
+      setSavedData(event.target.checked);
     }}
-    />
-</Label>
+  />
+</Label>;
 ```

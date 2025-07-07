@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { CodeBlock, Counter, Heading, Tabs } from '@fightclub/components';
+import { CodeBlock, Counter, Heading, Tabs } from '@/components';
 import Code from './code.mdx';
 
 const CounterExample = () => {
@@ -9,7 +9,7 @@ const CounterExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Counter
       </Heading>
 

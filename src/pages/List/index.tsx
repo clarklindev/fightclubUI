@@ -1,4 +1,4 @@
-import { List, Heading, Text, Tabs, CodeBlock } from '@fightclub/components';
+import { List, Heading, Text, Tabs, CodeBlock } from '@/components';
 import Code from './code.mdx';
 
 const ListExample = () => {
@@ -56,7 +56,7 @@ const ListExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         List
       </Heading>
 

@@ -1,5 +1,5 @@
-import { Icon, ToggleButton, Heading, Tabs, CodeBlock, Text } from '@fightclub/components';
-import { HeartIcon } from '@fightclub/icons';
+import { Icon, ToggleButton, Heading, Tabs, CodeBlock, Text } from '@/components';
+import { HeartIcon } from '@/icons';
 
 import Code from './code.mdx';
 
@@ -36,7 +36,7 @@ const ToggleButtonExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" data-observable="true">
         Toggle Button
       </Heading>
 

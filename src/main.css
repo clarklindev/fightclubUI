@@ -102,7 +102,7 @@ div#Container{
 
     @media (min-width: 2400px) {
       right: unset;
-      left-margin: calc(1fr - 2400px));
+      left-margin: calc(1fr - 2400px);
     }
   }
 }

@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import { Button } from '@fightclub/components';
-import { useOnThisPage } from '@fightclub/context/OnThisPageContext';
-import { useScroll } from '@fightclub/context/ScrollContext';
-import { OnThisPageContextProvider } from '@fightclub/context/OnThisPageContext';
+import { Button } from '@/components';
+import { useOnThisPage } from '@/context/OnThisPageContext';
+import { useScroll } from '@/context/ScrollContext';
+import { OnThisPageContextProvider } from '@/context/OnThisPageContext';
 
 export const OnThisPage = ({ ...props }) => {
   return (
@@ -22,11 +22,11 @@ const Container = ({ ...props }) => {
   const { observablesInView, setObservablesInView, observables, setObservables } = useOnThisPage();
   const { scrollPercentage, scrollToPercentage } = useScroll();
   const selectedItemIndex = useRef<number | null>(null);
-  const lastScrollY = useRef<number>(0);  // Track scroll direction
+  const lastScrollY = useRef<number>(0); // Track scroll direction
 
   // Detecting the scroll direction
   const [scrollDirection, setScrollDirection] = useState<'up' | 'down'>('down');
-  
+
   useEffect(() => {
     const handleScrollDirection = () => {
       const currentScrollY = window.scrollY;
@@ -41,7 +41,7 @@ const Container = ({ ...props }) => {
   useEffect(() => {
     let observableDom: Array<HTMLElement>;
     const main = document.querySelector('main');
-    
+
     if (main) {
       observableDom = Array.from(main.querySelectorAll('[data-observable="true"]'));
       setObservables(observableDom);
@@ -60,7 +60,10 @@ const Container = ({ ...props }) => {
         // Scroll Down: Prioritize the first intersecting observable
         const firstIntersectingEntry = entries.reduce(
           (closestEntry: IntersectionObserverEntry | null, entry: IntersectionObserverEntry) => {
-            if (entry.isIntersecting && (!closestEntry || entry.boundingClientRect.top < closestEntry.boundingClientRect.top)) {
+            if (
+              entry.isIntersecting &&
+              (!closestEntry || entry.boundingClientRect.top < closestEntry.boundingClientRect.top)
+            ) {
               return entry;
             }
             return closestEntry;
@@ -75,7 +78,10 @@ const Container = ({ ...props }) => {
         // Scroll Up: Prioritize the last intersecting observable
         const lastIntersectingEntry = entries.reduce(
           (closestEntry: IntersectionObserverEntry | null, entry: IntersectionObserverEntry) => {
-            if (entry.isIntersecting && (!closestEntry || entry.boundingClientRect.bottom > closestEntry.boundingClientRect.bottom)) {
+            if (
+              entry.isIntersecting &&
+              (!closestEntry || entry.boundingClientRect.bottom > closestEntry.boundingClientRect.bottom)
+            ) {
               return entry;
             }
             return closestEntry;
@@ -151,8 +157,7 @@ const Container = ({ ...props }) => {
         data-component="Container"
         ref={containerRef}
         className="p-4 radius-full overflow-hidden border border-[var(--border-color)] overscroll-contain hover:overflow-y-hidden"
-        style={{ height: calculatedHeight }}
-      >
+        style={{ height: calculatedHeight }}>
         {observables && observables.length > 0 ? (
           <div className="flex flex-col relative">
             {observables.map((observable, index) => (
@@ -172,8 +177,7 @@ const Container = ({ ...props }) => {
                   const targetPosition =
                     index === 0 ? 0 : observable.getBoundingClientRect().top + window.scrollY + offset;
                   window.scrollTo({ top: targetPosition, behavior: 'instant' });
-                }}
-              >
+                }}>
                 {observable.textContent}
               </Button>
             ))}

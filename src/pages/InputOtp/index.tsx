@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react';
 
-import { Layout, Heading, Tabs, CodeBlock } from '@fightclub/components';
-import { InputOtp } from '@fightclub/components';
+import { Layout, Heading, Tabs, CodeBlock } from '@/components';
+import { InputOtp } from '@/components';
 
 import Code from './code.mdx';
 
@@ -18,7 +18,7 @@ const InputOtpExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level2" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Input OTP
       </Heading>
 

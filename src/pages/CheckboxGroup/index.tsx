@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { CodeBlock, Heading, Layout, Tabs } from '@fightclub/components';
-import { Checkbox, Label } from '@fightclub/components';
+import { CodeBlock, Heading, Layout, Tabs } from '@/components';
+import { Checkbox, Label } from '@/components';
 
 import Code from './code.mdx';
 
@@ -23,7 +23,7 @@ const CheckboxExample = () => {
   const preview = (
     <>
       <Layout>
-        <Heading as="h5" size="level2">
+        <Heading as="h5" className="text-xl">
           Checkbox Group (horizontal)
         </Heading>
 
@@ -43,7 +43,7 @@ const CheckboxExample = () => {
       </Layout>
 
       <Layout>
-        <Heading as="h5" size="level2">
+        <Heading as="h5" className="text-xl">
           Checkbox Group (vertical)
         </Heading>
         <div className="flex flex-col space-y-5">
@@ -62,7 +62,7 @@ const CheckboxExample = () => {
       </Layout>
 
       <Layout>
-        <Heading as="h5" size="level2">
+        <Heading as="h5" className="text-xl">
           Checkbox Group (indeterminate)
         </Heading>
         <div className="flex flex-col items-start space-y-10">
@@ -98,7 +98,7 @@ const CheckboxExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Checkbox Group
       </Heading>
 

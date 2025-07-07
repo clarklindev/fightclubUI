@@ -1,7 +1,7 @@
-import { Avatar, CodeBlock, Heading, Icon, Tabs, Text, Layout } from '@fightclub/components';
+import { Avatar, CodeBlock, Heading, Icon, Tabs, Text, Layout } from '@/components';
 
 import Code from './code.mdx';
-import avatar1 from '@fightclub/assets/avatar1.png';
+import avatar1 from '@/assets/avatar1.png';
 
 const BadgeExample = () => {
   const preview = (
@@ -20,7 +20,7 @@ const BadgeExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-3xl" data-observable="true">
         Avatar
       </Heading>
 

@@ -1,4 +1,4 @@
-import { Spinner, Heading, Tabs, CodeBlock } from '@fightclub/components';
+import { Spinner, Heading, Tabs, CodeBlock } from '@/components';
 import Code from './code.mdx';
 
 const SpinnerExample = () => {
@@ -6,7 +6,7 @@ const SpinnerExample = () => {
 
   return (
     <>
-      <Heading as="h1" size="level1" data-observable="true">
+      <Heading as="h1" className="text-xl" data-observable="true">
         Spinner
       </Heading>
 

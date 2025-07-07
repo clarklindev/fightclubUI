@@ -1,15 +1,15 @@
 import UseFocusExample from './UseFocusExample';
 
-import { Heading, Layout } from '@fightclub/components';
+import { Heading, Layout } from '@/components';
 
 const HooksExample = () => {
   return (
     <>
-      <Heading as="h4" size="level1">
+      <Heading as="h4" className="text-xl">
         Hooks
       </Heading>
       <Layout>
-        <Heading as="h5" size="level2">
+        <Heading as="h5" className="text-xl">
           useFocus
         </Heading>
         <UseFocusExample />

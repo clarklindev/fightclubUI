@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import type { ButtonHTMLAttributes } from 'react';
 
-import { useTheme } from '@fightclub/context/ThemeContext';
+import { useTheme } from '@/context/ThemeContext';
 
 import { cva, type VariantProps } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
@@ -10,7 +10,8 @@ const buttonVariants = cva(['box-border', 'inline-flex', 'items-center', 'cursor
   variants: {
     intent: {
       default: '',
-      primary: 'bg-black dark:bg-white text-white dark:text-black border-transparent hover:bg-gray-800 dark:hover:bg-gray-300',
+      primary:
+        'bg-black dark:bg-white text-white dark:text-black border-transparent hover:bg-gray-800 dark:hover:bg-gray-300',
       secondary: 'bg-white text-gray-800 border-gray-400 hover:bg-gray-100',
       contained: 'bg-gray-300 text-gray-700 border-gray-300 hover:bg-gray-400',
       outlined: `text-gray-800 dark:text-gray-300 border border-gray-800 dark:border-white bg-transparent hover:bg-black hover:text-white dark:hover:text-black dark:hover:bg-white`,
@@ -28,19 +29,19 @@ const buttonVariants = cva(['box-border', 'inline-flex', 'items-center', 'cursor
       XL: 'py-3 px-4',
     },
 
-    borderRadius:{
-      default: "rounded-md",
+    borderRadius: {
+      default: 'rounded-md',
       none: 'rounded-none',
-      sm: "rounded-sm",
-      md: "rounded-md",
-      lg: "rounded-lg",
-      xl: "rounded-xl"
+      sm: 'rounded-sm',
+      md: 'rounded-md',
+      lg: 'rounded-lg',
+      xl: 'rounded-xl',
     },
 
     fontsize: {
       default: '',
       small: 'text-sm',
-      medium: 'text-base'
+      medium: 'text-base',
     },
 
     focus: {
@@ -57,7 +58,7 @@ const buttonVariants = cva(['box-border', 'inline-flex', 'items-center', 'cursor
     fontsize: 'default',
     focus: 'default',
     padding: 'XL',
-    borderRadius: 'default'
+    borderRadius: 'default',
   },
 });
 
@@ -81,9 +82,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
   const { theme } = useTheme();
 
-  const classes = twMerge(buttonVariants({ intent, fontsize, padding, focus, borderRadius }),
-    className,
-  );
+  const classes = twMerge(buttonVariants({ intent, fontsize, padding, focus, borderRadius }), className);
 
   return (
     <button
@@ -96,8 +95,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       onBlur={onBlur} // Pass onBlur
       aria-label={rest['aria-label'] ?? 'Button'}
       {...rest}
-      ref={ref}
-      >
+      ref={ref}>
       {children}
     </button>
   );
